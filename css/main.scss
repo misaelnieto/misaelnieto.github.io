@@ -14,7 +14,10 @@ $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+
+$brand-color:      #f87b27;
+$brand-color-dark: darken($brand-color, 10%);
+$brand-color-light:lighten($brand-color, 40%);
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -37,3 +40,20 @@ $on-laptop:        800px;
 
 // Import partials from the `minima` theme.
 @import "minima";
+
+
+/////////////////////////
+.site-header {
+    border-top: 5px solid $brand-color;
+    border-bottom: 0px solid $brand-color;
+    background: $grey-color-light;
+}
+
+.site-title, .site-title:visited {
+    color: $grey-color-dark;
+}
+//////////////////////////////
+
+pre, code {
+    background: $grey-color-light;
+}

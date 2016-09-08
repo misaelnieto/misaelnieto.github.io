@@ -22,7 +22,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Mexicali, Baja California, México. Tiene más de 10 años de experiencia
   usando con Linux y es entusiasta del Software Libre
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://blog.noenieto.com" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 twitter_username: misaelnieto_a
 github_username:  misaelnieto
 
