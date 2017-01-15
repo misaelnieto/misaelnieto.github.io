@@ -18,7 +18,7 @@ email: nnieto@noenieto.com
 description: > # this means to ignore newlines until "baseurl:"
   Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero
   en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la
-  Maestría en Ingeniería en la Universidad Autónoma de Baja California, en 
+  Maestría en Ingeniería en la Universidad Autónoma de Baja California, en
   Mexicali, Baja California, México. Tiene más de 10 años de experiencia
   usando con Linux y es entusiasta del Software Libre
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -29,3 +29,14 @@ github_username:  misaelnieto
 # Build settings
 markdown: kramdown
 theme: minima
+lsi: true
+permalink: /year/month/day/title.html
+# Front-matter defaults
+defaults:
+    -
+        scope:
+            path: ""
+            type: posts
+        values:
+            layout: "post"
+            author: "Noe Nieto"
