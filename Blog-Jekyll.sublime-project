@@ -5,11 +5,11 @@
 			"path": "."
 		}
 	],
-    "settings":
-    {
-        "Jekyll":
-        {
-            "jekyll_auto_find_paths": true,
-        }
-    }
+	"settings":
+	{
+		"Jekyll":
+		{
+			"jekyll_auto_find_paths": true
+		}
+	}
 }
