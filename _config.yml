@@ -25,6 +25,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://blog.noenieto.com" # the base hostname & protocol for your site
 twitter_username: misaelnieto_a
 github_username:  misaelnieto
+site: http://noenieto.com
 
 # Build settings
 markdown: kramdown
@@ -32,6 +33,7 @@ theme: minima
 safe: false
 # lsi: true
 permalink: /:year/:month/:day/:title.html
+
 # Front-matter defaults
 defaults:
     -
@@ -48,9 +50,22 @@ google_analytics: UA-34700214-1
 # Disqus
 disqus:
   shortname: noenieto
-
+#SEO
+twitter:
+    username: misaelnieto_a
+social:
+  name: Noe Nieto
+  links:
+    - https://twitter.com/misaelnieto_a
+    - https://www.facebook.com/nnietoarroyo
+    - https://www.linkedin.com/in/noe-nieto-13529524
+    - https://plus.google.com/u/0/105796039075975387109
+    - https://github.com/misaelnieto
+    - https://bitbucket.org/nnieto/
+    - http://stackoverflow.com/users/667559/noe-nieto
 ##
 gems:
-    -  jekyll-sitemap
+    - jekyll-sitemap
     - jekyll-redirect-from
+    - jekyll-seo-tag
 
