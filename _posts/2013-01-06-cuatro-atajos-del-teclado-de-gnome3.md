@@ -1,6 +1,5 @@
 ---
 title: Cuatro atajos del teclado de Gnome3
-Cuatro atajos del teclado de Gnome3
 layout: post
 ---
 

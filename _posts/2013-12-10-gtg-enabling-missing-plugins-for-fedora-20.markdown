@@ -1,5 +1,5 @@
 ---
-title: GTG: Enabling missing plugins for Fedora 20
+title: "GTG: Enabling missing plugins for Fedora 20"
 layout: post
 ---
 
