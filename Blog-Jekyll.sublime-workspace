@@ -520,9 +520,29 @@
 	"buffers":
 	[
 		{
+			"file": "_config.yml",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1791,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/main.scss",
+			"settings":
+			{
+				"buffer_size": 1352,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 817,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -534,29 +554,85 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 258.0,
-		"last_filter": "trail",
+		"height": 30.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"ssmde",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"new po",
+				"Jekyll: New post"
+			],
+			[
+				"new",
+				"Jekyll: New post"
+			],
+			[
+				"new ",
+				"Jekyll: New post"
+			],
+			[
+				"traili",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"new d",
+				"Jekyll: New draft"
+			],
+			[
+				"new pos",
+				"Jekyll: New post"
+			],
 			[
 				"trail",
 				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
-				"delete tra",
-				"Trailing Spaces: Delete Trailing Spaces"
+				"new post",
+				"Jekyll: New post"
 			],
 			[
 				"trailin",
 				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
-				"ssmde",
-				"Set Syntax: Markdown Extended"
+				"wrap",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"jekyl n",
+				"Jekyll: New post"
+			],
+			[
+				"tra",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"n",
+				"Jekyll: New draft"
 			],
 			[
 				"ssmd",
 				"Set Syntax: Markdown Extended"
+			],
+			[
+				"jekyll n",
+				"Jekyll: New post"
+			],
+			[
+				"jek",
+				"Jekyll: New post"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"delete tra",
+				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
 				"trai",
@@ -585,10 +661,6 @@
 			[
 				"ssexte",
 				"Set Syntax: Markdown Extended"
-			],
-			[
-				"tra",
-				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
 				"m",
@@ -621,10 +693,6 @@
 			[
 				"scss",
 				"Set Syntax: SCSS"
-			],
-			[
-				"traili",
-				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
 				"ssjso",
@@ -823,7 +891,7 @@
 				"About"
 			]
 		],
-		"width": 430.0
+		"width": 422.0
 	},
 	"console":
 	{
@@ -846,10 +914,79 @@
 	},
 	"expanded_folders":
 	[
-		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io"
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/assets"
 	],
 	"file_history":
 	[
+		"/home/nnieto/Code/NoeNieto/blog-tinkerer.noenieto.com/blog/_static/google_analytics.js",
+		"/home/nnieto/Code/NoeNieto/blog-tinkerer.noenieto.com/blog/_templates/page.html",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_includes/analytics.html",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_config.yml",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/Gemfile",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2013-12-10-gtg-enabling-missing-plugins-for-fedora-20.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2013-01-06-cuatro-atajos-del-teclado-de-gnome3.md",
+		"/home/nnieto/Code/NoeNieto/static_blog/blog/_static/placeholder.txt",
+		"/home/nnieto/Code/NoeNieto/static_blog/blog/2013/12/20/configurar_ssh_para_que_no_pida_login.rst",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2013-12-20-configurar-ssh-para-que-no-pida-login.markdown",
+		"/home/nnieto/Code/NoeNieto/static_blog/blog/2013/12/10/gtg__enabling_missing_plugins_for_fedora_20.rst",
+		"/home/nnieto/Code/NoeNieto/static_blog/blog/2013/05/04/moving_a_plone_site_from_aws_to_webfaction.rst",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2013-05-04-moving-a-plone-site-from-aws-to-webfaction.markdown",
+		"/home/nnieto/Code/NoeNieto/static_blog/blog/2013/01/25/tips_para_ir_al_pycon_2013.rst",
+		"/home/nnieto/Code/NoeNieto/static_blog/blog/2013/01/06/cuatro_atajos_del_teclado_de_gnome3.rst",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2013-01-25-tips-para-ir-al-pycon-2013.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2013-01-06-cuatro-atajos-del-teclado-de-gnome3cuatro-atajos-del-teclado-de-gnome3.md",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2014-04-25-modulos-y-paquetes-en-python.markdown",
+		"/home/nnieto/Code/NoeNieto/static_blog/blog/2014/04/25/modulos_y_paquetes_en_python.rst",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2012-03-10-writing-widgets-for-zopeformlib.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_drafts/testing-plonevarnish-for-speed.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2012-03-10-notas-de-instalación-de-plone-en-amazon-dic-2011.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2017-01-18-haz-tus-propios-libros.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-12-17-getting-help-with-performance-problems-with-plone.md",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-11-15-announcing-iservicesrssdocument.md",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_includes/youtubePlayer.html",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-12-11-11-de-diciembre-día-del-idioma-internacional-esperanto.md",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-10-11-mi-propia-guía-de-instalación-de-fedora-16.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-10-13-goodbye-world.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2017-01-17-scribes-a-beautiful-and-simple-text-editor-written-in-python.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-07-14-serving-files-in-a-directory-with-nginx.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-07-13-porting-your-xdv-theme-to-ploneapptheming.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-07-02-cómo-instalar-la-hp-laserjet-1020-en-fedora-16.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-07-01-cómo-instalar-la-hp-laserjet-1020-en-fedora-15.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-06-20-registrar-un-viewlet-en-plone-con-11-líneas-de-código.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-06-07-instalando-plone-en-una-instancia-de-amazon-ec2.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-05-18-una-gema-escondida-en-plone-4.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-04-30-instalando-gnome-shell-en-natty.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-30-04-instalando-gnome-shell-en-natty.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-03-30-create-your-own-private-egg-repository-on-amazon-ec2.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-03-19-acerca-de-las-diferencias-entre-git-y-mercurial.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-03-13-a-buildout-nano-framework-for-building-plone-4-sites.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2011-03-13-setup-debian-server-for-python-deployment.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-11-19-infraestructura-pythonesca-en-iservices.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-11-12-accessing-ext4-volumes-on-macos-x.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-10-12-plone-and-apache-22.md",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-08-11-hola-mundo-con-twitter-y-python.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-06-16-anouncing-public-alpha-for-eduintelligent-lcms.md",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-05-28-plone-and-security.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-05-20-theming-plone-4---part-2.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-05-19-theming-plone-4---part-1.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2017-01-17-a-buildout-for-plone-335fssrelstorage.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2017-01-17-migrating-data-from-plone-321-to-plone-40b2.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2017-01-17-our-first-plone4-site-available-to-the-public.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2017-01-17-links-about-server-performance.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-03-15-mis-mañas-para-debuggear-zopeplone.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-03-01-varios-efectos-de-jquery-que-se-ven-bien.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-02-01-unicode-y-utf-8-en-plone.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-02-01-lecciones-aprendidas---internacionalizacion-en-plone.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-01-18-django-y-buildout-parte-1.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2010-01-18-tutoriales-interesantes-en-el-pycon-2010.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2009-12-18-convertir-un-ubuntu-desktop-a-ubuntu-server.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2009-10-27-script-para-automatizar-la-creación-de-archivos-metadata.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2009-10-29-mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2009-09-15-probando-collectivedisqus-en-este-sitio.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2009-09-21-resaltado-de-sintaxis-en-plone.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2017-01-17-resaltado-de-sintaxis-en-plone.markdown",
+		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/Blog-Jekyll.sublime-project",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2009-09-15-Deshacer_cambios_de_un_solo_archivo_GIT.md",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2009-08-19-probando-deliverance.md",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2016-03-10-sencillo-gancho-pre-svn.md",
@@ -871,7 +1008,6 @@
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2014-07-15-selenium-hola-mundo-sin-programar.md",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2014-07-16- Aprendiendo-maven-en-unos-minutos.md",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2014-07-12-prepara_ubuntu_1404_para_django.md",
-		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_config.yml",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2014-06-26-reduciendo_tamano_BD_SQL_Server.md",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2014-06-19-fedora-drupal-estilo-noe.md",
 		"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts/2014-05-14-Como_actualizar_un_SQL_Server.md",
@@ -910,74 +1046,7 @@
 		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/EGG-INFO/requires.txt",
 		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/EGG-INFO/SOURCES.txt",
 		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/EGG-INFO/top_level.txt",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript/collective/contentrules/runscript/actions/configure.zcml",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript/collective/contentrules/runscript/skins.zcml",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript/collective/contentrules/runscript/configure.zcml",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/plone/app/contentrules/configure.zcml",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/plone/app/contentrules/actions/logger.py",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.testing-5.0.2-py2.7.egg/plone/app/testing/bbb.py",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/plone/app/contentrules/actions/configure.zcml",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/plone/app/contentrules/tests/testing.zcml",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.testing-5.0.2-py2.7.egg/plone/app/testing/helpers.py",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.testing-5.0.2-py2.7.egg/plone/app/testing/layers.py",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript/collective/contentrules/runscript/__init__.py",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript/collective/contentrules/runscript/testing.zcml",
-		"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/plone/app/contentrules/browser/elements.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/urls.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/static/js/bundle.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/Gruntfile.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/templates/lfs/shop/tabs.html",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/settings_devel.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/settings.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_frontpage/urls.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/urls.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/node_modules/bower/lib/node_modules/is-my-json-valid/index.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/django/conf/urls/__init__.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/urls/urls.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/templates/front_page.html",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/urls/__init__.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_galileo/views/__init__.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/Gruntfile.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/static/css/hkl/base.css",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/urls/__init__.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/scss/base.scss",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/scss/_settings.scss",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/bower.json",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/package.json",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/static/css/base.scss",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/static/hkl_theme_scorillo/main.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme_scorillo/static/js/hkl_base.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/templates/lfs_downloads/chunk_upload_form.html",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/bower.json",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/views/users.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/static/lfs_downloads/chunk_upload.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/views/chunk_uploads.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/chunked_upload/views.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/lfs_downloads/sendfile.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/admin_urls.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/views/admin_tools.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/models.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_donations/sendfile.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/chunked_upload/models.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/lfs_downloads/models.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_theme/admin_urls.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/lfs_project/hkl_donations/admin_urls.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/setup.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/buildout.cfg",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/sendfile.py",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/bin/django",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/.bowerrc",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/static/lfs_downloads/style.css",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/README.rst",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/.gitignore",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/gulpfile.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/templates/lfs_downloads/chunk_upload_form_f6.html",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/static/lfs_downloads/bower_components/blueimp-file-upload/js/jquery.fileupload.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/static/lfs_downloads/bower_components/knockout/dist/knockout.debug.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/lfs_downloads/static/lfs_downloads/bower_components/knockout/dist/knockout.debug.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/src/lfs-downloads/lfs_downloads/static/lfs_downloads/bower_components/blueimp-file-upload/js/jquery.fileupload-ui.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/lfs_downloads/static/lfs_downloads/bower_components/blueimp-file-upload/js/jquery.fileupload.js",
-		"/home/nnieto/Code/HolokinesisLibros/hkl_lfs/parts/omelette/lfs_downloads/views/chunk_uploads.py"
+		"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript/collective/contentrules/runscript/actions/configure.zcml"
 	],
 	"find":
 	{
@@ -988,6 +1057,7 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"/home/nnieto/Code/NoeNieto/misaelnieto.github.io/_posts",
 			"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript",
 			"/home/nnieto/Code/Pawi/PawiLocaciones/zinstance/src/collective.contentrules.runscript/collective/contentrules/runscript",
 			"/home/nnieto/Code/Pawi/PawiLocaciones/buildout-cache/eggs/plone.app.contentrules-4.0.11-py2.7.egg/plone/app/contentrules",
@@ -1114,8 +1184,7 @@
 			"/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/hkl_lfs/parts/omelette/",
 			"/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/hkl_lfs/parts/omelette/lfs",
 			"/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/hkl_lfs/parts/omelette/lfs,*.js",
-			"/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/hkl_lfs/parts/omelette/lfs",
-			"/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/hkl_lfs/parts/omelette/lfstheme"
+			"/home/tzicatl/Aplicaciones/Codigo/HolokinesisLibros/hkl_lfs/parts/omelette/lfs"
 		]
 	},
 	"find_state":
@@ -1123,6 +1192,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"source",
+			"UA-34700214-1",
+			"``",
+			"*+*",
+			"``",
+			".. code-block:: python",
+			"*",
+			"``",
+			"\nTesting websites with Apache Benchmark",
+			"varnish",
+			"+ ",
+			"setupWidgets()",
+			"   |   |",
+			"Ctrl",
+			"CNAME",
+			"* ",
+			"http://",
+			"* ",
+			"/Users/username/site",
 			" ",
 			"extension",
 			": ",
@@ -1231,26 +1319,7 @@
 			"ListSequenceWidget",
 			"CustomWidgetFactory",
 			"form",
-			"implementer",
-			"Interface",
-			"ComponentLookupError",
-			"adapts",
-			"SimpleItem",
-			"aq_inner",
-			"ActionEditForm",
-			"div",
-			"foot",
-			"bar",
-			"top-bar",
-			"galileo_front_page",
-			"carousel",
-			"hkl_comments",
-			"settings",
-			"hkl_checkout",
-			"static/js",
-			"jquery-ui",
-			"concat",
-			"print"
+			"implementer"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1375,34 +1444,99 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "_config.yml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1791,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1772,
+								1772
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 571.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "assets/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								322,
+								322
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "Gemfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 817,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								507,
+								507
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 148.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1425,6 +1559,12 @@
 				0,
 				1,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
@@ -1435,6 +1575,7 @@
 		"rows":
 		[
 			0.0,
+			0.5,
 			1.0
 		]
 	},
@@ -1472,6 +1613,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"2013-01-06-cuatro-atajos-del-teclado-de-gnome3",
+				"_posts/2013-01-06-cuatro-atajos-del-teclado-de-gnome3cuatro-atajos-del-teclado-de-gnome3.md"
+			],
+			[
+				"2013-12-10-gtg-enabling-missing-plugins-for-fedor",
+				"_posts/2013-12-10-gtg-enabling-missing-plugins-for-fedora-20.markdown"
+			],
 			[
 				"ssxml",
 				"collective.contentrules.runscript/collective/contentrules/runscript/profiles/default/skins.xml"
@@ -1975,14 +2124,6 @@
 			[
 				"paypalstandardviews",
 				"pythonpath/paypal/standard/pdt/views.py"
-			],
-			[
-				"hkl_donationmode",
-				"lfs_project/hkl_donations/models.py"
-			],
-			[
-				"staging",
-				"lfs_project/settings_staging.py"
 			]
 		],
 		"width": 0.0
@@ -2037,7 +2178,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 216.0,
+	"side_bar_width": 388.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

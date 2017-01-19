@@ -47,3 +47,8 @@ google_analytics: UA-34700214-1
 # Disqus
 disqus:
   shortname: noenieto
+
+##
+gems:
+    -  jekyll-sitemap
+
