@@ -1,6 +1,7 @@
 ---
 title:  "Sublime 3 en Fedora 20"
 categories: Linux Fedora
+redirect_from: /blog/html/2014/02/07/sublime_3_en_fedora_20
 ---
 
 Quise instalar Sublime 3 sin usar la línea de comandos. Así es como le hice.

@@ -1,6 +1,7 @@
 ---
 title: Moving a Plone site from AWS to webfaction
 layout: post
+redirect_from: /blog/html/2013/05/04/moving_a_plone_site_from_aws_to_webfaction
 ---
 
 

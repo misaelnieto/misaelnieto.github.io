@@ -3,6 +3,7 @@ layout: post
 title:  "Tutorial de Git con windoze"
 date:   2012-11-20 19:02:10 -0700
 categories: Español Git Windows
+redirect_from: /blog/html/2012/11/20/tutorial_de_git_con_windoze
 ---
 
 # Tutorial de Git con windoze

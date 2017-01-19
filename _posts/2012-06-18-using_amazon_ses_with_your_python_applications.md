@@ -3,6 +3,7 @@ layout: post
 title:  "Using Amazon SES with your python applications"
 date:   2012-06-18 19:02:10 -0800
 categories: English AWS Amazon Email Python Servers Grok Zope
+redirect_from: /blog/html/2012/06/18/using_amazon_ses_with_your_python_applications
 ---
 
 ## Intro

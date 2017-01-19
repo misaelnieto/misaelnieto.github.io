@@ -3,6 +3,7 @@ layout: post
 title:  "Script para arreglar texto"
 date:   2012-07-16 19:02:10 -0700
 categories: Español Python Uppercase Mayúsculas
+redirect_from: /blog/html/2012/07/16/script_para_arreglar_texto
 ---
 
 # Script para arreglar texto

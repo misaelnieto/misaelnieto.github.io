@@ -2,6 +2,7 @@
 title: Módulos y paquetes en Python
 layout: post
 categories: Python
+redirect_from: /blog/html/2014/04/25/modulos_y_paquetes_en_python
 ---
 
 ![Packages](/media/4772680734_3ab815e07a_n.jpg)

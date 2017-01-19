@@ -1,6 +1,7 @@
 ---
 title: Cuatro atajos del teclado de Gnome3
 layout: post
+redirect_from: /blog/html/2013/01/06/cuatro_atajos_del_teclado_de_gnome3
 ---
 
 En los últimos días me he encontrado cuatro combinaciones de teclas que me

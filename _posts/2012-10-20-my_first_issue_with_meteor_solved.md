@@ -3,6 +3,7 @@ layout: post
 title:  "My first issue with meteor solved quickly"
 date:   2012-10-20 19:02:10 -0700
 categories: English Programming JavaScript
+redirect_from: /blog/html/2012/10/20/my_first_issue_with_meteor_solved
 ---
 
 #My first issue with meteor solved quickly

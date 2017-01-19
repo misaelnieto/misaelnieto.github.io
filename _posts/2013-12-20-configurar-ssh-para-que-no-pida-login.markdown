@@ -1,6 +1,7 @@
 ---
 title: Configurar SSH para que no pida login
 layout: post
+redirect_from: /blog/html/2013/12/20/configurar_ssh_para_que_no_pida_login
 ---
 
 Creo que nunca he escrito acerca de de ssh.

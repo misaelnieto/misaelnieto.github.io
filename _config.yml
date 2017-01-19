@@ -52,4 +52,5 @@ disqus:
 ##
 gems:
     -  jekyll-sitemap
+    - jekyll-redirect-from
 

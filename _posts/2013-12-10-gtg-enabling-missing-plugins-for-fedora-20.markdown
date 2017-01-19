@@ -1,6 +1,7 @@
 ---
 title: "GTG: Enabling missing plugins for Fedora 20"
 layout: post
+redirect_from: /blog/html/2013/12/10/gtg__enabling_missing_plugins_for_fedora_20
 ---
 
 I Like [Get Things Gnome](http://gtgnome.net/) and fedora 20 brings GTG 0.3.1;

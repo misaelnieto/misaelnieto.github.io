@@ -2,6 +2,7 @@
 title: Tips para ir al PyCON 2013
 layout: post
 categories: Python
+redirect_from: /blog/html/2013/01/25/tips_para_ir_al_pycon_2013
 ---
 
 Se viene el PyCON 2013, es su segunda edición en la bella ciudad de Santa
