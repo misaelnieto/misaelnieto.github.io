@@ -29,6 +29,7 @@ github_username:  misaelnieto
 # Build settings
 markdown: kramdown
 theme: minima
+safe: false
 # lsi: true
 permalink: /:year/:month/:day/:title.html
 # Front-matter defaults
