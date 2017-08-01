@@ -68,4 +68,5 @@ gems:
     - jekyll-sitemap
     - jekyll-redirect-from
     - jekyll-seo-tag
-
+prose:
+	ignore: ['Blog-Jekyll.sublime-project', 'Blog-Jekyll.sublime-workspace', 'CNAME']
