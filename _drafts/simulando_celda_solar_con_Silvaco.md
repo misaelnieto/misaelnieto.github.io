@@ -1,3 +1,6 @@
+---
+published: false
+---
 # Simulando una celda solar con Silvaco
 
 En la universidad tenemos Silvaco. Es una oportunidad rara para aprender a usar este simulador. Funciona con Windows (Con algunas limitaciones), pero su principal plataforma es Linux (RHEL).
@@ -14,4 +17,4 @@ go athena
 
 ## Rejilla de cálculo
 
-Athena requiere que se defina una rejilla para hacer las simulaciones. El espaciado de la rejilla define qué tan 
+Athena requiere que se defina una rejilla para hacer las simulaciones. El espaciado de la rejilla define qué tan
