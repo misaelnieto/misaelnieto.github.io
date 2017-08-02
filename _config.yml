@@ -16,11 +16,11 @@
 title: Mosaico (Blog de Noe Nieto)
 email: nnieto@noenieto.com
 description: > # this means to ignore newlines until "baseurl:"
-  Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero
-  en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la
+  Noe Nieto es instructor de <a href="http://www.psicologiaholokinetica.org/">Psicología Holokinética</a>.
+  Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la
   Maestría en Ingeniería en la Universidad Autónoma de Baja California, en
-  Mexicali, Baja California, México. Tiene más de 10 años de experiencia
-  usando con Linux y es entusiasta del Software Libre
+  Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y
+  es entusiasta del Software Libre
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://blog.noenieto.com" # the base hostname & protocol for your site
 twitter_username: misaelnieto_a
