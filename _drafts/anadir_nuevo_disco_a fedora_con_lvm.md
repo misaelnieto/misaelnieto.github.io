@@ -161,14 +161,14 @@ Ahora es momento de inicializar `/dev/sdb1` para que la partición pueda ser
 usada por LVM.
 
 ```bash
-
-pvcreate /dev/sdb1
+[root@ubunto ]# pvcreate /dev/sdb1
    Physical volume "/dev/sdb1" successfully created
 ```
 
 Ahora `pvdisplay` reconoce a `/dev/sb1` como parte de LVM:
 
 ```
+[root@ubunto ]# pvdisplay
   --- Physical volume ---
   PV Name               /dev/sda5
   VG Name               UbuntuBase
@@ -205,15 +205,15 @@ Found volume group "UbuntuBase" using metadata type lvm2
 Entonces, sólo voy a extender el grupo de volúmenes que ya esta creado
 (UbuntuBase). Esto se hace con `vgextend`.
 
-```
-vgextend UbuntuBase /dev/sdb1
+```bash
+[root@ubunto ]# vgextend UbuntuBase /dev/sdb1
   Volume group "UbuntuBase" successfully extended
 ```
 
 Después de esto, los reportes de `pvdisplay` y `vgdisplay` y  han cambiado.
 
 ```bash
-[root@whatever ]# vgdisplay
+[root@ubunto ]# vgdisplay
       --- Volume group ---
       VG Name               UbuntuBase
       System ID
@@ -235,7 +235,7 @@ Después de esto, los reportes de `pvdisplay` y `vgdisplay` y  han cambiado.
       Free  PE / Size       32767 / 128.00 GiB
       VG UUID               tsVsG7-ljlp-JZiT-Avs6-qhVN-xSKh-r1iRVx
 
-[root@whatever ]# pvdisplay
+[root@ubunto ]# pvdisplay
       --- Physical volume ---
       PV Name               /dev/sda5
       VG Name               UbuntuBase
@@ -267,7 +267,7 @@ Después de esto, los reportes de `pvdisplay` y `vgdisplay` y  han cambiado.
 Pero df no ha cambiado :(
 
 ```bash
-[root@whatever ]# df -h /
+[root@ubunto ]# df -h /
 Filesystem                   Size  Used Avail Use% Mounted on
 /dev/mapper/UbuntuBase-root  8.7G  7.1G  1.2G  87% /
 ```
@@ -285,17 +285,21 @@ The filesystem on /dev/UbuntuBase/root is now 35588096 blocks long.
 
 Oh yeah!
 
-    # df -h
-    Filesystem                   Size  Used Avail Use% Mounted on
-    /dev/mapper/UbuntuBase-root  134G  7.1G  122G   6% /
-    udev                         111M  4.0K  111M   1% /dev
-    tmpfs                         48M  472K   48M   1% /run
-    none                          50M     0   50M   0% /run/lock
-    none                         120M     0  120M   0% /run/shm
-    /dev/sda1                    228M  102M  114M  48% /boot
+```bash
+[root@ubunto ]# df -h
+Filesystem                   Size  Used Avail Use% Mounted on
+/dev/mapper/UbuntuBase-root  134G  7.1G  122G   6% /
+udev                         111M  4.0K  111M   1% /dev
+tmpfs                         48M  472K   48M   1% /run
+none                          50M     0   50M   0% /run/lock
+none                         120M     0  120M   0% /run/shm
+/dev/sda1                    228M  102M  114M  48% /boot
+```
 
-Useful links
+## Ligas de donde saque la informacion
 
-http://www.tldp.org/HOWTO/LVM-HOWTO/extendlv.html
-http://forums.fedoraforum.org/showthread.php?t=154625
-http://www.howtoforge.com/linux_lvm
+* [http://www.tldp.org/HOWTO/LVM-HOWTO/extendlv.html
+* http://forums.fedoraforum.org/showthread.php?t=154625
+* http://www.howtoforge.com/linux_lvm
+
+FIN
