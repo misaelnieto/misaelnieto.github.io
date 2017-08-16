@@ -1,6 +1,7 @@
 ---
 title: Goodbye world
 layout: post
+published: true
 ---
 
 ## My euolgy to Denis Ritchie
@@ -14,7 +15,7 @@ paragraphs on my text book on C talked about Unix and some of the doings of
 Kernigham, Ritchie and Thomson in the Bell Labs.
 
 Once in the University, one of the first things that I did was to get a hold
-of "The C programming language". I don't remember if it was on spanish or
+of "The C programming language". I don't remember whether it was on spanish or
 english.
 
 Nowadays I work as a Python programmer on Linux systems. And I enjoy it. So
