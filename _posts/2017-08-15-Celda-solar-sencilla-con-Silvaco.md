@@ -71,8 +71,7 @@ En la figura de arriba, la sección amarilla es el sustrato, mientras que la reg
 
 ### Creación de una región de tipo P dentro del sustrato.
 
-La celda solar más sencilla es un simple **diodo**.
-
+Me han dicho que la celda solar más sencilla es un simple **diodo** en sustrato de Silicio. El sustrato de silicio es de tipo P (explicar por que el boro hace un cristal tipo P)
 
 ### Cosas de Copyright
 
