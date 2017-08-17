@@ -18,7 +18,7 @@ Tomaré el primer ejemplo `solarex01.ini` e intentaré agregar un poco más de i
 
 ### Acerca de las celdas solares
 
-
+Algun resumen en un futuro no lejano.
 
 
 ### Cosas de Copyright
