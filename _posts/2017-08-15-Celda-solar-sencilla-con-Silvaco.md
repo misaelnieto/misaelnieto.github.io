@@ -73,6 +73,9 @@ En la figura de arriba, la sección amarilla es el sustrato, mientras que la reg
 
 Me han dicho que la celda solar más sencilla es un simple **diodo** en sustrato de Silicio. El sustrato de silicio es de tipo P (explicar por que el boro hace un cristal tipo P)
 
+### Referencias
+
 ### Cosas de Copyright
 
-El dibujo del sol lo tome de https://openclipart.org/detail/553/old-sun
+- El dibujo del sol lo tome de https://openclipart.org/detail/553/old-sun
+- Silvaco, Athena, Atlas y nombres relacionados son propiedad de Silvaco In.
