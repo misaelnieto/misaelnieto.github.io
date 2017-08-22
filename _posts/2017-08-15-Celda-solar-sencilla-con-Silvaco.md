@@ -9,11 +9,18 @@ published: false
 
 [Silvaco](https://www.silvaco.com/) es una compania estadounidense con sede en Santa Clara, California (alias Silicon Valley). Silvaco se especializa en software EDA (_Electronic Design Automation_). En mi maestria en ingenieria estoy trabajando con TCAD (Techology Computer Aided Design). Segun la [Wikipedia](https://en.wikipedia.org/wiki/Technology_CAD) TCAD es una rama de EDA especializada en modelar la fabricacion de semiconductores y la operacion de dispositivos.
 
-![El TCAD de Silvaco contiene varios modulos]({{site.baseurl}}/media/Diagrama Silvaco TCAD.png)
+Para Silvaco, ademas de ser el nombre de la tecnologia, tambien tiene el nombre de un grupo de aplicaciones de software que permiten simular dispositivos semiconductores a nivel de micrones. A partir de ahora, me referire a TCAD como el software que distribuye TCAD.
+
+En TCAD existen dos componentes muy importantes que son los que se encargan principalmente de resolver los diferentes modelos matematicos de la fisica de semiconductores.
+
+* Athena: Se encarga pricipalmente de simular los procesos fisicos y quimicos usados en la fabricacion de dispositivos semiconductores.
+* Atlas: Simula la interaccion de dispositivos semiconductores en diferentes condiciones: iluminacion, polarizacion, corrientes, campos electricos, etc.
+
+![El TCAD de Silvaco contiene varios modulos]({{site.baseurl}}/media/diagrama_silvaco_TCAD.svg)
 
 Cuando instalas Silvaco se instalan un montón de ejemplos de diferentes estructuras y dispositivos semiconductores (`directorio_silvaco/examples`). De todos esos ejemplos, veinte son de simulaciones con dispositivos solares.
 
-Tomaré el primer ejemplo `solarex01.ini` e intentaré agregar un poco más de información que la que viene en los comentarios del programa.
+El objetivo de esta serie de post es tomar el primer ejemplo `solarex01.ini` e agregar un poco más de información y que la que viene en los comentarios del programa.
 
 ### Acerca de las celdas solares
 
@@ -43,8 +50,11 @@ Cuando no ha sido especificado la unidad de medida de **line** es micrones o mic
 
 ![Malla de cálculo]({{site.baseurl}}/media/malla-solarex01.png)
 
+Vale la pena hacer notar que la malla tiene 4747 puntos o 9200 triangulos (??? Explica bien las implicaciones de tener mas o menos puntos/triangulos???)
+
 ### Definición del sustrato
 
+El sustrato es simplemente la oblea de silicio donde
 La siguiente instrucción inicializa el sustrato del dispositivo.
 
 ```
@@ -74,6 +84,8 @@ En la figura de arriba, la sección amarilla es el sustrato, mientras que la reg
 Me han dicho que la celda solar más sencilla es un simple **diodo** en sustrato de Silicio. El sustrato de silicio es de tipo P (explicar por que el boro hace un cristal tipo P)
 
 ### Referencias
+
+[1] Introduction to Microelectronic Fabrication (2nd Ed.), Richard C. Jaeger, Prentice Hall
 
 ### Cosas de Copyright
 
