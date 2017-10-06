@@ -77,6 +77,10 @@ for domain in domains:
 
 ## Probando letsencrypt_webfaction
 
+Docus chida::
+
+http://bcc.npdoty.name/directions-to-migrate-your-WebFaction-site-to-HTTPS
+
 ### Instalacion
 
 GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib gem2.2 install letsencrypt_webfaction
@@ -124,4 +128,3 @@ Creo que con esto:
 letsencrypt_webfaction --config=$HOME/SSL_certificates/www.psicologiaholokinetica.org/config.yml
 
 Pero falta leer la documentacion.
-
