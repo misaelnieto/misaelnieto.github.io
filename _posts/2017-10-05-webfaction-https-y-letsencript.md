@@ -28,18 +28,18 @@ Para acceder a la ayuda de `acme.sh` se debe de usar la opción `--help`:
 acme.sh --help
 ```
 
-Las opciones son muchas, pero solo haremos uso de sólo unas cuantas a la vez. Lo primero que quiero hacer es emitir el certificado para un sitio por primera vez. Por ejemplo, el sitio cursos.noenieto.com ya esta configurado en mi webfaction:
+Las opciones son muchas, pero solo haremos uso de sólo unas cuantas a la vez. Lo primero que quiero hacer es emitir el certificado para un sitio por primera vez. Por ejemplo, el sitio www.pythonero.com ya esta configurado en mi webfaction:
 
 
 
 ### Configuracion
 
-acme.sh --issue --test -d kanboard.dominio.org -w ~/webapps/kanboard
-acme.sh --issue -d kanboard.dominio.org -w ~/webapps/kanboard
-acme.sh --force --issue -d kanboard.dominio.org -w ~/webapps/kanboard
-ls /home/fulano/.acme.sh/kanboard.dominio.org/
-kanboard.dominio.org.cer
-kanboard.dominio.org.key
+acme.sh --issue --test -d www.pythonero.com -w ~/webapps/kanboard
+acme.sh --issue -d www.pythonero.com -w ~/webapps/kanboard
+acme.sh --force --issue -d www.pythonero.com -w ~/webapps/kanboard
+ls /home/fulano/.acme.sh/www.pythonero.com/
+www.pythonero.com.cer
+www.pythonero.com.key
 ca.cer
 
 ### Renovacion y cronjob
@@ -71,7 +71,7 @@ session_id, account = wf_api.login(
 )
 
 base_path = '~/.acme.sh'
-domains = ['kanboard.dominio.org', ]
+domains = ['www.pythonero.com', ]
 
 for domain in domains:
     dpath = joinpath(base_path, domain)
@@ -125,20 +125,34 @@ vim ~/SSL_certificates/www.misitio.org/config.yml
 
 Aca esta el contenido de mi archivo.
 
-domains: [www.misitio.org, misitio.org]
+domains: [www.pythonero.org, pythonero.org]
 public: [/home/fulano/webapps/misitio]
-output_dir: /home/fulano/SSL_certificates/www.misitio.org
+output_dir: /home/fulano/SSL_certificates/www.pythonero.com
 letsencrypt_account_email: nnieto@noenieto.com
 username: fulano
 password: S00p3rp455
 cert_name: myapp_ssl_cert
 
-letsencrypt_webfaction --config=$HOME/SSL_certificates/www.misitio.org/config.yml
+letsencrypt_webfaction --config=$HOME/SSL_certificates/www.pythonero.com/config.yml
 
 ### Renovacion y cronjob
 
-Creo que con esto:
+Primero voy a hacer un script de bash para simplificar
 
-letsencrypt_webfaction --config=$HOME/SSL_certificates/www.psicologiaholokinetica.org/config.yml
+```bash
+#!/bin/bash
+PATH=$PATH:$GEM_HOME/bin:/usr/local/bin
+GEM_HOME=$HOME/.letsencrypt_webfaction/gems
+RUBYLIB=$GEM_HOME/lib
+
+ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction \
+    --config=$HOME/SSL_certificates/www.pythonero.com/config.yml \
+    --domains [yourdomain.com,www.yourdomain.com] --public ~/webapps/[yourapp/your_public_html]/ \
+    --quiet
+
+```
+
+Luegoi el Cron
 
 Pero falta leer la documentacion.
+
