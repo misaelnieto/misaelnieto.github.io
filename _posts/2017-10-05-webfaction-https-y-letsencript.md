@@ -12,11 +12,25 @@ Hasta el dia de hoy (5 de Octubre de 2017) sólo he probado dos métodos:
 
 ## Probando Acme.sh
 
-Este fue la primera herramiente que use, unos 6 meses despues supe de letsencrypt_webfaction. Para instalar Acme.sh me basé en una [respuesta a una pregunta en el foro de webfaction](https://community.webfaction.com/questions/19988/using-letsencrypt).
+Este fue la primera herramiente que use, hace unos 6 meses. Después supe de letsencrypt_webfaction. Para instalar Acme.sh me basé en una [respuesta a una pregunta en el foro de webfaction](https://community.webfaction.com/questions/19988/using-letsencrypt).
 
 ### Instalacion
+
+La instalación es bastante sencilla y viene con su propio _instalador_.
+
+```bash
 curl https://get.acme.sh | sh
+```
+
+Para acceder a la ayuda de `acme.sh` se debe de usar la opción `--help`: 
+
+```bash
 acme.sh --help
+```
+
+Las opciones son muchas, pero solo haremos uso de sólo unas cuantas a la vez. Lo primero que quiero hacer es emitir el certificado para un sitio por primera vez. Por ejemplo, el sitio cursos.noenieto.com ya esta configurado en mi webfaction:
+
+
 
 ### Configuracion
 
