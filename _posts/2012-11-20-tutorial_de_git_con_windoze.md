@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Tutorial de Git con windoze"
-date:   2012-11-20 19:02:10 -0700
+title: Tutorial de Git con windoze
+date: '2012-11-20 19:02:10 -0700'
 categories: Español Git Windows
 redirect_from: /blog/html/2012/11/20/tutorial_de_git_con_windoze
+published: true
 ---
 
 # Tutorial de Git con windoze
@@ -39,7 +40,7 @@ scm.com/book/en/Getting-Started-A-Short-History-of-Git) que esta en inglés,
 por supuesto.
 
 
-##¿Qué eso de control de versiones?
+## ¿Qué eso de control de versiones?
 
 Es un sistema ideado para mantener un registro al por menor de los cambios que
 se le hacen a un proyecto que contiene archivos de computadora. El sistema de
@@ -100,7 +101,7 @@ mis_proyectos/
 
 Todo más ordenado ¿No?
 
-##Centralizado vs local
+## Centralizado vs local
 
 Cuando un sistema de control de versiones está centralizado, significa que hay
 una computadora central conectada a la red con la que te debes de comunicar
@@ -118,7 +119,7 @@ localmente, **git** lo hace relativamente fácil para subir y bajar cambios
 desde y hacia una computadora central. Osea que Linus si hizo bien su trabajo
 y tenemos lo mejor de los dos mundos.
 
-##Instalando git en tu winshit
+## Instalando git en tu winshit
 
 Ahora un poquito de "Next, next, next". Métete a http://windows.github.com y
 picale en el botón grande verde que dice "Download", descarga el instalador y
@@ -139,7 +140,7 @@ y ahí no hay botoncitos. Tendrás que escribir cosas como si escribieras en la
 barra de búsqueda del navegador web o de Google.
 
 
-##¿Te acuerdas de MS-DOS?
+## ¿Te acuerdas de MS-DOS?
 
 No se si llegaste a usar MS-DOS. Muchos usuarios de computadora de hoy en día
 no lo conocieron o nunca lo aprendieron a usar. El predecesor de Windows fue
@@ -226,7 +227,7 @@ Y eso es todo de MS-DOS. Hay mucho más, pero confío en que sabrás buscarlo en
 google o que te esperes a que escriba algo al respecto.
 
 
-##Ahora si, el workflow
+## Ahora si, el workflow
 
 Pensaba centrarme principalmente en poner fotitos de dónde picarle en en la
 aplicación de GitHub, pero mejor te voy a enseñar la manera geek de usar git.
@@ -245,7 +246,7 @@ git init
 ¡Eso es todo!
 
 
-###1.- Clonar un repo
+### 1.- Clonar un repo
 
 Generalmente este es el primer paso del flujo de trabajo. Tienes que obtener
 una copia del repositorio en tu disco duro y lo más común es obtenerlo de un
@@ -260,7 +261,7 @@ empezar con `http://` o con `git://` e incluso con `ssh://`. Para este
 último tendremos que tener configurada una llave SSH.
 
 
-###2.- Bajar los cambios que otros han hecho
+### 2.- Bajar los cambios que otros han hecho
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Si clonaste un repo es muy probable que estes colaborando con otros. Si es
@@ -275,12 +276,12 @@ git pull origin master
 Algunas veces es suficiente con escribir `git pull`
 
 
-###3.- Hacer tus cambios
+### 3.- Hacer tus cambios
 
 Es solo un directorio con archivos. Ya sabes qué hacer.
 
 
-###4.- Saber lo que has cambiado
+### 4.- Saber lo que has cambiado
 
 Git controla los cambios que le vas haciendo a los archivos de un repositorio.
 Esto es muy útil para hacer una revisión de lo que has hecho.::
@@ -297,7 +298,7 @@ Obviamente, para archivos binarios (como imágenes o archivos de word) sólo
 verás un resúmen de cuántos bytes se han insertado y cuántos se han borrado.
 
 
-###5.- Registrar o guardar tus cambios
+### 5.- Registrar o guardar tus cambios
 
 Cuando has terminado de hacer tus cambios es hora de hacer un *commit*. Esto
 equivale a darle un "Guardar" en tu editor de texto favorito, pero para el
@@ -312,7 +313,7 @@ No olvides poner los espacios y poner un mensaje descriptivo de los cambios
 entre comillas. No seas flojo y describe bien las cosas que has hecho.
 
 
-###6.- Compartir tus cambios
+### 6.- Compartir tus cambios
 
 Este es el paso final de un típico día de trabajo con Git. Ya sincronizaste tu
 repositorio con los últimos cambios (si es que estas colaborando con alguien),
