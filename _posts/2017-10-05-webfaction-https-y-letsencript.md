@@ -10,37 +10,48 @@ Hasta el dia de hoy (5 de Octubre de 2017) sólo he probado dos métodos:
 * [letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction) (escrito en Ruby)
 * [Acme.sh](https://github.com/Neilpang/acme.sh) (escrito en bash)
 
+En este post voy a probar los dos metodos en el mismo sitio: [demos.noenieto.com](https://demos.noenieto.com). Este dominio ya esta configurado en mi webfaction de antemano:
+
+![Sitio HTTPS ya configurado en webfaction]({{site.baseurl}}/media/Screenshot from 2017-10-13 12-38-50.png)
+
+Como ultimo detalle, la ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para http y https ya que es necesario acceso al sitio por HTTP antes de poder emitir el certificado por primera vez.
+
 ## Probando Acme.sh
 
-Este fue la primera herramiente que use, hace unos 6 meses. Después supe de letsencrypt_webfaction. Para instalar Acme.sh me basé en una [respuesta a una pregunta en el foro de webfaction](https://community.webfaction.com/questions/19988/using-letsencrypt).
+Este fue la primera herramiente que use, hace unos 6 meses. Para instalar Acme.sh me basé en una [respuesta a una pregunta en el foro de webfaction](https://community.webfaction.com/questions/19988/using-letsencrypt).
 
-### Instalacion
-
-La instalación es bastante sencilla y viene con su propio _instalador_.
+El proceso de instalación es bastante sencillo por que acme.sh viene con su propio _instalador_.
 
 ```bash
 curl https://get.acme.sh | sh
 ```
 
-Para acceder a la ayuda de `acme.sh` se debe de usar la opción `--help`: 
+Al correr el instalador saca algunos mensajes de error: 
+
+![It is recommended to install socat first. We use socat for standalone server if you use standalone mode. If you don't use standalone mode, just ignore this warning]({{site.baseurl}}/media/Screenshot from 2017-10-13 13-18-07.png)
+
+Simplemente ignore el mensaje y segui con la tarea. Entonces, acme.sh ya esta instalado. Para acceder a la ayuda de `acme.sh` se debe de usar la opción `--help`: 
 
 ```bash
 acme.sh --help
 ```
 
-Las opciones son muchas, pero solo haremos uso de sólo unas cuantas a la vez. Lo primero que quiero hacer es emitir el certificado para un sitio por primera vez. Por ejemplo, el sitio www.pythonero.com ya esta configurado en mi webfaction:
+Las opciones son muchas, pero solo haremos uso de unas cuantas a la vez. Lo primero que quiero hacer es emitir el certificado para un sitio por primera vez; como es la primera vez que voy a hacer esto usaré la opción `--test` de acme.sh
+
+```bash
+acme.sh --issue --test -d demos.noenieto.com -w ~/webapps/demos_noenieto
+```
 
 
-
-### Configuracion
-
-acme.sh --issue --test -d www.pythonero.com -w ~/webapps/kanboard
-acme.sh --issue -d www.pythonero.com -w ~/webapps/kanboard
-acme.sh --force --issue -d www.pythonero.com -w ~/webapps/kanboard
-ls /home/fulano/.acme.sh/www.pythonero.com/
-www.pythonero.com.cer
-www.pythonero.com.key
+```bash
+acme.sh --issue --test -d demos.noenieto.com -w ~/webapps/demos_noenieto
+acme.sh --issue -d demos.noenieto.com -w ~/webapps/demos_noenieto
+acme.sh --force --issue -d demos.noenieto.com -w ~/webapps/demos_noenieto
+ls /home/fulano/.acme.sh/demos.noenieto.com/
+demos.noenieto.com.cer
+demos.noenieto.com.key
 ca.cer
+```
 
 ### Renovacion y cronjob
 
@@ -71,7 +82,7 @@ session_id, account = wf_api.login(
 )
 
 base_path = '~/.acme.sh'
-domains = ['www.pythonero.com', ]
+domains = ['demos.noenieto.com', ]
 
 for domain in domains:
     dpath = joinpath(base_path, domain)
@@ -127,13 +138,13 @@ Aca esta el contenido de mi archivo.
 
 domains: [www.pythonero.org, pythonero.org]
 public: [/home/fulano/webapps/misitio]
-output_dir: /home/fulano/SSL_certificates/www.pythonero.com
+output_dir: /home/fulano/SSL_certificates/demos.noenieto.com
 letsencrypt_account_email: nnieto@noenieto.com
 username: fulano
 password: S00p3rp455
 cert_name: myapp_ssl_cert
 
-letsencrypt_webfaction --config=$HOME/SSL_certificates/www.pythonero.com/config.yml
+letsencrypt_webfaction --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
 
 ### Renovacion y cronjob
 
@@ -146,7 +157,7 @@ GEM_HOME=$HOME/.letsencrypt_webfaction/gems
 RUBYLIB=$GEM_HOME/lib
 
 ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction \
-    --config=$HOME/SSL_certificates/www.pythonero.com/config.yml \
+    --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml \
     --domains [yourdomain.com,www.yourdomain.com] --public ~/webapps/[yourapp/your_public_html]/ \
     --quiet
 
@@ -155,4 +166,3 @@ ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction \
 Luegoi el Cron
 
 Pero falta leer la documentacion.
-
