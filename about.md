@@ -15,8 +15,3 @@ Hola! Este es mi blog. Escribo acerca de diferentes temas incluyendo Python, Lin
 
 Saluton! Jen mia blogo. Mi skribas pri malsamaj temoj inkluzive de Python, Linukso kaj Suna ĉeloj.
 
-## Contact Info ~ Contacto ~ Kontakto Informo
-
-* [Email](mailto:nnieto@noenieto.com)
-* [GitHub](https://github.com/misaelnieto/)
-* [LinkedIn](https://www.linkedin.com/in/noe-nieto-13529524)
