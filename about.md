@@ -1,15 +1,22 @@
 ---
 layout: page
-title: About
+title: About me ~ Acerca de mi ~ Pri mi
 permalink: /about/
 ---
+## English
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Hi! This is my blog page. I blog about different tings including Python, Linux and Solar Cells.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
+## Español
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+Hola! Este es mi blog. Escribo acerca de diferentes temas incluyendo Python, Linux y Celdas solares.
+
+## Esperanto
+
+Saluton! Jen mia blogo. Mi skribas pri malsamaj temoj inkluzive de Python, Linukso kaj Suna ĉeloj.
+
+## Contact Info ~ Contacto ~ Kontakto Informo
+
+* [Email](mailto:nnieto@noenieto.com)
+* [GitHub](https://github.com/misaelnieto/)
+* [LinkedIn](https://www.linkedin.com/in/noe-nieto-13529524)
