@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Añadir un nuevo disco a fedora con LVM
 
