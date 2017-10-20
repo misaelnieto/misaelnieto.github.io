@@ -1,7 +1,9 @@
 ---
 published: true
+title: Añadir un nuevo disco a fedora con LVM
 ---
-## Añadir un nuevo disco a fedora con LVM
+![Linux Boot]({{site.baseurl}}/media/Ubuntu-linux-kernel-panic-by-jpangamarca.JPG)
+
 
 **Nota:** Este post lo redacte en 2014, pero lo estoy publicando en 2017. Ya no tengo acceso al hardware mencionado en este articulo.
 
