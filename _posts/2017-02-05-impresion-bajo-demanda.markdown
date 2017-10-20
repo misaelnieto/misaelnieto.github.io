@@ -1,9 +1,11 @@
 ---
-title: Impresion bajo demanda
+title: Impresión bajo demanda o POD (Print on demand)
 layout: post
+published: true
+tags: libros
 ---
+![Decoración, garigoleado]({{site.baseurl}}/media/Book_decoration_BPPxi.svg)
 
-# Impresión bajo demanda o POD (Print on demand)
 
 La idea de la impresión bajo demanda es poder imprimir libros o revistas en el
 momento en el que el comprador las ordena. Este concepto no es nuevo, por
@@ -51,4 +53,3 @@ Lo que busco es:
   - Imprimen de todo, menos libros.
 * http://www.newspaperclub.com/
   - Sólo imprime periodicos.
-
