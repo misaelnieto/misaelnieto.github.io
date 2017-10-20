@@ -2,6 +2,7 @@
 layout: page
 title: About me ~ Acerca de mi ~ Pri mi
 permalink: /about/
+published: true
 ---
 ## English
 
@@ -15,3 +16,4 @@ Hola! Este es mi blog. Escribo acerca de diferentes temas incluyendo Python, Lin
 
 Saluton! Jen mia blogo. Mi skribas pri malsamaj temoj inkluzive de Python, Linukso kaj Suna ĉeloj.
 
+![Miel, Bombon kaj Pulga]({{site.baseurl}}/media/Noe-miel-bombon-pulga.jpg)
