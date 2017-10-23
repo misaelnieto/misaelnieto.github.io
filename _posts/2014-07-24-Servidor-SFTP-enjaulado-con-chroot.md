@@ -1,9 +1,9 @@
 ---
-title:  "Servidor SFTP enjaulado con chroot"
+title: Servidor SFTP enjaulado con chroot
 categories: Linux Servers DevOps
+published: true
 ---
-
-![En serio hice yo todo esto?](/media/4331271101_719f528ec6_o_0)
+![SFTP enjaulado con chroot]({{site.baseurl}}/media/Swan_PSF_.svg)
 
 ## Intro
 
