@@ -63,11 +63,12 @@ social:
     - https://github.com/misaelnieto
     - https://bitbucket.org/nnieto/
     - http://stackoverflow.com/users/667559/noe-nieto
-##
-gems:
+
+plugins:
     - jekyll-sitemap
     - jekyll-redirect-from
     - jekyll-seo-tag
+
 prose:
     rooturl: '_posts'
     siteurl: "http://blog.noenieto.com/"
