@@ -44,9 +44,39 @@ Finalmente la capa n+ será creada mediante [implantación de iones](https://en.
 
 ### Dimensionamiento del grosor de la capa **n+**.
 
-El grosor de la capa **n+** esta en función de **X<sub>J</sub>** y éste a su vez depende de del perfil de implantación de iones que hemos mencionado anteriormente. La teoría y fórmulas han sido tomadas del Capítulo 5 del libro *Introduction to Microelectronic Fabrication*, de Richard C Jaeger, segunda edición.
+Para fabricar la capa **n+** simularemos el proceso de implantación de iones que es bien conocido en la industria de la fabricación de semiconductores. Según Jaeger, la implantación ofrece muchas más ventajas sobre la difusión y por eso se ha convertido en el proceso principalmente usado en la industria de la fabricación de dispositivos integrados.
 
-Para crear la capa **n+** podemos usar implantación de iones o difusión. Según Jaeger, la implantación ofrece muchas más ventajas sobre la difusión y por eso se ha convertido en el proceso principalmente usado en la industria de la fabricación de dispositivos integrados.
+El proceso de implantación de iones consiste en acelerar un haz de impurezas (en nuestro caso, Boro) con energías en el rango de varios keV hasta varios MeV, luego dicho haz se enfoca hacia un blanco, es decir la superficie del semiconductor.
+
+![Implantación de iones]({{site.baseurl}}/media/Implantacion-de-iones.svg "El proceso de implantación de iones")
+
+Conforme las impurezas aceleradas van penetrando el cristal, estas chocan varias veces con la rejilla del cristal perdiendo energía y causando desperfectos en la estructura del cristal. Finalmente las impurezas pierden toda su energía cinética y paran de moverse a cierta profundidad promedio.
+
+El tipo de impureza su energía cinética de implantación, el tipo de estructura cristalina del blanco determinan la profundidad y la dispersión del dopante dentro del cristal semiconductor. De acuerdo a Streetman, el rango de penetración oscila entre entre algunos cientos de Angstroms hasta 1 μm.
+
+Luego, en esta simulación, el grosor y las características de la capa **n+** estan en función del modelo de implantación. El modelo más conocido es el modelo de implantación gausiano, que como su nombre lo indica, es una curva gaussiana como se conoce en general. Este modelo esta 
+
+ **X<sub>J</sub>** y éste a su vez depende de del perfil de implantación de iones que hemos mencionado anteriormente. Por default, Athena usa el modelo *SIMS-Verified Dual Pearson* (SVDP), pero usaremos el modelo estadístico o *Gaussiano* debido a que es el proceso más conocido en los libros de texto. El modelo esta dado por la siguiente ecuación
+
+ $$
+ N(x) = 
+ {\phi \over { \sqrt {2\pi}  \Delta R_p} }
+
+ exp \left[ - {1 \over 2} { { (x -R_p) ^2} \over {\Delta R_p ^2 } } \right]
+ $$
+
+Donde:
+
+- $$N(x)$$ es la **concentración** de los iones con respecto a la profundidad en el sustrato (*x*).
+- $$\phi$$: es la **dosis** de iones, medida en en cm <sup>2</sup>.
+- R <sub>p</sub>: es el rango proyectado y corresponde a la *media* en la curva de gauss.
+- $$\Delta R_p$$: éste parámetro se llama en inglés *straggle*, que en español sería *rezago* o *extravío* y corresponde con la *desviación estándar* en la curva de gauss.
+
+
+
+
+
+Para crear la capa **n+** podemos usar implantación de iones o difusión. 
 
 Los parámetros del proceso de implantación son:
 
@@ -146,9 +176,12 @@ Me han dicho que la celda solar más sencilla es un simple **diodo** en sustrato
 ### Referencias
 
 [1] Introduction to Microelectronic Fabrication (2nd Ed.), Richard C. Jaeger, Prentice Hall
+[2] Athena Users' Manual, Silvaco Inc., 2015
+
 
 ### Cosas de Copyright
 
 - El dibujo del sol lo tome de https://openclipart.org/detail/553/old-sun
 - Silvaco, Athena, Atlas y nombres relacionados son propiedad de Silvaco In.
 [celda_solar_diagramas_pag1.svg]: 
+[Implantacion-de-iones.svg]: 
