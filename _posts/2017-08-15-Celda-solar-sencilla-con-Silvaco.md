@@ -54,9 +54,11 @@ Conforme las impurezas aceleradas van penetrando el cristal, estas chocan varias
 
 El tipo de impureza su energía cinética de implantación, el tipo de estructura cristalina del blanco determinan la profundidad y la dispersión del dopante dentro del cristal semiconductor. De acuerdo a Streetman, el rango de penetración oscila entre entre algunos cientos de Angstroms hasta 1 μm.
 
-Luego, en esta simulación, el grosor y las características de la capa **n+** estan en función del modelo de implantación. El modelo más conocido es el modelo de implantación gausiano, que como su nombre lo indica, es una curva gaussiana como se conoce en general. Este modelo esta 
+Luego, en esta simulación, el grosor y las características de la capa **n+** estan en función del modelo de implantación. Por default, Athena usa el modelo *SIMS-Verified Dual Pearson* (SVDP), pero usaremos el modelo estadístico o *Gaussiano* debido a que es el proceso más conocido en los libros de texto y como su nombre lo indica, es una curva gaussiana donde la concentración de dopantes esta en función de la profundidad en el cristal. Veamos la siguiente gráfica:
 
- **X<sub>J</sub>** y éste a su vez depende de del perfil de implantación de iones que hemos mencionado anteriormente. Por default, Athena usa el modelo *SIMS-Verified Dual Pearson* (SVDP), pero usaremos el modelo estadístico o *Gaussiano* debido a que es el proceso más conocido en los libros de texto. El modelo esta dado por la siguiente ecuación
+![Perfil gaussiano de impurezas]({{site.base_url}}/media/perfil-gaussiano-impurezas.svg "Gráfica de concentración vs profundidad.")
+
+La distribución gaussiana esta modelada en base a la siguiente ecuación
 
  $$
  N(x) = 
@@ -69,16 +71,40 @@ Donde:
 
 - $$N(x)$$ es la **concentración** de los iones con respecto a la profundidad en el sustrato (*x*).
 - $$\phi$$: es la **dosis** de iones, medida en en cm <sup>2</sup>.
-- R <sub>p</sub>: es el rango proyectado y corresponde a la *media* en la curva de gauss.
-- $$\Delta R_p$$: éste parámetro se llama en inglés *straggle*, que en español sería *rezago* o *extravío* y corresponde con la *desviación estándar* en la curva de gauss.
+- R <sub>p</sub>: es el rango proyectado y corresponde a la *media* en la curva de gauss. Justo a esa profundidad se encontrará la mayor concentración de dopantes. Así mismo, el rango proyectado está en función de la energía del ion y de la masa atómica y número atómico tanto del ión como del sustrato.
+- $$\Delta R_p$$: éste parámetro se llama en inglés *straggle*, que en español sería *rezago* o *extravío* y corresponde con la *desviación estándar* en la curva de gauss. La idea en general es que algunos iones tendrán "suerte" y penetrarán más allá del rango proyectado R<sub>P</sub> mientras que otros no.
 
+Ahora, reconsideremos la capa n+ que deseamos construir. Asumamos que tanto R <sub>p</sub> como $$\Delta R_p$$ serán iguales en Silicio cristalino y SiO2 (Es esto correcto.). Es necesario que, a nivel de la superficie del sustrato tengamos la concentración máxima y que vaya decayendo hasta la profundidad de la union, que es el punto donde la concentracion de fósforo esta en una concentración similar al de del Boro.
 
+Una manera de lograr lo anterior es depositar una capa de SiO<sub>2</sub> sobre el sustrato con el mismo grueso que el grueso deseado de la capa **n+**. Entonces, si deseamos que la capa **n+** mida 0.5 μm deberemos depositar otra capa de SiO<sub>2</sub> con grosor de 0.5 μm. El perfil de concentración deberá quedar de la siguiente manera.
 
+![Perfil de concentracion en union pn]( {{site.base_url}}/media/diseno_capa_n.svg )
 
+Ya tenemos dos parámetros. El grosor de la capa de SiO <sub>2</sub> y el grosor de la capa **n+**. Además el valor esperado de **X<sub>J</sub>** será 0.5 μm. Además, podemos inferir que $$ R_p = 0.5 \mu m$$ (midiendo desde la superficie del SiO <sub>2</sub>).
 
-Para crear la capa **n+** podemos usar implantación de iones o difusión. 
+Recordemos que el perfil de implantación de iones es una curva típica de gauss; como sabemos, la desviación estándar es una medida de dispersión para la curva de gauss y mediante la regla [68-95-99.7](https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule) podemos asumir que en un intervalo de 6 desviaciones estándar a partir de la media acumularemos el 99.73% de los iones implantados. Siguiendo esta logica podemos proponer un valor estimado para $$\Delta R_p = 0.5 \mu m /3  = 0.166\mu m $$. Si desearamos mayor precisión podemos proponer valores como $$ 0.5 \mu m/4$$ , $$0.5 \mu m/5 $$ etc..
 
-Los parámetros del proceso de implantación son:
+Como sabemos N <sub>p</sub> es valor máximo de concentración de la implantación y estará ubicada justo en el contacto entre el SiO <sub>2</sub> y el sustrato.Si deseamos que *N<sub>p</sub>* = 10 <sup>18</sup> /cm^{-3}, ¿Qué dosis debemos usar en el proceso de implantación?
+
+La relación entre la dosis y la concentración están dadas por la siguiente ecuación:
+
+$$
+Q= \sqrt {2 \pi} N_p \Delta R_p
+$$
+
+De tal manera que:
+
+$$
+\begin{aligned}
+
+0.166\mu m = 1.66 x10^{-5} cm
+\\
+Q= \sqrt {2 \pi} \cdot 10^{18}/cm^3 \cdot 1.66 x10^{-5} cm = \sqrt {2 \pi} \cdot  1.66x10 ^{13}/cm ^ 2
+\\
+Q = 8.833 x10 ^{12} /cm ^ 2
+\end{aligned}
+$$
+
 
 - Tiempo: 10 min
 - Dosis: 10<sup>6</sup> cm<sup>2</sup> (iones por cm<sup>2</sup>)
@@ -183,5 +209,3 @@ Me han dicho que la celda solar más sencilla es un simple **diodo** en sustrato
 
 - El dibujo del sol lo tome de https://openclipart.org/detail/553/old-sun
 - Silvaco, Athena, Atlas y nombres relacionados son propiedad de Silvaco In.
-[celda_solar_diagramas_pag1.svg]: 
-[Implantacion-de-iones.svg]: 
