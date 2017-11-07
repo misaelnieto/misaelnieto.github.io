@@ -1,6 +1,3 @@
----
-published: false
----
 ## Configuracion de un sitio HTTPS en webfaction con let's encrypt
 
 Estas son mis notas de configuracion de HTTPS en webfaction, pero usando cretificados de [Let's Encrypt](https://letsencrypt.org/).
@@ -55,18 +52,22 @@ ca.cer
 
 ### Renovacion y cronjob
 
+
+```bash
 acme.sh --cron --home /home/fulano/.acme.sh
 /home/fulano/.acme.sh/acme.sh --cron --home /home/fulano/.acme.sh
 acme.sh --renew-all
 acme.sh --renew-all --force
 /home/fulano/.acme.sh/acme.sh --cron --home /home/fulano/.acme.sh
 /home/fulano/.acme.sh/acme.sh --cron --force --home /home/fulano/.acme.sh
-
+```
 
 acme.sh --list | tail -n +2 | cut -f 1 -d ' '
-
+```cron
 52 0 * * * /home/fulano/.acme.sh/acme.sh --cron --home /home/fulano/.acme.sh > /dev/null
+```
 
+```python
 #!/usr/bin/env python
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 from os.path import join as joinpath, expanduser
@@ -95,7 +96,7 @@ for domain in domains:
         open(expanduser(privkey_path), 'r').read(),
         open(expanduser(intermediates_path), 'r').read()
     )
-    
+```    
  
 
 
@@ -113,14 +114,20 @@ GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib gem2.2 install
 Agregar esto al final de .bash_profile
 vim .bash_profile
 
+```bash
 function letsencrypt_webfaction {
     PATH=$PATH:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $*
 }
 
-Si no quieres reiniciar sesion:
-source .bash_profile
+export -f letsencrypt_webfaction
+```
 
-Probando ...
+Para no reiniciar reiniciar sesion:
+
+```bash
+source ~/.bash_profile
+```
+
 
 letsencrypt_webfaction
 
@@ -131,20 +138,41 @@ letsencrypt_webfaction --help
 
 La herramienta tiene muchos ajustes, asi que es mejor guardar todo en un archivo.
 
-mkdir ~/SSL_certificates/www.misitio.org/config.yml
-vim ~/SSL_certificates/www.misitio.org/config.yml
+```bash
+mkdir -p ~/SSL/www.misitio.org/
+vim ~/SSL/www.misitio.org/config.yml
+```
 
 Aca esta el contenido de mi archivo.
 
-domains: [www.pythonero.org, pythonero.org]
+```
+domains: [www.noenieto.com, noenieto.com]
 public: [/home/fulano/webapps/misitio]
 output_dir: /home/fulano/SSL_certificates/demos.noenieto.com
 letsencrypt_account_email: nnieto@noenieto.com
 username: fulano
 password: S00p3rp455
 cert_name: myapp_ssl_cert
+```
+Primero probamos con staging
+
+```bash
+$ letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/SSL_certificates/www.holokineticpsychology.org/config.yml 
+Your new certificate is now created and installed.
+You will need to change your application to use the ichp_ssl_cert certificate.
+Add the `--quiet` parameter in your cron task to remove this message.
+```
+
+Nota: Tuve que configurar el DNS en IPv4 e IPv6 con registros A y AAAA. Tuve muchos problemas por que el registro era un CNAME a el servidor de webfaction. Despues de la ayuda del creador de letsencrypt_webfaction decidi probar a configurar todo con reegustros A y AAAA.
+
+El comando final es este:
 
 letsencrypt_webfaction --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
+
+
+Despues de esto verifico que myapp_ssl_cert ya aparece en la lista de certificados de webfaction. Es solo cuestion de seleccionar el certificado para el sitio https adecuado.
+
+
 
 ### Renovacion y cronjob
 
