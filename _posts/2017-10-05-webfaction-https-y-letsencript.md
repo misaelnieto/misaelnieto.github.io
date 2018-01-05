@@ -1,8 +1,11 @@
+---
+published: false
+---
 ## Configuracion de un sitio HTTPS en webfaction con let's encrypt
 
 Estas son mis notas de configuracion de HTTPS en webfaction, pero usando cretificados de [Let's Encrypt](https://letsencrypt.org/).
 
-Hasta el dia de hoy (5 de Octubre de 2017) sólo he probado dos métodos:
+Hasta el dia de hoy (5 de Enero de 2018) sólo he probado dos métodos:
 
 * [letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction) (escrito en Ruby)
 * [Acme.sh](https://github.com/Neilpang/acme.sh) (escrito en bash)
@@ -12,6 +15,19 @@ En este post voy a probar los dos metodos en el mismo sitio: [demos.noenieto.com
 ![Sitio HTTPS ya configurado en webfaction]({{site.baseurl}}/media/Screenshot from 2017-10-13 12-38-50.png)
 
 Como ultimo detalle, la ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para http y https ya que es necesario acceso al sitio por HTTP antes de poder emitir el certificado por primera vez.
+
+Tambien hay que confugurar un sitio para redireccionar de http a https. (Documentar como se hace).
+
+El .htaccess es asi:
+
+```apache
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_URI} !^/.well-known
+RewriteRule ^(.*)$ https://demos.noenieto.com/$1 [R=301,L]
+```
+
 
 ## Probando Acme.sh
 
@@ -147,13 +163,16 @@ Aca esta el contenido de mi archivo.
 
 ```
 domains: [www.noenieto.com, noenieto.com]
-public: [/home/fulano/webapps/misitio]
+public: [/home/fulano/webapps/demos_redirect]
 output_dir: /home/fulano/SSL_certificates/demos.noenieto.com
 letsencrypt_account_email: nnieto@noenieto.com
 username: fulano
 password: S00p3rp455
 cert_name: myapp_ssl_cert
 ```
+
+Es bien importante que el directorio public este bien configurado. El `.htacces` de arriba ya viene preparado. Redireccionara todas las peticiones al HTTPS excepto las del directorio `.well-known`.
+
 Primero probamos con staging
 
 ```bash
@@ -163,16 +182,13 @@ You will need to change your application to use the ichp_ssl_cert certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
 ```
 
-Nota: Tuve que configurar el DNS en IPv4 e IPv6 con registros A y AAAA. Tuve muchos problemas por que el registro era un CNAME a el servidor de webfaction. Despues de la ayuda del creador de letsencrypt_webfaction decidi probar a configurar todo con reegustros A y AAAA.
+Nota: Tuve que configurar el DNS en IPv4 e IPv6 con registros A y AAAA. Tuve muchos problemas por que el registro era un CNAME a el servidor de webfaction. Despues de la ayuda del creador de letsencrypt_webfaction decidi probar a configurar todo con registros A y AAAA.
 
 El comando final es este:
 
 letsencrypt_webfaction --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
 
-
 Despues de esto verifico que myapp_ssl_cert ya aparece en la lista de certificados de webfaction. Es solo cuestion de seleccionar el certificado para el sitio https adecuado.
-
-
 
 ### Renovacion y cronjob
 
