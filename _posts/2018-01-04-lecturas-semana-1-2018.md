@@ -20,3 +20,4 @@ Comenzamos.
 - [Laser Evaporation Technology to Create New Solar Material](https://www.pddnet.com/news/2018/01/laser-evaporation-technology-create-new-solar-material?et_cid=6226109&et_rid=1147451222&type=cta&et_cid=6226109&et_rid=1147451222&linkid=Laser+Evaporation+Technology+to+Create+New+Solar+Material)
 - [Curso interactivo de electromagentismo](https://www.oppia.org/collection/wqCTKpKA0LBe)
 - [PVC Dremel Drill Press](http://www.instructables.com/id/PVC-Dremel-drill-press/)
+- [Reciclaje de plásticos tipo "Hágalo usted mismo".](https://preciousplastic.com/)
