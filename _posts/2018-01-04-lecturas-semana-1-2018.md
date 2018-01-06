@@ -11,3 +11,8 @@ Comenzamos.
 - [600 Watt, 3d-printed, Halbach Array, Brushless DC Electric Motor](http://www.instructables.com/id/600-Watt-3d-printed-Halbach-Array-Brushless-DC-Ele/)
 - [http://www.instructables.com/id/How-to-Sharpen-Used-and-Dull-Drill-Bits-By-Hand/](How to Sharpen Used and Dull Drill Bits (By Hand!!))
 - [Unusual Uses for Zip Ties](http://www.instructables.com/id/Unusual-Uses-for-Zip-Ties/)
+- [Unusual Uses for WD-40](http://www.instructables.com/id/Unusual-Uses-for-WD-40/)
+- [5 Ways to Remove a Stripped Screw](http://www.instructables.com/id/5-Ways-to-Remove-a-Stripped-Screw/)
+- [Top 10 Vise Hacks!](http://www.instructables.com/id/Top-10-Vise-Hacks/)
+- [10 MORE Bench Vise Tips, Tricks, & Hacks (Part 2)](http://www.instructables.com/id/10-MORE-Bench-Vise-Tips-Tricks-Hacks-Part-2/)
+- [Steampunk Raspberry Pi Laptop](http://www.instructables.com/id/Steampunk-Raspberry-Pi-Laptop/)
