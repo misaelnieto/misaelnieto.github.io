@@ -3,22 +3,26 @@ published: false
 ---
 ## Configuracion de un sitio HTTPS en webfaction con let's encrypt
 
-Estas son mis notas de configuracion de HTTPS en webfaction, pero usando cretificados de [Let's Encrypt](https://letsencrypt.org/).
+Estas son mis notas de configuracion de HTTPS en webfaction, pero usando certificados de [Let's Encrypt](https://letsencrypt.org/).
 
 Hasta el dia de hoy (5 de Enero de 2018) sólo he probado dos métodos:
 
 * [letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction) (escrito en Ruby)
 * [Acme.sh](https://github.com/Neilpang/acme.sh) (escrito en bash)
 
+## Preparación de los sitios
+
 En este post voy a probar los dos metodos en el mismo sitio: [demos.noenieto.com](https://demos.noenieto.com). Este dominio ya esta configurado en mi webfaction de antemano:
 
 ![Sitio HTTPS ya configurado en webfaction]({{site.baseurl}}/media/Screenshot from 2017-10-13 12-38-50.png)
 
-Como ultimo detalle, la ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para http y https ya que es necesario acceso al sitio por HTTP antes de poder emitir el certificado por primera vez.
+Como ultimo detalle, la ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para **http** y **https** ya que es necesario acceso al sitio por **http** antes de poder emitir el certificado por primera vez.
 
-Tambien hay que confugurar un sitio para redireccionar de http a https. (Documentar como se hace).
+Tambien hay que confugurar un sitio para redireccionar de **http** a **https**. Ambos son sitios estáticos.
 
-El .htaccess es asi:
+![Screenshot-2018-1-6 Website list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-1-6 Website list - WebFaction Control Panel.png)
+
+En el sitio demos_http agregamos un archivo `.htaccess` que contiene:
 
 ```apache
 Options +FollowSymLinks
@@ -112,23 +116,26 @@ for domain in domains:
         open(expanduser(privkey_path), 'r').read(),
         open(expanduser(intermediates_path), 'r').read()
     )
-```    
- 
-
+```
 
 
 ## Probando letsencrypt_webfaction
 
-Docus chida::
+Al final decidí quedarme con letsencrypt_webfaction por que no tengo que mantener un script de python y al final funcionó bastante bien.
+
+Me base en este sitio:
 
 http://bcc.npdoty.name/directions-to-migrate-your-WebFaction-site-to-HTTPS
 
 ### Instalacion
 
-GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib gem2.2 install letsencrypt_webfaction
+Para instalar corri esto:
 
-Agregar esto al final de .bash_profile
-vim .bash_profile
+```bash
+GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib gem2.2 install letsencrypt_webfaction
+```
+
+Y agregué esto al final de `.bash_profile`:
 
 ```bash
 function letsencrypt_webfaction {
@@ -138,17 +145,17 @@ function letsencrypt_webfaction {
 export -f letsencrypt_webfaction
 ```
 
-Para no reiniciar reiniciar sesion:
+Para no reiniciar sesion:
 
 ```bash
 source ~/.bash_profile
 ```
+Ahora probamos:
 
-
+```bash
 letsencrypt_webfaction
-
 letsencrypt_webfaction --help
-
+```
 
 ### Configuracion
 
