@@ -16,3 +16,7 @@ Comenzamos.
 - [Top 10 Vise Hacks!](http://www.instructables.com/id/Top-10-Vise-Hacks/)
 - [10 MORE Bench Vise Tips, Tricks, & Hacks (Part 2)](http://www.instructables.com/id/10-MORE-Bench-Vise-Tips-Tricks-Hacks-Part-2/)
 - [Steampunk Raspberry Pi Laptop](http://www.instructables.com/id/Steampunk-Raspberry-Pi-Laptop/)
+- [Raw water is the latest 2018 craze — and it’s absolutely stupid](https://www.zmescience.com/science/raw-water-latest-2018-craze-absolutely-stupid/)
+- [Laser Evaporation Technology to Create New Solar Material](https://www.pddnet.com/news/2018/01/laser-evaporation-technology-create-new-solar-material?et_cid=6226109&et_rid=1147451222&type=cta&et_cid=6226109&et_rid=1147451222&linkid=Laser+Evaporation+Technology+to+Create+New+Solar+Material)
+- [Curso interactivo de electromagentismo](https://www.oppia.org/collection/wqCTKpKA0LBe)
+- [PVC Dremel Drill Press](http://www.instructables.com/id/PVC-Dremel-drill-press/)
