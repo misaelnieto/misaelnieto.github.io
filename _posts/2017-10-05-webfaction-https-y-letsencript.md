@@ -162,20 +162,20 @@ letsencrypt_webfaction --help
 La herramienta tiene muchos ajustes, asi que es mejor guardar todo en un archivo.
 
 ```bash
-mkdir -p ~/SSL/www.misitio.org/
-vim ~/SSL/www.misitio.org/config.yml
+mkdir -p ~/SSL/demos_noenieto_com.yml/
+vim ~/SSL/demos_noenieto_com.yml
 ```
 
 Aca esta el contenido de mi archivo.
 
 ```
-domains: [www.noenieto.com, noenieto.com]
-public: [/home/fulano/webapps/demos_redirect]
+domains: [demos.noenieto.com]
+public: [/home/fulano/webapps/demos_http]
 output_dir: /home/fulano/SSL_certificates/demos.noenieto.com
 letsencrypt_account_email: nnieto@noenieto.com
 username: fulano
 password: S00p3rp455
-cert_name: myapp_ssl_cert
+cert_name: demos
 ```
 
 Es bien importante que el directorio public este bien configurado. El `.htacces` de arriba ya viene preparado. Redireccionara todas las peticiones al HTTPS excepto las del directorio `.well-known`.
@@ -189,13 +189,15 @@ You will need to change your application to use the ichp_ssl_cert certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
 ```
 
-Nota: Tuve que configurar el DNS en IPv4 e IPv6 con registros A y AAAA. Tuve muchos problemas por que el registro era un CNAME a el servidor de webfaction. Despues de la ayuda del creador de letsencrypt_webfaction decidi probar a configurar todo con registros A y AAAA.
+Nota: Tuve que configurar el DNS en IPv4 e IPv6 con registros `A` y `AAAA`. Tuve muchos problemas por que el registro era un `CNAME` a el servidor de webfaction. Despues de la ayuda del creador de letsencrypt_webfaction decidi probar a configurar todo con registros `A` y `AAAA`.
 
 El comando final es este:
 
+```bash
 letsencrypt_webfaction --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
+```
 
-Despues de esto verifico que myapp_ssl_cert ya aparece en la lista de certificados de webfaction. Es solo cuestion de seleccionar el certificado para el sitio https adecuado.
+Despues de esto verifico que `demos` ya aparece en la lista de certificados de webfaction. Es solo cuestion de seleccionar el certificado para el sitio https adecuado.
 
 ### Renovacion y cronjob
 
