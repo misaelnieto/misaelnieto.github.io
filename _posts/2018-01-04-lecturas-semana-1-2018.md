@@ -22,3 +22,7 @@ Comenzamos.
 - [PVC Dremel Drill Press](http://www.instructables.com/id/PVC-Dremel-drill-press/)
 - [Reciclaje de plásticos tipo "Hágalo usted mismo".](https://preciousplastic.com/)
 - [PVC Dremel Drill Press](http://www.instructables.com/id/PVC-Dremel-drill-press/)
+- [Tareas sencillas para contribuir en Rust Cookbook](https://github.com/rust-lang-nursery/rust-cookbook/labels/easy)
+- [Tareas para comenzar a contribuir a Rust](https://www.rustaceans.org/findwork/starters)
+- ["Es un error traer nuevos seres humanos al mundo":](http://www.bbc.com/mundo/noticias-42240299) el provocador pensamiento antinatalista del filósofo David Benatar.
+- [Reciclaje de plástico tipo *hágalo usted mismo*"](https://preciousplastic.com/en/index.html)
