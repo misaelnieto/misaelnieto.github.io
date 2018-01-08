@@ -5,7 +5,7 @@ published: false
 
 Estas son mis notas de configuracion de HTTPS en webfaction, pero usando certificados de [Let's Encrypt](https://letsencrypt.org/).
 
-Hasta el dia de hoy (5 de Enero de 2018) sólo he probado dos métodos:
+Hasta el dia de hoy (7 de Enero de 2018) sólo he probado dos métodos:
 
 * [letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction) (escrito en Ruby)
 * [Acme.sh](https://github.com/Neilpang/acme.sh) (escrito en bash)
