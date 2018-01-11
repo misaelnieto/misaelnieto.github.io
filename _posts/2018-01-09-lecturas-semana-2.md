@@ -14,4 +14,5 @@ published: false
 - [Top javascript frameworks for 2018](https://hackernoon.com/the-top-javascript-trends-to-watch-in-2018-a8437dd94425)
 - [Tamaños de bases de focos](https://www.bronsondesign.com/blog/what-is-an-e12-or-e26-light-bulb/)
 - [Mundo no apto para niños](https://www.youtube.com/watch?v=RibRL4nle9A) de Arturo Archila
--
+- Bajo la Lupa: [El manicomio sin siquiatras: "plan C" para asesinar a Trump mediante una guerra contra Norcorea...](http://www.jornada.unam.mx/2018/01/10/opinion/014o1pol)
+
