@@ -15,4 +15,6 @@ published: false
 - [Tamaños de bases de focos](https://www.bronsondesign.com/blog/what-is-an-e12-or-e26-light-bulb/)
 - [Mundo no apto para niños](https://www.youtube.com/watch?v=RibRL4nle9A) de Arturo Archila
 - Bajo la Lupa: [El manicomio sin siquiatras: "plan C" para asesinar a Trump mediante una guerra contra Norcorea...](http://www.jornada.unam.mx/2018/01/10/opinion/014o1pol)
+- [Fiber OLEDs, Thinner Than A Hair](https://www.pddnet.com/news/2018/01/photo-day-fiber-oleds-thinner-hair?et_cid=6232003&et_rid=1147451222&type=cta&et_cid=6232003&et_rid=1147451222&linkid=Photo+of+the+Day%3a+Fiber+OLEDs%2c+Thinner+Than+A+Hair) 
 
+https://code.tutsplus.com/tutorials/object-oriented-php-for-beginners--net-12762
