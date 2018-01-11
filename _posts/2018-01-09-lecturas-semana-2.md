@@ -16,5 +16,5 @@ published: false
 - [Mundo no apto para niños](https://www.youtube.com/watch?v=RibRL4nle9A) de Arturo Archila
 - Bajo la Lupa: [El manicomio sin siquiatras: "plan C" para asesinar a Trump mediante una guerra contra Norcorea...](http://www.jornada.unam.mx/2018/01/10/opinion/014o1pol)
 - [Fiber OLEDs, Thinner Than A Hair](https://www.pddnet.com/news/2018/01/photo-day-fiber-oleds-thinner-hair?et_cid=6232003&et_rid=1147451222&type=cta&et_cid=6232003&et_rid=1147451222&linkid=Photo+of+the+Day%3a+Fiber+OLEDs%2c+Thinner+Than+A+Hair) 
-
-https://code.tutsplus.com/tutorials/object-oriented-php-for-beginners--net-12762
+- [Object oriented PHP for beginners](https://code.tutsplus.com/tutorials/object-oriented-php-for-beginners--net-12762)
+- [La historia del niño que llegó a la escuela con el cabello congelado](http://www.lacronica.com/EdicionEnLinea/Notas/Internacional/11012018/1298840-La-historia-del-nino-que-llego-a-la-escuela-con-el-cabello-congelado.html)
