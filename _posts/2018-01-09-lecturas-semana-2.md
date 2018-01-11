@@ -19,4 +19,5 @@ published: false
 - [Object oriented PHP for beginners](https://code.tutsplus.com/tutorials/object-oriented-php-for-beginners--net-12762)
 - [La historia del niño que llegó a la escuela con el cabello congelado](http://www.lacronica.com/EdicionEnLinea/Notas/Internacional/11012018/1298840-La-historia-del-nino-que-llego-a-la-escuela-con-el-cabello-congelado.html)
 - [the Go Sun solar stove](https://www.youtube.com/watch?v=m1mCUXS6Yr4)
-- 
+- [TCAD simulations of planar pixel sensors](https://pos.sissa.it/137/030/pdf)
+- [Massive, deep deposits of ice found on Mars](http://www.astronomy.com/news/2018/01/martian-ice)
