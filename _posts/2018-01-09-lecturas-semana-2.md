@@ -22,4 +22,10 @@ published: false
 - [TCAD simulations of planar pixel sensors](https://pos.sissa.it/137/030/pdf)
 - [Massive, deep deposits of ice found on Mars](http://www.astronomy.com/news/2018/01/martian-ice)
 - [Documentacion de httpd en Fedora 27](https://docs.fedoraproject.org/f27/system-administrators-guide/servers/Web_Servers.html)
-- 
+- [Overlord 33] (http://www.mangapanda.com/overlord/33)
+- [Is Mexico liveable?](https://www.quora.com/Is-Mexico-liveable)
+- [How do inmates hide their cell phones?](https://www.quora.com/How-do-inmates-hide-their-cell-phones)
+[What makes Solaris different from Unix?](https://www.quora.com/What-makes-Solaris-different-from-Unix)
+[Ecommerce hecho exclusivamente para  vender cosas digitales.](https://sellfy.com/)
+[How can I install apps directly to an SD card on Lollipop](https://www.quora.com/How-can-I-install-apps-directly-to-an-SD-card-on-Lollipop-without-rooting)
+[Android 5.0 Lollipop changes the way your SD card works — and that's a good thing](https://www.androidcentral.com/lollipop-brings-changes-way-your-sd-card-works-kind-youll)
