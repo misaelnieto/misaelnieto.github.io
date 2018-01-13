@@ -33,3 +33,5 @@ published: false
 - [7 systems engineering and operations trends to watch in 2018](https://www.oreilly.com/ideas/7-systems-engineering-and-operations-trends-to-watch-in-2018)
 - [Network Computing Moves Closer to the Edge ](https://www.enterprisetech.com/2017/10/09/network-computing-moves-closer-edge/)
 - [JAvascript File uploader](https://uppy.io/)
+- Este sitio esta particularmente útil: [25 Useful DNF Command Examples For Package Management In Linux](https://www.rootusers.com/25-useful-dnf-command-examples-for-package-management-in-linux/)
+- 
