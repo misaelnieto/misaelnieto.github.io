@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Lecturas semana 2 del 2018
 
@@ -34,4 +34,11 @@ published: false
 - [Network Computing Moves Closer to the Edge ](https://www.enterprisetech.com/2017/10/09/network-computing-moves-closer-edge/)
 - [JAvascript File uploader](https://uppy.io/)
 - Este sitio esta particularmente útil: [25 Useful DNF Command Examples For Package Management In Linux](https://www.rootusers.com/25-useful-dnf-command-examples-for-package-management-in-linux/)
-- 
+- [When flying from the USA and over Russia, why is one required to close the window shade?](https://www.quora.com/When-flying-from-the-USA-and-over-Russia-why-is-one-required-to-close-the-window-shade)
+- [How its Made - Cow Bells](https://www.youtube.com/watch?v=8RQXhaYK9YQ)
+- [Monster 6502](https://monster6502.com/): A project to build a transistor-scale working replica of the MOS 6502 microprocessor.
+- [ The Three Fives Kit: A Discrete 555 Timer (https://shop.evilmadscientist.com/tinykitlist/652#)
+- [Unbelievable Examples Of Things Being Worn Down Over Time](https://www.youtube.com/watch?v=_QuJKH3gCN0)
+[How to Increase Constant Voltage from 1 to 80 Volts with simplest Generator](https://www.youtube.com/watch?v=pzVrT0frOJs)
+
+That's all for the week.
