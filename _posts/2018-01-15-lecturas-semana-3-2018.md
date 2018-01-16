@@ -8,4 +8,5 @@ published: false
 - [No One Wants Your Used Clothes Anymore](https://www.bloomberg.com/view/articles/2018-01-15/no-one-wants-your-used-clothes-anymore).  A once-virtuous cycle is breaking down. What now? 
 - Alfredo Jalife: [Alfredo Jalife: México hace mucho PERDIO su SOBERANIA. Hoy ¿Que controlamos?](https://www.youtube.com/watch?v=nZGZdsQRuQ4). Un dato nuevo para mi es que Mexico, ademas de petróleo, tambien tiene Uranio!!
 - [In Yakutia, locals swim and ride bikes despite -60 °C](In Yakutia, locals swim and ride bikes despite -60 °C). Como es posible que haya siquiera seres vivos en lugares como estos??
-- 
+- En linux (en realidad es bash):  [Cómo lanzar varios procesos en segundo planp y luego esperar a que todos terminen?](https://stackoverflow.com/questions/14254118/waiting-for-background-processes-to-finish-before-exiting-script)
+- Demostrando lo obvio, bueno, tal vez no sea obvio para el que no esta informado: [Shale gas is one of the least sustainable ways to produce electricity, research finds](https://phys.org/news/2018-01-shale-gas-sustainable-ways-electricity.html)
