@@ -4,3 +4,7 @@ published: false
 -[ Video of the Day: Mech Racing]()
 - https://www.quora.com/Why-do-they-say-not-to-put-a-car-battery-on-a-concrete-floor
 - [Gnome le dice adiós a los íconos de escritorio](http://www.omgubuntu.co.uk/2018/01/gnome-desktop-icons-removed-3-28). Yo no uso los iconos del escritorio desde hace muucho rato.
+- [5 predicciones del inventor Nikola Tesla que se hicieron realidad más de 100 años después](http://www.bbc.com/mundo/noticias-42669125)
+- [No One Wants Your Used Clothes Anymore](https://www.bloomberg.com/view/articles/2018-01-15/no-one-wants-your-used-clothes-anymore).  A once-virtuous cycle is breaking down. What now? 
+- Alfredo Jalife: [Alfredo Jalife: México hace mucho PERDIO su SOBERANIA. Hoy ¿Que controlamos?](https://www.youtube.com/watch?v=nZGZdsQRuQ4). Un dato nuevo para mi es que Mexico, ademas de petróleo, tambien tiene Uranio!!
+- 
