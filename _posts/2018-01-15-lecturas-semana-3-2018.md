@@ -13,3 +13,9 @@ published: false
 - [From Greenhouse Gases to Plastics: New Catalyst for Recycling Carbon Dioxide](https://www.pddnet.com/news/2018/01/greenhouse-gases-plastics-new-catalyst-recycling-carbon-dioxide)
 - [ Lifelike Robots Made in Hong Kong Meant to Win Over Humans](https://www.pddnet.com/news/2018/01/lifelike-robots-made-hong-kong-meant-win-over-humans)
 - [Flatbed Bicycle Trailer](http://www.instructables.com/id/Flatbed-Bicycle-Trailer/). Es un Dolly pero para bicicletas o tal vez una moto tal vez! Algun día podré hacer una.
+- [Direct PCB Printing with a Modified Laser Printer](https://www.youtube.com/watch?v=5FWUul62irY)
+- [No-etch circuit boards with your laser printer](https://www.youtube.com/watch?v=mwwA1d2s2OQ)
+- [Animation of Fire at Chevron's Richmond Refinery, August 6, 2012](https://www.youtube.com/watch?v=QiILbGbk8Qk)
+- [Why Were the First Cars Electric?](https://www.youtube.com/watch?v=XlMFLPGUiQE)
+- Medio chafa el articulo, pero .. meh! [7 lugares aterradores en Puebla](http://pueblados22.mx/7-lugares-aterradores-en-puebla/)
+- [Assisted Suicide of Michèle Causse](https://www.youtube.com/watch?v=JfyxUO4ZsDo)
