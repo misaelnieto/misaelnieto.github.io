@@ -10,3 +10,6 @@ published: false
 - [In Yakutia, locals swim and ride bikes despite -60 °C](In Yakutia, locals swim and ride bikes despite -60 °C). Como es posible que haya siquiera seres vivos en lugares como estos??
 - En linux (en realidad es bash):  [Cómo lanzar varios procesos en segundo planp y luego esperar a que todos terminen?](https://stackoverflow.com/questions/14254118/waiting-for-background-processes-to-finish-before-exiting-script)
 - Demostrando lo obvio, bueno, tal vez no sea obvio para el que no esta informado: [Shale gas is one of the least sustainable ways to produce electricity, research finds](https://phys.org/news/2018-01-shale-gas-sustainable-ways-electricity.html)
+- [From Greenhouse Gases to Plastics: New Catalyst for Recycling Carbon Dioxide](https://www.pddnet.com/news/2018/01/greenhouse-gases-plastics-new-catalyst-recycling-carbon-dioxide)
+- [ Lifelike Robots Made in Hong Kong Meant to Win Over Humans](https://www.pddnet.com/news/2018/01/lifelike-robots-made-hong-kong-meant-win-over-humans)
+- [Flatbed Bicycle Trailer](http://www.instructables.com/id/Flatbed-Bicycle-Trailer/). Es un Dolly pero para bicicletas o tal vez una moto tal vez! Algun día podré hacer una.
