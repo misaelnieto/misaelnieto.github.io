@@ -19,3 +19,6 @@ published: false
 - [Why Were the First Cars Electric?](https://www.youtube.com/watch?v=XlMFLPGUiQE)
 - Medio chafa el articulo, pero .. meh! [7 lugares aterradores en Puebla](http://pueblados22.mx/7-lugares-aterradores-en-puebla/)
 - [Assisted Suicide of Michèle Causse](https://www.youtube.com/watch?v=JfyxUO4ZsDo)
+- Este sitio lista diferentes problemas a resolver en Rust como para iniciarse en la comunidad rustacea:[Find something Rusty to work on!](https://www.rustaceans.org/findwork/starters)
+- [Prestashop weekly para 2018](http://build.prestashop.com/news/coreweekly-week-02-2018/)
+
