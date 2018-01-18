@@ -21,4 +21,7 @@ published: false
 - [Assisted Suicide of Michèle Causse](https://www.youtube.com/watch?v=JfyxUO4ZsDo)
 - Este sitio lista diferentes problemas a resolver en Rust como para iniciarse en la comunidad rustacea:[Find something Rusty to work on!](https://www.rustaceans.org/findwork/starters)
 - [Prestashop weekly para 2018](http://build.prestashop.com/news/coreweekly-week-02-2018/)
+- [Multimedia Apps for the Linux Console](https://www.linux.com/learn/intro-to-linux/2018/1/multimedia-apps-linux-console). Abri una consola presionando `Ctrl`+`Alt`+`F3`. Tuve que correr `fbi` como usuario root. Ya no recordaba que se puede usar el framebuffer desde la consola :).
+
+
 
