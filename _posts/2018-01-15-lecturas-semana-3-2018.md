@@ -26,4 +26,5 @@ published: false
 - Jalife definiendo la [crisis de la civilizacion industrial](https://www.youtube.com/watch?v=O_MrHEMM8co) como sólo el sabe hacerlo.
 - Ufff vaya nota de RT: [ Soros predicts EU breakdown, calls Russia ‘resurgent power’ ](https://www.rt.com/news/416260-soros-eu-collapse-russia/). Dimes y diretes entre el gobierno de hungría y Soros que está más alla del alcance de Hungría.
 - JAjaj -> [How To Build A Horse With Programming](https://blog.toggl.com/build-horse-programming/)
-- 
+- [Sighten](https://www.sighten.io/) the new energy operating system ... the first dedicated solar software toolset that supports the entire workflow for distributed generation (DG) solar
+
