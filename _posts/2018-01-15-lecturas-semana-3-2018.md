@@ -22,6 +22,8 @@ published: false
 - Este sitio lista diferentes problemas a resolver en Rust como para iniciarse en la comunidad rustacea:[Find something Rusty to work on!](https://www.rustaceans.org/findwork/starters)
 - [Prestashop weekly para 2018](http://build.prestashop.com/news/coreweekly-week-02-2018/)
 - [Multimedia Apps for the Linux Console](https://www.linux.com/learn/intro-to-linux/2018/1/multimedia-apps-linux-console). Abri una consola presionando `Ctrl`+`Alt`+`F3`. Tuve que correr `fbi` como usuario root. Ya no recordaba que se puede usar el framebuffer desde la consola :).
-
-
-
+- [What shocked you today?](https://www.quora.com/What-shocked-you-today). Hay unos de WTF!
+- Jalife definiendo la [crisis de la civilizacion industrial](https://www.youtube.com/watch?v=O_MrHEMM8co) como sólo el sabe hacerlo.
+- Ufff vaya nota de RT: [ Soros predicts EU breakdown, calls Russia ‘resurgent power’ ](https://www.rt.com/news/416260-soros-eu-collapse-russia/). Dimes y diretes entre el gobierno de hungría y Soros que está más alla del alcance de Hungría.
+- JAjaj -> [How To Build A Horse With Programming](https://blog.toggl.com/build-horse-programming/)
+- 
