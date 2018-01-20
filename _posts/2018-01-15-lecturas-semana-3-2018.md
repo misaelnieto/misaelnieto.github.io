@@ -28,4 +28,5 @@ published: false
 - JAjaj -> [How To Build A Horse With Programming](https://blog.toggl.com/build-horse-programming/)
 - [Sighten](https://www.sighten.io/) the new energy operating system ... the first dedicated solar software toolset that supports the entire workflow for distributed generation (DG) solar
 - [Cape Town is set to run out of water in less than 100 days](http://www.sciencealert.com/cape-town-south-africa-is-set-to-run-out-of-water-in-less-than-100-days-day-zero); the South African metropolis has been known as a haven of abundant natural water. This year, however, Cape Town may be the first major city in the world to run out of water [..] Each resident will have access to 6.6 gallons per day, a maximum enforced by armed guards charged with keeping the peace.
-- 
+- [Los ladas regresan a Cuba](http://www.acn.cu/cuba/31582-regresan-los-ladas-a-cuba-fotos-y-video). Link con fotos y video.
+
