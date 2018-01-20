@@ -30,4 +30,5 @@ published: false
 - [Cape Town is set to run out of water in less than 100 days](http://www.sciencealert.com/cape-town-south-africa-is-set-to-run-out-of-water-in-less-than-100-days-day-zero); the South African metropolis has been known as a haven of abundant natural water. This year, however, Cape Town may be the first major city in the world to run out of water [..] Each resident will have access to 6.6 gallons per day, a maximum enforced by armed guards charged with keeping the peace.
 - [Los ladas regresan a Cuba](http://www.acn.cu/cuba/31582-regresan-los-ladas-a-cuba-fotos-y-video). Link con fotos y video.
 - Muy buen artículo de Joel Spolsky [acerca de Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/). Nota para mi: incluirlo en los curso de python.
-
+- Jim Rickards: [El colapso de la burbuja del mercado sacudirá el mundo entero](https://actualidad.rt.com/actualidad/260399-colapso-burbuja-mercado-sacudir)
+- 
