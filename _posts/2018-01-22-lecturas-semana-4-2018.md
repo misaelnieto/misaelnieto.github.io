@@ -16,4 +16,8 @@ Aquí van:
 - [SimpleSSHD is an SSH2 server based on dropbear that supports scp, sftp, and rsync](http://www.galexander.org/software/simplesshd/). Lo uso para entrar a mi celu y cureosear.
 - [Ex-esposo, principal sospechoso de muerte de Nutrióloga en Taxco](http://www.eluniversal.com.mx/estados/ex-esposo-principal-sospechoso-de-crimen-de-nutriologa-en-taxco)
 - [Empresarios corren a kiko vega](https://www.tijuanasincensura.com/2018/01/24/empresarios-corren-a-kiko-vega-del-desayuno-empresarial-coparmex/amp/) (El Gober de Baja California), del desayuno empresarial de la COPARMEX
+- [Making Money on YouTube YouTube Personalities YouTube How much does a YouTuber with 500k make per month?](https://www.quora.com/How-much-does-a-YouTuber-with-500k-make-per-month)
+- La noticia más extraña que he leido esta semana: [ Piden congresistas de EU incluir en Tlcan alza de salarios en México](http://www.lacronica.com/EdicionEnLinea/Notas/Nacional/24012018/1303217-Piden-congresistas-de-EU-incluir-en-Tlcan-alza-de-salarios-en-Mexico.html)
+- ̉̉Qué es un ánodo y un cátodo? [En Chemistry Stack Exchange](https://chemistry.stackexchange.com/questions/68533/which-is-anode-and-which-is-cathode)
+- [Our ignorance is much more deadly than our evil, despite what blockbuster movies show you](https://www.zmescience.com/science/blockbuster-environment-disaster/). Yo pienso que el ego tambien es parte de esa ignorancia. El [Dr. Rubén Feldman González](https://www.percepcionunitaria.org/es/presentaci-n) lo explica con la [Metadepresión pre-psicótica](https://www.percepcionunitaria.org/es/la-metadepresi-n-pre-psic-tica).
 - 
