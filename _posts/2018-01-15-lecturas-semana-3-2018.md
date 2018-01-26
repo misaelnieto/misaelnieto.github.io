@@ -35,5 +35,6 @@ Van las lecturas de la semana.
 - Jim Rickards: [El colapso de la burbuja del mercado sacudirá el mundo entero](https://actualidad.rt.com/actualidad/260399-colapso-burbuja-mercado-sacudir)
 - [ Photo of the Day: Nuclear Reactor for Mars Missions](https://www.pddnet.com/news/2018/01/photo-day-nuclear-reactor-mars-missions). [...] It is estimated to be able to produce up to 10 kilowatts of electrical power for at least 10 years.
 - [ Using Crumpled Graphene Balls to Make Better Batteries](https://www.pddnet.com/news/2018/01/using-crumpled-graphene-balls-make-better-batteries)
-
+- [Which countries don't have a McDonald's?](https://www.quora.com/Which-countries-dont-have-a-McDonalds)
+- 
 Fin.
