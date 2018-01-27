@@ -36,5 +36,8 @@ Van las lecturas de la semana.
 - [ Photo of the Day: Nuclear Reactor for Mars Missions](https://www.pddnet.com/news/2018/01/photo-day-nuclear-reactor-mars-missions). [...] It is estimated to be able to produce up to 10 kilowatts of electrical power for at least 10 years.
 - [ Using Crumpled Graphene Balls to Make Better Batteries](https://www.pddnet.com/news/2018/01/using-crumpled-graphene-balls-make-better-batteries)
 - [Scientist decode the largest genome so far – and it belongs to the axolotl](https://www.zmescience.com/science/largest-genome-axolotl-0432432/)
+- [Las palabras más difíciles de pronunciar del español](http://www.bbc.com/mundo/media-42824878?ocid=socialflow_facebook): 8 no hispanohablantes lo intentan
+- [Facebook invented a new time unit called the ‘flick’ and it’s truly amazing](https://techcrunch.com/2018/01/22/facebook-invented-a-new-time-unit-called-the-flick-and-its-truly-amazing/). Uhmmm Okkkkkkeeyy?
+
 
 Fin.
