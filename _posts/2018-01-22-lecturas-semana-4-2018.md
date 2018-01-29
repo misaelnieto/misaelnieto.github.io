@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Lecturas de la semana 4 del 2018
 
