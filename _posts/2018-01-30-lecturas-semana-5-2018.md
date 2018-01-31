@@ -12,4 +12,5 @@ published: false
 - [Which operating system is not Unix based?](https://www.quora.com/Which-operating-system-is-not-Unix-based)
  - [Cómo medir celdas solares](http://plasticphotovoltaics.com/lc/characterization/lc-measure.html) (Tomado del curso de celdas solares organicas de Coursera).
  - [Even a single cigarette a day can be devastating for your health](https://www.zmescience.com/medicine/one-cigarette-smoking-25012018/). Yo no fumo.
+ - [How to Collapse a Pipe by Closing a Valve](https://www.youtube.com/watch?v=aspPJ2Wcaig).
  - 
