@@ -51,5 +51,8 @@ Ahora vamos con la configuración de Apache. En el archivo de configuracion es `
 
 Guarda el archivo. /var/www/pshop.starblade es una liga simbolica a /home/nnieto/Code/HolokinesisLibros/hkl_pshop
 
-ln -s 
+ln -s /home/nnieto/Code/HolokinesisLibros/hkl_pshop /var/www/pshop.starblade
+
+
+## Permisos y SE Linux
 
