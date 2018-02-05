@@ -123,7 +123,7 @@ for domain in domains:
 
 Al final decidí quedarme con letsencrypt_webfaction por que no tengo que mantener un script de python y al final funcionó bastante bien.
 
-Me base en este sitio:
+Me basé en este sitio:
 
 http://bcc.npdoty.name/directions-to-migrate-your-WebFaction-site-to-HTTPS
 
