@@ -33,93 +33,7 @@ RewriteRule ^(.*)$ https://demos.noenieto.com/$1 [R=301,L]
 ```
 
 
-## Probando Acme.sh
-
-Este fue la primera herramiente que use, hace unos 6 meses. Para instalar Acme.sh me basé en una [respuesta a una pregunta en el foro de webfaction](https://community.webfaction.com/questions/19988/using-letsencrypt).
-
-El proceso de instalación es bastante sencillo por que acme.sh viene con su propio _instalador_.
-
-```bash
-curl https://get.acme.sh | sh
-```
-
-Al correr el instalador saca algunos mensajes de error: 
-
-![It is recommended to install socat first. We use socat for standalone server if you use standalone mode. If you don't use standalone mode, just ignore this warning]({{site.baseurl}}/media/Screenshot from 2017-10-13 13-18-07.png)
-
-Simplemente ignore el mensaje y segui con la tarea. Entonces, acme.sh ya esta instalado. Para acceder a la ayuda de `acme.sh` se debe de usar la opción `--help`: 
-
-```bash
-acme.sh --help
-```
-
-Las opciones son muchas, pero solo haremos uso de unas cuantas a la vez. Lo primero que quiero hacer es emitir el certificado para un sitio por primera vez; como es la primera vez que voy a hacer esto usaré la opción `--test` de acme.sh
-
-```bash
-acme.sh --issue --test -d demos.noenieto.com -w ~/webapps/demos_noenieto
-```
-
-
-```bash
-acme.sh --issue --test -d demos.noenieto.com -w ~/webapps/demos_noenieto
-acme.sh --issue -d demos.noenieto.com -w ~/webapps/demos_noenieto
-acme.sh --force --issue -d demos.noenieto.com -w ~/webapps/demos_noenieto
-ls /home/fulano/.acme.sh/demos.noenieto.com/
-demos.noenieto.com.cer
-demos.noenieto.com.key
-ca.cer
-```
-
-### Renovacion y cronjob
-
-
-```bash
-acme.sh --cron --home /home/fulano/.acme.sh
-/home/fulano/.acme.sh/acme.sh --cron --home /home/fulano/.acme.sh
-acme.sh --renew-all
-acme.sh --renew-all --force
-/home/fulano/.acme.sh/acme.sh --cron --home /home/fulano/.acme.sh
-/home/fulano/.acme.sh/acme.sh --cron --force --home /home/fulano/.acme.sh
-```
-
-acme.sh --list | tail -n +2 | cut -f 1 -d ' '
-```cron
-52 0 * * * /home/fulano/.acme.sh/acme.sh --cron --home /home/fulano/.acme.sh > /dev/null
-```
-
-```python
-#!/usr/bin/env python
-# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
-from os.path import join as joinpath, expanduser
-from xmlrpclib import ServerProxy
-
-
-wf_api = ServerProxy('https://api.webfaction.com/')
-session_id, account = wf_api.login(
-    'fulano',
-    'sup3rs4dr37',
-    '',
-    2
-)
-
-base_path = '~/.acme.sh'
-domains = ['demos.noenieto.com', ]
-
-for domain in domains:
-    dpath = joinpath(base_path, domain)
-    cert_path = joinpath(dpath, '{}.cer'.format(domain))
-    privkey_path = joinpath(dpath, '{}.key'.format(domain))
-    intermediates_path = joinpath(dpath, 'fullchain.cer')
-    wf_api.update_certificate(
-        session_id,
-        open(expanduser(cert_path), 'r').read(),
-        open(expanduser(privkey_path), 'r').read(),
-        open(expanduser(intermediates_path), 'r').read()
-    )
-```
-
-
-## Probando letsencrypt_webfaction
+## Instalando letsencrypt_webfaction
 
 Al final decidí quedarme con letsencrypt_webfaction por que no tengo que mantener un script de python y al final funcionó bastante bien.
 
@@ -201,21 +115,7 @@ Despues de esto verifico que `demos` ya aparece en la lista de certificados de w
 
 ### Renovacion y cronjob
 
-Primero voy a hacer un script de bash para simplificar
-
-```bash
-#!/bin/bash
-PATH=$PATH:$GEM_HOME/bin:/usr/local/bin
-GEM_HOME=$HOME/.letsencrypt_webfaction/gems
-RUBYLIB=$GEM_HOME/lib
-
-ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction \
-    --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml \
-    --domains [yourdomain.com,www.yourdomain.com] --public ~/webapps/[yourapp/your_public_html]/ \
-    --quiet
-
+```cron
+# Let's encrypt
+00 0 * * * letsencrypt_webfaction --quiet --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
 ```
-
-Luegoi el Cron
-
-Pero falta leer la documentacion.
