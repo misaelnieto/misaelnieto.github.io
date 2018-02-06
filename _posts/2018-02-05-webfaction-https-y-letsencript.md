@@ -127,13 +127,17 @@ Add the `--quiet` parameter in your cron task to remove this message.
 
 Después de configurar el sitio con registros A y AAA el programa funciona muy bien y justo después de esto podemos ver que en el panel de configuración cuenta de de webfaction se ha creado un certificado con el nombre `cert_demos_noenieto.com`.
 
+![Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png)
+
+Es solo cuestion de seleccionar el certificado para el sitio https adecuado.
+
+
 El comando final es este:
 
 ```bash
 letsencrypt_webfaction --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
 ```
 
-Despues de esto verifico que `demos` ya aparece en la lista de certificados de webfaction. Es solo cuestion de seleccionar el certificado para el sitio https adecuado.
 
 ### Renovacion y cronjob
 
@@ -176,13 +180,17 @@ $ dig demos.noenieto.com
 [...]
 
 ;; ANSWER SECTION:
-demos.noenieto.com.	1799	IN	A	215.38.99.18
-demos.noenieto.com.	1799	IN	AAAA	215:de00:2:2:4a:c::98
+demos.noenieto.com.	1799	IN	A	207.38.86.18
 [...]
 ```
 ... el registro del certificado funciona bien:
 
 ```bash
+$ letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/letsencrypt/demos_noenieto_com.yml 
+Your new certificate is now created and installed.
+You will need to change your application to use the demos_noenieto_com certificate.
+Add the `--quiet` parameter in your cron task to remove this message.
+
 ```
 
 
