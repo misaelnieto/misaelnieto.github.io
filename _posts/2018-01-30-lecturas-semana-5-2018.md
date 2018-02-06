@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Ya estamos en la semana 5!! El tiempo se va rapidísimo.
 
@@ -18,4 +18,4 @@ published: false
  - Colores para graficas de MatPlotLib súper bonitos!! [ matplotlib extension for vaporwave aesthetics](https://github.com/dantaki/vapeplot).
  - Órale! Un chip que ya hace MAchine vision (creo ...). [Tiny Vision Processing Chip Could Reduce System Size for Use in IoT](https://www.photonics.com/Article.aspx?AID=63060&refer=weeklyNewsletter&utm_source=weeklyNewsletter_2018_02_01&utm_medium=email&utm_campaign=weeklyNewsletter&PID=6)
  - [Single Metalens Focuses all Colors of the Rainbow in one Point](https://www.photonics.com/Article.aspx?AID=63034&refer=weeklyNewsletter&utm_source=weeklyNewsletter_2018_02_01&utm_medium=email&utm_campaign=weeklyNewsletter&PID=6)
- - 
+ -
