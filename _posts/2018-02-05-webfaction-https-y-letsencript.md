@@ -68,6 +68,9 @@ source ~/.bash_profile
 Ahora probamos:
 
 ```bash
+$ letsencrypt_webfaction --version
+2.2.1
+
 $ letsencrypt_webfaction --help
 Usage: letsencrypt_webfaction [options]
         --config=CONFIG              Path to config file. Arguments passed to the program will override corresponding directives in the config file.
@@ -86,6 +89,7 @@ Usage: letsencrypt_webfaction [options]
         --cert_name=CERT_NAME        The name of the certificate in the Webfaction UI.
         --quiet                      Whether to display text on success.
         --version                    Show version
+
 $
 ```
 
@@ -94,8 +98,8 @@ $
 La herramienta tiene muchos ajustes, asi que es mejor guardar todo en un archivo.
 
 ```bash
-mkdir ~/certificates
-vim ~/certificates/demos_noenieto_com.yml
+mkdir ~/letsencrypt
+vim ~/letsencrypt/demos_noenieto_com.yml
 ```
 
 Aca esta el contenido de mi archivo de configuración
@@ -109,10 +113,13 @@ username: noenieto
 password: S0rpr354
 cert_name: demos_noenieto_com
 ```
+Nota: El nombre de usuario y contraseña son las de la cuenta de webfaction. 
 
 Primero probamos con staging
 
 ```bash
+letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/letsencrypt/demos_noenieto_com.yml 
+
 Your new certificate is now created and installed.
 You will need to change your application to use the ichp_ssl_cert certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
