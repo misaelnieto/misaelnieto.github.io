@@ -141,3 +141,50 @@ Despues de esto verifico que `demos` ya aparece en la lista de certificados de w
 # Let's encrypt
 00 0 * * * letsencrypt_webfaction --quiet --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
 ```
+
+## Problemas encontrados
+
+Como ya lo mencioné, esto no funciona bien usando CNAMES. Aca un ejemplo del error:
+
+```bash
+$ letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/letsencrypt/demos_noenieto_com.yml 
+Failed to verify statuses.
+demos.noenieto.com: Invalid response from http://demos.noenieto.com/.well-known/acme-challenge/nOAK22n3fuqyNxFRw37DwF1I02PlikLWU5_-jVtenGY: "<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equi"
+Make sure that you can access http://demos.noenieto.com/.well-known/acme-challenge/nOWK22n3fuqyNxFrasgva23123w37DwF1I02PlikLWU5_-jVtenGY
+```
+Dig reporta que demos.noenieto.com es un `CNAME`.
+
+```bash
+$ dig demos.noenieto.com
+[...]
+
+;; ANSWER SECTION:
+demos.noenieto.com.	1799	IN	CNAME	web547.webfaction.com.
+web547.webfaction.com.	3600	IN	A	207.38.86.18
+
+[...]
+```
+
+Una vez que los cambios en el DNS se han propagado ...
+
+```bash
+$ dig demos.noenieto.com
+[...]
+
+;; ANSWER SECTION:
+demos.noenieto.com.	1799	IN	A	215.38.99.18
+demos.noenieto.com.	1799	IN	AAAA	215:de00:2:2:4a:c::98
+[...]
+```
+... el registro del certificado funciona bien:
+
+```bash
+```
+
+
+
+
