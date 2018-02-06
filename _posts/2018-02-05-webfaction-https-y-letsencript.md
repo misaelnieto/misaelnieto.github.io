@@ -89,21 +89,21 @@ Usage: letsencrypt_webfaction [options]
 $
 ```
 
-## Configuracion
+## Configuracion final del sitio
 
 La herramienta tiene muchos ajustes, asi que es mejor guardar todo en un archivo.
 
 ```bash
-mkdir ~/SSL
-vim ~/SSL/demos_noenieto_com.yml
+mkdir ~/certificates
+vim ~/certificates/demos_noenieto_com.yml
 ```
 
 Aca esta el contenido de mi archivo de configuración
 
 ```
 domains: [demos.noenieto.com]
-public: [/home/fulano/webapps/demos_http]
-output_dir: /home/nnieto/SSL_certificates/
+public: [/home/nnieto/webapps/demos_http]
+output_dir: /home/nnieto/letsencrypt/
 letsencrypt_account_email: nnieto@noenieto.com
 username: noenieto
 password: S0rpr354
@@ -118,6 +118,7 @@ You will need to change your application to use the ichp_ssl_cert certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
 ```
 
+Después de configurar el sitio con registros A y AAA el programa funciona muy bien y justo después de esto podemos ver que en el panel de configuración cuenta de de webfaction se ha creado un certificado con el nombre `cert_demos_noenieto.com`.
 
 El comando final es este:
 
