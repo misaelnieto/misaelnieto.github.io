@@ -37,14 +37,11 @@ RewriteRule ^(.*)$ https://demos.noenieto.com/$1 [R=301,L]
 ```
 El archivo `.htacces` de arriba ya viene preparado redireccionar'a todas las peticiones al HTTPS excepto las del directorio `.well-known`.
 
-Finalmente vale la pena comentar que tuve muchos problemas al correr letsencryp_webfaction. La causa raíz es que el registro demos.noenieto.com era un `CNAME` que apunta al servidor de webfaction. Despues de la [ayuda del creador de letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction/issues/104) decidi probar a configurar todo con registros `A` y `AAAA`.
+Finalmente vale la pena comentar que tuve muchos problemas al correr letsencryp_webfaction. La causa raíz es que el registro demos.noenieto.com era un `CNAME` que apunta al servidor de webfaction. Despues de la [ayuda del creador de letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction/issues/104) decidi probar a configurar todo con registros `A` y `AAAA` y todo funcionó sin mayor problema.
 
-
-## Instalando letsencrypt_webfaction
+## Instalación de `letsencrypt_webfaction`
 
 Nota: esta entrada en el mailblog de  [Nick Doty](http://bcc.npdoty.name/directions-to-migrate-your-WebFaction-site-to-HTTPS) me sirvio mucho.
-
-## Instalacion
 
 Para instalar hay que usar ruby:
 
@@ -52,7 +49,7 @@ Para instalar hay que usar ruby:
 GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib gem2.2 install letsencrypt_webfaction
 ```
 
-Es muy recomendable agregar esto al final de `.bash_profile` para no tener que especificar las variables de entorno todo el tiempo.:
+Es muy recomendable agregar esto al final de `.bash_profile` para no tener que especificar las variables de entorno cada vez que corre `letsencrypt_webfaction`:
 
 ```bash
 function letsencrypt_webfaction {
