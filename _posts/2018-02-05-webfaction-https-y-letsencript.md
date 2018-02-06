@@ -62,7 +62,6 @@ function letsencrypt_webfaction {
 
 export -f letsencrypt_webfaction
 ```
-
 Para no reiniciar sesion:
 
 ```bash
@@ -107,7 +106,10 @@ You will need to change your application to use the ichp_ssl_cert certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
 ```
 
-Nota: Tuve que configurar el DNS en IPv4 e IPv6 con registros `A` y `AAAA`. Tuve muchos problemas por que el registro era un `CNAME` a el servidor de webfaction. Despues de la ayuda del creador de letsencrypt_webfaction decidi probar a configurar todo con registros `A` y `AAAA`.
+Nota: 
+
+
+Tuve que configurar el DNS en IPv4 e IPv6 con registros `A` y `AAAA`. Tuve muchos problemas por que el registro era un `CNAME` a el servidor de webfaction. Despues de la [ayuda del creador de letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction/issues/104) decidi probar a configurar todo con registros `A` y `AAAA`.
 
 El comando final es este:
 
