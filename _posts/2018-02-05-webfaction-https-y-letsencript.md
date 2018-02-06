@@ -35,7 +35,9 @@ RewriteBase /
 RewriteCond %{REQUEST_URI} !^/.well-known
 RewriteRule ^(.*)$ https://demos.noenieto.com/$1 [R=301,L]
 ```
-El archivi `.htacces` de arriba ya viene preparado redireccionar'a todas las peticiones al HTTPS excepto las del directorio `.well-known`.
+El archivo `.htacces` de arriba ya viene preparado redireccionar'a todas las peticiones al HTTPS excepto las del directorio `.well-known`.
+
+Finalmente vale la pena comentar que tuve muchos problemas al correr letsencryp_webfaction. La causa raíz es que el registro demos.noenieto.com era un `CNAME` que apunta al servidor de webfaction. Despues de la [ayuda del creador de letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction/issues/104) decidi probar a configurar todo con registros `A` y `AAAA`.
 
 
 ## Instalando letsencrypt_webfaction
@@ -90,41 +92,35 @@ Usage: letsencrypt_webfaction [options]
 $
 ```
 
-
 ## Configuracion
 
 La herramienta tiene muchos ajustes, asi que es mejor guardar todo en un archivo.
 
 ```bash
-mkdir -p ~/SSL/demos_noenieto_com.yml/
+mkdir ~/SSL
 vim ~/SSL/demos_noenieto_com.yml
 ```
 
-Aca esta el contenido de mi archivo.
+Aca esta el contenido de mi archivo de configuración
 
 ```
 domains: [demos.noenieto.com]
 public: [/home/fulano/webapps/demos_http]
-output_dir: /home/fulano/SSL_certificates/demos.noenieto.com
+output_dir: /home/nnieto/SSL_certificates/
 letsencrypt_account_email: nnieto@noenieto.com
-username: fulano
-password: S00p3rp455
-cert_name: demos
+username: noenieto
+password: S0rpr354
+cert_name: demos_noenieto_com
 ```
 
 Primero probamos con staging
 
 ```bash
-$ letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/SSL_certificates/www.holokineticpsychology.org/config.yml 
 Your new certificate is now created and installed.
 You will need to change your application to use the ichp_ssl_cert certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
 ```
 
-Nota: 
-
-
-Tuve que configurar el DNS en IPv4 e IPv6 con registros `A` y `AAAA`. Tuve muchos problemas por que el registro era un `CNAME` a el servidor de webfaction. Despues de la [ayuda del creador de letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction/issues/104) decidi probar a configurar todo con registros `A` y `AAAA`.
 
 El comando final es este:
 
