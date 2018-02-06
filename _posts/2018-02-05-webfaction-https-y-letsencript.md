@@ -19,14 +19,14 @@ El sitio que voy a confgurar es: [demos.noenieto.com](https://demos.noenieto.com
 
 ![Sitio HTTPS ya configurado en webfaction]({{site.baseurl}}/media/Screenshot from 2017-10-13 12-38-50.png)
 
-letsencrypt_webfaction requiere tener acceso a la raiz del sitio por medio del sistema de archivo
+`letsencrypt_webfaction` requiere tener acceso a la raiz del sitio por medio del sistema de archivo
 Como ultimo detalle, la ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para **http** y **https** ya que es necesario acceso al sitio por **http** antes de poder emitir el certificado por primera vez.
 
 Tambien hay que confugurar un sitio para redireccionar de **http** a **https**. Ambos son sitios estáticos.
 
 ![Screenshot-2018-1-6 Website list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-1-6 Website list - WebFaction Control Panel.png)
 
-En el sitio demos_http agregamos un archivo `.htaccess` que contiene:
+En el sitio `demos_http` agregamos un archivo `.htaccess` que contiene:
 
 ```apache
 Options +FollowSymLinks
@@ -35,25 +35,22 @@ RewriteBase /
 RewriteCond %{REQUEST_URI} !^/.well-known
 RewriteRule ^(.*)$ https://demos.noenieto.com/$1 [R=301,L]
 ```
+El archivi `.htacces` de arriba ya viene preparado redireccionar'a todas las peticiones al HTTPS excepto las del directorio `.well-known`.
 
 
 ## Instalando letsencrypt_webfaction
 
-Al final decidí quedarme con letsencrypt_webfaction por que no tengo que mantener un script de python y al final funcionó bastante bien.
+Nota: esta entrada en el mailblog de  [Nick Doty](http://bcc.npdoty.name/directions-to-migrate-your-WebFaction-site-to-HTTPS) me sirvio mucho.
 
-Me basé en este sitio:
+## Instalacion
 
-http://bcc.npdoty.name/directions-to-migrate-your-WebFaction-site-to-HTTPS
-
-### Instalacion
-
-Para instalar corri esto:
+Para instalar hay que usar ruby:
 
 ```bash
 GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib gem2.2 install letsencrypt_webfaction
 ```
 
-Y agregué esto al final de `.bash_profile`:
+Es muy recomendable agregar esto al final de `.bash_profile` para no tener que especificar las variables de entorno todo el tiempo.:
 
 ```bash
 function letsencrypt_webfaction {
@@ -62,19 +59,39 @@ function letsencrypt_webfaction {
 
 export -f letsencrypt_webfaction
 ```
-Para no reiniciar sesion:
+
+Luego, para no reiniciar sesion:
 
 ```bash
 source ~/.bash_profile
 ```
+
 Ahora probamos:
 
 ```bash
-letsencrypt_webfaction
-letsencrypt_webfaction --help
+$ letsencrypt_webfaction --help
+Usage: letsencrypt_webfaction [options]
+        --config=CONFIG              Path to config file. Arguments passed to the program will override corresponding directives in the config file.
+    -h, --help                       Prints this help
+        --key_size=KEY_SIZE          Size of private key (e.g. 4096)
+        --endpoint=ENDPOINT          ACME endpoint (e.g. https://acme-v01.api.letsencrypt.org/)
+        --domains=DOMAINS            Comma separated list of domains. The first one will be the common name.
+        --public=PUBLIC              Locations on the filesystem served by the desired sites (e.g. "~/webapps/myapp/public_html,~/webapps/myapp1/public_html")
+        --output_dir=OUTPUT_DIR      Location on the filesystem to which the certs will be saved.
+        --letsencrypt_account_email=LETSENCRYPT_ACCOUNT_EMAIL
+                                     The email address associated with your account.
+        --api_url=API_URL            The URL to the Webfaction API.
+        --username=USERNAME          The username for your Webfaction account.
+        --password=PASSWORD          The password for your Webfaction account.
+        --servername=SERVERNAME      The server on which this application resides (e.g. Web123).
+        --cert_name=CERT_NAME        The name of the certificate in the Webfaction UI.
+        --quiet                      Whether to display text on success.
+        --version                    Show version
+$
 ```
 
-### Configuracion
+
+## Configuracion
 
 La herramienta tiene muchos ajustes, asi que es mejor guardar todo en un archivo.
 
@@ -94,8 +111,6 @@ username: fulano
 password: S00p3rp455
 cert_name: demos
 ```
-
-Es bien importante que el directorio public este bien configurado. El `.htacces` de arriba ya viene preparado. Redireccionara todas las peticiones al HTTPS excepto las del directorio `.well-known`.
 
 Primero probamos con staging
 
