@@ -19,6 +19,7 @@ El sitio que voy a confgurar es: [demos.noenieto.com](https://demos.noenieto.com
 
 ![Sitio HTTPS ya configurado en webfaction]({{site.baseurl}}/media/Screenshot from 2017-10-13 12-38-50.png)
 
+letsencrypt_webfaction requiere tener acceso a la raiz del sitio por medio del sistema de archivo
 Como ultimo detalle, la ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para **http** y **https** ya que es necesario acceso al sitio por **http** antes de poder emitir el certificado por primera vez.
 
 Tambien hay que confugurar un sitio para redireccionar de **http** a **https**. Ambos son sitios estáticos.
