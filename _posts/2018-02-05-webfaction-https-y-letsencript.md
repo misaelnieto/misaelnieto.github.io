@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Configuración de un sitio HTTPS en webfaction con let's encrypt
 ---
 ## Configuracion de un sitio HTTPS en webfaction con let's encrypt
@@ -17,16 +17,14 @@ Inicialmente tenia planeado mostrar cómo usar ámbos métodos, pero no he podid
 
 El sitio que voy a confgurar es: [demos.noenieto.com](https://demos.noenieto.com). Este dominio ya esta configurado en mi webfaction de antemano:
 
-![Sitio HTTPS ya configurado en webfaction]({{site.baseurl}}/media/Screenshot from 2017-10-13 12-38-50.png)
+![Screenshot-2018-1-6 Website list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-1-6 Website list - WebFaction Control Panel.png)
 
-`letsencrypt_webfaction` requiere tener acceso a la raiz del sitio por medio del sistema de archivo
-Como ultimo detalle, la ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para **http** y **https** ya que es necesario acceso al sitio por **http** antes de poder emitir el certificado por primera vez.
+
+La ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para **http** y **https** ya que es necesario acceso al sitio por **http** antes de poder emitir el certificado por primera vez.
 
 Tambien hay que confugurar un sitio para redireccionar de **http** a **https**. Ambos son sitios estáticos.
 
-![Screenshot-2018-1-6 Website list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-1-6 Website list - WebFaction Control Panel.png)
-
-En el sitio `demos_http` agregamos un archivo `.htaccess` que contiene:
+En el sitio `demos_http` agregué un archivo `.htaccess` que contiene lo siguiente:
 
 ```apache
 Options +FollowSymLinks
@@ -35,9 +33,9 @@ RewriteBase /
 RewriteCond %{REQUEST_URI} !^/.well-known
 RewriteRule ^(.*)$ https://demos.noenieto.com/$1 [R=301,L]
 ```
-El archivo `.htacces` de arriba ya viene preparado redireccionar'a todas las peticiones al HTTPS excepto las del directorio `.well-known`.
+El archivo `.htaccess` de arriba redireccionará todas las peticiones al sitio HTTPS excepto las del directorio `.well-known`.
 
-Finalmente vale la pena comentar que tuve muchos problemas al correr letsencryp_webfaction. La causa raíz es que el registro demos.noenieto.com era un `CNAME` que apunta al servidor de webfaction. Despues de la [ayuda del creador de letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction/issues/104) decidi probar a configurar todo con registros `A` y `AAAA` y todo funcionó sin mayor problema.
+Vale la pena comentar que tuve muchos problemas al correr `letsencryp_webfaction`. La causa raíz es que el registro **demos.noenieto.com** era un `CNAME` que apunta al servidor de webfaction. Despues de la [ayuda del creador de letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction/issues/104) decidi probar a configurar todo con registros `A` y `AAAA` y todo funcionó sin mayor problema.
 
 ## Instalación de `letsencrypt_webfaction`
 
@@ -129,7 +127,9 @@ Después de configurar el sitio con registros A y AAA el programa funciona muy b
 
 ![Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png)
 
-Es solo cuestion de seleccionar el certificado para el sitio https adecuado.
+Ya sólo falta configurar el sitio web para que use el certificadovadecuado.
+
+![Screenshot-2018-2-7 Edit website demos_https - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-7 Edit website demos_https - WebFaction Control Panel.png)
 
 
 El comando final es este:
