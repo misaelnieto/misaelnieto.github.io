@@ -4,14 +4,14 @@ title: Configuración de un sitio HTTPS en webfaction con let's encrypt
 ---
 ## Configuracion de un sitio HTTPS en webfaction con let's encrypt
 
-Estas son mis notas de configuracion de HTTPS en webfaction, pero usando certificados de [Let's Encrypt](https://letsencrypt.org/).
+Estas son mis notas de configuracion de HTTPS en webfaction usando certificados de [Let's Encrypt](https://letsencrypt.org/).
 
 Hasta el dia de hoy (5 de Febreo de 2018) sólo he probado dos métodos:
 
 * [letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction) (escrito en Ruby)
 * [Acme.sh](https://github.com/Neilpang/acme.sh) (escrito en bash)
 
-Inicialmente tenia planeado mostrar cómo usar ámbos métodos, pero no he podido completarlo así que sólo voy a cubrir `letsencrypt_webfaction`.
+Inicialmente tenia planeado mostrar cómo usar ámbos métodos, pero no he podido completarlo así que sólo voy a cubrir `letsencrypt_webfaction` que es el que mejor se ha portado.
 
 ## Preparación del sitio
 
