@@ -12,4 +12,5 @@ Y aqui va otra semana más: semana seise de 52; restan 46.
 - [‘Pejeleaks’, el sitio de investigaciones contra AMLO](https://www.reporteindigo.com/reporte/lo-que-sabemos-de-pejeleaks-sitio-investigaciones-contra-amlo/)
 - [Crece en India la plaga de secuestros de hombres solteros para forzarles al matrimonio](https://elpais.com/internacional/2018/02/06/actualidad/1517924792_401868.html?id_externo_rsoc=FB_CM)
 - Malas noticias. Cartel Jalisco Nueva GeneraciónL [“Hemos llegado” a la CDMX](http://www.proceso.com.mx/521447/hemos-llegado-la-cdmx-para-pelear-contra-el-h-advierte-narcomanta-del-cjng-dejada-en-periferico-sur)
-- 
+- [ Bitcoin sinking like a stone with cryptocurrency market in freefall ](https://www.rt.com/business/417964-bitcoin-cryptocurrencies-fall-ethereum-ripple/)
+- [Pouring a 4.5 ton lead keel -Acorn to Arabella](https://www.youtube.com/watch?v=K1cpJBtWnQg)
