@@ -11,14 +11,13 @@ Hasta el dia de hoy (5 de Febreo de 2018) sólo he probado dos métodos:
 * [letsencrypt_webfaction](https://github.com/will-in-wi/letsencrypt-webfaction) (escrito en Ruby)
 * [Acme.sh](https://github.com/Neilpang/acme.sh) (escrito en bash)
 
-Inicialmente tenia planeado mostrar cómo usar ámbos métodos, pero no he podido completarlo así que sólo voy a cubrir `letsencrypt_webfaction` que es el que mejor se ha portado.
+Inicialmente tenia planeado mostrar cómo usar ámbos métodos, pero no he podido completarlo así que solo voy a cubrir `letsencrypt_webfaction` que es el que mejor se ha portado.
 
 ## Preparación del sitio
 
 El sitio que voy a confgurar es: [demos.noenieto.com](https://demos.noenieto.com). Este dominio ya esta configurado en mi webfaction de antemano:
 
 ![Screenshot-2018-1-6 Website list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-1-6 Website list - WebFaction Control Panel.png)
-
 
 La ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para **http** y **https** ya que es necesario acceso al sitio por **http** antes de poder emitir el certificado por primera vez.
 
@@ -47,20 +46,13 @@ Para instalar hay que usar ruby:
 GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib gem2.2 install letsencrypt_webfaction
 ```
 
-Es muy recomendable agregar esto al final de `.bash_profile` para no tener que especificar las variables de entorno cada vez que corre `letsencrypt_webfaction`:
+Luego hice un script (`~/bin/letsencrypt_webfaction`) que ya define las variables de entorno:
 
 ```bash
-function letsencrypt_webfaction {
-    PATH=$PATH:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $*
-}
+#!/bin/bash
 
-export -f letsencrypt_webfaction
-```
+PATH=$PATH:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $*
 
-Luego, para no reiniciar sesion:
-
-```bash
-source ~/.bash_profile
 ```
 
 Ahora probamos:
@@ -192,7 +184,3 @@ You will need to change your application to use the demos_noenieto_com certifica
 Add the `--quiet` parameter in your cron task to remove this message.
 
 ```
-
-
-
-
