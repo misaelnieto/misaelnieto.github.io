@@ -111,11 +111,11 @@ Primero probamos con staging
 letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/letsencrypt/demos_noenieto_com.yml 
 
 Your new certificate is now created and installed.
-You will need to change your application to use the ichp_ssl_cert certificate.
+You will need to change your application to use the demos_noenieto_com certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
 ```
 
-Después de configurar el sitio con registros A y AAA el programa funciona muy bien y justo después de esto podemos ver que en el panel de configuración cuenta de de webfaction se ha creado un certificado con el nombre `cert_demos_noenieto.com`.
+Después de configurar el sitio con registros `A` y `AAA` el programa funciona muy bien y justo después de esto podemos ver que en el panel de configuración cuenta de de webfaction se ha creado un certificado con el nombre `cert_demos_noenieto.com`.
 
 ![Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png)
 
@@ -127,7 +127,7 @@ Ya sólo falta configurar el sitio web para que use el certificadovadecuado.
 El comando final es este:
 
 ```bash
-letsencrypt_webfaction --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
+letsencrypt_webfaction --config=$HOME/letsencrypt/demos_noenieto_com.yml
 ```
 
 
