@@ -133,9 +133,22 @@ letsencrypt_webfaction --config=$HOME/letsencrypt/demos_noenieto_com.yml
 
 ### Renovacion y cronjob
 
+Los certificados de Let's encrypt [duran sólo 90 días](https://letsencrypt.org/2015/11/09/why-90-days.html) asi que lo configuraré para que se renueve todos los días 15 del mes a la media noche.
+
 ```cron
 # Let's encrypt
-00 0 * * * letsencrypt_webfaction --quiet --config=$HOME/SSL_certificates/demos.noenieto.com/config.yml
+00 0 15 * * ~/bin/letsencrypt_webfaction --quiet --config=$HOME/letsencrypt/demos_noenieto_com.yml
+```
+
+### Notificacion por email
+
+Ahora quiero que cada vez que se actualicen los certificados me llegue una notificación a mi correo. Esto se puede hacer fácilmente desde el comando `letsencrypt_webfaction` agregándole lo siguiente hasta el final.
+
+```bash
+mail -s "Renovacion de certificado" "nnieto@noenieto.com" <<EOF
+Se renovó un certifcado de letsencrypt.
+Argumentos: $*
+EOF
 ```
 
 ## Problemas encontrados
