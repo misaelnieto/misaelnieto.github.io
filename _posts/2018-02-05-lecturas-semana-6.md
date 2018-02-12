@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 Y aqui va otra semana más: semana seise de 52; restan 46.
 
@@ -35,6 +35,3 @@ Y aqui va otra semana más: semana seise de 52; restan 46.
 - [Así son las nuevas gafas con reconocimiento facial que usa la policía en China para capturar sospechosos](http://www.bbc.com/mundo/noticias-43003860)Según la BBC, China cuenta con la mayor red de videovigilancia del mundo. Ya tiene activas cerca de 170 millones de cámaras en distintos puntos de distintas ciudades, y en los próximos años espera instalar otros 400 millones.
 - [Es ilegal cancelar beca por trabajar](http://amp.eluniversal.com.mx/amp/note/amp/eluniversal/1152218)
 - [Plaga de incautaciones - Keiser Report en español (E1186)](https://www.youtube.com/watch?v=VbxcdEzt4lI). Personal Uber; Holanda saca un programa piloto para confiscar prendas y alhajas a jóvenes que se vean demasiado jodidos como para llevarlas .... uhmm WTF; los ahorros de los consumidores de gringolandia (70% de la población) han caido a su menor nivel en 12 años; Samsung comienza a fabricas ASICs para minar bitcoins y otras criptomonedas; Entrevista a un minero de cripto monedas.
-- 
-
-
