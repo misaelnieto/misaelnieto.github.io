@@ -55,3 +55,5 @@ ln -s /home/nnieto/Code/HolokinesisLibros/hkl_pshop /var/www/pshop.starblade
 
 
 ## Permisos y SE Linux
+
+chmod o+w app/logs/
