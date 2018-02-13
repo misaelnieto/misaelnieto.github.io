@@ -8,3 +8,7 @@ published: false
 - [Andres Serrano's Unnerving Photography Series, 'Torture'](https://www.featureshoot.com/2018/01/andres-serranos-unnerving-photography-series-torture/)
 - [Portraits Recall Harlem in the 1980’s](https://www.featureshoot.com/2018/02/portraits-recall-harlem-in-the-1980s/)
 - Boston Dynamics lo hace de nuevo: [robot learns to open doors ...](https://techcrunch.com/2018/02/12/boston-dynamics-newest-robot-learns-to-open-doors/)
+- [La experiencia de una moderadora de Facebook](http://www.bbc.com/mundo/noticias-43002940)
+- RedHat le esta apostando a CoreOS. [Aqui explican por qué](https://www.redhat.com/en/blog/coreos-bet).
+- [Gamebuino](https://opensource.com/article/18/2/build-your-own-games-console-arduino) es una consola para ejecutar juegos de video programados para arduino. En el link hay una guía de cómo armar la consola.
+- 
