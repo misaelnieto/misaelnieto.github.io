@@ -57,3 +57,7 @@ ln -s /home/nnieto/Code/HolokinesisLibros/hkl_pshop /var/www/pshop.starblade
 ## Permisos y SE Linux
 
 chmod o+w app/logs/
+
+## Configuracion
+
+Prestashop 1.7 guarda la configuración en app/config/. La configuración de la base de datos esta en app/config/parameters.php
