@@ -46,6 +46,7 @@ Ahora vamos con la configuración de Apache. En el archivo de configuracion es `
     ServerName pshop.starblade
     ErrorLog "/var/log/httpd/pshop.starblade-error_log"
     CustomLog "/var/log/httpd/pshop.starblade-access_log" common
+    ProxyTimeout 300
 </VirtualHost>
 ```
 
@@ -57,6 +58,10 @@ ln -s /home/nnieto/Code/HolokinesisLibros/hkl_pshop /var/www/pshop.starblade
 ## Permisos y SE Linux
 
 chmod o+w app/logs/
+ausearch -c 'php-fpm' --raw | audit2allow -M my-phpfpm
+semodule -i my-phpfpm.pp
+setsebool -P httpd_can_network_connect 1
+setsebool -P httpd_read_user_content 1
 
 ## Configuracion
 
