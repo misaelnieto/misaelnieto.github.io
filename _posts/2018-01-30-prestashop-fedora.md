@@ -47,7 +47,7 @@ Ahora vamos con la configuración de Apache. En el archivo de configuracion es `
     ServerAlias phop.starblade
     ErrorLog "/var/log/httpd/pshop.starblade-error_log"
     CustomLog "/var/log/httpd/pshop.starblade-access_log" common
-    LogLevel debug
+    # LogLevel debug
     ProxyTimeout 300
     <Directory /var/www/pshop.starblade>
         <IfModule mod_php7.c>
@@ -57,12 +57,21 @@ Ahora vamos con la configuración de Apache. En el archivo de configuracion es `
 </VirtualHost>
 ```
 
-Guarda el archivo. /var/www/pshop.starblade es una liga simbolica a /home/nnieto/Code/HolokinesisLibros/hkl_pshop
+Guarda el archivo.
 
+El directorio `/var/www/pshop.starblade` es una liga simbolica a `/home/nnieto/Code/HolokinesisLibros/hkl_pshop`:
+
+```bash
 ln -s /home/nnieto/Code/HolokinesisLibros/hkl_pshop /var/www/pshop.starblade
-
+```
 
 ## Permisos y SE Linux
+
+Prestashop (en realidad, `php-fpm`) corre como el usuario `apache`, pero necesita tener permisos de escritura en `app/logs` y en `xxx`. Por otra parte el directory hkl_pshop esta en mi directorio `$HOME` y necesito editar archivos ahi. Asi que los permisos de usuario son para mi cuenta y agrego permisos de escritura para el grupo apache.
+
+
+
+
 
 chmod o+w app/logs/
 ausearch -c 'php-fpm' --raw | audit2allow -M my-phpfpm
