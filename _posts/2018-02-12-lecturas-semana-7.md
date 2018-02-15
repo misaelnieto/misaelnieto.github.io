@@ -12,3 +12,5 @@ published: false
 - RedHat le esta apostando a CoreOS. [Aqui explican por qué](https://www.redhat.com/en/blog/coreos-bet).
 - [Gamebuino](https://opensource.com/article/18/2/build-your-own-games-console-arduino) es una consola para ejecutar juegos de video programados para arduino. En el link hay una guía de cómo armar la consola.
 - De Deutsche Welle: [Democracias en la tenaza de las iglesias neopentecostales](http://www.dw.com/es/democracias-en-la-tenaza-de-las-iglesias-neopentecostales/a-42522738)
+- [Stress ruins memory, but you can outrun this effect](https://www.zmescience.com/science/stress-memory-exercise/). Pfff.
+- 
