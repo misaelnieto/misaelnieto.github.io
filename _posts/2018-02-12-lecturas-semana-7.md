@@ -13,4 +13,6 @@ published: false
 - [Gamebuino](https://opensource.com/article/18/2/build-your-own-games-console-arduino) es una consola para ejecutar juegos de video programados para arduino. En el link hay una guía de cómo armar la consola.
 - De Deutsche Welle: [Democracias en la tenaza de las iglesias neopentecostales](http://www.dw.com/es/democracias-en-la-tenaza-de-las-iglesias-neopentecostales/a-42522738)
 - [Stress ruins memory, but you can outrun this effect](https://www.zmescience.com/science/stress-memory-exercise/). Pfff.
+- [El investigador que logró la imposible tarea de fotografiar un minúsculo átomo con una cámara estándar](http://www.bbc.com/mundo/noticias-43073262). Fuente que no dan los de la BBC: [Single trapped atom captures Science Photography Competition's top prize](https://www.epsrc.ac.uk/newsevents/news/single-trapped-atom-captures-science-photography-competitions-top-prize/)
+- En chile un [perro antidrogas delató a joven que llevaba 6 mil dosis de pasta base en un bus ](http://www.biobiochile.cl/noticias/nacional/region-de-tarapaca/2018/02/15/perro-antidrogas-delato-a-joven-que-llevaba-6-mil-dosis-de-pasta-base-en-un-bus.shtml)
 - 
