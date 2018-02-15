@@ -44,9 +44,16 @@ Ahora vamos con la configuración de Apache. En el archivo de configuracion es `
     ServerAdmin nnieto@localhost
     DocumentRoot "/var/www/pshop.starblade"
     ServerName pshop.starblade
+    ServerAlias phop.starblade
     ErrorLog "/var/log/httpd/pshop.starblade-error_log"
     CustomLog "/var/log/httpd/pshop.starblade-access_log" common
+    LogLevel debug
     ProxyTimeout 300
+    <Directory /var/www/pshop.starblade>
+        <IfModule mod_php7.c>
+            php_value max_execution_time 300
+        </IfModule>
+    </Directory>
 </VirtualHost>
 ```
 
