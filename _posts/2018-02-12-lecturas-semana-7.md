@@ -15,4 +15,10 @@ published: false
 - [Stress ruins memory, but you can outrun this effect](https://www.zmescience.com/science/stress-memory-exercise/). Pfff.
 - [El investigador que logró la imposible tarea de fotografiar un minúsculo átomo con una cámara estándar](http://www.bbc.com/mundo/noticias-43073262). Fuente que no dan los de la BBC: [Single trapped atom captures Science Photography Competition's top prize](https://www.epsrc.ac.uk/newsevents/news/single-trapped-atom-captures-science-photography-competitions-top-prize/)
 - En chile un [perro antidrogas delató a joven que llevaba 6 mil dosis de pasta base en un bus ](http://www.biobiochile.cl/noticias/nacional/region-de-tarapaca/2018/02/15/perro-antidrogas-delato-a-joven-que-llevaba-6-mil-dosis-de-pasta-base-en-un-bus.shtml)
+- [ ¿Quién está detrás de PejeLeaks, la plataforma que revelará la faceta "más oscura" de López Obrador? ](https://actualidad.rt.com/actualidad/263046-peje-leaks-plataforma-elecciones-mexico-lopez-obrador)
+- [A JavaScript API for drawing unconventional text effects on the web. ](https://blotter.js.org/). Esta muy extraño. No me gustó.
+- Un compilador para componentes web. No tengo idea de para qué sirve. [The magical, reusable web component compiler](https://stenciljs.com/)
+- [WDRL — Edition 217: Easy Hard Web Development, Branding Details and Unidirectional Data Flows with Server-Sent Events](https://wdrl.info/archive/217)
+- [What are the top reasons for not buying Mercedes-Benz cars?](https://www.quora.com/What-are-the-top-reasons-for-not-buying-Mercedes-Benz-cars)
+- [Comparación de jQuery vs Vue.js](https://www.smashingmagazine.com/2018/02/jquery-vue-javascript/)
 - 
