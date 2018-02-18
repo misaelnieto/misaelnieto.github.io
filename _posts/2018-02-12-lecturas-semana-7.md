@@ -21,4 +21,6 @@ published: false
 - [WDRL — Edition 217: Easy Hard Web Development, Branding Details and Unidirectional Data Flows with Server-Sent Events](https://wdrl.info/archive/217)
 - [What are the top reasons for not buying Mercedes-Benz cars?](https://www.quora.com/What-are-the-top-reasons-for-not-buying-Mercedes-Benz-cars)
 - [Comparación de jQuery vs Vue.js](https://www.smashingmagazine.com/2018/02/jquery-vue-javascript/)
+- [Why does GNU not like systemd?](https://www.quora.com/Why-does-GNU-not-like-systemd)
+- Super controversial: [Is dictatorship always wrong? Doesn't history have any examples of good dictatorships/dictators?](https://www.quora.com/Is-dictatorship-always-wrong-Doesnt-history-have-any-examples-of-good-dictatorships-dictators)
 - 
