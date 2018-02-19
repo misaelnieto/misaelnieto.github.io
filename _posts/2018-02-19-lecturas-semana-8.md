@@ -8,4 +8,5 @@ Lecturas para la semana 8 del 2018
 -  An interactive, explorable explanation about the peculiar magic of sound waves. https://waveforms.surge.sh
 - [What Can Quartz Crystals Really Do?](https://www.zmescience.com/science/can-quartz-crystals-really/)
 - [ Moore's Law and High Performance Computing ](https://changelog.com/podcast/284)
+- Me encanto Thonny [http://thonny.org/](Thonny Python IDE for beginners)
 - 
