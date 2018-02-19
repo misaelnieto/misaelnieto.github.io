@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 
 - [A Glimpse at Life in Kyrgyzstan](https://www.featureshoot.com/2018/01/a-glimpse-at-life-in-kyrgyzstan/)
@@ -24,4 +24,3 @@ published: false
 - [Why does GNU not like systemd?](https://www.quora.com/Why-does-GNU-not-like-systemd)
 - Super controversial: [Is dictatorship always wrong? Doesn't history have any examples of good dictatorships/dictators?](https://www.quora.com/Is-dictatorship-always-wrong-Doesnt-history-have-any-examples-of-good-dictatorships-dictators)
 - [Bajo la lupa - "Revisión de la postura nuclear" del Pentágono: EU contra Rusia y China](http://www.jornada.unam.mx/2018/02/18/opinion/016o1pol)
-- 
