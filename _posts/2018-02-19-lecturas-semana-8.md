@@ -17,3 +17,6 @@ Lecturas para la semana 8 del 2018
 - [Por qué cientos de mormones decidieron abandonar su Iglesia en Estados Unidos](http://www.bbc.com/mundo/noticias/2015/11/151123_eeuu_mormones_abandonan_iglesia_por_normativa_sobre_gays_bd)
 - [¿Quién es el dueño de la palabra "mormón"?](http://www.bbc.com/mundo/noticias/2014/06/140609_economia_mormon_marca_registrada_msd)
 - Jalife [publica replica que el Reforma](RÉPLICA A Jorge SUAREZ 8.02.18) se nego a publicar.
+- [World's Easiest Silicone Mold.](http://www.instructables.com/id/Worlds-easiest-silicone-mold/)
+- [ More Than a Well-balanced Breakfast: Scientists Use Egg Whites for Clean Energy Production](https://www.pddnet.com/news/2018/02/more-well-balanced-breakfast-scientists-use-egg-whites-clean-energy-production)
+- 
