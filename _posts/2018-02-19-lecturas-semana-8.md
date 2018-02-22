@@ -22,4 +22,5 @@ Lecturas para la semana 8 del 2018
 - [Everything you need to know about CSS Variables](https://medium.freecodecamp.org/everything-you-need-to-know-about-css-variables-c74d922ea855)
 - [Marijuana Should Be Packaged, Regulated Following Tobacco Control Best Practices ](https://www.ucsf.edu/news/2018/02/409846/marijuana-should-be-packaged-regulated-following-tobacco-control-best-practices)
 - ['Pwned Passwords' V2 Launched With Half a Billion Passwords  ](https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/)
+- GnomeCase: [ A native Linux Chromecast GUI that supports transcoding and subtitles.](https://github.com/keredson/gnomecast)
 - 
