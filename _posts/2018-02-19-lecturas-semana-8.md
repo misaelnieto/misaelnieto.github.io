@@ -23,4 +23,6 @@ Lecturas para la semana 8 del 2018
 - [Marijuana Should Be Packaged, Regulated Following Tobacco Control Best Practices ](https://www.ucsf.edu/news/2018/02/409846/marijuana-should-be-packaged-regulated-following-tobacco-control-best-practices)
 - ['Pwned Passwords' V2 Launched With Half a Billion Passwords  ](https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/)
 - GnomeCase: [ A native Linux Chromecast GUI that supports transcoding and subtitles.](https://github.com/keredson/gnomecast)
+- [ Splitting Crystals for 2D Metallic Conductivity](https://www.pddnet.com/news/2018/02/splitting-crystals-2d-metallic-conductivity?et_cid=6268570&et_rid=1147451222&type=cta&et_cid=6268570&et_rid=1147451222&linkid=Splitting+Crystals+for+2D+Metallic+Conductivity). No tengo la menor idea de que es conductividad en 2 dimensiones.
+- [Enormous Clock Built to Keep Time for 10,000 Years](https://www.pddnet.com/videos/2018/02/video-day-enormous-clock-built-keep-time-10000-years). Patrocinado por la fundacion [Long Now](http://longnow.org/) que intenta apoyar el pensamiento a largo tiempo (10 mil años). No estoy seguro de qué pensar acerca de esta fundación.
 - 
