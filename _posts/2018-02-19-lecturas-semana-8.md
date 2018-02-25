@@ -13,10 +13,9 @@ Lecturas para la semana 8 del 2018
 - [ Promueven educación para haitianos](http://www.el-mexicano.com.mx/informacion/noticias/1/3/estatal/2018/02/17/1047659/promueven-educacion-para-haitianos) en Mexicali
 - [Tara Westover, la joven que se doctoró en la Universidad de Cambridge sin haber ido nunca a la escuela](http://www.bbc.com/mundo/noticias-43061996)
 - [Short Creek, la remota comunidad de Estados Unidos que practica la poligamia y ahora enfrenta un desastre genético](http://www.bbc.com/mundo/vert-fut-40737160)
-- [Short Creek, la remota comunidad de Estados Unidos que practica la poligamia y ahora enfrenta un desastre genético](http://www.bbc.com/mundo/vert-fut-40737160)
 - [Por qué cientos de mormones decidieron abandonar su Iglesia en Estados Unidos](http://www.bbc.com/mundo/noticias/2015/11/151123_eeuu_mormones_abandonan_iglesia_por_normativa_sobre_gays_bd)
 - [¿Quién es el dueño de la palabra "mormón"?](http://www.bbc.com/mundo/noticias/2014/06/140609_economia_mormon_marca_registrada_msd)
-- Jalife [publica replica que el Reforma](RÉPLICA A Jorge SUAREZ 8.02.18) se nego a publicar.
+- Jalife [publica réplica que el Reforma](RÉPLICA A Jorge SUAREZ 8.02.18) se nego a publicar.
 - [World's Easiest Silicone Mold.](http://www.instructables.com/id/Worlds-easiest-silicone-mold/)
 - [ More Than a Well-balanced Breakfast: Scientists Use Egg Whites for Clean Energy Production](https://www.pddnet.com/news/2018/02/more-well-balanced-breakfast-scientists-use-egg-whites-clean-energy-production)
 - [Everything you need to know about CSS Variables](https://medium.freecodecamp.org/everything-you-need-to-know-about-css-variables-c74d922ea855)
@@ -35,4 +34,4 @@ Lecturas para la semana 8 del 2018
 - [Why Are Mass Killings So Common in the United States?](https://www.globalresearch.ca/the-parkland-shooting-why-are-mass-killings-so-common-in-the-united-states/5630082)The root cause of such violence lies in the capitalist social system, based on ever-intensifying corporate exploitation, inequality, and war. This nightmarish American reality will be brought to an end only when capitalism is ended and replaced by socialism.
 - [Where do foster kids go when they're 18?](https://www.quora.com/Where-do-foster-kids-go-when-theyre-18)
 - [Celebran a Bandera con escudo al revés](http://www.reforma.com/aplicacioneslibre/articulo/default.aspx?id=1331456&md5=48a278748d5a6ff4f4701c5c7a8ad9d9&ta=0dfdbac11765226904c16cb9ad1b2efe). El Presidente Enrique Peña encabezó el Día de la Bandera en el Campo Militar Marte acompañado de su gabinete legal y ampliado. No obstante, al momento de ser extendida e izada por elementos del Ejército, el escudo de la bandera se encontraba al revés. El Estado Mayor Presidencial coordinó el despliegue de 300 efectivos militares en las inmediaciones del Campo Marte y el Auditorio Nacional.
-- 
+-
