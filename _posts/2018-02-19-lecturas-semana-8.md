@@ -29,4 +29,6 @@ Lecturas para la semana 8 del 2018
 - Historia de la invención de la celda solar: [The Invention Of The Solar Cell](https://www.popsci.com/article/science/invention-solar-cell). También hay una [línea de tiempo en Wikipedia](https://en.wikipedia.org/wiki/Timeline_of_solar_cells).
 - [How do doctors treat exsanguination in a hospital?](https://www.quora.com/How-do-doctors-treat-exsanguination-in-a-hospital)
 - [How do photons, which must always travel at the speed of light, bounce off mirrors without passing thru zero velocity?](https://www.quora.com/How-do-photons-which-must-always-travel-at-the-speed-of-light-bounce-off-mirrors-without-passing-thru-zero-velocity)
+- [3D iMacs with parallax effect created entirely with CSS](http://www.thismanslife.co.uk/projects/lab/imac3d/)
+- ["Nanodrops" That Repair Corneas May Ultimately Replace Glasses](https://futurism.com/nanodrops-repair-corneas-replace-glasses/)
 - 
