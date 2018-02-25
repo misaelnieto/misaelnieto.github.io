@@ -32,4 +32,6 @@ Lecturas para la semana 8 del 2018
 - [3D iMacs with parallax effect created entirely with CSS](http://www.thismanslife.co.uk/projects/lab/imac3d/)
 - ["Nanodrops" That Repair Corneas May Ultimately Replace Glasses](https://futurism.com/nanodrops-repair-corneas-replace-glasses/)
 - [Empresarios revelan presunto esquema para lavar dinero en beneficio de Ricardo CAnaya (Video)](http://www.proceso.com.mx/523727/empresarios-revelan-presunto-esquema-para-lavar-dinero-y-beneficiar-ricardo-anaya-video)
+- [Why Are Mass Killings So Common in the United States?](https://www.globalresearch.ca/the-parkland-shooting-why-are-mass-killings-so-common-in-the-united-states/5630082)The root cause of such violence lies in the capitalist social system, based on ever-intensifying corporate exploitation, inequality, and war. This nightmarish American reality will be brought to an end only when capitalism is ended and replaced by socialism.
+- [Where do foster kids go when they're 18?](https://www.quora.com/Where-do-foster-kids-go-when-theyre-18)
 - 
