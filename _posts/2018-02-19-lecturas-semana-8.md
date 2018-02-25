@@ -31,4 +31,5 @@ Lecturas para la semana 8 del 2018
 - [How do photons, which must always travel at the speed of light, bounce off mirrors without passing thru zero velocity?](https://www.quora.com/How-do-photons-which-must-always-travel-at-the-speed-of-light-bounce-off-mirrors-without-passing-thru-zero-velocity)
 - [3D iMacs with parallax effect created entirely with CSS](http://www.thismanslife.co.uk/projects/lab/imac3d/)
 - ["Nanodrops" That Repair Corneas May Ultimately Replace Glasses](https://futurism.com/nanodrops-repair-corneas-replace-glasses/)
+- [Empresarios revelan presunto esquema para lavar dinero en beneficio de Ricardo CAnaya (Video)](http://www.proceso.com.mx/523727/empresarios-revelan-presunto-esquema-para-lavar-dinero-y-beneficiar-ricardo-anaya-video)
 - 
