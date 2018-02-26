@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 Lecturas para la semana 8 del 2018
 
