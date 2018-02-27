@@ -2,6 +2,8 @@
 published: true
 ---
 
+Lecturas para la semana 7 de 2018 (del 11 al 17 de Febrero)
+
 - [A Glimpse at Life in Kyrgyzstan](https://www.featureshoot.com/2018/01/a-glimpse-at-life-in-kyrgyzstan/)
 - The only thing America’s leadership seems capable of investing in is prisons and war [...] It seems that the US in many ways, after having destroyed other parts of the world, has turned inward on itself, sacrificing its most vulnerable citizens at the altar of capitalism. [ American decline: Open pools of raw sewage in the richest country in the world ](https://www.rt.com/op-ed/418572-us-decline-poverty-un/).
 - [Heartbreak and Hope in the Lives of Turkey’s Stray Dogs](https://www.featureshoot.com/2017/12/heartbreak-hope-lives-turkeys-stray-dogs/)
