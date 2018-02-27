@@ -1,7 +1,7 @@
 ---
 published: true
 ---
-Y aqui va otra semana más: semana seise de 52; restan 46.
+Lecturas de la semana 6 del 2018 (4 al 10 de Febrero; 6 de 52, 46).
 
 -[IBM Unveil first workable graphene chip -](https://www.youtube.com/watch?v=IWxn_a0dEKI) Como siempre la tecnología avanzando a pasos agigantados!
 - [ Anaya: político menor y bisnero](http://www.proceso.com.mx/521320/anaya-politico-menor-y-bisnero). Me gustó esa etiqueta de _político bisnero_. Refleja muy bien los detalles de las ocupaciones de muchos muchos muuuchos políticos.
