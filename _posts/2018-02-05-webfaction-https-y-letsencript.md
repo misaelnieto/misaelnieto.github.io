@@ -51,7 +51,7 @@ Luego hice un script (`~/bin/letsencrypt_webfaction`) que ya define las variable
 ```bash
 #!/bin/bash
 
-PATH=$PATH:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $*
+PATH=$PATH:/usr/local/bin:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $*
 
 ```
 
