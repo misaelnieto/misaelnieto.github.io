@@ -16,4 +16,6 @@ Tengo instalado PS 1.7.x y soy nuevo usuario de prestashop. La instalacion del m
 	- Llenar el formulario de detalles de contacto.
     - Para empezar hay que poner el modo de funcionamiento en Sandbox.
     - Selecciona los métodos de pago habilitados. Yo sólo seleccioné _Card_ y _Cash_.
-    - Ir al panel de administración de Conekta y ahí abrir la sección de las llaves del API.
+    - Ir al panel de administración de Conekta y ahí abrir [la sección de las llaves del API](https://admin.conekta.com/settings/keys).
+    - Copiar las llaves del panel de administración de Conekta y pegarlas en la configuración del módulo de Conekta en prestashop.
+    
