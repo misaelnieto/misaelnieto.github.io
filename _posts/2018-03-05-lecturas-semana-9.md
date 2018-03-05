@@ -15,7 +15,9 @@ Las lecturas de esta semana. Ahora incluyo una imagen con el WTF de la semana :D
 - US President Donald Trump has reportedly scorched former President George W. Bush's decision to invade Iraq, calling it [“worst decision ever made”](https://www.rt.com/usa/420448-iraq-invasion-bush-trump/) and **compared the war to throwing a “big fat brick” into hornet’s nest.**
 - [Putin: ‘Jamás extraditaremos a 13 acusados de injerencia en EEUU’](https://www.hispantv.com/noticias/rusia/370308/putin-acusados-trama-rusa-megyn-kelly)
 - [El 'monstruo del este' y las protestas cristianas en Jerusalén: la semana en imágenes](https://mundo.sputniknews.com/foto/201803041076704968-mejores-fotos-semana/)
-- 
+- [Putin dobla la apuesta frente al hipermilitarismo nuclear de Trump](https://mundo.sputniknews.com/firmas/201803041076743771-moscu-washington-politica-militarizacion/). El zar Vlady Putin, quien confesó que la disolución de la URSS había constituido una catástrofe geopolítica, no va a aceptar el nuevo guion del Deep State estadounidense que usa la histeria del neoMacartismo del Russiagate para mantener su colosal presupuesto militar y el despliegue de sus misiles nucleares alrededor de Rusia con el fin de arrodillarla y enfrentar a solas a China, su verdadero enemigo a medio y largo plazo.
 
+
+## El momento WTF de la semana
 
 ![Momento WTF de la semana]({{site.baseurl}}/media/Screenshot-2018-3-1 Facebook.png)
