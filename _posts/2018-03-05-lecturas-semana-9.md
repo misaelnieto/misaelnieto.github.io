@@ -13,6 +13,7 @@ Las lecturas de esta semana. Ahora incluyo una imagen con el WTF de la semana :D
 - [mientras Europa sufre el frío extremo de "la bestia del este", el Polo Norte vive una ola de calor](http://www.bbc.com/mundo/noticias-43226848?ocid=socialflow_facebook)
 - [The 15 Commandments of Front-End Performance](https://alexsexton.com/blog/2015/02/the-15-commandments-of-front-end-performance/)
 - US President Donald Trump has reportedly scorched former President George W. Bush's decision to invade Iraq, calling it [“worst decision ever made”](https://www.rt.com/usa/420448-iraq-invasion-bush-trump/) and **compared the war to throwing a “big fat brick” into hornet’s nest.**
+- [Putin: ‘Jamás extraditaremos a 13 acusados de injerencia en EEUU’](https://www.hispantv.com/noticias/rusia/370308/putin-acusados-trama-rusa-megyn-kelly)
 - 
 
 
