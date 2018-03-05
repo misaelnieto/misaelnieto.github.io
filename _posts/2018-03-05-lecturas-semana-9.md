@@ -1,7 +1,9 @@
 ---
-published: false
+published: true
 ---
-Las lecturas de esta semana. Ahora incluyo una imagen con el WTF de la semana :D
+Ahora la lista de lecturas viene con el WTF de la semana.
+
+![Momento WTF de la semana]({{site.baseurl}}/media/Screenshot-2018-3-1 Facebook.png)
 
 - [Economics of solar cells](https://www.youtube.com/watch?v=FP_wWHjvLBY). Right now wind power is the cheapest way to produce energy, but only on ground. Wind power on offshore is more expensive. Solar/PV cost is decreasing, but still costly enough now. But, for PV's, global installed capacity doubles every 2 or 3 years, and cost goes down for about 22%. PV's are good for peak hours, however it only has about of 1000 hours per year of operation whereas wind has 2000-3000 hours per year and a small decentralized power plant is between 4000~5000 operationa hr/year.
 - [Circula video de anaya yendo a la boda de nosequién](http://www.proceso.com.mx/524127/circula-video-en-que-anaya-asiste-boda-de-barreiro-invito-un-amigo-dice-el-panista). Un video que comenzó a circular en redes sociales la noche de este lunes exhibe al candidato presidencial Ricardo Anaya Cortés como invitado a la boda de Manuel Barreiro Castañeda, quien le compró una nave industrial en 54 millones de pesos mediante una empresa “fantasma” y a quien ha dicho que sólo conoce superficialmente.
@@ -17,7 +19,3 @@ Las lecturas de esta semana. Ahora incluyo una imagen con el WTF de la semana :D
 - [El 'monstruo del este' y las protestas cristianas en Jerusalén: la semana en imágenes](https://mundo.sputniknews.com/foto/201803041076704968-mejores-fotos-semana/)
 - [Putin dobla la apuesta frente al hipermilitarismo nuclear de Trump](https://mundo.sputniknews.com/firmas/201803041076743771-moscu-washington-politica-militarizacion/). El zar Vlady Putin, quien confesó que la disolución de la URSS había constituido una catástrofe geopolítica, no va a aceptar el nuevo guion del Deep State estadounidense que usa la histeria del neoMacartismo del Russiagate para mantener su colosal presupuesto militar y el despliegue de sus misiles nucleares alrededor de Rusia con el fin de arrodillarla y enfrentar a solas a China, su verdadero enemigo a medio y largo plazo.
 
-
-## El momento WTF de la semana
-
-![Momento WTF de la semana]({{site.baseurl}}/media/Screenshot-2018-3-1 Facebook.png)
