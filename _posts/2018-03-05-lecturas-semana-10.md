@@ -14,4 +14,4 @@ Nota: Hacer una introduccion tipo teasing para que salga en el feed de la pagina
 - [Best research-cell efficiencies](https://www.nrel.gov/pv/assets/images/efficiency-chart.png).
 - [Astrophysicists have discovered](https://www.sciencedaily.com/releases/2018/03/180301094807.htm) how to control the 'micolensing' effects of strongly lensed Type 1a Supernovae with supercomputers at NERSC. Armed with this knowledge they believe they will be able to find 1,000 strongly lensed Type Ia supernovae in realtime from LSST data -- that's 20 times more than previous expectations. 
 - [ The Principle of Electric Wind in Plasma](https://www.pddnet.com/news/2018/03/principle-electric-wind-plasma). Electric wind in plasma is a well-known consequence of interactions arising from collisions between charged particles (electrons or ions) and neutral particles. It refers to the flow of neutral gas that occurs when charged particles accelerate and collide with a neutral gas.
--
+- [Want More Efficient Simulators? Store Time in a Quantum Superposition](https://www.pddnet.com/news/2018/03/want-more-efficient-simulators-store-time-quantum-superposition)
