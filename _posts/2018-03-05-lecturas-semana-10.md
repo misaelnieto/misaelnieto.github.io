@@ -18,12 +18,17 @@ Nota: Hacer una introduccion tipo teasing para que salga en el feed de la pagina
 [NASA Seeking BIG Ideas for Solar Power on Mars](https://www.nasa.gov/press-release/langley/nasa-seeking-big-ideas-for-solar-power-on-mars). De todas las propuestas se seleccionaran cuatro y recibiran un estipendio para presentar su proyecto en el [2018 BIG Idea Forum](http://bigidea.nianet.org/). Nota, acabo de leer que ya seleccionaron a los ganadores.
 - [Portugal y el secreto de su redención](http://www.dw.com/es/portugal-y-el-secreto-de-su-redenci%C3%B3n/a-42790840). De oveja negra a hijo prodigio: desde 2015, cuando un Gobierno minoritario de izquierda tomó las riendas de Portugal, el país ibérico florece. Su ministro de Economía, Manuel Caldeira Cabral, explica el renacimiento luso
 - [Un pederasta sádico y retorcido](http://www.bbc.com/mundo/noticias-43125571). el británico que chantajeó en la red oscura a decenas de víctimas a las que obligaba a realizar actos degradantes
+- Unos grngos hicieron [un robot capaz de armar el famoso 'cubo mágico' en tan solo 0,38 segundos](https://mundo.sputniknews.com/videoclub/201803101076898041-robot-solucion-cubo-magico-rapid)
+- A un veterano gringo [se le botó la canica y se mató junto con 3 rehenes](http://www.dw.com/es/las-tres-rehenes-del-atacante-al-hogar-del-veterano-de-california-aparecen-muertas/a-42917319) que eran trabajadores del _Veterans Home of California_. El asaltante era miembro de Pathway Home, un programa para veteranos que sufren de trastorno por estrés postraumático. Un caso triste primero por las rehenes y luego por el veterano, sufren mucho después de la guerra.
+- En Chiapas el [Conacyt retira dos cátedras de la Unicach](http://www.jornada.unam.mx/2018/03/09/sociedad/040n1soc) en represalia por protestas contra el honoris causa del secretario de la Defensa Nacional Salvador Cienfuegos Zepeda
+- [Oxford Biologists Outline What Alien Life Looks Like](https://futurism.com/oxford-biologists-outline-what-alien-life-looks-like/)
+- AMLO: [Ya no voy a estar deteniendo a la gente si hay un fraude electoral](https://www.youtube.com/watch?v=Gu0UMq6yp2M)
+- [UCLA Researchers Develop a New Class of Two-Dimensional Materials](https://www.pddnet.com/news/2018/03/ucla-researchers-develop-new-class-two-dimensional-materials). Superlattices are materials comprised of alternating layers of ultra-thin "two-dimensional" sheets, which are only one or a few atoms thick. Current method to build a superlattice is to manually stack the ultrathin layers one on top of the other; another method is by [Chemical Vapor Deposition](https://en.wikipedia.org/wiki/Chemical_vapor_deposition). The new method to create monolayer atomic crystal molecular superlattices uses a process called "electrochemical intercalation" in which a negative voltage is applied. This injects negatively charged electrons into the 2D material. Then, this attracts positively charged ammonium molecules into the spaces between the atomic layers. Those ammonium molecules automatically assemble into new layers in the ordered crystal structure, creating a superlattice. 
+- [ The 'Architecture of Life' Described by Computer Modeling](https://www.pddnet.com/news/2018/03/architecture-life-described-computer-modeling).
+
 
 ## WTF de la semana
 
 El WTF de la semana lo lleva el periódico _The Independent_ de Inglaterra que reporta un incidente en una [librería de Berkley, California](http://www.independent.co.uk/news/world/americas/donald-trump-supporters-bookstore-burn-make-america-great-again-berkeley-california-a8248721.html):
 
 ![Screenshot-2018-3-1 Facebook.png]({{site.baseurl}}/media/Screenshot-2018-3-1%20Facebook.png)
-
-
-
