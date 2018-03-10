@@ -17,7 +17,7 @@ Nota: Hacer una introduccion tipo teasing para que salga en el feed de la pagina
 - [Want More Efficient Simulators? Store Time in a Quantum Superposition](https://www.pddnet.com/news/2018/03/want-more-efficient-simulators-store-time-quantum-superposition)
 [NASA Seeking BIG Ideas for Solar Power on Mars](https://www.nasa.gov/press-release/langley/nasa-seeking-big-ideas-for-solar-power-on-mars). De todas las propuestas se seleccionaran cuatro y recibiran un estipendio para presentar su proyecto en el [2018 BIG Idea Forum](http://bigidea.nianet.org/). Nota, acabo de leer que ya seleccionaron a los ganadores.
 - [Portugal y el secreto de su redención](http://www.dw.com/es/portugal-y-el-secreto-de-su-redenci%C3%B3n/a-42790840). De oveja negra a hijo prodigio: desde 2015, cuando un Gobierno minoritario de izquierda tomó las riendas de Portugal, el país ibérico florece. Su ministro de Economía, Manuel Caldeira Cabral, explica el renacimiento luso
-- 
+- [Un pederasta sádico y retorcido](http://www.bbc.com/mundo/noticias-43125571). el británico que chantajeó en la red oscura a decenas de víctimas a las que obligaba a realizar actos degradantes
 
 ## WTF de la semana
 
