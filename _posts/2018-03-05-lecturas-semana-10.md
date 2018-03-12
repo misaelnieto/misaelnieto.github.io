@@ -32,6 +32,7 @@ Nota: Hacer una introduccion tipo teasing para que salga en el feed de la pagina
 - [Las cuentas de anaya. Golpe letal?](http://www.eluniversal.com.mx/columna/salvador-garcia-soto/nacion/las-cuentas-de-anaya-el-golpe-letal)
 - [CPTPP: el histórico acuerdo comercial firmado por México, Chile, Perú y otros 8 países del Pacífico para reducir sus barreras comerciales](http://www.bbc.com/mundo/noticias-43338755) ¿Qué es el CPTTP? El pacto se llamaba originalmente Acuerdo Transpacífico de Cooperación Económica (TPP, por sus siglas en inglés), pero cuando Donald Trump llegó a la Casa Blanca y decidió retirar a su país del bloque, partieron las negociaciones para llegar a a un nuevo tipo de convenio.
 - [Cuchillos de obsidiana de la Edad de Piedra aún son utilizados en cirugías](http://cnnespanol.cnn.com/2015/04/02/cuchillos-de-obsidiana-de-la-edad-de-piedra-aun-son-utilizados-en-cirugias/)
+- El vato de uRADMonitor visitó el Mobile World Congress y lo reportó en su blog: [uRADMonitor at #MWC18](https://www.uradmonitor.com/uradmonitor-at-mwc18/+)
 - 
 
 
