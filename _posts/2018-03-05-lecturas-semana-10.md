@@ -28,6 +28,11 @@ Nota: Hacer una introduccion tipo teasing para que salga en el feed de la pagina
 - [What happens if you call the number 666 at 3:00 AM?](https://www.quora.com/What-happens-if-you-call-the-number-666-at-3-00-AM) You will hear the voice of a woman ... or perhaps a man ...
 - [Researchers develop a pill that mimics the effects of exercising](https://www.zmescience.com/science/researchers-develop-pill-mimics-effects-exercising/). The compound, known as GW1516, or 516, essentially tricks the body to burn fat instead of glucose for energy.
 - [Python: range is not an iterator!](http://treyhunner.com/2018/02/python-range-is-not-an-iterator/)
+- [Video of the Day: Robotics From the CES 2018 Show Floor](https://www.pddnet.com/videos/2018/03/video-day-robotics-ces-2018-show-floor)
+- [Las cuentas de anaya. Golpe letal?](http://www.eluniversal.com.mx/columna/salvador-garcia-soto/nacion/las-cuentas-de-anaya-el-golpe-letal)
+- [CPTPP: el histórico acuerdo comercial firmado por México, Chile, Perú y otros 8 países del Pacífico para reducir sus barreras comerciales](http://www.bbc.com/mundo/noticias-43338755) ¿Qué es el CPTTP? El pacto se llamaba originalmente Acuerdo Transpacífico de Cooperación Económica (TPP, por sus siglas en inglés), pero cuando Donald Trump llegó a la Casa Blanca y decidió retirar a su país del bloque, partieron las negociaciones para llegar a a un nuevo tipo de convenio.
+- [Cuchillos de obsidiana de la Edad de Piedra aún son utilizados en cirugías](http://cnnespanol.cnn.com/2015/04/02/cuchillos-de-obsidiana-de-la-edad-de-piedra-aun-son-utilizados-en-cirugias/)
+- 
 
 
 ## WTF de la semana
