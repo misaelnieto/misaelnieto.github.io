@@ -57,3 +57,13 @@ Successfully added 249 countries.
 
 ```
 
+Ahora es momento de arrancar Django:
+
+```bash
+./manage.py runserver
+```
+
+Y aqui tienes, una tienda de Oscar recien creada:
+
+![Vainilla]({{site.baseurl}}/media/Screenshot-2018-3-21 Oscar -.png)
+
