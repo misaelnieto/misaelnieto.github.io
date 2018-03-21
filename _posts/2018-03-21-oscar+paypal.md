@@ -5,6 +5,7 @@ published: false
 
 Mis notas de cómo configurar una pagina de ecommerce con Django Oscar.
 
+## Parte 1 - Instalar Oscar
 
 mkdir -p Documents/Django-Oscar/
 cd Dopcuments/Django-Oscar/
@@ -66,4 +67,6 @@ Ahora es momento de arrancar Django:
 Y aqui tienes, una tienda de Oscar recien creada:
 
 ![Vainilla]({{site.baseurl}}/media/Screenshot-2018-3-21 Oscar -.png)
+
+## Parte 2 - Instalación y configuración del plugin de PayPal
 
