@@ -17,6 +17,8 @@ Configurar frobshop/settings.py y frobshop/urls.py
 
 ./manage.py migrate
 
+Es un proceso un poco largo, pero se ve parecido a lo anterior:
+
 ```bash
 (oscar) [nnieto@3c273 frobshop] $ ./manage.py migrate
 Operations to perform:
@@ -33,3 +35,25 @@ Running migrations:
   Applying wishlists.0002_auto_20160111_1108... OK
 (oscar) [nnieto@3c273 frobshop] $
 ```
+
+./manage.py createsuperuser
+
+```
+(oscar) [nnieto@3c273 frobshop] $ ./manage.py createsuperuser
+Username (leave blank to use 'nnieto'): admin
+Email address: nnieto@noenieto.com
+Password: 
+Password (again): 
+Superuser created successfully.
+
+```
+
+python manage.py oscar_populate_countries
+
+```
+(oscar) [nnieto@3c273 frobshop] $ python manage.py oscar_populate_countries
+Successfully added 249 countries.
+(oscar) [nnieto@3c273 frobshop] $ 
+
+```
+
