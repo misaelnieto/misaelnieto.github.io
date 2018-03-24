@@ -225,3 +225,5 @@ Y aqui tienes, una tienda de Oscar recien creada:
 Ahora es el momento de hacer la configuración del modulo de pagos para paypal.
 
 pip install django-oscar-paypal ??
+./manage.py migrate
+
