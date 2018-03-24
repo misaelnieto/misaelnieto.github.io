@@ -164,13 +164,13 @@ Es momento de instalar las dependencias
 pip install django-oscar django-compressor
 ```
 
-Ahora que tenemos toda la configuración podemos crear la base de datos.
+Ya tenemos toda la configuración; podemos crear la base de datos.
 
 ```bash
 ./manage.py migrate
 ```
 
-Es un proceso un poco largo, pero se ve parecido a lo anterior:
+La creación de la base de datos es un proceso un poco largo, pero se ve parecido a esto:
 
 ```bash
 (oscar) [nnieto@3c273 frobshop] $ ./manage.py migrate
@@ -189,7 +189,7 @@ Running migrations:
 (oscar) [nnieto@3c273 frobshop] $
 ```
 
-Es necesario crear un superusuario para poder entrar al dashboard/panel de control de Oscar.
+Luego es necesario crear un superusuario para poder entrar al dashboard/panel de control de Oscar.
 
 ./manage.py createsuperuser
 
@@ -205,13 +205,8 @@ Superuser created successfully.
 
 La guia dice que es buena idea crear la lista de paises. Esta lista se usa para cuando el cliente llena el formulario de dirección de envío.
 
-python manage.py oscar_populate_countries
-
 ```
-(oscar) [nnieto@3c273 frobshop] $ python manage.py oscar_populate_countries
-Successfully added 249 countries.
-(oscar) [nnieto@3c273 frobshop] $ 
-
+python manage.py oscar_populate_countries
 ```
 
 Ahora es momento de arrancar Django:
