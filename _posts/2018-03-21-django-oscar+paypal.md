@@ -217,7 +217,7 @@ Ahora es momento de arrancar Django:
 
 Y aqui tienes, una tienda de Oscar recien creada:
 
-![Vainilla]({{site.baseurl}}/media/Screenshot-2018-3-21 Oscar -.png)
+![Oscar sabor vainilla]({{site.baseurl}}/media/Screenshot-2018-3-21 Oscar -.png)
 
 
 ## Parte 2 - Instalación y configuración del plugin de PayPal
