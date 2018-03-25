@@ -18,7 +18,11 @@ Si ya tienes un virtualenv o regresas a continuar con la tarea:
 ```bash
 workon oscar
 ```
+Es momento de instalar las dependencias
 
+```bash
+pip install django-oscar django-compressor django-oscar-paypal
+```
 Luego creamos un directorio para guardar el proyecto y generamos un proyecto nuevo de Django con `manage.py`.
 
 ```bash
@@ -27,7 +31,7 @@ cd Documents/Django-Oscar/
 django-admin.py startproject frobshop
 cd frobshop
 ```
-Ahora es momento de configurar el proyecto; el proceso de instalación ya esta descrito en el [manual de Oscar](https://django-oscar.readthedocs.io/en/releases-1.5/internals/getting_started.html#django-settings), asi que no se si valga la pena compartirlo de nuevo. El proceso se resume en que dentro de `frobshop` se modifican `settings.py` y `urls.py`. Para conveniencia, pego el contenido de los archivos directamente.
+Ahora procedemos a configurar el proyecto; el proceso de instalación ya esta descrito en el [manual de Oscar](https://django-oscar.readthedocs.io/en/releases-1.5/internals/getting_started.html#django-settings), asi que no se si valga la pena compartirlo de nuevo. El proceso se resume en que dentro de `frobshop` se modifican `settings.py` y `urls.py`. Para conveniencia, pego el contenido de los archivos directamente.
 
 El archivo `settings.py` es el siguiente:
 
@@ -158,13 +162,7 @@ urlpatterns = [
 ]
 ```
 
-Es momento de instalar las dependencias
-
-```bash
-pip install django-oscar django-compressor
-```
-
-Ya tenemos toda la configuración; podemos crear la base de datos.
+Ya tenemos toda la configuración; El siguiente paso es crear la base de datos.
 
 ```bash
 ./manage.py migrate
@@ -222,8 +220,18 @@ Y aqui tienes, una tienda de Oscar recien creada:
 
 ## Parte 2 - Instalación y configuración del plugin de PayPal
 
-Ahora es el momento de hacer la configuración del modulo de pagos para paypal.
+Ahora es el momento de hacer la configuración del modulo de pagos para paypal. Primero modificamos settings.py y agregamos hasta abajo lo siguiente:
 
-pip install django-oscar-paypal ??
+```bash
+INSTALLED_APPS.append('paypal')
+PAYPAL_API_USERNAME = 'test_xxxx.gmail.com'
+PAYPAL_API_PASSWORD = '123456789'
+PAYPAL_API_SIGNATURE = '...'
+```
+
+Voy a usar la consola de paypal para hacer las pruebas con el entorno _sandbox_. Primero hay que entrar a la consola de paypal para desarrolladores en https://developer.paypal.com/ . Es recomendable crear al menos dos usuarios en _Sandbox_->_Accounts_. Asegurate que el usuario que vas a usar como vendedor sea usuario _Business_ por que los usuarios personales no tienen credenciales para uso del API.
+
 ./manage.py migrate
+
+Este modulo tiene dos metodos de pago: _Express Checkout_ y _PayFlow Pro_. En esta ocasión solo voy a usar _Express Checkout_. 
 
