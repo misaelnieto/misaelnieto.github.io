@@ -225,6 +225,7 @@ El nombre del paquete/Wheel es `django-oscar-paypal`:
 ```bash
 pip install django-oscar-paypal
 ```
+Nota: Este modulo tiene dos metodos de pago: _Express Checkout_ y _PayFlow Pro_. En esta ocasión solo voy a usar _Express Checkout_. 
 
 Ahora es el momento de hacer la configuración del modulo de pagos para paypal. Primero modificamos `settings.py` y agregamos hasta abajo lo siguiente:
 
@@ -247,5 +248,5 @@ El email, la contraseña y la firma para el API los encuentras abriendo el perfi
 
 ./manage.py migrate
 
-Este modulo tiene dos metodos de pago: _Express Checkout_ y _PayFlow Pro_. En esta ocasión solo voy a usar _Express Checkout_. 
+
 
