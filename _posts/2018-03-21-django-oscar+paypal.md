@@ -21,7 +21,7 @@ workon oscar
 Es momento de instalar las dependencias
 
 ```bash
-pip install django-oscar django-compressor django-oscar-paypal
+pip install django-oscar django-compressor
 ```
 Luego creamos un directorio para guardar el proyecto y generamos un proyecto nuevo de Django con `manage.py`.
 
@@ -220,16 +220,30 @@ Y aqui tienes, una tienda de Oscar recien creada:
 
 ## Parte 2 - Instalación y configuración del plugin de PayPal
 
-Ahora es el momento de hacer la configuración del modulo de pagos para paypal. Primero modificamos settings.py y agregamos hasta abajo lo siguiente:
+El nombre del paquete/Wheel es `django-oscar-paypal`:
+
+```bash
+pip install django-oscar-paypal
+```
+
+Ahora es el momento de hacer la configuración del modulo de pagos para paypal. Primero modificamos `settings.py` y agregamos hasta abajo lo siguiente:
 
 ```bash
 INSTALLED_APPS.append('paypal')
 PAYPAL_API_USERNAME = 'test_xxxx.gmail.com'
 PAYPAL_API_PASSWORD = '123456789'
-PAYPAL_API_SIGNATURE = '...'
+PAYPAL_API_SIGNATURE = 'A93x6mGy1E8MD85gDtAMJnvfVBZxBYE96KO1aoRnPezYvM4OGPaxNhAjB'
 ```
 
 Voy a usar la consola de paypal para hacer las pruebas con el entorno _sandbox_. Primero hay que entrar a la consola de paypal para desarrolladores en https://developer.paypal.com/ . Es recomendable crear al menos dos usuarios en _Sandbox_->_Accounts_. Asegurate que el usuario que vas a usar como vendedor sea usuario _Business_ por que los usuarios personales no tienen credenciales para uso del API.
+
+El email, la contraseña y la firma para el API los encuentras abriendo el perfil de usuario.
+
+![Primero abre el usuario]({{site.baseurl}}/media/Screenshot-2018-3-25 Sandbox accounts - PayPal Developer.png)
+
+![Luego encontrarás las credenciales]({{site.baseurl}}/media/Screenshot-2018-3-25 Sandbox accounts - PayPal Developer(1).png)
+
+
 
 ./manage.py migrate
 
