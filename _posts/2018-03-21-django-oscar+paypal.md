@@ -261,10 +261,11 @@ from paypal.express.dashboard.app import application as paypal_app
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^admin/', admin.site.urls),
-    (r'^checkout/paypal/', include('paypal.express.urls')),
-    (r'^dashboard/paypal/express/', include(paypal_app.urls)),
+    url(r'^checkout/paypal/', include('paypal.express.urls')),
+    url(r'^dashboard/paypal/express/', include(paypal_app.urls)),
     url(r'', include(oscar_app.urls)),
 ]
+
 ``
 
 El modulo de paypal tiene una pagina de reporte de transacciones. Sera muy util si incluimos un link a esa pagina desde el dashboard. Esto se logra agregando un elemento mas a `OSCAR_DASHBOARD_NAVIGATION`.
@@ -284,8 +285,29 @@ OSCAR_DASHBOARD_NAVIGATION.append(
     })
 ```
 
+Lo que sigue es modificar la plantilla del carrito para que aparezca el boton de pago con paypal. Pero primero hay que crear el directorio para las plantillas:
 
+```bash
+$ pwd
+/home/nnieto/Code/Django-Oscar/frobshop_paypal
+$ mkdir -p templates/basket/partials/
+```
 
+Hay que crear la plantilla `templates/basket/partials/basket_content.html` con el siguiente contenido:
 
+```python
+{% extends 'oscar/basket/partials/basket_content.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block formactions %}
+<div class="form-actions">
+    {% if anon_checkout_allowed or request.user.is_authenticated %}
+        <a href="{% url 'paypal-redirect' %}"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;"></a>
+    {% endif %}
+    <a href="{% url 'checkout:index' %}" class="pull-right btn btn-large btn-primary">{% trans "Proceed to checkout" %}</a>
+</div>
+{% endblock %}
+```
 
 
