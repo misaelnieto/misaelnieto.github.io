@@ -229,11 +229,17 @@ Nota: Este modulo tiene dos metodos de pago: _Express Checkout_ y _PayFlow Pro_.
 
 Ahora es el momento de hacer la configuración del modulo de pagos para paypal. Primero modificamos `settings.py` y agregamos hasta abajo lo siguiente:
 
-```bash
+```python
 INSTALLED_APPS.append('paypal')
 PAYPAL_API_USERNAME = 'test_xxxx.gmail.com'
 PAYPAL_API_PASSWORD = '123456789'
 PAYPAL_API_SIGNATURE = 'A93x6mGy1E8MD85gDtAMJnvfVBZxBYE96KO1aoRnPezYvM4OGPaxNhAjB'
+```
+
+Despues de esto hay que correr las migraciones:
+
+```bash
+./manage.py migrate
 ```
 
 Voy a usar la consola de paypal para hacer las pruebas con el entorno _sandbox_. Primero hay que entrar a la consola de paypal para desarrolladores en https://developer.paypal.com/ . Es recomendable crear al menos dos usuarios en _Sandbox_->_Accounts_. Asegurate que el usuario que vas a usar como vendedor sea usuario _Business_ por que los usuarios personales no tienen credenciales para uso del API.
@@ -259,11 +265,27 @@ urlpatterns = [
     (r'^dashboard/paypal/express/', include(paypal_app.urls)),
     url(r'', include(oscar_app.urls)),
 ]
+``
+
+El modulo de paypal tiene una pagina de reporte de transacciones. Sera muy util si incluimos un link a esa pagina desde el dashboard. Esto se logra agregando un elemento mas a `OSCAR_DASHBOARD_NAVIGATION`.
+
+```python
+from django.utils.translation import ugettext_lazy as _
+OSCAR_DASHBOARD_NAVIGATION.append(
+    {
+        'label': _('Payments'),
+        'icon': 'icon-globe',
+        'children': [
+            {
+                'label': _('Paypal Express transactions'),
+                'url_name': 'paypal-express-list',
+            },
+        ]
+    })
 ```
 
 
 
-./manage.py migrate
 
 
 
