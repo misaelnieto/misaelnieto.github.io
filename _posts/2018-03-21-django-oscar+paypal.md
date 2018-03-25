@@ -244,6 +244,23 @@ El email, la contraseña y la firma para el API los encuentras abriendo el perfi
 
 ![Luego encontrarás las credenciales]({{site.baseurl}}/media/Screenshot-2018-3-25 Sandbox accounts - PayPal Developer(1).png)
 
+Despues de esto hay que modificar `urls.py` para agregar las urls de la aplicacion de paypal. El archivo queda asi:
+
+``python
+from django.conf.urls import include, url
+from django.contrib import admin
+from oscar.app import application as oscar_app
+from paypal.express.dashboard.app import application as paypal_app
+
+urlpatterns = [
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^admin/', admin.site.urls),
+    (r'^checkout/paypal/', include('paypal.express.urls')),
+    (r'^dashboard/paypal/express/', include(paypal_app.urls)),
+    url(r'', include(oscar_app.urls)),
+]
+```
+
 
 
 ./manage.py migrate
