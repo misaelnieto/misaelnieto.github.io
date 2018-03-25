@@ -236,12 +236,6 @@ PAYPAL_API_PASSWORD = '123456789'
 PAYPAL_API_SIGNATURE = 'A93x6mGy1E8MD85gDtAMJnvfVBZxBYE96KO1aoRnPezYvM4OGPaxNhAjB'
 ```
 
-Despues de esto hay que correr las migraciones:
-
-```bash
-./manage.py migrate
-```
-
 Voy a usar la consola de paypal para hacer las pruebas con el entorno _sandbox_. Primero hay que entrar a la consola de paypal para desarrolladores en https://developer.paypal.com/ . Es recomendable crear al menos dos usuarios en _Sandbox_->_Accounts_. Asegurate que el usuario que vas a usar como vendedor sea usuario _Business_ por que los usuarios personales no tienen credenciales para uso del API.
 
 El email, la contraseña y la firma para el API los encuentras abriendo el perfil de usuario.
@@ -310,4 +304,9 @@ Hay que crear la plantilla `templates/basket/partials/basket_content.html` con e
 {% endblock %}
 ```
 
+No hay que olvidar correr las migraciones:
+
+```bash
+./manage.py migrate
+```
 
