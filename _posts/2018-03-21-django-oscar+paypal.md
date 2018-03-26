@@ -310,8 +310,28 @@ No hay que olvidar correr las migraciones:
 ./manage.py migrate
 ```
 
+1. Agregar un usuario para compras: pedro.perez@dominio.com
+2. Agregar un Agregar una categoria: Title: Psicohistoria
+3. Agregar un Partner: Title: default
+4. Agregar un producto:
+   1. Title: Bruno, Leibnitz, Vico y Thoureau
+   2. UPC: BLVT
+   3. Description: Lo que sea, un lorem ipsum o algo asi.
+   4. Is discountable: Si
+   5. Categories: Selecciona la categoria que acabas de crear.
+   6. Stock and Pricing:
+      1. Partner: default
+      2. SKU: BLVT
+      3. Currency: USD
+      4. Images: Sube una imagen
+      5. Cost Price, Price excl. tax, Retail price: 10
+      6. Variants: ninguna
+      7. Upselling: nada
+
 ## Parte 3 - Pruebas
 
 Despues de arrancar Django podemos ver que en el dashboard ya se creó el menu `Payments`:
 
 ![Ahi esta funciona.]({{site.baseurl}}/media/qjQt4Md2pm.png)
+
+
