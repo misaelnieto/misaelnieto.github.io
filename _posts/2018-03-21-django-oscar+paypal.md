@@ -310,6 +310,13 @@ No hay que olvidar correr las migraciones:
 ./manage.py migrate
 ```
 
+Despues de arrancar Django podemos ver que en el dashboard ya se creó el menu `Payments`:
+
+![Ahi esta funciona.]({{site.baseurl}}/media/qjQt4Md2pm.png)
+
+
+Pero todavia queda varias tareas por hacer.
+
 1. Agregar un usuario para compras: pedro.perez@dominio.com
 2. Agregar un Agregar una categoria: Title: Psicohistoria
 3. Agregar un Partner: Title: default
@@ -330,8 +337,9 @@ No hay que olvidar correr las migraciones:
 
 ## Parte 3 - Pruebas
 
-Despues de arrancar Django podemos ver que en el dashboard ya se creó el menu `Payments`:
+Una vez terminado todo esto, te logeas con la cuenta de pedro perez y abres el producto.
 
-![Ahi esta funciona.]({{site.baseurl}}/media/qjQt4Md2pm.png)
+![Listo a comprar el producto]({{site.baseurl}}/media/A8kFaYlaxL.png)
 
+Lo agregas al carrito, abres el carrito y haces click en _Proceed to checkout_.
 
