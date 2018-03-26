@@ -310,3 +310,8 @@ No hay que olvidar correr las migraciones:
 ./manage.py migrate
 ```
 
+## Parte 3 - Pruebas
+
+Despues de arrancar Django podemos ver que en el dashboard ya se creó el menu `Payments`:
+
+![Ahi esta funciona.]({{site.baseurl}}/media/qjQt4Md2pm.png)
