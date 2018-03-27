@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "¿Cómo actualizar un SQL Server?"
-date:   2014-05-14 15:29:10 -0700
+title: ¿Cómo actualizar un SQL Server?
+date: '2014-05-14 15:29:10 -0700'
 categories: SQL SQLServer
+published: true
 ---
 
-![Portada]({{ site.url }}/media/Wonder_Lake_Denali.jpg)
+![Portada]({{ site.baseurl }}/media/Wonder_Lake_Denali.jpg)
 
 Primero se necesita saber qué version de SQL Server esta instalada.
 
@@ -13,13 +14,13 @@ Hay varias formas. Una es con el _Object Exporer_ de _Sql Server Management
 Studio (SSMS)_. Al conectarse a la base de datos se puede ver la versión entre
 paréntesis, al lado del nombre del servidor.
 
-![Object Explorer de SSMS]({{ site.url }}/media/Screenshot_from_2014_05_14_15_41_34.png)
+![Object Explorer de SSMS]({{ site.baseurl }}/media/Screenshot_from_2014_05_14_15_41_34.png)
 
 Tambien se puede sacar la ventana de de propiedades de la base de datos desde
 el _Object Explorer_  y mirar el campo _Version_.
 
-![Acceder a la ventana de propiedades]({{ site.url }}/media/Screenshot_from_2014_05_14_15_53_04.png)
-![Revisar versión en la ventana de propiedades]({{ site.url }}/media/Screenshot_from_2014_05_14_15_53_03.png)
+![Acceder a la ventana de propiedades]({{ site.baseurl }}/media/Screenshot_from_2014_05_14_15_53_04.png)
+![Revisar versión en la ventana de propiedades]({{ site.baseurl }}/media/Screenshot_from_2014_05_14_15_53_03.png)
 
 Otra opción más es hacer un sencillo query:
 
@@ -60,18 +61,18 @@ El CU es un exe que trae otro exe comprimido. Descomprimí el CU al directorio
 `C:\Updates` y cuando lo ejecuté resultó que extrajo más archivos. Creo que a
 los de Microsoft les gustan las Matrioskas.
 
-![A alguien en Microsoft le gustan las Matrioskas]({{ site.url }}/media/First_matryoshka_museum_doll_open_0.jpg)
+![A alguien en Microsoft le gustan las Matrioskas]({{ site.baseurl }}/media/First_matryoshka_museum_doll_open_0.jpg)
 
 Despues de un rato de estar desparramando archivos por ahí, comienza el
 proceso de de instalación del CU. Este proceso es bastante aburrido.
 
 Basicamente es esperar a que salga el instalador de SQL Server, ...
 
-![¡¡¡Aburrido!!!]({{ site.url }}/media/Screenshot_from_2014_05_14_17_47_32.png)
+![¡¡¡Aburrido!!!]({{ site.baseurl }}/media/Screenshot_from_2014_05_14_17_47_32.png)
 
 ... aceptar que le vendes tu alma al chamuco, ...
 
-![Aceptar la licencia]({{ site.url }}/media/Screenshot_from_2014_05_14_17_49_45.png)
+![Aceptar la licencia]({{ site.baseurl }}/media/Screenshot_from_2014_05_14_17_49_45.png)
 
 ... y darle next, next, next por que no hay otra opción.
 
@@ -80,7 +81,7 @@ ha salido mal y lo que ha salido bien. En mi caso todo salió bien. Reinicié el
 servidor para no tener dudas de que todo funciona al 100%. Finalmente, el
 Object Explorer del SSMS  muestra la nueva version de SQL Server 2012.
 
-![SQL Version 11.00.3412SQL Version 11.00.3412 :)]({{ site.url }}/media/Screenshot_from_2014_05_15_08_17_18.png)
+![SQL Version 11.00.3412SQL Version 11.00.3412 :)]({{ site.baseurl }}/media/Screenshot_from_2014_05_15_08_17_18.png)
 
 Esta version corresponde al [2931078 Cumulative update package 9 (CU9) for SQL
 Server 2012 Service Pack 1](http://support.microsoft.com/kb/2931078/en-us).
@@ -90,4 +91,3 @@ Y eso es todo.
 P.D. Esta página en inglés es la que leí antes de hacer este post.
 
 https://sqlserverperformance.wordpress.com/2011/01/12/how-to-obtain-and-install-sql-server-service-packs-and-cumulative-updates/
-
