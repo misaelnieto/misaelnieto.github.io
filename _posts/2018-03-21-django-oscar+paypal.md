@@ -337,9 +337,11 @@ Pero todavia queda varias tareas por hacer.
 
 ## Parte 3 - Pruebas
 
-Una vez terminado todo esto, te logeas con la cuenta de pedro perez y abres el producto.
+Una vez terminado todo esto podemos entrar al la tienda usando la cuenta de pedro perez y abres el producto y abrimos el producto que acabamos de crear.
 
 ![Listo a comprar el producto]({{site.baseurl}}/media/A8kFaYlaxL.png)
 
-Lo agregas al carrito, abres el carrito y haces click en _Proceed to checkout_.
+Despues de agrgegar el producto al carrito podemos ir al carrito para ver las opciones de pago:
+
+
 
