@@ -298,6 +298,7 @@ $ mkdir -p templates/basket/partials/
 Hay que crear la plantilla `templates/basket/partials/basket_content.html` con el siguiente contenido:
 
 ```python
+{% raw %}
 {% extends 'oscar/basket/partials/basket_content.html' %}
 {% load i18n %}
 {% load url from future %}
@@ -310,6 +311,7 @@ Hay que crear la plantilla `templates/basket/partials/basket_content.html` con e
     <a href="{% url 'checkout:index' %}" class="pull-right btn btn-large btn-primary">{% trans "Proceed to checkout" %}</a>
 </div>
 {% endblock %}
+{% endraw %}
 ```
 
 No hay que olvidar correr las migraciones:
