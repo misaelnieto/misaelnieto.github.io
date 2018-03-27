@@ -1,6 +1,13 @@
 ---
 published: true
 category: django ecommerce django-oscar paypal español
+tags:
+  - django
+  - ecommerce
+  - django-oscar
+  - paypal
+  - español
+layout: post
 ---
 ## Django Oscar con Paypal
 
