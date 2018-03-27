@@ -341,7 +341,9 @@ Una vez terminado todo esto podemos entrar al la tienda usando la cuenta de pedr
 
 ![Listo a comprar el producto]({{site.baseurl}}/media/A8kFaYlaxL.png)
 
-Despues de agrgegar el producto al carrito podemos ir al carrito para ver las opciones de pago:
+Despues de agrgegar el producto al carrito podemos ir al carrito para ver las opciones de pago y ahi en la ezquina inferior izquierda tenemos el boton de pago de paypal. Por el momento no nos preocuparemos mucho por lo estetico ya que estamos probando funcionalidad.
+
+
 
 
 
