@@ -1,5 +1,6 @@
 ---
-published: false
+published: true
+category: django ecommerce django-oscar paypal español
 ---
 ## Django Oscar con Paypal
 
@@ -356,6 +357,17 @@ login del sandbox de Paypal.
 
 ![Hay que usar alguna cuenta creada en la consola de pruebas de Paypal.]({{site.baseurl}}/media/Screenshot-2018-3-26 Pagar con mi cuenta PayPal - PayPal(1).png)
 
-Para poder pagar hay que usar alguna cuenta creada en la consola de pruebas de Paypal.
+Para poder pagar hay que usar alguna cuenta creada en la consola de pruebas de Paypal. Despues de hacer login pasamos a revisar la informacion de cobro y pago.
+
+![Ultima revision antes de pagar.]({{site.baseurl}}/media/Screenshot-2018-3-26 Revise su información.png)
+
+Despues de presionar el boton amarillo de Continuar, paypal nos redirigirá de regreso a la tienda:
+
+![De regreso a Oscar]({{site.baseurl}}/media/Screenshot-2018-3-26 Order preview Checkout Oscar -.png)
+
+Ya solo falta presionar el boton azul de _Place Order_ y el proceso de compra y pago ha terminado.
+
+Pheww!
+
 
 
