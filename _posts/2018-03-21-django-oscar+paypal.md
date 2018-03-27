@@ -343,7 +343,19 @@ Una vez terminado todo esto podemos entrar al la tienda usando la cuenta de pedr
 
 Despues de agrgegar el producto al carrito podemos ir al carrito para ver las opciones de pago y ahi en la ezquina inferior izquierda tenemos el boton de pago de paypal. Por el momento no nos preocuparemos mucho por lo estetico ya que estamos probando funcionalidad.
 
+![Ahi esta el icono amarillo de Paypal]({{site.baseurl}}/media/Screenshot-2018-3-26 Cart Oscar -.png)
 
+Pero antes de hacer click en el boton amarillo de Paypal es necesario poder recibir notificaciones de Paypal directamente en mi instancia de django en localhost, y esto se hace posible gracias a [ngrok](https://ngrok.com/). `ngrok` es un servicio gratuito para pruebas de este tipo. Y configurarlo es bastante fácil: `./ngrok`.
 
+![ngrok haciendo un tunel.]({{site.baseurl}}/media/Screenshot from 2018-03-26 19-14-54.png)
+
+Nota: hay que agregar 5603f7b3.ngrok.io a la lista de  ALLOWED_HOSTS por que si no Django va a fallar con el error `DisallowedHost at /`.
+
+Ahora si, ya todo esta listo para hacer el pago, presionemos el botón de Paypal y nos vamos a la pantalla de 
+login del sandbox de Paypal.
+
+![Hay que usar alguna cuenta creada en la consola de pruebas de Paypal.]({{site.baseurl}}/media/Screenshot-2018-3-26 Pagar con mi cuenta PayPal - PayPal(1).png)
+
+Para poder pagar hay que usar alguna cuenta creada en la consola de pruebas de Paypal.
 
 
