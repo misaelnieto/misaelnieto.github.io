@@ -156,6 +156,7 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Cancelled': (),
 }
 ```
+
 El archivo `urls.py` queda asi:
 
 ```python
