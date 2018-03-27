@@ -39,6 +39,7 @@ cd Documents/Django-Oscar/
 django-admin.py startproject frobshop
 cd frobshop
 ```
+
 Ahora procedemos a configurar el proyecto; el proceso de instalación ya esta descrito en el [manual de Oscar](https://django-oscar.readthedocs.io/en/releases-1.5/internals/getting_started.html#django-settings), asi que no se si valga la pena compartirlo de nuevo. El proceso se resume en que dentro de `frobshop` se modifican `settings.py` y `urls.py`. Para conveniencia, pego el contenido de los archivos directamente.
 
 El archivo `settings.py` es el siguiente:
