@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Preparar Ubuntu 14.04 para correr Django "
+title: 'Preparar Ubuntu 14.04 para correr Django '
 categories: Linux Ubuntu Python Django
+published: true
 ---
 
-![El pony de Django]({{ site.url }}/media/magic-pony-django-wallpaper.png)
+![El pony de Django]({{ site.baseurl }}/media/magic-pony-django-wallpaper.png)
 
 
 ## Instala los paquetes
