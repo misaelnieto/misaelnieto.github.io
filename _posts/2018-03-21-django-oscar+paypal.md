@@ -368,6 +368,3 @@ Despues de presionar el boton amarillo de Continuar, paypal nos redirigirá de r
 Ya solo falta presionar el boton azul de _Place Order_ y el proceso de compra y pago ha terminado.
 
 Pheww!
-
-
-
