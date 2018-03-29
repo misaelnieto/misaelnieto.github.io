@@ -5,7 +5,7 @@ published: false
 
 Mis notas de cómo configurar Django Oscar con PayU
 
-## Parte 1 - Instalacíon y configuración de Django-Oscar
+## Parte 1 - Instalación y configuración de Django-Oscar
 
 Recomiendo usar un virtualenv para oscar.
 
@@ -209,5 +209,4 @@ PAYU_INFO = {
 }
 ```
 
-Esta informacin la sacas del panel de control de pahyu
-
+Esta información la sacas del panel de control de payu
