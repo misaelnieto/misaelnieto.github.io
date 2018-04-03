@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 Esta es una lista de los articulos de la columna **Bajo La Lupa** de [Alfredo Jalife Rhame](http://www.alfredojalife.com/). Estan ordenadas por fecha con el más reciente hasta arriba y contienen el link al artículo.
 
@@ -38,4 +38,3 @@ Esta es una lista de los articulos de la columna **Bajo La Lupa** de [Alfredo Ja
 | 2017/12/10 | [Trump y su yerno Kushner incendian al planeta: Jerusalén “capital fake” de Israel](http://www.jornada.unam.mx/2017/12/10/opinion/014o1pol)
 | 2017/12/06 | [Jared Kushner: ¿pupilo de Kissenger o yerno de Trump?](http://www.jornada.unam.mx/2017/12/06/opinion/018o1pol)
 | 2017/12/03 | [Histórico triunfo fiscal reoxigena a Trump](http://www.jornada.unam.mx/2017/12/03/opinion/016o1pol)
-
