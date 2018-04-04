@@ -5,6 +5,7 @@ Esta es una lista de los articulos de la columna **Bajo La Lupa** de [Alfredo Ja
 
 | Fecha      | Título / Link |
 |------------|---------------|
+| 2018/04/01 | [Israel desencadenará la Tercera Guerra Mundial: según el coronel Lawrence Wilkerson](http://www.jornada.unam.mx/2018/04/04/opinion/022o1pol)
 | 2018/04/01 | [Neutralidad, unificación y desnuclearización de la península coreana con garantía tripolar?](http://www.jornada.unam.mx/2018/04/01/opinion/010o1pol)
 | 2018/03/28 | [Bolton, asesor de "seguridad" de Trump: el "diplomático" más peligroso del mundo](http://www.jornada.unam.mx/2018/03/28/opinion/018o1pol)
 | 2018/03/25 | [Se tambalean el primer nipón Shinzo Abe y su Tratado Transpacífico (que incluye a México)](http://www.jornada.unam.mx/2018/03/25/opinion/010o1pol)
@@ -38,3 +39,5 @@ Esta es una lista de los articulos de la columna **Bajo La Lupa** de [Alfredo Ja
 | 2017/12/10 | [Trump y su yerno Kushner incendian al planeta: Jerusalén “capital fake” de Israel](http://www.jornada.unam.mx/2017/12/10/opinion/014o1pol)
 | 2017/12/06 | [Jared Kushner: ¿pupilo de Kissenger o yerno de Trump?](http://www.jornada.unam.mx/2017/12/06/opinion/018o1pol)
 | 2017/12/03 | [Histórico triunfo fiscal reoxigena a Trump](http://www.jornada.unam.mx/2017/12/03/opinion/016o1pol)
+
+FIN
