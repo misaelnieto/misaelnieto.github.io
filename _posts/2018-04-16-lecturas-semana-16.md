@@ -11,5 +11,5 @@ La lista de lecturas de la semana 16
 - [Ubuntu GNOME Shell in Artful: Day 15](https://didrocks.fr/2017/10/16/ubuntu-gnome-shell-in-artful-day-15/)
 - Los de System76 van a [mover su fábrica a gringolandia](https://opensource.com/article/18/4/system76-us-manufacturing-plant)
 - Dicen que conviene verificar muy bien si hay o no vida en marte [antes de que la contaminemos](https://www.zmescience.com/science/news-science/life-on-mars-contamination-16042018/) con la fauna y flora provenientes de la tierra, tal vez debido a que se esperan muchas mas misiones a el cuarto planeta.
+- [Virgin Galactic prueba con éxito su nueva nave espacial](https://www.playgroundmag.net/comunidad/virgin-galactic-nave-espacial_28935170.html)
 - 
-
