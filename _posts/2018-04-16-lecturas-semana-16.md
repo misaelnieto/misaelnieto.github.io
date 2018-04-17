@@ -9,5 +9,6 @@ La lista de lecturas de la semana 16
 - [Fedora Atomic Workstation: Developer tools](https://blogs.gnome.org/mclasen/2018/04/16/fedora-atomic-workstation-developer-tools/)
 - Novedades de Gnome Terminal para Fedora 28: [GNOME Terminal 3.28.x lands in Fedora](https://debarshiray.wordpress.com/2018/04/16/gnome-terminal-3-28-x-lands-in-fedora/)
 - [Ubuntu GNOME Shell in Artful: Day 15](https://didrocks.fr/2017/10/16/ubuntu-gnome-shell-in-artful-day-15/)
+- Los de System76 van a [mover su fábrica a gringolandia](https://opensource.com/article/18/4/system76-us-manufacturing-plant)
 - 
 
