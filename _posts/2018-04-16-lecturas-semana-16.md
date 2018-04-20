@@ -13,4 +13,5 @@ La lista de lecturas de la semana 16
 - Dicen que conviene verificar muy bien si hay o no vida en marte [antes de que la contaminemos](https://www.zmescience.com/science/news-science/life-on-mars-contamination-16042018/) con la fauna y flora provenientes de la tierra, tal vez debido a que se esperan muchas mas misiones a el cuarto planeta.
 - [Virgin Galactic prueba con éxito su nueva nave espacial](https://www.playgroundmag.net/comunidad/virgin-galactic-nave-espacial_28935170.html)
 - [Silicon Nanocrystals as Enabler for Silicon Photonics](https://www.youtube.com/watch?v=oYeIxJs2RLg): Lorenzo Pavesi at Open Readings 2016
+- [Hyper2 es un emulador de terminal](https://zeit.co/blog/hyper2) escrito en javascript. La puedes empotrar en cualquier app que use electron. 
 - 
