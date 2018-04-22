@@ -14,4 +14,4 @@ La lista de lecturas de la semana 16
 - [Virgin Galactic prueba con éxito su nueva nave espacial](https://www.playgroundmag.net/comunidad/virgin-galactic-nave-espacial_28935170.html)
 - [Silicon Nanocrystals as Enabler for Silicon Photonics](https://www.youtube.com/watch?v=oYeIxJs2RLg): Lorenzo Pavesi at Open Readings 2016
 - [Hyper2 es un emulador de terminal](https://zeit.co/blog/hyper2) escrito en javascript. La puedes empotrar en cualquier app que use electron. 
-- 
+- [Could life be hiding in the clouds on Venus?](https://www.zmescience.com/science/venus-life-atmosphere-7135132/)
