@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 La lista de lecturas de la semana 16
 
@@ -15,3 +15,5 @@ La lista de lecturas de la semana 16
 - [Silicon Nanocrystals as Enabler for Silicon Photonics](https://www.youtube.com/watch?v=oYeIxJs2RLg): Lorenzo Pavesi at Open Readings 2016
 - [Hyper2 es un emulador de terminal](https://zeit.co/blog/hyper2) escrito en javascript. La puedes empotrar en cualquier app que use electron. 
 - [Could life be hiding in the clouds on Venus?](https://www.zmescience.com/science/venus-life-atmosphere-7135132/)
+- [How birds “see” magnetic fields](https://www.zmescience.com/science/bird-magnetic-field-71351354/?utm_source=ZME+Science+Newsletter&utm_campaign=2669782e25-RSS_EMAIL_CAMPAIGN&utm_medium=email&utm_term=0_3b5aad2288-2669782e25-242777289&goal=0_3b5aad2288-2669782e25-242777289)Cry4 is a light-sensitive protein, which so far seems to be the first animal-sourced molecule we’ve identified that evolved specifically to detect magnetic fields. [El paper esta en este link](http://rsif.royalsocietypublishing.org/content/15/140/20180058).
+- [Bajo la lupa](http://www.jornada.unam.mx/2018/04/22/opinion/014o1pol): Trump entre una "nueva guerra fría" y la "guerra híbrida" contra Rusia y China
