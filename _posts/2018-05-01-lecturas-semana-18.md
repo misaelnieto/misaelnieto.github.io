@@ -2,4 +2,4 @@
 published: false
 ---
 - Scientists confirm [https://www.zmescience.com/science/i-motif-dna-0432423/]( weird ‘knot-shaped’ DNA structure) in human cells for the first time
-- 
+- [Breastfeeding changed tooth shape in pre-Native American peoples](https://www.zmescience.com/science/anthropology/breastfeeding-changed-tooth-shape-pre-native-american-peoples/). [This] "is a wonderful example of how human populations have come and gone over time, how populations are ephemeral. We all carry in our DNA pieces of multiple populations that existed in the past but then dispersed and meshed in with other populations".
