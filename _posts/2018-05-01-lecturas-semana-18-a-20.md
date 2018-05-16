@@ -9,4 +9,5 @@ He estado un poco ocupado con la tesis de maestría y el GSOC. Así que voy a un
 - Esta semana actualize el fodonga. Use la guia de [fedora magazine](https://fedoramagazine.org/upgrading-fedora-27-fedora-28/) y  otra de  [if-true-then-false](https://www.if-not-true-then-false.com/2017/upgrade-fedora-26-to-27-dnf/).
 - Buena [guia en inglés para crear llaves PGP y firmar archivos ODF](https://www.techrepublic.com/article/how-to-sign-libreoffice-6-documents-with-gnupg/). Pero el #$@%$ seahorse no saca ninguna opcion para crear nada llamado GPG. Tendré una versión rara en F28?
 - [The sad state of sysadmin in the age of containers](https://www.vitavonni.de/blog/201503/2015031201-the-sad-state-of-sysadmin-in-the-age-of-containers.html)
-
+- [Protect Fedora against DHCP Vulnerability](https://fedoramagazine.org/protect-fedora-system-dhcp-flaw/)
+-
