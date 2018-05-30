@@ -10,4 +10,6 @@ He estado un poco ocupado con la tesis de maestría y el GSOC. Así que voy a un
 - Buena [guia en inglés para crear llaves PGP y firmar archivos ODF](https://www.techrepublic.com/article/how-to-sign-libreoffice-6-documents-with-gnupg/). Pero el #$@%$ seahorse no saca ninguna opcion para crear nada llamado GPG. Tendré una versión rara en F28?
 - [The sad state of sysadmin in the age of containers](https://www.vitavonni.de/blog/201503/2015031201-the-sad-state-of-sysadmin-in-the-age-of-containers.html)
 - [Protect Fedora against DHCP Vulnerability](https://fedoramagazine.org/protect-fedora-system-dhcp-flaw/)
--
+- !Atención a todos! Jalife ha twitteado:
+![Screenshot-2018-5-29 from AlfredoJalifeR_ - Búsqueda de Twitter.png]({{site.baseurl}}/media/Screenshot-2018-5-29 from AlfredoJalifeR_ - Búsqueda de Twitter.png)
+
