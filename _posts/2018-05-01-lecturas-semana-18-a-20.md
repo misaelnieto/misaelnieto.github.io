@@ -17,3 +17,14 @@ He estado ocupado con la tesis de maestría y el GSOC. Así que voy a unir las l
 - Jalife:  [Golpe del FMI al gobierno italiano "antisistema": “palazzo contra piazza y pizza”](http://www.jornada.com.mx/2018/05/30/opinion/018o1pol)
 - [Tribunal derrumba versión de la PGR sobre Ayotzinapa](http://www.jornada.unam.mx/ultimas/2018/06/05/tribunal-derrumba-version-de-la-pgr-sobre-ayotzinapa-6774.html)
 - Putrefacto pastel en España: [ Epidémica mega-corrupción del "Partido Popular" español defenestra al presidente Rajoy](http://www.jornada.com.mx/2018/06/03/opinion/012o1pol) -- Jalife
+- [Cool New Features in Python 3.7](https://realpython.com/python37-new-features/) Lo más interesante: nuevo builtin breakpoint(), La libreria [dataclases](https://docs.python.org/3.7/library/dataclasses.html), Type hinting, Mejoras en funciones de tiempo, los diccionarions ya respetan el orden, async y away ya son palabras reservadas
+- 
+
+
+
+
+
+
+
+
+
