@@ -20,7 +20,7 @@ He estado ocupado con la tesis de maestría y el GSOC. Así que voy a unir las l
 - [Cool New Features in Python 3.7](https://realpython.com/python37-new-features/) Lo más interesante: nuevo builtin breakpoint(), La libreria [dataclases](https://docs.python.org/3.7/library/dataclasses.html), Type hinting, Mejoras en funciones de tiempo, los diccionarions ya respetan el orden, async y away ya son palabras reservadas
 - Un nuevo framework web hecho en python: [Molten](https://moltenframework.com/).
 - [Robovision](https://github.com/stoic1979/robovision):  AI and machine leaning-based computer vision for a robot.
-
+- [Greg Palast](http://www.gregpalast.com/), investigador británico citado por Jalife en una [entrevista con TeleSur](https://youtu.be/dvPv2xy32ko?t=65).
 
 
 
