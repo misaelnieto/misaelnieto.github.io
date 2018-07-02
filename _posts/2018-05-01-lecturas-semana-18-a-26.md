@@ -1,7 +1,7 @@
 ---
-published: false
+published: true
 ---
-He estado ocupado con la tesis de maestría y el GSOC. Así que voy a unir las lecturas de la semana 19 a la 26 con la 18.
+Estuve ocupado con la tesis de maestría y el GSOC. Así que voy a unir las lecturas de la semana 19 a la 26 con la 18.
 
 
 - Scientists confirm [https://www.zmescience.com/science/i-motif-dna-0432423/]( weird ‘knot-shaped’ DNA structure) in human cells for the first time
