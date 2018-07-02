@@ -21,6 +21,9 @@ He estado ocupado con la tesis de maestría y el GSOC. Así que voy a unir las l
 - Un nuevo framework web hecho en python: [Molten](https://moltenframework.com/).
 - [Robovision](https://github.com/stoic1979/robovision):  AI and machine leaning-based computer vision for a robot.
 - [Greg Palast](http://www.gregpalast.com/), investigador británico citado por Jalife en una [entrevista con TeleSur](https://youtu.be/dvPv2xy32ko?t=65).
+- [Bernie Sanders con sus millennials humillan a Hillary en Nueva York](http://www.jornada.com.mx/2018/07/01/opinion/014o1pol)
+- [Alexandria Ocasio-Cortez and the Legacy of the Bernie Sanders Movement](https://www.newyorker.com/news/news-desk/alexandria-ocasio-cortez-and-the-legacy-of-the-bernie-sanders-movement)
+- 
 
 
 
