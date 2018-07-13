@@ -8,3 +8,6 @@ published: false
 - [ Researchers Use Coal Waste To Create Sustainable Concrete](https://www.pddnet.com/news/2018/07/researchers-use-coal-waste-create-sustainable-concrete): esearchers have created a sustainable alternative to traditional concrete using [coal fly ash](https://www.youtube.com/watch?v=aeUFyg1PVo4), a waste product of coal-based electricity generation.
 - [OLED Surpasses 100 Percent Exciton Production Efficiency](https://www.photonics.com/Article.aspx?AID=63641)
 - [E-Commerce for Django Developers (with Wagtail Tutorial)](https://snipcart.com/blog/django-ecommerce-tutorial-wagtail-cms). Basicamente: Wagtail CMS + Snipcart.
+- CSS-Tricks: [Delivering WordPress in 7KB](https://css-tricks.com/delivering-wordpress-in-7kb/). Es un tema llamado susty.
+- [Guidelines for Brutalist Web Design](https://brutalist-web.design/). Me encantó. HAce referencia a un framework css: [Tachyons](http://tachyons.io/).
+
