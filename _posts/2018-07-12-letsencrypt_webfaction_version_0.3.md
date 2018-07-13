@@ -116,5 +116,8 @@ Con esto se correrá letsencrypy_webfaction rodos los dias a las 3:18 am.
 
 En este momento no voy programer notificacion mediante email, por que se estaría enviando diariamente y no tiene caso.
 
-## Fin
-Eso es todo amigos.
+## Problemas
+
+`letsencryp_webfaction` solo admite dos comandos: `init` y `run`. Inicialmente generé mi certificado usando el servidor de staging. Cuando todo salió bien cambié la configuración para usar el servidor de producción. Pero parece que `letsencrypt_webfaction` no detecta que cambiaste de servidor y tampoco tiene ninguna opción para forzar la generación del certificado. [No soy el único que tuvo este problema](https://github.com/will-in-wi/letsencrypt-webfaction/issues/132), al parecer.
+
+Por el momento lo arrglé cambiando el nombre del certificado.
