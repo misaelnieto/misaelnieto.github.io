@@ -40,14 +40,8 @@ function letsencrypt_webfaction {
     PATH=$PATH:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $*
 }
 ```
-El script anterior `~/bin/letsencrypt_webfaction` lo renombré a `~/bin/renew_certificates` y queda como está a continuación:
+El script anterior `~/bin/letsencrypt_webfaction` lo dejé de usar y lo borré.
 
-```bash
-#!/bin/bash
-
-PATH=$PATH:/usr/local/bin:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $*
-
-```
 
 ## Inicialización del archivo de configuración:
 
