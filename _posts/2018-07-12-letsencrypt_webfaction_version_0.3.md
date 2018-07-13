@@ -51,7 +51,7 @@ PATH=$PATH:/usr/local/bin:$GEM_HOME/bin GEM_HOME=$HOME/.letsencrypt_webfaction/g
 
 ## Inicialización del archivo de configuración:
 
-Una de las novedades de la versión 0.3 de `letsencrypt_webfaction` es que el script ya no acepta ningun parámetro en la línea de comando, excepto por `init` y `run`. Cuando corres el comando `init` se crea el archivo `letsencrypt_webfaction.toml`
+Una de las novedades de la versión 0.3 de `letsencrypt_webfaction` es que el script ya no acepta ningun parámetro en la línea de comando, excepto por `init` y `run`. Cuando corres el comando `init` se crea el archivo `~/letsencrypt_webfaction.toml`
 
 ## Reconfiguración
 
@@ -82,96 +82,45 @@ domains = [
 public = "~/webapps/demos_noenieto/"
 name = "demos_noenieto_com"
 ```
+## Pruebas
 
 Primero probamos con staging
 
 ```bash
-letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/letsencrypt/demos_noenieto_com.yml 
-
+ letsencrypt_webfaction run
+-64 days until expiration of demos_noenieto_com. Renewing...
 Your new certificate is now created and installed.
 You will need to change your application to use the demos_noenieto_com certificate.
 Add the `--quiet` parameter in your cron task to remove this message.
 ```
 
-Después de configurar el sitio con registros `A` y `AAA` el programa funciona muy bien y justo después de esto podemos ver que en el panel de configuración cuenta de de webfaction se ha creado un certificado con el nombre `cert_demos_noenieto.com`.
+Después de correr el comando pude ver que el certificado ya se había actualizado en el panel de control de webfaction y además mi sitio ya estaba usando el nuevo certificado (aunque es inválido por que usé el servidor staging de letsencrypt.
 
-![Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png)
+Ahora sólo falta configurar el sitio web para que use el endpoint de producción (editando el archivo .toml)
 
-Ya sólo falta configurar el sitio web para que use el certificadovadecuado.
+### Cronjob para renovación de certificados
 
-![Screenshot-2018-2-7 Edit website demos_https - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-7 Edit website demos_https - WebFaction Control Panel.png)
+Con esta nueva version todo va a estar concentrado en un solo archivo de configuración, así que todos los certificados se van a renovar al mismo tiempo. Otro cambio importante con esta nueva version es que esta pensada para que el cronjob de renovación de certificados se corra una vez al día. 
 
-
-El comando final es este:
+Como en la ocasión anterior, los certificados de Let's encrypt sólo [duran sólo 90 días](https://letsencrypt.org/2015/11/09/why-90-days.html). El servidor de producción de letsencrypt te limita a 5 certificados por dominio cada 7 días. Pero parece que no va a haber problema si `letsencrypt_webfaction` corre diariamente por que detecta cuánto falta para renovar cierto certificado. Corrí el comando de nuevo como proueba y ahora el resultado fue distinto:
 
 ```bash
-letsencrypt_webfaction --config=$HOME/letsencrypt/demos_noenieto_com.yml
+$ letsencrypt_webfaction run
+90 days until expiration of demos_noenieto_com. Skipping...
 ```
 
-
-### Renovacion y cronjob
-
-Los certificados de Let's encrypt [duran sólo 90 días](https://letsencrypt.org/2015/11/09/why-90-days.html) asi que lo configuraré para que se renueve todos los días 15 del mes a la media noche.
+Habiendo considerado todo esto, el crojob va a quedar así:
 
 ```cron
 # Let's encrypt
-00 0 15 * * ~/bin/letsencrypt_webfaction --quiet --config=$HOME/letsencrypt/demos_noenieto_com.yml
+18 3 * * *     PATH=$PATH:$GEM_HOME/bin:/usr/local/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction run --quiet
 ```
+
+Con esto se correrá letsencrypy_webfaction rodos los dias a las 3:18 am.
 
 ### Notificacion por email
 
-Ahora quiero que cada vez que se actualicen los certificados me llegue una notificación a mi correo. Esto se puede hacer fácilmente desde el comando `letsencrypt_webfaction` agregándole lo siguiente hasta el final.
+En este momento no voy programer notificacion mediante email, por que se estaría enviando diariamente y no tiene caso.
 
-```bash
-mail -s "Renovacion de certificado" "nnieto@noenieto.com" <<EOF
-Se renovó un certifcado de letsencrypt.
-Argumentos: $*
-EOF
-```
-
-## Problemas encontrados
-
-Como ya lo mencioné, esto no funciona bien usando CNAMES. Aca un ejemplo del error:
-
-```bash
-$ letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/letsencrypt/demos_noenieto_com.yml 
-Failed to verify statuses.
-demos.noenieto.com: Invalid response from http://demos.noenieto.com/.well-known/acme-challenge/nOAK22n3fuqyNxFRw37DwF1I02PlikLWU5_-jVtenGY: "<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-  "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-  <head>
-    <meta http-equi"
-Make sure that you can access http://demos.noenieto.com/.well-known/acme-challenge/nOWK22n3fuqyNxFrasgva23123w37DwF1I02PlikLWU5_-jVtenGY
-```
-Dig reporta que demos.noenieto.com es un `CNAME`.
-
-```bash
-$ dig demos.noenieto.com
-[...]
-
-;; ANSWER SECTION:
-demos.noenieto.com. 1799    IN  CNAME   web547.webfaction.com.
-web547.webfaction.com.  3600    IN  A   207.38.86.18
-
-[...]
-```
-
-Una vez que los cambios en el DNS se han propagado ...
-
-```bash
-$ dig demos.noenieto.com
-[...]
-
-;; ANSWER SECTION:
-demos.noenieto.com. 1799    IN  A   207.38.86.18
-[...]
-```
-... el registro del certificado funciona bien:
-
-```bash
-$ letsencrypt_webfaction --endpoint https://acme-staging.api.letsencrypt.org/ --config=$HOME/letsencrypt/demos_noenieto_com.yml 
-Your new certificate is now created and installed.
-You will need to change your application to use the demos_noenieto_com certificate.
-Add the `--quiet` parameter in your cron task to remove this message.
-
-```
+## Fin
+Eso es todo amigos.
