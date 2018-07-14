@@ -10,5 +10,7 @@ published: false
 - [E-Commerce for Django Developers (with Wagtail Tutorial)](https://snipcart.com/blog/django-ecommerce-tutorial-wagtail-cms). Basicamente: Wagtail CMS + Snipcart.
 - CSS-Tricks: [Delivering WordPress in 7KB](https://css-tricks.com/delivering-wordpress-in-7kb/). Es un tema llamado susty.
 - [Guidelines for Brutalist Web Design](https://brutalist-web.design/). Me encantó. HAce referencia a un framework css: [Tachyons](http://tachyons.io/).
-- Trece enfermedades que estan regresando ([En inglés sólamente](https://www.medicinenet.com/diseases_conditions_making_comeback/article.htm?ecd=mnl_spc_071318). TLDR: La plaga, Tuberculosis, Sífilis y Clamidia, Fiebre escarlata, Sarampión, Paperas, Tosferina, Enfermedad del legionario (??), Lepra, Polio, Gota, Raquitis (por la falta de vitamina D), Escorbuto, 
+- Trece enfermedades que estan regresando ([En inglés sólamente](https://www.medicinenet.com/diseases_conditions_making_comeback/article.htm?ecd=mnl_spc_071318). TLDR: La plaga, Tuberculosis, Sífilis y Clamidia, Fiebre escarlata, Sarampión, Paperas, Tosferina, Enfermedad del legionario (??), Lepra, Polio, Gota, Raquitis (por la falta de vitamina D) y Escorbuto (falta de vitamina C).
+- [ 5 Violently Debunked Martial Arts Myths](http://www.cracked.com/blog/5-violently-debunked-martial-arts-myths/)
+- [DD2018: Sebastian Aaltonen - GPU based clay simulation and ray tracing tech in Claybook](https://www.youtube.com/watch?v=Xpf7Ua3UqOA). Buscaba información de Ray Tracing, pero esto no me sirvió, pero de todos modos lo vi.
 - 
