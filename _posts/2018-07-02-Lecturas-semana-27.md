@@ -13,4 +13,7 @@ published: false
 - Trece enfermedades que estan regresando ([En inglés sólamente](https://www.medicinenet.com/diseases_conditions_making_comeback/article.htm?ecd=mnl_spc_071318). TLDR: La plaga, Tuberculosis, Sífilis y Clamidia, Fiebre escarlata, Sarampión, Paperas, Tosferina, Enfermedad del legionario (??), Lepra, Polio, Gota, Raquitis (por la falta de vitamina D) y Escorbuto (falta de vitamina C).
 - [ 5 Violently Debunked Martial Arts Myths](http://www.cracked.com/blog/5-violently-debunked-martial-arts-myths/)
 - [DD2018: Sebastian Aaltonen - GPU based clay simulation and ray tracing tech in Claybook](https://www.youtube.com/watch?v=Xpf7Ua3UqOA). Buscaba información de Ray Tracing, pero esto no me sirvió, pero de todos modos lo vi.
-- 
+- De pura casualidad me encontre la peli completa de Spriggan en [Youtube](https://www.youtube.com/watch?v=7nIdzcwfZCU) subtitulada al español.
+- [Portable Demand Use Hot Water Shower](http://www.instructables.com/id/Portable-Demand-Use-Hot-Water-Shower/)
+- [Disadvantages of using Django ](https://hackr.io/blog/what-is-django-advantages-and-disadvantages-of-using-django#Disadvantages_of_Django). TLDR: Urls con regex, Modelos: aplicación monolítica, Las plantillas no arrojan errores por default.
+
