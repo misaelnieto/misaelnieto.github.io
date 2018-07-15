@@ -16,4 +16,7 @@ published: false
 - De pura casualidad me encontre la peli completa de Spriggan en [Youtube](https://www.youtube.com/watch?v=7nIdzcwfZCU) subtitulada al español.
 - [Portable Demand Use Hot Water Shower](http://www.instructables.com/id/Portable-Demand-Use-Hot-Water-Shower/)
 - [Disadvantages of using Django ](https://hackr.io/blog/what-is-django-advantages-and-disadvantages-of-using-django#Disadvantages_of_Django). TLDR: Urls con regex, Modelos: aplicación monolítica, Las plantillas no arrojan errores por default.
-
+- [vim.wasm: Vim Ported to WebAssembly](https://github.com/rhysd/vim.wasm)
+- [NuSTER can be used as a RESTful NoSQL cache server, using HTTP POST/GET/DELETE to set/get/delete Key/Value object.](https://github.com/jiangwenyuan/nuster/wiki/NuSTER-NoSQL). La idea es usar un cache interno de puro http. Parece que esta inspirado por HA-Proxy
+- [This is a group of programs written in Python / NumPy for simulating light propagation in planar multilayer thin films, including the effects of multiple internal reflections and interferenc]( transfer-matrix method for optics of thin and thick multilayer films) Tal vez pueda usar esto para mi proyecto del GSOC.
+- 
