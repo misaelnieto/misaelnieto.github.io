@@ -19,4 +19,5 @@ published: false
 - [vim.wasm: Vim Ported to WebAssembly](https://github.com/rhysd/vim.wasm)
 - [NuSTER can be used as a RESTful NoSQL cache server, using HTTP POST/GET/DELETE to set/get/delete Key/Value object.](https://github.com/jiangwenyuan/nuster/wiki/NuSTER-NoSQL). La idea es usar un cache interno de puro http. Parece que esta inspirado por HA-Proxy
 - [This is a group of programs written in Python / NumPy for simulating light propagation in planar multilayer thin films, including the effects of multiple internal reflections and interferenc]( transfer-matrix method for optics of thin and thick multilayer films) Tal vez pueda usar esto para mi proyecto del GSOC.
-- 
+- [ The downfall of US nuclear power ](https://www.rt.com/business/433140-downfall-of-us-nuclear-power/)
+
