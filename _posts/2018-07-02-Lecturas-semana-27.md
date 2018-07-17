@@ -20,4 +20,7 @@ published: false
 - [NuSTER can be used as a RESTful NoSQL cache server, using HTTP POST/GET/DELETE to set/get/delete Key/Value object.](https://github.com/jiangwenyuan/nuster/wiki/NuSTER-NoSQL). La idea es usar un cache interno de puro http. Parece que esta inspirado por HA-Proxy
 - [This is a group of programs written in Python / NumPy for simulating light propagation in planar multilayer thin films, including the effects of multiple internal reflections and interferenc]( transfer-matrix method for optics of thin and thick multilayer films) Tal vez pueda usar esto para mi proyecto del GSOC.
 - [ The downfall of US nuclear power ](https://www.rt.com/business/433140-downfall-of-us-nuclear-power/)
-
+- [NEPTUNE & URANUS - A Traveler's Guide to the Planets](https://www.youtube.com/watch?v=vOcS32EoL_I)
+- [ Primer on Universal Basic Income ](https://www.linkedin.com/pulse/primer-universal-basic-income-ray-dalio/)
+- [Hallan fuente radioactiva de Iridio-192](http://www.eluniversal.com.mx/metropoli/cdmx/hallan-fuente-radiactiva-de-iridio-192-que-fue-robada-en-alvaro-obregon) en la CDMX.
+- 
