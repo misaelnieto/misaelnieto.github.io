@@ -1,3 +1,6 @@
+---
+published: false
+---
 ## Guía rápida de instalación de PostgreSQL 10 en Fedora 28
 
 Como `root`:
