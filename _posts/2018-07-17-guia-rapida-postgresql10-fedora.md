@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Guía rápida de instalación de PostgreSQL 10 en Fedora 28
 
