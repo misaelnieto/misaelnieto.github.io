@@ -25,4 +25,6 @@ Este es un post que cubre de la semana 31 a la 33 del 2018
 - [These Are the Fastest Creatures on Earth But You'll Never Spot Them ](https://www.livescience.com/63303-fastest-creature-single-cell-nanobot.html)
 - [ Symantec Distrust in Firefox Nightly 63 ](https://blog.nightly.mozilla.org/2018/08/14/symantec-distrust-in-firefox-nightly-63/)
 - [How to Make a Hammer in 20+ Years](https://www.instructables.com/id/How-to-Make-a-Hammer-in-20-Years/)
+- Esto esta bien chido: [CNC Cyclone PCB Factory, My Way, Step by Step.](https://www.instructables.com/id/Cyclone-PCB-Factory-My-Way-Step-by-Step/)
+- Terminé de leer el [número 24 de la Revista oficial de la Academia Internacional de Psicología Holokinética](https://revista.psicologiaholokinetica.org/sites/default/files/REVISTAPH-24.pdf).
 - 
