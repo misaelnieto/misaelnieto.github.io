@@ -28,4 +28,7 @@ Este es un post que cubre de la semana 31 a la 33 del 2018
 - Esto esta bien chido: [CNC Cyclone PCB Factory, My Way, Step by Step.](https://www.instructables.com/id/Cyclone-PCB-Factory-My-Way-Step-by-Step/)
 - Terminé de leer el [número 24 de la Revista oficial de la Academia Internacional de Psicología Holokinética](https://revista.psicologiaholokinetica.org/sites/default/files/REVISTAPH-24.pdf).
 - [Tower Web — A new web framework for Rust](https://medium.com/@carllerche/tower-web-a-new-web-framework-for-rust-e2912856851b)
+- [E-Commerce at Scale: Inside Shopify's Tech Stack ](https://shopifyengineering.myshopify.com/blogs/engineering/e-commerce-at-scale-inside-shopifys-tech-stack)
+- [Mini impresora 3d, pero a colores.](https://www.pddnet.com/videos/2018/08/da-vinci-mini-full-color-3d-printer-your-desktop)
+- [Restoring a 100 Year Old Vise!](https://www.instructables.com/id/Restoring-a-100-Year-Old-Vise/). Crei que iba a quedar fea con el color negro, pero al final se ve myt bien :)
 - 
