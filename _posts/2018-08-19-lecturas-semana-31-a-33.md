@@ -27,4 +27,5 @@ Este es un post que cubre de la semana 31 a la 33 del 2018
 - [How to Make a Hammer in 20+ Years](https://www.instructables.com/id/How-to-Make-a-Hammer-in-20-Years/)
 - Esto esta bien chido: [CNC Cyclone PCB Factory, My Way, Step by Step.](https://www.instructables.com/id/Cyclone-PCB-Factory-My-Way-Step-by-Step/)
 - Terminé de leer el [número 24 de la Revista oficial de la Academia Internacional de Psicología Holokinética](https://revista.psicologiaholokinetica.org/sites/default/files/REVISTAPH-24.pdf).
+- [Tower Web — A new web framework for Rust](https://medium.com/@carllerche/tower-web-a-new-web-framework-for-rust-e2912856851b)
 - 
