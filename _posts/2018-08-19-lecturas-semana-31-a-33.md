@@ -34,4 +34,4 @@ Este es un post que cubre de la semana 31 a la 33 del 2018
 - [How Python saves memory when storing strings](https://rushter.com/blog/python-strings-and-memory/). TL;DR: String Interning
 - [Earth may have 'mini-moons' that could answer some interesting astronomy](https://www.zmescience.com/science/news-science/mini-moons-asteroids-0432423/)
 - [Mathematicians solve old mystery about spaghetti breaking](https://www.zmescience.com/science/physics/mathematicians-pasta-breaking-16082018/)
-- 
+- [https://www.zmescience.com/science/art-science-sarah-gluschitz-feature-352397106/](The role of art in research with science illustrator Sarah Gluschitz)
