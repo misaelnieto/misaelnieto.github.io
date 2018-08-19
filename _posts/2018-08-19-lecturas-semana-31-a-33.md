@@ -32,4 +32,6 @@ Este es un post que cubre de la semana 31 a la 33 del 2018
 - [Mini impresora 3d, pero a colores.](https://www.pddnet.com/videos/2018/08/da-vinci-mini-full-color-3d-printer-your-desktop)
 - [Restoring a 100 Year Old Vise!](https://www.instructables.com/id/Restoring-a-100-Year-Old-Vise/). Crei que iba a quedar fea con el color negro, pero al final se ve myt bien :)
 - [How Python saves memory when storing strings](https://rushter.com/blog/python-strings-and-memory/). TL;DR: String Interning
+- [Earth may have 'mini-moons' that could answer some interesting astronomy](https://www.zmescience.com/science/news-science/mini-moons-asteroids-0432423/)
+- [Mathematicians solve old mystery about spaghetti breaking](https://www.zmescience.com/science/physics/mathematicians-pasta-breaking-16082018/)
 - 
