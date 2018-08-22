@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Lecturas de la semana 31 a 33 del 2018
 ---
 Este es un post que cubre de la semana 31 a la 33 del 2018
@@ -38,4 +38,4 @@ Este es un post que cubre de la semana 31 a la 33 del 2018
 [Korean supermarket wins at selling bananas](https://www.zmescience.com/science/news-science/korean-supermarket-bananas-12082018/)
 - Tutorial: [ What is Docker and How to Use it With Python](https://dev.to/djangostars/what-is-docker-and-how-to-use-it-with-python-tutorial-87a)
 - [How to Use Bootstrap 4 Forms With Django](https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html)
-- 
+-
