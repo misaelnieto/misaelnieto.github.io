@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Las lecturas de la semana 34
 
@@ -11,4 +11,3 @@ published: false
 - [The Hackers Hunting Down Missing People](https://motherboard.vice.com/en_us/article/qvmm3x/hackers-hunting-missing-people-osint-defcon-tracelabs)
 - [Earth’s magnetic poles might flip a lot faster than we thought](https://www.zmescience.com/science/geology/earth-magnetic-field-flip-0432432/). No estamos preparados.
 - [All About Screws: 7 Steps (with Pictures)](https://www.instructables.com/id/All-About-Screws/)
-- 
