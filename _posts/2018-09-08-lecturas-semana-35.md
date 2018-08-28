@@ -8,4 +8,6 @@ published: false
 - [ What was the most important moment in the history of Linux?](https://opensource.com/article/18/8/linux-history)
 - [La historia de Linux](https://opensource.com/article/18/8/linux-history).
 - [ Red Hat webinar: .NET on RHEL](https://developers.redhat.com/webinars/net-on-rhel-sneak-peek/). No lo vi por que es del 2016. Pero de todos modos le leí un poquito.
-
+- [25 things that are better because of Linux (and open source) ](https://www.redhat.com/en/blog/25-things-are-better-because-of-linux-and-open-source-0#)
+- [ Teaching kids Linux at summer camp](https://opensource.com/article/18/8/linux-kids-camp)
+- 
