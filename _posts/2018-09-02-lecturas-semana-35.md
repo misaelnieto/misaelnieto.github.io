@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 # Mis lecturas de la semana 35
 
