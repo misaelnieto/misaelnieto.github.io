@@ -11,6 +11,11 @@ I caught word that some company was hiring devs, so I decided to take the bait. 
 
 After evaluating the trends I decided to use the following:
 
-Backend: Django on AWS Lambda + API Gateway
+- Backend: Django on AWS Lambda + API Gateway ([Nice guide](https://blog.apcelent.com/deploy-django-app-aws-lambda.html) about how to do this with [Zappa](https://www.zappa.io/))
+  - Docker as Postgresql database.
+  - 
 Frontend: Vue.JS served from S3.
+
+
+
 
