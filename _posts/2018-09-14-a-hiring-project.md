@@ -24,5 +24,22 @@ Frontend: Vue.JS served from S3
 - Create backend and frontend directores. The django code goes to `backend`, and the vuej.js thingy goes to `frontend`.
 - Save the requirements.txt file for the frontend according to ([the guide](https://blog.apcelent.com/deploy-django-app-aws-lambda.html) and then `pip install` the requirements.
 
+## Modeling
+
+Options:
+
+- EAV:
+  - https://sqlblog.org/2009/11/19/what-is-so-bad-about-eav-anyway
+  - https://en.wikipedia.org/wiki/Entity-attribute-value_model
+  - https://django-eav-2.readthedocs.io/en/latest/
+  - https://github.com/makimo/django-eav2
+
+- HStore:
+  - https://realpython.com/fun-with-djangos-new-postgres-features/
+  - https://docs.djangoproject.com/en/2.1/ref/contrib/postgres/fields/
+  - https://www.postgresql.org/docs/9.1/static/hstore.html
+  
+  
 
 
+  
