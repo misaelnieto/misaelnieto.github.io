@@ -36,14 +36,9 @@ Options:
   - https://django-eav-2.readthedocs.io/en/latest/
   - https://github.com/makimo/django-eav2
 
-- HStore:
+- HStore y JSONb:
   - https://realpython.com/fun-with-djangos-new-postgres-features/
   - https://docs.djangoproject.com/en/2.1/ref/contrib/postgres/fields/
   - https://www.postgresql.org/docs/9.1/static/hstore.html
   - https://coussej.github.io/2016/01/14/Replacing-EAV-with-JSONB-in-PostgreSQL/
-  
-  
-  
 
-
-  
