@@ -65,6 +65,9 @@ The transmission of the interface 3 is, conversely:
 
 $$ t_{23} = 1 + r{23} = 1 + \frac{ n_3 - n_2 }{n_3 + n_2}\ $$
 
+For our specific case:
+
+$$ r_{23} = \frac{ 3.94 + i8.559E-2  -  3.710 + i8.496E-2 }{n_3 + n_2}\ $$
 
 ## References
 
