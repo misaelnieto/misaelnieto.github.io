@@ -58,9 +58,7 @@ _**Table 1** - Refractive indexes for Air, ITO, a-Si and Al_
 
 The reflection on the interface 3 is right in-between layer 2 and 3, so i'll name it \\r_{23}\\. It's calculated by the following expression:
 
-$$
-x = r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\
-$$
+$$ x = r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\ $$
 
 We need to know how many
 
