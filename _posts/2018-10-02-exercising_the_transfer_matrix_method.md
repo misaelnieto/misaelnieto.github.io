@@ -114,11 +114,22 @@ $$
 I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 & r_{23} \\ r_{23} & 1 \end{bmatrix} 
 $$
 
-Substituting
+After substitution, //(I_{23}//) becomes this:
 
 $$
-I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 & r_{23} \\ r_{23} & 1 \end{bmatrix} 
+I_{23} =  \frac{1}{1.2929 + i5.7x10^{-4}}   \begin{bmatrix} 1 & 0.2929 + i5.71x10^{-4} \\ 0.2929 + i5.71x10^{-4} & 1 \end{bmatrix} 
 $$
+
+Which is becoming a bit startling ...
+
+![For mere mortals ...]({{site.baseurl}}/media/abandon-thread_fb_3029909.jpg)
+
+... for mere mortals. Yet here we are still, aren't we?
+
+Python does not support matrices out of the box, we need a little help of [numpy](https://docs.scipy.org/doc/numpy/) we can solve this matrix in no time:
+
+
+
 
 ## References
 
