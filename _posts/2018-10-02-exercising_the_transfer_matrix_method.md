@@ -126,9 +126,32 @@ Which is becoming a bit startling ...
 
 ... for mere mortals. Yet here we are still, aren't we?
 
-Python does not support matrices out of the box, we need a little help of [numpy](https://docs.scipy.org/doc/numpy/) we can solve this matrix in no time:
+Python does not support matrices out of the box, we need a little help of [numpy](https://docs.scipy.org/doc/numpy/) so we can solve this matrix in no time:
 
+```python
+import numpy
 
+>>> n2 = 3.710 + 0.08496j
+>>> n3 = 3.934 + 0.08559j
+>>> r_23 = reflection(n2, n3)
+>>> t_23 = transmission(n2, n3)
+
+>>> 1/t_23
+(0.9715419774918925+0.0005390752787160436j)
+
+>>> print(numpy.array([[1, r_23], [r_23, 1]]))
+[[1.        +0.j         0.02929129-0.00057112j]
+ [0.02929129-0.00057112j 1.        +0.j        ]]
+
+>>> I_23 = 1/t_23 * numpy.array([[1, r_23], [r_23, 1]])
+
+[[0.97154198+0.00053908j 0.02845802-0.00053908j]
+ [0.02845802-0.00053908j 0.97154198+0.00053908j]]
+
+>>> print(I_23)
+[[0.97154198+0.00053908j 0.02845802-0.00053908j]
+ [0.02845802-0.00053908j 0.97154198+0.00053908j]]
+```
 
 
 ## References
