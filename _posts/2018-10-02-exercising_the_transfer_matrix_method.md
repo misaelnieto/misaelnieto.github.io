@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 mathjax: true
 ---
 ## Exercising the transfer matrix method "by pencil"
