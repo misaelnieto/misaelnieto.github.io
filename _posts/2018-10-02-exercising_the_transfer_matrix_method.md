@@ -48,4 +48,4 @@ The guys at PV Lighthouse are kind enough to publish refractive index tables for
 ## References
 
 - [Lei18] 	M. Leilaeioun, Z.J. Yu, S. Manzoor, K. Fisher, J. Shi and Z. Holman, 'Design of the front transparent conductive oxide layer of silicon heterojunction solar for four-terminal tandem applications', In preparation 2018. 
-
+- [Pal85b] 	E. Palik, Handbook of Optical Constants of Solids Vol I, Academic Press, Orlando, pp. 397–400, 1985. 
