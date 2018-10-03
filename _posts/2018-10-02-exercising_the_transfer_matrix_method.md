@@ -40,9 +40,16 @@ Final note (yet important): the professor assigned us to analyze only one layer,
 
 The first step is to calculate the coefficients of reflection and diffraction. Going top to bottom, the first interface is number 3, between a-Si-p (amorphous silicon doped p) and a-Si-n (amorphous silicon doped n).
 
-The guys at PV Lighthouse are kind enough to publish refractive index tables for a wide variety of materials, including Silicon. They even include the citatino of their references!!. So, for my own convenience, I'm going to include a small table with the real and imaginary part of all the materials needed to build the device avobe.
+The guys at PV Lighthouse are kind enough to publish refractive index tables for a wide variety of materials, including Silicon. They even include the citatino of their references!!. So, for my own convenience, I'm going to include a small table with the real and imaginary part of all the materials needed to build the device avobe @600 nm.
 
 
+| Layer      | λ (nm) |   n   |     k    | Notes                                                |
+|------------|:------:|:-----:|:--------:|------------------------------------------------------|
+| 0 (air)    |   600  |  1.0  |    0.0   | [Lei18]                                              |
+| 1 (ITO)    |   600  | 2.134 | 8.370E-4 | ITO Sputtered @1.2e20 cm-3 (Lei-18)                  |
+| 2 (a-Si-p) |   600  | 3.710 | 8.496E-2 | -type amorphous silicon deposited by PECVD  (Lei-18) |
+| 3 (a-Si-n) |   600  | 3.934 | 8.559E-2 | n-type amorphous silicon deposited by PECVD (Lei-18) |
+| 4 (Al)     |   600  | 1.200 |   7.260  | [Pal85b]                                             |
 
 
 ## References
