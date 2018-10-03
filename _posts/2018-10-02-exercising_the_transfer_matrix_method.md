@@ -36,7 +36,7 @@ My device has 4 layers: ITO, a-Si-n, a-Si-p and Aluminum. Let's picture that wit
 
 Final note (yet important): the professor assigned us to analyze only one layer, which in my case is the layer number three, only on the 600nm wavelenght! So let's get our hands dirty, will ya?
 
-## Step 1: calculate the coefficients
+## Step 1: Get the coefficients for the materials
 
 The first step is to calculate the coefficients of reflection and diffraction. Going top to bottom, the first interface is number 3, between a-Si-p (amorphous silicon doped p) and a-Si-n (amorphous silicon doped n).
 
@@ -51,6 +51,17 @@ The guys at PV Lighthouse are kind enough to publish refractive index tables for
 | 3 (a-Si-n) |   600  | 3.934 | 8.559E-2 | n-type amorphous silicon deposited by PECVD (Lei-18) |
 | 4 (Al)     |   600  | 1.200 |   7.260  | [Pal85b]                                             |
 
+_**Table 1** - Refractive indexes for Air, ITO, a-Si and Al_
+
+
+## Step 2: Compute reflection and transmission at the interface
+
+The reflection on the interface 3 is right in-between layer 2 and 3, so i'll name it $r_{23}$ .It's calculated by the following expression:
+$$
+x = r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\
+$$
+
+We need to know how many
 
 ## References
 
