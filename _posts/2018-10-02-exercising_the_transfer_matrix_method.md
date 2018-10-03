@@ -155,12 +155,16 @@ import numpy
 
 ## Propagation matrix
 
-Now it's time to find the propagation matrix. For that we need to calculate propagation coefficient (phase differential?) for the silicon layer at 600 nm and incidence angle of 0 degrees, which is the simplest form.
+Now it's time to find the propagation matrix. For that we need to calculate propagation coefficient (phase differential?) for the silicon layer 3 at //( \lambda = 600 nm //)
 
 $$
  \beta_3 = \frac {2 \pi d_z}{\lambda} n_3 cos \phi_3 
 $$
 
+Where:
+- //( n_3 //) is the propagation constant of layer 3.
+- //( \phi_3 //) is the angle of incidence of the light
+- //( //)
 
 ## References
 
