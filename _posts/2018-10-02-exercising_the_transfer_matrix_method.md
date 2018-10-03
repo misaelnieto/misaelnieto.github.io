@@ -124,9 +124,9 @@ Which is becoming a bit startling ...
 
 ![For mere mortals ...]({{site.baseurl}}/media/abandon-thread_fb_3029909.jpg)
 
-... for mere mortals. Yet here we are still, aren't we?
+... for mere mortals. Yet we are still here, aren't we?
 
-Python does not support matrices out of the box, we need a little help of [numpy](https://docs.scipy.org/doc/numpy/) so we can solve this matrix in no time:
+Python does not support matrices out of the box, but with a little help of [numpy](https://docs.scipy.org/doc/numpy/) we can solve this matrix in no time:
 
 ```python
 import numpy
@@ -152,6 +152,14 @@ import numpy
 [[0.97154198+0.00053908j 0.02845802-0.00053908j]
  [0.02845802-0.00053908j 0.97154198+0.00053908j]]
 ```
+
+## Propagation matrix
+
+Now it's time to find the propagation matrix. For that we need to calculate propagation coefficient (phase differential?) for the silicon layer at 600 nm and incidence angle of 0 degrees, which is the simplest form.
+
+$$
+ \beta_3 = \frac {2 \pi d_z}{\lambda} n_3 cos \phi_3 
+$$
 
 
 ## References
