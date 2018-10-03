@@ -61,13 +61,64 @@ The reflection on the interface 3 is right in-between layer 2 and 3, so i'll nam
 
 $$ r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\ $$
 
+... so ... :
+
+$$ 
+r_{23} = \frac{ 3.934 + i8.559x10^{-2}  -  3.710 - i8.496x10^{-2} }{ 3.934 + i8.559x10^{-2}  +  3.710 + i8.496x10^{-2} }\
+       = \frac{ 0.224 + i6.3x10^{-4}}{ 7.644 + i0.17055 }\
+       = 0.2929 + i5.71x10^{-4}
+$$
+
 The transmission of the interface 3 is, conversely:
 
-$$ t_{23} = 1 + r{23} = 1 + \frac{ n_3 - n_2 }{n_3 + n_2}\ $$
+$$ t_{23} = 1 + r{23} = 1 + \frac{ n_3 - n_2 }{n_3 + n_2}\ = 1.2929 + i5.7x10^{-4}$$
 
-For our specific case:
+Working with complex numbers by using paper and pencil (and maybe a calculator) is no fun, and prone to errors. So I wrote these python functions to compute the transmission and reflection coefficients:
 
-$$ r_{23} = \frac{ 3.94 + i8.559E-2  -  3.710 + i8.496E-2 }{n_3 + n_2}\ $$
+```python
+def transmission(n1, n2):
+    """
+    Compute the transmission coefficient between two materials.
+
+    Both n1, n2 are the complex refractive indexes for both materials.
+    """
+    return 1 + (n2 - n1) / (n2 + n1)
+
+
+def reflection(n1, n2):
+    """
+    Compute the transmission coefficient between two materials.
+
+    Both n1, n2 are the complex refractive indexes for both materials.
+    """
+    return (n2 - n1) / (n2 + n1)
+ ```
+
+Let's take this functions and test them with our own values:
+
+```python
+>>> n2 = 3.710 + 0.08496j
+>>> n3 = 3.934 + 0.08559j
+>>> reflection(n2, n3)
+(0.029291286729338666-0.0005711183871910915j)
+>>> tmm.transmission(n2, n3)
+(1.0292912867293387-0.0005711183871910915j)
+```
+... it works, good.
+
+## Interface matrix
+
+Now it's time to create the interface matrix //(I_{23}//), which is defined as follows:
+
+$$
+I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 & r_{23} \\ r_{23} & 1 \end{bmatrix} 
+$$
+
+Substituting
+
+$$
+I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 & r_{23} \\ r_{23} & 1 \end{bmatrix} 
+$$
 
 ## References
 
