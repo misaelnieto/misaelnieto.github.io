@@ -162,9 +162,26 @@ $$
 $$
 
 Where:
-- //( n_3 //) is the propagation constant of layer 3.
+- //( n_3 //) is the real par of the complex index of diffraction of layer 3 (n=3.934).
 - //( \phi_3 //) is the angle of incidence of the light
-- //( //)
+- //( d_z //) is the height of layer 3 , which in my case is 10 µm.
+
+So  //(\beta_3//) becomes:
+
+$$
+\beta_3 = \frac {2 \pi \cdot d_z}{\lambda} n_3 \cdot cos(\phi_3 )
+        = \frac {2 \pi \cdot 200 nm)}{600 nm} \cdot (3.934) \cdot cos(0)
+        = \frac {2 *3.1416 * 200 nm  * 3.934}{600 nm}
+\\
+\beta_3 = 8.2393696
+$$
+
+Now we can assemble the propagation matrix:
+
+$$
+P =  \begin{bmatrix} e^{-j \beta_3 \cdot z} & 0 \\ 0 & e^{-j \beta_3 \cdot z} \end{bmatrix} 
+  =  \begin{bmatrix} 0.9999 - i8.234x10^{-06} & 0 \\ 0 & 0.9999 - i8.234x10^{-06}} \end{bmatrix} 
+$$
 
 ## References
 
