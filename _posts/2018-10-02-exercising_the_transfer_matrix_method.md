@@ -76,21 +76,23 @@ Look at the following schema:
            +----> Interface 3
 ```
 
-The reflection on the interface 3 is right in-between layer 2 and 3, so i'll name it \\(r_{23}\\). It's calculated by the following expression:
+The reflection on the interface 3 is right in-between layer 2 and 3, so i'll name it \( r_{23} \). It's calculated by the following expression:
 
 $$ r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\ $$
 
 ... so ... :
 
 $$ 
-r_{23} = \frac{ 3.934 + i8.559x10^{-2}  -  3.710 - i8.496x10^{-2} }{ 3.934 + i8.559x10^{-2}  +  3.710 + i8.496x10^{-2} }\
-       = \frac{ 0.224 + i6.3x10^{-4}}{ 7.644 + i0.17055 }\
-       = 0.2929 + i5.71x10^{-4}
+r_{23} = \frac{ 3.934 + i8.559x10^{-2}  -  3.710 - i8.496x10^{-2} }{ 3.934 + i8.559x10^{-2}  +  3.710 + i8.496x10^{-2} }\ \\
+       = \frac{ 0.224 + i6.3x10^{-4}}{ 7.644 + i0.17055 }\ \\
+r_{23} = 0.2929 + i5.71x10^{-4}
 $$
 
 The transmission of the interface 3 is, conversely:
 
-$$ t_{23} = 1 + r{23} = 1 + \frac{ n_3 - n_2 }{n_3 + n_2}\ = 1.2929 + i5.7x10^{-4}$$
+$$
+t_{23} = 1 + r{23} = 1 + \frac{ n_3 - n_2 }{n_3 + n_2}\ = 1.2929 + i5.7x10^{-4}
+$$
 
 Working with complex numbers by using paper and pencil (and maybe a calculator) is no fun, and prone to errors. So I wrote these python functions to compute the transmission and reflection coefficients:
 
@@ -127,13 +129,13 @@ Let's take this functions and test them with our own values:
 
 ## Interface matrix
 
-The interface matrix describes the effect on the incident field (e.g. light @ 600nm) when it impacts interface 3. The interface matrix //(I_{23}//), is defined as follows:
+The interface matrix describes the effect on the incident field (e.g. light at λ=600nm) when it impacts interface 3. The interface matrix \( I_{23} \), is defined as follows:
 
 $$
 I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 & r_{23} \\ r_{23} & 1 \end{bmatrix} 
 $$
 
-After substitution, //(I_{23}//) becomes this:
+After substitution, \( I_{23} \) becomes this:
 
 $$
 I_{23} =  \frac{1}{1.2929 + i5.7x10^{-4}}   \begin{bmatrix} 1 & 0.2929 + i5.71x10^{-4} \\ 0.2929 + i5.71x10^{-4} & 1 \end{bmatrix} 
@@ -174,7 +176,7 @@ import numpy
 
 ## Propagation matrix
 
-The propagation matrix describe the effect on the incident field when it propagates through the layer. To find this matrix we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at //( \lambda = 600 nm //) so we can use the phasorial notation:
+The propagation matrix describe the effect on the incident field when it propagates through the layer. To find this matrix we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at λ= 600 nm. We will use the phasorial notation, which is easier to deal with:
 
 $$
  \beta_3 = \frac {2 \pi d_z}{\lambda} n_3 cos \phi_3 
