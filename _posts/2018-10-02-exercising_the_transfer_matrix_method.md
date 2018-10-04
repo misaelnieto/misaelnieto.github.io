@@ -2,7 +2,7 @@
 published: false
 mathjax: true
 ---
-## Exercising the transfer matrix method "by pencil"
+## Exercising the transfer matrix method
 
 I'm attending a class on Electromagneting Wave Propagation in the Instituto de Ingeniería, UABC Mexicali, with Dr. Carlos Villa Angulo. He kindly allowed me to go to the class altough i'm not currently enrolled as a graduate student. Here in Mexico we say that I'm attending as _"Listener (oyente)"_. I don't know the exact term used in english for this but I know nobody visits my blog, so it doesn't matter anyway.
 
