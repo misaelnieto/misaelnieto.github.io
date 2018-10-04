@@ -202,6 +202,7 @@ P =  \begin{bmatrix} e^{-j \beta_3 \cdot z} & 0 \\ 0 & e^{-j \beta_3 \cdot z} \e
   =  \begin{bmatrix} 0.9999 - i8.234x10^{-06} & 0 \\ 0 & 0.9999 - i8.234x10^{-06}} \end{bmatrix} 
 $$
 
+Resulting as follows
 ## References
 
 - [Lei18] 	M. Leilaeioun, Z.J. Yu, S. Manzoor, K. Fisher, J. Shi and Z. Holman, 'Design of the front transparent conductive oxide layer of silicon heterojunction solar for four-terminal tandem applications', In preparation 2018. 
