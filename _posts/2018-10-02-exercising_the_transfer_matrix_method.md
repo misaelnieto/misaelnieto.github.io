@@ -57,6 +57,25 @@ _**Table 1** - Refractive indexes for Air, ITO, a-Si and Al_
 
 ## Step 2: Compute reflection and transmission at the interface
 
+Look at the following schema:
+
+```
+   a-Si-p          a-Si-n
+       +---+----------------------------+
+       |   |                            |
+       |   +----- Transmission --->     |
+       |   |                            |
++---------->                            |
+       |   |                            |
+       |   <------ Reflection ----+     |
+       |   |                            |
+       |   |                            |
+       +--------------------------------+
+ Layer 2   |           Layer 3
+           |
+           +----> Interface 3
+```
+
 The reflection on the interface 3 is right in-between layer 2 and 3, so i'll name it \\(r_{23}\\). It's calculated by the following expression:
 
 $$ r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\ $$
@@ -108,7 +127,7 @@ Let's take this functions and test them with our own values:
 
 ## Interface matrix
 
-Now it's time to create the interface matrix //(I_{23}//), which is defined as follows:
+The interface matrix describes the effect on the incident field (e.g. light @ 600nm) when it impacts interface 3. The interface matrix //(I_{23}//), is defined as follows:
 
 $$
 I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 & r_{23} \\ r_{23} & 1 \end{bmatrix} 
@@ -155,7 +174,7 @@ import numpy
 
 ## Propagation matrix
 
-Now it's time to find the propagation matrix. For that we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at //( \lambda = 600 nm //) so we can use the phasorial notation:
+The propagation matrix describe the effect on the incident field when it propagates through the layer. To find this matrix we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at //( \lambda = 600 nm //) so we can use the phasorial notation:
 
 $$
  \beta_3 = \frac {2 \pi d_z}{\lambda} n_3 cos \phi_3 
