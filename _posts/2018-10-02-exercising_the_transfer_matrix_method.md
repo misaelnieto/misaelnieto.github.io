@@ -155,7 +155,7 @@ import numpy
 
 ## Propagation matrix
 
-Now it's time to find the propagation matrix. For that we need to calculate propagation coefficient (phase differential?) for the silicon layer 3 at //( \lambda = 600 nm //)
+Now it's time to find the propagation matrix. For that we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at //( \lambda = 600 nm //) so we can use the phasorial notation:
 
 $$
  \beta_3 = \frac {2 \pi d_z}{\lambda} n_3 cos \phi_3 
