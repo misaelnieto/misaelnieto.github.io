@@ -179,15 +179,15 @@ import numpy
 The propagation matrix describe the effect on the incident field when it propagates through the layer. To find this matrix we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at λ= 600 nm. We will use the phasorial notation, which is easier to deal with:
 
 $$
- \beta_3 = \frac {2 \pi d_z}{\lambda} n_3 cos \phi_3 
+ \beta_3 = \frac {2 \pi d_z}{\lambda} \; n_3 \; cos (\phi_3 )$$
 $$
 
 Where:
-- //( n_3 //) is the real par of the complex index of diffraction of layer 3 (n=3.934).
-- //( \phi_3 //) is the angle of incidence of the light
-- //( d_z //) is the height of layer 3 , which in my case is 10 µm.
+- \( n_3 \) is the real par of the complex index of diffraction of layer 3 (n=3.934).
+- \( \phi_3 \) is the angle of incidence of the light
+- \( d_z \) is the height of layer 3 , which in my case is 10 µm.
 
-So  //(\beta_3//) becomes:
+So  \( \beta_3 \) becomes:
 
 $$
 \beta_3 = \frac {2 \pi \cdot d_z}{\lambda} n_3 \cdot cos(\phi_3 )
@@ -200,7 +200,8 @@ $$
 Now we can assemble the propagation matrix:
 
 $$
-P =  \begin{bmatrix} e^{-j \beta_3 \cdot z} & 0 \\ 0 & e^{-j \beta_3 \cdot z} \end{bmatrix} 
+P =  \begin{bmatrix} e^{-j \beta_3 \cdot z} & 0 \\ 0 & e^{-j \beta_3 \cdot z} \end{bmatrix}
+\\
   =  \begin{bmatrix} 0.9999 - i8.234x10^{-06} & 0 \\ 0 & 0.9999 - i8.234x10^{-06}} \end{bmatrix} 
 $$
 
