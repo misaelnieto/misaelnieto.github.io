@@ -12,7 +12,7 @@ Since we are just a few people in the class room (9) the professor assigned a di
 
 ## The device
 
-My device has 4 layers: ITO, a-Si-n, a-Si-p and Aluminum. Let's picture that with majestic detail using our latest, state of the art, ASCII 2D diagrams (but using UTF-8, sorry):
+My device has 4 layers: ITO (Indium-Tin-Oxide), a-Si-n, a-Si-p and Aluminum. Let's picture that with majestic detail using our latest, state of the art, ASCII 2D diagrams (but using UTF-8, sorry):
 
 ```
   ~ ~ ~ Air ~ ~ ~
@@ -35,13 +35,15 @@ My device has 4 layers: ITO, a-Si-n, a-Si-p and Aluminum. Let's picture that wit
            * Important: not to scale
 ```
 
-Final note (yet important): the professor assigned us to analyze only one layer, which in my case is the layer number three, only on the 600nm wavelenght! So let's get our hands dirty, will ya?
+Final note (yet important): the professor assigned us to analyze the electric field in only one layer, which in my case is the layer number three, only on the 600nm wavelenght! After this exercise I might post a follow-up with the analysis of the electric field for all the layers.
+
+So let's get our hands dirty, will ya?
 
 ## Step 1: Get the coefficients for the materials
 
-The first step is to calculate the coefficients of reflection and diffraction. Going top to bottom, the first interface is number 3, between a-Si-p (amorphous silicon doped p) and a-Si-n (amorphous silicon doped n).
+We need to model the behavior of light when it goes through the differnt layers of our device. For that we will use the complex refractive indexes for each material on our device (including air).
 
-The guys at PV Lighthouse are kind enough to publish refractive index tables for a wide variety of materials, including Silicon. They even include the citatino of their references!!. So, for my own convenience, I'm going to include a small table with the real and imaginary part of all the materials needed to build the device avobe @600 nm.
+The guys at PV Lighthouse are kind enough to publish refractive index tables for a wide variety of materials, including Silicon. They even add the citation of their references!. So, for my own convenience, I'm going to include a small table with the real and imaginary part of all the materials needed to build the device above @ 600 nm.
 
 
 | Layer        | λ (nm) |   n   |     k    | Notes                                                |
@@ -55,25 +57,25 @@ The guys at PV Lighthouse are kind enough to publish refractive index tables for
 _**Table 1** - Refractive indexes for Air, ITO, a-Si and Al_
 
 
-## Step 2: Compute reflection and transmission at the interface
+## Step 2: Compute reflection and transmission at the interfaces
 
-Look at the following schema:
+The first interface ( \( I_0\) ) is between the air and ITO
 
 ```
-   a-Si-p          a-Si-n
-       +---+----------------------------+
-       |   |                            |
-       |   +----- Transmission --->     |
-       |   |                            |
+   Air        ITO
+           +----------------------------+
+           |                            |
+           +----- Transmission --->     |
+           |                            |
 +---------->                            |
-       |   |                            |
-       |   <------ Reflection ----+     |
-       |   |                            |
-       |   |                            |
+           |                            |
+           <------ Reflection ----+     |
+           |                            |
+           |                            |
        +--------------------------------+
- Layer 2   |           Layer 3
+ Layer 0   |          Layer 1
            |
-           +----> Interface 3
+           +----> Interface 0
 ```
 
 The reflection on the interface 3 is right in-between layer 2 and 3, so i'll name it \( r_{23} \). It's calculated by the following expression:
