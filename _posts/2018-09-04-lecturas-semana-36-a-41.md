@@ -13,4 +13,4 @@ Dejé de tomar nota de las lecturas, pero vuelvo a intentarlo.
 - [No queremos depender de Silicon Valley](https://elpais.com/tecnologia/2018/10/08/actualidad/1539017186_874388.html?id_externo_rsoc=FB_MX_CM)
 - [How big wolves are?](http://www.lazerhorse.org/2013/09/05/big-wolf/#)
 - [Ya salio el volúmen 26 de la revista oficial de Psicología Holokinética.](https://revista.psicologiaholokinetica.org/)
-- 
+- [ Dependency Management In Django Using Bower](https://axiacore.com/blog/effective-dependency-management-django-using-bower/)
