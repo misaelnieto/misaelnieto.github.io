@@ -16,4 +16,5 @@ Dejé de tomar nota de las lecturas, pero vuelvo a intentarlo.
 - [ Dependency Management In Django Using Bower](https://axiacore.com/blog/effective-dependency-management-django-using-bower/)
 - [Katherine Johnson Biography](https://www.nasa.gov/content/katherine-johnson-biography). Cal
 - [Microsoft today announced that the MS-DOS 1.25 and 2.0 source code is available on GitHub,](https://news.softpedia.com/news/microsoft-releases-ms-dos-source-code-on-github-522998.shtml) giving devs the chance to easily explore the early days of operating systems.
-- 
+- [Los motivos por los que quizás ya hayas comprado el último auto de tu vida](https://www.bbc.com/mundo/noticias-45818931?ocid=wsmundo.chat-apps.in-app-msg.whatsapp.trial.link1_.auin)
+- [ A New Path to Solving a Longstanding Fusion Challenge](https://www.ecnmag.com/news/2018/10/new-path-solving-longstanding-fusion-challenge)
