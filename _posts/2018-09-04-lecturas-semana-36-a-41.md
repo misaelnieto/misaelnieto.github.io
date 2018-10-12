@@ -14,3 +14,6 @@ Dejé de tomar nota de las lecturas, pero vuelvo a intentarlo.
 - [How big wolves are?](http://www.lazerhorse.org/2013/09/05/big-wolf/#)
 - [Ya salio el volúmen 26 de la revista oficial de Psicología Holokinética.](https://revista.psicologiaholokinetica.org/)
 - [ Dependency Management In Django Using Bower](https://axiacore.com/blog/effective-dependency-management-django-using-bower/)
+- [Katherine Johnson Biography](https://www.nasa.gov/content/katherine-johnson-biography). Cal
+- [Microsoft today announced that the MS-DOS 1.25 and 2.0 source code is available on GitHub,](https://news.softpedia.com/news/microsoft-releases-ms-dos-source-code-on-github-522998.shtml) giving devs the chance to easily explore the early days of operating systems.
+- 
