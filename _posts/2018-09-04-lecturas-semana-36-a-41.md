@@ -19,4 +19,6 @@ Dejé de tomar nota de las lecturas, pero vuelvo a intentarlo.
 - [Los motivos por los que quizás ya hayas comprado el último auto de tu vida](https://www.bbc.com/mundo/noticias-45818931?ocid=wsmundo.chat-apps.in-app-msg.whatsapp.trial.link1_.auin)
 - [ A New Path to Solving a Longstanding Fusion Challenge](https://www.ecnmag.com/news/2018/10/new-path-solving-longstanding-fusion-challenge)
 - [Los Narcos de la Roma, Narvarte y Del Valle](https://www.eluniversal.com.mx/columna/hector-de-mauleon/nacion/los-narcos-en-la-roma-del-valle-y-narvarte). Se alojan en colonias populares para mantener un perfil bajo.
-[Trump llama a no votar por la turba izquierdista demócrata](https://www.jornada.com.mx/2018/10/17/mundo/028n1mun). Todas estas tácticas, alertan algunos expertos, no son nuevas sino técnicas fascistas
+- [Trump llama a no votar por la turba izquierdista demócrata](https://www.jornada.com.mx/2018/10/17/mundo/028n1mun). Todas estas tácticas, alertan algunos expertos, no son nuevas sino técnicas fascistas.
+- [Yet another psql color prompt ](https://simply.name/yet-another-psql-color-prompt.html). Acá sale cómo ponerle colorcitos al cli de postgresql.
+
