@@ -21,4 +21,11 @@ Dejé de tomar nota de las lecturas, pero vuelvo a intentarlo.
 - [Los Narcos de la Roma, Narvarte y Del Valle](https://www.eluniversal.com.mx/columna/hector-de-mauleon/nacion/los-narcos-en-la-roma-del-valle-y-narvarte). Se alojan en colonias populares para mantener un perfil bajo.
 - [Trump llama a no votar por la turba izquierdista demócrata](https://www.jornada.com.mx/2018/10/17/mundo/028n1mun). Todas estas tácticas, alertan algunos expertos, no son nuevas sino técnicas fascistas.
 - [Yet another psql color prompt ](https://simply.name/yet-another-psql-color-prompt.html). Acá sale cómo ponerle colorcitos al cli de postgresql.
-
+- [Capacity Planning for Web Applications](https://webopsweekly.com/link/54634/ed7094d83e) — Some introductory things a developer has learnt about capacity planning.
+- [Building a deployable Python-Electron App](https://medium.com/@abulka/electron-python-4e8c807bfa5e)
+- [Capacity planning for web applications](https://kirshatrov.com/2018/10/21/capacity-planning-for-web-apps/) ... a summary of my findings related to web capacity on non-threaded application servers.
+- [YouTube API Integration: Uploading Videos with Django](https://www.toptal.com/django/youtube-api-integration-uploading-videos)
+- Web Payments API:
+  - [ Web Payments Overview ](https://developers.google.com/web/fundamentals/payments/)
+  - [How it works]( How the payment ecosystem works ), according to google)
+- 
