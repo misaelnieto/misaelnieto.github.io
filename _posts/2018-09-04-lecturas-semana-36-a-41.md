@@ -29,3 +29,7 @@ Dejé de tomar nota de las lecturas, pero vuelvo a intentarlo.
   - [ Web Payments Overview ](https://developers.google.com/web/fundamentals/payments/)
   - [How it works]( How the payment ecosystem works ), according to google)
 - [How big is the internet archive?](https://arstechnica.com/gaming/2018/10/the-internets-keepers-some-call-us-hoarders-i-like-to-say-were-archivists/)
+- [Nueva version de firefox 63](https://www.mozilla.org/en-US/firefox/63.0/releasenotes/)
+- [CSS Border-Radius Can Do That?](https://9elements.com/io/css-border-radius/)
+- [Designing for Cognitive Differences](https://alistapart.com/article/designing-for-cognitive-differences)
+-
