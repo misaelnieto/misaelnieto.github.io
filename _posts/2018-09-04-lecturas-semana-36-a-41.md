@@ -32,4 +32,6 @@ Dejé de tomar nota de las lecturas, pero vuelvo a intentarlo.
 - [Nueva version de firefox 63](https://www.mozilla.org/en-US/firefox/63.0/releasenotes/)
 - [CSS Border-Radius Can Do That?](https://9elements.com/io/css-border-radius/)
 - [Designing for Cognitive Differences](https://alistapart.com/article/designing-for-cognitive-differences)
--
+- [Visualizing 40 Years of Music Industry Sales](http://www.visualcapitalist.com/music-industry-sales/). Ojo! Los datos son de la RIAA.
+- [Segun investigadores el núcleo de la tierra más blando de lo que se pensaba. ](https://www.bbc.com/mundo/noticias-45947204)
+- "[Si deseas la paz, prepárate para la guerra nuclear](https://www.jornada.com.mx/2018/10/28/opinion/016o1pol)": estrategia de Trump vs Rusia y China
