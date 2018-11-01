@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## My deploy script with gulp
 
@@ -43,4 +43,3 @@ The `gulp.src()` function takes a list of filenames or directories that will be 
 | '!./myapp/composer.*' | I have a small PHP app under the `myapp` folder which uses composer. Don't upload composer's files. |
 
 That's it. Works.
-
