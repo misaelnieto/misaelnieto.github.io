@@ -4,4 +4,6 @@ published: false
 ## Lecturas de la semana 46
 
 - [It’s hard to overstate how important Librem phone is.](https://news.ycombinator.com/item?id=18422502)
+- [ Why millennials aren't buying homes ](https://www.linkedin.com/feed/news/why-millennials-arent-buying-homes-3768540/)
+- [ Alfredo Jalife: Trump y el Supremacismo Blanco Presentación del libro en la FILIPN](https://www.youtube.com/watch?v=i6bS0AHQ7NU)
 - 
