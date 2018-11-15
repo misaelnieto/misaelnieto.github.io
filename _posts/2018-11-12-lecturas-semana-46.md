@@ -10,4 +10,4 @@ published: false
 - [The Container Operator's Manual - Velocity NY 2018](https://youtu.be/zGw_xKF47T0)
 - [Spectre.css](https://picturepan2.github.io/spectre/) - A Lightweight, Responsive and Modern CSS Framework
 - [This stunning medieval book has 6 bindings — and is essentially 6 different books](https://www.zmescience.com/science/dos-dos-book-binding-14112018/)
-- 
+- [How to become an effective software engineer](https://medium.freecodecamp.org/how-to-become-an-effective-software-engineer-b2d25b588bc8)
