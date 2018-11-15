@@ -9,3 +9,5 @@ published: false
 - [ Reaching for the stars: China creates nuke-powered fake sun that burns hotter than the real deal ](https://www.rt.com/news/443995-china-fake-sun-nuclear/)
 - [The Container Operator's Manual - Velocity NY 2018](https://youtu.be/zGw_xKF47T0)
 - [Spectre.css](https://picturepan2.github.io/spectre/) - A Lightweight, Responsive and Modern CSS Framework
+- [This stunning medieval book has 6 bindings — and is essentially 6 different books](https://www.zmescience.com/science/dos-dos-book-binding-14112018/)
+- 
