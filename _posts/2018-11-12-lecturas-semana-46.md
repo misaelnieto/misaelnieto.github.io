@@ -11,3 +11,5 @@ published: false
 - [Spectre.css](https://picturepan2.github.io/spectre/) - A Lightweight, Responsive and Modern CSS Framework
 - [This stunning medieval book has 6 bindings — and is essentially 6 different books](https://www.zmescience.com/science/dos-dos-book-binding-14112018/)
 - [How to become an effective software engineer](https://medium.freecodecamp.org/how-to-become-an-effective-software-engineer-b2d25b588bc8)
+- [Kilogram Redefined. The Metric System Overhaul Is Complete](https://www.wired.com/story/new-kilogram-definition-based-on-planck-constant/) El Kilogramo redefinido de acuerdo a la constante de plack.
+- 
