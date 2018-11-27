@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Lecturas de la semana 46
 
@@ -13,4 +13,3 @@ published: false
 - [How to become an effective software engineer](https://medium.freecodecamp.org/how-to-become-an-effective-software-engineer-b2d25b588bc8)
 - [Kilogram Redefined. The Metric System Overhaul Is Complete](https://www.wired.com/story/new-kilogram-definition-based-on-planck-constant/) El Kilogramo redefinido de acuerdo a la constante de plack.Since 1879, the kilogram has been defined as the exact mass of the International Prototype of the Kilogram (IPK) [...]  A better option is to develop a new definition based on a mathematical foundation that can be calculated anywhere, and the Planck constant fits the bill [...]. To measure the Planck constant, the researchers used a Kibble balance, a device that suspends a 1-kg weight with electromagnetic forces. They can calculate the constant according to the amount of electromagnetic energy it takes to balance the mass. [Source](https://newatlas.com/planck-constant-redefine-kilogram/50311/).
 - [Alarming number of children and teens suffer from mental health issues, British survey concludes](https://www.zmescience.com/medicine/mental-health-children-23112018/)
--
