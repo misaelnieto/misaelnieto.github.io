@@ -12,5 +12,5 @@ published: false
 - Webops weekly #193: https://webopsweekly.com/issues/193
   - [New – AWS Transfer for SFTP – Fully Managed SFTP Service for Amazon S3](https://aws.amazon.com/blogs/aws/new-aws-transfer-for-sftp-fully-managed-sftp-service-for-amazon-s3/)
 - Australia's telecommunications companies compelled [to install spyware on customers' phones](https://www.smh.com.au/business/companies/spyware-on-phone-fears-as-dutton-pushes-new-security-laws-20180924-p505oc.html)
-- 
-
+-[https://www.bbc.com/mundo/noticias-america-latina-46407922?#](Cuánto ha ganado la economía de Costa Rica gracias a su decisión de abolir el ejército hace 70 años)
+- [Proyecto neolabs en mexico](http://www.mexicoindustry.com/es/news/jalisco/joven-emprendedor-apuesta-a-la-nanotecnologa)
