@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Las lecturas de la semana 48 de 2018
 
