@@ -14,3 +14,5 @@ published: false
 - Australia's telecommunications companies compelled [to install spyware on customers' phones](https://www.smh.com.au/business/companies/spyware-on-phone-fears-as-dutton-pushes-new-security-laws-20180924-p505oc.html)
 -[https://www.bbc.com/mundo/noticias-america-latina-46407922?#](Cuánto ha ganado la economía de Costa Rica gracias a su decisión de abolir el ejército hace 70 años)
 - [Proyecto neolabs en mexico](http://www.mexicoindustry.com/es/news/jalisco/joven-emprendedor-apuesta-a-la-nanotecnologa)
+- [Biosensors put slime mold at it's core](https://www.newscientist.com/article/dn11875-bio-sensor-puts-slime-mould-at-its-heart/)
+
