@@ -20,4 +20,9 @@ DUST)
 - [EL CHAPO SE LA CANTA A PEÑA: "TE VAS A ARREPENTIR"](https://www.youtube.com/watch?v=Fe3T9SmtP_Y)
 - [Cómo evitar que te duela la cola al andar en bicicleta])(https://www.mdzol.com/Como-evitar-que-te-duela-la-cola-al-andar-en-bicicleta-l201812020001.html)
 - [Imagenes de microscopio electrónico - colorizadas](https://www.youtube.com/watch?v=TMShiMkyTl0)
-- 
+- [Top 10 ASCENTS That Went HORRIBLY WRONG](https://www.youtube.com/watch?v=KAzSEZqrbO0)
+- Crónica: [ ¿Qué va a pasar con las Cátedras Conacyt? ](http://www.cronica.com.mx/notas/2018/1102740.html)
+- @reddit: [Future treatments for Keratoconus and cornea transplant alternatives
+](https://www.reddit.com/r/Keratoconus/comments/a3ctda/future_treatments_for_keratoconus_and_cornea/)
+- [Teenage boy who saved his mother from being raped dies](https://news.sky.com/story/teenage-boy-who-saved-his-mother-from-being-raped-dies-11573257)
+- [Lions Eat a group of poachers Alive In South African Game Reserve](https://allthatsinteresting.com/lions-eat-poachers-south-africa)
