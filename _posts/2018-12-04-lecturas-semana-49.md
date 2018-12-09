@@ -26,3 +26,8 @@ DUST)
 ](https://www.reddit.com/r/Keratoconus/comments/a3ctda/future_treatments_for_keratoconus_and_cornea/)
 - [Teenage boy who saved his mother from being raped dies](https://news.sky.com/story/teenage-boy-who-saved-his-mother-from-being-raped-dies-11573257)
 - [Lions Eat a group of poachers Alive In South African Game Reserve](https://allthatsinteresting.com/lions-eat-poachers-south-africa)
+- [Schizoaffective disorder | Mental health | NCLEX-RN | Khan Academy](https://www.youtube.com/watch?v=hBBCp9RvmoQ)
+- [Michigan mother sentenced for murder, torture of 4-year-old daughter](http://www.fox2detroit.com/news/local-news/michigan-mother-sentenced-for-murder-torture-of-4-year-old-daughter)
+- [This Is How We've Reached The Sun](https://www.youtube.com/watch?v=t8IRBqr0Ub4)
+- [Matan a golpes a niño de 4 años en Mexicali, hijo de un policía](https://www.lacronica.com/Policiaca/2018/12/09/1393557-Matan-a-golpes-a-nino-de-4-anos-en-Mexicali-hijo-de-un-policia.html)
+
