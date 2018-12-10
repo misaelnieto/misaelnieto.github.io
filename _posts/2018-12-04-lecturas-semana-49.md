@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Semana 40 de 2018
 
@@ -30,4 +30,3 @@ DUST)
 - [Michigan mother sentenced for murder, torture of 4-year-old daughter](http://www.fox2detroit.com/news/local-news/michigan-mother-sentenced-for-murder-torture-of-4-year-old-daughter)
 - [This Is How We've Reached The Sun](https://www.youtube.com/watch?v=t8IRBqr0Ub4)
 - [Matan a golpes a niño de 4 años en Mexicali, hijo de un policía](https://www.lacronica.com/Policiaca/2018/12/09/1393557-Matan-a-golpes-a-nino-de-4-anos-en-Mexicali-hijo-de-un-policia.html)
-
