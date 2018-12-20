@@ -3,7 +3,7 @@ published: true
 ---
 ## Learning to use jq, the Command-line JSON processor
 
-Today I learned that [jq](https://stedolan.github.io/jq/) exists. It's a json preprocessor for the command line. The following examples 
+Today I learned that [jq](https://stedolan.github.io/jq/) exists. It's a json preprocessor for the command line. Let's dive in!
 
 ### Start here
 
@@ -14,18 +14,26 @@ curl --silent "https://jsonplaceholder.typicode.com/comments?postId=1" | jq
 ```
 ![Pretty JSON output from curl and jq]({{site.baseurl}}/media/Screenshot-20181220110520-948x815.png)
 
-In comparison [httpie](https://httpie.org/) has also colored output of json data, but `jq` is a JSON processor, so it does more than pretty-print json data: you can apply filters to the data. For example, on the previous example we get a list of objects I can extract the third object:
+In comparison [httpie](https://httpie.org/) has also colored output of json data, but `jq` is a JSON processor, so it does much more than jsut pretty-print json data: you can apply filters to the data! 
+
+On the previous example we got a list of objects. With `jq`  I can extract the third object like this:
 
 ```
 curl --silent "https://jsonplaceholder.typicode.com/comments?postId=1" | jq .[3]
 ```
 ![Filtered output]({{site.baseurl}}/media/gnome-shell-screenshot-J70ZTZ.png)
 
+### A practical example
+
+From now on I'm going to use the list of available linux images using DigitalOcean's API. It returns a bit more complicated JSON structures, like arrays nested on objects.
+
 ### Querying complex objects
 
-Now let's consider a more complicated json; for example, a list of images on digitalocean returns only one object with nested arrays on objects.
+Now let's consider a more complicated json; for example, a list of images on digitalocean returns only one object with nested arrays on objects. Do note that you can do this with [doctl](https://github.com/digitalocean/doctl), but let's agree that I'm writing there about how to use the `jq` preprocessor).
 
-```curl -X GET --silent "https://api.digitalocean.com/v2/images?per_page=999" -H "Authorization: Bearer $MY_DO_API_KEY" | jq keys``
+```
+curl -X GET --silent "https://api.digitalocean.com/v2/images?per_page=999" -H "Authorization: Bearer $MY_DO_API_KEY" | jq keys
+```
 
 ```json
 {
@@ -196,6 +204,7 @@ Also for convenience I want to know the number of images returned (not the numbe
 
 ```
 curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[1], .meta'
+```
 ```json
 {
   "id": 16376426,
@@ -379,7 +388,7 @@ curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization:
 }
 ```
 
-I did all of this because I wanted to know the available Debian images. So, from the previous example I want to include only the images with distribution is `"Debian"`:
+I did all of this because in the first time I wanted to know the available Debian images on DigitalOcean. So, from the previous example I want to include only the images which distribution value is `"Debian"`:
 
 ```
 curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[] | {name, distribution, slug, type, status} | select(.distribution == "Debian")'
