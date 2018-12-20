@@ -170,4 +170,13 @@ I can also get slices of the list of images:
 ]
 ```
 
+Now, i only want to know the slug field of every image object:
 
+```
+curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[3:5][] | .slug'
+```
+```json
+"freebsd-10-3-x64-zfs"
+"freebsd-10-3-x64"
+
+```
