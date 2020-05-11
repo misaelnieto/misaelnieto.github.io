@@ -3,3 +3,7 @@ _site
 .jekyll-metadata
 *.sublime-workspace
 Gemfile.lock
+.bundle/
+.vscode/
+attic/
+vendor/

@@ -1,5 +1,8 @@
 ---
-published: false
+layout: page
+title: Demos/Portfolio
+permalink: /demos/
+published: true
 ---
 ## Demos, herramientas y juguetes
 

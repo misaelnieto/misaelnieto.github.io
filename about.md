@@ -4,6 +4,7 @@ title: About me ~ Acerca de mi ~ Pri mi
 permalink: /about/
 published: true
 ---
+
 ![Miel, Bombon kaj Pulga]({{site.baseurl}}/media/Noe-miel-bombon-pulga.jpg)
 
 ## English
