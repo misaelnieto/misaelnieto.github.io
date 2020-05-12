@@ -1,5 +1,7 @@
 # misaelnieto.github.io
 
+![Jekyll site CI](https://github.com/misaelnieto/misaelnieto.github.io/workflows/Jekyll%20site%20CI/badge.svg?branch=master)
+
 ## English
 Welcome, this is the source code of my blog, powered by Jekyll. I You might want to go to https://misaelnieto.github.io/ instead.
 Peace!
