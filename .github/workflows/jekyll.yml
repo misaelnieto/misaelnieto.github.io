@@ -25,3 +25,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
           GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+      - name: Rsync the build
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+        with:
+          src: _site/
+          # Remote server and path. i.e user@server.com:/var/www/server.com/
+          dest: ${{secrets.DEPLOY_DESTINATION}}
+      - name: Display status from deploy
+        run: echo "${{ steps.deploy.outputs.status }}"
