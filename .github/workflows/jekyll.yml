@@ -32,6 +32,6 @@ jobs:
         with:
           src: _site/
           # Remote server and path. i.e user@server.com:/var/www/server.com/
-          dest: myuser@opal2.opalstack.com:/home/myuser/apps/blog/
+          dest: nnieto@opal3.opalstack.com:/home/nnieto/apps/blog_noenieto_com/
       - name: Display status from deploy
         run: echo "${{ steps.deploy.outputs.status }}"
