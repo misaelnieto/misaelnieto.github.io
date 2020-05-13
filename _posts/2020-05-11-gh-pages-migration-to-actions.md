@@ -90,4 +90,4 @@ try to build my site.
 
 Finally I reconfigured my DNS to point to the new server. And this is the way it looks now.
 
-![After update]({{site.baseurl}}/media/screenshots/Screenshot_2020-05-12-blog.png)
+![After update]({{site.baseurl}}/media/screenshots/Screenshot_2020-05-12-blog.png){:class="img-responsive"}
