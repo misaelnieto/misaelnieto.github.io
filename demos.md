@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Demos/Portfolio
+title: Demos Tools & Toys
 permalink: /demos/
 published: true
 ---

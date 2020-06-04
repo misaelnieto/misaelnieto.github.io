@@ -1,7 +1,7 @@
 - name: Posts archive
   link: /posts
-# - name: Portfolio/Showcase
-#   link: /portfolio
+- name: Demos, Tools & Toys
+  link: /demos
 # - name: Dogos
 #   link: /my-dogos
 - name: About me
