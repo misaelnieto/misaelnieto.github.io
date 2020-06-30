@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Demos Tools & Toys
+title: Demos, Tools & Toys
 permalink: /demos/
 published: true
 ---
@@ -22,7 +22,9 @@ published: true
   ([<i class="fab fa-github-alt"></i>](https://github.com/misaelnieto/web_to_pdf_action){:target="_blank"})
   This is a github action that loads a website and renders it to PDF.
 
-
+- [LM378 calculator](https://demos.noenieto.com/lm327-calculator/){:target="_blank"}.
+  ([<i class="fab fa-github-alt"></i>](https://github.com/misaelnieto/lm327-calculator/){:target="_blank"})
+  This is a simple calculator for the LM378 adjustable regulator. Written using React.
 
 ## Toys
 
