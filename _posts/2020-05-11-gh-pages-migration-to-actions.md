@@ -4,7 +4,7 @@ title: Migrating blog from GH Pages to GH Actions
 date: 2020-05-11 23:32
 category: Web
 author: Noe Nieto
-tags: []
+tags: [github, devops, blog]
 summary: GH Pages is too restrictive, let's fix it with GH Actions
 ---
 
@@ -35,6 +35,7 @@ GH Pages didn't like my customizations, so I had to find another way.
 
 I ended up concocting something like this:
 
+{% raw %}
 ```yml
 name: Jekyll site CI
 
@@ -74,6 +75,7 @@ jobs:
       - name: Display status from deploy
         run: echo "${{ steps.deploy.outputs.status }}"
 ```
+{% endraw %}
 
 The steps of this pipeline are:
 
@@ -85,9 +87,10 @@ The steps of this pipeline are:
 To configure the rsync connection to my server I created a SSH keypair using the [Ed25519 algorithm](https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54).
 After that I copied the private key and pasted it as `DEPLOY_KEY` into my repo's [encrypted secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets).
 
-I added `.nojekyll` for to my repository so that the GH Pages robot won't
-try to build my site.
+I created a `.nojekyll` file in the root of my repository so that the GH Pages
+robot won't try to build my site.
 
-Finally I reconfigured my DNS to point to the new server. And this is the way it looks now.
+Finally I reconfigured my DNS to point to the new server. And this is the way it
+looks now.
 
 ![After update]({{site.baseurl}}/media/screenshots/Screenshot_2020-05-12-blog.png){:class="img-responsive"}
