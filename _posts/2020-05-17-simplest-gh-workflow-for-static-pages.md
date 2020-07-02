@@ -5,6 +5,7 @@ date: 2020-05-17 22:19
 category: development
 tags: [github, devops]
 summary: It's really simple, just checkout and rsync
+image: /media/unsplash/alvaro-reyes-qWwpHwip31M-unsplash.jpg
 ---
 
 Ever since I learned about [GitHub
@@ -48,3 +49,7 @@ The `secrets` variable is provided by the GH action runner. To define the
 secrets, you need to go to *Settings*->*Secrets* on your repo. Read the
 [documentation]([https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
 for the full details.
+
+## Credits
+
+<span>Cover Photo by <a href="https://unsplash.com/@alvarordesign?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alvaro Reyes</a> on <a href="https://unsplash.com/s/photos/workflow?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

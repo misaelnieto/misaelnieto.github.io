@@ -6,6 +6,7 @@ category: Web
 author: Noe Nieto
 tags: [github, devops, blog]
 summary: GH Pages is too restrictive, let's fix it with GH Actions
+image: /media/unsplash/markus-spiske-Tem0_jHYDgQ-unsplash.jpg
 ---
 
 This is how my blog looks before update:
@@ -94,3 +95,9 @@ Finally I reconfigured my DNS to point to the new server. And this is the way it
 looks now.
 
 ![After update]({{site.baseurl}}/media/screenshots/Screenshot_2020-05-12-blog.png){:class="img-responsive"}
+
+
+## Credits
+
+<span>Cover photo by <a href="https://unsplash.com/@markusspiske">Markus Spiske</a> on 
+<a href="https://unsplash.com/s/photos/actions">Unsplash</a></span>

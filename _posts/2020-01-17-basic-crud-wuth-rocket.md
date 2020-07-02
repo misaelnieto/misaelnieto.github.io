@@ -2,6 +2,9 @@
 title: Basic CRUD with Rocket
 layout: post
 categories: web, servers, programming, rust
+summary: This is what I went through while creating my first web app in Rust.
+image: /media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg
+
 ---
 
 # Basic CRUD with Rocket
@@ -158,3 +161,6 @@ The `foundation watch`  command spins it's own web server on http://localhost:30
 ![]()
 
 
+## Credits
+
+<span>Cover photo by <a href="https://unsplash.com/@spacex?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">SpaceX</a> on <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

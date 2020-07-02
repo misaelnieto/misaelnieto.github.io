@@ -1,5 +1,10 @@
 ---
+title: Learning to use jq, the Command-line JSON processor
+layout: post
+categories: web, shell, commandline
 published: true
+image: /media/unsplash/hello-i-m-nik-6HzhFuiVO60-unsplash.jpg
+
 ---
 ## Learning to use jq, the Command-line JSON processor
 
@@ -396,3 +401,6 @@ curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization:
 ![Just what I needed]({{site.baseurl}}/media/gnome-shell-screenshot-VMABUZ.png)
 
 **FIN**
+
+## Credits
+<span>Cover photo by <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Hello I'm Nik 🎞</a> on <a href="https://unsplash.com/s/photos/jason-voorhees?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

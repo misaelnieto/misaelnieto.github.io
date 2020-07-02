@@ -3,6 +3,7 @@ layout: page
 title: Demos, Tools & Toys
 permalink: /demos/
 published: true
+hero_image: /media/unsplash/tools_n_demos.png
 ---
 
 ## Tools
@@ -31,3 +32,7 @@ published: true
 - [Ya llegaron](https://demos.noenieto.com/ya-llegaron//){:target="_blank"}.
   A silly button that says "Ya llegaron".
 - [Todos somos pavel](https://demos.noenieto.com/todos-somos/pavel.html){:target="_blank"}. HTML5 video, full screen, Just for the giggles.
+
+
+## Credits
+<span>Cover photo by <a href="https://unsplash.com/@brett_jordan?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Brett Jordan</a> on <a href="https://unsplash.com/s/photos/tools-toys?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
