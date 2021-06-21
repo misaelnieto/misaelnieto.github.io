@@ -27,3 +27,8 @@ nektos/act info checking GitHub for latest tag
 nektos/act info found version: 0.2.23 for v0.2.23/Linux/x86_64
 nektos/act info installed /usr/local/bin/act
 
+Luego, en mi repo de mi cv solo ejecuto act:
+
+![First run of act]({{site.baseurl}}/media/act-first-run.PNG)
+
+
