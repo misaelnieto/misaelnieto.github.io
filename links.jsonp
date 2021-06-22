@@ -1,0 +1,673 @@
+callback([
+
+  {
+    "text": "Links about server performance",
+    "href": "/2009/01/17/links-about-server-performance.html"
+  } ,
+
+  {
+    "text": "Probando deliverance",
+    "href": "/2009/08/19/probando-deliverance.html"
+  } ,
+
+  {
+    "text": "Deshacer los cambios de un solo archivo en un repo GIT",
+    "href": "/2009/09/15/Deshacer_cambios_de_un_solo_archivo_GIT.html"
+  } ,
+
+  {
+    "text": "Probando collective.disqus en este sitio",
+    "href": "/2009/09/15/probando-collectivedisqus-en-este-sitio.html"
+  } ,
+
+  {
+    "text": "Resaltado de sintaxis en plone",
+    "href": "/2009/09/21/resaltado-de-sintaxis-en-plone.html"
+  } ,
+
+  {
+    "text": "Script para automatizar la creación de archivos .metadata",
+    "href": "/2009/10/27/script-para-automatizar-la-creacion-de-archivos-metadata.html"
+  } ,
+
+  {
+    "text": "Mi primera experiencia con Django y zc.buildout en Ubuntu 9.10",
+    "href": "/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html"
+  } ,
+
+  {
+    "text": "Convertir un Ubuntu desktop a Ubuntu server",
+    "href": "/2009/12/18/convertir-un-ubuntu-desktop-a-ubuntu-server.html"
+  } ,
+
+  {
+    "text": "Django y Buildout (Parte 1)",
+    "href": "/2010/01/18/django-y-buildout-parte-1.html"
+  } ,
+
+  {
+    "text": "Tutoriales interesantes en el Pycon 2010",
+    "href": "/2010/01/18/tutoriales-interesantes-en-el-pycon-2010.html"
+  } ,
+
+  {
+    "text": "Lecciones aprendidas - internacionalización en Plone",
+    "href": "/2010/02/01/lecciones-aprendidas-internacionalizacion-en-plone.html"
+  } ,
+
+  {
+    "text": "Unicode y UTF-8 en Plone",
+    "href": "/2010/02/01/unicode-y-utf-8-en-plone.html"
+  } ,
+
+  {
+    "text": "Varios efectos de JQuery que se ven bien",
+    "href": "/2010/03/01/varios-efectos-de-jquery-que-se-ven-bien.html"
+  } ,
+
+  {
+    "text": "Mis mañas para debuggear Zope/Plone",
+    "href": "/2010/03/15/mis-manas-para-debuggear-zopeplone.html"
+  } ,
+
+  {
+    "text": "Migrating data from Plone 3.2.1 to Plone 4.0b2",
+    "href": "/2010/04/23/migrating-data-from-plone-321-to-plone-40b2.html"
+  } ,
+
+  {
+    "text": "A buildout for Plone 3.3.5+fss+relstorage",
+    "href": "/2010/04/27/a-buildout-for-plone-335fssrelstorage.html"
+  } ,
+
+  {
+    "text": "Theming Plone 4 - Part 1",
+    "href": "/2010/05/19/theming-plone-4-part-1.html"
+  } ,
+
+  {
+    "text": "Theming Plone 4 - Part 2",
+    "href": "/2010/05/20/theming-plone-4-part-2.html"
+  } ,
+
+  {
+    "text": "Plone and security",
+    "href": "/2010/05/28/plone-and-security.html"
+  } ,
+
+  {
+    "text": "Anouncing public alpha for eduIntelligent LCMS",
+    "href": "/2010/06/16/anouncing-public-alpha-for-eduintelligent-lcms.html"
+  } ,
+
+  {
+    "text": "Hola mundo con twitter y python",
+    "href": "/2010/08/11/hola-mundo-con-twitter-y-python.html"
+  } ,
+
+  {
+    "text": "Our first Plone4 site available to the public",
+    "href": "/2010/09/04/our-first-plone4-site-available-to-the-public.html"
+  } ,
+
+  {
+    "text": "Plone and Apache 2.2",
+    "href": "/2010/10/12/plone-and-apache-22.html"
+  } ,
+
+  {
+    "text": "Accessing Ext4 volumes on MacOS X",
+    "href": "/2010/11/12/accessing-ext4-volumes-on-macos-x.html"
+  } ,
+
+  {
+    "text": "Infraestructura Pythonesca en iServices",
+    "href": "/2010/11/19/infraestructura-pythonesca-en-iservices.html"
+  } ,
+
+  {
+    "text": "A buildout nano-framework for building Plone 4 sites",
+    "href": "/2011/03/13/a-buildout-nano-framework-for-building-plone-4-sites.html"
+  } ,
+
+  {
+    "text": "Setup Debian server for python deployment",
+    "href": "/2011/03/13/setup-debian-server-for-python-deployment.html"
+  } ,
+
+  {
+    "text": "Acerca de las diferencias entre git y mercurial",
+    "href": "/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html"
+  } ,
+
+  {
+    "text": "Create your own private egg repository on amazon EC2",
+    "href": "/2011/03/30/create-your-own-private-egg-repository-on-amazon-ec2.html"
+  } ,
+
+  {
+    "text": "Instalando Gnome Shell en Natty",
+    "href": "/2011/04/30/instalando-gnome-shell-en-natty.html"
+  } ,
+
+  {
+    "text": "Una gema escondida en Plone 4",
+    "href": "/2011/05/18/una-gema-escondida-en-plone-4.html"
+  } ,
+
+  {
+    "text": "Instalando plone en una instancia de Amazon EC2",
+    "href": "/2011/06/07/instalando-plone-en-una-instancia-de-amazon-ec2.html"
+  } ,
+
+  {
+    "text": "Registrar un viewlet en Plone con 11 líneas de código",
+    "href": "/2011/06/20/registrar-un-viewlet-en-plone-con-11-lineas-de-codigo.html"
+  } ,
+
+  {
+    "text": "Cómo instalar la HP LaserJet 1020 en Fedora 15",
+    "href": "/2011/07/01/como-instalar-la-hp-laserjet-1020-en-fedora-15.html"
+  } ,
+
+  {
+    "text": "Cómo instalar la HP LaserJet 1020 en Fedora 16",
+    "href": "/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html"
+  } ,
+
+  {
+    "text": "Porting your xdv theme to plone.app.theming",
+    "href": "/2011/07/13/porting-your-xdv-theme-to-ploneapptheming.html"
+  } ,
+
+  {
+    "text": "Serving files in a directory with nginx",
+    "href": "/2011/07/14/serving-files-in-a-directory-with-nginx.html"
+  } ,
+
+  {
+    "text": "Scribes, a beautiful and simple text editor written in Python",
+    "href": "/2011/07/30/scribes-a-beautiful-and-simple-text-editor-written-in-python.html"
+  } ,
+
+  {
+    "text": "Mi propia guía de instalación de Fedora 16",
+    "href": "/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html"
+  } ,
+
+  {
+    "text": "Goodbye world",
+    "href": "/2011/10/13/goodbye-world.html"
+  } ,
+
+  {
+    "text": "Announcing iservices.rssdocument",
+    "href": "/2011/11/15/announcing-iservicesrssdocument.html"
+  } ,
+
+  {
+    "text": "11 de Diciembre: Día del Idioma Internacional Esperanto",
+    "href": "/2011/12/11/11-de-diciembre-dia-del-idioma-internacional-esperanto.html"
+  } ,
+
+  {
+    "text": "Getting help with performance problems with Plone",
+    "href": "/2011/12/17/getting-help-with-performance-problems-with-plone.html"
+  } ,
+
+  {
+    "text": "Notas de instalación de Plone en Amazon (Dic 2011)",
+    "href": "/2012/03/10/notas-de-instalacion-de-plone-en-amazon-dic-2011.html"
+  } ,
+
+  {
+    "text": "Writing widgets for zope.formlib",
+    "href": "/2012/03/10/writing-widgets-for-zopeformlib.html"
+  } ,
+
+  {
+    "text": "Haz tus propios libros",
+    "href": "/2012/03/12/haz-tus-propios-libros.html"
+  } ,
+
+  {
+    "text": "Primer post con blog estatico",
+    "href": "/2012/06/15/primer_post_con_blog_estatico.html"
+  } ,
+
+  {
+    "text": "Using Amazon SES with your python applications",
+    "href": "/2012/06/19/using_amazon_ses_with_your_python_applications.html"
+  } ,
+
+  {
+    "text": "Script para arreglar texto",
+    "href": "/2012/07/17/script_para_arreglar_texto.html"
+  } ,
+
+  {
+    "text": "My first issue with meteor solved quickly",
+    "href": "/2012/10/21/my_first_issue_with_meteor_solved.html"
+  } ,
+
+  {
+    "text": "Tutorial de Git con windoze",
+    "href": "/2012/11/21/tutorial_de_git_con_windoze.html"
+  } ,
+
+  {
+    "text": "Cuatro atajos del teclado de Gnome3",
+    "href": "/2013/01/06/cuatro-atajos-del-teclado-de-gnome3.html"
+  } ,
+
+  {
+    "text": "Tips para ir al PyCON 2013",
+    "href": "/2013/01/25/tips-para-ir-al-pycon-2013.html"
+  } ,
+
+  {
+    "text": "Moving a Plone site from AWS to webfaction",
+    "href": "/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html"
+  } ,
+
+  {
+    "text": "GTG: Enabling missing plugins for Fedora 20",
+    "href": "/2013/12/10/gtg-enabling-missing-plugins-for-fedora-20.html"
+  } ,
+
+  {
+    "text": "Configurar SSH para que no pida login",
+    "href": "/2013/12/20/configurar-ssh-para-que-no-pida-login.html"
+  } ,
+
+  {
+    "text": "Sublime 3 en Fedora 20",
+    "href": "/2014/02/07/sublime_3_en_fedora_20.html"
+  } ,
+
+  {
+    "text": "Éxito en Venezuela con Plone",
+    "href": "/2014/02/07/exito-en-venezuela-con-plone.html"
+  } ,
+
+  {
+    "text": "Módulos y paquetes en Python",
+    "href": "/2014/04/25/modulos-y-paquetes-en-python.html"
+  } ,
+
+  {
+    "text": "Drupal 8 Beta en OpenShift",
+    "href": "/2014/05/08/Drupal-8-Beta-en-OpenShift.html"
+  } ,
+
+  {
+    "text": " Maquinas virtuales en Fedora ",
+    "href": "/2014/05/12/Maquinas_virtuales_en_Fedora.html"
+  } ,
+
+  {
+    "text": "¿Cómo actualizar un SQL Server?",
+    "href": "/2014/05/14/Como_actualizar_un_SQL_Server.html"
+  } ,
+
+  {
+    "text": "Python 3 para renombrar screenshots",
+    "href": "/2014/05/24/Python3_para_renombrar_screenshots.html"
+  } ,
+
+  {
+    "text": "SEO para HolokinesisLibros.com",
+    "href": "/2014/06/18/seo-hkl.html"
+  } ,
+
+  {
+    "text": "Preparando Fedora para Drupal 7 al estilo Noe",
+    "href": "/2014/06/19/fedora-drupal-estilo-noe.html"
+  } ,
+
+  {
+    "text": "Reduciendo el tamaño de una BD en SQL Server",
+    "href": "/2014/06/26/reduciendo_tamano_BD_SQL_Server.html"
+  } ,
+
+  {
+    "text": "Preparar Ubuntu 14.04 para correr Django ",
+    "href": "/2014/07/12/prepara_ubuntu_1404_para_django.html"
+  } ,
+
+  {
+    "text": "Hola Mundo con Selenium sin programar nada",
+    "href": "/2014/07/15/selenium-hola-mundo-sin-programar.html"
+  } ,
+
+  {
+    "text": " Windows Server: ¿Cómo saber qué proceso esta usando un puerto TCP? ",
+    "href": "/2014/07/15/windows-server-tcp-puerto.html"
+  } ,
+
+  {
+    "text": " aprendiendo Maven En Unos Minutos",
+    "href": "/2014/07/16/Aprendiendo-maven-en-unos-minutos.html"
+  } ,
+
+  {
+    "text": "Servidor SFTP enjaulado con chroot",
+    "href": "/2014/07/24/Servidor-SFTP-enjaulado-con-chroot.html"
+  } ,
+
+  {
+    "text": "Jugando con IIS, Powershell y WebAdministration",
+    "href": "/2014/07/28/IIS-Powershell-WebAdministration.html"
+  } ,
+
+  {
+    "text": " Como correr GTG git en Fedora 20 ",
+    "href": "/2014/08/11/compilar-gtg-en-fedora-20.html"
+  } ,
+
+  {
+    "text": " Mesa-debate Crisis del sistema mundo capitalista, Hegemonía y Estado. 1ra ronda ",
+    "href": "/2014/08/11/crisis-mundo-capitalista-1a-ronda.html"
+  } ,
+
+  {
+    "text": "Detectar el Sistema Operativo en Mono/C#",
+    "href": "/2014/08/28/detectar-so-en-mono.html"
+  } ,
+
+  {
+    "text": "Mi resumen de C#",
+    "href": "/2014/08/28/mi-resumen-de-c-sharp.html"
+  } ,
+
+  {
+    "text": "Imagenes responsivas con Drupal 8",
+    "href": "/2014/09/05/imagenes_responsivas_con_Drupal-8.html"
+  } ,
+
+  {
+    "text": "Cómo instalar paquetes extra en Fedora sin abrir la terminal",
+    "href": "/2014/09/06/instalar-paquetes-fedora-sin-terminal.html"
+  } ,
+
+  {
+    "text": "Instalando IIS 8.5 en Windows 10 Technical preview",
+    "href": "/2015/01/16/Instalando_IIS_8.5_en_Windows_10_Technical_preview.html"
+  } ,
+
+  {
+    "text": "¿Cómo agrandar el disco de una máquina virtual en VirtualBox?",
+    "href": "/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html"
+  } ,
+
+  {
+    "text": "Hola mundo de Flask en IIS 8.5 (Windows 10)",
+    "href": "/2015/01/19/flask-IIS.html"
+  } ,
+
+  {
+    "text": "Cómo sacar la diferencia entre dos filas con PostgreSQL",
+    "href": "/2015/01/27/diferencia-entre-dos-filas-con-PostgreSQL.html"
+  } ,
+
+  {
+    "text": "Programa, compila e instala tu propia extension de PHP con PHP-CPP",
+    "href": "/2015/03/12/php-extension-php-phpcpp.html"
+  } ,
+
+  {
+    "text": "Jenkins para compilar e instalar una extension de PHP con PHP-CPP",
+    "href": "/2015/03/17/Jenkins-compila-extension-PHP-CPP.html"
+  } ,
+
+  {
+    "text": "Sencillo gancho pre-commit de SVN (pre-commit hook)",
+    "href": "/2016/03/10/sencillo-gancho-pre-svn.html"
+  } ,
+
+  {
+    "text": "Welcome to Jekyll!",
+    "href": "/2016/09/08/welcome-to-jekyll.html"
+  } ,
+
+  {
+    "text": "Impresión bajo demanda o POD (Print on demand)",
+    "href": "/2017/02/05/impresion-bajo-demanda.html"
+  } ,
+
+  {
+    "text": "Cómo montar unidades con formato NTFS en RHEL 3",
+    "href": "/2017/08/02/ntfs-rhel7.html"
+  } ,
+
+  {
+    "text": "Añadir un nuevo disco a fedora con LVM",
+    "href": "/2017/08/11/anadir_nuevo_disco_a-fedora_con_lvm.html"
+  } ,
+
+  {
+    "text": "Celda solar sencilla con TCAD de Silvaco (Parte 1)",
+    "href": "/2017/08/15/Celda-solar-sencilla-con-Silvaco.html"
+  } ,
+
+  {
+    "text": "Probando MathJax",
+    "href": "/2017/10/23/mathjax.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 1 2018",
+    "href": "/2018/01/07/lecturas-semana-1-2018.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 2",
+    "href": "/2018/01/09/lecturas-semana-2.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 3 2018",
+    "href": "/2018/01/15/lecturas-semana-3-2018.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 4 2018",
+    "href": "/2018/01/22/lecturas-semana-4-2018.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 5 2018",
+    "href": "/2018/01/30/lecturas-semana-5-2018.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 6",
+    "href": "/2018/02/05/lecturas-semana-6.html"
+  } ,
+
+  {
+    "text": "Configuración de un sitio HTTPS en webfaction con let's encrypt",
+    "href": "/2018/02/05/webfaction-https-y-letsencript.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 7",
+    "href": "/2018/02/12/lecturas-semana-7.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 8",
+    "href": "/2018/02/19/lecturas-semana-8.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 10",
+    "href": "/2018/03/05/lecturas-semana-10.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 9",
+    "href": "/2018/03/05/lecturas-semana-9.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 11 2018",
+    "href": "/2018/03/12/lecturas-semana-11-2018.html"
+  } ,
+
+  {
+    "text": "Django Oscar+paypal",
+    "href": "/2018/03/21/django-oscar+paypal.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 12 2018",
+    "href": "/2018/03/26/lecturas-semana-12-2018.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 13 2018",
+    "href": "/2018/03/26/lecturas-semana-13-2018.html"
+  } ,
+
+  {
+    "text": "Jalife Bajo La Lupa",
+    "href": "/2018/04/02/jalife-bajo-la-lupa.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 14 2018",
+    "href": "/2018/04/02/lecturas-semana-14-2018.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 15",
+    "href": "/2018/04/10/lecturas-semana-15.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 16",
+    "href": "/2018/04/16/lecturas-semana-16.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 17",
+    "href": "/2018/04/24/lecturas-semana-17.html"
+  } ,
+
+  {
+    "text": "Gsoc Week 1",
+    "href": "/2018/05/14/gsoc-week-1.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 18 A 26",
+    "href": "/2018/06/01/lecturas-semana-18-a-26.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 27 A 28",
+    "href": "/2018/07/02/Lecturas-semana-27-a-28.html"
+  } ,
+
+  {
+    "text": "Letsencrypt_webfaction_version_0.3",
+    "href": "/2018/07/12/letsencrypt_webfaction_version_0.3.html"
+  } ,
+
+  {
+    "text": "Guia Rapida Postgresql10 Fedora",
+    "href": "/2018/07/17/guia-rapida-postgresql10-fedora.html"
+  } ,
+
+  {
+    "text": "Semana 29",
+    "href": "/2018/07/17/semana-29.html"
+  } ,
+
+  {
+    "text": "Semana 30",
+    "href": "/2018/07/23/semana-30.html"
+  } ,
+
+  {
+    "text": "Lecturas de la semana 31 a 33 del 2018",
+    "href": "/2018/08/19/lecturas-semana-31-a-33.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 34",
+    "href": "/2018/08/27/lecturas-semana-34.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 35",
+    "href": "/2018/09/02/lecturas-semana-35.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 36 A 41",
+    "href": "/2018/09/04/lecturas-semana-36-a-41.html"
+  } ,
+
+  {
+    "text": "Exercising_the_transfer_matrix_method",
+    "href": "/2018/10/02/exercising_the_transfer_matrix_method.html"
+  } ,
+
+  {
+    "text": "Gulp Dist Ssh",
+    "href": "/2018/10/31/gulp-dist-ssh.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 42 45",
+    "href": "/2018/11/04/lecturas-semana-42-45.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 47",
+    "href": "/2018/11/12/lecturas-semana-47.html"
+  } ,
+
+  {
+    "text": "Lecturas semana 48",
+    "href": "/2018/11/26/lecturas-semana-48.html"
+  } ,
+
+  {
+    "text": "Lecturas Semana 49",
+    "href": "/2018/12/04/lecturas-semana-49.html"
+  } ,
+
+  {
+    "text": "Sublimetext Flatpack Shortcut",
+    "href": "/2018/12/12/Sublimetext-flatpack-shortcut.html"
+  } ,
+
+  {
+    "text": "Último compilado de lecturas del 2018",
+    "href": "/2018/12/19/lecturas-semana-50-51.html"
+  } ,
+
+  {
+    "text": "Learning to use jq, the Command-line JSON processor",
+    "href": "/2018/12/20/jq-Command-line-JSON-processor.html"
+  } ,
+
+  {
+    "text": "Basic CRUD with Rocket",
+    "href": "/2020/01/17/basic-crud-wuth-rocket.html"
+  } ,
+
+  {
+    "text": "Migrating blog from GH Pages to GH Actions",
+    "href": "/2020/05/11/gh-pages-migration-to-actions.html"
+  } ,
+
+  {
+    "text": "The simplest GitHub workflow for deploying static sites",
+    "href": "/2020/05/17/simplest-gh-workflow-for-static-pages.html"
+  } 
+
+])
