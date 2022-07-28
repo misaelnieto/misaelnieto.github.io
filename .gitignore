@@ -7,3 +7,4 @@ Gemfile.lock
 .vscode/
 attic/
 vendor/
+**/*.code-workspace
