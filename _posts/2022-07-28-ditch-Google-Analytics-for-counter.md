@@ -1,5 +1,9 @@
 ---
 published: true
+layout: post
+summary: I hacked Google Analytics away in favor of Counter.dev
+image: /media/screenshots/counter_analytics.png
+categories: 'web, analytics'
 ---
 ## Ditch Google Analytics(GA) for Counter.def
 
