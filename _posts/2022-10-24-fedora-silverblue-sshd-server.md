@@ -1,5 +1,7 @@
 ---
 published: true
+summary: Instrucciones para configurar el accesso ssh a fedora silverblue
+image: 'https://unsplash.com/photos/rL_xEyhiFWM'
 ---
 ## Instalacion de servidor sshd en Fedora Silverblue
 
@@ -7,7 +9,7 @@ He estado usando Fedora Silverblue en mi laptop personal desde hace varias seman
 
 Primero hay que habilitar el servicio. Esto se hace con el comando `systemctl enable sshd.service`:
 
-``bash
+```bash
 $ systemctl enable sshd.service 
 Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /usr/lib/systemd/system/sshd.service.
 ```
@@ -45,4 +47,13 @@ Ahora solo me falta averigüar cuál es mi dirección IP, eso se hace con `hostn
 
 Mi dirección IP es **192.168.1.76**.
 
-Fin.
+Y para entrar : `ssh 192.168.1.76`:
+
+```bash
+$ ssh 192.168.1.76
+```
+
+## Credits:
+
+Thanks to Getty Images for making [this photo available freely on @unsplash 🎁](https://unsplash.com/photos/rL_xEyhiFWM) 
+
