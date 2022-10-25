@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Using Amazon SES with your python applications | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Using Amazon SES with your python applications" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro" />
+<meta property="og:description" content="Intro" />
+<link rel="canonical" href="http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-06-19T03:02:10+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Using Amazon SES with your python applications" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2012-06-19T03:02:10+00:00","datePublished":"2012-06-19T03:02:10+00:00","description":"Intro","headline":"Using Amazon SES with your python applications","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html"},"url":"http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Using Amazon SES with your python applications</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jun 19, 2012 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+
+<p>One of the nice things about Amazon SES (Simple Email Service) is that they
+have a SMTP interface for legacy applications.</p>
+
+<p>To configure a SMTP service you need several parameters. Here’s a list of
+five things you will need and where to find it:</p>
+
+<ul>
+  <li>
+    <p><strong>Server hostname or IP address:</strong> You can find this information in the
+amazon console. Amazon SES -&gt; Navigation pane -&gt; SMTP Settings -&gt;
+SMTP server name.</p>
+  </li>
+  <li><strong>Server port:</strong> Amazon’s SMTP server listens in three ports: 25, 465 and
+    <ol>
+      <li>But I’ve struggled enough with this and the only port that will work
+right away is  port <strong>587</strong>.</li>
+    </ol>
+  </li>
+  <li>Make sure your Python installation supports TLS (Transport Layer Security).</li>
+</ul>
+
+<p>If you haven’t created your IAM credentials, do so now. There’s a button right
+there in the SMTP Settings pane that will help you do so. If you forget your
+SMTP password, you will need to delete your SMTP credentials using the AWS IAM
+Dashboard. You will use the SMTP username and password provided by the IAM
+credentials created in that panel.</p>
+
+<p>Finally, don’t forget to verify a couple of email addresses if you haven’t got
+access to production SES.</p>
+
+<h2 id="sending-email-from-a-simple-script">Sending email from a simple script</h2>
+
+<p>Here’s a script that you can use to test Amazon’s SES from your application or
+from the command line. Adapt it as you wish.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">#!/usr/bin/python
+</span><span class="kn">import</span> <span class="nn">smtplib</span>
+
+<span class="k">def</span> <span class="nf">prompt</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">prompt</span><span class="p">).</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">fromaddr</span> <span class="o">=</span> <span class="s">'dude@somewhere.com'</span>
+<span class="n">toaddrs</span>  <span class="o">=</span> <span class="s">'w00t@somewherelse.com'</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s">"""From: dude@somewhere.com
+
+Hello, this is doge.
+"""</span>
+
+<span class="k">print</span> <span class="s">"Message length is "</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+
+<span class="c1">#Change according to your settings
+</span><span class="n">smtp_server</span> <span class="o">=</span> <span class="s">'email-smtp.us-east-1.amazonaws.com'</span>
+<span class="n">smtp_username</span> <span class="o">=</span> <span class="s">'AKASDXWXDSAEGA'</span>
+<span class="n">smtp_password</span> <span class="o">=</span> <span class="s">'AgYlkjahdkjhasd0+m13DAraadHeiXFASDFASDjF'</span>
+<span class="n">smtp_port</span> <span class="o">=</span> <span class="s">'587'</span>
+<span class="n">smtp_do_tls</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="p">.</span><span class="n">SMTP</span><span class="p">(</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="n">smtp_server</span><span class="p">,</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">smtp_port</span><span class="p">,</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="p">)</span>
+<span class="n">server</span><span class="p">.</span><span class="n">set_debuglevel</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">server</span><span class="p">.</span><span class="n">starttls</span><span class="p">()</span>
+<span class="n">server</span><span class="p">.</span><span class="n">ehlo</span><span class="p">()</span>
+<span class="n">server</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="n">smtp_username</span><span class="p">,</span> <span class="n">smtp_password</span><span class="p">)</span>
+<span class="n">server</span><span class="p">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">fromaddr</span><span class="p">,</span> <span class="n">toaddrs</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">server</span><span class="p">.</span><span class="n">quit</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>This is the output of the terminal.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python send_email.py
+
+Message length is 44
+send: <span class="s1">'ehlo [192.168.1.73]\r\n'</span>
+reply: <span class="s1">'250-email-smtp.amazonaws.com\r\n'</span>
+reply: <span class="s1">'250-8BITMIME\r\n'</span>
+reply: <span class="s1">'250-SIZE 10485760\r\n'</span>
+reply: <span class="s1">'250-STARTTLS\r\n'</span>
+reply: <span class="s1">'250-AUTH PLAIN LOGIN\r\n'</span>
+reply: <span class="s1">'250 Ok\r\n'</span>
+reply: retcode <span class="o">(</span>250<span class="o">)</span><span class="p">;</span> Msg: email-smtp.amazonaws.com
+8BITMIME
+SIZE 10485760
+STARTTLS
+AUTH PLAIN LOGIN
+Ok
+send: <span class="s1">'STARTTLS\r\n'</span>
+reply: <span class="s1">'220 Ready to start TLS\r\n'</span>
+reply: retcode <span class="o">(</span>220<span class="o">)</span><span class="p">;</span> Msg: Ready to start TLS
+send: <span class="s1">'ehlo [192.168.1.73]\r\n'</span>
+reply: <span class="s1">'250-email-smtp.amazonaws.com\r\n'</span>
+reply: <span class="s1">'250-8BITMIME\r\n'</span>
+reply: <span class="s1">'250-SIZE 10485760\r\n'</span>
+reply: <span class="s1">'250-STARTTLS\r\n'</span>
+reply: <span class="s1">'250-AUTH PLAIN LOGIN\r\n'</span>
+reply: <span class="s1">'250 Ok\r\n'</span>
+reply: retcode <span class="o">(</span>250<span class="o">)</span><span class="p">;</span> Msg: email-smtp.amazonaws.com
+8BITMIME
+SIZE 10485760
+STARTTLS
+AUTH PLAIN LOGIN
+Ok
+send: <span class="s1">'AUTH PLAIN FASDF·AFfadsfadsf3452345asdfdSDFASDTW345qasfase435\r\n'</span>
+reply: <span class="s1">'235 Authentication successful.\r\n'</span>
+reply: retcode <span class="o">(</span>235<span class="o">)</span><span class="p">;</span> Msg: Authentication successful.
+send: <span class="s1">'mail FROM:&lt;dude@somewhere.com&gt; size=44\r\n'</span>
+reply: <span class="s1">'250 Ok\r\n'</span>
+reply: retcode <span class="o">(</span>250<span class="o">)</span><span class="p">;</span> Msg: Ok
+send: <span class="s1">'rcpt TO:&lt;w00t@somewherelse.com&gt;\r\n'</span>
+reply: <span class="s1">'250 Ok\r\n'</span>
+reply: retcode <span class="o">(</span>250<span class="o">)</span><span class="p">;</span> Msg: Ok
+send: <span class="s1">'data\r\n'</span>
+reply: <span class="s1">'354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;\r\n'</span>
+reply: retcode <span class="o">(</span>354<span class="o">)</span><span class="p">;</span> Msg: End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+data: <span class="o">(</span>354, <span class="s1">'End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;'</span><span class="o">)</span>
+send: <span class="s1">'From: dude@somewhere.com\r\n\r\nHello, this is dog.\r\n.\r\n'</span>
+reply: <span class="s1">'250 Ok 0000013802d175af-a924148e-f275-4635-994f-181f6aca6135-000000\r\n'</span>
+reply: retcode <span class="o">(</span>250<span class="o">)</span><span class="p">;</span> Msg: Ok 0000013802d175af-a924148e-f275-4635-994f-181f6aca6135-000000
+data: <span class="o">(</span>250, <span class="s1">'Ok 0000013802d175af-a924148e-f275-4635-994f-181f6aca6135-000000'</span><span class="o">)</span>
+send: <span class="s1">'quit\r\n'</span>
+reply: <span class="s1">'221 Bye\r\n'</span>
+reply: retcode <span class="o">(</span>221<span class="o">)</span><span class="p">;</span> Msg: Bye
+<span class="o">(</span>221, <span class="s1">'Bye'</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="sending-email-from-grok-and-zope-applications">Sending email from Grok and Zope Applications</h2>
+
+<p>Just use <code class="language-plaintext highlighter-rouge">zope.sendmail &lt;http://pypi.python.org/pypi/zope.sendmail&gt;</code>_ and the
+following ZCML snippet.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;configure</span> <span class="na">xmlns=</span><span class="s">"http://namespaces.zope.org/zope"</span>
+           <span class="na">xmlns:mail=</span><span class="s">"http://namespaces.zope.org/mail"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;mail:smtpMailer</span>
+      <span class="na">name=</span><span class="s">"amazon.ses.smtp"</span>
+      <span class="na">hostname=</span><span class="s">"email-smtp.us-east-1.amazonaws.com"</span>
+      <span class="na">port=</span><span class="s">"587"</span>
+      <span class="na">username=</span><span class="s">"WRDAsfereFASDFASDFBH"</span>
+      <span class="na">password=</span><span class="s">"FASsxasdf552fdsa34fadsaFAS4343SDS"</span>
+      <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;mail:queuedDelivery</span>
+      <span class="na">name=</span><span class="s">"Mail"</span>
+      <span class="na">permission=</span><span class="s">"zope.Public"</span>
+      <span class="na">mailer=</span><span class="s">"amazon.ses.smtp"</span>
+      <span class="na">queuePath=</span><span class="s">"./mailqueue"</span>
+      <span class="nt">/&gt;</span>
+<span class="nt">&lt;/configure&gt;</span>
+</code></pre></div></div>
+
+<h2 id="sending-email-from-django-apps">Sending email from Django Apps</h2>
+
+<p>It’s also easy with Django. Just modify <code class="language-plaintext highlighter-rouge">settings.py</code>. Example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="s">"email-smtp.us-east-1.amazonaws.com"</span>
+<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="s">"FDSFASDFASJFAFDJSAFSBBCAXA"</span>
+<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="s">"FASDFAsdcasdfadsAFdfadsf52soomn3sguu45hk23"</span>
+<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
+<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p>Fin.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html&title=Using+Amazon+SES+with+your+python+applications&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html';
+      this.page.identifier = 'http://blog.noenieto.com/2012/06/19/using_amazon_ses_with_your_python_applications.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

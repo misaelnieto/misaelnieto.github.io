@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Programa, compila e instala tu propia extension de PHP con PHP-CPP | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Programa, compila e instala tu propia extension de PHP con PHP-CPP" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Programa, compila e instala tu propia extension de PHP con PHP-CPP" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2015-03-12T00:00:00+00:00","datePublished":"2015-03-12T00:00:00+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"Programa, compila e instala tu propia extension de PHP con PHP-CPP","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html"},"url":"http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Programa, compila e instala tu propia extension de PHP con PHP-CPP</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Mar 12, 2015 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/extension-cord-147580_1280.png" alt="Una broma muy simple" /></p>
+
+<h2 id="intro">Intro</h2>
+
+<p>El proyecto <a href="http://www.php-cpp.com/documentation">PHP-CPP</a> te permite
+compilar tu propia extension en C++. Estas notas son los pasos que tuve que
+seguir para conseguir hacer funcionar el típico Hola mundo.</p>
+
+<h2 id="manos-a-la-obra">Manos a la obra</h2>
+
+<p>Las pruebas las hice en Ubuntu 14.04. Previamente intente hacerlo en un Ubuntu
+12.04 (por que un servidor tenia esa versión) pero el compilador que trae es
+muy viejo y al ejecutar make el proceso falla con el siguiente mensaje:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: unrecognized command line option "-std=c++11"
+</code></pre></div></div>
+
+<p>Despues de mucho buscar encontré ésta <a href="http://stackoverflow.com/questions/27341599/cc1plus-error-unrecognized-command-line-option-std-c11">pregunta en stackoverflow</a>.
+Básicamente el error se debe a que el compilador de Ubuntu 12.04 es muy viejo.
+Es posible instalar un compilador más reciente, pero vale mejor aprovechar el
+tiempo para actualizar la máquina a Ubuntu 14.04.</p>
+
+<p>El primer paso es instalar compiladores, librerias y utilidades:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo aptitude install php5-dev build-essential git
+</span></code></pre></div></div>
+
+<p>Luego clonamos el repo de PHP-CPP, corremos make y make install.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">git clone https://github.com/CopernicaMarketingSoftware/PHP-CPP.git
+make
+sudo make install
+</span></code></pre></div></div>
+
+<p>El <code class="language-plaintext highlighter-rouge">Makefile</code> es lo suficientemente inteligente como para averigüar el lugar
+correcto dónde poner las librerias. Después de compilar e instalar PHP-CPP es
+momento de compilar una extensión de PHP para comprobar que todo funciona
+bien. <a href="http://www.php-cpp.com/documentation/your-first-extension">Basado en el tutorial de PHP-CPP</a>
+usé archivos: <code class="language-plaintext highlighter-rouge">main.cpp</code>, <code class="language-plaintext highlighter-rouge">Makefile</code> y <code class="language-plaintext highlighter-rouge">noe_extension.ini</code>.</p>
+
+<p>El <code class="language-plaintext highlighter-rouge">Makefile</code> se ve asi:</p>
+
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NAME</span>                    <span class="o">=</span>       noe_extension
+<span class="nv">INI_DIR</span>                 <span class="o">=</span>       /etc/php5/mods-available/
+<span class="nv">EXTENSION_DIR</span>           <span class="o">=</span>       <span class="nf">$(</span><span class="nb">shell</span> php-config <span class="nt">--extension-dir</span><span class="nf">)</span>
+<span class="nv">EXTENSION</span>               <span class="o">=</span>       <span class="nv">${NAME}</span>.so
+<span class="nv">INI</span>                     <span class="o">=</span>       <span class="nv">${NAME}</span>.ini
+<span class="nv">COMPILER</span>                <span class="o">=</span>       g++
+<span class="nv">LINKER</span>                  <span class="o">=</span>       g++
+<span class="nv">COMPILER_FLAGS</span>          <span class="o">=</span>       <span class="nt">-Wall</span> <span class="nt">-c</span> <span class="nt">-O2</span> <span class="nt">-std</span><span class="o">=</span>c++11 <span class="nt">-fpic</span> <span class="nt">-o</span>
+<span class="nv">LINKER_FLAGS</span>            <span class="o">=</span>       <span class="nt">-shared</span>
+<span class="nv">LINKER_DEPENDENCIES</span>     <span class="o">=</span>       <span class="nt">-lphpcpp</span>
+<span class="nv">RM</span>                      <span class="o">=</span>       <span class="nb">rm</span> <span class="nt">-f</span>
+<span class="nv">CP</span>                      <span class="o">=</span>       <span class="nb">cp</span> <span class="nt">-f</span>
+<span class="nv">MKDIR</span>                   <span class="o">=</span>       <span class="nb">mkdir</span> <span class="nt">-p</span>
+<span class="nv">SOURCES</span>                 <span class="o">=</span>       <span class="nf">$(</span><span class="nb">wildcard</span> <span class="k">*</span>.cpp<span class="nf">)</span>
+<span class="nv">OBJECTS</span>                 <span class="o">=</span>       <span class="nv">$(SOURCES:%.cpp=%.o)</span>
+<span class="nl">all</span><span class="o">:</span>                            <span class="nf">${OBJECTS} ${EXTENSION}</span>
+
+<span class="nl">${EXTENSION}</span><span class="o">:</span>                   <span class="nf">${OBJECTS}</span>
+                                <span class="err">${LINKER}</span> <span class="err">${LINKER_FLAGS}</span> <span class="err">-o</span> <span class="err">$@</span> <span class="err">${OBJECTS}</span> <span class="err">${LINKER_DEPENDENCIES}</span>
+
+<span class="nl">${OBJECTS}</span><span class="o">:</span>
+                                <span class="nl">${COMPILER} ${COMPILER_FLAGS} $@ ${@</span><span class="o">:</span><span class="nf">%.o=%.cpp}</span>
+
+<span class="nl">install</span><span class="o">:</span>
+                                <span class="err">${CP}</span> <span class="err">${EXTENSION}</span> <span class="err">${EXTENSION_DIR}</span>
+                                <span class="err">${CP}</span> <span class="err">${INI}</span> <span class="err">${INI_DIR}</span>
+
+<span class="nl">clean</span><span class="o">:</span>
+                                <span class="err">${RM}</span> <span class="err">${EXTENSION}</span> <span class="err">${OBJECTS}</span>
+</code></pre></div></div>
+
+<p>El archivo <code class="language-plaintext highlighter-rouge">main.c</code> se ve asi:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+#include &lt;phpcpp.h&gt;
+</span>
+<span class="n">Php</span><span class="o">::</span><span class="n">Value</span> <span class="nf">hello</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="s">"Hola Mundo"</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="n">Php</span><span class="o">::</span><span class="n">Value</span> <span class="nf">myFunction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"string"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">123</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ *  tell the compiler that the get_module is a pure C function
+ */</span>
+<span class="k">extern</span> <span class="s">"C"</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     *  Function that is called by PHP right after the PHP process
+     *  has started, and that returns an address of an internal PHP
+     *  strucure with all the details and features of your extension
+     *
+     *  @return void*   a pointer to an address that is understood by PHP
+     */</span>
+    <span class="n">PHPCPP_EXPORT</span> <span class="kt">void</span> <span class="o">*</span><span class="n">get_module</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// static(!) Php::Extension object that should stay in memory</span>
+        <span class="c1">// for the entire duration of the process (that's why it's static)</span>
+        <span class="k">static</span> <span class="n">Php</span><span class="o">::</span><span class="n">Extension</span> <span class="n">extension</span><span class="p">(</span><span class="s">"noe_extension"</span><span class="p">,</span> <span class="s">"1.0"</span><span class="p">);</span>
+
+        <span class="c1">// @todo    add your own functions, classes, namespaces to the extension</span>
+        <span class="n">extension</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span> <span class="n">hello</span><span class="p">);</span>
+        <span class="n">extension</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"myFunction"</span><span class="p">,</span> <span class="n">myFunction</span><span class="p">);</span>
+
+        <span class="c1">// return the extension</span>
+        <span class="k">return</span> <span class="n">extension</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Finalmente, <code class="language-plaintext highlighter-rouge">noe_extension.ini</code>:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">extension</span><span class="p">=</span><span class="s">noe_extension.so</span>
+</code></pre></div></div>
+
+<p>Ya solo falta compilar e instalar:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">make
+sudo make install
+</span></code></pre></div></div>
+
+<p>El <code class="language-plaintext highlighter-rouge">Makefile</code> anterior (osea, el segundo) tambien es lo suficientemente
+inteligente como para averigüar el lugar correcto dónde poner la libreria
+compilada (<code class="language-plaintext highlighter-rouge">noe_extension.so</code>) y el archivo <code class="language-plaintext highlighter-rouge">noe_extension.ini</code>. En el Ubuntu
+14.04 donde probé esto los archivos quedaron en estas dos rutas:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/usr/lib/php5/20121212/noe_extension.so</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/etc/php5/mods-available/noe_extension.ini</code></li>
+</ul>
+
+<p>Aunque la localización de <code class="language-plaintext highlighter-rouge">noe_extension.ini</code> es la correcta, hay que saber
+que el estilo de configuración de las extensions de PHP en Debian/Ubuntu es
+muy parecido al de sitos y módulos de apache2. En Ubuntu/Debian hay que usar
+los comandos <code class="language-plaintext highlighter-rouge">a2enconf</code>, <code class="language-plaintext highlighter-rouge">a2enmod</code> y <code class="language-plaintext highlighter-rouge">a2ensite</code> para activar algun archivo con
+extensión <code class="language-plaintext highlighter-rouge">.conf</code> en particular. De igual manera, en Debian/Ubuntu tambien
+existen los comandos <code class="language-plaintext highlighter-rouge">php5enmod</code> y <code class="language-plaintext highlighter-rouge">phpdismod</code>. Usé <code class="language-plaintext highlighter-rouge">php5enmod</code> para dar mi
+modulo de alta:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo php5enmod noe_extension
+</span></code></pre></div></div>
+
+<p>Esto crea una liga simbolica <code class="language-plaintext highlighter-rouge">/etc/php5/apache2/conf.d/20-noe_extension.ini</code>
+que apunta hacia <code class="language-plaintext highlighter-rouge">/etc/php5/mods-available/noe_extension.ini</code>. Despues de esto
+reiniciamos apache:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo service apache2 restart
+</span></code></pre></div></div>
+
+<p>Después de esto, sólo fató escribir un peueño script de php para usar la
+extensión. Lo puse en un directorio visible por apache2 y lo nombré
+<code class="language-plaintext highlighter-rouge">index.php</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+     <span class="nt">&lt;title&gt;</span>Extension de PHP de Noe<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Extension de PHP de Noe<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+     <span class="nt">&lt;li&gt;</span>Hola: <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="p">(</span><span class="nf">hello</span><span class="p">());</span> <span class="cp">?&gt;</span> <span class="nt">&lt;/li&gt;</span>
+     <span class="nt">&lt;li&gt;</span>MyFunction: <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nf">myFunction</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Y si la configuración es correcta, se deberá ver algo así:</p>
+
+<p><img src="/media/Captura de pantalla de 2015-03-13 09:15:55.png" alt="La extension funcionando" /></p>
+
+<p>Los textos “Hola mundo” y “string” provienen del complemento noe_estension.so</p>
+
+<p>Eso es todo.</p>
+
+<hr />
+<p>La imagen “extension cord” proviene de <a href="http://pixabay.com/en/extension-cord-cable-electronics-147580/">http://pixabay.com/en/extension-cord-cable-electronics-147580/</a></p>
+
+<p>Tomada el dia 13 de Marzo del 2015.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html&title=Programa%2C+compila+e+instala+tu+propia+extension+de+PHP+con+PHP-CPP&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html';
+      this.page.identifier = 'http://blog.noenieto.com/2015/03/12/php-extension-php-phpcpp.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

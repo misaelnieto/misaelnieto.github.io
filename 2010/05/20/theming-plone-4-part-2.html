@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Theming Plone 4 - Part 2 | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Theming Plone 4 - Part 2" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="On Part two, I am going to document how to take one template and “translate” it for Plone. I am using a very simple template from CSSTemplates.org. Finally, all the code I made will be uploaded to GITHUB" />
+<meta property="og:description" content="On Part two, I am going to document how to take one template and “translate” it for Plone. I am using a very simple template from CSSTemplates.org. Finally, all the code I made will be uploaded to GITHUB" />
+<link rel="canonical" href="http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-05-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Theming Plone 4 - Part 2" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2010-05-20T00:00:00+00:00","datePublished":"2010-05-20T00:00:00+00:00","description":"On Part two, I am going to document how to take one template and “translate” it for Plone. I am using a very simple template from CSSTemplates.org. Finally, all the code I made will be uploaded to GITHUB","headline":"Theming Plone 4 - Part 2","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html"},"url":"http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Theming Plone 4 - Part 2</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: May 20, 2010 by Noe Nieto</p>
+
+    
+
+    <p>On Part two, I am going to document how to take one template and “translate”
+it for Plone. I am using a very simple template from CSSTemplates.org.
+Finally, all the code I made will be uploaded to GITHUB</p>
+
+<h2 id="on-part-1">On part 1…</h2>
+
+<p>On part 1 I learned to prepare the system for buildout and Zope, I also
+learned to create a Plone 4 instance from scratch and finally I learned to
+create and prepare a plone product for the new theme I am going to make.</p>
+
+<p>It’s time to continue to choose with some details before starting the
+modification of colors, images, and so on.</p>
+
+<h2 id="choosing-the-css-theme-template">Choosing the CSS theme template</h2>
+
+<p>I choosed the “<a href="http://www.freecsstemplates.org/preview/hanging/">Hanging</a>”
+template from FreeCSSTemplates.com. I’ts perfect because it has three columns
+and fixed width to 1024x768 monitors, which is the minimum standard in 2010.</p>
+
+<p>So, after downloading and unpacking the template I get a very clean and basic
+theme, Good!!</p>
+
+<p><img src="/media/choose_css_template.png" alt="choose_css_template.png" />
+<img src="/media/contenido_tema_plone4.png" alt="Contenidos del tema" /></p>
+
+<p>The original template, looks like this:</p>
+
+<p><img src="/media/hanghing_theme.png" alt="new theme" /></p>
+
+<h2 id="theming-tools">Theming tools</h2>
+
+<p>These are the tools we are going to use to make our theme:</p>
+
+<ul>
+  <li>Firefox and Firebug (On Lucid, the package is xul-ext-firebug)</li>
+  <li>Gedit (make sure you install gedit-plugins package)</li>
+</ul>
+
+<p>Additionally, on other templates I had to use:</p>
+
+<ul>
+  <li>Gimp. For editing logos an some images.</li>
+  <li>Photoshop. Sometimes Gimp does not properly open PSD templates. You’ll need someone that exports the template to jpeg, png or something similar so you can open the templates in gimp and cut as needed.</li>
+  <li>Komodo Edit (Very good editor)</li>
+</ul>
+
+<p>¿Any other? ¿Other tools on other OS?</p>
+
+<h2 id="the-decogs-system">The Deco.gs system</h2>
+
+<p>SunBurst, the Plone 4 default theme uses the
+<a href="http://web.archive.org/web/20100413153750/http://deco.gs/">Deco.gs</a>  system,
+which can be defined as a “lightweight”  grid framework. As some will already
+know, there are some very popular grid systems.</p>
+
+<p>I came to understand the grid system when I saw the 
+<a href="http://web.archive.org/web/20100419013044/http://www.gridsystemgenerator.com/">Grid System Generator</a>.
+So, in general, the Sunburst theme uses the Deco.gs system and has 12 columns
+for horizontal layout/positioning and has no horizontal layout/positioning. So
+this is as basic as it can get.</p>
+
+<p>Ther is a talk from Alexander Limi, the creator of Deco.gs on
+<a href="http://blip.tv/file/3020558">blip.tv</a>. He explains very clearly why he
+created yet another one grid system.</p>
+
+<p>So, now that we know that deco.gs exists, we only need to pay attention to
+these css styles:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">row</code></li>
+  <li><code class="language-plaintext highlighter-rouge">cell</code></li>
+  <li><code class="language-plaintext highlighter-rouge">width-full</code></li>
+  <li><code class="language-plaintext highlighter-rouge">width-1:2</code></li>
+  <li><code class="language-plaintext highlighter-rouge">position-0</code></li>
+  <li><code class="language-plaintext highlighter-rouge">position-1:4</code></li>
+  <li><code class="language-plaintext highlighter-rouge">position-3:4</code>
+```</li>
+</ul>
+
+<h2 id="plones-layout">Plone’s Layout</h2>
+
+<p>Plone’s layout is made of viewlet managers that contains another viewlet
+manager or viewlets.  On a vanilla Plone site, there are 8 main viewlet
+managers: plone.portaltop, plone.abovecontent, plone.contentviews,
+plone.abovecontenttitle, plone.belowcontenttitle, plone.abovecontentbody,
+plone.belowcontentbody and plone.belowcontent. Not all viewlet managers (or
+it’s contents) are displayed at the same time.</p>
+
+<p>This is a screenshot firebug showing the structure of the <code class="language-plaintext highlighter-rouge">@@manage-portlets</code>
+view:</p>
+
+<p><img src="/media/manage_portlets.png" alt="manage_portlets" /></p>
+
+<p>The viewlet manager <code class="language-plaintext highlighter-rouge">plone.portaltop</code> renders <code class="language-plaintext highlighter-rouge">#portal-top</code>, <code class="language-plaintext highlighter-rouge">plone.belowcontent</code>
+renders <code class="language-plaintext highlighter-rouge">#portal-footer</code>, <code class="language-plaintext highlighter-rouge">#portal-colophon</code> and <code class="language-plaintext highlighter-rouge">#portal-siteactions</code>. The template
+<code class="language-plaintext highlighter-rouge">main.pt</code> is the one that renders <code class="language-plaintext highlighter-rouge">#portal-columns</code> directly and inside it, it
+renders the content of some other viewlet-managers.</p>
+
+<p>There are other good documentation resources for plone theming:</p>
+
+<ul>
+  <li><a href="https://www.packtpub.com/Professional-Plone-web-applications-CMS/book">Professional Plone Development</a> (Martin Aspelli), chapter 8 Plone 3 Theming</li>
+  <li><a href="https://www.packtpub.com/plone-3-theming-create-flexible-powerful-professional-templates/book">Plone 3 Theming</a> (Veda Williams)</li>
+  <li><a href="http://plone.org/documentation/manual/upgrade-guide/version/upgrading-plone-3-x-to-4.0/updating-add-on-products-for-plone-4.0/updating-plone-3-themes-for-plone-4/">Updating Plone 3 themes for Plone 4</a></li>
+  <li><a href="http://plone.org/documentation/topic/Visual+Design#creating-theme-products">Plone.org Documentation</a> (Various authors)</li>
+</ul>
+
+<h2 id="copying-stylesheets-to-the-sunburst-theme">Copying stylesheets to the Sunburst theme</h2>
+
+<p>Setting the theory aside, we need to copy some stylesheets from the sunburst
+theme. Some of the stylesheets of Sunburst are empty, and some others don’t
+really need customization.</p>
+
+<p>First, we need to find out the location of the <code class="language-plaintext highlighter-rouge">plonetheme.sunburst</code> egg. I use
+the following trick:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#on our buildout directory (e.g. ~/plone4b3)</span>
+<span class="nv">sunburst</span><span class="o">=</span><span class="sb">`</span><span class="nb">cat </span>bin/instance | <span class="nb">grep</span> <span class="s2">"plonetheme.sunburst"</span> | <span class="nb">cut</span> <span class="nt">-d</span> <span class="se">\'</span> <span class="nt">-f2</span><span class="sb">`</span>/plonetheme/sunburst/skins/sunburst_styles/
+<span class="nv">hanging</span><span class="o">=</span>src/plonetheme.hanging/plonetheme/hanging/skins/hangingtheme_styles/
+</code></pre></div></div>
+<p>Now that we have the location of both directories, we only need to copy three files:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nv">$sunburst</span>/base_properties.props <span class="nv">$hanging</span>
+<span class="nb">cp</span> <span class="nv">$sunburst</span>/ploneCustom.css.dtml <span class="nv">$hanging</span>
+<span class="nb">cp</span> <span class="nv">$sunburst</span>/public.css <span class="nv">$hanging</span>
+</code></pre></div></div>
+
+<p>These three files will be all we need to edit in order to change colors and so
+on.</p>
+
+<h2 id="copy-images-from-the-template-to-our-theme">Copy images from the template to our theme</h2>
+
+<p>This is just a reminder to copy all the images from the Hanging theme to the
+directory:
+<code class="language-plaintext highlighter-rouge">src/plonetheme.hanging/plonetheme/hanging/skins/hangingtheme_images/</code> 
+(<code class="language-plaintext highlighter-rouge">hangingtheme_images/</code> from now on).</p>
+
+<h2 id="hands-on-with-our-theme">Hands on with our theme</h2>
+
+<p>We already have our filesystem-based theme and we have also installed it on a
+Plone instance. We already know of the existence of the Deco.gs System and, in
+general we already khow Plone visual building blocks are laid out on top each other (by
+using portlet managers).</p>
+
+<p>We also have three new files on <code class="language-plaintext highlighter-rouge">hangingtheme_images/</code> so we have everything
+we need to start.</p>
+
+<p>Let’s use a top-bottom aproach while aplying styles to the plone theme. That
+means: I open two tabs and firefox and start copying styles from the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code>,
+then I move to <code class="language-plaintext highlighter-rouge">#visual-portal-wrapper</code>, and so on.</p>
+
+<p>For those like me who needs a photo for everything, that’s what are we going to do:</p>
+
+<p><img src="/media/copy_theme_styles.jpg" alt="Copying theme styles" /></p>
+
+<p>If I documented every step by now, this post would be unfinishable, so I just
+will list the modifications I made. The details of each modification are
+broken into small commits on the
+<a href="http://github.com/tzicatl/plone4andtheme">git repository</a>. Feel free to clone the
+project buildout and walk trough the log (hopefully it is not very long).</p>
+
+<p>These are the steps I did to finish the theme:</p>
+
+<ul>
+  <li>Style <code class="language-plaintext highlighter-rouge">&lt;body/&gt;</code>.</li>
+  <li>Center <code class="language-plaintext highlighter-rouge">#visual-portal-wrapper</code> and use <code class="language-plaintext highlighter-rouge">60em</code> width.</li>
+  <li>Change the plone logo. It was transparent for white background. Now it’s transparent for any background. I took it from the official plone logo pack.</li>
+  <li>Style <code class="language-plaintext highlighter-rouge">#portal-globalnav</code>
+    <ul>
+      <li>The navigation bar in hanging and plone are alike, but not equal. I also had to adjust the sizes, margin and padding.</li>
+    </ul>
+  </li>
+  <li>Style the columns
+    <ul>
+      <li>This was trickier than the previuous commits. I had to create a special background for <code class="language-plaintext highlighter-rouge">#portal-columns</code> with some transparent pixels so I could align the header and the columns. Also, the portlet columns background won’t take all the vertical space. ¿What should I do? Anyway, this is the best I can do in less than 1 hour.</li>
+    </ul>
+  </li>
+  <li>Override the footer viewlet and style it.</li>
+  <li>Style the plone content. I use the <code class="language-plaintext highlighter-rouge">test_rendering</code> template as a guide (i.e. <code class="language-plaintext highlighter-rouge">http://localhost:8080/Plone/test_rendering</code>).</li>
+  <li>Add styles for headers and paragraphs.</li>
+  <li>Add styles for links</li>
+  <li>Adjust minor details</li>
+</ul>
+
+<p>After some hours of hacking (I’m slooow), this is how it looks:</p>
+
+<p><img src="/media/plone_hanghing_preview.png" alt="Template hanging final" /></p>
+
+<h2 id="wrap-up">Wrap up</h2>
+
+<p>On part 1 of this post, I learned to prepare the system for buildout and Zope,
+I created a Plone 4 instance from scratch and finally I learned to create and
+prepare a plone product for the new theme.</p>
+
+<p>On this second part, I briefly described the Deco.gs grid framework and that
+we should pay attention to it. I also described Plone’s html and CSS Layout
+and some very rough notes on the process of changing the stylesheets adding
+images or even adapting images for the plone theme.</p>
+
+<p>While doing this theme I made every commit to git as small as possible. I hope
+that, if someone else (or me), walks trough the git log, he or she can learn
+about the theming process.</p>
+
+<p>Finally, there are some issues with the theme, tough. Mainly with the columns.
+For example, the portlet columns may not fill up all the vertical space. I
+hope to find a trick to make them work. ¿Or should I start to theme sites
+using deliverance?</p>
+
+<p>Thanks for reading my bad english so far!!</p>
+
+<hr />
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html&title=Theming+Plone+4+-+Part+2&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html';
+      this.page.identifier = 'http://blog.noenieto.com/2010/05/20/theming-plone-4-part-2.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

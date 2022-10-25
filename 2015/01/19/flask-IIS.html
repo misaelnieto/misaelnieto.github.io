@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hola mundo de Flask en IIS 8.5 (Windows 10) | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Hola mundo de Flask en IIS 8.5 (Windows 10)" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro" />
+<meta property="og:description" content="Intro" />
+<link rel="canonical" href="http://blog.noenieto.com/2015/01/19/flask-IIS.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2015/01/19/flask-IIS.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-01-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hola mundo de Flask en IIS 8.5 (Windows 10)" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2015-01-19T00:00:00+00:00","datePublished":"2015-01-19T00:00:00+00:00","description":"Intro","headline":"Hola mundo de Flask en IIS 8.5 (Windows 10)","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2015/01/19/flask-IIS.html"},"url":"http://blog.noenieto.com/2015/01/19/flask-IIS.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Hola mundo de Flask en IIS 8.5 (Windows 10)</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jan 19, 2015 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+
+<p>Tuve el chance de probar Flask y echarlo a funcionar en IIS 8.5.</p>
+
+<h2 id="instalar-visual-studio-vs-y-python-tools-for-visual-studio">Instalar Visual Studio (VS) y Python Tools for Visual Studio</h2>
+
+<p>Cuando escribi este artículo, la última version disponible era Visual Studio
+2013 (VS) edición community. Lo descargué de <a href="http://www.visualstudio.com/">http://www.visualstudio.com/</a></p>
+
+<p>Despues de instalar VS se instala el add-on <code class="language-plaintext highlighter-rouge">Python Tools for Visual Studio (PTVS)</code>.</p>
+
+<p>PTVS trae algunas plantillas de proyectos bastante utiles. Una de ellas es la
+plantilla para un sitio bassado en Flask.</p>
+
+<p>Abre VS y selecciona: <code class="language-plaintext highlighter-rouge">File</code> → <code class="language-plaintext highlighter-rouge">New</code> → <code class="language-plaintext highlighter-rouge">Project</code>. En la ventana de diálogo, en
+el panel de la izquierda, selecciona <code class="language-plaintext highlighter-rouge">Installed</code> → <code class="language-plaintext highlighter-rouge">Templates</code> → <code class="language-plaintext highlighter-rouge">Python</code> → <code class="language-plaintext highlighter-rouge">Web</code> y
+finalmente <code class="language-plaintext highlighter-rouge">Flask Web Project</code> en el panel central. Click <code class="language-plaintext highlighter-rouge">Ok</code> para crear el
+proyecto.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_15_51_37.png" alt="Nuevo proyecto Flask - Click en OK para guardar el proyecto" /></p>
+
+<h2 id="instalar-python">Instalar Python</h2>
+
+<p>Para poder probar el sitio Flask es necesario un interprete de Python.
+Obviamente Windows no trae uno y hay que instalarlo desde la web de Python
+<a href="http://www.python.org">www.python.org</a>.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_16_17_10.png" alt="Instalador de PythonNext, Next, Next ... zzz" /></p>
+
+<p>Instalar Python en windows es bastante sencillo. Hay que bajar el
+instalador, abrirlo y pulsar el boton <code class="language-plaintext highlighter-rouge">Next</code> del asistente hasta que tengamos la
+confirmación de que la instalación ha concluido. La version instalada es
+Python 3.4.2 de 32 bits</p>
+
+<h2 id="configurar-el-entorno-virtual">Configurar el entorno virtual</h2>
+
+<p>La mejor manera de configurar el entorno virtual es mediante <code class="language-plaintext highlighter-rouge">Solution Explorer</code>.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_20_11_57_03_0.png" alt="Nuevo entorno virtual. Seleccionar Add Virtual Environment" /></p>
+
+<p>Luego hay que hacer click con el botón derecho del mouse en <code class="language-plaintext highlighter-rouge">FlaskWebProject1</code>
+→ <code class="language-plaintext highlighter-rouge">Python Environments</code> y seleccionar la opción <code class="language-plaintext highlighter-rouge">Add Virtual Environment</code>. En
+la ventana de diálogo rellena los campos con los siguientes valores:</p>
+
+<ul>
+  <li>Location of the virtual environment: <strong>Flask</strong></li>
+  <li>Select an interpreter: <strong>Python 3.4</strong></li>
+  <li>Download and install packages: <strong>Activado</strong></li>
+</ul>
+
+<p>Luego solo falta picar en el botón <code class="language-plaintext highlighter-rouge">Create</code>.</p>
+
+<p><img src="/media/Screenshot from 2015-01-20 15:55:32.png" alt="Solo falta picar en el botón Create" /></p>
+
+<p>Tras bambalinas VS (bueno, en realidad es PTVS) creará el entorno virtual y lo
+activará (lo que equivale al <code class="language-plaintext highlighter-rouge">mkvirtualenv</code> en Linux/Unix/Mac) y después
+instalará todas las dependencias listadas en <code class="language-plaintext highlighter-rouge">requirements.txt</code>, lo cual
+equivale al comando  <code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code>. Al terminar este proceso
+verás que el entorno virtual llamado <strong>Flask</strong> ya se encuentra listado en <code class="language-plaintext highlighter-rouge">Solution
+Explorer</code>.</p>
+
+<p><img src="/media/Screenshot from 2015-01-20 16:09:23.png" alt="Virtualenv Activado" /></p>
+
+<h2 id="probando-flask-en-modo-depuración">Probando Flask en modo depuración</h2>
+
+<p>En VS solo será necesario hacer click en el botón de debug para arrancar el
+pequeño servidor integrado de Flask.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_20_16_14_07.png" alt="Botón para arrancar Flask en modo debug" /></p>
+
+<p>VS lanzará un intérprete de python (para ser exactos: el <code class="language-plaintext highlighter-rouge">Python.exe</code> del
+entorno virtual <code class="language-plaintext highlighter-rouge">Flask</code>), correrá <code class="language-plaintext highlighter-rouge">runserver.py</code> y cuando termine de arrancar
+abrirá una ventana de Firefox (en mi caso) para que cargue el sitio.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_20_16_13_47.png" alt="Y aquí esta la prueba: Flask corriendo en windoge" /></p>
+
+<h2 id="ahora-que-corra-en-iis">Ahora que corra en IIS</h2>
+
+<p><a href="/2015/01/16/Instalando_IIS_8.5_en_Windows_10_Technical_preview.html">En un articulo anterior</a>
+describí cómo instalar IIS 8.5 en Windoze 10. Ahora voy a describir cómo
+instalar la aplicación de Flask en IIS. Primero hay que instalar el <em>Web
+platform installer</em>. Este se descarga desde
+<a href="http://www.microsoft.com/web/downloads/platform.aspx">http://www.microsoft.com/web/downloads/platform.aspx</a>. El proceso de
+instalación es bastante similar a cualquier otro software.</p>
+
+<p>Ya instalado el <em>Web Platform Installer</em> hay que abrirlo e Instalar <code class="language-plaintext highlighter-rouge">WFastCGI Gateway for IIS and Python</code>.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_20_16_32_45.png" alt="Buscar `Python` en el Web Platform Installed" /></p>
+
+<p>Seleccioné <code class="language-plaintext highlighter-rouge">WFastCGI 2.1 Gateway for IIS and Python 3.4</code> y le piqué al botón
+<code class="language-plaintext highlighter-rouge">Add</code>. Con eso se habilitó el botón Install (en la esquina inferior derecha).
+Al picarle al botón se abrió una ventana modal con pasos. En el primer paso se
+informa de los prerequisitos. Yo le piqué en <code class="language-plaintext highlighter-rouge">I Accept</code>.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_20_16_37_58.png" alt="I accept" /></p>
+
+<p>El segundo paso es la instalación.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_20_16_39_38.png" alt="Proceso" /></p>
+
+<p>Hay que esperar a que descarge Python y otras cosas.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_20_16_40_15.png" alt="Asi termina" /></p>
+
+<p>Nota: Parece que el <code class="language-plaintext highlighter-rouge">Web Installer</code> detectó que existía una instalación de
+Python 3, pero no estoy seguro. Pero de lo que si estoy seguro es de que
+instaló un script (<code class="language-plaintext highlighter-rouge">wfastcgi.py</code>) en <code class="language-plaintext highlighter-rouge">C:\Python34\Scripts. wfastcgi.py</code>.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_21_15_46_02.png" alt="El script de WFastCGI" /></p>
+
+<p>¿Y qué es <a href="http://www.fastcgi.com/">FastCGI</a>? Es CGI pero con algunas
+extensiones. El script <code class="language-plaintext highlighter-rouge">wfastcgi.py</code> <a href="http://pytools.codeplex.com/wikipage?title=wfastcgi">es una
+pasarela</a> entre <code class="language-plaintext highlighter-rouge">FastCGI</code>
+de IIS y el protocolo WSGI en las aplicaciones python.</p>
+
+<h2 id="instalar-fastcgi-en-iis">Instalar fastcgi en IIS</h2>
+
+<p>En lugar de copiar y pegar los comandos con Package Manager intentare inovar
+un poquito y use DSIM en su lugar, ya que parece que es la mas nueva
+tecnología para agregar características a un Windows.</p>
+
+<p>Por ejemplo, p[ara ver el status del modulo <code class="language-plaintext highlighter-rouge">IIS-CGI</code>:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Dism</span><span class="w"> </span><span class="nx">/online</span><span class="w"> </span><span class="nx">/Get-FeatureInfo</span><span class="w"> </span><span class="nx">/FeatureName:IIS-CGI</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Y sale esto:</p>
+
+<p><img src="/media/Screenshot_from_2015_01_21_15_26_42.png" alt="Usando dism para saber el estatus de una caracteristica de windoge" /></p>
+
+<p>El comando para instalar el CGI de IIS es:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Dism</span><span class="w"> </span><span class="nx">/online</span><span class="w"> </span><span class="nx">/Enable-Feature</span><span class="w"> </span><span class="nx">/FeatureName:IIS-CGI</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Ahora comienzo a pensar que me pude ahorrar tantos screenshots del proceso de
+instalación y hacerlo desde la línea de comandos. pff!</p>
+
+<p><img src="/media/Screenshot_from_2015_01_21_15_31_07.png" alt="Instalacion de Caracteristica IIS-CGI" /></p>
+
+<p>Ahemmm… De regreso a lo que estaba haciendo …</p>
+
+<p>Ahora es momento de usar <a href="http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe">appcmd</a>
+para configurar todo el pipeline de <code class="language-plaintext highlighter-rouge">FastCGI</code> mediante python en IIS. Por
+comodidad primero cambiamos el directorio para no tener que excribir toda la
+ruta a <code class="language-plaintext highlighter-rouge">appcmd.exe</code>.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">c:\Windows\System32\inetsrv\</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Registrar el manejador de FastCGI a nivel servidor.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">appcmd</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="nx">/section:system.webServer/fastCGI</span><span class="w"> </span><span class="s2">"/+[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py']"</span><span class="w">
+</span></code></pre></div></div>
+
+<p><em>Nota</em>: Si te sale un error muy feo como el de abajo significa que ya estaba
+configurado.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ERROR</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">message:New</span><span class="w"> </span><span class="nx">application</span><span class="w"> </span><span class="nx">object</span><span class="w"> </span><span class="nx">missing</span><span class="w"> </span><span class="nx">required</span><span class="w"> </span><span class="nx">attributes.</span><span class="w"> </span><span class="nx">Cannot</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">duplicate</span><span class="w"> </span><span class="nx">collection</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">type</span><span class="w"> </span><span class="s1">'application'</span><span class="w"> </span><span class="nx">with</span><span class="w"> </span><span class="nx">combined</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="nx">attributes</span><span class="w"> </span><span class="s1">'fullPath, arguments'</span><span class="w"> </span><span class="nx">respectively</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="s1">'C:\Python34\python.exe, C:\Python34\Scripts\wfastcgi.py'</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Ahora es momento de registrar/activar el modulo <code class="language-plaintext highlighter-rouge">FastCGI</code></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">appcmd</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="nx">/section:system.webServer/handlers</span><span class="w"> </span><span class="s2">"/+[name='Python_via_FastCGI',path='*',verb='*',modules='FastCgiModule',scriptProcessor='c:\Python34\python.exe|C:\Python34\Scripts\wfastcgi.py',resourceType='Unspecified']"</span><span class="w">
+</span></code></pre></div></div>
+<p>Configua el Python path para que use Flask</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">appcmd</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="nt">-section</span><span class="p">:</span><span class="nx">system.webServer/fastCgi</span><span class="w"> </span><span class="nx">/</span><span class="o">+</span><span class="s2">"[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py'].environmentVariables.[name='PYTHONPATH',value='C:\inetpub\apps\Flask']"</span><span class="w"> </span><span class="nx">/commit:apphost</span><span class="w">
+</span></code></pre></div></div>
+<p>Ahora hay que decirle al modulo de fastCGI el handler de WSGI</p>
+
+<hr />
+<p>Referencias:</p>
+
+<ul>
+  <li><a href="http://flask.pocoo.org/docs/0.10/deploying/fastcgi/">http://flask.pocoo.org/docs/0.10/deploying/fastcgi/</a></li>
+  <li><a href="http://stackoverflow.com/questions/5072166/how-do-i-deploy-a-flask-application-in-iis">http://stackoverflow.com/questions/5072166/how-do-i-deploy-a-flask-application-in-iis</a></li>
+  <li><a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server/">http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server/</a></li>
+  <li><a href="http://pytools.codeplex.com/wikipage?title=wfastcgi">http://pytools.codeplex.com/wikipage?title=wfastcgi</a></li>
+</ul>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2015/01/19/flask-IIS.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2015/01/19/flask-IIS.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2015/01/19/flask-IIS.html&title=Hola+mundo+de+Flask+en+IIS+8.5+%28Windows+10%29&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2015/01/19/flask-IIS.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2015/01/19/flask-IIS.html';
+      this.page.identifier = 'http://blog.noenieto.com/2015/01/19/flask-IIS.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

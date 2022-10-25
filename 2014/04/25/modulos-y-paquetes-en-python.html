@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Módulos y paquetes en Python | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Módulos y paquetes en Python" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-04-25T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Módulos y paquetes en Python" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2014-04-25T00:00:00+00:00","datePublished":"2014-04-25T00:00:00+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"Módulos y paquetes en Python","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html"},"url":"http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Módulos y paquetes en Python</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Apr 25, 2014 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/4772680734_3ab815e07a_n.jpg" alt="Packages" /></p>
+
+<p>Cuando comenzamos a usar Python, tarde o temprano llegaremos al usar módulos y
+paquetes.</p>
+
+<p>En Python, un <a href="https://docs.python.org/2/tutorial/modules.html">módulo</a>  es un
+objeto que sirve como contenedor para organizar codigo en Python. Cada módulo
+tiene asignado un espacio de nombres y dentro de ese espacio de nombres puede
+haber cualquier cantidad de objetos, y como en Python todo es un objeto, tambien
+puede contener otros módulos.</p>
+
+<p>En el siguiente ejemplo se importa el módulo <code class="language-plaintext highlighter-rouge">math</code>; <code class="language-plaintext highlighter-rouge">math</code> es el espacio de
+nombres para un monton de funciones, clases y valores relacionados con
+operaciones matematicas; el nombre <code class="language-plaintext highlighter-rouge">pi</code> es uno de esos y se encuentra <strong>dentro</strong>
+del espacio de nombres <code class="language-plaintext highlighter-rouge">math</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span>
+<span class="mf">3.141592653589793</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>En lenguajes como C, lo equivalente es <code class="language-plaintext highlighter-rouge">#include &lt;math.h&gt;</code>, pero la
+diferencia esta en que todas las funciones, variables y constantes de la libreria se
+quedan disponibles en el espacio de nombres global. Cuando se incluyen muchas
+librerias y el codigo se hace muy grande, se corre el peligro de <strong>contaminar</strong> el
+espacio de nombres (<strong>namespace pollution</strong>). Otro problema es la colisión de
+nombres (<strong>namespace collision</strong> o <strong>namespace clash</strong>), que en nuestro ejemplo,
+ocurriría si alguna otra libreria define una variable o una funcion con el
+nombre <code class="language-plaintext highlighter-rouge">pi</code>.</p>
+
+<p>Con los módulos de Python se matan dos pajaros de un tiro: 1) son una manera de
+organizar codigo y 2) se reduce la posibilidad de colisión de nombres y
+contaminar el espacio de nombres global.</p>
+
+<p>Ademas de los módulos, Python tiene el concepto de 
+<a href="https://docs.python.org/2/tutorial/modules.html#packages">paquetes</a>
+Un paquete es un módulo de Python que contiene otros módulos y/o paquetes. La
+diferencia entre un módulo y un paquete es que el paquete contiene un atributo
+<code class="language-plaintext highlighter-rouge">__path__</code> que indica la ruta en el disco duro donde esta almacenado el
+paquete.</p>
+
+<p>Aca un ejemplo de un módulo:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span>
+<span class="o">&lt;</span><span class="n">module</span> <span class="s">'os'</span> <span class="k">from</span> <span class="s">'/usr/lib64/python2.7/os.pyc'</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="p">.</span><span class="n">__package__</span>
+
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>Ahora dos paquetes, <code class="language-plaintext highlighter-rouge">json</code> y <code class="language-plaintext highlighter-rouge">gtk</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">gtk</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gtk</span>
+<span class="o">&lt;</span><span class="n">module</span> <span class="s">'gtk'</span> <span class="k">from</span> <span class="s">'/usr/lib64/python2.7/site-packages/gtk-2.0/gtk/__init__.pyc'</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">json</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">json</span>
+<span class="o">&lt;</span><span class="n">module</span> <span class="s">'json'</span> <span class="k">from</span> <span class="s">'/usr/lib64/python2.7/json/__init__.pyc'</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>Notaste alguna diferencia? <code class="language-plaintext highlighter-rouge">os</code> es un archivo mientras que<code class="language-plaintext highlighter-rouge">gtk</code> y <code class="language-plaintext highlighter-rouge">json</code>
+son archivos con el nombre <code class="language-plaintext highlighter-rouge">__init__.py</code> que estan dentro de un directorio con
+el mismo nombre del paquete.</p>
+
+<p><strong>Nota</strong>: <code class="language-plaintext highlighter-rouge">pyc</code> es la extension para archivos de python compilados. Casi
+siempre vienen acompanhados de el archivo <code class="language-plaintext highlighter-rouge">.py</code> original. Anda y abre los
+archivos <code class="language-plaintext highlighter-rouge">.py</code> correspondientes para que veas que no hay nada mágico.</p>
+
+<p>Tanto módulos como paquetes tienen muchos mas detalles que no voy a cubrir por
+el momento, basta con que te quedes con lo siguiente: en Python, los archivos
+con extension <code class="language-plaintext highlighter-rouge">.py</code> son módulos, mientras que cualquier directorio que
+contenga un archivo con el nombre <code class="language-plaintext highlighter-rouge">__init__.py</code> se convierte en un paquete.</p>
+
+<h2 id="dónde-estan-los-módulos-de-python">¿Dónde estan los módulos de Python?</h2>
+
+<p>Si en Python tanto los módulos y los paquetes son archivos y directorios con
+archivos ¿Te has preguntado de donde saca Python los módulos?</p>
+
+<p>La libreria estándar de Python se encuentra en algun lugar del sistema de
+archivos. El lugar depende de si el sistema operativo es Windows, Linux, MacOS y
+si el sistema es de 64 bits o de 32.</p>
+
+<p>En un Fedora 20 a 64 bits, la libreria estándar se encuentra en el directorio
+<code class="language-plaintext highlighter-rouge">/usr/lib64/python2.7/</code>. Los paquetes y módulos que no son parte de la
+libreria estándar de Python se encuentran en <code class="language-plaintext highlighter-rouge">/usr/lib64/python2.7/site-packages/gtk-2.0/</code>.
+Como ya dije, la ruta depende de el sistema operativo y
+nunca debemos de fiarnos de una ruta en especifico, en cambio, debemos hacer
+uso del módulo <code class="language-plaintext highlighter-rouge">sys</code> para saber la ruta actual donde Python entra a buscar
+módulos y paquetes.</p>
+
+<h2 id="el-python-path">El <code class="language-plaintext highlighter-rouge">Python Path</code></h2>
+
+<p>Al iniciar un interprete de python, <a href="https://docs.python.org/2/library/sys.html#sys.path"><code class="language-plaintext highlighter-rouge">sys.path</code></a>
+se inicializa con una lista de los directorios del sistema donde se encuentra
+instalado Python y la libreria estándar. La ruta de este directorio varia de
+sistema en sistema. Por ejemplo, en mi computadora:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="p">.</span><span class="n">path</span>
+<span class="p">[</span><span class="s">''</span><span class="p">,</span> <span class="s">'/usr/lib64/python27.zip'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7/plat-linux2'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7/lib-tk'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7/lib-old'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7/lib-dynload'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7/site-packages'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7/site-packages/gtk-2.0'</span><span class="p">,</span> <span class="s">'/usr/lib64/python2.7/site-packages/wx-2.8-gtk2-unicode'</span><span class="p">,</span> <span class="s">'/usr/lib/python2.7/site-packages'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Y este es el <code class="language-plaintext highlighter-rouge">Python path</code>. Es una lista de cadenas que le indican a python
+a qué lugares del sistema debe ir a buscar módulos.</p>
+
+<p>Esta lista de cadenas se inicializa a partir de la variable de entorno
+<a href="https://docs.python.org/2/using/cmdline.html#envvar-PYTHONPATH"><code class="language-plaintext highlighter-rouge">PYTHONPATH</code></a>.
+Pero lo mas común es que no este definida.</p>
+
+<p>El detalle mas importante del <code class="language-plaintext highlighter-rouge">Python Path</code> se encuentra en que la estructura de
+datos usada para almacenar las cadenas es una <a href="https://docs.python.org/2/tutorial/datastructures.html#more-on-lists"><code class="language-plaintext highlighter-rouge">Lista</code></a>
+y las listas son <strong>mutables</strong>. Eso quiere decir que si manipulamos el <code class="language-plaintext highlighter-rouge">Python
+Path</code> podemos indicarle a Python nuevas rutas a donde debe ir a buscar módulos
+y paquetes.</p>
+
+<p>Herramientas como <a href="https://pypi.python.org/pypi/virtualenv"><code class="language-plaintext highlighter-rouge">virtualenv</code></a> como
+<a href="http://www.buildout.org/en/latest/"><code class="language-plaintext highlighter-rouge">Buildout</code></a> se aprovechan de esta
+caracteristica.</p>
+
+<hr />
+<ul>
+  <li>La foto es CC By Marc Falardeu <a href="https://www.flickr.com/photos/49889874@N05/4772680734/">https://www.flickr.com/photos/49889874@N05/4772680734/</a></li>
+</ul>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html&title=M%C3%B3dulos+y+paquetes+en+Python&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html';
+      this.page.identifier = 'http://blog.noenieto.com/2014/04/25/modulos-y-paquetes-en-python.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

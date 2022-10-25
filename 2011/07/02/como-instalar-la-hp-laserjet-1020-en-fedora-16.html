@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cómo instalar la HP LaserJet 1020 en Fedora 16 | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Cómo instalar la HP LaserJet 1020 en Fedora 16" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro Tenemos esta impresora desde hace años y funciona de maravilla. La instalación del driver de ésta impresora en Fedora 16 ha mejorado, pero aun no es plug&amp;play. Cómo instalar la HP LaserJet 1020 en Fedora 16" />
+<meta property="og:description" content="Intro Tenemos esta impresora desde hace años y funciona de maravilla. La instalación del driver de ésta impresora en Fedora 16 ha mejorado, pero aun no es plug&amp;play. Cómo instalar la HP LaserJet 1020 en Fedora 16" />
+<link rel="canonical" href="http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-07-02T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cómo instalar la HP LaserJet 1020 en Fedora 16" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2011-07-02T00:00:00+00:00","datePublished":"2011-07-02T00:00:00+00:00","description":"Intro Tenemos esta impresora desde hace años y funciona de maravilla. La instalación del driver de ésta impresora en Fedora 16 ha mejorado, pero aun no es plug&amp;play. Cómo instalar la HP LaserJet 1020 en Fedora 16","headline":"Cómo instalar la HP LaserJet 1020 en Fedora 16","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html"},"url":"http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Cómo instalar la HP LaserJet 1020 en Fedora 16</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jul 2, 2011 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+<p>Tenemos esta impresora desde hace años y funciona de maravilla. La instalación del driver de ésta impresora en Fedora 16 ha mejorado, pero aun no es plug&amp;play.
+Cómo instalar la HP LaserJet 1020 en Fedora 16</p>
+
+<p><img src="/media/hp_laserjet_1020.jpg" alt="HP LaserJet 1020" /></p>
+
+<p>Es una impresora que compró mi hermana o mi mamá y que tenía más de 2 años arrumbada.</p>
+
+<h2 id="problemas-con-el-paquete-foo2zjs-de-rpmfusion">Problemas con el paquete foo2zjs de RPMFusion</h2>
+
+<p>Si tienes activado RPMFusion, deberás desactivarlo temporalmente y desisntalar
+foo2zjs, pues, al parecer, si esta instalado la cola de la impresora no va a
+funcionar. Ver el bug <a href="https://bugzilla.redhat.com/show_bug.cgi?id=769127">#769127</a>.</p>
+
+<h2 id="instala-dependencias">Instala dependencias</h2>
+
+<p>Ejecuta esto en la terminal (Como <code class="language-plaintext highlighter-rouge">root</code>):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum remove foo2zjs
+yum <span class="nb">install </span>hplip-gui
+</code></pre></div></div>
+
+<p>Con esto se eliminará el paquete <code class="language-plaintext highlighter-rouge">foo2zjs</code> y se instala la utilería <code class="language-plaintext highlighter-rouge">hp-setup</code> como dependencia de <code class="language-plaintext highlighter-rouge">hplip-gui</code>.</p>
+
+<h2 id="ejecuta-la-utilería-de-configuración">Ejecuta la utilería de configuración</h2>
+
+<p>Conecte la impresora y ejecute <code class="language-plaintext highlighter-rouge">hp-setup</code> como <code class="language-plaintext highlighter-rouge">root</code>. Aparecerá el siguiente
+cuadro de diálogo.</p>
+
+<p>Seleccione Universal Serial Bus (USB) como método de conexión y presione Next (Siguiente).</p>
+
+<p><img src="/media/hp_laserjet_device_discovery1.png" alt="Paso 1 - Seleccione USB" /></p>
+
+<p>La impresora deberá aparecer listada. Seleccione la impresora y presione Next.</p>
+
+<p><img src="/media/hp_laserjet_device_discovery2.png" alt="Paso 2 - Seleccione la impresora" /></p>
+
+<p>La impresora buscará los drivers disponibles y/o los descargará del sitio de
+HP y finalmente los instalará en el sistema.</p>
+
+<p>Finalmente, <code class="language-plaintext highlighter-rouge">hp-setup</code> nos ofrecerá la opción de instalar una cola de impresión
+e imprimir una página de prueba.</p>
+
+<p><img src="/media/hp_laserjet_device_discovery1.png" alt="Finito" /></p>
+
+<p>Nota: no olvidar reactivar los repositorios de rpm-fusion.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html&title=C%C3%B3mo+instalar+la+HP+LaserJet+1020+en+Fedora+16&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html';
+      this.page.identifier = 'http://blog.noenieto.com/2011/07/02/como-instalar-la-hp-laserjet-1020-en-fedora-16.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

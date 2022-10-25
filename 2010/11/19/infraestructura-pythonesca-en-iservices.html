@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Infraestructura Pythonesca en iServices | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Infraestructura Pythonesca en iServices" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="(This post is in spanish and is somewhat more directed to the spanish-speaking world)." />
+<meta property="og:description" content="(This post is in spanish and is somewhat more directed to the spanish-speaking world)." />
+<link rel="canonical" href="http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-11-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Infraestructura Pythonesca en iServices" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2010-11-19T00:00:00+00:00","datePublished":"2010-11-19T00:00:00+00:00","description":"(This post is in spanish and is somewhat more directed to the spanish-speaking world).","headline":"Infraestructura Pythonesca en iServices","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html"},"url":"http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Infraestructura Pythonesca en iServices</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Nov 19, 2010 by Noe Nieto</p>
+
+    
+
+    <p>(This post is in spanish and is somewhat more directed to the spanish-speaking
+world).</p>
+
+<p>En este post trataré de describir un poco la infraestructura que hemos
+adoptado para mantener nuestros sitios web hechos con Python.</p>
+
+<h2 id="intro">Intro</h2>
+
+<p>Trabajo en la empresa iServices de México. Esta empresa se distingue de otras
+empresas mexicanas en la tecnología usada para ofrecer sus servicios y
+soluciones: Python.</p>
+
+<p><a href="/media/python.png">Un logo de Python de color verde</a></p>
+
+<p>Durante varios meses he estado en contacto directo con diferentes técnicas y
+tecnologías asociadas a Python. Por mencionar algunas: Python, Zope, Plone,
+Distutils, pip, Pypi, Buildout, y Django.</p>
+
+<p>En este post intento dar una vista de águila de cómo usamos estas tecnologías
+para resolver los retos que nos plantean nuestros clientes.</p>
+
+<h2 id="linux-y-macos">Linux y MacOS</h2>
+
+<p>Haré solo una breve mención: Usamos Linux para los servidores y para la
+máquinas de algunos desarrolladores inadaptados. La distro preferida es Debian
+o alguna de sus derivativas como Ubuntu.</p>
+
+<p>Algunos developers han mordido la manzana y se compraron su mac. No tengo
+mucho que decir acerca de ellos. Tal vez les gusta el mundo de colores grises
+metálicos. :)</p>
+
+<p>No hay regla acerca del editor o IDE. Cada quién usa lo que mejor le sienta :)</p>
+
+<h2 id="bases-de-datos-y-servidor-web">Bases de datos y servidor web</h2>
+
+<ul>
+  <li>
+    <p>Bases de datos: MySQL, Postgresql, SQLite y ZODB (para Plone y Grok).</p>
+  </li>
+  <li>
+    <p>Servidor web: Apache. Aunque a veces se tiene la intención de usar nginx.</p>
+  </li>
+</ul>
+
+<h2 id="python-setuptools-distribute-pip">Python, setuptools, distribute, pip</h2>
+
+<p>He aquí la estrella de la película. En iServices, todo lo que se pueda hacer
+con Python se hace con Python, a menos que exista otro software que ya hace lo
+que requerimos y no valga la pena reinventar la rueda.</p>
+
+<p>En nuestros servidores tenemos instaladas varias versiones de Python, a saber:
+2.4, 2.5 y 2.6. Además tenemos instalados compiladores y librerías de
+desarrollo a nivel de sistema para tenerlas disponibles para cualquier
+proyecto.</p>
+
+<p>Ya que estamos en esto, he de mencionar que cualquier versión de Python que
+usemos tiene instalado easy_install, pip y virtualenv. Estos tres componentes
+son clave para que podamos sacar provecho en nuestros servidores y meter todos
+los proyectos que le quepan a un servidor (sin demeritar el performance, claro
+esta).</p>
+
+<h2 id="virtualenv--los-huevos-de-reptil-y-el-indice-de-paquetes-de-python">Virtualenv , los huevos de reptil y el indice de paquetes de Python</h2>
+
+<p>A últimas fechas he estado jugando mucho con Virtualenv. Durante algún tiempo
+tuve desagrado hacia Virtualenv debido a que añade un nivel más a un stack de
+software - que de por si ya está intrincado. Pero recientemente, al trabajar
+con Django y Buildout me he encontrado con que Virtualenv ayuda mucho a no
+contaminar la instalación de Python.</p>
+
+<p>¿Qué quiero decir con contaminar la instalación de Python?</p>
+
+<p>Pues lo que pasa es que al desarrollar aplicaciones web con Python se tiende a
+re-usar mucho código de terceros. Hace algún tiempo, la comunidad Pythonera
+acordó un formato para redistribuir librerías hechas en Python. Se creó
+setuptools y apareció el Cheesse Shop. A decir verdad, no me se bien la
+historia de cómo evolucionó todo el stack de python a como es hoy, pero de
+seguro Tarek Ziadek sabe la historia.</p>
+
+<p>Pues, como decía, no estoy seguro de cómo llegaron las cosas a ser como son el
+día de hoy, pero lo resumo así: Las librerías de Python se distribuyen en
+forma de huevos (eggs) y están disponibles en línea en el Python Package Index
+(Alias, el Cheese Shop).</p>
+
+<p>Para poder usar alguna nuevas librerías en python, hay al menos 3
+posibilidades:</p>
+
+<ul>
+  <li>Instalarla a mano. Esto implica bajar el tarball de la librería y seguir el proceso de instalación - que de seguro involucra a setuptools. Lo más común es instalarla en el sistema como root. A esto se le llama instalar un huevo (egg) en el System Python. Muchas veces no hay mecanismos para desinstalar tal librería y si se quiere remover, tendrá que ser de manera manual. Esto es problemático si la nueva librería instalada ocasiona conflictos en el sistema. En Ubuntu podemos dejar una máquina parcialmente inútil gracias a esto.</li>
+  <li>Instalarla mediante el sistema de administración de paquetes del sistema operativo. Esto, inevitablemente, instalará librerías a nivel de sistema, como root y en el System Python. Instalar una librería de Python mediante el sistema de administración de paquetes del sistema operativo tiene la ventaja de que es posible desinstalar una librería de manera sencilla sin dejar rastros. Desgraciadamente, se dificulta la administración al usar diferentes versiones de Python y a veces se requieren versiones actualizadas de librerías que no se encuentran disponibles en los repositorios de paquetes. El riesgo de crear un conflicto en el sistema debido a la instalación de algún huevo/librería aún está latente.</li>
+  <li>Instalarla mediante easy_install o pip. Este método ofrece las mismas ventajas que las dos opciones anteriores, además de que podemos elegir qué versión de una librería se irá a instalar. Desgraciadamente, aún se requiere permisos de administrador para instalar un huevo en el System Python.</li>
+</ul>
+
+<p>Virtualenv nos ofrece una alternativa: Crear un entorno virtual, una copia de
+nuestro System Python, pero independiente de éste. Esto nos ofrece una gran
+ventaja debido a que podemos instalar tantos huevos deseemos sin atentar
+contra la estabilidad del sistema.</p>
+
+<h2 id="buildout">Buildout</h2>
+
+<p>Buildout es una de las herrmientas más importantes que usamos en iServices.
+Con Buildout respondemos a ciertas preguntas que nos hacemos a la hora de
+hechar a andar nuestras aplicaciones web con python:</p>
+
+<ul>
+  <li>¿Cómo replico de manera automatizada todo el entorno que tengo en mi máquina de desarrollo en el servidor de producción?</li>
+  <li>¿Cómo me aseguro que se instalen exactamente las mismas versiones de utilerías y librerías que se están usando en la máquina de desarrollo?</li>
+  <li>¿Como automatizo el proceso de instalación y de actualización de las aplicaciones web?</li>
+  <li>¿Cómo replico el entorno del servidor en una máquina de pruebas?</li>
+</ul>
+
+<p>Buildout está escrito en Python y nos permite automatizar todo el proceso de
+instalación de una aplicación web de una manera predecible y con unos cuantos
+comandos.</p>
+
+<p>Últimamente hemos estado probando utilizar Buildout y Virtualenv y hemos
+conseguidos resultados modestos pero contundentes: funciona a la maravilla.
+Gracias a Buildout y Virtualenv es como podemos instalar varias aplicaciones
+web en un servidor sin que se interfieran entre ellas demasiado y sin recurrir
+a virtualizaciones o servicios en la nube.</p>
+
+<h2 id="outro">Outro</h2>
+
+<p>Este fue un resumen de las herramientas que usamos en iServices para hacer
+aplicaciones web con Python. Es un resumen escueto y espero que a alguien le
+sirva.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html&title=Infraestructura+Pythonesca+en+iServices&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html';
+      this.page.identifier = 'http://blog.noenieto.com/2010/11/19/infraestructura-pythonesca-en-iservices.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

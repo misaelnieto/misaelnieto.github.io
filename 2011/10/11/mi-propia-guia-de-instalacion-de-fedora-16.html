@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mi propia guía de instalación de Fedora 16 | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Mi propia guía de instalación de Fedora 16" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-10-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mi propia guía de instalación de Fedora 16" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2011-10-11T00:00:00+00:00","datePublished":"2011-10-11T00:00:00+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"Mi propia guía de instalación de Fedora 16","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html"},"url":"http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Mi propia guía de instalación de Fedora 16</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Oct 11, 2011 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/julio_verne.jpg" alt="Julio Verne" /></p>
+
+<h2 id="intro">Intro</h2>
+
+<p>Actualizaciones:</p>
+<ul>
+  <li>13-Nov: El repo de dropbox no funciona bien, Problemas con PIL.</li>
+  <li>25-Nov: El paquete de VirtualBox de rpmfusion tiene problemas. Es mejor usar
+el RPM de la web oficial de VirtualBox.</li>
+</ul>
+
+<p>Esta guía es para relatarle a los 2 lectores de éste blog lo que uso para
+desarrollar aplicaciones web hechas en Python. En caso de que esos 2 lectores
+se den un paseo por <code class="language-plaintext highlighter-rouge">/dev/null</code> entonces lo dejo como una guía base para mi
+cuando instale “Beefy Miracle” dentro de 1 año.</p>
+
+<h2 id="instalar-fedora">Instalar fedora</h2>
+
+<p>Instalar Fedora es muy fácil. Bájate el ISO desde la web de
+<a href="http://www.fedoraproject.org">http://www.fedoraproject.org</a>, quémalo en disco o en una usb e instala. No olvides
+respaldar tus datos. Tengo una Dell Latitude D610 con 2.5 GB de RAM. La
+instalación completa desde una memoria USB tomó alrededor de 20 minutos.</p>
+
+<ul>
+  <li>Nota: Checa <a href="http://www.linuxliveusb.com/">LiveUSB Creator</a> para hacer discos de instalación de USB.</li>
+  <li>Nota: Lo instalé también en una Toshiba Satélite L645. Tuvimos problemas al particionar el disco duro. ¡Aguas!</li>
+</ul>
+
+<h2 id="instalar-actualizaciones">Instalar actualizaciones</h2>
+
+<p>Siempre se necesitan, justo después de instalar.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum update <span class="nt">-y</span>
+</code></pre></div></div>
+
+<h2 id="instalar-librerías-de-desarrollo">Instalar librerías de desarrollo</h2>
+
+<p>Se necesitan compiladores y versiones de desarrollo de varias librerías. Y,
+como ésto será una máquina de desarrollo de aplicaciones y sitios web con
+python, también se instalan las librerías de desarrollo,
+<a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>,
+<a href="http://www.pip-installer.org/">pip</a> y
+<a href="http://docutils.sourceforge.net/">docutils</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> python-devel python-setuptools python-virtualenv python-pip python-docutils make automake gcc gcc-c++ zlib-devel libxslt-devel openssl-devel ncurses-devel ncurses-devel mysql-devel libpng-devel libjpeg-turbo-devel
+</code></pre></div></div>
+
+<h2 id="herramientas-de-colaboración-para-desarrolladores">Herramientas de colaboración (para desarrolladores)</h2>
+
+<p>Ya son imprescindibles. Uso varias de ellas: 
+<a href="http://mercurial.selenic.com/">mercurial</a>,
+<a href="http://subversion.apache.org/">subversion</a>, <a href="http://git-scm.com/">git</a> y
+<a href="http://bazaar.canonical.com/en/">bazaar</a>.
+Tambien uso <a href="http://www.rapidsvn.org/">rapidsvn</a> para ayudarme con algunos 
+comandos de subversion.</p>
+
+<p>Por último, <a href="http://meld.sourceforge.net/">meld</a>, es una excelente herramienta para checar diferencias y hacer
+mezclas de código. Se integra muy bien con mercurial, subversion y git.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> mercurial subversion git bzr rapidsvn meld
+</code></pre></div></div>
+
+<h2 id="bases-de-datos">Bases de datos</h2>
+
+<p>Por el momento sólo uso MySQL. MySQL Workbench es una <a href="http://www.mysql.com/products/workbench/">fabulosa herramienta</a>
+para administrar la base de datos. Otra opción sería instalar php-myadmin,
+pero necesitaría instalar todo el stack LAMP, así que mejor nos quedamos con
+MySQL Workbench.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> mysql-server mysql-workbench
+</code></pre></div></div>
+
+<h2 id="virtualbox">VirtualBox</h2>
+
+<p>Uso VirtualBox para correr una copia pirata de Windoze XP y finalmente sacar
+los bugs del infame Internet Explorer. Dentro de windows uso el 
+<a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a> y me
+ayuda mucho.</p>
+
+<p>Primero, para evitar problemas, es necesario instalar las librerías de
+desarrollo del Kernel. De lo contrario, el VirtualBox reportará muchos
+problemas.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> dkms kernel-devel kernel-headers
+</code></pre></div></div>
+
+<p>Después, instala el RPM de VirtualBox desde la web oficial de <a href="http://VirtualBox.org">http://VirtualBox.org</a>.</p>
+
+<p><em>Nota</em>: No estamos usando el VirtualBox-OSE que ofrece rpmfusion, por que hasta
+el dìa de hoy (25-Nov-2011), el rpm está mal formado y no incluye varios
+archivos importantes, por ende el paquete no sirve para nada. El bug <a href="https://bugzilla.rpmfusion.org/show_bug.cgi?id=1979">ya está
+reportado</a>.</p>
+
+<h2 id="herramientas-de-consola">Herramientas de consola</h2>
+
+<p>Como editor, uso <a href="http://www.gnu.org/s/emacs/">emacs</a> para editar archivos en la terminal. Para navegar por
+carpetas, a veces uso el <a href="https://www.midnight-commander.org/">midnight commander</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> mc emacs-nox
+</code></pre></div></div>
+
+<h2 id="editores-de-texto-y-wingide">Editores de texto y WingIDE</h2>
+
+<ul>
+  <li><a href="http://live.gnome.org/Ghex">ghex</a> como editor de texto hexadecimal.</li>
+  <li><a href="/2011/07/30/scribes-a-beautiful-and-simple-text-editor-written-in-python.html">Scribes</a> se tiene que instalar aparte desde <a href="http://scribes.sourceforge.net/download.html">http://scribes.sourceforge.net/download.html</a></li>
+  <li><a href="http://projects.gnome.org/gedit/">gedit</a> ya viene instalado.</li>
+  <li>emacs ya quedó instalado.</li>
+  <li>Además de los editores anteriores, uso <a href="http://wingware.com/">WingIDE </a> para mis proyectos en Python.
+Se instala aparte y, por desgracia, es de paga pero es muy bueno para
+desarrollar apps en Python.</li>
+</ul>
+
+<h2 id="colaboración-oficinesca--y-cosas-en-la-nube">Colaboración oficinesca  y cosas en la nube</h2>
+
+<p>Sólo los voy a listar, por que se instalan desde sitios externos (excepto el
+xchat y el DèjáDup que ya viene incluido):</p>
+
+<ul>
+  <li><a href="https://www.dropbox.com/">Dropbox</a> (Aunque Fedora ya trae <a href="http://live.gnome.org/DejaDup/">DéjàDup</a>, que parece que ofrece respaldo en la nube pero con tus propios recursos (por ejemplo, en Amazon S3, en RackSpace o en otra máquina por FTP, SSH, WebDav o carpeta local).</li>
+  <li><a href="http://www.skype.com/">Skype</a></li>
+  <li>xchat o xchat-gnome</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> xchat
+</code></pre></div></div>
+
+<h2 id="chuleando-el-gnome-3">Chuleando el GNOME 3</h2>
+
+<p>El tema Adawita de Gnome 3.2 se ve un poco más pulido. O tal vez es que ya me
+acostumbrè. Por otra parte, no recuerdo de dónde saqué estos paquetes que
+estaban instalados en F15, pero los listo por si alguna vez se me antoja
+chulear el shell.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">faenza-icon-theme</code></li>
+  <li><code class="language-plaintext highlighter-rouge">gnome-shell-extensions</code></li>
+  <li><code class="language-plaintext highlighter-rouge">gnome-tweak-tool</code></li>
+</ul>
+
+<h2 id="navegadores">Navegadores</h2>
+
+<ul>
+  <li>Google Chrome o Chromium. No parece que chromium esté disponible por default en los repos de fedora 16. Pero pasearte por la <a href="http://www.google.com.mx/chrome">página oficial</a> y descargarte el RPM.</li>
+  <li>Midori y/o <a href="http://projects.gnome.org/epiphany/">Epiphany</a>. Por ahí lei que Epiphany te permitiría anclar páginas web como si fueran aplicaciones web con su ventana independiente.</li>
+</ul>
+
+<h2 id="oficina-y-gráficos">Oficina y gráficos</h2>
+
+<p>De vez en cuando uso <a href="http://www.libreoffice.org/">LibreOffice</a>,
+<a href="http://www.gimp.org/">Gimp</a>,
+<a href="http://inkscape.org/">Inkscape</a>,
+<a href="http://shutter-project.org/">Shutter</a>,
+<a href="http://projecthamster.wordpress.com/">Hamster</a>,
+<a href="http://recordmydesktop.sourceforge.net/">RecordMyDesktop</a>
+y <a href="http://gtg.fritalk.com/">Get Things Gnome</a>.
+A continuaciòn el comando para instalar todo eso.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum group install -y "Oficina y Productividad" &amp;&amp; yum install -y gimp gimp-data-extras gimpfx-foundry inkscape shutter hamster-applet gtd gtk-recordmydesktop
+</code></pre></div></div>
+
+<p><em>Nota</em>: A veces uso el Screen Recorder que gnome shell ya trae instalado. Se activa
+con <code class="language-plaintext highlighter-rouge">Ctrl</code>+<code class="language-plaintext highlighter-rouge">Alt</code>+<code class="language-plaintext highlighter-rouge">Shift</code>+<code class="language-plaintext highlighter-rouge">R</code> y se desactiva con la misma combinaciòn de teclas. Pero a
+veces es muy lento.</p>
+
+<h2 id="soluciones-a-problemas-específicos-en-fedora-16-dropbox">Soluciones a problemas específicos en Fedora 16 Dropbox</h2>
+
+<p>Dropbox tiene un problema menor de compatibilidad con F16: no existe
+repositorio para F16 en dropbox y la gran mayoría de las operaciones con
+paquetes fallarán. En el foro de dropbox <a href="">ya se supo</a>http://forums.dropbox.com/topic.php?id=47652&amp;replies=4
+de ésto. Y ya se está a la espera de que lo corrijan. Por mientras, pongo la
+solución al español.</p>
+
+<p>Por el momento se soluciona deshabilitando el repo de Dropbox al editar el
+archivo <code class="language-plaintext highlighter-rouge">/etc/yum.repos.d/dropbox.repo</code> y añadiendo la línea <code class="language-plaintext highlighter-rouge">enabled=0</code>.</p>
+
+<h2 id="pil-python-imaging-library-y-archivos-jpeg">PIL (Python Imaging Library) y archivos jpeg</h2>
+
+<p>Plone hace uso intensivo de PIL y generalmente instalo PIL 1.6 mediant
+<code class="language-plaintext highlighter-rouge">zc.buildout</code>. Es por eso que es necesario que esten instaladas las librerías de
+desarrollo que le dan soporte a JPG y PNG. No recuerdo si en Fedora 15 todavía
+se usaba el paquete <code class="language-plaintext highlighter-rouge">libjpeg-dev</code>, pero en Fedora 16 parece que ha desaparecido
+ese paquete y en su lugar se puede usar <code class="language-plaintext highlighter-rouge">libjpeg-turbo-devel</code>.</p>
+
+<h2 id="activar-rpmfusion">Activar RPMFusion</h2>
+
+<p>Las directivas de Fedora prohiben incluir software que no es completamente
+libre. Las restricciones se atañen principalmente a las leyes de Copyright de
+Estados Unidos. Pero hay cierto software que no es Open Source, pero que es
+útil. RpmFusion ofrece colección de paquetes de software compatibles para F15.</p>
+
+<p>Sigue las instrucciones en <a href="http://rpmfusion.org/Configuration">ésta página</a>.</p>
+
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html&title=Mi+propia+gu%C3%ADa+de+instalaci%C3%B3n+de+Fedora+16&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html';
+      this.page.identifier = 'http://blog.noenieto.com/2011/10/11/mi-propia-guia-de-instalacion-de-fedora-16.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mi primera experiencia con Django y zc.buildout en Ubuntu 9.10 | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Mi primera experiencia con Django y zc.buildout en Ubuntu 9.10" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro Ésta es la primera vez que intento hacer el hola mundo con Django. Como vengo del mundo de Plone intenté ver si se podía hacer de manera sencilla con zc.buildout." />
+<meta property="og:description" content="Intro Ésta es la primera vez que intento hacer el hola mundo con Django. Como vengo del mundo de Plone intenté ver si se podía hacer de manera sencilla con zc.buildout." />
+<link rel="canonical" href="http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2009-10-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mi primera experiencia con Django y zc.buildout en Ubuntu 9.10" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2009-10-29T00:00:00+00:00","datePublished":"2009-10-29T00:00:00+00:00","description":"Intro Ésta es la primera vez que intento hacer el hola mundo con Django. Como vengo del mundo de Plone intenté ver si se podía hacer de manera sencilla con zc.buildout.","headline":"Mi primera experiencia con Django y zc.buildout en Ubuntu 9.10","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html"},"url":"http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Mi primera experiencia con Django y zc.buildout en Ubuntu 9.10</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Oct 29, 2009 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+<p>Ésta es la primera vez que intento hacer el hola mundo con Django. Como vengo
+del mundo de Plone intenté ver si se podía hacer de manera sencilla con
+<code class="language-plaintext highlighter-rouge">zc.buildout</code>.</p>
+
+<p>Me gusta la idea de <code class="language-plaintext highlighter-rouge">zc.buildout</code>. Brinda un entorno de desarrollo repetible
+ente diferentes máquinas. Se me hizo la opción natural de probar Django, así
+que, después de la sorpresa de saber que Django no viene con “buildout”
+integrado, me di a la tarea de intentar averguar si se podía hacer y esto es
+lo que encontré.</p>
+
+<h2 id="mi-primera-impresión-de-django">Mi primera impresión de Django.</h2>
+
+<p>Repito, vengo del mundo de plone, ahí todo es muy a la “2.4”. Lo primero que
+veo es que puedo correr Django con el Python 2.6.4rc2 así que puedo usar el
+python que ya trae la distro Ubuntu de mi laptop. Esto también es muy cómodo
+(jajaj, aunque no se por qué).</p>
+
+<p>Aunque Karmic ya trae las últimas versiones de Django, la experiencia me ha
+obligado a no depender de paquetes específicos de cada Sistema Operativo. Es
+por eso que decidí intentar instalar <code class="language-plaintext highlighter-rouge">zc.buildout</code>.</p>
+
+<h2 id="construyendo-un-buildout-para-django">Construyendo un buildout para Django</h2>
+
+<p>El post de Jacob Kaplan-Moss <a href="https://jacobian.org/writing/django-apps-with-buildout/">Developing Django apps with zc.buildout</a> es la
+primera guía que leí. Es un artículo muy bueno para poder empezar.</p>
+
+<p>Y basándome en el dicho post, he aquí la estructura del directorio:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mydjangobuildout/
+    LICENSE
+    README
+    bootstrap.py
+    buildout.cfg
+    setup.py
+    src/
+</code></pre></div></div>
+
+<p>Intencionalmente no puse nada en <code class="language-plaintext highlighter-rouge">src/</code>.</p>
+
+<p>Ahora, basandome en este otro post de Dan Fairs <a href="http://www.stereoplex.com/two-voices/a-django-development-environment-with-zc-buildout">A Django Development Environment with zc.buildout</a>
+me encuentro que usa una receta para instalar PIL con buildout (Algo que
+nunca pude hacer con Plone por que no sabía como hacerlo).  Así esta mi
+<code class="language-plaintext highlighter-rouge">buildout.cfg</code> sin ninguna aplicación Django, sólo sus dependencias.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[buildout]</span>
+<span class="py">executable</span><span class="p">=</span><span class="s">/usr/bin/python2.6</span>
+<span class="py">parts</span> <span class="p">=</span>
+    <span class="err">PIL</span>
+    <span class="err">python</span>
+    <span class="err">django</span>
+<span class="py">eggs</span> <span class="p">=</span>
+    <span class="err">PIL</span>
+
+<span class="nn">[python]</span>
+<span class="py">recipe</span> <span class="p">=</span> <span class="s">zc.recipe.egg</span>
+<span class="py">interpreter</span> <span class="p">=</span> <span class="s">python</span>
+<span class="py">eggs</span> <span class="p">=</span> <span class="s">${buildout:eggs}</span>
+
+<span class="nn">[django]</span>
+<span class="py">recipe</span> <span class="p">=</span> <span class="s">djangorecipe</span>
+<span class="py">version</span> <span class="p">=</span> <span class="s">1.1.1</span>
+<span class="py">eggs</span> <span class="p">=</span> <span class="s">${buildout:eggs}</span>
+
+<span class="nn">[PIL]</span>
+<span class="py">recipe</span> <span class="p">=</span> <span class="s">zc.recipe.egg</span>
+<span class="py">egg</span> <span class="p">=</span> <span class="s">PIL==1.1.6</span>
+<span class="py">find-links</span> <span class="p">=</span> <span class="s">http://dist.repoze.org/</span>
+</code></pre></div></div>
+
+<p>Funciona a la perfección. Incluso puedo arrancar Django aunque no tengo
+ninguna aplicación para ello</p>
+
+<h2 id="conclusión">Conclusión</h2>
+
+<p>Me agrada mucho usar zc.buildout para construir mi app en Django. Ya solo me
+falta aprender Django.</p>
+
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html&title=Mi+primera+experiencia+con+Django+y+zc.buildout+en+Ubuntu+9.10&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html';
+      this.page.identifier = 'http://blog.noenieto.com/2009/10/29/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

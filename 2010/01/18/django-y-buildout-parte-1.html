@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Django y Buildout (Parte 1) | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Django y Buildout (Parte 1)" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro" />
+<meta property="og:description" content="Intro" />
+<link rel="canonical" href="http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-01-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Django y Buildout (Parte 1)" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2010-01-18T00:00:00+00:00","datePublished":"2010-01-18T00:00:00+00:00","description":"Intro","headline":"Django y Buildout (Parte 1)","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html"},"url":"http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Django y Buildout (Parte 1)</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jan 18, 2010 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+
+<p>Esta es la primera parte de las notas que escribo acerca de cómo usar Django
+con Buildout. Esto fué realizado en una instalación limpia de Ubuntu Karmic
+9.10</p>
+
+<p>Esta es una guía de instalación de Django que es diferente a la que se anuncia
+en la página web de Django. Usaremos buildout, que es una interesante manera
+de replicar en entorno de desarrollo en producción y viceversa.</p>
+
+<p>Una de las principales ventajas de usar buildout para nuestros proyectos en
+python es que es posible crear un entorno independiente de las librerías del
+sistema. En la práctica esto significa que se puede replicar las mismas
+condiciones que hay en el servidor en nuestro entorno de desarrollo.</p>
+
+<h2 id="paso-1---instalación-de-distribute-y-pip">Paso 1 - Instalación de distribute y PIP</h2>
+
+<p>Primero, algunas notas:</p>
+
+<ul>
+  <li>Python usa distutils para manejar sus librerías.</li>
+  <li>Después del lanzamiento de distutils, emergió el sistema setuptools para automatizar el manejo de dependencias y el manejo de paquetes. Según Tarek Ziade, en su libro Expert Python Programming: Learn best practices to designing, coding, and distributing your Python software, setuptools es a Python lo que apt es a Debian/Ubuntu.</li>
+  <li>Las librerías de python se distribuyen en un formato común, que en la comunidad python les han llamado huevos (eggs). Un huevo de python es un archivo zip, pero con la extensión .egg.</li>
+  <li>El PyPi (Python Package Index) es el lugar principal donde se concentran la mayoría de los huevos de Python. Existen otros índices, tales como el índice de productos de Plone. El PyPi viene siendo a Python, como los repositorios de paquetes a Debian/Ubuntu.</li>
+  <li>setuptools ha estado envejeciendo y en base a eso, Tarek Ziade decidió hacer un fork de setuptools llamado distribute (<a href="http://pypi.python.org/pypi/distribute">http://pypi.python.org/pypi/distribute</a>)</li>
+  <li>PIP es el reemplazo de easy_install.</li>
+</ul>
+
+<p>Todo este cambio se resume en la siguiente imagen:</p>
+
+<p><img src="/media/2009_distribute.png" alt="Pip distribute" /></p>
+
+<p>Una vez terminado el intento de explicación, pongámonos manos a la obra. Aquí
+está una lista de instrucciones necesarias para instalar distribute en una
+máquina limpia. Se instalará distribute, pip y pastescript.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@hormiga-negra:~ $ wget http://python-distribute.org/distribute_setup.py
+tzicatl@hormiga-negra:~ $ sudo python distribute_setup.py 
+tzicatl@hormiga-negra:~ $ sudo easy_install pip
+tzicatl@hormiga-negra:~ $ sudo pip install PasteScript
+</code></pre></div></div>
+
+<p>Ahora, probando paster:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@hormiga-negra:~/Descargas$ paster create --list-templates
+Available templates:
+  basic_package:  A basic setuptools-enabled package
+  paste_deploy:   A web application deployed through paste.deploy
+tzicatl@hormiga-negra:~/Descargas$
+</code></pre></div></div>
+
+<p>Funciona!!.</p>
+
+<p>El siguiente paso es instalar las plantillas necesarias para que paster genere
+todo el esqueleto de nuestro proyecto con Django. En PyPi hay dos huevos con
+recetas para crear projectos con Django y Buildout,</p>
+
+<ul>
+  <li>
+    <p><a href="http://pypi.python.org/pypi/fez.djangoskel/">http://pypi.python.org/pypi/fez.djangoskel/</a> Contiene plantillas para crear esqueletos de código y construir una instancia de django usando buildout.</p>
+  </li>
+  <li>
+    <p><a href="http://pypi.python.org/pypi/djangorecipe">http://pypi.python.org/pypi/djangorecipe</a> Descarga Django y lo instala en un lugar independiente de las liberías que tiene el sistema.</p>
+  </li>
+</ul>
+
+<p>Comenzamos por instalar <code class="language-plaintext highlighter-rouge">fez.djangoskel</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@hormiga-negra:~$ sudo pip install fez.djangoskel
+</code></pre></div></div>
+
+<p>Ahora paster tiene las siguientes opciones:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@laptop:~ $ paster create --list-templates
+Available templates:
+  basic_package:             A basic setuptools-enabled package
+  django_app:                Template for a basic Django reusable application
+  django_buildout:           A plain Django buildout
+  django_namespace_app:      Template for a namespaced Django reusable application
+  django_namespace_project:  Template for a namespaced Django project
+  django_project:            Template for a Django project
+  paste_deploy:              A web application deployed through paste.deploy
+tzicatl@laptop:~ $
+</code></pre></div></div>
+
+<h2 id="paso-2---crear-un-buildout-para-django">Paso 2 - Crear un buildout para django</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@laptop:~/programar$ paster create -t django_buildout
+Selected and implied templates:
+  fez.djangoskel#django_buildout  A plain Django buildout
+
+Enter project name: my_djangobuildout
+Variables:
+  egg:      my_djangobuildout
+  package:  my_djangobuildout
+  project:  my_djangobuildout
+Enter django_version (Django version to fetch, the default is 1.0.2) ['1.0.2']: 1.1.1
+Enter django_project_name (Name of the main Django project folder) ['project']: projects
+Creating template django_buildout
+Creating directory ./my_djangobuildout
+  Copying README.txt to ./my_djangobuildout/README.txt
+  Copying bootstrap.py to ./my_djangobuildout/bootstrap.py
+  Copying buildout.cfg_tmpl to ./my_djangobuildout/buildout.cfg
+  Copying devel.cfg_tmpl to ./my_djangobuildout/devel.cfg
+-----------------------------------------------------------
+Generation finished
+You probably want to run python bootstrap.py and then edit
+buildout.cfg before running bin/buildout -v
+
+See README.txt for details
+-----------------------------------------------------------
+tzicatl@laptop:~/programar$
+</code></pre></div></div>
+
+<p>Con esta instrucción se ha creado un directorio my_djangobuildout que contiene
+los archivos necesarios para arrancar nuestra buildout. Veamos qué archivos
+contiene:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@laptop:~/programar$ cd my_djangobuildout/
+tzicatl@laptop:~/programar/my_djangobuildout$ ls
+bootstrap.py  buildout.cfg  devel.cfg  README.txt 
+tzicatl@laptop:~/programar/my_djangobuildout$
+
+ Tenemos 3 archivos:
+
+    bootstrap.py
+        Ejecuta este archivo para crear un directorio bin/ con los diferentes scripts que se han configurado en buildout.cfg.
+    buildout.cfg
+        Es el archivo de configuración principal. Aquí se instruye a buildout sobre qué scripts ejecutar. También aquí controlaremos qué librerías extras se instalaran en nuestro entorno.
+    devel.cfg
+        Opciones de configuración extras para el modo de depurado.
+    README.txt
+        Archivo README ;)
+</code></pre></div></div>
+
+<p>Ahora modificamos buildout.cfg para que todo se ejecute con python2.6 y se
+instalen 2 librerías extra de manera independiente del sistema. El
+buildout.cfg original es este:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[buildout]</span>
+<span class="py">parts</span> <span class="p">=</span> <span class="s">django</span>
+
+<span class="nn">[django]</span>
+<span class="py">recipe</span> <span class="p">=</span> <span class="s">djangorecipe</span>
+<span class="py">version</span> <span class="p">=</span> <span class="s">1.1.1</span>
+<span class="py">project</span> <span class="p">=</span> <span class="s">projects</span>
+<span class="py">wsgi</span><span class="p">=</span><span class="s">true</span>
+<span class="py">settings</span><span class="p">=</span><span class="s">production</span>
+</code></pre></div></div>
+<p>Y completadas las modificaciones queda así:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">executable</span><span class="p">=</span><span class="s">/usr/bin/python2.6</span>
+<span class="py">parts</span> <span class="p">=</span> 
+    <span class="s">zlib</span>
+    <span class="err">PIL</span>
+    <span class="err">django</span>
+
+<span class="py">eggs</span> <span class="p">=</span> 
+    <span class="s">PIL</span>
+
+<span class="nn">[django]</span>
+<span class="py">recipe</span> <span class="p">=</span> <span class="s">djangorecipe</span>
+<span class="py">version</span> <span class="p">=</span> <span class="s">1.1.1</span>
+<span class="py">project</span> <span class="p">=</span> <span class="s">projects</span>
+<span class="py">wsgi</span><span class="p">=</span><span class="s">true</span>
+<span class="py">settings</span><span class="p">=</span><span class="s">production</span>
+
+<span class="c"># Build zlib for PIL, and PIL so we don not rely on something in the system
+</span><span class="nn">[zlib]</span>
+<span class="py">recipe</span> <span class="p">=</span> <span class="s">hexagonit.recipe.cmmi</span>
+<span class="py">url</span> <span class="p">=</span> <span class="s">http://www.zlib.net/zlib-1.2.3.tar.gz</span>
+<span class="py">configure-options</span> <span class="p">=</span> <span class="s">--shared</span>
+ 
+<span class="nn">[PIL]</span>
+<span class="py">recipe</span> <span class="p">=</span> <span class="s">zc.recipe.egg:custom</span>
+<span class="py">egg</span> <span class="p">=</span> <span class="s">PIL</span>
+<span class="py">find-links</span> <span class="p">=</span> <span class="s">http://dist.repoze.org/</span>
+<span class="py">include-dirs</span> <span class="p">=</span> <span class="s">${zlib:location}/include</span>
+<span class="py">library-dirs</span> <span class="p">=</span> <span class="s">${zlib:location}/lib</span>
+<span class="py">rpath</span> <span class="p">=</span> <span class="s">${zlib:location}/lib</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Nota1</strong>: Este es el momento perfecto para añadir los archivos que estan dentro del buildout a un repositorio git o SVN.</li>
+  <li><strong>Nota 2</strong>: Ahora es momento de configurar ~/.buildout/default.cfg para designar un directorio común de cache de huevos de python (.egg). (Link hacia la documentación de Plone).</li>
+</ul>
+
+<p>Ejecutamos <code class="language-plaintext highlighter-rouge">bootstrap.py</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@laptop:~/programar/my_djangobuildout$ python2.6 bootstrap.py 
+Creating directory '/home/tzicatl/programar/my_djangobuildout/bin'.
+Creating directory '/home/tzicatl/programar/my_djangobuildout/parts'.
+Creating directory '/home/tzicatl/programar/my_djangobuildout/develop-eggs'.
+Generated script '/home/tzicatl/programar/my_djangobuildout/bin/buildout'.
+tzicatl@laptop:~/programar/my_djangobuildout$
+</code></pre></div></div>
+
+<p>Ahora ya podemos ejecutar el buildout que automaticamente bajará, compilará e
+instalará Django, Zlib y PIL en un entorno aislado del sistema.  Lo que se va
+a ver en la consola será algo como esto:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tzicatl@laptop:~/programar/my_djangobuildout$ bin/buildout 
+Unused options for buildout: 'download-directory'.
+Installing django.
+Getting distribution for 'zc.buildout'.
+Got zc.buildout 1.4.2.
+Generated script '/home/tzicatl/programar/my_djangobuildout/bin/django'.
+Generated script '/home/tzicatl/programar/my_djangobuildout/bin/django.wsgi'.
+tzicatl@laptop:~/programar/my_djangobuildout$
+</code></pre></div></div>
+
+<p>Examinemos el directorio. Ahora el contenido del directorio lucirá así:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">tzicatl@laptop:~/programar/my_djangobuildout$</span><span class="w"> </span><span class="nb">ls</span>
+<span class="go">bin  bootstrap.py  buildout.cfg  devel.cfg  develop-eggs  parts  projects  README.txt
+</span><span class="gp">tzicatl@laptop:~/programar/my_djangobuildout$</span><span class="w"> </span><span class="nb">ls </span>bin/
+<span class="go">buildout  django  django.wsgi
+</span><span class="gp">tzicatl@laptop:~/programar/my_djangobuildout$</span><span class="w"> </span><span class="nb">ls </span>develop-eggs/
+<span class="gp">tzicatl@laptop:~/programar/my_djangobuildout$</span><span class="w"> </span><span class="nb">ls </span>parts/
+<span class="go">django
+</span><span class="gp">tzicatl@laptop:~/programar/my_djangobuildout$</span><span class="w"> </span><span class="nb">ls </span>projects/
+<span class="go">development.py  __init__.py  media  production.py  settings.py  templates  urls.py
+</span><span class="gp">tzicatl@laptop:~/programar/my_djangobuildout$</span><span class="w">
+</span></code></pre></div></div>
+
+<p>A continuación se explicará cáda uno de los directorios y archivos</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bin/</code>: El directorio donde residen los programas y scripts para construir una instancia de django y controlarla.</li>
+  <li><code class="language-plaintext highlighter-rouge">develop-eggs/</code>: Aquí se depositan huevos de python</li>
+  <li><code class="language-plaintext highlighter-rouge">parts/</code>: Si existe alguna librería de python que no esté empaquetada como huevo (por ejemplo, zlib), este será el lugar donde residirán esas librerías.</li>
+  <li><code class="language-plaintext highlighter-rouge">projects/</code>: Aquí es donde depositaremos nuestro código que conformará nuestra aplicación de Django.</li>
+</ul>
+
+<p>Hasta aquí la primera entrega de mis Notas.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html&title=Django+y+Buildout+%28Parte+1%29&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html';
+      this.page.identifier = 'http://blog.noenieto.com/2010/01/18/django-y-buildout-parte-1.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

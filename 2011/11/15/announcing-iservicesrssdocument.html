@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Announcing iservices.rssdocument | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Announcing iservices.rssdocument" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Note: I no longer work for iServices, but they kindly asked me to release an updated version. They own me a pizza for this." />
+<meta property="og:description" content="Note: I no longer work for iServices, but they kindly asked me to release an updated version. They own me a pizza for this." />
+<link rel="canonical" href="http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-11-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Announcing iservices.rssdocument" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2011-11-15T00:00:00+00:00","datePublished":"2011-11-15T00:00:00+00:00","description":"Note: I no longer work for iServices, but they kindly asked me to release an updated version. They own me a pizza for this.","headline":"Announcing iservices.rssdocument","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html"},"url":"http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Announcing iservices.rssdocument</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Nov 15, 2011 by Noe Nieto</p>
+
+    
+
+    <p><em>Note</em>:  I no longer work for iServices, but they kindly asked me to release
+an updated version. They own me a pizza for this.</p>
+
+<h2 id="rationale">Rationale</h2>
+
+<p>I wanted to embedd RSS Feeds directly into Plone and Products.Collage, but I
+wanted not to store the entries in the ZODB. However, I could not find any
+suitable product for that task. I did not searched very hard anyway. So I
+ended up cooking 2 products: <code class="language-plaintext highlighter-rouge">iservices.rssdocument</code> and
+<code class="language-plaintext highlighter-rouge">collective.collage.rssdocument</code>.</p>
+
+<h2 id="what-does-it-do">What does it do?</h2>
+
+<p><code class="language-plaintext highlighter-rouge">iservices.rssdocument</code> provides a <code class="language-plaintext highlighter-rouge">RSSDocument</code> content-type. This
+<code class="language-plaintext highlighter-rouge">RSSDocument</code> needs two things (well, three): A Title, the URL of the RSS from
+which you want to retrieve data from, and the number of entries to display.</p>
+
+<p>With that data on place, it will use a jQuery plugin from
+<a href="http://www.zazar.net/developers/jquery/zrssfeed">http://www.zazar.net/developers/jquery/zrssfeed</a>/ which uses Google’s AJAX Feed
+API to parse the RSS or ATOM and get JSON data of the parsed Feed and finally
+embedd it into Plone. There is no interaction with the ZODB appart for
+retrieving the URL, title, description and number of entries to display. So,
+it’s speed and reliability depends upon external factors to plone.</p>
+
+<p><code class="language-plaintext highlighter-rouge">collective.collage.rssdocument</code> reuses rssdocument into a Collage. So this is
+an Add-on that allows me to do that. It only provides the “standard” view for
+the collage. That’s just exactly what I needed for my purposes.</p>
+
+<h2 id="where-do-i-get-it">Where do I get it?</h2>
+
+<p>These two products are already available in Pypi:</p>
+
+<ul>
+  <li><a href="http://pypi.python.org/pypi/iservices.rssdocument/">iservices.rssdocument on Pypi</a></li>
+  <li><a href="http://plone.org/products/iservices.rssdocument/">iservices.rssdocument on Plone.org’s index</a></li>
+  <li><a href="http://pypi.python.org/pypi/collective.collage.rssdocument/0.1">collective.collage.rssdocument on Pypi</a></li>
+</ul>
+
+<p>They are also available on the collective:</p>
+
+<ul>
+  <li><a href="https://github.com/collective/iservices.rssdocument/">iservices.rssdocument on the github Collective</a></li>
+  <li><a href="https://svn.plone.org/svn/collective/Products.Collage/addons/collective.collage.rssdocument/">collective.collage.rssdocument on the SVN Collective</a></li>
+</ul>
+
+<p>Final note: It just works with latest versions with plone4.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html&title=Announcing+iservices.rssdocument&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html';
+      this.page.identifier = 'http://blog.noenieto.com/2011/11/15/announcing-iservicesrssdocument.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

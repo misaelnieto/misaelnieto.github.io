@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unicode y UTF-8 en Plone | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Unicode y UTF-8 en Plone" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notas acerca de errores con acentos y eñes y etc etc. Y aún no entiendo bien por qué truena." />
+<meta property="og:description" content="Notas acerca de errores con acentos y eñes y etc etc. Y aún no entiendo bien por qué truena." />
+<link rel="canonical" href="http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-02-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unicode y UTF-8 en Plone" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2010-02-01T00:00:00+00:00","datePublished":"2010-02-01T00:00:00+00:00","description":"Notas acerca de errores con acentos y eñes y etc etc. Y aún no entiendo bien por qué truena.","headline":"Unicode y UTF-8 en Plone","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html"},"url":"http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Unicode y UTF-8 en Plone</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Feb 1, 2010 by Noe Nieto</p>
+
+    
+
+    <p>Notas acerca de errores con acentos y eñes y etc etc. Y aún no entiendo bien
+por qué truena.</p>
+
+<p>Tengo este producto de plone que trae buenos links (bueno, un solo link bueno):</p>
+
+<p><a href="http://plone.org/products/unicodeerrordetector">http://plone.org/products/unicodeerrordetector</a></p>
+
+<p>Recomienda este articulo de Joel On software: <a href="http://www.joelonsoftware.com/articles/Unicode.html">http://www.joelonsoftware.com/articles/Unicode.html</a></p>
+
+<p>Ahora, Erik opina esto:</p>
+
+<p>Dentro de un buildout de plone:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd parts/zope2/lib/python
+</code></pre></div></div>
+
+<p>Crear, en ese directorio, un archivo con el nombre <code class="language-plaintext highlighter-rouge">sitecustomize.py</code> que contenga lo siguiente</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sys
+sys.setdefaultencoding('utf-8')
+</code></pre></div></div>
+
+<p>Esto es porque en eduIntelligent tenemos un problema con <code class="language-plaintext highlighter-rouge">Products.PloneGlossary</code>. Y el problema dice así (link):</p>
+
+<pre><code class="language-rest">Plone Unicode issue
+===================
+
+If you use an old version of Plone (&lt; 3.2), you'll encounter `this issue
+&lt;http://dev.plone.org/plone/ticket/7522&gt;`_: using non ASCII characters in
+your glossary requires to change the default encoding of your Zope.
+
+
+To do this, add a `sitecustomize.py` file to your $SOFTWARE_HOME with
+these two lines::
+
+  import sys
+  sys.setdefaultencoding('utf-8')
+
+Then replace "utf-8" above with the value of the "default_charset" property
+in your "portal_properties/site_properties".
+</code></pre>
+
+<p>Y, además, en <code class="language-plaintext highlighter-rouge">zope.conf</code> tweaks, tenemos:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If the Plone sites of your instance use another charset, or if you
+need another batch size, you might append this to your `zope.conf`::
+
+  &lt;product-config ATFlashMovie&gt;
+    charset utf-8 # Or iso-8859-15
+  &lt;/product-config&gt;
+</code></pre></div></div>
+
+<p>Esto pinta como para hacer un buen documento de las cosas que no deben hacerse
+al desarrollar productos en plone. Cosas que se rompen cuando le pones acentos
+a las cosas.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html&title=Unicode+y+UTF-8+en+Plone&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html';
+      this.page.identifier = 'http://blog.noenieto.com/2010/02/01/unicode-y-utf-8-en-plone.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Drupal 8 Beta en OpenShift | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Drupal 8 Beta en OpenShift" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Decidi instalar el core de Drupal 8 Beta en OpenShift para hacerme un blog gratis." />
+<meta property="og:description" content="Decidi instalar el core de Drupal 8 Beta en OpenShift para hacerme un blog gratis." />
+<link rel="canonical" href="http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-05-08T00:26:10+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Drupal 8 Beta en OpenShift" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2014-05-08T00:26:10+00:00","datePublished":"2014-05-08T00:26:10+00:00","description":"Decidi instalar el core de Drupal 8 Beta en OpenShift para hacerme un blog gratis.","headline":"Drupal 8 Beta en OpenShift","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html"},"url":"http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Drupal 8 Beta en OpenShift</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: May 8, 2014 by Noe Nieto</p>
+
+    
+
+    <p>Decidi instalar el core de Drupal 8 Beta en OpenShift para hacerme un blog
+gratis.</p>
+
+<ol>
+  <li>
+    <p>Primero abrí mi cuenta en <a href="https://www.openshift.com/">OpenShift</a></p>
+  </li>
+  <li>
+    <p>En el panel de control de OpenShift seleccioné <code class="language-plaintext highlighter-rouge">Applications -&gt; Add Application</code>.</p>
+  </li>
+  <li>
+    <p>Puse Drupal en el cuadro de busqueda. Como opciones se encuentra Drupal 7 y
+Drupal 8. Escogí el 8 por que me gusta complicarme la vida.</p>
+  </li>
+  <li>
+    <p>El segundo paso es escoger el nombre de la aplicación. Elegi <code class="language-plaintext highlighter-rouge">mosaiko</code>
+(mosaico en esperanto) y deje todas las demas configuraciones sin tocar. Solo
+faltó presionar el botoncito azul de <code class="language-plaintext highlighter-rouge">Create Application</code>.</p>
+  </li>
+  <li>
+    <p>Inmediatamente se desactiva el botoncito azul y sale una ruedita de esas
+que dan vueltas para indicarte que “<em>no me molestes hasta que yo te diga que ya
+esta listo</em>”. Y se tarda unos 5 minutos en crear el gear de Drupal.</p>
+  </li>
+  <li>
+    <p>Hasta el momento de escribir este post, no tengo la menor idea lo que es un
+Gear pero se parece mucho a un container de Docker.</p>
+  </li>
+  <li>
+    <p>Cuando termina de crear el Gear, el sitio te muestra un cuadrito verde con
+el nombre de usuario de MySQL, el passowrd y la base de datos de Drupal, que
+es el mismo nombre que la instancia de Drupal: <code class="language-plaintext highlighter-rouge">mosaiko</code>.</p>
+  </li>
+  <li>
+    <p>Mi sitio Drupal quedo accesible desde <code class="language-plaintext highlighter-rouge">mosaiko-nnieto.rhcloud.com</code>. Este es
+el alias de la aplicacion. Se pueden anhadir muchos alias. En la pagina de
+<em>overview</em> de la aplicacion se muestra el nombre de dominio que quedo
+configurado (<code class="language-plaintext highlighter-rouge">mosaiko-nnieto.rhcloud.com</code>).</p>
+
+    <p>A un lado hay link chiquito que dice change. Ahi es donde hay que picarle
+ para dar de alta el alias para la aplicacion. El alias no es otra cosa que
+ el <em>CNAME</em>. Primero configure el <em>CNAME</em> para que apunte a
+ <code class="language-plaintext highlighter-rouge">mozaiko-nnieto.rhcloud.com</code>, luego puse el nombre de dominio completo en “<em>Domain
+ name</em>”; en este caso el nombre es <code class="language-plaintext highlighter-rouge">mozaico.noenieto.com</code>.</p>
+  </li>
+  <li>
+    <p>Falta una cosa: la contraseña del administrador. Por default es
+<code class="language-plaintext highlighter-rouge">openshift_changeme</code>. OBVIAMENTE, le cambie el <code class="language-plaintext highlighter-rouge">user_id</code>, el password y muchas
+otras cosas, asi que no intentes hackear este sitio ¿Ok?</p>
+  </li>
+  <li>
+    <p>Inmediatamente despues de entrar a Drupal y cambiar la contraseña del
+admin, me puse a escribir este post. El editor WYSIWYG que trae el Drupal 8 es
+una maravilla ¡Me encanta!</p>
+  </li>
+</ol>
+
+<p>Eso es todo. Es mi primera experiencia seria con OpenShift y Drupal 8.</p>
+
+<ul>
+  <li>Foto de Elke Blok CC BY-NC-SA 2.0</li>
+</ul>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html&title=Drupal+8+Beta+en+OpenShift&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html';
+      this.page.identifier = 'http://blog.noenieto.com/2014/05/08/Drupal-8-Beta-en-OpenShift.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

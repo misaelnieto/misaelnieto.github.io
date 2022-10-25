@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Our first Plone4 site available to the public | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Our first Plone4 site available to the public" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro This is what I did to integrate a Plone 4 site. It features: Plone4, webcoturier.dropdownmenu, Products.Carousel and Products.Collage" />
+<meta property="og:description" content="Intro This is what I did to integrate a Plone 4 site. It features: Plone4, webcoturier.dropdownmenu, Products.Carousel and Products.Collage" />
+<link rel="canonical" href="http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-09-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Our first Plone4 site available to the public" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2010-09-04T00:00:00+00:00","datePublished":"2010-09-04T00:00:00+00:00","description":"Intro This is what I did to integrate a Plone 4 site. It features: Plone4, webcoturier.dropdownmenu, Products.Carousel and Products.Collage","headline":"Our first Plone4 site available to the public","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html"},"url":"http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Our first Plone4 site available to the public</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Sep 4, 2010 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+<p>This is what I did to integrate a Plone 4 site. It features: Plone4,
+webcoturier.dropdownmenu, Products.Carousel and Products.Collage</p>
+
+<p>One of our customers requested a Plone CMS. We decided to use Plone 4 when it
+was on alpha version, so I had to figure out a couple of extra stuff.</p>
+
+<h2 id="implementation">Implementation</h2>
+<p>At the end we decided to go for this software bundle:</p>
+
+<ul>
+  <li><strong>Plone 4</strong>. We always try to upgrade to the latests release. We had to use some components directly from SVN (like plone.app.jquerytools).</li>
+  <li><strong>Products.Collage</strong>. Latest from SVN.</li>
+  <li><strong>Products.Carousel</strong>. Latest stable release was 1.1</li>
+  <li><strong>webcoturier.dropdownmenu</strong>. SVN revision 114137</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">mr.developer</code> buildout extension was very helpful here.</p>
+
+<p>We also made a custom theme to accomodate all the changes needed.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Products.Collage</code> received a little facelift from our custom theme’s
+stylesheets. There were some issues with collage, since it’s starting to
+provide plone4 support.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Products.Carousel</code> We did some rather extensive modifications to
+Products.Carousel. Carousel is very flexible, so we could almost completely
+rewrite the css to bend it to our needs.</p>
+
+<p>I also needed to relocate the Carousel’s viewlet from the plone.abovecontent
+manager to plone.portalheader. This was easily done with some zcml.</p>
+
+<p>Finally, the carousel template was overriden so we could inser some more decorations.
+webcoturier.dropdownmenu</p>
+
+<p>Initially, we did not experienced any extraordinary problem while customizing
+the dropdownmenu template (to hide the types icons) and adequating our css so
+the menu looks pretty. But when we started to test the menues with Internet
+Explorer, we realized that the work was not over.</p>
+
+<p>So I had to read some more about IE and dropdownmenu and I write it here so
+that anyone who wants to do the same, don’t have to waste time trying to
+figure out how to make them work with IE.</p>
+
+<p>First of all: webcoturier.dropdownmenu uses the very famous Son of Suckerfish
+technique to make dropdown menues. So, It is important to read the original
+article in order to understand why are things done like that.</p>
+
+<p>Then I had a problem with IE making a mess with the z-index css properties.</p>
+
+<p>Basically, when Internet Explorer relatively positions an element, it defaults its z-index to 0. That should not happen.</p>
+
+<p>So I had to be very careful to assign adequate z-index whenever was necesary. Also I had to clean up the css in order to avoid bogus or incorrect z-index or inadequate positioning.</p>
+
+<p>The guys at GroundWire had already figured this out.</p>
+
+<p>A good live example of the IE z-index bug is here. Also make sure you visit
+QuirksMode’s bug report and read the comments.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The site is up an running <a href="http://sofomanec.com.mx/">here</a>.</p>
+
+<p>Currently we have some buggy issues with plone’s javascript code in IE6 and
+IE, but i had not the time to look at them.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html&title=Our+first+Plone4+site+available+to+the+public&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html';
+      this.page.identifier = 'http://blog.noenieto.com/2010/09/04/our-first-plone4-site-available-to-the-public.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

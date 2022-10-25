@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Configurar SSH para que no pida login | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Configurar SSH para que no pida login" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Creo que nunca he escrito acerca de de ssh." />
+<meta property="og:description" content="Creo que nunca he escrito acerca de de ssh." />
+<link rel="canonical" href="http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-12-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Configurar SSH para que no pida login" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2013-12-20T00:00:00+00:00","datePublished":"2013-12-20T00:00:00+00:00","description":"Creo que nunca he escrito acerca de de ssh.","headline":"Configurar SSH para que no pida login","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html"},"url":"http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Configurar SSH para que no pida login</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Dec 20, 2013 by Noe Nieto</p>
+
+    
+
+    <p>Creo que nunca he escrito acerca de de ssh.</p>
+
+<p>SSH tiene una caracteristica que me gusta mucho. Se llama <em>Key Based
+Authentication</em> o <em>Autenticación basada en llaves</em>. La uso para administrar
+servidores linux y correr scripts remotos con <a href="http://fabfile.org/">Fabric</a>;
+todo esto sin tener que estar escribiendo nombres de usuario y contraseñas.</p>
+
+<p>Las <em>llaves</em> son simples archivos de texto que se generan mediante el comando
+<code class="language-plaintext highlighter-rouge">ssh- keygen</code>. A continuación un ejemplo de cómo generar una llave con el
+algoritmo <a href="http://es.wikipedia.org/wiki/DSA">DSA</a>.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/.ssh
+<span class="gp">$</span><span class="w"> </span>ssh-keygen <span class="nt">-b</span> 4096 <span class="nt">-C</span> <span class="s2">"Llaves para encripción SSL con 4096 bits"</span> <span class="nt">-f</span> llave
+<span class="go">Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in llave.
+Your public key has been saved in llave.pub.
+The key fingerprint is:
+21:77:3b:2a:24:02:65:42:b6:45:b1:cc:f8:a7:a7:33 Llaves para encripción SSL con 4096 bits
+The key's randomart image is:
++--[ RSA 4096]----+
+|oo++.            |
+|.+* .            |
+|.o +  . o .      |
+| ..    o o .     |
+|  ..... S o      |
+|   .oo   . .     |
+|   . .. .        |
+|   Eo  .         |
+|   .o            |
++-----------------+
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">ls</span>
+<span class="go">llave  llave.pub
+</span></code></pre></div></div>
+
+<p>Para mayor comodidad, cuando me pidió la contraseña presioné <em>enter</em> 2 veces
+para que la llave no tenga contraseña.</p>
+
+<p><strong>Nota</strong>: Una llave de SSH sin contraseña constituye una vulnerabilidad, especialmente
+si esta configurar para dar acceso a otros servidores.</p>
+
+<p>Como resultado de esta operación, se han generado dos archivos: uno con el
+nombre <code class="language-plaintext highlighter-rouge">llave</code> y otro con el nombre <code class="language-plaintext highlighter-rouge">llave.pub</code>.</p>
+
+<p>El archivo <code class="language-plaintext highlighter-rouge">llave</code> constituye la llave privada mientras que el archivo
+<code class="language-plaintext highlighter-rouge">llave.pub</code> constituye la llave pública. Ambos son archivos de texto:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>llave.pub
+<span class="go">ssh-rsa AAAAB3Nza[... muchos caracteres ...]+gLLuKw== Llaves para encripción SSL con 4096 bits
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>llave
+<span class="go">-----BEGIN RSA PRIVATE KEY-----
+MIIJKQIBAAKCAgEA2HgV5H2MTjaROx0Nj+jXClSuloBCQB0R2m3ig2rJXX4y/Jvg
+FnK3ldstd5+92f/SnH0lbakedo/GHj4/zOO5CYMaPO4Ytg8L7QoxoSaloy0UR8sR
+D6P7JnPHzAmD8kUC9/sYM0bV6P4y8NsK9c2uWOIAh7BScNlLStqQ/UYdqA6NWnlu
+[ ... muchas lineas de texto con caracteres raros ...]
+Rt81DJr3/Ap/0hc24FYERSDOQ2eyncDZ+ZLoQSMNZ3frFb6lxh0yBbeVT8eI
+-----END RSA PRIVATE KEY-----
+</span></code></pre></div></div>
+
+<p>Ahora es momento de escribir la configuración de ssh del lado del cliente.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">touch</span> ~/.ssh/config
+</code></pre></div></div>
+
+<p>El contenido del archivo es el siguiente:</p>
+
+<pre><code class="language-kconfig">
+    Host servidor.com
+        IdentityFile ~/.ssh/llave
+        User pancho
+</code></pre>
+
+<p>La primera linea <code class="language-plaintext highlighter-rouge">Host servidor.com</code> le dice a SSH que las siguientes lineas
+serán sólamente para el servidor <code class="language-plaintext highlighter-rouge">servidor.com</code>.</p>
+
+<p>La segunda línea define la ruta hacia la llave <em>privada</em>.</p>
+
+<p>La tercera línea define el nombre de usuario para <code class="language-plaintext highlighter-rouge">servidor.com</code>. Normalmente
+ssh usa el nombre de usuario, definido en las variables entorno. Ésta línea es
+especialmente útil cuando el nombre de usuario de la sesión del sistema
+cliente es diferente al nombre de usuario de servidor.</p>
+
+<p>¿Recuerdas la llave pública? ¿Qué hacemos con ese archivo? La llave pública se
+la podrás enviar al administrador del servidor, o si tu ya tienes acceso,
+podrás subir la llave pública al servidor, usando <code class="language-plaintext highlighter-rouge">scp</code>, por ejemplo:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">scp ~/.ssh/llave.pub usuario@servidor.com:~/.ssh/
+</span></code></pre></div></div>
+
+<p>Antes de cerrar la sesión en el servidor, tendrás que registrar la llave
+pública como una llave autorizada.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/.ssh
+<span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>llave.pub <span class="o">&gt;&gt;</span> authorized_keys
+<span class="gp">$</span><span class="w"> </span><span class="nb">chmod</span> <span class="nt">-R</span> 700 ~/.ssh
+</code></pre></div></div>
+
+<p>Cierra la sesión con el servidor. Ya sólo falta establecer los permisos en el
+directorio <code class="language-plaintext highlighter-rouge">.ssh</code> local.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">chmod</span> <span class="nt">-R</span> 700 ~/.ssh
+</code></pre></div></div>
+
+<p>Finalmente, prueba la conexion.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">    $</span><span class="w"> </span>ssh servidor.com
+<span class="go">    Last login: Fri Dec 20 22:02:42 2013 from 91.138.271.122
+</span><span class="gp">    [tzicatl@servidor ~]$</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<p>FIN.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html&title=Configurar+SSH+para+que+no+pida+login&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html';
+      this.page.identifier = 'http://blog.noenieto.com/2013/12/20/configurar-ssh-para-que-no-pida-login.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Links about server performance | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Links about server performance" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’m gathering different links to server performance. This is in strong bias to Plone, Zope and Python web servers." />
+<meta property="og:description" content="I’m gathering different links to server performance. This is in strong bias to Plone, Zope and Python web servers." />
+<link rel="canonical" href="http://blog.noenieto.com/2009/01/17/links-about-server-performance.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2009/01/17/links-about-server-performance.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2009-01-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Links about server performance" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2009-01-17T00:00:00+00:00","datePublished":"2009-01-17T00:00:00+00:00","description":"I’m gathering different links to server performance. This is in strong bias to Plone, Zope and Python web servers.","headline":"Links about server performance","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2009/01/17/links-about-server-performance.html"},"url":"http://blog.noenieto.com/2009/01/17/links-about-server-performance.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Links about server performance</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jan 17, 2009 by Noe Nieto</p>
+
+    
+
+    <p>I’m gathering different links to server performance. This is in strong bias to
+Plone, Zope and Python web servers.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="http://nichol.as/benchmark-of-python-web-servers">Benchmark of Python Web Servers By Nicholas Piël</a></td>
+      <td>March 15, 2010</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>It has been a while since the Socket Benchmark of Asynchronous server. That
+benchmark looked specifically at the raw socket performance of various
+frameworks. Which was being benchmarked by doing a regular HTTP request
+against the TCP server. The server itself was dumb and did not actually
+understand the headers being send to it. In this benchmark i will be looking
+at how different WSGI servers perform at exactly that task; the handling of a
+full HTTP request.</p>
+
+<p><a href="http://nichol.as/benchmark-of-python-web-servers">Link</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="http://nichol.as/asynchronous-servers-in-python">Asynchronous Servers in Python Nicholas Piël</a></td>
+      <td>December 22, 2009</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There has already been written a lot on the C10K problem and it is known that
+the only viable option to handle LOTS of concurrent connections is to handle
+them asynchronously. This also shows that for massively concurrent problems,
+such as lots of parallel comet connections, the GIL in Python is a non-issue
+as we handle the concurrent connections in a single thread.</p>
+
+<p>In this post i am going to look at a selection of asynchronous servers implemented in Python.</p>
+
+<p><a href="http://nichol.as/asynchronous-servers-in-python">Link</a></p>
+
+<p><a href="http://www.uie.com/articles/download_time/">The Truth About Download Time</a> By CHRISTINE PERFETTI AND LORI LANDESMAN</p>
+
+<p>We hear all the time from web designers that they spend countless hours and
+resources trying to speed up their web pages’ download time because they
+believe that people are turned off by slow-loading pages. Their concerns have
+been amplified by experts like Jakob Nielsen who asserts that users become
+frustrated after waiting too long for pages to load. It makes sense that a
+slow loading page is unusable. We know that if a page takes 2 hours to load,
+chances are people will abandon their tasks. But when does download time go
+from too slow to fast enough?</p>
+
+<p><a href="http://www.uie.com/articles/download_time/">Link</a></p>
+
+<p><a href="http://eleddy.com/blog/2008/05/on-web-application-scaling.html">I Poop on Designing for Scalability</a> by Elizabeth Leddy</p>
+
+<p>Some random notes about programming for scalability.
+<a href="http://eleddy.com/blog/2008/05/on-web-application-scaling.html">Link</a></p>
+
+<p><a href="http://maurits.vanrees.org/weblog/archive/2009/10/unloading-plone-approaching-scalability-in-integrated-plone-systems">Elizabeth Leddy: Unloading Plone: Approaching Scalability in Integrated Plone Systems</a> by Maurits van Rees</p>
+
+<p>While there is an abundance of documentation on ways to achieve better
+performance with Plone, there is nothing quite like actually doing it,
+especially with other system components getting in the way. This case based
+look at the performance and scaling of Plone as part of an integrated system
+will cover perceived front-end latency, system stability as related to Plone
+responsiveness, and how to set up a hardware forward architecture. This talk
+is meant for designers and integrators of large Plone installations.</p>
+
+<p><a href="http://maurits.vanrees.org/weblog/archive/2009/10/unloading-plone-approaching-scalability-in-integrated-plone-systems">Link</a></p>
+
+<p><a href="http://scalingplone.pbworks.com/">Plone Scaling and Performance (Work in Progress)</a></p>
+
+<p>This is an informal place to organize thoughts and ideas about scaling plone
+(including performance). I wanted to have a workspace where people can freely
+contribute and once things are more solidified then I’ll take the time to
+format into one cohesive “thing” and publish on plone.org/documentation. Feel
+free to contribute wherever you would like, big or small, and make sure to
+pimp yourself in the contributors section.</p>
+
+<p><a href="http://scalingplone.pbworks.com/">Link</a></p>
+
+<p><a href="http://www.slideshare.net/eleddy/unloading-plone">Unloading Plone by Elizabeth Eddy (Slides in slideshare)</a></p>
+
+<p>These are the slides form Elizabeth Leddy’s talk in Plone Conf.</p>
+
+<p><a href="http://www.slideshare.net/eleddy/unloading-plone">Link</a></p>
+
+<p><a href="http://plone.blip.tv/file/3042000/">Unloading Plone by Elizabeth Eddy (Video from PloneConf 2009)</a></p>
+
+<p>This is the video from Elizabeth Leddy’s talk in PloneConf 2009.</p>
+
+<p><a href="http://plone.blip.tv/file/3042000/">Link</a></p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2009/01/17/links-about-server-performance.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2009/01/17/links-about-server-performance.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2009/01/17/links-about-server-performance.html&title=Links+about+server+performance&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2009/01/17/links-about-server-performance.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2009/01/17/links-about-server-performance.html';
+      this.page.identifier = 'http://blog.noenieto.com/2009/01/17/links-about-server-performance.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

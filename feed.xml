@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mosaico (Blog de Noe Nieto)</title>
+    <description>Noe Nieto es instructor de &lt;a href=&quot;http://www.psicologiaholokinetica.org/&quot;&gt;Psicología Holokinética&lt;/a&gt;. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre
+</description>
+    <link>http://blog.noenieto.com/</link>
+    <atom:link href="http://blog.noenieto.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 25 Oct 2022 16:31:36 +0000</pubDate>
+    <lastBuildDate>Tue, 25 Oct 2022 16:31:36 +0000</lastBuildDate>
+    <generator>Jekyll v3.9.2</generator>
+    
+      <item>
+        <title>Fedora Silverblue Sshd Server</title>
+        <description>&lt;h2 id=&quot;instalacion-de-servidor-sshd-en-fedora-silverblue&quot;&gt;Instalacion de servidor sshd en Fedora Silverblue&lt;/h2&gt;
+
+</description>
+        <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2022/10/24/fedora-silverblue-sshd-server.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2022/10/24/fedora-silverblue-sshd-server.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ditch Google Analytics For Counter</title>
+        <description>&lt;h2 id=&quot;ditch-google-analyticsga-for-counterdef&quot;&gt;Ditch Google Analytics(GA) for Counter.def&lt;/h2&gt;
+
+</description>
+        <pubDate>Thu, 28 Jul 2022 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2022/07/28/ditch-Google-Analytics-for-counter.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2022/07/28/ditch-Google-Analytics-for-counter.html</guid>
+        
+        
+        <category>web,</category>
+        
+        <category>analytics</category>
+        
+      </item>
+    
+      <item>
+        <title>The simplest GitHub workflow for deploying static sites</title>
+        <description>&lt;p&gt;Ever since I learned about &lt;a href=&quot;https://github.com/features/actions&quot;&gt;GitHub
+Actions&lt;/a&gt;, I’m trying to automate anything I
+can. This time I automated the deployment of my &lt;a href=&quot;https://www.noenieto.com/&quot;&gt;personal
+webpage&lt;/a&gt;. It’s very easy, just checkout and upload
+the changes using rsync.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 17 May 2020 22:19:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2020/05/17/simplest-gh-workflow-for-static-pages.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2020/05/17/simplest-gh-workflow-for-static-pages.html</guid>
+        
+        <category>github</category>
+        
+        <category>devops</category>
+        
+        
+        <category>development</category>
+        
+      </item>
+    
+      <item>
+        <title>Migrating blog from GH Pages to GH Actions</title>
+        <description>&lt;p&gt;This is how my blog looks before update:&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 11 May 2020 23:32:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html</guid>
+        
+        <category>github</category>
+        
+        <category>devops</category>
+        
+        <category>blog</category>
+        
+        
+        <category>Web</category>
+        
+      </item>
+    
+      <item>
+        <title>Basic CRUD with Rocket</title>
+        <description>&lt;h1 id=&quot;basic-crud-with-rocket&quot;&gt;Basic CRUD with Rocket&lt;/h1&gt;
+
+</description>
+        <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html</guid>
+        
+        
+        <category>web,</category>
+        
+        <category>servers,</category>
+        
+        <category>programming,</category>
+        
+        <category>rust</category>
+        
+      </item>
+    
+      <item>
+        <title>Learning to use jq, the Command-line JSON processor</title>
+        <description>&lt;h2 id=&quot;learning-to-use-jq-the-command-line-json-processor&quot;&gt;Learning to use jq, the Command-line JSON processor&lt;/h2&gt;
+
+</description>
+        <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html</guid>
+        
+        
+        <category>web,</category>
+        
+        <category>shell,</category>
+        
+        <category>commandline</category>
+        
+      </item>
+    
+      <item>
+        <title>Último compilado de lecturas del 2018</title>
+        <description>&lt;h1 id=&quot;lecturas-de-las-semanas-50-y-51-del-2018&quot;&gt;Lecturas de las semanas 50 y 51 del 2018&lt;/h1&gt;
+
+</description>
+        <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2018/12/19/lecturas-semana-50-51.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2018/12/19/lecturas-semana-50-51.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Sublimetext Flatpack Shortcut</title>
+        <description>&lt;h2 id=&quot;sublimetext-flatpack-shortcut&quot;&gt;Sublimetext flatpack shortcut&lt;/h2&gt;
+
+</description>
+        <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2018/12/12/Sublimetext-flatpack-shortcut.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2018/12/12/Sublimetext-flatpack-shortcut.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Lecturas Semana 49</title>
+        <description>&lt;h2 id=&quot;semana-40-de-2018&quot;&gt;Semana 40 de 2018&lt;/h2&gt;
+
+</description>
+        <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2018/12/04/lecturas-semana-49.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2018/12/04/lecturas-semana-49.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Lecturas semana 48</title>
+        <description>&lt;h2 id=&quot;las-lecturas-de-la-semana-48-de-2018&quot;&gt;Las lecturas de la semana 48 de 2018&lt;/h2&gt;
+
+</description>
+        <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
+        <link>http://blog.noenieto.com/2018/11/26/lecturas-semana-48.html</link>
+        <guid isPermaLink="true">http://blog.noenieto.com/2018/11/26/lecturas-semana-48.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

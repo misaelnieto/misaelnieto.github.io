@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hola Mundo con Selenium sin programar nada | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Hola Mundo con Selenium sin programar nada" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-07-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hola Mundo con Selenium sin programar nada" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2014-07-15T00:00:00+00:00","datePublished":"2014-07-15T00:00:00+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"Hola Mundo con Selenium sin programar nada","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html"},"url":"http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Hola Mundo con Selenium sin programar nada</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jul 15, 2014 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/3911627741_b4e98a9a6f_o.jpg" alt="Guía super básica de pruebas con Selenium" /></p>
+
+<h2 id="intro">Intro</h2>
+
+<p>La primera vez que quise entrarle a <a href="http://www.seleniumhq.org/">Selenium</a> no
+entendi cómo funcionaba ni cómo echarlo a andar; además tenía muy poco tiempo
+disponible para aprender los detalles. En esta segunda oportunidad me propuse
+un objetivo muy pequeño y fácil de lograr, pero muy didáctico: Hacer que
+Selenium verifique que una página tenga el texto <strong>Hola Mundo</strong> como título ¡Manos
+a la obra!</p>
+
+<h2 id="página-web-de-prueba">Página web de Prueba</h2>
+
+<p>Primero necesitamos un HTML que diga Hola Mundo, aca uno muy facil:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Hola Mundo<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hola Mundo<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>¿Qué tal? Es sencillo, fácil, responsivo y minimalista. Luego, podemos entender
+a Selenium como un software que te ayuda a probar páginas web y una página web
+puede ser un HTML estático o una aplicación hecha en Ruby on Rails, Django,
+Drupal o lo que se antoje. El servidor web no importa tampoco, puede ser
+NGinx, Apache, IIS, amazon S3, Dropbox o el que tu quieras. Si ya tienes un
+servidor web o un sitio web entonces sube el hola mundo en HTML a tu sitio. Si
+no tienes dónde, no te preocupes, si tienes Python o PHP la buena noticia es
+que puedes arrancar un servidor web con una sóla línea de comandos.</p>
+
+<p>Desde la terminal o línea de comandos, cambia el directorio al directorio
+donde se aloja el HTML de arriba (asumamos que se llama <code class="language-plaintext highlighter-rouge">index.html</code>).</p>
+
+<p>Para Python 2.x tienes que ejecutar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-m</span> SimpleHTTPServer 8000
+</code></pre></div></div>
+
+<p>Para Python 3.x tienes que ejecutar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> http.server 8000
+</code></pre></div></div>
+
+<p>Para PHP:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-S</span> localhost:8000
+</code></pre></div></div>
+
+<p>Para probar si funciona abre el navegador y abre este URL:
+<a href="http://localhost:8000">http://localhost:8000</a> Se debería ver algo así:</p>
+
+<p><img src="/media/Screenshot_from_2014_07_15_16_42_54.png" alt="Firefox probando el servidor web improvisado" /></p>
+
+<p>Antes de que pases a la siguiente sección deberás poder acceder al Hola mundo
+desde tu navegador. (Nota, tambien podrias usar <code class="language-plaintext highlighter-rouge">file://</code> pero no lo he probado,
+te queda a ti de tarea a manera de ejercicio).</p>
+
+<h2 id="pruebas-con-selenium-ide">Pruebas con Selenium IDE</h2>
+
+<p>El siguiente paso es instalar <a href="http://docs.seleniumhq.org/projects/ide/">Selenium IDE</a>
+en Firefox. Selenium IDE es un complemento de Firefox, asi que te pedirá
+permiso para instalarlo. Tal vez tengas que reiniciar Firefox.</p>
+
+<p>Abre la página de prueba y lanza el IDE mediante el menú Herramientas -&gt;
+Selenium IDE. Mi Firefox esta en inglés, pero no debería cambiar demasiado
+para español u otro idioma.</p>
+
+<p><img src="/media/Screenshot_from_2014_07_18_16_31_44.png" alt="Cómo lanzar el IDE de Selenium" /></p>
+
+<p><strong>Nota</strong>: Si la barra de menu esta oculta, presiona ALT para que aparezca.</p>
+
+<p>La ventana de selenium se ve así</p>
+
+<p><img src="/media/Screenshot_from_2014_07_18_16_45_02.png" alt="La ventana del IDE de Selenium" /></p>
+
+<p><strong>Nota</strong>: Si tienes suficiente espacio en pantalla, pon la ventana de firefox y
+la del IDE de Selenium lado a lado para que trabajes más cómodo.</p>
+
+<p>Cuando inicia el IDE el URL base esta puesto como <a href="http://bugs.launchapd.net">http://bugs.launchapd.net</a>,
+deberás cambiarlo a <a href="http://localhost:8000">http://localhost:8000</a>. En la imagen anterior esta señalado
+con el número 1 encerrado en un círculo rojo.</p>
+
+<p>Ahora, abre la ventana de Firefox donde cargaste la página de <em>Hola Mundo</em>.
+Selecciona el texto y presiona el botón derecho del mouse para sacar el menú
+contextual. Luego selecciona la opcion <strong>assertText</strong> que está de color naranja.</p>
+
+<p><img src="/media/Screenshot_from_2014_07_18_17_16_20_0.png" alt="Selecciona la opcion `assertText` que está de color naranja." /></p>
+
+<p>Cuando instalaste el IDE se añadieron algunas opciones en los menúes
+contextuales que te ayudarán a hacer más fácil el proceso de programación de
+pruebas. Una vez que hayas hecho click en la opción <code class="language-plaintext highlighter-rouge">AssertText css=h1 Hola Mundo</code>
+la ventana del IDE registrará esta acción como la primera prueba de la
+página.</p>
+
+<p><img src="/media/Screenshot_from_2014_07_18_17_16_45_0.png" alt="La primera prueba de Selenium - mira el área delimitada por el rectángulo verde-" />.</p>
+
+<p>Presiona cualquiera de los botones verdes para iniciar/reiniciar la prueba automática.</p>
+
+<p><img src="/media/Screenshot_from_2014_07_21_08_35_17" alt="Botones para iniciar la prueba. Presiona cualquiera de los dos botones" /></p>
+
+<p>Cuando inicies la prueba, veras que se abre una nueva ventana de firefox (a
+veces se usa una de las que ya estan abiertas), se abre el sitio
+<code class="language-plaintext highlighter-rouge">http://localhost:8000/</code> y se realiza la prueba (verificar que el título de la
+página sea “<em>Hola mundo</em>”).</p>
+
+<p>Ahora es momento de guardar las pruebas al disco duro. Deberás guardar 2
+archivos, uno que contiene la suite de pruebas (<code class="language-plaintext highlighter-rouge">Test suite</code>) y otro con el
+caso de prueba (<code class="language-plaintext highlighter-rouge">Test Case</code>). Una suite de pruebas puede contener muchos casos
+de prueba. Selecciona el siguiente menú: <code class="language-plaintext highlighter-rouge">File-&gt; Save Test Suite</code>. En este
+momento se pedirá que des primero el nombre del caso de prueba (<code class="language-plaintext highlighter-rouge">MiPrueba.html</code>)
+y posteriormente el nombre de la suite de pruebas (<code class="language-plaintext highlighter-rouge">MiSuitedePruebas.html</code>).</p>
+
+<p>Yo guarde el archivo dentro de un subdirectorio (Llamado <code class="language-plaintext highlighter-rouge">Pruebas</code>) dentro del
+directorio donde guarde el HTML de <em>hola mundo</em>. La cosa queda así:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── index.html
+└── Pruebas
+    ├── HolaMundo.html
+    └── MiSuitedePruebas.html
+
+1 directory, 3 files
+</code></pre></div></div>
+
+<p>¿Cuál es la diferencia entre una suite de pruebas y un caso de prueba? La
+suite de pruebas agrupa a casos de prueba y estas últimas agrupan varias
+pruebas individuales.</p>
+
+<h2 id="ejecución-de-pruebas-con-selenium-server">Ejecución de pruebas con Selenium Server</h2>
+
+<p>Descarga <a href="http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar">Selenium Server de este link</a>.</p>
+
+<p>La última version de Selium Server(SS) al momento de escribir esta guía(Julio
+del 2014) era la versión 2.42.2. Tal vez quieras pasar por la página de
+<a href="http://www.seleniumhq.org/download/">descargas de Selenium</a> para averiguar 
+si hay alguna nueva versión disponible.</p>
+
+<p>La descarga es un archivo <code class="language-plaintext highlighter-rouge">.jar</code> que puede ser invocado directamente desde la
+consola:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-jar</span> selenium-server-standalone-2.42.2.jar
+</code></pre></div></div>
+
+<p>Si ejecutas el comando anterior, se lanzará el servidor de selenium en la
+consola, pero no vamos a hacer uso de ese modo. SS tiene varias opciones que
+se pueden configurar y ajustar. Para ver una lista completa de estas opciones
+bastará con poner un <code class="language-plaintext highlighter-rouge">-h</code> como parámetro a SS.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-jar</span> selenium-server-standalone-2.42.2.jar <span class="nt">-h</span>
+</code></pre></div></div>
+
+<p>De todas esas opciones, sólo me interesa la opción <code class="language-plaintext highlighter-rouge">-htmlSuite</code>. Esta opción
+hará que SS ejecute solamente una suite de pruebas (tambien llamada Suite
+Selenese o HTML Selenese) usando Firefox.</p>
+
+<p>Se requerirán 4 parámetros.</p>
+
+<ol>
+  <li>
+    <p>El primer parámetro es una cadena que especifica el navegador a usar; para
+este ejemplo usaremos “<code class="language-plaintext highlighter-rouge">*firefox</code>”</p>
+  </li>
+  <li>
+    <p>El segundo parámetro es la URL de inicio (Start URL); para este ejemplo
+será: <code class="language-plaintext highlighter-rouge">http://localhost:8000</code>.</p>
+
+    <p><strong>NOTA</strong>: No olvides arrancar el servidor con la página de prueba. O si ya
+ tienes uno configurado entonces usa la url de tu servidor.</p>
+  </li>
+  <li>
+    <p>El tercer parámetro  es la ruta absoluta a la suite de pruebas; para este
+ejemplo será: <code class="language-plaintext highlighter-rouge">./Pruebas/MiSuitedePruebas.html</code>
+ <strong>NOTA</strong>: Estoy usando la ruta relativa al directorio actual.</p>
+  </li>
+  <li>
+    <p>El cuarto y último parámetro es la ruta a un archivo HTML donde se
+escribirán los resultados de la prueba; en este caso será: <code class="language-plaintext highlighter-rouge">./Resultados.html</code></p>
+  </li>
+</ol>
+
+<p>El comando que deberás correr es algo parecido a esto:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-jar</span> ./selenium-server-standalone-2.42.2.jar <span class="nt">-htmlSuite</span> <span class="s2">"*firefox"</span> <span class="s2">"http://localhost:8000"</span> ./Pruebas/MiSuitedePruebas.html ./Resultados.html
+</code></pre></div></div>
+
+<p>Ejecútalo. Pronto aparecerán dos ventanas de Firefox, una de selenium y otra
+con la página de “<code class="language-plaintext highlighter-rouge">Hola Mundo</code>”. Como la prueba es tan pequeña, las ventanas
+aparecerán y desaparecerán muy rápido. No te alarmes. En la consola podrás ver
+lo que ha ocurrido:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>java <span class="nt">-jar</span> ./selenium-server-standalone-2.42.2.jar <span class="nt">-htmlSuite</span> <span class="s2">"*firefox"</span> <span class="s2">"http://localhost:8000"</span> ./Pruebas/MiSuitedePruebas.html ./Resultados.html <span class="nt">-singleWindow</span>
+Jul 21, 2014 11:16:03 AM org.openqa.grid.selenium.GridLauncher main
+INFO: Launching a standalone server
+11:16:03.167 INFO - Java: Oracle Corporation 25.5-b02
+11:16:03.168 INFO - OS: Linux 3.15.4-200.fc20.x86_64 amd64
+11:16:03.173 INFO - v2.42.2, with Core v2.42.2. Built from revision 6a6995d
+11:16:03.224 INFO - Default driver org.openqa.selenium.ie.InternetExplorerDriver registration is skipped: registration capabilities Capabilities <span class="o">[{</span><span class="nv">ensureCleanSession</span><span class="o">=</span><span class="nb">true</span>, <span class="nv">browserName</span><span class="o">=</span>internet explorer, <span class="nv">version</span><span class="o">=</span>, <span class="nv">platform</span><span class="o">=</span>WINDOWS<span class="o">}]</span> does not match with current platform: LINUX
+11:16:03.246 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+11:16:03.246 INFO - Version Jetty/5.1.x
+11:16:03.247 INFO - Started HttpContext[/selenium-server,/selenium-server]
+11:16:03.259 INFO - Started org.openqa.jetty.jetty.servlet.ServletHandler@725bef66
+11:16:03.259 INFO - Started HttpContext[/wd,/wd]
+11:16:03.259 INFO - Started HttpContext[/selenium-server/driver,/selenium-server/driver]
+11:16:03.259 INFO - Started HttpContext[/,/]
+11:16:03.262 INFO - Started SocketListener on 0.0.0.0:4444
+11:16:03.262 INFO - Started org.openqa.jetty.jetty.Server@30dae81
+11:16:03.278 WARN - Caution: <span class="s1">'/usr/bin/firefox'</span>: file is a script file, not a real executable.  The browser environment is no longer fully under RC control
+jar:file:/home/nnieto/Code/Varios/HolaMundo%20con%20Selenium/selenium-server-standalone-2.42.2.jar!/customProfileDirCUSTFFCHROME
+11:16:03.343 INFO - Preparing Firefox profile...
+11:16:04.245 INFO - Launching Firefox...
+11:16:04.840 INFO - Checking Resource aliases
+11:16:05.875 INFO - Checking Resource aliases
+11:16:05.875 INFO - Received posted results
+HolaMundo.html
+&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">"HolaMundo.html"</span><span class="o">&gt;</span>Hola Mundo&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+
+11:16:06.246 INFO - Killing Firefox...
+11:16:06.299 INFO - Shutting down...
+</code></pre></div></div>
+
+<p>Y en el directorio actual aparecerá el archivo con los resultados:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>tree
+<span class="nb">.</span>
+├── index.html
+├── Pruebas
+│   ├── HolaMundo.html
+│   └── MiSuitedePruebas.html
+├── Resultados.html
+└── selenium-server-standalone-2.42.2.jar
+</code></pre></div></div>
+
+<p>Abre <code class="language-plaintext highlighter-rouge">Resultados.html</code>. Deberás poder ver algo asi:</p>
+
+<p><img src="/media/Screenshot_from_2014_07_21_11_22_27" alt="Resultado de la suite de pruebas" /></p>
+
+<p>He aquí el resultado:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>numTestTotal:</td>
+      <td>+ 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>numTestPasses:</td>
+      <td>+ 1</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recapitulando">Recapitulando</h2>
+
+<p>Lo que hicimos fue:</p>
+
+<ul>
+  <li>
+    <p>Escribimos una página HTML con el texto “Hola Mundo”  y la montamos en un
+servidor web (PHP o Python, pero bien pudo haber sido nginx o Apache).</p>
+  </li>
+  <li>
+    <p>Instalamos Selenium IDE y creamos la primera y única prueba dentro de un
+ caso de prueba (<code class="language-plaintext highlighter-rouge">Test case</code>), dentro de una suite de Pruebas.</p>
+  </li>
+  <li>
+    <p>Descargamos Selenium Server y corrimos la prueba.</p>
+  </li>
+  <li>
+    <p>Finalmente revisamos los resultados.</p>
+  </li>
+</ul>
+
+<p>Espero que esta guía sea de utilidad para alguien más.</p>
+
+<hr />
+<p>Imagen de portada: <a href="https://flic.kr/p/6XE7DB">https://flic.kr/p/6XE7DB</a></p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html&title=Hola+Mundo+con+Selenium+sin+programar+nada&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html';
+      this.page.identifier = 'http://blog.noenieto.com/2014/07/15/selenium-hola-mundo-sin-programar.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

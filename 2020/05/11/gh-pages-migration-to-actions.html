@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Migrating blog from GH Pages to GH Actions | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Migrating blog from GH Pages to GH Actions" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is how my blog looks before update:" />
+<meta property="og:description" content="This is how my blog looks before update:" />
+<link rel="canonical" href="http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:image" content="http://blog.noenieto.com/media/unsplash/markus-spiske-Tem0_jHYDgQ-unsplash.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-11T23:32:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://blog.noenieto.com/media/unsplash/markus-spiske-Tem0_jHYDgQ-unsplash.jpg" />
+<meta property="twitter:title" content="Migrating blog from GH Pages to GH Actions" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2020-05-11T23:32:00+00:00","datePublished":"2020-05-11T23:32:00+00:00","description":"This is how my blog looks before update:","headline":"Migrating blog from GH Pages to GH Actions","image":"http://blog.noenieto.com/media/unsplash/markus-spiske-Tem0_jHYDgQ-unsplash.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html"},"url":"http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Migrating blog from GH Pages to GH Actions</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: May 11, 2020 by Noe Nieto</p>
+
+    
+
+    <p>This is how my blog looks before update:</p>
+
+<p><img src="/media/screenshots/Screenshot_2020-05-11-blog.png" alt="Before update" /></p>
+
+<p>GitHub Pages is cool, but it only supports <a href="https://pages.github.com/themes/">a fixed set of themes</a>. After several
+years of neglect, the COVID19 quarantine gave me enough spare time to give my
+blog some long needed attention.</p>
+
+<p>Initially I wanted to use the <a href="https://github.com/gnarlacious/jekyll-theme-foundation">foundation theme</a>, but after some thought I ended using
+<a href="https://github.com/chrisrhymes/bulma-clean-theme">bulma-clean-theme</a> because
+colors are nicer and also has some degree of configurability.</p>
+
+<p>These are the things I did:</p>
+
+<ul>
+  <li>I added a new front-page layout to present the latest 5 posts.</li>
+  <li>Configured the new navigation menu links:</li>
+  <li>Setup a page for the posts archive</li>
+  <li>The about page was ugly and had to go, so i replaced it with a link to my main page.</li>
+  <li>I also upgraded Jekyll to 3.8</li>
+</ul>
+
+<p>I also worked a bit on the deployment. I want to make the deployment automatic.
+GH Pages didn’t like my customizations, so I had to find another way.</p>
+
+<h3 id="gh-actions-to-the-rescue">GH Actions to the rescue.</h3>
+
+<p>I ended up concocting something like this:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Jekyll site CI</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">master</span> <span class="pi">]</span>
+  <span class="na">pull_request</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">master</span> <span class="pi">]</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build_and_deploy</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">GitHub Checkout</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v1</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Bundler Cache</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/cache@v1</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">path</span><span class="pi">:</span> <span class="s">vendor/bundle</span>
+          <span class="na">key</span><span class="pi">:</span> <span class="s">${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}</span>
+          <span class="na">restore-keys</span><span class="pi">:</span> <span class="pi">|</span>
+            <span class="s">${{ runner.os }}-gems-</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build &amp; Deploy to GitHub Pages</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">joshlarsen/jekyll4-deploy-gh-pages@master</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
+          <span class="na">GITHUB_REPOSITORY</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_REPOSITORY }}</span>
+          <span class="na">GITHUB_ACTOR</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_ACTOR }}</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Rsync the build</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">Pendect/action-rsyncer@v1.1.0</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">DEPLOY_KEY</span><span class="pi">:</span> <span class="s">${{secrets.DEPLOY_KEY}}</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">src</span><span class="pi">:</span> <span class="s">_site/</span>
+          <span class="c1"># Remote server and path. i.e user@server.com:/var/www/server.com/</span>
+          <span class="na">dest</span><span class="pi">:</span> <span class="s">nnieto@opal7.opalstack.com:/home/nnieto/apps/blog_noenieto_com/</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Display status from deploy</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">echo "${{ steps.deploy.outputs.status }}"</span>
+</code></pre></div></div>
+
+<p>The steps of this pipeline are:</p>
+
+<ul>
+  <li><a href="https://github.com/actions/checkout">Checkout</a> the latest changes on master</li>
+  <li>Cache bundler dependencies.</li>
+  <li><a href="https://github.com/joshlarsen/jekyll4-deploy-gh-pages">Build the blog</a> and save it to the <code class="language-plaintext highlighter-rouge">_site</code> folder.</li>
+  <li>Upload the site using <a href="https://github.com/Pendect/action-rsyncer">rsync</a>.</li>
+</ul>
+
+<p>To configure the rsync connection to my server I created a SSH keypair using the <a href="https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54">Ed25519 algorithm</a>.
+After that I copied the private key and pasted it as <code class="language-plaintext highlighter-rouge">DEPLOY_KEY</code> into my repo’s <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets">encrypted secrets</a>.</p>
+
+<p>I created a <code class="language-plaintext highlighter-rouge">.nojekyll</code> file in the root of my repository so that the GH Pages
+robot won’t try to build my site.</p>
+
+<p>Finally I reconfigured my DNS to point to the new server. And this is the way it
+looks now.</p>
+
+<p><img src="/media/screenshots/Screenshot_2020-05-12-blog.png" alt="After update" class="img-responsive" /></p>
+
+<h2 id="credits">Credits</h2>
+
+<p><span>Cover photo by <a href="https://unsplash.com/@markusspiske">Markus Spiske</a> on 
+<a href="https://unsplash.com/s/photos/actions">Unsplash</a></span></p>
+
+</div>
+
+<div class="tags">
+    
+      <span class="tag  is-primary ">
+    github
+</span>
+    
+      <span class="tag  is-primary ">
+    devops
+</span>
+    
+      <span class="tag  is-primary ">
+    blog
+</span>
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html&title=Migrating+blog+from+GH+Pages+to+GH+Actions&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html';
+      this.page.identifier = 'http://blog.noenieto.com/2020/05/11/gh-pages-migration-to-actions.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>¿Cómo actualizar un SQL Server? | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="¿Cómo actualizar un SQL Server?" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-05-14T22:29:10+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="¿Cómo actualizar un SQL Server?" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2014-05-14T22:29:10+00:00","datePublished":"2014-05-14T22:29:10+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"¿Cómo actualizar un SQL Server?","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html"},"url":"http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">¿Cómo actualizar un SQL Server?</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: May 14, 2014 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/Wonder_Lake_Denali.jpg" alt="Portada" /></p>
+
+<p>Primero se necesita saber qué version de SQL Server esta instalada.</p>
+
+<p>Hay varias formas. Una es con el <em>Object Exporer</em> de <em>Sql Server Management
+Studio (SSMS)</em>. Al conectarse a la base de datos se puede ver la versión entre
+paréntesis, al lado del nombre del servidor.</p>
+
+<p><img src="/media/Screenshot_from_2014_05_14_15_41_34.png" alt="Object Explorer de SSMS" /></p>
+
+<p>Tambien se puede sacar la ventana de de propiedades de la base de datos desde
+el <em>Object Explorer</em>  y mirar el campo <em>Version</em>.</p>
+
+<p><img src="/media/Screenshot_from_2014_05_14_15_53_04.png" alt="Acceder a la ventana de propiedades" />
+<img src="/media/Screenshot_from_2014_05_14_15_53_03.png" alt="Revisar versión en la ventana de propiedades" /></p>
+
+<p>Otra opción más es hacer un sencillo query:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">msdb</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">@@</span><span class="n">SERVERNAME</span> <span class="k">AS</span> <span class="p">[</span><span class="n">Nombre</span> <span class="n">del</span> <span class="n">servidor</span><span class="p">],</span> <span class="o">@@</span><span class="k">VERSION</span> <span class="k">AS</span> <span class="p">[</span><span class="k">Version</span><span class="p">];</span>
+<span class="k">GO</span>
+</code></pre></div></div>
+<p>En mi caso, el resultado es:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Microsoft SQL Server 2012 (SP1) - 11.0.3128.0 (X64)
+    Dec 28 2012 20:23:12
+    Copyright (c) Microsoft Corporation
+    Enterprise Evaluation Edition (64-bit) on Windows NT 6.2  (Build 9200:)
+</code></pre></div></div>
+
+<p>Después de saber la versión del servidor, fui a consultar el blog
+<a href="http://sqlserverbuilds.blogspot.mx/">sql builds</a>:  y busqué la version
+especifica de mi servidor. En mi caso la version reportada era <code class="language-plaintext highlighter-rouge">11.0.3128.0</code> y
+la encontre como <code class="language-plaintext highlighter-rouge">11.00.3128</code>. Seguí la lista hacia arriba y el último
+<em>Cumulative Update (CU)</em> publicado al 18 de Marzo del 2014 (en la fecha en la
+que hice este blog) fue el <code class="language-plaintext highlighter-rouge">2931078</code> y el título es: “<em>Cumulative update
+package 9 for SQL Server 2012 Service Pack 1</em>”. Este CU ofrece cuatro
+descargas. A mi solo me interesa la de SQL Server; esta tiene el nombre de
+<code class="language-plaintext highlighter-rouge">SQLServer2012_SP1_CU9_2931078_11_0_3412_x64</code>.</p>
+
+<p>Para bajar el CU me pidieron mi direccion de correo electrónico y que
+demostrara que no soy un robot. Después me mandaron el link de descarga en mi
+correo.</p>
+
+<p>Tuve que refunfuñar algo con Internet Explorer de Windows 2012R2. Su
+configuracion de seguridad avanzada es bastante molesta y hace que el
+navegador sea casi inútil. Tuve que mover varios controles hasta que me dejara
+descargar el CU.</p>
+
+<p>El CU es un exe que trae otro exe comprimido. Descomprimí el CU al directorio
+<code class="language-plaintext highlighter-rouge">C:\Updates</code> y cuando lo ejecuté resultó que extrajo más archivos. Creo que a
+los de Microsoft les gustan las Matrioskas.</p>
+
+<p><img src="/media/First_matryoshka_museum_doll_open_0.jpg" alt="A alguien en Microsoft le gustan las Matrioskas" /></p>
+
+<p>Despues de un rato de estar desparramando archivos por ahí, comienza el
+proceso de de instalación del CU. Este proceso es bastante aburrido.</p>
+
+<p>Basicamente es esperar a que salga el instalador de SQL Server, …</p>
+
+<p><img src="/media/Screenshot_from_2014_05_14_17_47_32.png" alt="¡¡¡Aburrido!!!" /></p>
+
+<p>… aceptar que le vendes tu alma al chamuco, …</p>
+
+<p><img src="/media/Screenshot_from_2014_05_14_17_49_45.png" alt="Aceptar la licencia" /></p>
+
+<p>… y darle next, next, next por que no hay otra opción.</p>
+
+<p>Despues de un rato de hacer su chamba, el instalador termina reportando lo que
+ha salido mal y lo que ha salido bien. En mi caso todo salió bien. Reinicié el
+servidor para no tener dudas de que todo funciona al 100%. Finalmente, el
+Object Explorer del SSMS  muestra la nueva version de SQL Server 2012.</p>
+
+<p><img src="/media/Screenshot_from_2014_05_15_08_17_18.png" alt="SQL Version 11.00.3412SQL Version 11.00.3412 :)" /></p>
+
+<p>Esta version corresponde al <a href="http://support.microsoft.com/kb/2931078/en-us">2931078 Cumulative update package 9 (CU9) for SQL
+Server 2012 Service Pack 1</a>.</p>
+
+<p>Y eso es todo.</p>
+
+<p>P.D. Esta página en inglés es la que leí antes de hacer este post.</p>
+
+<p>https://sqlserverperformance.wordpress.com/2011/01/12/how-to-obtain-and-install-sql-server-service-packs-and-cumulative-updates/</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html&title=%C2%BFC%C3%B3mo+actualizar+un+SQL+Server%3F&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html';
+      this.page.identifier = 'http://blog.noenieto.com/2014/05/14/Como_actualizar_un_SQL_Server.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

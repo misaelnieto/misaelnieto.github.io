@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Preparando Fedora para Drupal 7 al estilo Noe | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Preparando Fedora para Drupal 7 al estilo Noe" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro" />
+<meta property="og:description" content="Intro" />
+<link rel="canonical" href="http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-06-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Preparando Fedora para Drupal 7 al estilo Noe" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2014-06-19T00:00:00+00:00","datePublished":"2014-06-19T00:00:00+00:00","description":"Intro","headline":"Preparando Fedora para Drupal 7 al estilo Noe","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html"},"url":"http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Preparando Fedora para Drupal 7 al estilo Noe</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jun 19, 2014 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+
+<p><img src="http://blog.noenieto.com/media/Screenshot-2014-06-19-20_10_24.png" alt="PHP corriendo su servidor interno desde la linea de comandos" /></p>
+
+<p>Tengo unos minutos libres y decidí complicarme la vida un poco más de lo que
+ya esta. Resulta que hace algunas semanas instale Fedora desde cero y ya perdi
+todo lo que estaba haciendo con Drupal. Ahora lo tengo que re hacer, pero:</p>
+
+<ul>
+  <li>No voy a usar Apache por que PHP ya trae un servidor web integrado y</li>
+  <li>
+    <p>funciona bastante bien para desarrollar cosas en Drupal.</p>
+  </li>
+  <li>Tampoco voy a instalar MySQL o MariaDB por que Drupal puede usar SQLite y</li>
+  <li>
+    <p>tambien funciona bastante bien.</p>
+  </li>
+  <li>Solo necesito instalar PHP, composer y drush para comenzar a chambear.</li>
+</ul>
+
+<p>¡Manos a la obra!</p>
+
+<h2 id="instalando-php">Instalando PHP</h2>
+
+<p>Instalé <code class="language-plaintext highlighter-rouge">php</code> junto con <code class="language-plaintext highlighter-rouge">php-pdo</code> (para SQLite) y <code class="language-plaintext highlighter-rouge">php-gd</code> para que Drupal pueda
+usar la librería de gráficos GD.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum <span class="nb">install </span>php php-cli php-pdo php-gd
+</code></pre></div></div>
+
+<p>Cuando se instala php, automaticamente se instala Apache. Para revisar si
+Apache se arranca junto con la maquina se puede hacer uso de <code class="language-plaintext highlighter-rouge">systemctl</code> (Fedora
+ya viene con systemd)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl status httpd
+httpd.service - The Apache HTTP Server
+   Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/httpd.service<span class="p">;</span> disabled<span class="o">)</span>
+   Active: inactive <span class="o">(</span>dead<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="instalar-composer">Instalar composer</h2>
+
+<p>Ya tenemos php, ahora es necesario instalar
+<a href="https://getcomposer.org/">composer</a> de manera local.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> <span class="nt">-p</span> ~/bin
+<span class="nv">$ </span><span class="nb">cd</span> ~/bin
+<span class="nv">$ </span>curl <span class="nt">-sS</span> https://getcomposer.org/installer | php
+All settings correct f0r using Composer
+
+Downloading...
+
+Composer successfully installed to: /home/nnieto/bin/composer.phar
+Use it: php composer.phar
+</code></pre></div></div>
+
+<p>El primer comando es para crear el directorio <code class="language-plaintext highlighter-rouge">~/bin</code>. Fedora ya esta
+configurado para incluir ese directorio en <code class="language-plaintext highlighter-rouge">$PATH</code>. Si en ese directorio
+colocamos algun o script que sea ejecutable, podremos invocarlo solo con su
+nombre desde cualquier lugar.</p>
+
+<h2 id="instalar-drush">Instalar Drush</h2>
+
+<p>Ahora es momento de instalar <a href="https://github.com/drush-ops/drush">Drush</a> con:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer.phar global require drush/drush:dev-master
+
+Changed current directory to /home/nnieto/.composer
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies <span class="o">(</span>including require-dev<span class="o">)</span>
+  - Updating drush/drush dev-master <span class="o">(</span>7dd8076 <span class="o">=&gt;</span> 12942ed<span class="o">)</span>
+    Checking out 12942ed3eaf8b6be5372baec32169ba61a04b22f
+
+Writing lock file
+Generating autoload files
+</code></pre></div></div>
+<p>Luego hice una liga simbólica hacia el directorio <code class="language-plaintext highlighter-rouge">~/bin</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ln</span> <span class="nt">-s</span> ~/.composer/vendor/drush/drush/drush ~/bin/drush
+</code></pre></div></div>
+
+<p>¿Por qué? Para que pueda invocar a drush desde cualquier ruta :)</p>
+
+<h2 id="instalar-drupal-con-drush">Instalar Drupal con Drush</h2>
+
+<p>Según <a href="http://www.coderintherye.com/install-drupal-7-using-drush">este sitio</a>
+con Drush puedo instalar y configura Drupal 7 en dos patadas. ¡Eso me gusta!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>drush dl drupal-7.x
+Project drupal <span class="o">(</span>7.x-dev<span class="o">)</span> downloaded to /home/nnieto/Code/Hkl/hkl_drupal/drupal-7.x-dev.   <span class="o">[</span>success]
+Project drupal Contains:                                                                  <span class="o">[</span>success]
+ - 3 profiles: standard, minimal, testing
+ - 4 themes: seven, stark, bartik, garland
+ - 47 modules: update, menu, dashboard, simpletest, forum, image, <span class="nb">help</span>, aggregator, rdf, blog, syslog, search, dblog, trigger, locale, profile, number, text,
+field_sql_storage, options, list, field, translation, shortcut, taxonomy, field_ui, toolbar, user, file, comment, tracker, system, color, php, contextual,
+block, statistics, contact, openid, node, overlay, book, poll, filter, path, drupal_system_listing_incompatible_test, drupal_system_listing_compatible_test
+</code></pre></div></div>
+
+<p>¿Qué hizo? Bajó una copia de Drupal (asumo que era la más reciente) y la puso
+en una carpeta de nombre drupal-7.x-dev. Nada mal.</p>
+
+<p>Ahora es momento de usar drush para configurar el sitio desde la linea de comandos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>drupal-7.x-dev
+<span class="nv">$ </span>drush site-install standard <span class="nt">--account-name</span><span class="o">=</span>admin <span class="nt">--account-pass</span><span class="o">=</span>admin <span class="nt">--db-url</span><span class="o">=</span>sqlite://sites/default/files/.ht.sqlite
+
+You are about to CREATE the <span class="s1">'sites/default/files/.ht.sqlite'</span> database.
+Do you want to <span class="k">continue</span>? <span class="o">(</span>y/n<span class="o">)</span>: y
+Starting Drupal installation. This takes a few seconds ...       <span class="o">[</span>ok]
+Installation complete.  User name: admin  User password: admin   <span class="o">[</span>ok]
+
+</code></pre></div></div>
+
+<p>¡Ooookey! ¿Qué quiere decir esto? ¿Ya instaló y configuró Drupal? ¿Apoco ya no
+necesito correr el wizard de instalación? ¿Dónde puso la base de datos?</p>
+
+<p>Primero contesto la última pregunta: ¿Dónde metio la base de datos? Bueno, yo
+se que estoy dentro del directorio de instalación de Drupal y que la URI de la
+base de datos fue <code class="language-plaintext highlighter-rouge">sqlite://sites/default/files/.ht.sqlite</code> y además esa URI se
+parece  al directorio sites de Drupal. ¿Será?</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span> sites/default/files/
+total 780
+drwxrwxr-x. 3 nnieto nnieto   4096 Jun 19 19:52 <span class="nb">.</span>
+dr-xr-xr-x. 3 nnieto nnieto   4096 Jun 19 19:43 ..
+<span class="nt">-r--r--r--</span><span class="nb">.</span> 1 nnieto nnieto    476 Jun 19 19:45 .htaccess
+<span class="nt">-rw-r--r--</span><span class="nb">.</span> 1 nnieto nnieto 778240 Jun 19 19:52 .ht.sqlite
+drwxrwxr-x. 2 nnieto nnieto   4096 Jun 19 19:46 styles
+</code></pre></div></div>
+
+<p>¡Si! Ahí esta el archivo `.ht.sqlite :) Ya voy entendiendo…</p>
+
+<h2 id="corriendo-el-servidor-web-de-php">Corriendo el servidor web de PHP</h2>
+
+<p>Python y Node.js traen servidores web integrados. Esos servidores web son muy
+básicos que no estan hechos para ponerlos en producción. Pero sirven muy bien
+para desarrollo y evitar la molestia de configurar un servidor real. PHP
+también tiene un servidor web integrado. Me lo dijeron en
+<a href="http://drupal.stackexchange.com/questions/111200/how-to-run-drupal-from-the-console">StackExchange</a>
+;).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>php <span class="nt">-S</span> localhost:8000
+PHP 5.5.13 Development Server started at Thu Jun 19 20:05:10 2014
+Listening on http://localhost:8000
+Document root is /home/nnieto/Code/Hkl/hkl_drupal/drupal-7.x-dev
+Press Ctrl-C to quit.
+</code></pre></div></div>
+<p><strong>Actualización</strong>: Las versiones recientes de Drush incluyen un comando <code class="language-plaintext highlighter-rouge">rs</code> que
+ejecuta el servidor web integrado de php en el puerto <code class="language-plaintext highlighter-rouge">8888</code>.</p>
+
+<p>Y si, funciona:</p>
+
+<p><img src="http://blog.noenieto.com/media/Screenshot_from_2014_06_19_20_06_56_0.png" alt="Drupal funcionando en el servidor web integrado de PHP" /></p>
+
+<p>¿Cómo te quedó el ojo?</p>
+
+<p>– Fin</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html&title=Preparando+Fedora+para+Drupal+7+al+estilo+Noe&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html';
+      this.page.identifier = 'http://blog.noenieto.com/2014/06/19/fedora-drupal-estilo-noe.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

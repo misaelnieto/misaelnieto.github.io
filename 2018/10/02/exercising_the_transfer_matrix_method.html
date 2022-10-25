@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Exercising_the_transfer_matrix_method | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Exercising_the_transfer_matrix_method" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Exercising the transfer matrix method" />
+<meta property="og:description" content="Exercising the transfer matrix method" />
+<link rel="canonical" href="http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-02T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Exercising_the_transfer_matrix_method" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2018-10-02T00:00:00+00:00","datePublished":"2018-10-02T00:00:00+00:00","description":"Exercising the transfer matrix method","headline":"Exercising_the_transfer_matrix_method","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html"},"url":"http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Exercising_the_transfer_matrix_method</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Oct 2, 2018 by Noe Nieto</p>
+
+    
+
+    <h2 id="exercising-the-transfer-matrix-method">Exercising the transfer matrix method</h2>
+
+<p>I’m attending a class on Electromagneting Wave Propagation in the Instituto de Ingeniería, UABC Mexicali, with Dr. Carlos Villa Angulo. He kindly allowed me to go to the class altough i’m not currently enrolled as a graduate student. Here in Mexico we say that I’m attending as <em>“Listener (oyente)”</em>. I don’t know the exact term used in english for this but I know nobody visits my blog, so it doesn’t matter anyway.</p>
+
+<p>We are now in the 5th or 6th week of the course and we are now studying the Transfer Matrix Method to understand the propagation of electromagnetic waves (e.g. Light) through different layers of materials with different reflection and absoroption coefficients. There are a lot of applications for this method, and is one used to simulate the absorption of light in a solar cell with multple layers.</p>
+
+<p>Since we are just a few people in the class room (9) the professor assigned a different device for each sudent and everyone must make a presentation and write a detailed report with the calculations made.</p>
+
+<h2 id="the-device">The device</h2>
+
+<p>My device has 4 layers: ITO (Indium-Tin-Oxide), a-Si-n, a-Si-p and Aluminum. Let’s picture that with majestic detail using our latest, state of the art, ASCII 2D diagrams (but using UTF-8, sorry):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ~ ~ ~ Air ~ ~ ~
+
++-------------------+ &lt;------+  Interface 1
+|  ITO (200nm)      | &lt;------------------------+ Layer 1
++-------------------+ &lt;------+  Interface 2
+|                   |
+|  a-Si-p (300 nm)  | &lt;------------------------+ Layer 2
+|                   |
++-------------------+ &lt;------+  Interface 3
+|                   |
+|  a-Si-n (10 µm)   | &lt;------------------------+ Layer 3
+~                   ~
+~                   ~
++-------------------+ &lt;------+  Interface 4
+|  Al (500 nm)      | &lt;------------------------+ Layer 4
++-------------------+
+
+           * Important: not to scale
+</code></pre></div></div>
+
+<p>Final note (yet important): the professor assigned us to analyze the electric field in only one layer, which in my case is the layer number three, only on the 600nm wavelenght! After this exercise I might post a follow-up with the analysis of the electric field for all the layers.</p>
+
+<p>So let’s get our hands dirty, will ya?</p>
+
+<h2 id="step-1-get-the-coefficients-for-the-materials">Step 1: Get the coefficients for the materials</h2>
+
+<p>We need to model the behavior of light when it goes through the differnt layers of our device. For that we will use the complex refractive indexes for each material on our device (including air).</p>
+
+<p>The guys at PV Lighthouse are kind enough to publish refractive index tables for a wide variety of materials, including Silicon. They even add the citation of their references!. So, for my own convenience, I’m going to include a small table with the real and imaginary part of all the materials needed to build the device above @ 600 nm.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th style="text-align: center">λ (nm)</th>
+      <th style="text-align: center">n</th>
+      <th style="text-align: center">k</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 (air)</td>
+      <td style="text-align: center">600</td>
+      <td style="text-align: center">1.0</td>
+      <td style="text-align: center">0.0</td>
+      <td>[Lei18]</td>
+    </tr>
+    <tr>
+      <td>1 (ITO)</td>
+      <td style="text-align: center">600</td>
+      <td style="text-align: center">2.134</td>
+      <td style="text-align: center">8.370E-4</td>
+      <td>ITO Sputtered @1.2e20 cm-3 (Lei-18)</td>
+    </tr>
+    <tr>
+      <td>2 (a-Si-p)</td>
+      <td style="text-align: center">600</td>
+      <td style="text-align: center">3.710</td>
+      <td style="text-align: center">8.496E-2</td>
+      <td>-type amorphous silicon deposited by PECVD  (Lei-18)</td>
+    </tr>
+    <tr>
+      <td>3 (a-Si-n)</td>
+      <td style="text-align: center">600</td>
+      <td style="text-align: center">3.934</td>
+      <td style="text-align: center">8.559E-2</td>
+      <td>n-type amorphous silicon deposited by PECVD (Lei-18)</td>
+    </tr>
+    <tr>
+      <td>4 (Al)</td>
+      <td style="text-align: center">600</td>
+      <td style="text-align: center">1.200</td>
+      <td style="text-align: center">7.260</td>
+      <td>[Pal85b]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em><strong>Table 1</strong> - Refractive indexes for Air, ITO, a-Si and Al</em></p>
+
+<h2 id="step-2-compute-reflection-and-transmission-at-the-interfaces">Step 2: Compute reflection and transmission at the interfaces</h2>
+
+<p>The first interface ( ( I_0) ) is between the air and ITO</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Air        ITO
+           +----------------------------+
+           |                            |
+           +----- Transmission ---&gt;     |
+           |                            |
++----------&gt;                            |
+           |                            |
+           &lt;------ Reflection ----+     |
+           |                            |
+           |                            |
+       +--------------------------------+
+ Layer 0   |          Layer 1
+           |
+           +----&gt; Interface 0
+</code></pre></div></div>
+
+<p>The reflection on the interface 3 is right in-between layer 2 and 3, so i’ll name it ( r_{23} ). It’s calculated by the following expression:</p>
+
+\[r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\\]
+
+<p>… so … :</p>
+
+\[r_{23} = \frac{ 3.934 + i8.559x10^{-2}  -  3.710 - i8.496x10^{-2} }{ 3.934 + i8.559x10^{-2}  +  3.710 + i8.496x10^{-2} }\ \\
+       = \frac{ 0.224 + i6.3x10^{-4}}{ 7.644 + i0.17055 }\ \\
+r_{23} = 0.2929 + i5.71x10^{-4}\]
+
+<p>The transmission of the interface 3 is, conversely:</p>
+
+\[t_{23} = 1 + r{23} = 1 + \frac{ n_3 - n_2 }{n_3 + n_2}\ = 1.2929 + i5.7x10^{-4}\]
+
+<p>Working with complex numbers by using paper and pencil (and maybe a calculator) is no fun, and prone to errors. So I wrote these python functions to compute the transmission and reflection coefficients:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">transmission</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="s">"""
+    Compute the transmission coefficient between two materials.
+
+    Both n1, n2 are the complex refractive indexes for both materials.
+    """</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="n">n1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n2</span> <span class="o">+</span> <span class="n">n1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">reflection</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="s">"""
+    Compute the transmission coefficient between two materials.
+
+    Both n1, n2 are the complex refractive indexes for both materials.
+    """</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="n">n1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n2</span> <span class="o">+</span> <span class="n">n1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Let’s take this functions and test them with our own values:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">n2</span> <span class="o">=</span> <span class="mf">3.710</span> <span class="o">+</span> <span class="mf">0.08496j</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">n3</span> <span class="o">=</span> <span class="mf">3.934</span> <span class="o">+</span> <span class="mf">0.08559j</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">reflection</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">)</span>
+<span class="p">(</span><span class="mf">0.029291286729338666</span><span class="o">-</span><span class="mf">0.0005711183871910915j</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tmm</span><span class="p">.</span><span class="n">transmission</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">)</span>
+<span class="p">(</span><span class="mf">1.0292912867293387</span><span class="o">-</span><span class="mf">0.0005711183871910915j</span><span class="p">)</span>
+</code></pre></div></div>
+<p>… it works, good.</p>
+
+<h2 id="interface-matrix">Interface matrix</h2>
+
+<p>The interface matrix describes the effect on the incident field (e.g. light at λ=600nm) when it impacts interface 3. The interface matrix ( I_{23} ), is defined as follows:</p>
+
+\[I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 &amp; r_{23} \\ r_{23} &amp; 1 \end{bmatrix}\]
+
+<p>After substitution, ( I_{23} ) becomes this:</p>
+
+\[I_{23} =  \frac{1}{1.2929 + i5.7x10^{-4}}   \begin{bmatrix} 1 &amp; 0.2929 + i5.71x10^{-4} \\ 0.2929 + i5.71x10^{-4} &amp; 1 \end{bmatrix}\]
+
+<p>Which is becoming a bit startling …</p>
+
+<p><img src="/media/abandon-thread_fb_3029909.jpg" alt="For mere mortals ..." /></p>
+
+<p>… for mere mortals. Yet we are still here, aren’t we?</p>
+
+<p>Python does not support matrices out of the box, but with a little help of <a href="https://docs.scipy.org/doc/numpy/">numpy</a> we can solve this matrix in no time:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">n2</span> <span class="o">=</span> <span class="mf">3.710</span> <span class="o">+</span> <span class="mf">0.08496j</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">n3</span> <span class="o">=</span> <span class="mf">3.934</span> <span class="o">+</span> <span class="mf">0.08559j</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r_23</span> <span class="o">=</span> <span class="n">reflection</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t_23</span> <span class="o">=</span> <span class="n">transmission</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_23</span>
+<span class="p">(</span><span class="mf">0.9715419774918925</span><span class="o">+</span><span class="mf">0.0005390752787160436j</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">numpy</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">r_23</span><span class="p">],</span> <span class="p">[</span><span class="n">r_23</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]))</span>
+<span class="p">[[</span><span class="mf">1.</span>        <span class="o">+</span><span class="mf">0.j</span>         <span class="mf">0.02929129</span><span class="o">-</span><span class="mf">0.00057112j</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.02929129</span><span class="o">-</span><span class="mf">0.00057112j</span> <span class="mf">1.</span>        <span class="o">+</span><span class="mf">0.j</span>        <span class="p">]]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">I_23</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t_23</span> <span class="o">*</span> <span class="n">numpy</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">r_23</span><span class="p">],</span> <span class="p">[</span><span class="n">r_23</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="p">[[</span><span class="mf">0.97154198</span><span class="o">+</span><span class="mf">0.00053908j</span> <span class="mf">0.02845802</span><span class="o">-</span><span class="mf">0.00053908j</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.02845802</span><span class="o">-</span><span class="mf">0.00053908j</span> <span class="mf">0.97154198</span><span class="o">+</span><span class="mf">0.00053908j</span><span class="p">]]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">I_23</span><span class="p">)</span>
+<span class="p">[[</span><span class="mf">0.97154198</span><span class="o">+</span><span class="mf">0.00053908j</span> <span class="mf">0.02845802</span><span class="o">-</span><span class="mf">0.00053908j</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.02845802</span><span class="o">-</span><span class="mf">0.00053908j</span> <span class="mf">0.97154198</span><span class="o">+</span><span class="mf">0.00053908j</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h2 id="propagation-matrix">Propagation matrix</h2>
+
+<p>The propagation matrix describe the effect on the incident field when it propagates through the layer. To find this matrix we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at λ= 600 nm. We will use the phasorial notation, which is easier to deal with:</p>
+
+<p>\(\beta_3 = \frac {2 \pi d_z}{\lambda} \; n_3 \; cos (\phi_3 )\)
+$$</p>
+
+<p>Where:</p>
+<ul>
+  <li>( n_3 ) is the real par of the complex index of diffraction of layer 3 (n=3.934).</li>
+  <li>( \phi_3 ) is the angle of incidence of the light</li>
+  <li>( d_z ) is the height of layer 3 , which in my case is 10 µm.</li>
+</ul>
+
+<p>So  ( \beta_3 ) becomes:</p>
+
+\[\beta_3 = \frac {2 \pi \cdot d_z}{\lambda} n_3 \cdot cos(\phi_3 )
+        = \frac {2 \pi \cdot 200 nm)}{600 nm} \cdot (3.934) \cdot cos(0)
+        = \frac {2 *3.1416 * 200 nm  * 3.934}{600 nm}
+\\
+\beta_3 = 8.2393696\]
+
+<p>Now we can assemble the propagation matrix:</p>
+
+\[P = \begin{bmatrix} e^{-j \cdot \beta_3 \cdot z} &amp; 0 \\ 0 &amp; e^{-j \cdot\beta_3 \cdot z} \end{bmatrix}
+    \\
+P  =  \begin{bmatrix} {0.9999 - i8.234x10^{-06}} &amp; 0 \\ 0 &amp; 0.9999 - i8.234x10^{-06} \end{bmatrix}\]
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>[Lei18] 	M. Leilaeioun, Z.J. Yu, S. Manzoor, K. Fisher, J. Shi and Z. Holman, ‘Design of the front transparent conductive oxide layer of silicon heterojunction solar for four-terminal tandem applications’, In preparation 2018.</li>
+  <li>[Pal85b] 	E. Palik, Handbook of Optical Constants of Solids Vol I, Academic Press, Orlando, pp. 397–400, 1985.</li>
+</ul>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html&title=Exercising_the_transfer_matrix_method&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html';
+      this.page.identifier = 'http://blog.noenieto.com/2018/10/02/exercising_the_transfer_matrix_method.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

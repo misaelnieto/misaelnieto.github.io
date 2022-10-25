@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Moving a Plone site from AWS to webfaction | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Moving a Plone site from AWS to webfaction" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’ve been helping my friends with their Plone site for some years now. Initially, the site was hosted on IntoVPS, which is quite cheap and nice to setup. Unfortunately, at that time, we needed a lot of storage and their plans didn’t provide enough space, so I moved the site to amazon AWS and it’s been almost two years since then. Unfortunately, AWS is very expensive and we have lowered our storage requirements since then. So I’m moving the site again, this time to WebFaction." />
+<meta property="og:description" content="I’ve been helping my friends with their Plone site for some years now. Initially, the site was hosted on IntoVPS, which is quite cheap and nice to setup. Unfortunately, at that time, we needed a lot of storage and their plans didn’t provide enough space, so I moved the site to amazon AWS and it’s been almost two years since then. Unfortunately, AWS is very expensive and we have lowered our storage requirements since then. So I’m moving the site again, this time to WebFaction." />
+<link rel="canonical" href="http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-05-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Moving a Plone site from AWS to webfaction" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2013-05-04T00:00:00+00:00","datePublished":"2013-05-04T00:00:00+00:00","description":"I’ve been helping my friends with their Plone site for some years now. Initially, the site was hosted on IntoVPS, which is quite cheap and nice to setup. Unfortunately, at that time, we needed a lot of storage and their plans didn’t provide enough space, so I moved the site to amazon AWS and it’s been almost two years since then. Unfortunately, AWS is very expensive and we have lowered our storage requirements since then. So I’m moving the site again, this time to WebFaction.","headline":"Moving a Plone site from AWS to webfaction","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html"},"url":"http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Moving a Plone site from AWS to webfaction</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: May 4, 2013 by Noe Nieto</p>
+
+    
+
+    <p>I’ve been helping <a href="http:/www.holokinesislibros.com">my friends</a> with their
+Plone site for some years now. Initially, the site was hosted on IntoVPS,
+which is quite cheap and nice to setup. Unfortunately, at that time, we needed
+a lot of storage and their plans didn’t provide enough space, so I moved the
+site to amazon AWS and it’s been almost two years since then. Unfortunately,
+AWS is very expensive and we have lowered our storage requirements since then.
+So I’m moving the site again, this time to WebFaction.</p>
+
+<p>We went for the 256MB plan because it includes 256MB of RAM (plone4 uses 160MB
+at most), 100GB of space (right now we need about 60 GB) and 600 GB of
+bandwidth which I’m not measuring yet. So, a single plone instance will fit
+there.</p>
+
+<h2 id="configuring-webfaction">Configuring webfaction</h2>
+
+<p>We are using HTTPS to encrypt the whole site’s traffic. I set up two websites:
+one for HTTP and another for HTTPS. The HTTP website is linked to a
+<strong>Static/CGI/PHP</strong> application that only has two files: an <code class="language-plaintext highlighter-rouge">index.html</code> and a
+<code class="language-plaintext highlighter-rouge">.htaccess</code> file which it’s only purpose is to rewrite/redirect the traffic to
+the HTTPS port.</p>
+
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Options</span> +FollowSymLinks
+<span class="nc">RewriteEngine</span> <span class="ss">on</span>
+<span class="nc">RewriteBase</span> /
+<span class="nc">RewriteRule</span> ^(.*)$ https://www.holokinesislibros.com/$1 [R=301,L]
+</code></pre></div></div>
+
+<p>On the HTTPS website I created a <strong>Zope (2.13.15) - Plone (4.1.6)</strong>
+application. This is basically a directory that contains a Python2.6
+virtualenv, a <code class="language-plaintext highlighter-rouge">buildout-cache</code> directory and uses Plone’s universal installer
+to create and bootstrap a buildout environment in another directory called
+<code class="language-plaintext highlighter-rouge">zinstance</code>. It also creates a crontab entry to start Zope’s instance every 20
+minutes.</p>
+
+<p>But I’m using a customized buildout, so I ignored the <code class="language-plaintext highlighter-rouge">zinstance</code> directory
+and instead cloned my repo on the application directory and bootstraped it
+with a fresh virtualenv of python 2.7.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>webapps/hkl_plone
+virtualenv ve
+hg clone ssh://hg@bitbucket.org/tzicatl/holokinesis_libros
+<span class="nb">cd </span>holokinesis_libros
+../ve/bin/python bootstrap.py <span class="nt">-c</span> webfaction.cfg
+bin/buildout <span class="nt">-c</span> webfaction.cfg
+</code></pre></div></div>
+
+<p>Not everything went smooth. I had to adjust my buildout so it could run with
+the new branch of <code class="language-plaintext highlighter-rouge">zc.buildout</code> 2.0. Namely: some syntax errors in my
+<code class="language-plaintext highlighter-rouge">versions.cfg</code>, remove <code class="language-plaintext highlighter-rouge">buildout.dumppickedversions</code> extension and update
+<code class="language-plaintext highlighter-rouge">bootstrap.py</code></p>
+
+<p>I also had to copy some settings from the <code class="language-plaintext highlighter-rouge">zinstance</code> directory, like the
+port.</p>
+
+<p>Finally, in order to completely switch from <code class="language-plaintext highlighter-rouge">zinstance</code> to my own buildout in
+<code class="language-plaintext highlighter-rouge">holokinesis_libros</code> I change the crontab command, from:</p>
+
+<pre><code class="language-crontab">2,22,42 * * * * $HOME/webapps/hkl_plone/zinstance/bin/instance start &gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
+<p>to:</p>
+
+<pre><code class="language-crontab">2,22,42 * * * * $HOME/webapps/hkl_plone/holokinesis_libros/bin/instance start &gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
+<h2 id="setting-up-https">Setting up HTTPS</h2>
+
+<p>Plone (in fact, Zope2) needs to be monkey-patched so it recognizes the <code class="language-plaintext highlighter-rouge">X-Forwaded-SSL</code> header.
+Fortunately, <a href="http://docs.webfaction.com/software/zope-and-plone/configuring.html#using-zope-over-https">webfaction provides a patch</a>&gt;
+that works really well with recent versions of Plone (4.1.6).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/webapps/hkl_plone/holokinesis_libros/products
+wget <span class="nt">-O</span> patch.tar.gz http://wiki.webfaction.com/attachment/wiki/WebFactionSslPatch/WebFactionSSLPatch-1.0.tar.gz?format<span class="o">=</span>raw
+<span class="nb">tar</span> <span class="nt">-zxvf</span> patch.tar.gz
+<span class="nb">rm </span>patch.tar.gz
+</code></pre></div></div>
+
+<p>I had to to issue a support ticket so the web serve could load my SSL
+certificates. I only had to point them to the directory where my certs are and
+they did all the job cofiguring the certificates.</p>
+
+<h3 id="moving-datafs-and-blobs">Moving <code class="language-plaintext highlighter-rouge">data.fs</code> and blobs</h3>
+
+<p>I went the easy route and made an uncompressed tarball of the <code class="language-plaintext highlighter-rouge">var/</code> directory
+and copied it to the new server.</p>
+
+<p>On the AWS server:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>path/to/plone/on/aws
+<span class="nb">tar</span> <span class="nt">-cf</span> var.tar var/
+<span class="c"># I started a GNU screen session for this.</span>
+rsync <span class="nt">-avz</span> <span class="nt">--delete</span> var/ tzicatl@tzicatl.webfactional.com:/home/tzicatl/webapps/hkl_plone/holokinesis_libros/var/
+<span class="c"># Then go to sleep, because it takes a lot of time to transfer from one site to another.</span>
+</code></pre></div></div>
+
+<p>On the Webfaction server:</p>
+
+<p>.. code-block :: bash</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/webapps/hkl_plone/holokinesis_libros/
+tar -xf var.tar
+</code></pre></div></div>
+
+<h2 id="server-startup-and-configuration-of-vhm">Server startup and configuration of VHM</h2>
+
+<p>Starting the Plone instance is quite easy:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/webapps/hkl_plone/holokinesis_libros/
+bin/instance start
+</code></pre></div></div>
+
+<p>The ZMI welcome screen shows on <a href="https://www.holokinesislibros.com/">https://www.holokinesislibros.com/</a> and
+<a href="https://www.holokinesislibros.com/Plone">https://www.holokinesislibros.com/Plone</a> works very well. Now it is time to login to the ZMI and add
+a few configuration tot he Virtual Host monster. And, at the end I ended up adding just one line:</p>
+
+<div class="language-apache highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="err">*.</span>holokinesislibros.com/Plone
+</code></pre></div></div>
+
+<h2 id="the-end">The end</h2>
+
+<p>Its alive and kicking! :)</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html&title=Moving+a+Plone+site+from+AWS+to+webfaction&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html';
+      this.page.identifier = 'http://blog.noenieto.com/2013/05/04/moving-a-plone-site-from-aws-to-webfaction.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

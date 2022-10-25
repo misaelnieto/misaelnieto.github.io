@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Jugando con IIS, Powershell y WebAdministration | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Jugando con IIS, Powershell y WebAdministration" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-07-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Jugando con IIS, Powershell y WebAdministration" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2014-07-28T00:00:00+00:00","datePublished":"2014-07-28T00:00:00+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"Jugando con IIS, Powershell y WebAdministration","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html"},"url":"http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Jugando con IIS, Powershell y WebAdministration</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jul 28, 2014 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/IMG_5096b.jpg" alt="Pagüer Chel!" /></p>
+
+<h2 id="intro">Intro</h2>
+
+<p>Últimamente he tenido oportunidad de configurar varios servidores con IIS 7.5,
+algunos desde cero. He aprendido un montón acerca de esta tecnología. También
+he estado haciendo algo de trabajo tipo DevOps y estoy configurando un Jenkins
+para correr pruebas con Selenium  automáticamente después de un commit de SVN
+simplemente por que las pruebas manuales son aburridas.</p>
+
+<p>Hay algo que quiero probar. Puedo configurar Jenkins para que elimine el
+directorio de la aplicacion web y haga un checkout limpio de la aplicación
+desde el SVN, pero me queda la duda de qué pasará con el sitio en IIS si de
+repente desaparece la carpeta de la aplicación. Así que me pregunté si sería
+posible controlar IIS mediante PowerShell. La respuesta es <strong>SI</strong>.</p>
+
+<p>Con el módulo/provider <code class="language-plaintext highlighter-rouge">WebAdministration</code> puedo borrar una aplicación del IIS,
+luego que Jenkins elimine el directorio y haga un checkout limpio desde el SVN
+y finalmente restablecer la configuración de la aplicación web.</p>
+
+<p>¡Manos a la obra!</p>
+
+<h2 id="configurar-la-política-de-ejecución-de-scripts">Configurar la política de ejecución de scripts</h2>
+
+<p>¡Ash! Pues resulta que por default PowerShell se negará a ejecutar scripts o
+ciertos comandos que signifiquen algún riesgo para el sitema. <a href="http://technet.microsoft.com/en-us/library/ee176949.aspx">Es una historia
+larga</a> y por el
+momento se interpone en mi objetivo que es controlar IIS con PowerShell y
+resulta más cómodo desactivar esa política completamente y después regresar a
+aprender esa parte. Si estas igual de impaciente como yo, sigue estos pasos:</p>
+
+<ol>
+  <li>
+    <p>Ejecuta PowerShell como Administrador.</p>
+  </li>
+  <li>
+    <p>Pon esto en el PowerShell: <code class="language-plaintext highlighter-rouge">Set-ExecutionPolicy Unrestricted</code></p>
+  </li>
+  <li>
+    <p>Listo</p>
+  </li>
+</ol>
+
+<p>Al abrir de nuevo la consola de PowerShell el resultado de
+<code class="language-plaintext highlighter-rouge">Get-ExecutionPolicy</code> es <code class="language-plaintext highlighter-rouge">Unrestricted</code>.</p>
+
+<p>Incluso reiniciando el servidor el resultado de<code class="language-plaintext highlighter-rouge">Get-ExecutionPolicy</code> debe ser <code class="language-plaintext highlighter-rouge">Unrestricted</code>.</p>
+
+<h2 id="verificar-que-webadministration-este-disponible">Verificar que WebAdministration este disponible</h2>
+
+<p>Esto lo hice con el cmdlet <code class="language-plaintext highlighter-rouge">Get-Module -ListAvailable</code>.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">Get-Module</span><span class="w"> </span><span class="nt">-ListAvailable</span><span class="w">
+
+</span><span class="n">ModuleType</span><span class="w"> </span><span class="nx">Name</span><span class="w">                      </span><span class="nx">ExportedCommands</span><span class="w">
+</span><span class="o">----------</span><span class="w"> </span><span class="o">----</span><span class="w">                      </span><span class="o">----------------</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">ADRMS</span><span class="w">                     </span><span class="p">{}</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">AppLocker</span><span class="w">                 </span><span class="p">{}</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">BestPractices</span><span class="w">             </span><span class="p">{}</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">BitsTransfer</span><span class="w">              </span><span class="p">{}</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">PSDiagnostics</span><span class="w">             </span><span class="p">{}</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">ServerManager</span><span class="w">             </span><span class="p">{}</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">TroubleshootingPack</span><span class="w">       </span><span class="p">{}</span><span class="w">
+</span><span class="n">Manifest</span><span class="w">   </span><span class="nx">WebAdministration</span><span class="w">         </span><span class="p">{}</span><span class="w">
+
+
+</span><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<p>El modulo esta disponible. Ahora para importarlo:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import-Module</span><span class="w"> </span><span class="nx">WebAdministration</span><span class="w">
+</span></code></pre></div></div>
+<h2 id="probando-algunas-características">Probando algunas características</h2>
+
+<p>La lista completa de cmdlets esta <a href="http://technet.microsoft.com/en-us/library/ee790599.aspx">disponible en MSDN</a>.
+No pude probar todos, pues mi objetivo es claro, así que sólo probe unos
+cmdlets para tener una idea de cómo funciona.</p>
+
+<p>El primer comando que probe fue <code class="language-plaintext highlighter-rouge">Get-WebConfigFile</code>. Si lo uso en el sitio por
+default me dice el directorio y el nombre del archivo de configuración del
+sitio.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">Get-WebConfigFile</span><span class="w"> </span><span class="s1">'IIS:\Sites\Default Web Site'</span><span class="w">
+
+    </span><span class="n">Directory:</span><span class="w"> </span><span class="nx">C:\Windows\system32\inetsrv\config</span><span class="w">
+
+</span><span class="n">Mode</span><span class="w">                </span><span class="nx">LastWriteTime</span><span class="w">     </span><span class="nx">Length</span><span class="w"> </span><span class="nx">Name</span><span class="w">
+</span><span class="o">----</span><span class="w">                </span><span class="o">-------------</span><span class="w">     </span><span class="o">------</span><span class="w"> </span><span class="o">----</span><span class="w">
+</span><span class="nt">-a</span><span class="o">---</span><span class="w">         </span><span class="mi">7</span><span class="n">/23/2014</span><span class="w">   </span><span class="nx">3:38</span><span class="w"> </span><span class="nx">PM</span><span class="w">      </span><span class="nx">83583</span><span class="w"> </span><span class="nx">applicationHost.config</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Se me hizo demasiado mágico por que corrió bién al primer intento, además,
+¿Qué es eso de <code class="language-plaintext highlighter-rouge">IIS:\</code>? ¿Qué pasa si le doy una ruta que no existe?</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">Get-WebConfigFile</span><span class="w"> </span><span class="s1">'IIS:\Sites\Default Web Sit'</span><span class="w">
+</span><span class="n">Get-WebConfigFile</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nx">Cannot</span><span class="w"> </span><span class="nx">find</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="s1">'IIS:\Sites\Default Web Sit'</span><span class="w"> </span><span class="nx">because</span><span class="w"> </span><span class="nx">it</span><span class="w"> </span><span class="nx">does</span><span class="w"> </span><span class="nx">not</span><span class="w"> </span><span class="nx">exist.</span><span class="w">
+</span><span class="n">At</span><span class="w"> </span><span class="nx">line:1</span><span class="w"> </span><span class="nx">char:18</span><span class="w">
+</span><span class="o">+</span><span class="w"> </span><span class="n">Get-WebConfigFile</span><span class="w"> </span><span class="err">&lt;&lt;&lt;&lt;</span><span class="w">  </span><span class="s1">'IIS:\Sites\Default Web Sit'</span><span class="w">
+    </span><span class="o">+</span><span class="w"> </span><span class="n">CategoryInfo</span><span class="w">          </span><span class="p">:</span><span class="w"> </span><span class="nx">ObjectNotFound:</span><span class="w"> </span><span class="p">(</span><span class="n">IIS:\Sites\Default</span><span class="w"> </span><span class="nx">Web</span><span class="w"> </span><span class="nx">Sit:String</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">Get</span><span class="nt">-WebConfigFile</span><span class="p">],</span><span class="w"> </span><span class="n">ItemNotFoundExc</span><span class="w">
+   </span><span class="nx">eption</span><span class="w">
+    </span><span class="o">+</span><span class="w"> </span><span class="n">FullyQualifiedErrorId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nx">PathNotFound</span><span class="p">,</span><span class="nx">Microsoft.IIs.PowerShell.Provider.GetWebConfigCommand</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Creo que voy entendiendo. Ya tengo una aplicacion configurada con el nombre
+<code class="language-plaintext highlighter-rouge">recepcion</code> ¿Cuál será el resultado si pido el archivo de configuración de
+<code class="language-plaintext highlighter-rouge">IIS:\Sites\Recepcion</code>?</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">Get-WebConfigFile</span><span class="w"> </span><span class="s1">'IIS:\Sites\Default Web Site\recepcion'</span><span class="w">
+
+    </span><span class="n">Directory:</span><span class="w"> </span><span class="nx">C:\inetpub\wwwroot\recepcion</span><span class="w">
+
+</span><span class="n">Mode</span><span class="w">                </span><span class="nx">LastWriteTime</span><span class="w">     </span><span class="nx">Length</span><span class="w"> </span><span class="nx">Name</span><span class="w">
+</span><span class="o">----</span><span class="w">                </span><span class="o">-------------</span><span class="w">     </span><span class="o">------</span><span class="w"> </span><span class="o">----</span><span class="w">
+</span><span class="nt">-a</span><span class="o">---</span><span class="w">         </span><span class="mi">7</span><span class="n">/23/2014</span><span class="w">   </span><span class="nx">8:55</span><span class="w"> </span><span class="nx">AM</span><span class="w">       </span><span class="nx">4753</span><span class="w"> </span><span class="nx">web.config</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Tengo una aplicacion que se llama <code class="language-plaintext highlighter-rouge">Recibos</code> actualizada desde el SVN, pero no la
+he convertido en aplicación desde el IIS Manager ¿Qué pasará si pido el
+archivo de configuración de esa aplicación que todavía no esta configurada?</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">Get-WebConfigFile</span><span class="w"> </span><span class="s1">'IIS:\Sites\Default Web Site\recepcion'</span><span class="w">
+
+    </span><span class="n">Directory:</span><span class="w"> </span><span class="nx">C:\inetpub\wwwroot\recepcion</span><span class="w">
+
+</span><span class="n">Mode</span><span class="w">                </span><span class="nx">LastWriteTime</span><span class="w">     </span><span class="nx">Length</span><span class="w"> </span><span class="nx">Name</span><span class="w">
+</span><span class="o">----</span><span class="w">                </span><span class="o">-------------</span><span class="w">     </span><span class="o">------</span><span class="w"> </span><span class="o">----</span><span class="w">
+</span><span class="nt">-a</span><span class="o">---</span><span class="w">         </span><span class="mi">7</span><span class="n">/24/2014</span><span class="w">   </span><span class="nx">9:02</span><span class="w"> </span><span class="nx">AM</span><span class="w">       </span><span class="nx">4678</span><span class="w"> </span><span class="nx">web.config</span><span class="w">
+</span></code></pre></div></div>
+
+<p>¡Aha! Parece que algunas partes no son tan sofisticadas. Suficientes pruebas.</p>
+
+<p>Ahora quiero saber cómo configurar esa carpeta como una aplicación en el
+sitio. Una leída rápida a la <a href="http://technet.microsoft.com/en-us/library/ee790599.aspx">lista de cmdlets</a> 
+y encuentro <a href="http://technet.microsoft.com/en-us/library/ee807827.aspx"><code class="language-plaintext highlighter-rouge">ConvertTo-WebApplicacion</code></a>.
+Incluso tiene un ejemplo de cómo se usa. Al final, resultó ser
+muy fácil y son sólamente dos pasos.</p>
+
+<p>Primero, crear un directorio virtual que apunte a la carpeta de Recepción.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">New-WebVirtualDirectory</span><span class="w"> </span><span class="nt">-Site</span><span class="w"> </span><span class="s2">"Default Web Site"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">Recepcion</span><span class="w"> </span><span class="nt">-PhysicalPath</span><span class="w"> </span><span class="nx">C:\InetPub\wwwroot\recepcion</span><span class="w">
+
+</span><span class="n">Name</span><span class="w">                                                        </span><span class="nx">PhysicalPath</span><span class="w">
+</span><span class="o">----</span><span class="w">                                                        </span><span class="o">------------</span><span class="w">
+</span><span class="n">Recepcion</span><span class="w">                                                     </span><span class="nx">C:\InetPub\wwwroot\recepcion</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Y luego convertir el sitio virtual en una aplicación:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PS</span><span class="w"> </span><span class="nx">C:\Windows\system32</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">ConvertTo-WebApplication</span><span class="w"> </span><span class="s2">"IIS:\Sites\Default Web Site\recepcion"</span><span class="w">
+
+</span><span class="n">Name</span><span class="w">             </span><span class="nx">Application</span><span class="w"> </span><span class="nx">pool</span><span class="w">   </span><span class="nx">Protocols</span><span class="w">    </span><span class="nx">Physical</span><span class="w"> </span><span class="nx">Path</span><span class="w">
+</span><span class="o">----</span><span class="w">             </span><span class="o">----------------</span><span class="w">   </span><span class="o">---------</span><span class="w">    </span><span class="o">-------------</span><span class="w">
+</span><span class="n">Recepcion</span><span class="w">          </span><span class="nx">DefaultAppPool</span><span class="w">     </span><span class="nx">http</span><span class="w">         </span><span class="nx">C:\InetPub\wwwroot\recepcion</span><span class="w">
+</span></code></pre></div></div>
+
+<p>¡Listo!</p>
+
+<p>Pero falta algo. Hice las cosas al reves, por que ya tengo el comando para
+configurar el sitio, ahora me falta el comando para desconfigurarlo. Pero no
+es tan dificil, sólamente hace falta hacer la misma operación que hice al
+principio, pero al revés. Primero, uso <a href="http://technet.microsoft.com/en-us/library/ee790563.aspx"><code class="language-plaintext highlighter-rouge">Remove-Application</code></a></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Remove-WebApplication</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">recepcion</span><span class="w"> </span><span class="nt">-Site</span><span class="w"> </span><span class="s2">"Default Web Site"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Después</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Remove-WebVirtualDirectory</span><span class="w"> </span><span class="nt">-Site</span><span class="w"> </span><span class="s2">"Default Web Site"</span><span class="w"> </span><span class="nt">-Application</span><span class="w"> </span><span class="s2">"/"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s2">"recepcion"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Ya con eso es suficiente para “desconfigurar” el sitio. Jenkins se encargara
+de borrar y hacer el checkout del proyecto desde el SVN.</p>
+
+<hr />
+
+<p><em>Nota</em>: No recuerdo de donde saque la imagen de portada. Si alguien sabe, avisenme
+para poner bien los créditos.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html&title=Jugando+con+IIS%2C+Powershell+y+WebAdministration&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html';
+      this.page.identifier = 'http://blog.noenieto.com/2014/07/28/IIS-Powershell-WebAdministration.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

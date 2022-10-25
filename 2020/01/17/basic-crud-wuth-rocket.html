@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Basic CRUD with Rocket | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Basic CRUD with Rocket" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic CRUD with Rocket" />
+<meta property="og:description" content="Basic CRUD with Rocket" />
+<link rel="canonical" href="http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:image" content="http://blog.noenieto.com/media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://blog.noenieto.com/media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg" />
+<meta property="twitter:title" content="Basic CRUD with Rocket" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2020-01-17T00:00:00+00:00","datePublished":"2020-01-17T00:00:00+00:00","description":"Basic CRUD with Rocket","headline":"Basic CRUD with Rocket","image":"http://blog.noenieto.com/media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html"},"url":"http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Basic CRUD with Rocket</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jan 17, 2020 by Noe Nieto</p>
+
+    
+
+    <h1 id="basic-crud-with-rocket">Basic CRUD with Rocket</h1>
+
+<p>This is what I went through while creating my first web app in Rust.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cargo init kolektilo
+</code></pre></div></div>
+
+<h2 id="add-a-route-for-static-files">Add a route for static files</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">rocket_contrib</span><span class="p">::</span><span class="nn">serve</span><span class="p">::</span><span class="n">StaticFiles</span><span class="p">;</span>
+
+<span class="p">[</span> <span class="o">...</span> <span class="p">]</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nn">rocket</span><span class="p">::</span><span class="nf">ignite</span><span class="p">()</span>
+        <span class="nf">.attach</span><span class="p">(</span><span class="nn">Template</span><span class="p">::</span><span class="nf">fairing</span><span class="p">())</span>
+        <span class="nf">.mount</span><span class="p">(</span><span class="s">"/static"</span><span class="p">,</span> <span class="nn">StaticFiles</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="nd">concat!</span><span class="p">(</span><span class="nd">env!</span><span class="p">(</span><span class="s">"CARGO_MANIFEST_DIR"</span><span class="p">),</span> <span class="s">"/static"</span><span class="p">)))</span>
+        <span class="nf">.mount</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="nd">routes!</span><span class="p">[</span>
+            <span class="o">...</span>
+        <span class="p">])</span>
+    <span class="nf">.launch</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This will take any file within the <code class="language-plaintext highlighter-rouge">static</code> directory and serve it from http://localhost:8000/static</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>static
+<span class="nb">echo</span> <span class="s2">"It works!"</span> <span class="o">&gt;</span> static/hello.txt
+cargo run
+...
+🚀 Rocket has launched from http://localhost:8000
+</code></pre></div></div>
+
+<p>Test it with httpie:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nnieto@Ziltoid:~$ http GET http://localhost:8000/static/hello.txt
+HTTP/1.1 200 OK
+Content-Length: 10
+Content-Type: text/plain; charset=utf-8
+Date: Sat, 18 Jan 2020 06:52:18 GMT
+Server: Rocket
+
+It works!
+</code></pre></div></div>
+
+<h2 id="installing-foundation-in-static">Installing Foundation in <code class="language-plaintext highlighter-rouge">static</code></h2>
+
+<p>I want to use <a href="https://foundation.zurb.com/">Foundation</a> for styling. There are a lot of ways to installing it. One way way is to download a customized version of the complete bundle of foundation from it’s download page. Another way would be to use a package manager like <em>npm</em> or <em>bower</em>, a task runner like <em>grunt</em> and install a <em>sass compiler</em> to create an optimized version of <em>css</em> and <em>js</em> files. But the easiest way I found is to install the <a href="https://foundation.zurb.com/">foundation-cli</a> to create all the boilerplate for me.</p>
+
+<p>First step is to make sure you have an updated version of npm</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> npm
+</code></pre></div></div>
+
+<p>Then install/update the foundation-cli package:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> foundation-cli
+</code></pre></div></div>
+
+<p>Now it’s time to generate the boilerplate into the <code class="language-plaintext highlighter-rouge">static</code>directory.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foundation new <span class="nt">--directory</span> static/
+</code></pre></div></div>
+
+<p>Select <strong><em>Foundation for sites</em></strong> as answer to the first question, and <strong><em>Basic template</em></strong> for the second question:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>foundation new <span class="nt">--directory</span> static/
+? What are you building today? A website <span class="o">(</span>Foundation <span class="k">for </span>Sites<span class="o">)</span>
+? Which template would you like to use? Basic Template: includes a Sass compiler
+
+            <span class="nb">.</span>
+           /|     ,
+      , /|/  <span class="se">\/</span>| /|       Thanks <span class="k">for </span>using ZURB Foundation <span class="k">for </span>Sites!
+     /|/       |/ |       <span class="nt">-------------------------------------------</span>
+ |___|            |___|   Let<span class="s1">'s set up a new project.
+ \___|  ^^   ^^   |___/   It shouldn'</span>t take more than a minute.
+     | -[O]--[O]- |
+     |    ___,    |
+     |    ...     |
+      <span class="se">\_</span>_________/
+
+
+Downloading the project template...
+Done downloading!
+
+Installing dependencies...
+
+<span class="o">[</span>.... Lots of output text here, be patient ...]
+
+You<span class="s1">'re all set!
+
+ ✓ New project folder created.
+ ✓ Node modules installed.
+ ✓ Bower components installed.
+
+Now run foundation watch while inside the static folder.
+</span></code></pre></div></div>
+
+<p>Let’s run the watch command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>static
+<span class="nv">$ </span>foundation watch
+
+<span class="o">&gt;</span> foundation-sites-template@1.0.0 start /home/nnieto/Code/Hkl/oxxo-kolektilo/static
+<span class="o">&gt;</span> gulp
+
+<span class="o">[</span>16:09:20] Using gulpfile ~/Code/Hkl/oxxo-kolektilo/static/gulpfile.js
+<span class="o">[</span>16:09:20] Starting <span class="s1">'default'</span>...
+<span class="o">[</span>16:09:20] Starting <span class="s1">'sass'</span>...
+
+  Replace Autoprefixer browsers option to Browserslist config.
+  Use browserslist key <span class="k">in </span>package.json or .browserslistrc file.
+
+  Using browsers option can cause errors. Browserslist config 
+  can be used <span class="k">for </span>Babel, Autoprefixer, postcss-normalize and other tools.
+
+  If you really need to use option, rename it to overrideBrowserslist.
+
+  Learn more at:
+  https://github.com/browserslist/browserslist#readme
+  https://twitter.com/browserslist
+
+
+<span class="o">[</span>16:09:21] Finished <span class="s1">'sass'</span> after 1.04 s
+<span class="o">[</span>16:09:21] Starting <span class="s1">'serve'</span>...
+<span class="o">[</span>Browsersync] Access URLs:
+ <span class="nt">-------------------------------------</span>
+       Local: http://localhost:3000
+    External: http://192.168.1.67:3000
+ <span class="nt">-------------------------------------</span>
+          UI: http://localhost:3001
+ UI External: http://localhost:3001
+ <span class="nt">-------------------------------------</span>
+<span class="o">[</span>Browsersync] Serving files from: ./
+</code></pre></div></div>
+
+<p>Browsersync was installed, so it pops a browser window that shows the <em>Welcome to foundation</em> window:</p>
+
+<p><img src="../media/Screenshot_from_2020-01-19 17-26-54.png" alt="" /></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">foundation watch</code>  command spins it’s own web server on http://localhost:3000, but we are using the web server provided by rocket, so I deleted the <code class="language-plaintext highlighter-rouge">index.html</code> file, removed the BrowserSync  configuration from <code class="language-plaintext highlighter-rouge">gulpfile.js</code> and <code class="language-plaintext highlighter-rouge">package.json</code>. I also re/moved other files to leave the static directory as clean as possible. This is how it looks now:</p>
+
+<p><img src="" alt="" /></p>
+
+<h2 id="credits">Credits</h2>
+
+<p><span>Cover photo by <a href="https://unsplash.com/@spacex?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">SpaceX</a> on <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html&title=Basic+CRUD+with+Rocket&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html';
+      this.page.identifier = 'http://blog.noenieto.com/2020/01/17/basic-crud-wuth-rocket.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Python 3 para renombrar screenshots | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Python 3 para renombrar screenshots" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Actualizacion (15-Enero-2017): El problema de Shutter ha sido corregido en las versiones más nuevas de Fedora." />
+<meta property="og:description" content="Actualizacion (15-Enero-2017): El problema de Shutter ha sido corregido en las versiones más nuevas de Fedora." />
+<link rel="canonical" href="http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-05-24T20:26:10+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Python 3 para renombrar screenshots" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2014-05-24T20:26:10+00:00","datePublished":"2014-05-24T20:26:10+00:00","description":"Actualizacion (15-Enero-2017): El problema de Shutter ha sido corregido en las versiones más nuevas de Fedora.","headline":"Python 3 para renombrar screenshots","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html"},"url":"http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Python 3 para renombrar screenshots</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: May 24, 2014 by Noe Nieto</p>
+
+    
+
+    <p><strong>Actualizacion</strong> (15-Enero-2017): El problema de Shutter ha sido corregido en
+las versiones más nuevas de Fedora.</p>
+
+<p>Hago muchos screenshots. Pero por alguna razon <a href="http://shutter-
+project.org/">Shutter</a> no esta funcionando bien. Sospecho que tiene que ver con algun
+bug en el driver de video de la maquina que uso. Me tengo que conformar con
+usarlo como editor y usar Gnome Screenshot para sacar las capturas de
+pantalla.</p>
+
+<p>Un problema algo molesto es que <a href="https://en.wikipedia.org/wiki/GNOME_Screenshot">Gnome Screenshot</a>
+define un esquema de nombre de archivo algo incomodo. En AskUbuntu averigüe
+que no soy el único que no esta satisfecho con esto y sugieren varias
+opciones. No se por qué, pero en Fedora 20 la herramienta rename funciona de
+una manera diferente a los demas Linux. Después de perder bastante tiempo con
+el shell, decidí que python lo haría mejor y no me equivoqué. Y para hacer más
+interesante el reto, lo hice en Python 3:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">import</span> <span class="nn">os</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">fileinput</span>
+
+<span class="c1">#Get list of files from stdin
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">fileinput</span><span class="p">.</span><span class="nb">input</span><span class="p">():</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">_</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">os</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'[:|\s|-]+'</span><span class="p">,</span> <span class="s">'_'</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Para hacerlo ejecutable y disponible en el <code class="language-plaintext highlighter-rouge">$PATH</code> solo necesito copiar el
+script al directorio <code class="language-plaintext highlighter-rouge">~/bin</code> y darle permisos de ejecucion.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>rename_screenshots.py ~/bin/rename_screenshots
+<span class="nb">chmod</span> +x ~/bin/rename_screenshots
+</code></pre></div></div>
+
+<p>Python 3 añadió una nueva función que facilita procesar los argumentos que se
+pasan mediante la linea de comandos o mediante stdin. Esto me permite hacer
+que el script funcione como una utilería mas del shell:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls
+</span>Screenshot from 2014 05 13 14:27:06.png
+<span class="nb">ls</span> <span class="k">*</span> | rename_screenshots
+Screenshot_from_2014_05_13_14_27_06.png
+</code></pre></div></div>
+
+<p>Ya como último paso, puedo usar cron para correr el scritp cada minuto:</p>
+
+<pre><code class="language-cron">* * * * * cd ~/Pictures/Screenshots &amp;&amp; ls * | ~/bin/rename_screenshots
+</code></pre>
+
+<p>Todo esto lo tuve que hacer solo por que hay un bug en alguno de los
+componentes de Fedora. Me parece como usar un cañón para matar una mosca, pero
+el software libre no es perfecto.</p>
+
+<p>Fin.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html&title=Python+3+para+renombrar+screenshots&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html';
+      this.page.identifier = 'http://blog.noenieto.com/2014/05/24/Python3_para_renombrar_screenshots.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

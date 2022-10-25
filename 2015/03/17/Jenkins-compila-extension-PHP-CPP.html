@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Jenkins para compilar e instalar una extension de PHP con PHP-CPP | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Jenkins para compilar e instalar una extension de PHP con PHP-CPP" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Jenkins para compilar e instalar una extension de PHP con PHP-CPP" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2015-03-17T00:00:00+00:00","datePublished":"2015-03-17T00:00:00+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"Jenkins para compilar e instalar una extension de PHP con PHP-CPP","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html"},"url":"http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Jenkins para compilar e instalar una extension de PHP con PHP-CPP</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Mar 17, 2015 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/Grappling_hook_2_PSF.png" alt="Un gancho" /></p>
+
+<h2 id="intro">Intro</h2>
+
+<p>Este post es para dar seguimiento a uno anterior:
+<a href="/2015/03/12/php-extension-php-phpcpp.html">Programa, compila e instala tu propia extension de PHP con PHP-CPP</a>.</p>
+
+<p>El siguiente paso es reconstruir el plugin cada vez que se hace comit al
+repositorio (SVN, pero puede ser git o mercurial). El repositorio tiene una
+carpeta donde se encuentra el plugin y otra carpeta donde se encuentra la
+aplicacion PHP. Después de varias pruebas, la manera más adecuada de integrar
+el svn con Jenkins fue mediante un “gancho” (<code class="language-plaintext highlighter-rouge">post-commit</code> hook) que le notifica
+a jenkins, mediante una URL, que hay  novedades en repositorio.</p>
+
+<h2 id="instalando-jenkins-en-ubuntu-1404">Instalando Jenkins en Ubuntu 14.04</h2>
+
+<p>La documentación de Jenkins es bastante buena. De ahí saqué las siguientes instrucciones:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+</span><span class="gp">sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ &gt;</span><span class="w"> </span>/etc/apt/sources.list.d/jenkins.list<span class="s1">'
+</span><span class="go">sudo apt-get update
+sudo apt-get install jenkins
+</span></code></pre></div></div>
+
+<p>Por default, el paquete de Jenkins lo configurará como un servicio o daemon y creará el usuario jenkins.</p>
+
+<h2 id="configurando-el-proyecto-de-jenkins">Configurando el proyecto de Jenkins</h2>
+
+<p>Estos son los settings que use para el proyecto</p>
+
+<ul>
+  <li><strong>Project Name</strong>: Build PHP module</li>
+  <li><strong>Description</strong>: <vacio></vacio></li>
+  <li><strong>Discard old builds</strong>: desactivado</li>
+  <li><strong>This build is parametrized</strong>: desactivado</li>
+  <li><strong>Disable build …</strong>: desactivado</li>
+  <li><strong>Execute concurrent builds if necessary</strong>: desactivado</li>
+  <li>Advanced project options
+    <ul>
+      <li><strong>Quiet period</strong>: desactivado</li>
+      <li><strong>Retry count</strong>: desactivado</li>
+      <li><strong>Block build when upstream …</strong>: desactivado</li>
+      <li><strong>Bloick build when downstream …</strong>: desactivado</li>
+      <li><strong>Use custom workspace</strong>: activado
+        <ul>
+          <li><strong>Directory</strong>: build_php_module</li>
+        </ul>
+      </li>
+      <li><strong>Display name</strong>: <vacio></vacio></li>
+      <li><strong>Keep the build lofs of dependencies</strong>: desactivado</li>
+    </ul>
+  </li>
+  <li><strong>Source code management</strong>: None</li>
+  <li>Build triggers:
+    <ul>
+      <li><strong>Trigger builds remotely</strong>: Activado</li>
+      <li><strong>Authentication Token</strong>: df0596e175d43a406ec7c229090bb51e</li>
+      <li><strong>Build after other projects are built</strong>: desactivado</li>
+      <li><strong>Build periodically</strong>: desactivado</li>
+      <li><strong>Poll SCM</strong>: desactivado</li>
+    </ul>
+  </li>
+  <li><em>Build</em>: Agregué un comando de shell. Mas detalles a continuación.</li>
+</ul>
+
+<h2 id="configurando-gancho-de-svn">Configurando gancho de SVN</h2>
+
+<p>Justo despues de agregar el primer proyecto la url para disparar la ejecucion
+del proyecto sera algo parecido a esto:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://misitio:8080/job/Build%20PHP%20Project/build?token=a406ec7d75d43c229090bb51ef0596e1&amp;cause=Revision+$2
+</code></pre></div></div>
+
+<p>Esto se puede hacer desde el gancho post-commit de svn. Por ejemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="c"># Checa post-commit.tpl para ver los comentarios.</span>
+<span class="nv">REPOS</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="nv">REV</span><span class="o">=</span><span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span>
+<span class="nv">TXN_NAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$3</span><span class="s2">"</span>
+curl http://misitio:8080/job/Build%20PHP%20Project/build?token<span class="o">=</span>a406ec7d75d43c229090bb51ef0596e1&amp;cause<span class="o">=</span>Revision+<span class="nv">$2</span>
+</code></pre></div></div>
+
+<p>Con eso nos aseguramos que el proyecto de jenkins se ejecute solamente cada
+vez que se haga un <em>commit</em> en el svn.</p>
+
+<h2 id="configuracion-de-directorios-y-permisos">Configuracion de directorios y permisos</h2>
+
+<p>Cuando Jenkins ejecuta un script de shell lo hace con los permisos del usuario
+Jenkins. Es por esta razón que deberemos ajustar algunos permisos en el
+servidor para que Jenkins pueda compilar la extensión y actualizar la
+aplicacion PHP.</p>
+
+<p>Antes de escribir el script de shell hice un checkout del repo de la extensión
+en <code class="language-plaintext highlighter-rouge">/opt/extension-php/</code>. Tambien hice chechout de la aplicacion en que usa la
+extensión en el directorio <code class="language-plaintext highlighter-rouge">/var/www/php_app</code>. Omito la configuración de la
+extensión ya que he comentado cómo configurarla en <a href="/2015/03/12/php-extension-php-phpcpp.html">Programa, compila e instala
+tu propia extensión de PHP con PHP-CPP</a>.</p>
+
+<p>Finalmente cambie el usuario de ambas carpetas al usuario jenkins.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="nt">-R</span> jenkins /opt/extension-php/
+<span class="nb">chown</span> <span class="nt">-R</span> jenkins /var/www/php_app
+</code></pre></div></div>
+
+<p>Por ultimo, un requerimiento algo inusual. Despues de recompilar la extensión
+de PHP es necesario reinicar apache. El usuario jenkins debe de tener permisos
+para reinicar el servidor apache. Esto se logra configurando sudo.</p>
+
+<p>En Ubuntu/Debian sudo se puede configurar agregando archivos a <code class="language-plaintext highlighter-rouge">/etc/sudoers.d</code>
+en lugar de usar <code class="language-plaintext highlighter-rouge">visudo</code>. El contenido del archivo
+<code class="language-plaintext highlighter-rouge">/etc/sudoers.d/90-jenkins_apache2</code> sera:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cmnd_Alias AP2RESTART=/etc/init.d/apache2
+jenkins ALL=NOPASSWD: AP2RESTART
+</code></pre></div></div>
+
+<p>Para comprobarlo podemos arrancar una sesion con el usuario jenkins e intentar
+reiniciar apache2:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@rtbcore01:~# su jenkins
+jenkins@rtbcore01:/root<span class="nv">$ </span><span class="nb">cd
+</span>jenkins@rtbcore01:~<span class="nv">$ </span><span class="nb">sudo</span> /etc/init.d/apache2 restart
+ <span class="k">*</span> Restarting web server apache2
+   ...done.
+</code></pre></div></div>
+
+<h2 id="script-para-construir-la-extension-y-actualizar-la-aplicación-php">Script para construir la extension y actualizar la aplicación PHP</h2>
+
+<p>Ya esta todo configurado. Es script que debera correr Jenkins es el siguiente:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">"###### Building extension"</span>
+<span class="nb">cd</span> /var/www/rtb_build/RTB_c++
+/usr/bin/svn cleanup <span class="nt">--username</span> <span class="s1">'ebarradas'</span> <span class="nt">--password</span> <span class="s1">'ederbarradas'</span> <span class="nt">--non-interactive</span> <span class="nb">.</span>
+/usr/bin/svn update <span class="nt">--username</span> <span class="s1">'ebarradas'</span> <span class="nt">--password</span> <span class="s1">'ederbarradas'</span> <span class="nt">--non-interactive</span> <span class="nb">.</span>
+/usr/bin/make clean
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin /usr/bin/make
+
+<span class="nb">echo</span> <span class="s2">"###### Deploy app"</span>
+<span class="nb">cd</span> /var/www/vhosts/rtb.srax.com/srax_app
+/usr/bin/svn cleanup <span class="nt">--username</span> <span class="s1">'ebarradas'</span> <span class="nt">--password</span> <span class="s1">'ederbarradas'</span> <span class="nt">--non-interactive</span> <span class="nb">.</span>
+/usr/bin/svn update <span class="nt">--username</span> <span class="s1">'ebarradas'</span> <span class="nt">--password</span> <span class="s1">'ederbarradas'</span> <span class="nt">--non-interactive</span> <span class="nb">.</span>
+
+<span class="nb">echo</span> <span class="s2">"###### restarting apache"</span>
+<span class="nb">sudo</span> /etc/init.d/apache2 restart
+</code></pre></div></div>
+
+<p>Y eso es todo.</p>
+
+<hr />
+
+<p>Imagen tomada de: <a href="http://upload.wikimedia.org/wikipedia/commons/4/4a/Grappling_hook_2_%28PSF%29.png">Wikimedia</a></p>
+
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html&title=Jenkins+para+compilar+e+instalar+una+extension+de+PHP+con+PHP-CPP&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html';
+      this.page.identifier = 'http://blog.noenieto.com/2015/03/17/Jenkins-compila-extension-PHP-CPP.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

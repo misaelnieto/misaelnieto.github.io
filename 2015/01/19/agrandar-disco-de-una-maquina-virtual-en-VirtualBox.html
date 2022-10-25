@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>¿Cómo agrandar el disco de una máquina virtual en VirtualBox? | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="¿Cómo agrandar el disco de una máquina virtual en VirtualBox?" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<meta property="og:description" content="Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre" />
+<link rel="canonical" href="http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-01-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="¿Cómo agrandar el disco de una máquina virtual en VirtualBox?" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2015-01-19T00:00:00+00:00","datePublished":"2015-01-19T00:00:00+00:00","description":"Noe Nieto es instructor de Psicología Holokinética. Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la Maestría en Ingeniería en la Universidad Autónoma de Baja California, en Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y es entusiasta del Software Libre","headline":"¿Cómo agrandar el disco de una máquina virtual en VirtualBox?","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html"},"url":"http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">¿Cómo agrandar el disco de una máquina virtual en VirtualBox?</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jan 19, 2015 by Noe Nieto</p>
+
+    
+
+    <p><img src="/media/3219157599_34c9a86f3c_o.jpg" alt="Cambiar tamaño de disco duro en VirtualBox" /></p>
+
+<p>Aca lo explican en ingles: <a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/">How to enlarge a Virtual Machine’s Disk - VirtualBox or VMWare</a>.
+A diferencia del sitio anterior el hypervisor corre sobre Fedora 20.</p>
+
+<p>Primero hay que apagar la VM. Luego en el VirtualBox manager se puede sacar la
+ruta en disco de la VM mediante el menu contextual:</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_10_08_28.png" alt="Para conocer la ruta del archivo de disco duro de la maquna virtual podemos usar VirtualBox Manager" /></p>
+
+<p>Justo despues de seleccionar la acción <code class="language-plaintext highlighter-rouge">Show in File Manager</code> se va abrir el administrador de archivos.
+En mi caso abre el administrador de archivos de GNOME.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_09_52_04.png" alt="El administrador de archivos de GNOME abierto en la ruta de la máquina virtual." /></p>
+
+<p>El administrador de archivos de GNOME tiene una combinación de teclas para
+convertir la barra de ruta en una entrada de texto. La combinación de teclas
+es <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">L</code>. Después copio el texto con <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">C</code>.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_09_52_19.png" alt="Truco para copiar la ruta de la máquina virtual" /></p>
+
+<p>Ya tengo la ruta de la máquina virtual, asi que es momento de pasar a la
+consola y entrar a la carpeta de la máquina virtual. Para pegar texto en la
+consola uso la combinación de teclas <code class="language-plaintext highlighter-rouge">Ctrl</code>+<code class="language-plaintext highlighter-rouge">Shift</code>+<code class="language-plaintext highlighter-rouge">V</code>. Tambien se puede usar el
+menú contextual, el menú editar o hacer click con el botón medio del mouse.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_10_00_28.png" alt="Consola en el directorio de la VM" /></p>
+
+<p>El comando resultante en mi caso fue:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">cd "/home/nnieto/VirtualBox VMs/Windoge 10"
+</span></code></pre></div></div>
+
+<p>Tuve que encerrar la ruta de la VM entre comillas para que el shell no tome el
+espacio como separador de argumentos.</p>
+
+<p>Los archivos de disco de la VM son los que tienen la extensión <code class="language-plaintext highlighter-rouge">.vdi</code>. Esta
+maquina tiene dos discos, y me interesa aumentar el tamaño al disco “<code class="language-plaintext highlighter-rouge">Windoge
+10.vdi</code>”. Usaré el comando <code class="language-plaintext highlighter-rouge">vboxmanage</code> de la siguiente manera:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">vboxmanage modifyhd "Windoge 10.vdi" --resize 204800
+</span></code></pre></div></div>
+
+<p>El argumento despues de <code class="language-plaintext highlighter-rouge">modifyhd</code> es el nombre del archivo del disco duro
+virtual. El argumento despues de <code class="language-plaintext highlighter-rouge">--resize</code> es la cantidad de MB que se le van a
+añadir al disco duro.</p>
+
+<p>Ahora es momento de arrancar la máquina virtual y extender la particion del
+disco para que ocupe todo el espacio nuevo. El SO del invitado es <em>Windows 10</em>,
+pero la herramienta <code class="language-plaintext highlighter-rouge">Computer management</code> (<code class="language-plaintext highlighter-rouge">compmgmt.msc</code>) existe desde Windows XP
+(o tal vez antes) y tiene todo lo que necesitamos para cambiarle el tamaño al
+disco duro.</p>
+
+<p>Comenzamos con arrancar la herramienta. En Windows 10, windows 8 y Windows 8.1
+sale listada si escribo <code class="language-plaintext highlighter-rouge">compmgmt.msc</code> en la busqueda del menu inicio.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_10_48_56.png" alt="Windoge 10 y compmgmt.msc - Solo tuve que hacer click en el iconito." /></p>
+
+<p>En versiones anteriores se tiene que usar el dialogo de Run.</p>
+
+<p>Una vez abierta la ventana de Computer Management, entramos a la seccion <code class="language-plaintext highlighter-rouge">Storage-&gt; Disk Management</code>.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_10_49_33.png" alt="Windows ya reconoce el nuevo tamaño del disco" /></p>
+
+<p>Para extender el tamaño de la partición hay que hacer click con el botón
+derecho del mouse sobre la partición que quiero agrandar y seleccionar <code class="language-plaintext highlighter-rouge">Extend
+Volume ...</code></p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_10_50_12.png" alt="Click en Extend volume" /></p>
+
+<p>Cuando le haces click al menu sale un asistente que te lleva por todo el
+proceso. Como solo vamos a extender la partición el proceso es bastante
+sencillo y solo tenemos que picar <em>Next</em> hasta que se acaba el asistente. Los
+valores que selecciona el asistente por default son los correctos en mi caso.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_10_50_56.png" alt="Opciones para cambiar el tamaño del disco" /></p>
+
+<p>Al finalizar el asistente la partición ya esta usando todo el espacio libre del disco.</p>
+
+<p><img src="/media/Screenshot_from_2015_01_19_10_51_25.png" alt="El nuevo tamaño del disco." /></p>
+
+<p>Fin.</p>
+
+<hr />
+<p>La imagen del disco duro la tome de https://flic.kr/p/5Ut2pe</p>
+
+<p>La foto tiene licencia CC BY 2.0.</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html&title=%C2%BFC%C3%B3mo+agrandar+el+disco+de+una+m%C3%A1quina+virtual+en+VirtualBox%3F&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html';
+      this.page.identifier = 'http://blog.noenieto.com/2015/01/19/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

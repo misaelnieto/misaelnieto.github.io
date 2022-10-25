@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Letsencrypt_webfaction_version_0.3 | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Letsencrypt_webfaction_version_0.3" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Configuracion de un sitio HTTPS en webfaction con let’s encrypt (Version 3)" />
+<meta property="og:description" content="Configuracion de un sitio HTTPS en webfaction con let’s encrypt (Version 3)" />
+<link rel="canonical" href="http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Letsencrypt_webfaction_version_0.3" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2018-07-12T00:00:00+00:00","datePublished":"2018-07-12T00:00:00+00:00","description":"Configuracion de un sitio HTTPS en webfaction con let’s encrypt (Version 3)","headline":"Letsencrypt_webfaction_version_0.3","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html"},"url":"http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Letsencrypt_webfaction_version_0.3</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Jul 12, 2018 by Noe Nieto</p>
+
+    
+
+    <h2 id="configuracion-de-un-sitio-https-en-webfaction-con-lets-encrypt-version-3">Configuracion de un sitio HTTPS en webfaction con let’s encrypt (Version 3)</h2>
+
+<p>Estas son mis notas de configuracion de HTTPS en webfaction usando certificados de <a href="https://letsencrypt.org/">Let’s Encrypt</a>. Ya había publicado una guía anterior, pero hay una nueva version del letsencrypt_webfaction y trae cambios que requieren reconfigurar. Así que volvemos a empezar desde cero.</p>
+
+<h2 id="preparación-del-sitio">Preparación del sitio</h2>
+
+<p>La preparación del sitio es <a href="/2018/02/05/webfaction-https-y-letsencript.html">la misma</a> y no es necesario cubrirla de nuevo.</p>
+
+<h2 id="actualzación-de-letsencrypt_webfaction">Actualzación de <code class="language-plaintext highlighter-rouge">letsencrypt_webfaction</code></h2>
+
+<p>La guía de instalación oficial está <a href="https://github.com/will-in-wi/letsencrypt-webfaction/blob/master/docs/upgrading.md">en github</a>.</p>
+
+<p>El comando para instalar y actualizar es el mismo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">GEM_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.letsencrypt_webfaction/gems <span class="nv">RUBYLIB</span><span class="o">=</span><span class="nv">$GEM_HOME</span>/lib gem2.2 <span class="nb">install </span>letsencrypt_webfaction
+</code></pre></div></div>
+
+<p>En esta ocasión voy a seguir las instrucciones al pie de la letra y voy a configurar el comando <code class="language-plaintext highlighter-rouge">/letsencrypt_webfaction</code> mediante <code class="language-plaintext highlighter-rouge">.bash_profile</code>. Así quedó el mio:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> .bash_profile 
+<span class="c"># .bash_profile</span>
+
+<span class="c"># Get the aliases and functions</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> ~/.bashrc <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">.</span> ~/.bashrc
+<span class="k">fi</span>
+
+<span class="c"># User specific environment and startup programs</span>
+
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/bin
+
+<span class="nb">export </span>PATH
+
+<span class="k">function </span>letsencrypt_webfaction <span class="o">{</span>
+    <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GEM_HOME</span>/bin <span class="nv">GEM_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.letsencrypt_webfaction/gems <span class="nv">RUBYLIB</span><span class="o">=</span><span class="nv">$GEM_HOME</span>/lib ruby2.2 <span class="nv">$HOME</span>/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction <span class="nv">$*</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>El script anterior <code class="language-plaintext highlighter-rouge">~/bin/letsencrypt_webfaction</code> lo dejé de usar y lo borré.</p>
+
+<h2 id="inicialización-del-archivo-de-configuración">Inicialización del archivo de configuración:</h2>
+
+<p>Una de las novedades de la versión 0.3 de <code class="language-plaintext highlighter-rouge">letsencrypt_webfaction</code> es que el script ya no acepta ningun parámetro en la línea de comando, excepto por <code class="language-plaintext highlighter-rouge">init</code> y <code class="language-plaintext highlighter-rouge">run</code>. Cuando corres el comando <code class="language-plaintext highlighter-rouge">init</code> se crea el archivo <code class="language-plaintext highlighter-rouge">~/letsencrypt_webfaction.toml</code></p>
+
+<h2 id="reconfiguración">Reconfiguración</h2>
+
+<p>En la versión 0.2 de <code class="language-plaintext highlighter-rouge">letsencrypt_webfaction</code> tenía que tener un archivo de configuración por cada dominio/sitio. Ahora sólo se requiere un solo archivo (<code class="language-plaintext highlighter-rouge">letsencrypt_webfaction.toml</code>). La configuración anterior (<code class="language-plaintext highlighter-rouge">~/letsencrypt/demos_noenieto_com.yml</code>) era:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">domains</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">demos.noenieto.com</span><span class="pi">]</span>
+<span class="na">public</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">/home/nnieto/webapps/demos_http</span><span class="pi">]</span>
+<span class="na">output_dir</span><span class="pi">:</span> <span class="s">/home/nnieto/letsencrypt/</span>
+<span class="na">letsencrypt_account_email</span><span class="pi">:</span> <span class="s">nnieto@noenieto.com</span>
+<span class="na">username</span><span class="pi">:</span> <span class="s">noenieto</span>
+<span class="na">password</span><span class="pi">:</span> <span class="s">S0rpr354</span>
+<span class="na">cert_name</span><span class="pi">:</span> <span class="s">demos_noenieto_com</span>
+</code></pre></div></div>
+
+<p>Ahora la configuración va a ser:</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">username</span> <span class="p">=</span> <span class="s">"nmnieto"</span>
+<span class="py">password</span> <span class="p">=</span> <span class="s">"S0rpr354"</span>
+<span class="py">letsencrypt_account_email</span> <span class="p">=</span> <span class="s">"nnieto@noenieto.com"</span>
+<span class="py">endpoint</span> <span class="p">=</span> <span class="s">"https://acme-staging.api.letsencrypt.org/"</span> <span class="c"># Staging</span>
+
+<span class="nn">[[certificate]]</span>
+<span class="py">domains</span> <span class="p">=</span> <span class="p">[</span>
+  <span class="s">"demos.noenieto.com"</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="py">public</span> <span class="p">=</span> <span class="s">"~/webapps/demos_noenieto/"</span>
+<span class="py">name</span> <span class="p">=</span> <span class="s">"demos_noenieto_com"</span>
+</code></pre></div></div>
+<h2 id="pruebas">Pruebas</h2>
+
+<p>Primero probamos con staging</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> letsencrypt_webfaction run
+<span class="nt">-64</span> days <span class="k">until </span>expiration of demos_noenieto_com. Renewing...
+Your new certificate is now created and installed.
+You will need to change your application to use the demos_noenieto_com certificate.
+Add the <span class="sb">`</span><span class="nt">--quiet</span><span class="sb">`</span> parameter <span class="k">in </span>your cron task to remove this message.
+</code></pre></div></div>
+
+<p>Después de correr el comando pude ver que el certificado ya se había actualizado en el panel de control de webfaction y además mi sitio ya estaba usando el nuevo certificado (aunque es inválido por que usé el servidor staging de letsencrypt.</p>
+
+<p>Ahora sólo falta configurar el sitio web para que use el endpoint de producción (editando el archivo .toml)</p>
+
+<h3 id="cronjob-para-renovación-de-certificados">Cronjob para renovación de certificados</h3>
+
+<p>Con esta nueva version todo va a estar concentrado en un solo archivo de configuración, así que todos los certificados se van a renovar al mismo tiempo. Otro cambio importante con esta nueva version es que esta pensada para que el cronjob de renovación de certificados se corra una vez al día.</p>
+
+<p>Como en la ocasión anterior, los certificados de Let’s encrypt sólo <a href="https://letsencrypt.org/2015/11/09/why-90-days.html">duran sólo 90 días</a>. El servidor de producción de letsencrypt te limita a 5 certificados por dominio cada 7 días. Pero parece que no va a haber problema si <code class="language-plaintext highlighter-rouge">letsencrypt_webfaction</code> corre diariamente por que detecta cuánto falta para renovar cierto certificado. Corrí el comando de nuevo como proueba y ahora el resultado fue distinto:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>letsencrypt_webfaction run
+90 days <span class="k">until </span>expiration of demos_noenieto_com. Skipping...
+</code></pre></div></div>
+
+<p>Habiendo considerado todo esto, el crojob va a quedar así:</p>
+
+<pre><code class="language-cron"># Let's encrypt
+18 3 * * *     PATH=$PATH:$GEM_HOME/bin:/usr/local/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction run --quiet
+</code></pre>
+
+<p>Con esto se correrá letsencrypy_webfaction rodos los dias a las 3:18 am.</p>
+
+<h3 id="notificacion-por-email">Notificacion por email</h3>
+
+<p>En este momento no voy programer notificacion mediante email, por que se estaría enviando diariamente y no tiene caso.</p>
+
+<h2 id="problemas">Problemas</h2>
+
+<p><code class="language-plaintext highlighter-rouge">letsencryp_webfaction</code> solo admite dos comandos: <code class="language-plaintext highlighter-rouge">init</code> y <code class="language-plaintext highlighter-rouge">run</code>. Inicialmente generé mi certificado usando el servidor de staging. Cuando todo salió bien cambié la configuración para usar el servidor de producción. Pero parece que <code class="language-plaintext highlighter-rouge">letsencrypt_webfaction</code> no detecta que cambiaste de servidor y tampoco tiene ninguna opción para forzar la generación del certificado. <a href="https://github.com/will-in-wi/letsencrypt-webfaction/issues/132">No soy el único que tuvo este problema</a>, al parecer.</p>
+
+<p>Por el momento lo arrglé cambiando el nombre del certificado.</p>
+
+</div>
+
+<div class="tags">
+    
+      <span class="tag  is-primary ">
+    webfaction
+</span>
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html&title=Letsencrypt_webfaction_version_0.3&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html';
+      this.page.identifier = 'http://blog.noenieto.com/2018/07/12/letsencrypt_webfaction_version_0.3.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

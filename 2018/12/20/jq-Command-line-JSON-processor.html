@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Learning to use jq, the Command-line JSON processor | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Learning to use jq, the Command-line JSON processor" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning to use jq, the Command-line JSON processor" />
+<meta property="og:description" content="Learning to use jq, the Command-line JSON processor" />
+<link rel="canonical" href="http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:image" content="http://blog.noenieto.com/media/unsplash/hello-i-m-nik-6HzhFuiVO60-unsplash.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://blog.noenieto.com/media/unsplash/hello-i-m-nik-6HzhFuiVO60-unsplash.jpg" />
+<meta property="twitter:title" content="Learning to use jq, the Command-line JSON processor" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2018-12-20T00:00:00+00:00","datePublished":"2018-12-20T00:00:00+00:00","description":"Learning to use jq, the Command-line JSON processor","headline":"Learning to use jq, the Command-line JSON processor","image":"http://blog.noenieto.com/media/unsplash/hello-i-m-nik-6HzhFuiVO60-unsplash.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html"},"url":"http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Learning to use jq, the Command-line JSON processor</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Dec 20, 2018 by Noe Nieto</p>
+
+    
+
+    <h2 id="learning-to-use-jq-the-command-line-json-processor">Learning to use jq, the Command-line JSON processor</h2>
+
+<p>Today I learned that <a href="https://stedolan.github.io/jq/">jq</a> exists. It’s a json preprocessor for the command line. Let’s dive in!</p>
+
+<h3 id="start-here">Start here</h3>
+
+<p>As an example, the first use is to pretty print a JSON output from a program like curl.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --silent "https://jsonplaceholder.typicode.com/comments?postId=1" | jq
+</code></pre></div></div>
+<p><img src="/media/Screenshot-20181220110520-948x815.png" alt="Pretty JSON output from curl and jq" /></p>
+
+<p>In comparison <a href="https://httpie.org/">httpie</a> has also colored output of json data, but <code class="language-plaintext highlighter-rouge">jq</code> is a JSON processor, so it does much more than jsut pretty-print json data: you can apply filters to the data!</p>
+
+<p>On the previous example we got a list of objects. With <code class="language-plaintext highlighter-rouge">jq</code>  I can extract the third object like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --silent "https://jsonplaceholder.typicode.com/comments?postId=1" | jq .[3]
+</code></pre></div></div>
+<p><img src="/media/gnome-shell-screenshot-J70ZTZ.png" alt="Filtered output" /></p>
+
+<h3 id="a-practical-example">A practical example</h3>
+
+<p>From now on I’m going to use the list of available linux images using DigitalOcean’s API. It returns a bit more complicated JSON structures, like arrays nested on objects.</p>
+
+<h3 id="querying-complex-objects">Querying complex objects</h3>
+
+<p>Now let’s consider a more complicated json; for example, a list of images on digitalocean returns only one object with nested arrays on objects. Do note that you can do this with <a href="https://github.com/digitalocean/doctl">doctl</a>, but let’s agree that I’m writing there about how to use the <code class="language-plaintext highlighter-rouge">jq</code> preprocessor).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images?per_page=999" -H "Authorization: Bearer $MY_DO_API_KEY" | jq keys
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">&lt;&lt;</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">big</span><span class="w"> </span><span class="err">list</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">objects</span><span class="w"> </span><span class="err">&gt;&gt;</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>With <code class="language-plaintext highlighter-rouge">jq</code> we can get all the keys of the main object in a list:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq keys
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"images"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p>This is how you can get only the <code class="language-plaintext highlighter-rouge">links</code> and <code class="language-plaintext highlighter-rouge">meta</code> objects:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.links , .meta'
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now let’s pickup the first element from the <code class="language-plaintext highlighter-rouge">images</code> array:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[1]'
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16376426</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cassandra on 14.04"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cassandra"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"nyc1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sfo1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nyc2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ams2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sgp1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lon1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nyc3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ams3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fra1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tor1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sfo2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blr1"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-21T04:25:45Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_disk_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"size_gigabytes"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.59</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>I can also get slices of the list of images:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[3:5]'
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24081356</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.3 x64 zfs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-10-3-x64-zfs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"nyc1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sfo1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nyc2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ams2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sgp1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lon1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nyc3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ams3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fra1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tor1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sfo2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"blr1"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-10T23:57:15Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_disk_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"size_gigabytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freebsd freebsd-10-3 x64 20170410 zfs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24081552</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.3 x64"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-10-3-x64"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"nyc1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sfo1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nyc2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ams2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sgp1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lon1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nyc3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ams3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fra1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tor1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sfo2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"blr1"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-11T00:03:44Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_disk_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"size_gigabytes"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.3 x64 20170412"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now, i only want to know the slug field of every image object:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[3:5][] | .slug'
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"freebsd-10-3-x64-zfs"</span><span class="w">
+</span><span class="s2">"freebsd-10-3-x64"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>That’s OK, but I want to get more than just the <code class="language-plaintext highlighter-rouge">id</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[3:5][] | .slug, .public'
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"freebsd-10-3-x64-zfs"</span><span class="w">
+</span><span class="kc">true</span><span class="w">
+</span><span class="s2">"freebsd-10-3-x64"</span><span class="w">
+</span><span class="kc">true</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Also for convenience I want to know the number of images returned (not the number of image objects processed).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[1], .meta'
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16376426</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cassandra on 14.04"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cassandra"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"nyc1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sfo1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nyc2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ams2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sgp1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lon1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nyc3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ams3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fra1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tor1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sfo2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blr1"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-21T04:25:45Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_disk_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"size_gigabytes"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.59</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now I’m ready to process the full list of images to get the data I want to know:  <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">slug</code>, <code class="language-plaintext highlighter-rouge">distribution</code>, <code class="language-plaintext highlighter-rouge">status</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[] | {name, distribution, slug, type, status}'
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1967.2.0 (beta)"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CoreOS"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coreos-beta"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cassandra on 14.04"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cassandra"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Docker 17.03.0-ce on 14.04"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docker"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.3 x64 zfs"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-10-3-x64-zfs"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.3 x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-10-3-x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14.04.5 x32"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ubuntu-14-04-x32-do"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.1 x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-11-1-x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.1 x64 ZFS"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-11-1-x64-zfs"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.4 x64 ZFS"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-10-4-x64-zfs"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.4 x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FreeBSD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freebsd-10-4-x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MachineLearning on 16.04-20171020"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fedora"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedora-27-x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 x64 Atomic"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fedora Atomic"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.9 x32"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CentOS"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"centos-6-x32"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14.04.5 LTS x64 HWE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ubuntu-14-04-x64-do"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.10 x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debian"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debian-8-x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.10 x32"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debian"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debian-8-x32"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28 x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fedora"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedora-28-x64"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28 x64 Atomic"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fedora Atomic"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedora-28-x64-atomic"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cloudbench-nullworkload-on-1604.051818-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"distribution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>I did all of this because in the first time I wanted to know the available Debian images on DigitalOcean. So, from the previous example I want to include only the images which distribution value is <code class="language-plaintext highlighter-rouge">"Debian"</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[] | {name, distribution, slug, type, status} | select(.distribution == "Debian")'
+</code></pre></div></div>
+<p><img src="/media/gnome-shell-screenshot-VMABUZ.png" alt="Just what I needed" /></p>
+
+<p><strong>FIN</strong></p>
+
+<h2 id="credits">Credits</h2>
+<p><span>Cover photo by <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Hello I’m Nik 🎞</a> on <a href="https://unsplash.com/s/photos/jason-voorhees?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html&title=Learning+to+use+jq%2C+the+Command-line+JSON+processor&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html';
+      this.page.identifier = 'http://blog.noenieto.com/2018/12/20/jq-Command-line-JSON-processor.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>

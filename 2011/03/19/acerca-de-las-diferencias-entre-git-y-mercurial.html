@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+
+
+
+<html
+ dir="ltr"
+ lang="en"
+ >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content=#ffffff>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/favicon.ico" 
+    />
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Acerca de las diferencias entre git y mercurial | Mosaico (Blog de Noe Nieto)</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Acerca de las diferencias entre git y mercurial" />
+<meta name="author" content="Noe Nieto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro" />
+<meta property="og:description" content="Intro" />
+<link rel="canonical" href="http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html" />
+<meta property="og:url" content="http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html" />
+<meta property="og:site_name" content="Mosaico (Blog de Noe Nieto)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-03-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Acerca de las diferencias entre git y mercurial" />
+<meta name="twitter:site" content="@misaelnieto_a" />
+<meta name="twitter:creator" content="@Noe Nieto" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Noe Nieto"},"dateModified":"2011-03-19T00:00:00+00:00","datePublished":"2011-03-19T00:00:00+00:00","description":"Intro","headline":"Acerca de las diferencias entre git y mercurial","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html"},"url":"http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"nnieto",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                Mosaico (Blog de Noe Nieto)
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                
+                
+                    
+                    <a href="/posts" class="navbar-item ">Posts archive</a>
+                    
+                
+                    
+                    <a href="/demos" class="navbar-item ">Demos, Tools & Toys</a>
+                    
+                
+                    
+                    <a href="https://www.noenieto.com/" class="navbar-item ">About me</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title is-2">Acerca de las diferencias entre git y mercurial</h1>
+            <p class="subtitle is-3"></p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+                    <div class="content">
+
+    <p>Published: Mar 19, 2011 by Noe Nieto</p>
+
+    
+
+    <h2 id="intro">Intro</h2>
+
+<p>Una breve lista de las diferencias que he hallado al comenzar a usar
+mercurial.</p>
+
+<p>Vengo del mundo de Git. Previamente había usado Subversion y CVS, pero solo a
+un nivel superficial. Git fue el primer SCM que usé para trabajo diaro y el
+primero al que le dediqué algún tiempo para aprender cómo usarlo de manera
+diaria. Aún hay muchas cosas que aprenderle a Git pero, por el momento, aún no
+me he visto en la necesidad de usar alguna característica avanzada de Git.</p>
+
+<p>He usado GitHub desde hace ya varios meses y considero que es una herramienta
+muy útil, por decir poco. Tenía ciertas reticencias hacia BitBucket (y
+mercurial), pues la interfaz de linea de comandos de git esta muy bien
+trabajada y es capaz de ofrecerte poca y sucinta información, o información
+con muchos detalles con solo cambiar un comando. La interfaz de línea de
+comandos de mercurial me había parecido un poco “llana” y simplona, y además,
+no sabía cómo ponerle colorcitos.</p>
+
+<p>Recientemente, en el PyCON2011, visité el stand de BitBucket que, casualmente,
+estaba al lado del de GitHub. Los de BitBucket me dijeron que ellos ofrecían
+repositorios privados (Cosa que github también tiene, pero tienes que pagar
+una cuota). Cuando averigüé que los “repos” <em>privados</em> de BitBucket son
+gratuitos, inmediatamente les dije: “All right, I’m sold”.</p>
+
+<p>Así es que, ya de regreso del PYCON2011 me propuse aprender mercurial. Aquí
+van algunas notas.</p>
+
+<h2 id="instalación-y-configuración-de-mercurial">Instalación y configuración de Mercurial</h2>
+
+<p>Lo primero que hice fue convertir uno de mis repo git a mercurial. Para esto,
+primero había que instalar mercurial. En Ubuntu/debian esto es fácil.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>aptitude <span class="nb">install </span>mercurial
+</code></pre></div></div>
+
+<p>Lo siguiente fue crear mi archivo de configuración de mercurial (Nota: estoy
+usando el editor de texto Scribes. Tu puedes usar el que tu quieras):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> ~/.hgrc
+scribes ~/.hgrc
+</code></pre></div></div>
+
+<p>Mi archivo de configuración (<code class="language-plaintext highlighter-rouge">~/.hgrc</code>) luce así:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[extensions]</span>
+<span class="py">color</span> <span class="p">=</span>
+<span class="py">highlight</span> <span class="p">=</span>
+
+<span class="nn">[ui]</span>
+<span class="py">username</span> <span class="p">=</span> <span class="s">Noe Nieto &lt;tzicatl@gmail.com&gt;</span>
+<span class="py">verbose</span> <span class="p">=</span> <span class="s">True</span>
+</code></pre></div></div>
+
+<p>El archivo de configuración de mercural (<code class="language-plaintext highlighter-rouge">~/.hgrc</code>) es un archivo de texto
+plano con formato de configuración <code class="language-plaintext highlighter-rouge">.ini</code>. La comunidad Pythonera hace buen uso
+de este formato de archivos de configuración gracias al paquete ConfigParser.
+Este archivo contiene 2 secciones. La sección [iu] es fácil de inferir:
+contiene mi nombre de usuario y será usado en todos los commits que haga. La
+sección [extensions] sirve para habilitar y configurar algunas extensiones o
+plugins de mercurial. La extensión color habilita los colorcitos en la
+interfaz de línea de comandos, mientras que la extensión highlight le hace un
+resaltado de sintaxis a los diferentes archivos de código fuente que se
+encuentren en el repo Mercurial.</p>
+
+<p>Se usa el siguiente comando para obtener un reporte de qué extensiones están
+disponibles en la maquina:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hg <span class="nb">help </span>extensions
+</code></pre></div></div>
+
+<p>Y por último, el wiki de mercurial acerca del uso de extensiones nos da una
+buena introduccion al tema. Convirtiendo un repo Git a repo Mercurial.</p>
+
+<p>Tengo algunos proyectos que quiero migrar a los repos privados de BitBucket.
+Mercurial tiene una extensión llamada “convert”. Esta tiene que ser habilitada
+para que se puede usar. Afortunadamente es algo tan sencillo como editar
+<code class="language-plaintext highlighter-rouge">~/.hgrc</code> y añadir <code class="language-plaintext highlighter-rouge">convert=</code> a la sección <code class="language-plaintext highlighter-rouge">[extensions]</code>.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[extensions]</span>
+<span class="py">color</span> <span class="p">=</span>
+<span class="py">highlight</span> <span class="p">=</span>
+<span class="py">convert</span> <span class="p">=</span>
+
+<span class="nn">[ui]</span>
+<span class="py">username</span> <span class="p">=</span> <span class="s">Noe Nieto &lt;tzicatl@gmail.com&gt;</span>
+<span class="py">verbose</span> <span class="p">=</span> <span class="s">True</span>
+</code></pre></div></div>
+
+<p>Supongamos que mi repositorio Git se encuentra en el directorio mirepo/,
+entonces, para convertir un repo Git a Mercurial, es algo tan sencillo como:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>mirepo/ mirepo_git/
+hg convert mirepo_git mirepo/
+</code></pre></div></div>
+
+<p>Yo no tuve ningún problema al convertir mi repositorio que tenía ya como 30
+commits. Nunca lo he hecho con otro repo más grande.</p>
+
+<p>Falta solo un detalle, hg convert no se encarga de migrar el archivo
+.gitignore. Éste tiene que ser convertido al formato de Mercurial. Ese formato
+es un archivo de texto, con formato .ini. Aquí les pongo un “one-liner”, como
+dirían en EU, para hacer esto:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"syntax:glob"</span> <span class="o">&gt;</span> mirepo/.hgignore <span class="o">&amp;&amp;</span> <span class="nb">cat </span>mirepo_git/.gitignore <span class="o">&gt;&gt;</span> mirepo/.hgignore
+</code></pre></div></div>
+
+<p>La extensión Record de Mercurial y el staging area de Git</p>
+
+<p>Git tiene una funcionalida clave de funcionamiento, el “Staging Area”. En el
+trabajo me piden ayuda todo el tiempo con git, por que aún no han comprendido
+bien el Staging Area.</p>
+
+<p>Este post sería muy largo si me pusiera a explicar a explicar a fondo cómo
+funciona ésto en Git, solo lo resumiré en que es una característica muy útil,
+por que te premite fraccionar tu trabajo en unidades pequeñas y entendibles.
+No importa que hayas cambiado 10 archivos y hayas resuelto 3 distintos
+problemas. Con el staging area puedes fraccionar ese commit en 3 diferentes
+pasos. Al principio parece un esfuerzo inútil, pero si regresas a revisar tu
+trabajo (o el de alguien mas), 6 meses o 1 año después y quieres saber qué fue
+lo que cambio en un archivo o directorio, es mucho más sencillo navegar por
+una serie de commits pequeños y que además, la descripción del commit,
+corresponda con lo que contiene ese commit.</p>
+
+<p>Si todavía no me he explicado acerca de la importancia del staging area,
+entonces les dejo un buen post que explican de otra manera.
+<a href="http://gitready.com/beginner/2009/01/18/the-staging-area.html">http://gitready.com/beginner/2009/01/18/the-staging-area.html</a></p>
+
+<p>Mercurial, por otro lado, no tiene ese tipo de funcionalidad a la vista. Hay
+que activarla mediante la extensión Record. Al final mi <code class="language-plaintext highlighter-rouge">~/.hgrc</code> queda así:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[extensions]</span>
+<span class="py">color</span> <span class="p">=</span>
+<span class="py">highlight</span> <span class="p">=</span>
+<span class="py">convert</span> <span class="p">=</span>
+<span class="py">record</span> <span class="p">=</span>
+
+<span class="nn">[ui]</span>
+<span class="py">username</span> <span class="p">=</span> <span class="s">Noe Nieto &lt;tzicatl@gmail.com&gt;</span>
+<span class="py">verbose</span> <span class="p">=</span> <span class="s">True</span>
+</code></pre></div></div>
+<p>Fin.</p>
+
+<hr />
+
+<p>Noe</p>
+
+</div>
+
+<div class="tags">
+    
+</div>
+
+
+<p><strong>Share</strong></p>
+<div class="buttons ">
+    <a class="button is-medium is-facebook"
+       onclick="window.open('https://www.facebook.com/share.php?u=http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html');">
+        <span class="icon"><i class="fab fa-facebook fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-twitter"
+       onclick="window.open('https://twitter.com/intent/tweet?text=http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html');">
+        <span class="icon"><i class="fab fa-twitter fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-linkedin"
+       onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html&title=Acerca+de+las+diferencias+entre+git+y+mercurial&summary=&source=');">
+        <span class="icon"><i class="fab fa-linkedin fa-lg"></i></span>
+    </a>
+    <a class="button is-medium is-reddit"
+       onclick="window.open('https://reddit.com/submit?url=http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html');">
+        <span class="icon"><i class="fab fa-reddit fa-lg"></i></span>
+    </a>
+</div>
+
+
+
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html';
+      this.page.identifier = 'http://blog.noenieto.com/2011/03/19/acerca-de-las-diferencias-entre-git-y-mercurial.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://noenieto.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+        <div class="columns is-multiline">
+            
+        </div>
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>
