@@ -8,3 +8,4 @@ Gemfile.lock
 attic/
 vendor/
 **/*.code-workspace
+.idea/
