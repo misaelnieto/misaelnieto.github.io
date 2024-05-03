@@ -1,0 +1,4 @@
+{
+    "buildCommand": "bundle exec jekyll build",
+    "cleanUrls": true
+}
