@@ -1,4 +1,20 @@
 ---
 ---
-$primary: #df8143;
+$primary: #d76d0a;
+$link: #d090e6;
+$text: #dcc1d8;
+$card-color: #df8143;
+$card-footer-border-top: 0px solid $card-color;
 @import "main";
+
+.card.is-outlined {
+    --bulma-button-border-width: max(1px, 0.0625em);
+    border-style: solid;
+    border-width: max(1px, 0.0625em);
+    border-color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+}
+
+figure .is-rounded-corner {
+    border-radius: var(--bulma-radius-large);
+}
+

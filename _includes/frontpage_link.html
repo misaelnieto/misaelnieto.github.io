@@ -1,0 +1,10 @@
+<a class="button is-large is-fullwidth is-primary is-outlined is-rounded"
+   href="{{ include.url | absolute_url }}"
+   {% if include.open_tab %}
+   target="_blank"
+   rel="noopener noreferrer"
+   {% endif %}
+   title="{{ include.title }}"
+   >
+  <i class="{{ include.icon }}"></i>
+</a>

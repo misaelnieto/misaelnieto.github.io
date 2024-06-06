@@ -1,0 +1,76 @@
+{% assign content_width = 'is-12' %}
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body class="landing-page">
+        <section class="section landing-page">
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <div class="card is-outlined">
+                        <div class="card-content">
+                          <p class="title">
+                            {{ site.author.name }}
+                          </p>
+                          <p class="subtitle">{{ site.author.description}}</p>
+                        </div>
+                        <div class="card-image">
+                            <figure class="image is-1by1 m-3">
+                              <img
+                                class="is-rounded-corner"
+                                src="{{ site.author.picture | absolute_url }}"
+                                alt="{{ site.author.name }} - {{ site.author.description}}"
+                              />
+                            </figure>
+                        </div>
+                        <div class="card-content has-text-centered">
+                            <p class="subtitle is-4">
+                                <i class="fa-solid fa-envelope"></i>
+                                nnieto@noenieto.com
+                            </p>
+                            <p class="subtitle is-4">
+                                <i class="fa-solid fa-map"></i>
+                                Baja California, Mexico
+                            </p>
+                            <p>
+                                &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.
+                            </p>
+                        </div>
+                        <footer class="card-footer">
+                          <p class="card-footer-item">
+                            {% include frontpage_link.html url=site.author.linkedin icon="fa-brands fa-linkedin" title="Open my LinkedIn profile" open_tab="yes" %}
+                          </p>
+                          <p class="card-footer-item">
+                            {% include frontpage_link.html url=site.author.github icon="fa-brands fa-github" title="Open my GitHub profile" open_tab="yes" %}
+                          </p>
+                          <p class="card-footer-item">
+                            {% include frontpage_link.html url=site.author.youtube icon="fa-brands fa-youtube" title="Open my youtube channel" open_tab="yes" %}
+                          </p>
+
+                        </footer>
+                        <footer class="card-footer">
+                          <p class="card-footer-item">
+                            {% include frontpage_link.html url="/resume" icon="fa-solid fa-user-tie" title="See my resume" %}
+                          </p>
+                          <p class="card-footer-item">
+                            {% include frontpage_link.html url="/demos" icon="fa-solid fa-palette" title="Demos tools and toys" %}
+                          </p>
+                          <p class="card-footer-item">
+                            {% include frontpage_link.html url="/blog" icon="fa-solid fa-pen-nib" title="My blog"%}
+                          </p>
+                        </footer>
+                        <footer class="card-footer-item">
+                          <p class="card-footer-item">
+                            {% include frontpage_link.html url="/about" icon="fa-solid fa-face-grin-wide" title="More about me" open_tab="yes" %}
+                          </p>
+                        </footer>
+                      </div>
+                </div>
+                <div class="column is-three-quarters">
+                    <div class="content">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

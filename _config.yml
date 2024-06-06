@@ -3,21 +3,26 @@ plugins:
     - jekyll-remote-theme
     - jekyll-seo-tag
     - jekyll-sitemap
+    - jekyll-timeago
 title: Noe Nieto
 tagline: Mi sitio personal | Personal site
 email: nnieto@noenieto.com
 description: > 
-  Noe Nieto es instructor de <a href="http://www.psicologiaholokinetica.org/">Psicología Holokinética</a>.
-  Se graduó de ingeniero en Electrónica en el Instituto Tecnológico de Puebla y ahora cursa la
-  Maestría en Ingeniería en la Universidad Autónoma de Baja California, en
-  Mexicali, Baja California, México. Tiene más de 10 años de experiencia usando Linux todos los dias y
-  es entusiasta del Software Libre
+  Hi! I'm an Electronics Engineer that's been happily working with software for the 
+  last 20+ years.
+  I've played different roles in the past, i.e., Frontend, Backend, Sysadmin and DBA.
+  I like Free/Libre/Open Source Software. That's why I'd also like to define myself as a FLOSS generalist.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://noenieto.com" # the base hostname & protocol for your site
 author:
   name: Noe Nieto
+  description: Senior Software Engineer
+  picture: /media/noe_nieto_480.jpg
   url: https://www.noenieto.com
-  twitter: misaelnieto_a
+  github: https://github.com/misaelnieto
+  linkedin: https://www.linkedin.com/in/noe-nieto-13529524
+  youtube: https://www.youtube.com/@nnietocs
+
 twitter_username: misaelnieto_a
 github_username:  misaelnieto
 site: https://www.noenieto.com
@@ -28,9 +33,7 @@ webmaster_verifications:
   yandex: 1234
   baidu: 1234
   facebook: 1234
-remote_theme: Holokinesis-Libros/bulma-clean-theme
-
-permalink: /:year/:month/:day/:title.html
+remote_theme: chrisrhymes/bulma-clean-theme@v1.0.0
 google_analytics: UA-34700214-1
 
 # Disqus

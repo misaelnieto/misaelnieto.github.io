@@ -10,4 +10,5 @@ group :jekyll_plugins do
   gem 'jekyll-toc'
   gem 'jekyll-remote-theme'
   gem 'jekyll-paginate'
+  gem 'jekyll-timeago'
 end
