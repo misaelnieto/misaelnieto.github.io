@@ -8,6 +8,8 @@ hero_image: /media/unsplash/tools_n_demos.png
 
 ## Tools
 
+- [Limoncito](projects/limoncito/) - A simple expense/income notebook
+
 - [CHPT Converter](https://demos.noenieto.com/chpt-konvertilo/){:target="_blank"}.
   ([<i class="fab fa-github-alt"></i>](https://github.com/misaelnieto/chpt-konvertilo){:target="_blank"})
 
