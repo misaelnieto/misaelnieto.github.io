@@ -1,9 +1,10 @@
 plugins:
     - jekyll-feed
-    - jekyll-remote-theme
     - jekyll-seo-tag
     - jekyll-sitemap
     - jekyll-timeago
+    - jekyll-thumbnail-img
+    - jekyll-toc
 title: Noe Nieto
 tagline: Mi sitio personal | Personal site
 email: nnieto@noenieto.com
@@ -33,7 +34,8 @@ webmaster_verifications:
   yandex: 1234
   baidu: 1234
   facebook: 1234
-remote_theme: chrisrhymes/bulma-clean-theme@v1.0.0
+# remote_theme: chrisrhymes/bulma-clean-theme@v1.0.0
+theme: bulma-clean-theme
 google_analytics: UA-34700214-1
 
 # Disqus

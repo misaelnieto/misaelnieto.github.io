@@ -11,4 +11,7 @@ group :jekyll_plugins do
   gem 'jekyll-remote-theme'
   gem 'jekyll-paginate'
   gem 'jekyll-timeago'
+  gem 'jekyll-thumbnail-img'
+  gem 'bulma-clean-theme', '~> 1.0', '>= 1.0.2'
+  gem 'jekyll-toc'
 end
