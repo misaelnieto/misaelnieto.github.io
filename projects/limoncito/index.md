@@ -4,6 +4,9 @@ title: Limoncito
 toc: true
 ---
 
+## Acerca de Limoncito
+
+Esta es una aplicación que ayuda a mantener el control de tus gastos de manera sencilla.
 
 
 ## ¿Cómo puedo eliminar mi cuenta de usuario y todos mis datos de la aplicación Limoncito?
