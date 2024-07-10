@@ -1,12 +1,15 @@
 ---
+layout: post
 title: "Nube de palabras en Inkscape"
 categories:
-- Diseño
-- Español
+   - Diseño
+   - Español
 tags: inkscape
 summary: Pequeña guía para hacer una nube de palabras (o tag cloud) en Inkscape
 image: https://unsplash.com/es/fotos/texto-manuscrito-00nHr1Lpq6w
 published: true
+hero_svg: /media/heroes/signal.svg
+image: /media/card_images/wall-of-words.svg
 ---
 ## Nube de palabras en Inkscape
 

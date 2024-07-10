@@ -18,3 +18,8 @@ figure .is-rounded-corner {
     border-radius: var(--bulma-radius-large);
 }
 
+.hero-body {
+    .title {
+        text-shadow: #555 1px 1px 2px;
+    }
+}
