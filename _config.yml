@@ -36,7 +36,7 @@ webmaster_verifications:
   facebook: 1234
 # remote_theme: chrisrhymes/bulma-clean-theme@v1.0.0
 theme: bulma-clean-theme
-google_analytics: UA-34700214-1
+google_analytics: G-H2W0NR3S1W
 
 # Disqus
 disqus:
