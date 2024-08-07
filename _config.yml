@@ -15,6 +15,7 @@ description: >
   I like Free/Libre/Open Source Software. That's why I'd also like to define myself as a FLOSS generalist.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://noenieto.com" # the base hostname & protocol for your site
+permalink: /blog/:year/:month/:day/:title:output_ext
 author:
   name: Noe Nieto
   description: Senior Software Engineer
@@ -26,7 +27,9 @@ author:
 
 twitter_username: misaelnieto_a
 github_username:  misaelnieto
+gh_sponsor: misaelnieto
 site: https://www.noenieto.com
+comments: true
 webmaster_verifications:
   google: 1234
   bing: 1234
@@ -40,7 +43,7 @@ google_analytics: G-H2W0NR3S1W
 
 # Disqus
 disqus:
-  shortname: noenieto
+  shortname: noe-nieto.disqus.com
 #SEO
 twitter:
     username: misaelnieto_a
@@ -81,3 +84,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - .frontmatter/
+  - frontmatter.json
+  - watch.sh
+  

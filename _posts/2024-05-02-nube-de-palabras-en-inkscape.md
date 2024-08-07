@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Nube de palabras en Inkscape"
+title: Nube de palabras en Inkscape
 categories:
    - Diseño
    - Español
@@ -11,6 +11,7 @@ published: true
 hero_svg: /media/heroes/signal.svg
 image: /media/card_images/wall-of-words.svg
 ---
+
 ## Nube de palabras en Inkscape
 
 Este es una traducción al español, aumentada, de una 

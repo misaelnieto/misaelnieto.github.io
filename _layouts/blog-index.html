@@ -18,10 +18,10 @@
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
-              Welcome to Noe's blog
+              {{ page.title }}
             </h1>
             <h2 class="subtitle">
-                This is what i've been up to ...
+                {{ page.subtitle }}
             </h2>
           </div>
         </div>
@@ -44,7 +44,7 @@
             </div>
             <div class="columns">
                 <div class="column">
-                    <a href="{{ site.baseurl }}/posts" class="button is-primary">See all posts</a>
+                    <a href="{{ site.baseurl }}/blog" class="button is-primary">See all posts</a>
                 </div>
             </div>
         </div>
