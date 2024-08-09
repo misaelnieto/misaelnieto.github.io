@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  repo: misaelnieto/misaelnieto.github.io
+  branch: master # Branch to update (optional; defaults to master)
+media_folder: 'assets/img'
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: '_posts/'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: 'Comments', name: 'comments', widget: 'hidden', default: 'true' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Summary', name: 'summary', widget: 'string'}
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Hero SVG', name: 'hero_svg', widget: 'image'}
+      - { label: 'Card image', name: 'image', widget: 'image'}
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'pages'
+    label: 'Pages'
+    editor:
+      preview: true
+    files:
+      - label: 'About Page'
+        name: 'about'
+        file: 'about.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'hidden', default: 'Noe - Human being' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'page' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Demos'
+        name: 'demos'
+        file: 'demos.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'hidden', default: 'Noe - Human being' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'page' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
