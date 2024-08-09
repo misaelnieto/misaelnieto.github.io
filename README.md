@@ -1,6 +1,6 @@
 # misaelnieto.github.io
 
-![Jekyll site CI](https://github.com/misaelnieto/misaelnieto.github.io/workflows/Jekyll%20site%20CI/badge.svg?branch=master)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fdaf4a94-b846-434d-a68f-d6bfd89359cb/deploy-status)](https://app.netlify.com/sites/noenieto/deploys)
 
 ## English
 Welcome, this is the source code of my blog, powered by Jekyll, GitHub Actions
