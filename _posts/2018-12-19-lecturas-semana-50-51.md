@@ -1,9 +1,17 @@
 ---
+layout: post
 title: Último compilado de lecturas del 2018
 summary: Este compilado cubre las semanas 50 a 51 del 2018.
+language: es
+comments: true
 published: true
+categories:
+    - Lecturas
+tags:
+    - Sociedad
+    - Facebook
 image: /media/unsplash/utsav-srestha-HeNrEdA4Zp4-unsplash.jpg
-
+date: 2018-12-19
 ---
 
 # Lecturas de las semanas 50 y 51 del 2018

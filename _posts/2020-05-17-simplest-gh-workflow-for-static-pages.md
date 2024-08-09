@@ -1,11 +1,17 @@
 ---
 layout: post
 title: The simplest GitHub workflow for deploying static sites
-date: 2020-05-17 22:19
-category: development
-tags: [github, devops]
 summary: It's really simple, just checkout and rsync
+language: es
+comments: true
+published: true
+categories:
+  - Technology
+tags: 
+  - Github
+  - Devops
 image: /media/unsplash/alvaro-reyes-qWwpHwip31M-unsplash.jpg
+date: 2020-05-17 22:19
 ---
 
 Ever since I learned about [GitHub

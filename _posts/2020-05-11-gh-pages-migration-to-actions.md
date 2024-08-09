@@ -1,12 +1,18 @@
 ---
 layout: post
 title: Migrating blog from GH Pages to GH Actions
-date: 2020-05-11 23:32
-category: Web
-author: Noe Nieto
-tags: [github, devops, blog]
 summary: GH Pages is too restrictive, let's fix it with GH Actions
+language: es
+comments: true
+published: true
+categories:
+  - Technology
+tags: 
+  - Github
+  - Devops
+  - Blog
 image: /media/unsplash/markus-spiske-Tem0_jHYDgQ-unsplash.jpg
+date: 2020-05-11 23:32
 ---
 
 This is how my blog looks before update:

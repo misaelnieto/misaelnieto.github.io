@@ -1,7 +1,9 @@
 ---
-published: false
+layout: post
+title: Converting HTML to PDF with Github Actions
+
 ---
-## Converting HTML to PDF with Github Actions
+
 
 I just finished updating my CV, it's built with jekyll using modern-resume-theme. Now it´s time to render it to PDF. A year ago I wrote a GH Action just for that.
 

@@ -2,16 +2,17 @@
 layout: post
 title: Script para transformar texto seleccionado en Google docs
 summary: "Guía para crear un script que transforme el texto seleccionado en un documento de Google Docs"
-categories:
-  - Programación
-  - JavaScript
+language: es
 comments: true
+published: true
+categories:
+  - Technologia
 tags:
   - Google Docs
   - Google Apps Script
-published: true
 hero_svg: /assets/img/heroes/jigsaw.svg
 image: /assets/img/post_cards/six-assorted-geometrical-objects-besides-a-sheet-w.svg
+date: 2024-08-06
 ---
 
 

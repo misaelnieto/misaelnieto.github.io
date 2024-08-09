@@ -1,13 +1,21 @@
 ---
-title: Basic CRUD with Rocket
 layout: post
-categories: web, servers, programming, rust
+title: A Basic CRUD with Rocket
 summary: This is what I went through while creating my first web app in Rust.
+language: en
+comments: true
+published: true
+categories: 
+    - Technology
+tags:
+    - Web
+    - Servers
+    - Programming
+    - Rust
 image: /media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg
-
+date: 2020-01-17
 ---
 
-# Basic CRUD with Rocket
 
 This is what I went through while creating my first web app in Rust.
 

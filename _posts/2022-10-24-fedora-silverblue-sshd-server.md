@@ -1,9 +1,17 @@
 ---
-published: true
-summary: Instrucciones para configurar el accesso ssh a fedora silverblue
-image: /media/card_images/a-silver-blue-fedora-hat-besides-a-electrical-sock.svg
-title: Instalacion de servidor sshd en Fedora Silverblue
 layout: post
+title: Instalacion de servidor sshd en Fedora Silverblue
+summary: Instrucciones para configurar el accesso ssh a fedora silverblue
+language: es
+comments: true
+published: true
+categories:
+  - Technology
+tags:
+   - Linux
+   - Fedora
+image: /media/card_images/a-silver-blue-fedora-hat-besides-a-electrical-sock.svg
+date: 2022-10-24
 ---
 
 

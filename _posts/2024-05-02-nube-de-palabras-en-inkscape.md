@@ -10,6 +10,8 @@ image: https://unsplash.com/es/fotos/texto-manuscrito-00nHr1Lpq6w
 published: true
 hero_svg: /media/heroes/signal.svg
 image: /media/card_images/wall-of-words.svg
+language: es
+date: 2024-05-02
 ---
 
 ## Nube de palabras en Inkscape

@@ -4,15 +4,17 @@ backend:
   branch: master # Branch to update (optional; defaults to master)
 media_folder: 'assets/img'
 collections:
-  - name: 'blog'
-    label: 'Blog'
+  - name: 'english_posts'
+    label: 'Blog posts'
     folder: '_posts/'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    filter: {field: "language", value: "en"}
+    slug: '{{year}}/{{slug}}'
     editor:
       preview: true
     fields:
-      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: "Language", name: "language", widget: "select", options: ["en", "es"]}
+      - { label: 'Layout', name: 'layout', widget: 'string', default: 'post' }
       - { label: 'Comments', name: 'comments', widget: 'hidden', default: 'true' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Summary', name: 'summary', widget: 'string'}
@@ -20,7 +22,24 @@ collections:
       - { label: 'Hero SVG', name: 'hero_svg', widget: 'image'}
       - { label: 'Card image', name: 'image', widget: 'image'}
       - { label: 'Body', name: 'body', widget: 'markdown' }
-
+  - name: 'spanish_posts'
+    label: 'Blog en Español'
+    folder: '_posts/'
+    create: true
+    filter: {field: "language", value: "es"}
+    slug: '{{year}}/{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: "Language", name: "language", widget: "select", options: ["en", "es"]}
+      - { label: 'Layout', name: 'layout', widget: 'string', default: 'post' }
+      - { label: 'Comments', name: 'comments', widget: 'hidden', default: 'true' }
+      - { label: "Titulo", name: "title", widget: "string"}
+      - { label: 'Summary', name: 'summary', widget: 'string'}
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Hero SVG', name: 'hero_svg', widget: 'image'}
+      - { label: 'Card image', name: 'image', widget: 'image'}
+      - { label: "Contenido", name: "body", widget: "markdown"}
   - name: 'pages'
     label: 'Pages'
     editor:

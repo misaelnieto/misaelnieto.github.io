@@ -1,11 +1,17 @@
 ---
-published: true
 layout: post
+title: Ditch Google Analytics(GA) for Counter.def
 summary: I hacked Google Analytics away in favor of Counter.dev
+language: es
+categories: 
+    - Technology
+tags:
+    - Google Analytics
+comments: true
 image: /media/screenshots/counter_analytics.png
-categories: 'web, analytics'
+published: true
+date: 2022-07-28
 ---
-## Ditch Google Analytics(GA) for Counter.def
 
 Nowadays GA is becoming quite complex for me; it looks so complex that I couldn't find a way to upgrade my blog to GA 4 and I got impatient, so I thought I could switch to something else.
 
