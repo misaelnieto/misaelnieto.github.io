@@ -1,20 +1,28 @@
 ---
-title: Impresión bajo demanda o POD (Print on demand)
 layout: post
+title: Impresión bajo demanda o POD (Print on demand)
+language: es
+comments: true
 published: true
-tags: libros
+categories:
+  - Tecnología
+  - Psicología Holokinética
+tags:
+  - Libros
+  - Impresión bajo demanda
+hero_svg: /assets/img/heroes/formal-invitation.svg
+image: /media/Book_decoration_BPPxi.svg
+date: 2017-02-05
 ---
-![Decoración, garigoleado]({{site.baseurl}}/media/Book_decoration_BPPxi.svg)
 
 
 La idea de la impresión bajo demanda es poder imprimir libros o revistas en el
-momento en el que el comprador las ordena. Este concepto no es nuevo, por
+momento en el que el comprador las ordena. Este concepto no es nuevo; por
 ejemplo, DELL introdujo JIT(Just In Time) a su proceso de armado de
-computadoras; esto tiene la ventaja de que sus compradores pueden elegir
+computadoras; esto tiene la ventaja de que sus compradores pueden elegir.
 
 
-Durante varios años he estado prestando ate
-
+Durante varios años he estado prestando atención a las opciones de impresión bajo demanda para poder implementarlo en el sitio de [Holokinesis libros (Hkl)](https://www.holokinesislibros.com).
 
 Lo que busco es:
 
@@ -27,14 +35,14 @@ Lo que busco es:
 
 ## Servicios que hacen todo:
 
-* Lulu http://www.lulu.com/ El primer servicio de impresión bajo demanda del que tuve conocimiento.
-* Blurb http://www.blurb.com/
-* http://www.wordclay.com/ )No estabab funcionando cuando lo cheque
-* CreateSpace (https://www.createspace.com/). Es de Amazon
-* https://www.peecho.com/
+* [Lulu](http://www.lulu.com/): El primer servicio de impresión bajo demanda del que tuve conocimiento.
+* [Blurb](http://www.blurb.com/)
+* [CreateSpace](https://www.createspace.com/). Es de Amazon
+* [Peecho](https://www.peecho.com/)
 
 ## Servicios descartados
 
+* ~~[Word clay](http://www.wordclay.com/)~~ Ya no existe.
 * https://www.gooten.com/
   - Imprimen de todo, excepto libros
 * https://bookleteer.com/

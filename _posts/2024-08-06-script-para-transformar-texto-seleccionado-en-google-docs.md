@@ -6,7 +6,7 @@ language: es
 comments: true
 published: true
 categories:
-  - Technologia
+  - Tecnología
 tags:
   - Google Docs
   - Google Apps Script

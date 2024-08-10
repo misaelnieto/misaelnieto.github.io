@@ -1,10 +1,23 @@
 ---
-published: true
+layout: post
 title: Celda solar sencilla con TCAD de Silvaco (Parte 1)
+language: es
+comments: true
+published: true
 mathjax: true
+categories:
+  - Tecnología
+  - Ciencia
+tags:
+  - Celdas solares
+  - Silvaco
+  - TCAD
+hero_svg: /assets/img/heroes/happy-intersection.svg
+image: /media/johnny-automatic-old-sun.png
+date: 2017-10-23
 ---
 
-![El Sol]({{site.baseurl}}/media/johnny-automatic-old-sun.png)
+
 ## Introducción
 
 Esta es una serie de artículos relacionados con la simulación de una celda solar de unión PN con el software [Silvaco TCAD](https://www.silvaco.com/products/tcad.html). Este primer artículo contiene una breve reseña de la empresa Silvaco y su simulador TCAD seguido del diseño de la celda y la descripción general del proceso de simulado.

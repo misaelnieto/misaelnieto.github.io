@@ -1,11 +1,22 @@
 ---
-published: true
+layout: post
 title: Añadir un nuevo disco a fedora con LVM
+language: es
+comments: true
+published: true
+categories:
+  - Tecnología
+tags:
+  - Linux
+  - Fedora
+  - LVM
+hero_svg: /assets/img/heroes/floating-cogs.svg
+image: /media/Ubuntu-linux-kernel-panic-by-jpangamarca.JPG
+date: 2017-08-11
 ---
-![Linux Boot]({{site.baseurl}}/media/Ubuntu-linux-kernel-panic-by-jpangamarca.JPG)
 
 
-**Nota:** Este post lo redacte en 2014, pero lo estoy publicando en 2017. Ya no tengo acceso al hardware mencionado en este articulo.
+> **Nota:** Este post lo redacte en 2014, pero lo estoy publicando en 2017. Ya no tengo acceso al hardware mencionado en este articulo.
 
 ## Intro
 
@@ -300,8 +311,8 @@ none                         120M     0  120M   0% /run/shm
 
 ## Ligas de donde saque la informacion
 
-* [http://www.tldp.org/HOWTO/LVM-HOWTO/extendlv.html
-* http://forums.fedoraforum.org/showthread.php?t=154625
-* http://www.howtoforge.com/linux_lvm
+* [http://www.tldp.org/HOWTO/LVM-HOWTO/extendlv.html](http://www.tldp.org/HOWTO/LVM-HOWTO/extendlv.html)
+* [http://forums.fedoraforum.org/showthread.php?t=154625](http://forums.fedoraforum.org/showthread.php?t=154625)
+* [http://www.howtoforge.com/linux_lvm](http://www.howtoforge.com/linux_lvm)
 
 FIN

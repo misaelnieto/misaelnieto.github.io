@@ -5,6 +5,7 @@ plugins:
     - jekyll-timeago
     - jekyll-thumbnail-img
     - jekyll-toc
+    - jekyll-autolinks
 title: Noe Nieto
 tagline: Mi sitio personal | Personal site
 email: nnieto@noenieto.com
@@ -87,4 +88,11 @@ exclude:
   - .frontmatter/
   - frontmatter.json
   - watch.sh
+
+
+# SEtttings for autolink plugin
+
+autolinks:
+  link_attr: 'target="_blank"'
   
+force_theme: light

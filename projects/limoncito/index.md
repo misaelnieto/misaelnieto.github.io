@@ -1,7 +1,10 @@
 ---
 layout: page
 title: Limoncito
+subtitle: Limoncito es una aplicacion para llevar el control de tus gastos
 toc: true
+hero_svg: /assets/img/heroes/endless-clouds.svg
+hero_gradient: linear-gradient(90deg, rgba(245,220,6,1) 0%, rgba(247,168,0,1) 100%)
 ---
 
 ## Acerca de Limoncito
