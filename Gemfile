@@ -13,5 +13,5 @@ group :jekyll_plugins do
   gem 'jekyll-timeago'
   gem 'jekyll-thumbnail-img'
   gem 'bulma-clean-theme', '~> 1.0', '>= 1.0.2'
-  gem 'jekyll-autolinks'
+  gem 'jekyll-autolinks',
 end

@@ -67,7 +67,7 @@ prose:
 
 # Settings for the bulma-clean theme
 paginate: 10
-paginate_path: "/posts/:num"
+paginate_path: "/blog/:num"
 footer_menu: footer
 show_sidebar: false
 favicon: /favicon.ico

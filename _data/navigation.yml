@@ -1,8 +1,10 @@
-- name: Posts archive
-  link: /posts
+- name: My Blog
+  link: /blog
+- name: Resume/CV
+  link: /resume
 - name: Demos, Tools & Toys
   link: /demos
 # - name: Dogos
 #   link: /my-dogos
 - name: About me
-  link: https://www.noenieto.com/
+  link: /about
