@@ -5,6 +5,7 @@ layout: landing-page
 show_sidebar: false
 menubar: false
 hide_hero: true
+language: en
 ---
 
 # Say *saluton* to <span class="has-text-primary">{{ site.author.name }}</span>, {{ site.author.description}}
@@ -54,7 +55,5 @@ hide_hero: true
     </p>
   </div>
 </div>
-
-# Latests blog posts
 
 {% include latest-posts.html %}

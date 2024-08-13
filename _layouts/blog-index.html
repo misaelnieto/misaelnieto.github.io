@@ -6,7 +6,8 @@
     {% assign content_width = 'is-12' %}
 {% endif %}
 <!DOCTYPE html>
-<html>
+<html dir="{{ site.direction | default: 'ltr' }}"
+lang="{{ page.lang | site.lang | default: 'en' }}">
   {% include head.html %}
   <body class="front-page">
     {% include header.html %}
