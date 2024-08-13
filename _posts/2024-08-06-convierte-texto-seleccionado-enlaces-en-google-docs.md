@@ -1,22 +1,42 @@
 ---
 layout: post
-title: Script para transformar texto seleccionado en Google docs
-summary: "Guía para crear un script que transforme el texto seleccionado en un documento de Google Docs"
-language: es
+title: Convierte texto seleccionado a enlaces en Google Docs
+summary: Guía para crear un guión de AppsScript que transforme el texto seleccionado en un documento de Google Docs
+description: |
+  Crea enlaces en Google Docs de forma rápida y sencilla con Apps Script. ¡Ahorra tiempo y esfuerzo! #Fácil #Rápido #GoogleDocs
+locale: es_MX
 comments: true
 published: true
 categories:
   - Tecnología
+  - Ofimática
 tags:
+  - Guía
   - Google Docs
   - Google Apps Script
+  - JavaScript
 hero_svg: /assets/img/heroes/jigsaw.svg
 image: /assets/img/post_cards/six-assorted-geometrical-objects-besides-a-sheet-w.svg
+hero_height: is-fullwidth
+hero_darken: true
 date: 2024-08-06
+keywords:
+  - AppsScript
+  - GoogleDocs
+  - Texto seleccionado
+  - Enlaces
+  - Links
+  - Programación
+  - Script
+slug: convierte-texto-seleccionado-enlaces-en-google-docs
+preview: /assets/img/screenshots/apps_script_new_menu_registered.png
 ---
 
+## ¿Por qué quise convertir el texto seleccionado a enlaces?
 
-Recientemente tuve la necesidad de procesar muchos links en un documento de texto de Google Docs. El proceso requeria copiar texto plano del log de un proceso en Jenkins y pegarlo en Google Docs. El texto lucia asi:
+Durante muchas semanas, todos los días, tuve que hacer una tarea bastante repetitiva en un documento de Google Docs: editar texto y convertirlo en links. Me cansé de hacerlo e hice un pequeño script para que lo haga por mi. Tal vez te sirva a ti también.
+
+El proceso requeria copiar texto plano del log de un proceso en Jenkins y pegarlo en Google Docs. El texto lucia asi:
 
 ```
 FAILED! process1 https://example.com/job_status/127435/32606664
@@ -29,7 +49,7 @@ Luego hacia un proceso manual de edicion en cada cada linea:
 
 1. Seleccionar y borrar la palabra FAILED.
 2. Seleccionar y cortar el link
-3. Seleccionar la palabra restante (por ejemplo, `process1`), presionar Ctrl+K (O CMD+K en mac) para abrir el dialogo para insertar links. Luego pegar el link que corté.
+3. Seleccionar la palabra restante (por ejemplo, `process1`), presionar <kbd>Ctrl</kbd>+<kbd>K</kbd> (O <kbd>⌘</kbd>+<kbd>K</kbd> en mac) para abrir el dialogo para insertar links. Luego pegar el link que corté.
 
 Si fueran 3 o 4 lineas no habria problema, pero a veces son docenas! Recientemente descubri que AppsScript esta disponible en Google Docs. Entonces pense en hacer un programa de JavaScript que por cada linea de texto hiciera lo siguiente:
 

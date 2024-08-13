@@ -42,12 +42,67 @@
           "title": "Categories",
           "name": "categories",
           "type": "categories"
+        },
+        {
+          "title": "layout",
+          "name": "layout",
+          "type": "string"
+        },
+        {
+          "title": "summary",
+          "name": "summary",
+          "type": "string"
+        },
+        {
+          "title": "locale",
+          "name": "locale",
+          "type": "string"
+        },
+        {
+          "title": "comments",
+          "name": "comments",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "title": "published",
+          "name": "published",
+          "type": "boolean"
+        },
+        {
+          "title": "hero_svg",
+          "name": "hero_svg",
+          "type": "image"
+        },
+        {
+          "title": "image",
+          "name": "image",
+          "type": "image"
+        },
+        {
+          "title": "keywords",
+          "name": "keywords",
+          "type": "choice",
+          "choices": [
+            "AppsScript",
+            "GoogleDocs",
+            "Texto seleccionado",
+            "Enlaces",
+            "Links",
+            "Programación",
+            "Script"
+          ]
         }
       ]
     }
   ],
   "frontMatter.framework.id": "jekyll",
-  "frontMatter.content.publicFolder": "assets",
+  "frontMatter.content.publicFolder": {
+    "path": "assets",
+    "relative": true
+  },
+  "frontMatter.content.defaultSorting": "FileNameDesc",
+
   "frontMatter.preview.host": "http://localhost:4000",
   "frontMatter.content.pageFolders": [
     {
@@ -56,7 +111,8 @@
     },
     {
       "title": "posts",
-      "path": "[[workspace]]/_posts"
+      "path": "[[workspace]]/_posts",
+      "previewPath": "/blog/{{date|yyyy}}"
     },
     {
       "title": "limoncito",

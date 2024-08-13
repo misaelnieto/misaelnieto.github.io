@@ -24,3 +24,18 @@ figure .is-rounded-corner {
         text-shadow: #555 1px 1px 2px;
     }
 }
+
+kbd {
+    background-color: var(--bulma-primary-light);
+    padding: 0.25rem;
+    border-radius: 12%;
+    border: 1px solid var(--bulma-primary-invert);
+}
+
+.content img {
+    filter: drop-shadow(0 0 0.25rem var(--bulma-primary-on-scheme));
+}
+
+.hero-darken .title {
+    color: var(--bulma-primary-light);
+}

@@ -96,3 +96,16 @@ autolinks:
   link_attr: 'target="_blank"'
   
 force_theme: light
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      pagination:
+        enabled: true
+        permalink: "/blog/:num"
+        sort_reverse: false
+      author: "Noe Nieto"
