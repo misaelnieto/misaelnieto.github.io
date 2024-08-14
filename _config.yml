@@ -5,7 +5,6 @@ plugins:
     - jekyll-timeago
     - jekyll-thumbnail-img
     - jekyll-toc
-    - jekyll-autolinks
 title: Noe Nieto
 tagline: Mi sitio personal | Personal site
 email: nnieto@noenieto.com
@@ -106,3 +105,7 @@ defaults:
         permalink: "/blog/:num"
         sort_reverse: false
       author: "Noe Nieto"
+      layout: post
+      show_sidebar: true
+      hero_height: is-fullwidth
+      hero_darken: true

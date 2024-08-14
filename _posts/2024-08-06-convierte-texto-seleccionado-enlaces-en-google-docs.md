@@ -17,8 +17,6 @@ tags:
   - JavaScript
 hero_svg: /assets/img/heroes/jigsaw.svg
 image: /assets/img/post_cards/six-assorted-geometrical-objects-besides-a-sheet-w.svg
-hero_height: is-fullwidth
-hero_darken: true
 date: 2024-08-06
 keywords:
   - AppsScript
@@ -56,7 +54,7 @@ Si fueran 3 o 4 lineas no habria problema, pero a veces son docenas! Recientemen
 1. Corta la cadena tomando los espacios delimitadores. Va a contener 3 elementos.
 2. Reemplaza la linea de texto por el link con el segundo y tercer elemento del arreglo.
 
-Ok. Manos a la obra! ... OK, Como empiezo? 
+Ok. Manos a la obra! ... OK, Como empiezo?
 
 ### Breve intro a AppsScript
 
@@ -65,7 +63,7 @@ Le pregunte a ChatGpt que me describiera rapidamente que es AppScript. Esto es l
 > Google Apps Script es una plataforma basada en JavaScript que permite a los usuarios automatizar tareas y extender la funcionalidad de las aplicaciones de Google Workspace, como Google Docs, Sheets, Slides, y Forms. Los scripts se escriben en JavaScript. Puedes usar las APIs específicas de Google Apps Script para interactuar con Google Docs y otros servicios de Google. Puedes automatizar tareas repetitivas, como formatear texto, crear tablas, insertar imágenes, y mucho más.
 También puedes extender la funcionalidad de Google Docs añadiendo menús personalizados, barras laterales, y cuadros de diálogo.
 
-¿Ok, y cómo empiezo con el Editor de Scripts?: Puedes acceder al editor de scripts en *Google Docs* yendo a `Extensiones` > `Apps Script`. 
+¿Ok, y cómo empiezo con el Editor de Scripts?: Puedes acceder al editor de scripts en *Google Docs* yendo a `Extensiones` > `Apps Script`.
 
 ![Acceso al menu de Apps Script desde Google Docs.](/assets/img/screenshots/apps_script_menu.png)
 
@@ -88,6 +86,7 @@ Esto obtiene la interfaz de usuario del documento de Google Docs actual.
 ```js
 .createMenu('Mis Scripts')
 ```
+
 Esto crea un nuevo menú en la barra de menús del documento con el título 'Mis Scripts'.
 
 3. Añadir un elemento de menú para ejecutar mi función:
@@ -97,7 +96,6 @@ Esto crea un nuevo menú en la barra de menús del documento con el título 'Mis
 ```
 
 Esto añade un elemento al menú personalizado creado en el paso anterior. El elemento del menú se llama **'Crear links a partir del texto seleccionado'**, y cuando se selecciona este elemento, se llamará a la función `createLinksFromSelectedText`.
-
 
 4. Finalmente, se añade el menú personalizado a la interfaz de usuario:
 
@@ -124,7 +122,6 @@ Ahora es momento de ejecutar la funcion. Para eso, primero guardamos (1), y lueg
 
 ![Guardar y correr la funcion](/assets/img/screenshots/apps_script_save_and_run.png)
 
-
 **Nota**: Cuando ejecutas un script por primera vez, Google te pedirá que autorices el script para acceder a tus datos de Google Docs. Esto es para asegurar que el script tiene permiso para realizar las acciones necesarias.
 
 ![La primera vez que corres la funcion te pide autorizacion](/assets/img/screenshots/apps_script_auth_required.png)
@@ -132,7 +129,6 @@ Ahora es momento de ejecutar la funcion. Para eso, primero guardamos (1), y lueg
 Despues de correr la funcion, abrimos de nuevo nuestro documento y ya veremos que se registro el nuevo menu:
 
 ![El menu ya esta registrado](/assets/img/screenshots/apps_script_new_menu_registered.png)
-
 
 Si hacemos click en el menu no va a pasar nada porque la funcion `createLinksFromSelectedText` aun no hace nada. Pero a continuacion vamos a solucionar esto.
 
@@ -161,7 +157,6 @@ if (!selection) {
 ```js
 var selectedElements = selection.getRangeElements();
 ```
-
 
 4. Itera sobre cada elemento seleccionado: Para cada elemento, verifica si puede ser editado como texto. Si no puede (por ejemplo, si es una imagen o una tabla), lo salta.
 
