@@ -42,9 +42,6 @@ comments: true
 theme: bulma-clean-theme
 google_analytics: G-H2W0NR3S1W
 
-# Disqus
-disqus:
-  shortname: noe-nieto.disqus.com
 #SEO
 twitter:
     username: misaelnieto_a
