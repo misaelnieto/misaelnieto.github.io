@@ -23,11 +23,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_cas
 
 ## Reintentando cosas en Python
 
-Cuando trabajas con APIs, servicios externos o pruebas de dispositivos que pueden fallar de vez en cuando haciendo que programar sistemas tolerantes a fallos se vuelva un poco complicado. Acá van cinco escenarios:
-
-### 1. No pagaste el internet, el servidor se cayó, o la red falló ...
-
-Esto es clásico: estás intentando hacer una petición HTTP a una API externa para obtener datos, pero la conexión a Internet es inestable.
+Cuando trabajas con APIs, servicios externos o pruebas de dispositivos que pueden fallar de vez en cuando haciendo que programar sistemas tolerantes a fallos se vuelva un poco complicado. Como ejemplo, esto es clásico: estás intentando hacer una petición HTTP a una API externa para obtener datos.
 
 ```python
 import requests
@@ -38,6 +34,8 @@ def obtener_datos():
 ```
 
 **¿Cómo podría fallar?**
+
+Bueno, como sabemos la conexión a Internet, por naturaleza puede ser inestable y, a veces falla, pero no siempre.
 
 La función `obtener_datos()` puede fallar si la conexión a Internet se corta momentáneamente o si hay problemas temporales con el servidor de la API o si los astros se alinearon ¿Seria genial si, en caso de fallo, se intentara de nuevo la petición, no?
 
@@ -66,6 +64,8 @@ def obtener_datos():
 ```
 
 ![Ewwwww! Osea, SI, pero se ve feísimo!](../assets/img/posts/clint_eastwood_si_pero_no.png){: .image }
+
+¿Cuál es el problema? !Se ve feo! Y además es más código para un concepto tan simple como reintentar una función. Debería haber una manera más fácil y **Pythonica**.
 
 Bueno, lo mismo pasa con otros escenarios:
 
@@ -165,7 +165,7 @@ def funcion_que_captura_excepcion():
 
 Puedes reintentar una función hasta que se obtenga un resultado específico.
 
-```
+```python
 from tenacity import retry_if_result
 
 @retry(retry=retry_if_result(lambda x: x is None))
