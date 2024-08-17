@@ -2,7 +2,7 @@
 title: Cómo Usar la Librería Tenacity en Python
 summary: Una pequeña guía para comenzar a usar la librería Tenacity de Python
 description: Facilmente reintenta una funcion en Python en caso de que algo falle
-date: 2024-08-16T19:15:15.747Z
+date: 2024-08-16
 categories:
     - Python
     - Tutoriales
@@ -12,14 +12,13 @@ tags:
     - tutorial
     - programación
 locale: es
-hero_svg: ../assets/img/heroes/happy-intersection.svg
+hero_svg: /assets/img/heroes/happy-intersection.svg
 keywords: python, tenacity, tutorial, programación
 preview: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
 image: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
 ---
 
 ¡Hola a todos! Hoy les voy a platicar de una librería de Python que me ha salvado la vida en más de una ocasión: **Tenacity**. Si alguna vez has tenido que lidiar con errores intermitentes en tus scripts o aplicaciones, esta herramienta es para ti. Vamos a ver cómo funciona y cómo puedes integrarla en tus proyectos. 🚀
-
 
 ## Reintentando cosas en Python
 
