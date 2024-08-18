@@ -15,7 +15,6 @@ description: >
   I like Free/Libre/Open Source Software. That's why I'd also like to define myself as a FLOSS generalist.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://noenieto.com" # the base hostname & protocol for your site
-permalink: /blog/:year/:title:output_ext
 author:
   name: Noe Nieto
   description: Senior Software Engineer
@@ -109,3 +108,20 @@ defaults:
       show_sidebar: true
       hero_height: is-fullwidth
       hero_darken: true
+      permalink: /blog/:year/:title
+  -
+    scope:
+      path: ""
+      type: "tutoriales"
+    values:
+      hero_svg: /assets/img/heroes/groovy.svg
+      hero_darken: true
+      layout: tutorial
+      show_sidebar: false
+      permalink: /:collection/:name
+
+# Configuration for collections/codice
+collections:
+  tutoriales:
+    output: true
+    sort_by: index

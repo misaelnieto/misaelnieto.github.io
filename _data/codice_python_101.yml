@@ -1,0 +1,24 @@
+- label: Introducción
+  items:
+    - name: Bienvenida
+      link: /codice/python-101/
+    - name: ¿Qué es Python?
+      link: /codice/python-101/que_es_python
+    - name: Lenguaje multi-plataforma
+      link: #
+    - name: Lenguaje multi-propósito
+      link: #
+    - name: ¿Dónde se usa Python?
+      link: #
+    - name: Versiones de Python
+      link: #
+- label: Tipos de datos basicos
+  items:
+    - name: Introducción
+      link: /codice/python-101/tipos_de_datos
+    - name: Números
+      link: /codice/python-101/tipos_de_datos#numeros
+    - name: Secuencias
+      link: /codice/python-101/tipos_de_datos#numeros
+
+

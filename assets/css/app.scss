@@ -36,6 +36,11 @@ kbd {
     filter: drop-shadow(0 0 0.25rem var(--bulma-primary-on-scheme));
 }
 
+.content .is-256 {
+    width: 256px;
+}
+
+
 .hero-darken .title {
     color: var(--bulma-primary-light);
 }
