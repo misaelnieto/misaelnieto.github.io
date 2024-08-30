@@ -118,7 +118,8 @@ defaults:
       hero_darken: true
       layout: tutorial
       show_sidebar: false
-      permalink: /:collection/:name
+      permalink: /:collection/:path
+      author: "Noe Nieto"
 
 # Configuration for collections/codice
 collections:

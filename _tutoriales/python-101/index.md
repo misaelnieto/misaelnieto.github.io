@@ -1,6 +1,6 @@
 ---
-title: El Códice Python 101
-subtitle: ¡Bienvenido al Códice Python 101!
+title: Python 101
+subtitle: Introducción al curso
 tutorial: python-101
 index: 0
 ---

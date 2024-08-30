@@ -1,3 +1,22 @@
+{% assign tutorial_data = site.data.tutoriales | where: 'name', page.tutorial | first %}
+{% assign chapters = site.tutoriales | where: 'tutorial', page.tutorial %}
+
+{% for c in chapters %}
+  {% if c.relative_path == page.relative_path %}
+    {% if forloop.first %}
+      {% assign next_chapter = chapters[forloop.index].url %}
+    {% elsif forloop.last %}
+      {% assign minus_one = forloop.index0 | minus: 1 %}
+      {% assign previous_chapter = chapters[minus_one].url %}
+    {% else %}
+      {% assign minus_one = forloop.index0 | minus: 1 %}
+      {% assign previous_chapter = chapters[minus_one].url %}
+      {% assign next_chapter = chapters[forloop.index].url %}
+    {% endif %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
 <!doctype html>
 {% assign has_left_sidebar = true %}
 
@@ -30,12 +49,11 @@
           <div class="column is-4-desktop is-4-tablet">
             <aside class="menu">
               <p class="menu-label">
-                {% assign tutorial_data = site.data.tutoriales | where: 'name', page.tutorial | first %}
                 {{ tutorial_data.title }}
               </p>
-              {% assign f_tutoriales = site.tutoriales | where: 'tutorial', page.tutorial %}
+
               <ul class="menu-list">
-                {% for tuto in f_tutoriales %}
+                {% for tuto in chapters %}
                   <li>
                     <a
                       href="{{tuto.url}}"
@@ -63,7 +81,53 @@
             {% include showcase.html %}
             {% include sponsors.html %}
             {% include gallery.html %}
-            {{ content }}
+
+            <div class="content">
+              <p>Published: {{ page.date | date: '%b %-d, %Y' }} by {{ page.author }}</p>
+
+              {% if page.series %}
+                {% include series.html %}
+              {% endif %}
+
+              {{ content }}
+            </div>
+            <div class="columns my-6">
+              {% if previous_chapter %}
+                {% if next_chapter %}
+                  <div class="column is-6"><a href="{{previous_chapter}}" class="button is-link">Anterior</a></div>
+                  <div class="column is-6 has-text-right">
+                    <a href="{{ next_chapter }}" class="button is-link">Siguiente</a>
+                  </div>
+                {% else %}
+                  <div class="column is-12">
+                    <a href="{{ previous_chapter }}" class="button is-link">Anterior</a>
+                  </div>
+                {% endif %}
+
+              {% elsif next_chapter %}
+                <div class="column is-12 has-text-right">
+                  <a href="{{ next_chapter }}" class="button is-link">Siguiente</a>
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="tags my-4">
+              {% for tag in page.tags %}
+                {% include tag.html tag=tag %}
+              {% endfor %}
+            </div>
+
+            {% unless site.hide_share_buttons %}
+              <div class="my-4">
+                {% include share-buttons.html %}
+              </div>
+            {% endunless %}
+
+            {% if site.disqus.shortname %}
+              <div class="my-4">
+                {% include disqus.html %}
+              </div>
+            {% endif %}
           </div>
           {% if site.posts and page.show_sidebar %}
             <div class="column is-4-desktop is-4-tablet">
@@ -78,5 +142,10 @@
     {% endunless %}
     <script src="{{ site.baseurl }}/assets/js/app.js" type="text/javascript"></script>
     {%- include footer-scripts.html -%}
+    <script src="https://modularizer.github.io/pyprez/pyprez.min.js" type="text/javascript"></script>
+    <script>
+      pyprez.then((){
+      });
+    </script>
   </body>
 </html>

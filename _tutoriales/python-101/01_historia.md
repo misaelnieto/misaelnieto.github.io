@@ -1,8 +1,8 @@
 ---
-title: Qué es Python?
-subtitle: Para qué sirve? Con qué se come?
+title: Historia de Python
+subtitle: ¿Para qué sirve? ¿Con qué se come?
 tutorial: python-101
-leccion: 0
+index: 1
 ---
 
 ## Breve historia de Python
