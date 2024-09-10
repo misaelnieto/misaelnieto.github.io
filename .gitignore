@@ -9,3 +9,6 @@ attic/
 vendor/
 **/*.code-workspace
 .idea/
+
+node_modules
+.env

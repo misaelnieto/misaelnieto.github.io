@@ -1,22 +1,35 @@
 ---
-title:  "Hola Mundo con Selenium sin programar nada"
-categories: DevOps Programación Selenium Testing
+title: Hola Mundo con Selenium - Una guía básica sin programación
+summary: Aprende a realizar tus primeras pruebas automatizadas con Selenium IDE sin necesidad de escribir código.
+language: es
+comments: true
+published: true
+categories: 
+    - Technology
+tags:
+    - Web
+    - Devops
+    - Programación
+    - Selenium
+    - Testing
+image: /media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg
+hero_svg: /assets/img/heroes/happy-intersection.svg
+date: 2014-07-15
 ---
 
-![Guía super básica de pruebas con Selenium](/media/3911627741_b4e98a9a6f_o.jpg)
+## Introducción a Selenium: ¡Hola Mundo sin código!
 
-## Intro
+¿Quieres adentrarte en el mundo de las pruebas automatizadas pero no sabes por dónde empezar? ¡Selenium IDE es la herramienta perfecta para ti! En esta guía, te mostraremos cómo crear tu primera prueba automatizada de forma sencilla y rápida, sin necesidad de escribir una sola línea de código.
 
 La primera vez que quise entrarle a [Selenium](http://www.seleniumhq.org/) no
 entendi cómo funcionaba ni cómo echarlo a andar; además tenía muy poco tiempo
 disponible para aprender los detalles. En esta segunda oportunidad me propuse
 un objetivo muy pequeño y fácil de lograr, pero muy didáctico: Hacer que
-Selenium verifique que una página tenga el texto **Hola Mundo** como título ¡Manos
-a la obra!
+Selenium verifique que una página tenga el texto **Hola Mundo** como título Ya estas listo? ¡Manos a la obra!
 
-## Página web de Prueba
+### Preparando el entorno
 
-Primero necesitamos un HTML que diga Hola Mundo, aca uno muy facil:
+Primero necesitamos una **página web de prueba:**. Asi que crearemos un HTML que cuando lo carges con el navegador diga `Hola Mundo`. Para lograr esi tienes que crear un simple archivo HTML llamado `index.html` con el siguiente contenido:
 
 ```html
 <!DOCTYPE html>
@@ -30,17 +43,24 @@ Primero necesitamos un HTML que diga Hola Mundo, aca uno muy facil:
 </html>
 ```
 
-¿Qué tal? Es sencillo, fácil, responsivo y minimalista. Luego, podemos entender
-a Selenium como un software que te ayuda a probar páginas web y una página web
-puede ser un HTML estático o una aplicación hecha en Ruby on Rails, Django,
-Drupal o lo que se antoje. El servidor web no importa tampoco, puede ser
-NGinx, Apache, IIS, amazon S3, Dropbox o el que tu quieras. Si ya tienes un
-servidor web o un sitio web entonces sube el hola mundo en HTML a tu sitio. Si
-no tienes dónde, no te preocupes, si tienes Python o PHP la buena noticia es
-que puedes arrancar un servidor web con una sóla línea de comandos.
+Ahora necesitamos un servidor web.
 
-Desde la terminal o línea de comandos, cambia el directorio al directorio
-donde se aloja el HTML de arriba (asumamos que se llama `index.html`).
+**¿Que, pero por qué un servidor web?**
+
+Selenium te ayuda a probar páginas web y una página web puede
+ser un HTML estático o una aplicación hecha en Ruby on Rails,
+Django, Drupal o lo que se antoje. El servidor web no importa
+tampoco, puede ser NGinx, Apache, IIS, amazon S3, Dropbox o el
+que tu quieras. Si ya tienes un servidor web o un sitio web
+entonces sube el hola mundo en HTML a tu sitio. Si no tienes
+dónde, no te preocupes, si tienes Python o PHP la buena noticia
+es que puedes arrancar un servidor web con una sóla línea de
+comandos.
+
+
+Desde la terminal o línea de comandos, cambia el directorio al
+directorio donde se aloja el HTML de arriba (asumamos que se
+llama `index.html`).
 
 Para Python 2.x tienes que ejecutar:
 
@@ -65,20 +85,23 @@ Para probar si funciona abre el navegador y abre este URL:
 
 ![Firefox probando el servidor web improvisado](/media/Screenshot_from_2014_07_15_16_42_54.png)
 
+¿Qué tal? Este sitio es [sencillo, fácil, responsivo y minimalista](https://motherfuckingwebsite.com/) ...
 
-Antes de que pases a la siguiente sección deberás poder acceder al Hola mundo
-desde tu navegador. (Nota, tambien podrias usar `file://` pero no lo he probado,
-te queda a ti de tarea a manera de ejercicio).
+Antes de que pases a la siguiente sección deberás poder acceder
+al Hola mundo desde tu navegador. (Nota, tambien podrias usar
+`file://` pero no lo he probado, te queda a ti de tarea a manera
+de ejercicio).
 
 ## Pruebas con Selenium IDE
 
-El siguiente paso es instalar [Selenium IDE](http://docs.seleniumhq.org/projects/ide/)
-en Firefox. Selenium IDE es un complemento de Firefox, asi que te pedirá
+El siguiente paso es instalar [Selenium
+IDE](http://docs.seleniumhq.org/projects/ide/) en Firefox.
+Selenium IDE es un complemento de Firefox, asi que te pedirá
 permiso para instalarlo. Tal vez tengas que reiniciar Firefox.
 
-Abre la página de prueba y lanza el IDE mediante el menú Herramientas ->
-Selenium IDE. Mi Firefox esta en inglés, pero no debería cambiar demasiado
-para español u otro idioma.
+Abre la página de prueba y lanza el IDE mediante el menú
+**Herramientas -> Selenium IDE**. Mi Firefox esta en inglés, pero no
+debería cambiar demasiado para español u otro idioma.
 
 ![Cómo lanzar el IDE de Selenium](/media/Screenshot_from_2014_07_18_16_31_44.png)
 
@@ -111,7 +134,7 @@ página.
 
 Presiona cualquiera de los botones verdes para iniciar/reiniciar la prueba automática.
 
-![Botones para iniciar la prueba. Presiona cualquiera de los dos botones](/media/Screenshot_from_2014_07_21_08_35_17)
+![Botones para iniciar la prueba. Presiona cualquiera de los dos botones](/media/Screenshot_from_2014_07_21_08_35_17.png)
 
 Cuando inicies la prueba, veras que se abre una nueva ventana de firefox (a
 veces se usa una de las que ya estan abiertas), se abre el sitio
@@ -126,7 +149,7 @@ momento se pedirá que des primero el nombre del caso de prueba (`MiPrueba.html`
 y posteriormente el nombre de la suite de pruebas (`MiSuitedePruebas.html`).
 
 Yo guarde el archivo dentro de un subdirectorio (Llamado `Pruebas`) dentro del
-directorio donde guarde el HTML de _hola mundo_. La cosa queda así:
+directorio donde guarde el HTML de *hola mundo*. La cosa queda así:
 
 ```
 .
@@ -248,13 +271,15 @@ $ tree
 
 Abre `Resultados.html`. Deberás poder ver algo asi:
 
-![Resultado de la suite de pruebas](/media/Screenshot_from_2014_07_21_11_22_27)
+![Resultado de la suite de pruebas](/media/Screenshot_from_2014_07_21_11_22_27.png)
 
 He aquí el resultado:
 
+```
 | -------------- | -----|
 | numTestTotal:  | + 1  |        |
 | numTestPasses: | + 1  |
+```
 
 ## Recapitulando
 
@@ -271,7 +296,3 @@ servidor web (PHP o Python, pero bien pudo haber sido nginx o Apache).
 * Finalmente revisamos los resultados.
 
 Espero que esta guía sea de utilidad para alguien más.
-
-
------
-Imagen de portada: <https://flic.kr/p/6XE7DB>

@@ -359,7 +359,7 @@ Despues de agrgegar el producto al carrito podemos ir al carrito para ver las op
 
 Pero antes de hacer click en el boton amarillo de Paypal es necesario poder recibir notificaciones de Paypal directamente en mi instancia de django en localhost, y esto se hace posible gracias a [ngrok](https://ngrok.com/). `ngrok` es un servicio gratuito para pruebas de este tipo. Y configurarlo es bastante fácil: `./ngrok`.
 
-![ngrok haciendo un tunel.]({{site.baseurl}}/media/Screenshot from 2018-03-26 19-14-54.png)
+![ngrok haciendo un tunel.](/media/Screenshot_from_2018-03-26_19-14-54.png)
 
 Nota: hay que agregar 5603f7b3.ngrok.io a la lista de  ALLOWED_HOSTS por que si no Django va a fallar con el error `DisallowedHost at /`.
 

@@ -17,7 +17,8 @@ Inicialmente tenia planeado mostrar cómo usar ámbos métodos, pero no he podid
 
 El sitio que voy a confgurar es: [demos.noenieto.com](https://demos.noenieto.com). Este dominio ya esta configurado en mi webfaction de antemano:
 
-![Screenshot-2018-1-6 Website list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-1-6 Website list - WebFaction Control Panel.png)
+
+![Screenshot-2018-1-6 Website list - WebFaction Control Panel.png](/media/Screenshot-2018-1-6_webfaction_control_panel.png)
 
 La ruta hacia el directorio del sitio es: `~/webapps/demos_noenieto` y el sitio esta configurado para **http** y **https** ya que es necesario acceso al sitio por **http** antes de poder emitir el certificado por primera vez.
 
@@ -117,11 +118,11 @@ Add the `--quiet` parameter in your cron task to remove this message.
 
 Después de configurar el sitio con registros `A` y `AAA` el programa funciona muy bien y justo después de esto podemos ver que en el panel de configuración cuenta de de webfaction se ha creado un certificado con el nombre `cert_demos_noenieto.com`.
 
-![Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png)
+![Screenshot-2018-2-5 SSL certificates list - WebFaction Control Panel.png](/media/Screenshot-2018-2-5_ssl_certificates.png)
 
 Ya sólo falta configurar el sitio web para que use el certificadovadecuado.
 
-![Screenshot-2018-2-7 Edit website demos_https - WebFaction Control Panel.png]({{site.baseurl}}/media/Screenshot-2018-2-7 Edit website demos_https - WebFaction Control Panel.png)
+![Screenshot-2018-2-7 Edit website demos_https - WebFaction Control Panel.png](/media/Screenshot-2018-2-7_demos_https.png)
 
 
 El comando final es este:

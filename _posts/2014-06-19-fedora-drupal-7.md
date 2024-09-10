@@ -7,7 +7,7 @@ published: false
 
 Tengo unos minutos libres y decidí complicarme la vida un poco más de lo que ya esta.
 
- ![Drupal corriendo sin apache ni mysql]({{site.baseurl}}/media/Screenshot from 2014-06-19 20:10:24.png)
+ ![Drupal corriendo sin apache ni mysql](/media/Screenshot_from_2014-06-19_20_10_24.png)
 
 Hace algunas semanas instale Fedora desde cero y ya perdi todo lo que estaba haciendo con Drupal y se me ocurrio probar a ver si puedo arrancar Drupal 7 con el servidor web integrado de PHP oara ahorrarme la configuracion de apache.
 

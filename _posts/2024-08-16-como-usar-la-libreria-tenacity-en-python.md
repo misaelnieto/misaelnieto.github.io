@@ -63,7 +63,7 @@ def obtener_datos():
                 raise
 ```
 
-![Ewwwww! Osea, SI, pero se ve feísimo!](../assets/img/posts/clint_eastwood_si_pero_no.png){: .image }
+![Ewwwww! Osea, SI, pero se ve feísimo!](/assets/img/posts/clint_eastwood_si_pero_no.png){: .image }
 
 ¿Cuál es el problema? !Se ve feo! Y además es más código para un concepto tan simple como reintentar una función. Debería haber una manera más fácil y **Pythonica**.
 

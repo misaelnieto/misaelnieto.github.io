@@ -162,13 +162,12 @@ $ foundation watch
 
 Browsersync was installed, so it pops a browser window that shows the *Welcome to foundation* window:
 
-![](../media/Screenshot_from_2020-01-19 17-26-54.png)
+![Screenshot of the Welcome to foundation screen](/media/Screenshot_from_2020-01-19_17-26-54.png)
 
 The `foundation watch`  command spins it's own web server on http://localhost:3000, but we are using the web server provided by rocket, so I deleted the `index.html` file, removed the BrowserSync  configuration from `gulpfile.js` and `package.json`. I also re/moved other files to leave the static directory as clean as possible. This is how it looks now:
 
-![]()
-
+![Project directory structure](/media/Screenshot_from_2020-01-19_18-07-29.png)
 
 ## Credits
 
-<span>Cover photo by <a href="https://unsplash.com/@spacex?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">SpaceX</a> on <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+Cover photo by [SpaceX](https://unsplash.com/@spacex?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/rocket?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)

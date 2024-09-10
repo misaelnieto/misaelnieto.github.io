@@ -5,7 +5,7 @@ layout: post
 
 I love nginx's simplicity
 
-![Serving files in a directory with nginx](/media/nginx)
+![Serving files in a directory with nginx](/media/nginx.png)
 
 Today I wanted to publish some files in a directory with nginx and I was
 surprised how easy it was.
