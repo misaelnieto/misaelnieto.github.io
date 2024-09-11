@@ -1,14 +1,17 @@
 ---
+title: Sitio HTTPS + Webfaction + Let's Encrypt
+summary: Configuracion de un sitio HTTPS en webfaction con let's encrypt (Version 3)
 published: true
 tags: webfaction
 ---
-## Configuracion de un sitio HTTPS en webfaction con let's encrypt (Version 3)
+
+**Nota**: Webfaction dejo de existir hace muchos años y Let's Encrypt ha sido automatizado en gran parte. Este articulo esta aquí por razones históricas.
 
 Estas son mis notas de configuracion de HTTPS en webfaction usando certificados de [Let's Encrypt](https://letsencrypt.org/). Ya había publicado una guía anterior, pero hay una nueva version del letsencrypt_webfaction y trae cambios que requieren reconfigurar. Así que volvemos a empezar desde cero.
 
 ## Preparación del sitio
 
-La preparación del sitio es [la misma](/2018/02/05/webfaction-https-y-letsencript.html) y no es necesario cubrirla de nuevo.
+La preparación del sitio es [la misma]({% post_url 2018-02-05-webfaction-https-y-letsencript %}) y no es necesario cubrirla de nuevo.
 
 ## Actualzación de `letsencrypt_webfaction`
 

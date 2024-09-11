@@ -1,9 +1,11 @@
 ---
-title: Scribes, a beautiful and simple text editor written in Python
+title: Scribes, a beautiful and simple text editor
+summary: A Sleek and Simple Text Editor Built for Keyboard Lovers
 layout: post
 ---
 
- I love Scribes, a sleek and simple code editor written in Python. This is a review of the things that make me always come back to it.
+I love Scribes, a sleek and simple code editor written in Python. This is a review of the things that make me always come back to it.
+
 Scribes, a beautiful and simple text editor written in Python
 
 ![Scribes Editor](/media/scribes.png)
@@ -37,7 +39,7 @@ know if you have ever used windows or linux, like `Ctrl`+ `C` and `Ctrl`+ `V` fo
 and pasting text. And to make things easier, Scribes comes with a handy cheat
 sheet that pops out when you hit `Ctrl`- `H`.
 
-![A handy cheat sheet for Scribes.](/media/media/scribes_cheat_sheet.png)
+![A handy cheat sheet for Scribes.](/media/scribes_cheat_sheet.png)
 
 Scribes is not awfully configurable (in the sense of vim or emacs). I think
 that's OK, because you rarely need to go beyond Scribes' default settings
@@ -84,3 +86,22 @@ There are a lots of small details (that is, keyboard shortcuts) all over the
 app. But It would take me very long to explain every feature, and I will
 probably bore you. So just head over the [Scribes' home page](http://scribes.sourceforge.net/download.html),
 install it and give it a try.
+
+## Summary
+
+This review highlights Scribes, a Python-based code editor known for its minimalist design and focus on keyboard shortcuts.
+
+Key Features:
+
+Clean Interface: No menu bar or tabs - relies on the OS and hot corners for navigation.
+Keyboard-Centric: Almost all functions are accessible through shortcuts, with a handy cheat sheet available.
+Customization: Offers themes, code snippets, auto-replace, and extensibility through plugins. Supports syntax highlighting and language-specific features (e.g., Python function navigation).
+Focus on Efficiency: Promotes efficient workflow with features like auto-hidden toolbars and recent file access.
+Who Should Use It?
+
+Coders who prefer a simple and distraction-free environment.
+Users comfortable with keyboard shortcuts.
+Fans of customizable experiences (through themes and plugins).
+Overall:
+
+Scribes offers a powerful yet lightweight option for those seeking a streamlined coding experience. While it may lack the extensive configurability of editors like Vim or Emacs, its focus on keyboard shortcuts and extensibility makes it a compelling choice for efficient coding.

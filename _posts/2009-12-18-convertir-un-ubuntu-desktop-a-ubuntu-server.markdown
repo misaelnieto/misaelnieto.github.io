@@ -9,7 +9,6 @@ G5. La red andaba fallando y bajar el ISO de ubuntu-server para powerpc no era
 una opción viable. Afortunadamente teníamos un cd de ubuntu-desktop. 9.04
 (Jaunty Jackalope)
 
-
 ## Paso 1
 
 Respaldar toda la info del MACOS X. Ya hay muchas guías para esto.
@@ -86,7 +85,8 @@ mysql-server
  tzicatl@iservices-server:~$ sudo apt-get install mc vim-nox
 ```
 
-# Paso 6
+## Paso 6
+
 Ya al final hay que reiniciar y configurar la red a mano.
 
 Salud!
