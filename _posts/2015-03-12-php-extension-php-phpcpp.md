@@ -194,7 +194,7 @@ extensión. Lo puse en un directorio visible por apache2 y lo nombré
 
 Y si la configuración es correcta, se deberá ver algo así:
 
-![La extension funcionando](/media/Captura de pantalla de 2015-03-13 09:15:55.png)
+![La extension funcionando](/media/Captura-de-pantalla-de-2015-03-13-09.15.55.png)
 
 Los textos "Hola mundo" y "string" provienen del complemento noe_estension.so
 
