@@ -26,7 +26,7 @@ Las **ramas en Git** son como tener múltiples borradores de tu trabajo. Puedes 
 
 Piensa en Git como un árbol:
 ```
-        main (tronco principal)
+        master (tronco principal)
           |
           |-----> nueva-funcion (rama experimental)
           |
@@ -34,7 +34,7 @@ Piensa en Git como un árbol:
     (tu proyecto continúa)
 ```
 
-- El **tronco (main)** es tu versión estable
+- El **tronco (master)** es tu versión estable
 - Las **ramas** son experimentos que crecen del tronco
 - Puedes **podar** (eliminar) ramas que no te gusten
 - Puedes **injertar** (merge) ramas exitosas de vuelta al tronco
@@ -79,7 +79,7 @@ git add calculadora.py
 git commit -m "Calculadora básica con suma"
 ```
 
-**✅ CHECKPOINT:** Si ves un mensaje con "[main (root-commit)]", ¡todo va bien!
+**✅ CHECKPOINT:** Si ves un mensaje con "[master (root-commit)]", ¡todo va bien!
 
 ---
 
@@ -136,8 +136,8 @@ git commit -m "Agregar función de resta"
 **⚠️ IMPORTANTE:** No te asustes cuando veas que el archivo cambia. Es normal y esperado.
 
 ```bash
-# Volver a la rama main
-git checkout main
+# Volver a la rama master
+git checkout master
 
 # Ver el contenido del archivo
 type calculadora.py
@@ -171,36 +171,36 @@ Un **merge** es decirle a Git: "Me gustó este experimento, quiero agregarlo a m
 
 ```
 ANTES:
-main:  [suma]
+master:  [suma]
 resta: [suma] + [resta]
 
 DESPUÉS DEL MERGE:
-main:  [suma] + [resta]  ← trae los cambios de "resta"
+master:  [suma] + [resta]  ← trae los cambios de "resta"
 resta: [suma] + [resta]  ← sigue igual
 ```
 
 ### Paso 9: Hacer el merge
 
 ```bash
-# IMPORTANTE: Primero, asegúrate de estar en main
-git checkout main
+# IMPORTANTE: Primero, asegúrate de estar en master
+git checkout master
 
-# Ahora, traer los cambios de "resta" hacia "main"
+# Ahora, traer los cambios de "resta" hacia "master"
 git merge resta
 ```
 
-**📝 Traducción:** "Estando en main, quiero traer lo que hice en resta"
+**📝 Traducción:** "Estando en master, quiero traer lo que hice en resta"
 
 **✅ CHECKPOINT:** Git debe decir algo como "1 file changed, 3 insertions(+)"
 
 ### Paso 10: Verificar el resultado
 
 ```bash
-# Ver que ahora main tiene ambas funciones
+# Ver que ahora master tiene ambas funciones
 type calculadora.py
 ```
 
-**✅ CHECKPOINT FINAL:** Deberías ver AMBAS funciones en la rama main.
+**✅ CHECKPOINT FINAL:** Deberías ver AMBAS funciones en la rama master.
 
 ---
 
@@ -210,7 +210,7 @@ Has completado tu primera práctica con ramas. Ahora sabes:
 
 1. ✅ Crear ramas para experimentar sin riesgo
 2. ✅ Cambiar entre diferentes versiones de tu código
-3. ✅ Combinar cambios exitosos de vuelta a main
+3. ✅ Combinar cambios exitosos de vuelta a master
 4. ✅ Que Git protege tu trabajo (nada se pierde)
 
 ---
