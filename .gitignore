@@ -2,7 +2,6 @@ _site
 .sass-cache
 .jekyll-metadata
 *.sublime-workspace
-Gemfile.lock
 .bundle/
 .vscode/
 attic/

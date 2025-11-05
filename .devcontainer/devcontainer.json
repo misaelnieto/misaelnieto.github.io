@@ -1,0 +1,23 @@
+{
+  "name": "Noe Nieto - Jekyll Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [4000],
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "remoteUser": "vscode",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rebornix.ruby",
+        "ms-azuretools.vscode-docker",
+        "sirtuan.devcontainer"
+      ]
+    }
+  }
+}
