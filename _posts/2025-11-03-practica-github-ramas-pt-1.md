@@ -1,4 +1,22 @@
-# Práctica: Trabajando con Ramas en Git (Versión Simplificada)
+---
+title: "Práctica: Trabajando con Ramas en Git (Parte 1)"
+summary: "Aprende a usar ramas en Git para experimentar sin miedo. Crea, cambia y combina ramas en esta guía para principiantes."
+description: "Este tutorial te enseña los conceptos básicos de las ramas en Git. Aprenderás a crear una rama para trabajar en una nueva función, cambiar entre ramas y fusionar tus cambios de nuevo en la rama principal. Esta es la primera parte de una serie de tutoriales sobre Git."
+date: 2025-11-03
+categories:
+    - Tutoriales
+tags:
+    - Git
+    - GitHub
+    - Ramas
+    - Tutorial
+    - Principiantes
+locale: es_MX
+hero_svg: /assets/img/heroes/connections.svg
+keywords: "Git, GitHub, branches, tutorial, beginners, ramas, control de versiones"
+preview: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
+---
 
 **Instituto Tecnológico de Mexicali**
 Fundamentos de Ingeniería
