@@ -14,8 +14,8 @@ tags:
 locale: es_MX
 hero_svg: /assets/img/heroes/connections.svg
 keywords: "Git, GitHub, branches, tutorial, beginners, ramas, control de versiones"
-preview: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
-image: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
+preview: /media/unsplash/brian-suh-a4GET0s82rI-unsplash.jpg
+image: /media/unsplash/brian-suh-a4GET0s82rI-unsplash.jpg
 ---
 
 **Instituto Tecnológico de Mexicali**

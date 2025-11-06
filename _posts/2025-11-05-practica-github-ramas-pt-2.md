@@ -14,13 +14,14 @@ tags:
 locale: es_MX
 hero_svg: /assets/img/heroes/cage.svg
 keywords: "Git, GitHub, branches, tutorial, beginners, ramas, control de versiones"
-preview: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
-image: https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg
+preview: /media/git-branch-pt2.png
+image: /media/git-branch-pt2.png
+mermaid: true
 ---
 # 🌳 Práctica Parte 2: Trabajando con Múltiples Ramas en Git
 
 ## 📋 Pre-requisitos
-- Haber completado la Práctica Parte 1
+- Haber completado la [Práctica Parte 1](2025-11-05-practica-github-ramas-pt-1.md)
 - Tener Git instalado
 - Tener el proyecto de calculadora de la práctica anterior
 
@@ -167,8 +168,8 @@ git branch
 
 **DEBES VER (el asterisco indica tu rama actual):**
 ```
-  feature-division
-* feature-multiplicacion
+* feature-division
+  feature-multiplicacion
   master
 ```
 
