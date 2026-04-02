@@ -1,0 +1,21 @@
+---
+title: "2018-03-26-lecturas-semana-12-2018.md"
+date: "2018-03-26"
+---
+
+Las lecturas de la semana 12 del 2018 (19 al 25 de Marzo)
+
+- [ Dumpster-Diving Battery Pioneers Are Building LiIon Batteries with 2X the Energy Density Of Today’s Cells](https://www.pddnet.com/article/2018/03/dumpster-diving-battery-pioneers-are-building-liion-batteries-2x-energy-density-todays-cells). Hay un [video con explicacion](https://www.youtube.com/watch?v=plw4MMdbjLI).
+- [New Process Promises to Make Microelectromechanical Systems (MEMS) Smaller, More Reliable, and Less Expensive](https://www.pddnet.com/news/2018/03/new-process-promises-make-microelectromechanical-systems-mems-smaller-more-reliable-and-less)
+- [Why We Don't Like Our Underground House](https://dengarden.com/misc/The-Pitfalls-of-an-Underground-House)
+- [Una mujer falleció en Arizona tras se arrollada por un vehículo autónomo operado por Uber](https://elpais.com/tecnologia/2018/03/19/actualidad/1521479089_032894.html?id_externo_rsoc=FB_CM)
+- El [Fondo para el Desarrollo de Recursos Humanos (FIDERH)](http://www.fiderh.org.mx/) es un fideicomiso federal, que financia estudios de postgrado a estudiantes mexicanos.
+- [The Opioid Epidemic in America](https://www.globalresearch.ca/the-opioid-epidemic-in-america-killing-one-million-workers-the-triumph-of-capital/5627300). Brutal lectura.
+- [Holographic Waveguide HUD Has Larger Eye Box for Enhanced Display](https://www.photonics.com/Article.aspx?AID=63227&refer=weeklyNewsletter&utm_source=weeklyNewsletter_2018_03_22&utm_medium=email&utm_campaign=weeklyNewsletter&PID=6)
+- Some 70,000 years ago, [a rogue star duo whooshed by our solar system](https://www.zmescience.com/science/news-science/rogue-star-solar-system-22032018/?utm_source=ZME+Science+Newsletter&utm_campaign=40c9ad7753-RSS_EMAIL_CAMPAIGN&utm_medium=email&utm_term=0_3b5aad2288-40c9ad7753-242777289&goal=0_3b5aad2288-40c9ad7753-242777289) — and early humans probably saw it.
+- Ata: Surreal, [six-inch mummy with an elongated skull](https://www.zmescience.com/medicine/genetic/six-inch-mummy-skull-22032018/) finally described by scientists
+- Por fin! [Markdown Descriptions on PyPI](https://dustingram.com/articles/2018/03/16/markdown-descriptions-on-pypi)
+- [The dangers of worn shock absorber](http://www.tenneco.com/the_hidden_danger_of_worn_out_shock_absorbers/)
+[Freezing gut nerve makes you less hungry, aiding weight loss](https://www.zmescience.com/science/news-science/gut-nerve-freeze-423432/). Basicamente usan una jeringa con punta muy laaarga, penetran por la espalda hasta llegar a la zona del nervio vago que apaga el hambre y congelan con gas. No hay grupo de control, asi que no hay que creerlo al 100%.
+- At a time when millions are losing trust in the the web’s biggest sites, it’s worth revisiting the idea that the web was supposed to be made out of countless little sites. [Here’s a look at the neglected technologies that were supposed to make it possible.](https://medium.com/@anildash/the-missing-building-blocks-of-the-web-3fa490ae5cbc)
+-

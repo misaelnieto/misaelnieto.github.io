@@ -1,0 +1,50 @@
+[site]
+title = "Noe Nieto"
+description = "Mi sitio personal | Personal site"
+base_url = "https://noenieto.com"
+language = "es"
+author = "Noe Nieto"
+
+[[collections]]
+name = "posts"
+label = "Posts"
+directory = "posts"
+has_date = true
+has_rss = true
+listed = true
+url_prefix = "/blog"
+nested = false
+default_template = "post.html"
+
+[[collections]]
+name = "pages"
+label = "Pages"
+directory = "pages"
+has_date = false
+has_rss = false
+listed = false
+url_prefix = ""
+nested = false
+default_template = "page.html"
+
+[build]
+output_dir = "dist"
+content_dir = "content"
+template_dir = "templates"
+static_dir = "static"
+data_dir = "data"
+public_dir = "public"
+minify = true
+
+[deploy]
+target = "github-pages"
+auto_commit = true
+
+[languages]
+
+[images]
+widths = [480, 800, 1200]
+quality = 80
+lazy_loading = true
+webp = true
+avif_quality = 70
