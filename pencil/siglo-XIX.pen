@@ -2283,6 +2283,390 @@
               ]
             }
           ]
+        },
+        {
+          "type": "frame",
+          "id": "KfdeV",
+          "name": "row3",
+          "gap": 40,
+          "children": [
+            {
+              "type": "frame",
+              "id": "PsSXZ",
+              "name": "Mol/Figure",
+              "reusable": true,
+              "width": 320,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CazkC",
+                  "name": "fgLbl",
+                  "fill": "#777777",
+                  "content": "Figure",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "VJTAh",
+                  "name": "figBody",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ofdbA",
+                      "name": "figPlaceholder",
+                      "width": "fill_container",
+                      "height": 180,
+                      "fill": "#EDE9E0",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "4CDl4",
+                          "name": "fgImgTxt",
+                          "fill": "#999999",
+                          "content": "[ imagen ]",
+                          "fontFamily": "Newsreader",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "IvmWz",
+                      "name": "fgCap",
+                      "fill": "#999999",
+                      "content": "Fig. 1 — Descripción de la imagen.",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SWZ4b",
+                      "name": "fgFl",
+                      "fill": "#777777",
+                      "content": "§ · § · §",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "letterSpacing": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5XLud",
+              "name": "Mol/Blockquote",
+              "reusable": true,
+              "width": 320,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gFVmf",
+                  "name": "bqLbl",
+                  "fill": "#777777",
+                  "content": "Blockquote",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "jteKv",
+                  "name": "bqBody",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "left": 3
+                    },
+                    "fill": "#EBE8E3"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    16,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AvNnt",
+                      "name": "bqText",
+                      "fill": "#1C1C19",
+                      "content": "La tipografía es la voz silenciosa del texto. Cada elección de letra dice algo antes de que se lea una sola palabra.",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 17,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZuMfs",
+                      "name": "bqAttr",
+                      "fill": "#999999",
+                      "content": "— Robert Bringhurst",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ypb5O",
+              "name": "Mol/CodeBlock",
+              "reusable": true,
+              "width": 360,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "7w6Ei",
+                  "name": "cbLbl",
+                  "fill": "#777777",
+                  "content": "Code Block",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "KYCx4",
+                  "name": "cbBody",
+                  "width": "fill_container",
+                  "fill": "#1C1C19",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    16,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Cnd8r",
+                      "name": "cbLang",
+                      "fill": "#999999",
+                      "content": "python",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 10,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "eNSP3",
+                      "name": "cbCode",
+                      "fill": "#F5F0E8",
+                      "content": "def saludar(nombre):\n    return f\"Hola, {nombre}\"\n\nprint(saludar('mundo'))",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nVbb5",
+              "name": "Mol/Sidenote",
+              "reusable": true,
+              "width": 200,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "9rZPG",
+                  "name": "snLbl",
+                  "fill": "#777777",
+                  "content": "Sidenote",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "mBp1Q",
+                  "name": "snBody",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GDwPQ",
+                      "name": "snNum",
+                      "fill": "#E65100",
+                      "content": "1",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "prOhs",
+                      "name": "snText",
+                      "fill": "#999999",
+                      "content": "Las notas al margen permiten agregar contexto sin interrumpir el flujo principal del texto.",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vJqOU",
+              "name": "Mol/Heading",
+              "reusable": true,
+              "width": 320,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "A7BVt",
+                  "name": "hdLbl",
+                  "fill": "#777777",
+                  "content": "Heading / Anchor",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "5ZPOD",
+                  "name": "hdBody",
+                  "gap": 8,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "47pzR",
+                      "name": "hdText",
+                      "fill": "#1C1C19",
+                      "content": "Titulo de Seccion",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 22,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "rWxoK",
+                      "name": "hdAnchor",
+                      "fill": "#999999",
+                      "content": "§",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "8btkR",
+              "name": "Mol/InlineTags",
+              "reusable": true,
+              "width": 280,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wCMRR",
+                  "name": "itLbl",
+                  "fill": "#777777",
+                  "content": "Inline Tags (post footer)",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "G0V4S",
+                  "name": "itLabel",
+                  "fill": "#999999",
+                  "content": "ETIQUETAS",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 10,
+                  "fontWeight": "normal",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "tD7V2",
+                  "name": "itBody",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PZsY3",
+                      "name": "itT1",
+                      "fill": "#E65100",
+                      "content": "#python",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "5EtJ9",
+                      "name": "itT2",
+                      "fill": "#E65100",
+                      "content": "#linux",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kUpYZ",
+                      "name": "itT3",
+                      "fill": "#E65100",
+                      "content": "#web",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Crx73",
+                      "name": "itT4",
+                      "fill": "#E65100",
+                      "content": "#diseño",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
