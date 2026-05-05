@@ -1354,6 +1354,94 @@
               "letterSpacing": 4
             }
           ]
+        },
+        {
+          "type": "frame",
+          "id": "R3ODU",
+          "name": "Atom/HorizontalRule",
+          "reusable": true,
+          "width": 200,
+          "layout": "vertical",
+          "gap": 8,
+          "children": [
+            {
+              "type": "frame",
+              "id": "FCAYk",
+              "name": "hrLine",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "#EBE8E3"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "er3D2",
+          "name": "Atom/Breadcrumb",
+          "reusable": true,
+          "layout": "vertical",
+          "gap": 8,
+          "children": [
+            {
+              "type": "frame",
+              "id": "O4b2VO",
+              "name": "bcBody",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kMrLW",
+                  "name": "bcItem1",
+                  "fill": "#777777",
+                  "content": "Inicio",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "O0TXY",
+                  "name": "bcSep1",
+                  "fill": "#999999",
+                  "content": "/",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "q9prI",
+                  "name": "bcItem2",
+                  "fill": "#777777",
+                  "content": "Blog",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Q94trH",
+                  "name": "bcSep2",
+                  "fill": "#999999",
+                  "content": "/",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "IajBQ",
+                  "name": "bcItem3",
+                  "fill": "#E65100",
+                  "content": "Artículo",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -2160,6 +2248,8 @@
                       "id": "AvNnt",
                       "name": "bqText",
                       "fill": "#1C1C19",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
                       "content": "La tipografía es la voz silenciosa del texto. Cada elección de letra dice algo antes de que se lea una sola palabra.",
                       "fontFamily": "Newsreader",
                       "fontSize": 17,
@@ -2260,6 +2350,8 @@
                       "id": "prOhs",
                       "name": "snText",
                       "fill": "#999999",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
                       "content": "Las notas al margen permiten agregar contexto sin interrumpir el flujo principal del texto.",
                       "fontFamily": "Newsreader",
                       "fontSize": 12,
@@ -2399,6 +2491,273 @@
                           "fontSize": 13
                         }
                       }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Rw5Pk",
+          "name": "row4",
+          "gap": 40,
+          "children": [
+            {
+              "type": "frame",
+              "id": "tEF8w",
+              "name": "Mol/RelatedPosts",
+              "reusable": true,
+              "width": 320,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Q7Jm5",
+                  "name": "rpTitle",
+                  "fill": "#A83900",
+                  "content": "LECTURA RELACIONADA",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 12,
+                  "fontWeight": "700",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "myqqJ",
+                  "name": "rpCard1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wK3o2",
+                      "name": "rpC1Title",
+                      "fill": "#E65100",
+                      "content": "Notas sobre tipografía digital",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GmtRh",
+                      "name": "rpC1Date",
+                      "fill": "#999999",
+                      "content": "2 abr 2026 · 8 min",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Sl2Hy",
+                  "name": "rpRule1",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "#EBE8E3"
+                },
+                {
+                  "type": "frame",
+                  "id": "mA1so",
+                  "name": "rpCard2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fgWNi",
+                      "name": "rpC2Title",
+                      "fill": "#E65100",
+                      "content": "Introducción a Rust",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TX6Ao",
+                      "name": "rpC2Date",
+                      "fill": "#999999",
+                      "content": "15 dic 2025 · 10 min",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hd8kc",
+                  "name": "rpRule2",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "#EBE8E3"
+                },
+                {
+                  "type": "frame",
+                  "id": "K3tgN",
+                  "name": "rpCard3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zbli6",
+                      "name": "rpC3Title",
+                      "fill": "#E65100",
+                      "content": "Diseño de APIs con Python",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dWybk",
+                      "name": "rpC3Date",
+                      "fill": "#999999",
+                      "content": "3 nov 2025 · 6 min",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IlTqg",
+              "name": "Mol/TableOfContents",
+              "reusable": true,
+              "width": 240,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cWjB3",
+                  "name": "tocTitle",
+                  "fill": "#A83900",
+                  "content": "ÍNDICE",
+                  "fontFamily": "Newsreader",
+                  "fontSize": 12,
+                  "fontWeight": "700",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "j9NznI",
+                  "name": "tocItem1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#EBE8E3"
+                  },
+                  "padding": [
+                    6,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kvY1i",
+                      "name": "tocT1",
+                      "fill": "#E65100",
+                      "content": "1. Principios Fundamentales",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "g8i5hG",
+                  "name": "tocItem2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#EBE8E3"
+                  },
+                  "padding": [
+                    6,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eRL8O",
+                      "name": "tocT2",
+                      "fill": "#1C1C19",
+                      "content": "2. La tipografía como voz",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dUDd1",
+                  "name": "tocItem3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#EBE8E3"
+                  },
+                  "padding": [
+                    6,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Mn69Y",
+                      "name": "tocT3",
+                      "fill": "#1C1C19",
+                      "content": "3. Implementación digital",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KjvQc",
+                  "name": "tocItem4",
+                  "width": "fill_container",
+                  "padding": [
+                    6,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bszbt",
+                      "name": "tocT4",
+                      "fill": "#1C1C19",
+                      "content": "4. Conclusiones",
+                      "fontFamily": "Newsreader",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -3197,375 +3556,18 @@
               ],
               "children": [
                 {
-                  "type": "frame",
-                  "id": "slMPR",
-                  "name": "homeMain",
+                  "id": "Ok6EE",
+                  "type": "ref",
+                  "ref": "woN0J",
                   "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 24,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "P9pFy",
-                      "name": "homeMainTitle",
-                      "fill": "#A83900",
-                      "content": "ARTÍCULOS RECIENTES",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "700",
-                      "letterSpacing": 1
-                    },
-                    {
-                      "type": "frame",
-                      "id": "btwZJ",
-                      "name": "homeCard1",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 8,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "y8SpW",
-                          "name": "homeC1Date",
-                          "fill": "#999999",
-                          "content": "4 de abril, 2026 · 5 min",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 12,
-                          "fontWeight": "normal",
-                          "fontStyle": "italic"
-                        },
-                        {
-                          "type": "text",
-                          "id": "2AfDb",
-                          "name": "homeC1Title",
-                          "fill": "#1C1C19",
-                          "content": "Reflexiones sobre el diseño de sistemas",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 18,
-                          "fontWeight": "normal",
-                          "letterSpacing": 0.2
-                        },
-                        {
-                          "type": "frame",
-                          "id": "8aMoq",
-                          "name": "homeC1Tags",
-                          "gap": 8,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "BwCjO",
-                              "name": "homeC1T1",
-                              "fill": "#E65100",
-                              "content": "diseño",
-                              "fontFamily": "Newsreader",
-                              "fontSize": 12,
-                              "fontWeight": "600",
-                              "letterSpacing": 0.5
-                            },
-                            {
-                              "type": "text",
-                              "id": "7cBzj",
-                              "name": "homeC1T2",
-                              "fill": "#E65100",
-                              "content": "sistemas",
-                              "fontFamily": "Newsreader",
-                              "fontSize": 12,
-                              "fontWeight": "600",
-                              "letterSpacing": 0.5
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "RCYW4",
-                          "name": "homeC1Ex",
-                          "fill": "#666666",
-                          "content": "Una exploración de cómo los principios del diseño tradicional pueden informar la creación de interfaces digitales.",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 15,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "text",
-                          "id": "gTnd2",
-                          "name": "homeC1Link",
-                          "fill": "#E65100",
-                          "content": "Leer más →",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "TzSrw",
-                      "name": "homeRule2",
-                      "width": "fill_container",
-                      "height": 1,
-                      "fill": "#EBE8E3"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "8JZ5M",
-                      "name": "homeCard2",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 8,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "dzqtJ",
-                          "name": "homeC2Date",
-                          "fill": "#999999",
-                          "content": "2 de abril, 2026 · 8 min",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 12,
-                          "fontWeight": "normal",
-                          "fontStyle": "italic"
-                        },
-                        {
-                          "type": "text",
-                          "id": "ilxn2",
-                          "name": "homeC2Title",
-                          "fill": "#1C1C19",
-                          "content": "Notas sobre tipografía digital",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 18,
-                          "fontWeight": "normal",
-                          "letterSpacing": 0.2
-                        },
-                        {
-                          "type": "frame",
-                          "id": "fBrtp",
-                          "name": "homeC2Tags",
-                          "gap": 8,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "LycfL",
-                              "name": "homeC2T1",
-                              "fill": "#E65100",
-                              "content": "tipografía",
-                              "fontFamily": "Newsreader",
-                              "fontSize": 12,
-                              "fontWeight": "600",
-                              "letterSpacing": 0.5
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "sJywe",
-                          "name": "homeC2Ex",
-                          "fill": "#666666",
-                          "content": "La elección de una tipografía adecuada es fundamental para la legibilidad y el carácter visual de cualquier publicación.",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 15,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "text",
-                          "id": "WnCbE",
-                          "name": "homeC2Link",
-                          "fill": "#E65100",
-                          "content": "Leer más →",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "9h2N1",
-                      "name": "homePag",
-                      "gap": 16,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "oZbIh",
-                          "name": "homePrev",
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#777777"
-                          },
-                          "padding": [
-                            7,
-                            16
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "Q73b0",
-                              "name": "homePrevTxt",
-                              "fill": "#777777",
-                              "content": "← Anterior",
-                              "fontFamily": "Newsreader",
-                              "fontSize": 14,
-                              "fontWeight": "normal",
-                              "letterSpacing": 1
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "QDVNX",
-                          "name": "homePagFl",
-                          "fill": "#777777",
-                          "content": "§ · §",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 14,
-                          "fontWeight": "normal",
-                          "letterSpacing": 4
-                        },
-                        {
-                          "type": "frame",
-                          "id": "g03B1",
-                          "name": "homeNext",
-                          "fill": "#A83900",
-                          "padding": [
-                            7,
-                            16
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "eVMzD",
-                              "name": "homeNextTxt",
-                              "fill": "#FFFFFF",
-                              "content": "Siguiente →",
-                              "fontFamily": "Newsreader",
-                              "fontSize": 14,
-                              "fontWeight": "normal",
-                              "letterSpacing": 1
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
+                  "name": "homeMain"
                 },
                 {
-                  "type": "frame",
-                  "id": "s919a",
-                  "name": "homeSidebar",
-                  "width": 240,
-                  "layout": "vertical",
-                  "gap": 24,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "GSvrB",
-                      "name": "homeSBTitle",
-                      "fill": "#A83900",
-                      "content": "BUSCAR",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "700",
-                      "letterSpacing": 1
-                    },
-                    {
-                      "type": "frame",
-                      "id": "tPnJM",
-                      "name": "homeSBInput",
-                      "width": "fill_container",
-                      "stroke": {
-                        "thickness": {
-                          "bottom": 2
-                        },
-                        "fill": "#EBE8E3"
-                      },
-                      "layout": "vertical",
-                      "padding": [
-                        8,
-                        0
-                      ],
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "cywpC",
-                          "name": "homeSBInputTxt",
-                          "fill": "#999999",
-                          "content": "Buscar...",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 14,
-                          "fontWeight": "normal",
-                          "fontStyle": "italic"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "KYcJg",
-                      "name": "homeSBTagTitle",
-                      "fill": "#A83900",
-                      "content": "ETIQUETAS",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "700",
-                      "letterSpacing": 1
-                    },
-                    {
-                      "type": "frame",
-                      "id": "3maus",
-                      "name": "homeSBTags",
-                      "gap": 6,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "vsdIX",
-                          "name": "homeSBT1",
-                          "fill": "#E65100",
-                          "content": "#python",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "I2pt7",
-                          "name": "homeSBT2",
-                          "fill": "#E65100",
-                          "content": "#rust",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "LGvCA",
-                          "name": "homeSBT3",
-                          "fill": "#E65100",
-                          "content": "#linux",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "QR5pU",
-                          "name": "homeSBT4",
-                          "fill": "#E65100",
-                          "content": "#web",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "XwiOA",
-                          "name": "homeSBT5",
-                          "fill": "#E65100",
-                          "content": "#diseño",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    }
-                  ]
+                  "id": "R3Sz4",
+                  "type": "ref",
+                  "ref": "WXhAt",
+                  "width": 280,
+                  "name": "homeSidebar"
                 }
               ]
             },
@@ -3576,7 +3578,7 @@
               "width": "fill_container",
               "name": "homeFtr",
               "x": 0,
-              "y": 478,
+              "y": 991,
               "height": "fit_content",
               "descendants": {
                 "oGqRp": {
@@ -3665,344 +3667,18 @@
               }
             },
             {
-              "type": "frame",
-              "id": "a4Pxc",
-              "name": "postHero",
+              "id": "pHk6Z",
+              "type": "ref",
+              "ref": "tzy5C",
               "width": "fill_container",
-              "layout": "vertical",
-              "gap": 16,
-              "padding": [
-                32,
-                64
-              ],
-              "children": [
-                {
-                  "type": "text",
-                  "id": "u8dgV",
-                  "name": "postHFl",
-                  "fill": "#777777",
-                  "content": "§ · § · §",
-                  "fontFamily": "Newsreader",
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                  "letterSpacing": 4
-                },
-                {
-                  "type": "text",
-                  "id": "3vTyv",
-                  "name": "postHTitle",
-                  "fill": "#1C1C19",
-                  "content": "Reflexiones sobre el diseño de sistemas tipográficos en la era digital",
-                  "fontFamily": "Newsreader",
-                  "fontSize": 34,
-                  "fontWeight": "normal",
-                  "letterSpacing": 0.2
-                },
-                {
-                  "type": "text",
-                  "id": "X2Cuf",
-                  "name": "postHSub",
-                  "fill": "#666666",
-                  "content": "Una exploración de cómo los principios del diseño tradicional pueden informar la creación de interfaces digitales contemporáneas.",
-                  "fontFamily": "Newsreader",
-                  "fontSize": 17,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "frame",
-                  "id": "wUpXw",
-                  "name": "postHMeta",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "9EMwb",
-                      "name": "postHDate",
-                      "fill": "#999999",
-                      "content": "4 de abril, 2026",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "fontStyle": "italic"
-                    },
-                    {
-                      "type": "text",
-                      "id": "PIPzz",
-                      "name": "postHDot",
-                      "fill": "#777777",
-                      "content": "·",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "UksvF",
-                      "name": "postHTag",
-                      "fill": "#E65100",
-                      "content": "diseño",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "600",
-                      "letterSpacing": 0.5
-                    },
-                    {
-                      "type": "text",
-                      "id": "Od9mP",
-                      "name": "postHDot2",
-                      "fill": "#777777",
-                      "content": "·",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "KjF3R",
-                      "name": "postHBadge",
-                      "fill": "#F5F0E8",
-                      "padding": [
-                        3,
-                        8
-                      ],
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "Ij4G6",
-                          "name": "postHBadgeT",
-                          "fill": "#A83900",
-                          "content": "5 MIN",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 10,
-                          "fontWeight": "600",
-                          "letterSpacing": 0.5
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "tpktn",
-                  "name": "postHRule",
-                  "width": "fill_container",
-                  "height": 1,
-                  "fill": "#EBE8E3"
-                }
-              ]
+              "name": "postHero"
             },
             {
-              "type": "frame",
-              "id": "gvsIn",
-              "name": "postBody",
+              "id": "o7EfFz",
+              "type": "ref",
+              "ref": "zpw6e",
               "width": "fill_container",
-              "layout": "vertical",
-              "gap": 16,
-              "padding": [
-                0,
-                64,
-                32,
-                64
-              ],
-              "children": [
-                {
-                  "type": "text",
-                  "id": "RPjSn",
-                  "name": "pbP1",
-                  "fill": "#1C1C19",
-                  "content": "El diseño tipográfico es un arte que combina funcionalidad y estética. Cada decisión — desde la elección de la tipografía hasta el interlineado — afecta profundamente la experiencia de lectura y comprensión del lector.",
-                  "fontFamily": "Newsreader",
-                  "fontSize": 17,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "frame",
-                  "id": "Xno08",
-                  "name": "pbH2",
-                  "gap": 8,
-                  "alignItems": "end",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "kRLQN",
-                      "name": "pbH2Txt",
-                      "fill": "#1C1C19",
-                      "content": "Principios Fundamentales",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 22,
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.2
-                    },
-                    {
-                      "type": "text",
-                      "id": "y1YxL",
-                      "name": "pbH2Anch",
-                      "fill": "#999999",
-                      "content": "§",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 14,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "id": "JSxQ4",
-                  "name": "pbP2",
-                  "fill": "#1C1C19",
-                  "content": "Los principios aquí descritos siguen la tradición tipográfica del siglo XIX, adaptada a las necesidades del medio digital contemporáneo.",
-                  "fontFamily": "Newsreader",
-                  "fontSize": 17,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "frame",
-                  "id": "6xQr2",
-                  "name": "pbQuote",
-                  "stroke": {
-                    "thickness": {
-                      "left": 3
-                    },
-                    "fill": "#EBE8E3"
-                  },
-                  "layout": "vertical",
-                  "gap": 8,
-                  "padding": [
-                    16,
-                    20
-                  ],
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "x1TlW",
-                      "name": "pbQTxt",
-                      "fill": "#1C1C19",
-                      "content": "La tipografía es la voz silenciosa del texto. Cada elección de letra dice algo antes de que se lea una sola palabra.",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 17,
-                      "fontWeight": "normal",
-                      "fontStyle": "italic"
-                    },
-                    {
-                      "type": "text",
-                      "id": "AKkeI",
-                      "name": "pbQAttr",
-                      "fill": "#999999",
-                      "content": "— Robert Bringhurst",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "fontStyle": "italic"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "gnsSJ",
-                  "name": "pbCode",
-                  "fill": "#1C1C19",
-                  "layout": "vertical",
-                  "gap": 8,
-                  "padding": [
-                    16,
-                    20
-                  ],
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "0wlN6",
-                      "name": "pbCodeLang",
-                      "fill": "#999999",
-                      "content": "python",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 10,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1
-                    },
-                    {
-                      "type": "text",
-                      "id": "dQv94",
-                      "name": "pbCodeTxt",
-                      "fill": "#F5F0E8",
-                      "content": "def crear_sistema():\n    return DesignSystem(tokens=\"hex\")",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 13,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "id": "1GkvD",
-                  "name": "pbP3",
-                  "fill": "#1C1C19",
-                  "content": "Así, cada componente del sistema refleja una intención editorial cuidadosa, donde la forma sirve al contenido y la estética refuerza el significado.",
-                  "fontFamily": "Newsreader",
-                  "fontSize": 17,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "frame",
-                  "id": "w4DiJ",
-                  "name": "pbTags",
-                  "gap": 8,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "Z0gdG",
-                      "name": "pbTagsLabel",
-                      "fill": "#999999",
-                      "content": "ETIQUETAS:",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 10,
-                      "fontWeight": "normal",
-                      "letterSpacing": 1
-                    },
-                    {
-                      "type": "text",
-                      "id": "ZJPz5",
-                      "name": "pbT1",
-                      "fill": "#E65100",
-                      "content": "#diseño",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 13,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "1HV6T",
-                      "name": "pbT2",
-                      "fill": "#E65100",
-                      "content": "#sistemas",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 13,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "ejp4w",
-                      "name": "pbT3",
-                      "fill": "#E65100",
-                      "content": "#tipografía",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 13,
-                      "fontWeight": "600"
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "id": "RaeQB",
-                  "name": "pbFl",
-                  "fill": "#777777",
-                  "content": "§ · § · §",
-                  "fontFamily": "Newsreader",
-                  "fontSize": 14,
-                  "fontWeight": "normal",
-                  "letterSpacing": 4
-                }
-              ]
+              "name": "postBody"
             },
             {
               "id": "3pS1r",
@@ -4011,7 +3687,7 @@
               "width": "fill_container",
               "name": "postFtr",
               "x": 0,
-              "y": 670,
+              "y": 592,
               "height": "fit_content",
               "descendants": {
                 "oGqRp": {
@@ -4242,114 +3918,11 @@
                   ]
                 },
                 {
-                  "type": "frame",
-                  "id": "WT0EM",
-                  "name": "arSidebar",
-                  "width": 240,
-                  "layout": "vertical",
-                  "gap": 24,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "8JKVw",
-                      "name": "arSBSearch",
-                      "fill": "#A83900",
-                      "content": "BUSCAR",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "700",
-                      "letterSpacing": 1
-                    },
-                    {
-                      "type": "frame",
-                      "id": "zvNbR",
-                      "name": "arSBInput",
-                      "width": "fill_container",
-                      "stroke": {
-                        "thickness": {
-                          "bottom": 2
-                        },
-                        "fill": "#EBE8E3"
-                      },
-                      "layout": "vertical",
-                      "padding": [
-                        8,
-                        0
-                      ],
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "6hjxu",
-                          "name": "arSBInpTxt",
-                          "fill": "#999999",
-                          "content": "Buscar...",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 14,
-                          "fontWeight": "normal",
-                          "fontStyle": "italic"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "YAQVp",
-                      "name": "arSBTags",
-                      "fill": "#A83900",
-                      "content": "ETIQUETAS",
-                      "fontFamily": "Newsreader",
-                      "fontSize": 12,
-                      "fontWeight": "700",
-                      "letterSpacing": 1
-                    },
-                    {
-                      "type": "frame",
-                      "id": "pYrHT",
-                      "name": "arSBTagList",
-                      "gap": 6,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "KiMo7",
-                          "name": "arSBT1",
-                          "fill": "#E65100",
-                          "content": "#python",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "7bpvK",
-                          "name": "arSBT2",
-                          "fill": "#E65100",
-                          "content": "#rust",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "zLxrp",
-                          "name": "arSBT3",
-                          "fill": "#E65100",
-                          "content": "#linux",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "iMdOf",
-                          "name": "arSBT4",
-                          "fill": "#E65100",
-                          "content": "#web",
-                          "fontFamily": "Newsreader",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    }
-                  ]
+                  "id": "fU6v2",
+                  "type": "ref",
+                  "ref": "WXhAt",
+                  "width": 280,
+                  "name": "arSidebar"
                 }
               ]
             },
