@@ -63,6 +63,36 @@
         a { color: #E65100; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
+        /* Tonal Layering - Surface Container Low */
+        .surface-container-low {
+            background-color: #F5F2ED;
+        }
+
+        /* Tonal Layering - Surface Container Highest */
+        .surface-container-highest {
+            background-color: #EBE8E3;
+        }
+
+        /* Outline/Sober Line */
+        .outline {
+            color: #777777;
+        }
+
+        /* Paper Base */
+        .paper {
+            background-color: #FCF9F4;
+        }
+
+        /* Ink - On-Surface */
+        .ink {
+            color: #1C1C19;
+        }
+
+        /* Rubric - Secondary Spot */
+        .rubric {
+            color: #E65100;
+        }
+
         /* === HEADER — tonal layering (surface-container-low) === */
         header {
             margin-bottom: 2.5rem;
@@ -71,6 +101,7 @@
             border-bottom: none;
             max-width: 60%;
             padding: 1.5rem 2rem;
+            class="surface-container-low";
         }
         header h1 {
             margin: 0 0 0.15rem;
@@ -161,6 +192,12 @@
         main {
             width: 60%;
             position: relative;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* === HOMEPAGE CONTENT — scholarly intro === */
@@ -936,36 +973,38 @@
 </head>
 <body>
     <a href="#main" class="skip-link">{{ t.skip_to_content }}</a>
-    <header>
+<header class="surface-container-low">
     {% block header %}
-        <h1><a href="{{ lang_prefix }}/">{{ site.title }}</a></h1>
-        {% if site.description %}<p>{{ site.description }}</p>{% endif %}
+        <h1 class="ink"><a href="{{ lang_prefix }}/">{{ site.title }}</a></h1>
+        {% if site.description %}<p class="outline">{{ site.description }}</p>{% endif %}
         {% if data.nav %}
-        <nav class="site-nav" aria-label="Main navigation">
-            {% for item in data.nav %}{% if item.external %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>{% else %}<a href="{{ lang_prefix }}{{ item.url }}">{{ item.title }}</a>{% endif %}{% endfor %}
+        <nav class="site-nav ink surface-container-low" aria-label="Main navigation">
+            {% for item in data.nav %}{% if item.external %}<a href="{{ item.url }}" target="_blank" rel="noopener" class="rubric">{{ item.title }}</a>{% else %}<a href="{{ lang_prefix }}{{ item.url }}" class="rubric">{{ item.title }}</a>{% endif %}{% endfor %}
         </nav>
         {% endif %}
         {% if translations | length > 1 %}
-        <nav class="lang-switcher">
-            {% for t in translations %}{% if t.lang == lang %}<strong>{{ t.lang | upper }}</strong>{% else %}<a href="{{ t.url }}">{{ t.lang | upper }}</a>{% endif %}{% endfor %}
+        <nav class="lang-switcher outline">
+            {% for t in translations %}{% if t.lang == lang %}<strong class="rubric">{{ t.lang | upper }}</strong>{% else %}<a href="{{ t.url }}" class="rubric">{{ t.lang | upper }}</a>{% endif %}{% endfor %}
         </nav>
         {% endif %}
         <form class="search-form" role="search" aria-label="{{ t.search_label }}" onsubmit="return false">
-            <input type="search" id="search-input" placeholder="{{ t.search_placeholder }}" autocomplete="off" aria-label="{{ t.search_label }}">
+            <input type="search" id="search-input" placeholder="{{ t.search_placeholder }}" autocomplete="off" aria-label="{{ t.search_label }}" class="ink">
         </form>
         <div id="search-results" aria-live="polite"></div>
     {% endblock %}
-    </header>
-    <main id="main">
-        {% block content %}{% endblock %}
+</header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            {% block content %}{% endblock %}
+        </div>
     </main>
-    <footer>
+    <footer class="surface-container-highest">
         {% if data.footer %}{% if data.footer.links %}
-        <nav aria-label="Footer navigation">
-            {% for link in data.footer.links %}{% if link.external %}<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title }}</a>{% else %}<a href="{{ lang_prefix }}{{ link.url }}">{{ link.title }}</a>{% endif %}{% if not loop.last %} &middot; {% endif %}{% endfor %}
+        <nav aria-label="Footer navigation" class="ink">
+            {% for link in data.footer.links %}{% if link.external %}<a href="{{ link.url }}" target="_blank" rel="noopener" class="outline rubric">{{ link.title }}</a>{% else %}<a href="{{ lang_prefix }}{{ link.url }}" class="outline rubric">{{ link.title }}</a>{% endif %}{% if not loop.last %} &middot; {% endif %}{% endfor %}
         </nav>
         {% endif %}{% endif %}
-        <p>&copy; {% if data.footer %}{% if data.footer.copyright %}{{ data.footer.copyright }}{% else %}{{ site.author }}{% endif %}{% else %}{{ site.author }}{% endif %}</p>
+        <p class="outline ink">&copy; {% if data.footer %}{% if data.footer.copyright %}{{ data.footer.copyright }}{% else %}{{ site.author }}{% endif %}{% else %}{{ site.author }}{% endif %}</p>
     </footer>
     <script>
     (function(){

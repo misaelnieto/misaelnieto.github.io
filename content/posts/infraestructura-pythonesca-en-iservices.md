@@ -17,7 +17,7 @@ Trabajo en la empresa iServices de México. Esta empresa se distingue de otras
 empresas mexicanas en la tecnología usada para ofrecer sus servicios y
 soluciones: Python.
 
-[Un logo de Python de color verde](/media/python.png)
+Un logo de Python de color verde
 
 Durante varios meses he estado en contacto directo con diferentes técnicas y
 tecnologías asociadas a Python. Por mencionar algunas: Python, Zope, Plone,
