@@ -1449,7 +1449,7 @@
       "type": "frame",
       "id": "N4Rve",
       "x": -1731,
-      "y": -983,
+      "y": -1454,
       "name": "🧪 Molecules",
       "fill": "$color-paper",
       "layout": "vertical",
@@ -2770,9 +2770,11 @@
     {
       "type": "frame",
       "id": "hH20f",
-      "x": -1771,
-      "y": 746,
+      "x": -1731,
+      "y": -441,
       "name": "🦠 Organisms",
+      "width": 2052,
+      "height": 1879,
       "fill": "#F5F0E8",
       "layout": "vertical",
       "gap": 40,
@@ -2782,7 +2784,8 @@
           "type": "frame",
           "id": "b2wZZ",
           "name": "orgRow1",
-          "gap": 40,
+          "layout": "vertical",
+          "gap": 24,
           "children": [
             {
               "type": "frame",
@@ -2920,7 +2923,7 @@
               "id": "zpw6e",
               "name": "Org/ArticleBody",
               "reusable": true,
-              "width": 560,
+              "width": 794,
               "layout": "vertical",
               "gap": 16,
               "children": [
@@ -2929,6 +2932,8 @@
                   "id": "jPG5J",
                   "name": "abP1",
                   "fill": "#1C1C19",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
                   "content": "El diseño tipográfico es un arte que combina funcionalidad y estética. Cada decisión — desde la elección de la tipografía hasta el interlineado — afecta profundamente la experiencia de lectura.",
                   "fontFamily": "Newsreader",
                   "fontSize": 17,
@@ -2941,7 +2946,7 @@
                   "width": "fill_container",
                   "name": "abH2",
                   "x": 0,
-                  "y": 33,
+                  "y": 50,
                   "descendants": {
                     "5ZPOD": {
                       "width": "fit_content"
@@ -2959,6 +2964,8 @@
                   "id": "R3GGQ",
                   "name": "abP2",
                   "fill": "#1C1C19",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
                   "content": "Los principios aquí descritos siguen la tradición tipográfica del siglo XIX, adaptada a las necesidades del medio digital contemporáneo.",
                   "fontFamily": "Newsreader",
                   "fontSize": 17,
@@ -2971,7 +2978,7 @@
                   "width": "fill_container",
                   "name": "abQuote",
                   "x": 0,
-                  "y": 104,
+                  "y": 138,
                   "descendants": {
                     "jteKv": {
                       "width": "fill_container"
@@ -2993,7 +3000,7 @@
                   "name": "abCode",
                   "height": "fit_content",
                   "x": 0,
-                  "y": 189,
+                  "y": 223,
                   "descendants": {
                     "KYCx4": {
                       "width": "fill_container",
@@ -3013,6 +3020,8 @@
                   "id": "TOPeR",
                   "name": "abP3",
                   "fill": "#1C1C19",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
                   "content": "Así, cada componente del sistema refleja una intención editorial cuidadosa, donde la forma sirve al contenido.",
                   "fontFamily": "Newsreader",
                   "fontSize": 17,
@@ -3025,7 +3034,7 @@
                   "width": "fill_container",
                   "name": "abTags",
                   "x": 0,
-                  "y": 314
+                  "y": 348
                 },
                 {
                   "id": "SUh2u",
@@ -3035,11 +3044,11 @@
                   "name": "abFl",
                   "height": "fit_content",
                   "x": 0,
-                  "y": 361,
+                  "y": 395,
                   "descendants": {
                     "mX98A": {
                       "fontSize": 14,
-                      "x": 213.5
+                      "x": 330.5
                     }
                   }
                 }
@@ -3478,8 +3487,8 @@
     {
       "type": "frame",
       "id": "XgsqW",
-      "x": -1771,
-      "y": 2146,
+      "x": -1691,
+      "y": 2331,
       "name": "📐 Templates",
       "fill": "#F5F0E8",
       "layout": "vertical",
@@ -3687,7 +3696,7 @@
               "width": "fill_container",
               "name": "postFtr",
               "x": 0,
-              "y": 592,
+              "y": 609,
               "height": "fit_content",
               "descendants": {
                 "oGqRp": {
