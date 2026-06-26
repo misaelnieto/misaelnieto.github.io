@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "seite": {
+      "type": "local",
+      "command": [
+        "seite",
+        "mcp"
+      ]
+    }
+  }
+}

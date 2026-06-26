@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "./atoms.css" layer(base);
+@import "./molecules.css" layer(components);
+@import "./organisms.css" layer(components);
+
+@theme {
+  --color-ink: #1C1C19;
+  --color-paper: #FDFCF0;
+  --color-rubric: #E65100;
+  --color-rubric-dark: #BF4200;
+  --color-muted: #666666;
+  --color-muted-light: #999999;
+  --color-outline: #777777;
+  --color-border: #EBE8E3;
+  --color-surface-low: #F5F2ED;
+  --color-surface-highest: #EBE8E3;
+
+  --font-body: "Newsreader", serif;
+  --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-base: 17px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 34px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+}

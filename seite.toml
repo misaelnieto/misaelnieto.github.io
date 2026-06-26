@@ -40,11 +40,15 @@ minify = true
 target = "github-pages"
 auto_commit = true
 
-[languages]
-
 [images]
 widths = [480, 800, 1200]
 quality = 80
 lazy_loading = true
 webp = true
 avif_quality = 70
+
+[analytics]
+provider = "umami"
+id = "bbe3510b-310a-4817-8d0a-25b0a9839ce1"
+script_url = "https://cloud.umami.is/script.js"
+cookie_consent = false
