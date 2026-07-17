@@ -13,6 +13,16 @@
   .surface-highest { background-color: var(--color-surface-highest); }
   .surface-container-highest { background-color: var(--color-surface-highest); }
   .border { border-color: var(--color-border); }
+  hr.sober-line {
+    border: none;
+    border-top: 2px solid var(--color-ink);
+    border-bottom: 1px solid var(--color-ink);
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+    width: 100%;
+    margin: 0.5rem auto;
+  }
 
   /* Font utilities */
   .font-body { font-family: var(--font-body); }

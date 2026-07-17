@@ -3,3 +3,5 @@ public/
 .seite/
 seite.log
 node_modules/
+
+/dist-subdomains

@@ -1,7 +1,9 @@
+@layer theme, base, atoms, molecules, organisms, components, utilities;
+
 @import "tailwindcss";
-@import "./atoms.css" layer(base);
-@import "./molecules.css" layer(components);
-@import "./organisms.css" layer(components);
+@import "./atoms.css" layer(atoms);
+@import "./molecules.css" layer(molecules);
+@import "./organisms.css" layer(organisms);
 
 @theme {
   --color-ink: #1C1C19;

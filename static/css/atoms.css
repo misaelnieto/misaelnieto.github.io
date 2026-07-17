@@ -64,16 +64,9 @@
   /* Images */
   img { max-width: 100%; height: auto; }
 
-  /* HR — ornamental section divider */
+  /* Horizontal rule — base filete */
   hr {
     border: none;
-    margin: var(--spacing-2xl) auto;
+    margin: 2.5rem auto;
     width: 40%;
-  }
-  hr::before {
-    content: '\00a7';
-    display: block;
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--color-muted-light);
   }

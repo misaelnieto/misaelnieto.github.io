@@ -74,17 +74,22 @@
     </header>
     <main id="main" class="paper">
         <div class="content-container">
-            {% block content %}{% endblock %}
+            {% block content %}
+            {{ page.content | safe }}
+            {% endblock %}
         </div>
     </main>
-    <footer class="surface-container-highest">
-        {% if data.footer %}{% if data.footer.links %}
-        <nav aria-label="Footer navigation" class="ink">
-            {% for link in data.footer.links %}{% if link.external %}<a href="{{ link.url }}" target="_blank" rel="noopener" class="outline rubric">{{ link.title }}</a>{% else %}<a href="{{ lang_prefix }}{{ link.url }}" class="outline rubric">{{ link.title }}</a>{% endif %}{% if not loop.last %} &middot; {% endif %}{% endfor %}
-        </nav>
-        {% endif %}{% endif %}
-        <p class="outline ink">&copy; {% if data.footer %}{% if data.footer.copyright %}{{ data.footer.copyright }}{% else %}{{ site.author }}{% endif %}{% else %}{{ site.author }}{% endif %}</p>
+    {% block footer %}
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves">
     </footer>
+    {% endblock %}
     <script>
     (function(){
         var index = null;
@@ -127,7 +132,6 @@
         input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
     })();
     </script>
-    {% block footer %}{% endblock %}
     {% block extra_js %}{% endblock %}
 </body>
 </html>

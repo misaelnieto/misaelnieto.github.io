@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.title }}{% endblock %}
+
+{% block content %}
+{% if page.extra and page.extra.aspects %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>
+      <span class="hero-title-black">Senior</span><br>
+      <span class="hero-title-rubric">Software<br>Engineer</span>
+    </h1>
+    <p class="hero-tagline">"Senior Software developer with 25+ years of experience in the software industry"</p>
+  </div>
+  <figure class="hero-figure">
+    <img src="/static/profile.png" alt="Noe Nieto">
+    <figcaption>FIG. 3139—A GENTLEMAN NAMED NOE NIETO WHO WORKS WITH COMPUTERS</figcaption>
+  </figure>
+</section>
+
+<hr class="sober-line" />
+
+<section class="frontpage-aspects">
+  <h2 class="frontpage-heading"><span class="section-numeral">I.</span> ASPECTS</h2>
+  <div class="aspects-grid">
+    {% for aspect in page.extra.aspects %}
+    <div class="aspect-card">
+      <span class="aspect-ref">REF. 00{{ loop.index }}</span>
+      <h3>{{ aspect.title }}</h3>
+      <p>{{ aspect.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<hr class="sober-line" />
+
+<section class="frontpage-musings">
+  <h2 class="frontpage-heading"><span class="section-numeral">II.</span> LATEST MUSINGS</h2>
+  <ul class="musings-list">
+    {% for collection in collections %}
+    {% if collection.name == "posts" %}
+    {% for item in collection.items | slice(end=3) %}
+    <li>
+      <span class="musing-date">{{ item.date }}</span>
+      <div class="musing-content">
+        <h4><a href="{{ lang_prefix }}{{ item.url }}">{{ item.title }}</a></h4>
+        {% if item.tags %}<span class="musing-category">{{ item.tags | first | upper }}</span>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+{% else %}
+{{ page.content | safe }}
+{% endif %}
+{% endblock %}
