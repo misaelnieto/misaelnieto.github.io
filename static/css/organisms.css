@@ -988,6 +988,18 @@
   }
 
   /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    .aspects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .hero-text { max-width: 100%; }
+    .hero-figure { width: 100%; max-width: 320px; }
+  }
+
   @media (max-width: 1000px) {
     body { padding: 1.5rem 1.5rem 3rem; }
     header { width: 100%; }
@@ -1019,4 +1031,5 @@
     .cert-grid { grid-template-columns: 1fr; }
     .roadmap-items { grid-template-columns: 1fr; }
     .homepage-content > h1:first-child { font-size: 1.5rem; }
+    .aspects-grid { grid-template-columns: 1fr; }
   }

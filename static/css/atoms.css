@@ -13,7 +13,9 @@
 
   body {
     width: 100%;
-    padding: 2.5rem 4rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem clamp(2rem, 5vw, 6rem) 4rem;
     font-family: var(--font-body);
     font-size: 1.125rem;
     line-height: 1.75;

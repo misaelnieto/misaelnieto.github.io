@@ -3,7 +3,7 @@ default:
     @just --list
 
 seite_watch:
-    seite serve
+    seite serve --port 4000
 
 
 tailwind_watch:
