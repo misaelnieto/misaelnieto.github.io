@@ -101,3 +101,36 @@ hr {
     margin: 2.5rem auto;
     width: 40%;
 }
+
+/* Heading anchor links — § icon appears on hover, like GitHub */
+a:has(> h2),
+a:has(> h3),
+a:has(> h4) {
+    position: relative;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+a:has(> h2):hover,
+a:has(> h3):hover,
+a:has(> h4):hover {
+    text-decoration: none;
+}
+a:has(> h2)::after,
+a:has(> h3)::after,
+a:has(> h4)::after {
+    content: "§";
+    position: absolute;
+    top: 0;
+    left: -1.5ch;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    color: var(--color-rubric);
+    font-weight: var(--font-weight-regular);
+    text-decoration: none;
+}
+a:has(> h2):hover::after,
+a:has(> h3):hover::after,
+a:has(> h4):hover::after {
+    opacity: 1;
+}
