@@ -7,7 +7,7 @@
   }
 
   html {
-    font-size: 15px;
+    font-size: clamp(15px, 2.5vw, 26px);
     -webkit-text-size-adjust: 100%;
   }
 
@@ -15,7 +15,7 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2.5rem clamp(2rem, 5vw, 6rem) 4rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 4rem) clamp(2rem, 4vw, 4rem);
     font-family: var(--font-body);
     font-size: 1.125rem;
     line-height: 1.75;

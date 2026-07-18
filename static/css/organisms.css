@@ -163,7 +163,7 @@
   .hero-text { flex: 1; max-width: 500px; }
   .hero-text h1 {
     font-family: var(--font-serif);
-    font-size: 4.5rem;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
     line-height: 0.92;
     font-weight: var(--font-weight-regular);
     font-style: italic;
