@@ -1,0 +1,24 @@
+# Perfil del autor. Se usa para:
+#   - JSON-LD Person schema (sameAs)
+#   - <link rel="me"> (IndieAuth / Mastodon verification)
+#   - twitter:site / twitter:creator
+#   - h-card microformat
+name: "Noe Nieto"
+given_name: "Noe"
+family_name: "Nieto"
+nickname: "misaelnieto"
+url: "https://noenieto.com"
+email: "noe@noenieto.com"
+# Github username (sin @) - usado para twitter:creator y rel=me
+github: "misaelnieto"
+# Twitter/X handle (sin @)
+twitter: "misaelnieto_a"
+# Mastodon (dejar vacio si no tienes cuenta verificada con rel=me)
+mastodon: ""
+# Perfiles sociales para schema.org sameAs
+same_as:
+  - "https://github.com/misaelnieto"
+  - "https://www.linkedin.com/in/noe-nieto/"
+  - "https://x.com/misaelnieto_a"
+  - "https://wonderful.dev/misaelnieto"
+  - "https://www.facebook.com/nmnieto/x"
