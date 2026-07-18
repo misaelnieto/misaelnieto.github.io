@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} &middot; {{ site.title }}{% endblock %}
+
+{% block content %}
+<article class="h-entry post" lang="{{ page.lang | default(value=lang) }}">
+  <header class="entry-header">
+    <h1 class="entry-title p-name">{{ page.title }}</h1>
+
+    <div class="entry-meta">
+      {% if page.date %}
+      <time class="dt-published" datetime="{{ page.date }}">
+        {{ page.date | date(format="%Y-%m-%d") }}
+      </time>
+      {% endif %}
+
+      {% if page.reading_time is defined %}
+      <span class="reading-time">{{ page.reading_time }} {{ t.min_read }}</span>
+      {% endif %}
+
+      {% if data.author is defined %}
+      <span class="p-author h-card">
+        {% if data.author.url %}
+        <a class="u-url p-name" href="{{ data.author.url }}">{{ data.author.name }}</a>
+        {% else %}
+        <span class="p-name">{{ data.author.name }}</span>
+        {% endif %}
+      </span>
+      {% endif %}
+    </div>
+
+    {% if page.tags is defined %}
+    <div class="tags">
+      {% for tag in page.tags %}
+        <a class="p-category" href="{{ lang_prefix }}/tags/{{ tag | slugify }}/">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="entry-content e-content">
+    {{ page.content | safe }}
+  </div>
+
+  {% if page.url %}
+  <a href="{{ page.url }}" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  {% endif %}
+</article>
+
+{% if next_post.url is defined or prev_post.url is defined %}
+<nav class="article-nav" aria-label="{{ t.prev_post }} / {{ t.next_post }}">
+  {% if next_post.url is defined %}
+  <a href="{{ next_post.url }}" rel="next">&larr; {{ next_post.title }}</a>
+  {% endif %}
+  {% if prev_post.url is defined %}
+  <a href="{{ prev_post.url }}" rel="prev">{{ prev_post.title }} &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}
+{% endblock %}
