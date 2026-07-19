@@ -644,6 +644,74 @@ figcaption {
     line-height: 1.5;
 }
 
+/* === FLOATING FIGURES (magazine-style alternating layout) === */
+.figure-right {
+    float: right;
+    clear: right;
+    width: 40%;
+    margin: 0.5rem 0 1rem 1.5rem;
+}
+.figure-left {
+    float: left;
+    clear: left;
+    width: 40%;
+    margin: 0.5rem 1.5rem 1rem 0;
+}
+.figure-right img,
+.figure-left img {
+    width: 100%;
+    height: auto;
+}
+main h2, main h3 {
+    clear: both;
+}
+@media (max-width: 768px) {
+    .figure-left,
+    .figure-right {
+        float: none;
+        clear: none;
+        width: 100%;
+        margin: 1.5rem 0;
+    }
+}
+
+/* === FIGURE GRID (editorial multi-photo component) === */
+.figure-grid {
+    margin: 2rem 0;
+    clear: both;
+}
+.grid-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+.grid-photo {
+    text-align: center;
+}
+.grid-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.grid-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    font-variant: small-caps;
+    letter-spacing: 0.03em;
+    margin-top: 0.25rem;
+}
+.figure-grid figcaption {
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+@media (max-width: 480px) {
+    .grid-photos {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Tables */
 table {
     border-collapse: collapse;
@@ -693,6 +761,14 @@ ul,
 ol {
     padding-left: 1.5rem;
     margin-bottom: 1rem;
+    list-style: disc;
+}
+ol {
+    list-style: decimal;
+}
+main ul,
+main ol {
+    clear: both;
 }
 li {
     margin-bottom: 0.25rem;

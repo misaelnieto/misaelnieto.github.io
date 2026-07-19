@@ -1,0 +1,9 @@
+<figure class="figure-grid">
+  <div class="grid-photos">
+    {% if src1 %}<div class="grid-photo"><img src="{{ src1 }}" alt="{{ alt1 | default(value='') }}" loading="lazy"><span class="grid-label">{{ label1 }}</span></div>{% endif %}
+    {% if src2 %}<div class="grid-photo"><img src="{{ src2 }}" alt="{{ alt2 | default(value='') }}" loading="lazy"><span class="grid-label">{{ label2 }}</span></div>{% endif %}
+    {% if src3 %}<div class="grid-photo"><img src="{{ src3 }}" alt="{{ alt3 | default(value='') }}" loading="lazy"><span class="grid-label">{{ label3 }}</span></div>{% endif %}
+    {% if src4 %}<div class="grid-photo"><img src="{{ src4 }}" alt="{{ alt4 | default(value='') }}" loading="lazy"><span class="grid-label">{{ label4 }}</span></div>{% endif %}
+  </div>
+  {% if caption %}<figcaption>{{ caption | safe }}</figcaption>{% endif %}
+</figure>
