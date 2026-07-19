@@ -13,7 +13,7 @@
     {% for aspect in page.extra.aspects %}
     <div class="aspect-card">
       <span class="aspect-ref">REF. 00{{ loop.index }}</span>
-      <h3>{{ aspect.title }}</h3>
+      <h3><a href="{{ lang_prefix }}{{ aspect.url }}">{{ aspect.title }}</a></h3>
       <p>{{ aspect.description }}</p>
     </div>
     {% endfor %}

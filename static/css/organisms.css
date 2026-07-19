@@ -297,6 +297,27 @@ main {
     font-weight: var(--font-weight-semibold);
     margin: 0.3rem 0 0.5rem;
 }
+.aspect-card {
+    position: relative;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s;
+}
+.aspect-card:hover {
+    border-bottom-color: var(--color-rubric);
+}
+.aspect-card h3 a {
+    color: var(--color-ink);
+    text-decoration: none;
+}
+.aspect-card h3 a:hover {
+    color: var(--color-rubric);
+}
+.aspect-card h3 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
 .aspect-card p {
     font-size: 0.88rem;
     line-height: 1.6;
