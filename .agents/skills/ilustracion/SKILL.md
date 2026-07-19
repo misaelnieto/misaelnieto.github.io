@@ -8,7 +8,7 @@ temperature: 0.9
 
 Genera prompts de ilustración para imágenes hero, portraits y thematic headers del blog, siguiendo un estilo unificado de grabado clásico.
 
-## Estilo base del proyecto
+## Estilo base del proyecto: MANDATORIO
 
 Grabado vintage estilo siglo XIX, inspirado en enciclopedias antiguas y billetes de época.
 Todas las ilustraciones del proyecto deben seguir esta estética coherente.

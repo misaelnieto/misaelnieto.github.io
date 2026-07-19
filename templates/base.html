@@ -106,6 +106,7 @@
     </header>
     <main id="main" class="paper">
         <div class="content-container">
+            {% include "shortcodes/hero.html" %}
             {% block content %}
             {{ page.content | safe }}
             {% endblock %}

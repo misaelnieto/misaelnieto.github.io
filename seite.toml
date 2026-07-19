@@ -1,7 +1,8 @@
 [site]
 title = "Noe Nieto"
 description = "Mi sitio personal | Personal site"
-base_url = "https://noenieto.com"
+# base_url = "https://noenieto.com"
+base_url = "http://localhost:4000"
 language = "es"
 author = "Noe Nieto"
 
@@ -29,12 +30,11 @@ default_template = "page.html"
 
 [build]
 output_dir = "dist"
-content_dir = "content"
-template_dir = "templates"
-static_dir = "static"
 data_dir = "data"
 public_dir = "public"
 minify = true
+fingerprint = true
+math = true
 
 [deploy]
 target = "github-pages"
