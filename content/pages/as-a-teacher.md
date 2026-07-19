@@ -1,5 +1,5 @@
 ---
-title: about-noe
+title: Noe as a teacher
 ---
 
 Write your content here.

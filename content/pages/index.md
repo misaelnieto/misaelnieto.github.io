@@ -17,6 +17,6 @@ extra:
       description: "A custom virtual machine architecture designed for formal verification. Built to ensure mathematical certainty."
       url: "/as-a-teacher"
     - title: "As a human being"
-      description: "A design framework derived from 1920s Swiss typography, translated into a responsive React-based utility system."
+      description: "The non-coding side of Noe: husband, dog parent, Holokinetic Psychology instructor, reader of David Bohm."
       url: "/as-a-human"
 ---
