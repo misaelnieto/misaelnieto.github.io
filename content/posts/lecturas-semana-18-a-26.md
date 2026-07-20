@@ -13,7 +13,7 @@ Estuve ocupado con la tesis de maestría y el GSOC. Así que voy a unir las lect
 - [The sad state of sysadmin in the age of containers](https://www.vitavonni.de/blog/201503/2015031201-the-sad-state-of-sysadmin-in-the-age-of-containers.html)
 - [Protect Fedora against DHCP Vulnerability](https://fedoramagazine.org/protect-fedora-system-dhcp-flaw/)
 - !Atención a todos! Jalife ha twitteado:
-![Screenshot-2018-5-29 from AlfredoJalifeR_ - Búsqueda de Twitter.png]({{site.baseurl}}/media/Screenshot-2018-5-29 from AlfredoJalifeR_ - Búsqueda de Twitter.png)
+![Screenshot-2018-5-29_from_AlfredoJalifeR__-_B_squeda_de_Twitter.png](/static/images/Screenshot-2018-5-29_from_AlfredoJalifeR__-_B_squeda_de_Twitter.png)
 - [Reconoce Segob “crecimiento inusitado” de violencia tras reclamo de empresarios](https://aristeguinoticias.com/2905/mexico/reconoce-segob-crecimiento-inusitado-de-violencia-tras-reclamo-de-empresarios/)
 - [ Hallan enormes cañones 'escondidos' en la Antártida (y puede ser una mala noticia para el planeta) ](https://actualidad.rt.com/actualidad/273459-hallar-montanas-canones-antartida)
 - Jalife:  [Golpe del FMI al gobierno italiano "antisistema": “palazzo contra piazza y pizza”](http://www.jornada.com.mx/2018/05/30/opinion/018o1pol)

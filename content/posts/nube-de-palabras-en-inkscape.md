@@ -28,7 +28,7 @@ Instala inkscape si es que no lo tienes instalado. Abre inkscape y crea un nuevo
 El primer paso es generar las palabras. Lo que yo hice fue escribir **Lorem Ipsum** en dos fuentes diferentes 
 (Sans y Sans Serif), diferentes orientaciones y tamaños. Mi ejemplo quedó así:
 
-![Nube de palabras, Primera version](/media/nube-palabras-inkscape/01.png)
+![Nube de palabras, Primera version](/static/images/nube-palabras-inkscape/01.png)
 
 ### Paso 3: Dibujar una forma
 
@@ -38,7 +38,7 @@ el fondo.
 
 Ahora queda así:
 
-![Nube de palabras, Segunda version](/media/nube-palabras-inkscape/02.png)
+![Nube de palabras, Segunda version](/static/images/nube-palabras-inkscape/02.png)
 
 ### Paso 4: Ajustando el color
 
@@ -51,10 +51,10 @@ muchos objetos de texto. Una manera de poder seleccionarlos fácil es mover la e
 poder seleccionar todos los objetos de texto con el mouse. Pero mi esposa me enseñó otra manera más fácil: Selecciono 
 cualquier objeto de texto. Luego, en el menú contextual (que sale dando click con el botón derecho del mouse), escogí 
 "Seleccionar mismo" ‣ "Tipo de objeto".
-![Nube de palabras, seleccionando todos los objetos de texto](/media/nube-palabras-inkscape/03.png)
+![Nube de palabras, seleccionando todos los objetos de texto](/static/images/nube-palabras-inkscape/03.png)
 3. Ya que estan seleccionados todos los objetos de texto, aproveche para ajustar el color del trazo de las letras a 
 negro (aunque el color no importa mucho después del recorte). Ahora se ve asi:
-![Nube de palabras, cambio de colores](/media/nube-palabras-inkscape/04.png)
+![Nube de palabras, cambio de colores](/static/images/nube-palabras-inkscape/04.png)
 4. Finalmente voy a agrupar los objetos de texto seleccionados. El menú es **Objeto** ‣ **Agrupar**
 
 ### Paso 5 Aplicar recorte
@@ -66,7 +66,7 @@ Linux o Cmd+A en Mac.)
 Y llegamos a la parte la parte más importante: _El recorte_. Ya que estan seleccionados los dos objetos principales (la estrella 
 y el bonche de texto), aplicamos el recorte con el menú **Objeto** ‣ **Recorte** ‣ **Aplicar Recorte**. El resultado 
 es el siguiente:
-![Nube de palabras, Texto recortado](/media/nube-palabras-inkscape/05.png)
+![Nube de palabras, Texto recortado](/static/images/nube-palabras-inkscape/05.png)
 
 ### Paso 6: Agregando fondo a la estrella
 
@@ -74,12 +74,12 @@ Para agregar un fondo a la estrella tendremos que hacer un duplicado de la estre
 Qué puedo hacer?
 
 1. Deshacer el recorte temporalmente con **Objeto** > **Recorte** > **Liberar recorte**. También se puede hacer con el menú contextual.
-    ![Nube de palabras, Liberar recorte](/media/nube-palabras-inkscape/06.png)
+    ![Nube de palabras, Liberar recorte](/static/images/nube-palabras-inkscape/06.png)
 2. Selecciona la estrella y copiala. !Aun no la pegues!
-   ![Nube de palabras, Copia la estrella](/media/nube-palabras-inkscape/07.png)
+   ![Nube de palabras, Copia la estrella](/static/images/nube-palabras-inkscape/07.png)
 3. Selecciona de nuevo la estrella y el texto y vuelve a aplicar el recorte con el menú **Objeto** ‣ **Recorte** ‣ **Aplicar Recorte**.
 4. Pega la estrella y ajusta el color de fondo, o el contorno, o las dos cosas!
-   ![Nube de palabras, Texto recortado](/media/nube-palabras-inkscape/08.png)
+   ![Nube de palabras, Texto recortado](/static/images/nube-palabras-inkscape/08.png)
 
 
 ### Resumen

@@ -12,11 +12,11 @@ tags:
 
 Hay que activar el modulo de imagenes responsivas
 
-![`Manage>Extend`]({{ site.url }}/media/Drupal8-Responsive-images-02.PNG)
+![`Manage>Extend`](/static/images/Drupal8-Responsive-images-02.png)
 
 Se supone que dependen del tema :/
 
-![`Responsive Image mappings`]({{ site.url }}/media/Drupal8-Responsive-images-03.PNG)
+![`Responsive Image mappings`](/static/images/Drupal8-Responsive-images-03.png)
 
 Links:
 

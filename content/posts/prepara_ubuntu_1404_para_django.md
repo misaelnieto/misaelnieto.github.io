@@ -11,7 +11,7 @@ tags:
   - installation
 ---
 
-![El pony de Django]({{ site.baseurl }}/media/magic-pony-django-wallpaper.png)
+![El pony de Django](/static/images/magic-pony-django-wallpaper.png)
 
 
 ## Instala los paquetes

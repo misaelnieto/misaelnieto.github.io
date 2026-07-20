@@ -11,7 +11,7 @@ tags:
   - programming
 ---
 
-![Una mala referencia a algo "afilado"](/media/4105108383_f0d70b3db1_o.jpg)
+![Una mala referencia a algo "afilado"](/static/images/4105108383_f0d70b3db1_o.jpg)
 
 ## Intro
 

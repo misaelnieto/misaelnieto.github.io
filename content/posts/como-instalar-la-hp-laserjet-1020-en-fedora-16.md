@@ -10,7 +10,7 @@ categories:
 Tenemos esta impresora desde hace años y funciona de maravilla. La instalación del driver de ésta impresora en Fedora 16 ha mejorado, pero aun no es plug&play.
 Cómo instalar la HP LaserJet 1020 en Fedora 16
 
-![HP LaserJet 1020](/media/hp_laserjet_1020.jpg)
+![HP LaserJet 1020](/static/images/hp_laserjet_1020.jpg)
 
 Es una impresora que compró mi hermana o mi mamá y que tenía más de 2 años arrumbada.
 
@@ -38,11 +38,11 @@ cuadro de diálogo.
 
 Seleccione Universal Serial Bus (USB) como método de conexión y presione Next (Siguiente).
 
-![Paso 1 - Seleccione USB](/media/hp_laserjet_device_discovery1.png)
+![Paso 1 - Seleccione USB](/static/images/hp_laserjet_device_discovery1.png)
 
 La impresora deberá aparecer listada. Seleccione la impresora y presione Next.
 
-![Paso 2 - Seleccione la impresora](/media/hp_laserjet_device_discovery2.png)
+![Paso 2 - Seleccione la impresora](/static/images/hp_laserjet_device_discovery2.png)
 
 La impresora buscará los drivers disponibles y/o los descargará del sitio de
 HP y finalmente los instalará en el sistema.
@@ -50,6 +50,6 @@ HP y finalmente los instalará en el sistema.
 Finalmente, `hp-setup` nos ofrecerá la opción de instalar una cola de impresión
 e imprimir una página de prueba.
 
-![Finito](/media/hp_laserjet_device_discovery1.png)
+![Finito](/static/images/hp_laserjet_device_discovery1.png)
 
 Nota: no olvidar reactivar los repositorios de rpm-fusion.

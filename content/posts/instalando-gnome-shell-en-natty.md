@@ -34,7 +34,7 @@ cuidado de seleccionar la sesión "Gnome Shell".
 
 Así quedo mi escritorio (Click en la imagen para verla en tamaño completo):
 
-![Gnome Shell en Ubunu Natty](/media/gnome_shell_natty.png)
+![Gnome Shell en Ubunu Natty](/static/images/gnome_shell_natty.png)
 
 El gnome shell que se instala con estos PPA's contiene lo mínimo necesario
 para ejecutar el entorno. El día de hoy subieron un paquete al PPA con algunos
@@ -55,5 +55,5 @@ sudo apt-get install gnome-shell
 
 El shell se ve mejor:
 
-![Un pantallazo de GnomeShell en Natty después de activar el tema Adawita](/media/gnome_shell_natty_adawita.png)
+![Un pantallazo de GnomeShell en Natty después de activar el tema Adawita](/static/images/gnome_shell_natty_adawita.png)
 

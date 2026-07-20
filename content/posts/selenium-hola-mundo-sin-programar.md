@@ -80,7 +80,7 @@ php -S localhost:8000
 Para probar si funciona abre el navegador y abre este URL:
 <http://localhost:8000> Se debería ver algo así:
 
-![Firefox probando el servidor web improvisado](/media/Screenshot_from_2014_07_15_16_42_54.png)
+![Firefox probando el servidor web improvisado](/static/images/Screenshot_from_2014_07_15_16_42_54.png)
 
 ¿Qué tal? Este sitio es [sencillo, fácil, responsivo y minimalista](https://motherfuckingwebsite.com/) ...
 
@@ -100,13 +100,13 @@ Abre la página de prueba y lanza el IDE mediante el menú
 **Herramientas -> Selenium IDE**. Mi Firefox esta en inglés, pero no
 debería cambiar demasiado para español u otro idioma.
 
-![Cómo lanzar el IDE de Selenium](/media/Screenshot_from_2014_07_18_16_31_44.png)
+![Cómo lanzar el IDE de Selenium](/static/images/Screenshot_from_2014_07_18_16_31_44.png)
 
 **Nota**: Si la barra de menu esta oculta, presiona ALT para que aparezca.
 
 La ventana de selenium se ve así
 
-![La ventana del IDE de Selenium](/media/Screenshot_from_2014_07_18_16_45_02.png)
+![La ventana del IDE de Selenium](/static/images/Screenshot_from_2014_07_18_16_45_02.png)
 
 **Nota**: Si tienes suficiente espacio en pantalla, pon la ventana de firefox y
 la del IDE de Selenium lado a lado para que trabajes más cómodo.
@@ -119,7 +119,7 @@ Ahora, abre la ventana de Firefox donde cargaste la página de *Hola Mundo*.
 Selecciona el texto y presiona el botón derecho del mouse para sacar el menú
 contextual. Luego selecciona la opcion **assertText** que está de color naranja.
 
-![Selecciona la opcion `assertText` que está de color naranja.](/media/Screenshot_from_2014_07_18_17_16_20_0.png)
+![Selecciona la opcion `assertText` que está de color naranja.](/static/images/Screenshot_from_2014_07_18_17_16_20_0.png)
 
 Cuando instalaste el IDE se añadieron algunas opciones en los menúes
 contextuales que te ayudarán a hacer más fácil el proceso de programación de
@@ -127,11 +127,11 @@ pruebas. Una vez que hayas hecho click en la opción `AssertText css=h1 Hola Mun
 la ventana del IDE registrará esta acción como la primera prueba de la
 página.
 
-![La primera prueba de Selenium - mira el área delimitada por el rectángulo verde-](/media/Screenshot_from_2014_07_18_17_16_45_0.png).
+![La primera prueba de Selenium - mira el área delimitada por el rectángulo verde-](/static/images/Screenshot_from_2014_07_18_17_16_45_0.png).
 
 Presiona cualquiera de los botones verdes para iniciar/reiniciar la prueba automática.
 
-![Botones para iniciar la prueba. Presiona cualquiera de los dos botones](/media/Screenshot_from_2014_07_21_08_35_17.png)
+![Botones para iniciar la prueba. Presiona cualquiera de los dos botones](/static/images/Screenshot_from_2014_07_21_08_35_17.png)
 
 Cuando inicies la prueba, veras que se abre una nueva ventana de firefox (a
 veces se usa una de las que ya estan abiertas), se abre el sitio
@@ -268,7 +268,7 @@ $ tree
 
 Abre `Resultados.html`. Deberás poder ver algo asi:
 
-![Resultado de la suite de pruebas](/media/Screenshot_from_2014_07_21_11_22_27.png)
+![Resultado de la suite de pruebas](/static/images/Screenshot_from_2014_07_21_11_22_27.png)
 
 He aquí el resultado:
 

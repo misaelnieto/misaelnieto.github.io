@@ -5,7 +5,7 @@ categories:
   - "Linux Servers DevOps"
 ---
 
-![SFTP enjaulado con chroot]({{site.baseurl}}/media/Swan_PSF_.svg)
+![SFTP enjaulado con chroot](/static/images/Swan_PSF_.svg)
 
 ## Intro
 

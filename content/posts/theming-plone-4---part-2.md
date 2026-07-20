@@ -28,12 +28,12 @@ and fixed width to 1024x768 monitors, which is the minimum standard in 2010.
 So, after downloading and unpacking the template I get a very clean and basic
 theme, Good!!
 
-![choose_css_template.png](/media/choose_css_template.png)
-![Contenidos del tema](/media/contenido_tema_plone4.png)
+![choose_css_template.png](/static/images/choose_css_template.png)
+![Contenidos del tema](/static/images/contenido_tema_plone4.png)
 
 The original template, looks like this:
 
-![new theme](/media/hanghing_theme.png)
+![new theme](/static/images/hanghing_theme.png)
 
 
 ## Theming tools
@@ -92,7 +92,7 @@ it's contents) are displayed at the same time.
 This is a screenshot firebug showing the structure of the `@@manage-portlets`
 view:
 
-![manage_portlets](/media/manage_portlets.png)
+![manage_portlets](/static/images/manage_portlets.png)
 
 The viewlet manager `plone.portaltop` renders `#portal-top`, `plone.belowcontent`
 renders `#portal-footer`, `#portal-colophon` and `#portal-siteactions`. The template
@@ -156,7 +156,7 @@ then I move to `#visual-portal-wrapper`, and so on.
 
 For those like me who needs a photo for everything, that's what are we going to do:
 
-![Copying theme styles](/media/copy_theme_styles.jpg)
+![Copying theme styles](/static/images/copy_theme_styles.png)
 
 If I documented every step by now, this post would be unfinishable, so I just
 will list the modifications I made. The details of each modification are
@@ -182,7 +182,7 @@ These are the steps I did to finish the theme:
 
 After some hours of hacking (I'm slooow), this is how it looks:
 
-![Template hanging final](/media/plone_hanghing_preview.png)
+![Template hanging final](/static/images/plone_hanghing_preview.png)
 
 ## Wrap up
 

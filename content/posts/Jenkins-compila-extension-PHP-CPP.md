@@ -11,7 +11,7 @@ tags:
   - automation
 ---
 
-![Un gancho](/media/Grappling_hook_2_PSF.png)
+![Un gancho](/static/images/Grappling_hook_2_PSF.png)
 
 ## Intro
 

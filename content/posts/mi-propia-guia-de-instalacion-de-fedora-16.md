@@ -3,7 +3,7 @@ title: "Mi propia guía de instalación de Fedora 16"
 date: "2011-10-11"
 ---
 
-![Julio Verne](/media/julio_verne.jpg)
+![Julio Verne](/static/images/julio_verne.jpg)
 
 ## Intro
 

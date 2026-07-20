@@ -9,7 +9,7 @@ date: "2014-06-19"
 
 Tengo unos minutos libres y decidí complicarme la vida un poco más de lo que ya esta.
 
- ![Drupal corriendo sin apache ni mysql](/media/Screenshot_from_2014-06-19_20_10_24.png)
+ ![Drupal corriendo sin apache ni mysql](/static/images/Screenshot_from_2014-06-19_20_10_24.png)
 
 Hace algunas semanas instale Fedora desde cero y ya perdi todo lo que estaba haciendo con Drupal y se me ocurrio probar a ver si puedo arrancar Drupal 7 con el servidor web integrado de PHP oara ahorrarme la configuracion de apache.
 
@@ -140,7 +140,7 @@ Actualización: Las versiones recientes de Drush incluyen un comando `rs` que ej
 
 Y si, funciona:
 
-![Drupal funcionando en el servidor web integrado de PHP]({{site.baseurl}}/media/Screenshot_from_2014_06_19_20_06_56_0.png)
+![Drupal funcionando en el servidor web integrado de PHP](/static/images/Screenshot_from_2014_06_19_20_06_56_0.png)
 
 
 ¿Cómo te quedó el ojo?

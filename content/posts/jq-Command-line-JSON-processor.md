@@ -14,7 +14,7 @@ As an example, the first use is to pretty print a JSON output from a program lik
 ```
 curl --silent "https://jsonplaceholder.typicode.com/comments?postId=1" | jq
 ```
-![Pretty JSON output from curl and jq]({{site.baseurl}}/media/Screenshot-20181220110520-948x815.png)
+![Pretty JSON output from curl and jq](/static/images/Screenshot-20181220110520-948x815.png)
 
 In comparison [httpie](https://httpie.org/) has also colored output of json data, but `jq` is a JSON processor, so it does much more than jsut pretty-print json data: you can apply filters to the data! 
 
@@ -23,7 +23,7 @@ On the previous example we got a list of objects. With `jq`  I can extract the t
 ```
 curl --silent "https://jsonplaceholder.typicode.com/comments?postId=1" | jq .[3]
 ```
-![Filtered output]({{site.baseurl}}/media/gnome-shell-screenshot-J70ZTZ.png)
+![Filtered output](/static/images/gnome-shell-screenshot-J70ZTZ.png)
 
 ### A practical example
 
@@ -395,7 +395,7 @@ I did all of this because in the first time I wanted to know the available Debia
 ```
 curl -X GET --silent "https://api.digitalocean.com/v2/images" -H "Authorization: Bearer $MY_DO_API_KEY" | jq '.images[] | {name, distribution, slug, type, status} | select(.distribution == "Debian")'
 ```
-![Just what I needed]({{site.baseurl}}/media/gnome-shell-screenshot-VMABUZ.png)
+![Just what I needed](/static/images/gnome-shell-screenshot-VMABUZ.png)
 
 **FIN**
 

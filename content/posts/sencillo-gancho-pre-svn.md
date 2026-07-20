@@ -5,7 +5,7 @@ categories:
   - "DevOps"
 ---
 
-![Ganchos :) ](/media/8625204550_bf437a1f91_o.jpg)
+![Ganchos :) ](/static/images/8625204550_bf437a1f91_o.jpg)
 
 El Repo de SVN esta en:
 

@@ -11,7 +11,7 @@ tags:
 ---
 
 
-![Regresando al kinder](/media/404321726_1dd8836d14_o.jpg)
+![Regresando al kinder](/static/images/404321726_1dd8836d14_o.jpg)
 
 
 

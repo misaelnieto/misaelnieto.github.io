@@ -26,7 +26,7 @@ En TCAD existen dos componentes muy importantes que son los que se encargan prin
 * **Athena**: Se encarga pricipalmente de simular los procesos fisicos y quimicos usados en la fabricacion de dispositivos semiconductores.
 * **Atlas**: Simula la interaccion de dispositivos semiconductores en diferentes condiciones: iluminacion, polarizacion, corrientes, campos electricos, etc.
 
-![El TCAD de Silvaco contiene varios modulos]({{site.baseurl}}/media/diagrama_silvaco_TCAD.svg)
+![El TCAD de Silvaco contiene varios modulos](/static/images/diagrama_silvaco_TCAD.svg)
 
 Cuando instalas Silvaco se instalan un montón de ejemplos de diferentes estructuras y dispositivos semiconductores (`directorio_silvaco/examples`). De todos esos ejemplos, veinte son de simulaciones con dispositivos solares. En esta serie de artículos estarán basados en el primer ejemplo `solarex01.ini`.
 
@@ -34,7 +34,7 @@ Cuando instalas Silvaco se instalan un montón de ejemplos de diferentes estruct
 
 A continuación se muestra un esquema de la estructura final de la celda solar.
 
-![Plan de construcción de la celda solar]({{site.baseurl}}/media/celda_solar_diagramas_pag1.svg)
+![Plan de construcción de la celda solar](/static/images/celda_solar_diagramas_pag1.svg)
 
 Ĺas dimensiones de la celda en 2D serán:
 
@@ -54,7 +54,7 @@ Para fabricar la capa **n+** simularemos el proceso de implantación de iones qu
 
 El proceso de implantación de iones consiste en acelerar un haz de impurezas (en nuestro caso, Boro) con energías en el rango de varios keV hasta varios MeV, luego dicho haz se enfoca hacia un blanco, es decir la superficie del semiconductor.
 
-![Implantación de iones]({{site.baseurl}}/media/Implantacion-de-iones.svg "El proceso de implantación de iones")
+![Implantación de iones](/static/images/Implantacion-de-iones.svg "El proceso de implantación de iones")
 
 Conforme las impurezas aceleradas van penetrando el cristal, estas chocan varias veces con la rejilla del cristal perdiendo energía y causando desperfectos en la estructura del cristal. Finalmente las impurezas pierden toda su energía cinética y paran de moverse a cierta profundidad promedio.
 
@@ -62,7 +62,7 @@ El tipo de impureza su energía cinética de implantación, el tipo de estructur
 
 Luego, en esta simulación, el grosor y las características de la capa **n+** estan en función del modelo de implantación. Por default, Athena usa el modelo *SIMS-Verified Dual Pearson* (SVDP), pero usaremos el modelo estadístico o *Gaussiano* debido a que es el proceso más conocido en los libros de texto y como su nombre lo indica, es una curva gaussiana donde la concentración de dopantes esta en función de la profundidad en el cristal. Veamos la siguiente gráfica:
 
-![Perfil gaussiano de impurezas]({{site.base_url}}/media/perfil-gaussiano-impurezas.svg "Gráfica de concentración vs profundidad.")
+![Perfil gaussiano de impurezas](/static/images/perfil-gaussiano-impurezas.svg "Gráfica de concentración vs profundidad.")
 
 La distribución gaussiana esta modelada en base a la siguiente ecuación
 
@@ -84,7 +84,7 @@ Ahora, reconsideremos la capa n+ que deseamos construir. Asumamos que tanto R <s
 
 Una manera de lograr lo anterior es depositar una capa de SiO<sub>2</sub> sobre el sustrato con el mismo grueso que el grueso deseado de la capa **n+**. Entonces, si deseamos que la capa **n+** mida 0.5 μm deberemos depositar otra capa de SiO<sub>2</sub> con grosor de 0.5 μm. El perfil de concentración deberá quedar de la siguiente manera.
 
-![Perfil de concentracion en union pn]( {{site.base_url}}/media/diseno_capa_n.svg )
+![Perfil de concentracion en union pn]( /static/images/diseno_capa_n.svg )
 
 Ya tenemos dos parámetros. El grosor de la capa de SiO <sub>2</sub> y el grosor de la capa **n+**. Además el valor esperado de **X<sub>J</sub>** será 0.5 μm. Además, podemos inferir que $$ R_p = 0.5 \mu m$$ (midiendo desde la superficie del SiO <sub>2</sub>).
 
@@ -157,7 +157,7 @@ go athena
 
 Despues se define una malla para poder controlar el detalle de la simulación a manera de no desperdiciar tiempo y recursos (como, por ejemplo: procesador). En este ejemplo tan pequeño no nos importa mucho cuántos recursos se usan, pero en simulaciones más grandes y complejas el tiempo de simulación empieza a tomar mucha relevancia. En esta ocasión haremos una malla de 10x50 μm.
 
-![Malla de cálculo]({{site.baseurl}}/media/malla-solarex01.png)
+![Malla de cálculo](/static/images/malla-solarex01.png)
 
 El conjunto de instrucciones que crean esta malla son:
 
@@ -197,7 +197,7 @@ No estoy seguro si realmente necesitamos esa protección en el simulador, pero s
 
 Finalmente, podemos ver la capa representada en forma gráfica.
 
-![Capa de SiO2 para protejer el sustrato de Silicio]({{site.baseurl}}/media/solarex01-oxido-protector.png)
+![Capa de SiO2 para protejer el sustrato de Silicio](/static/images/solarex01-oxido-protector.png)
 
 En la figura de arriba, la sección amarilla es el sustrato, mientras que la región azul es el SiO2. El eje **y** es la concentración de material. Como vemos, el sustrato de silicio tiene una concentración de dopantes de 10^14 cm-3; como tampoco hemos hecho ningun otro proceso, la concentracion neta de impurezas en el dispositivo es la misma que la del boro.
 

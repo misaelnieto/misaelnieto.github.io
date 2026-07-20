@@ -195,7 +195,7 @@ tzicatl@tzicatl-lynx:~/plone4b3$ bin/instance fg
 Create a site and install the newly created theme. You should see a site equal
 to plone4's SunBurst Theme
 
-![Our plone theme](/media/plone4_theming1.png)
+![Our plone theme](/static/images/plone4_theming1.png)
 
 ## Wrap up
 

@@ -12,7 +12,7 @@ image: "/media/oil-lamps-294331.svg"
 
 Instale RHEL 7.3 en una laptop (HP Probook 4720s) para poder correr [TCAD de Silvaco](https://www.silvaco.com/products/tcad.html "Click para ver que diablos es TCAD").
 
-![Propiedades del sistema en RHEL 7](/media/Screenshot_from_2017-08-02_16-56-41.png)
+![Propiedades del sistema en RHEL 7](/static/images/Screenshot_from_2017-08-02_16-56-41.png)
 
 
 
@@ -37,6 +37,6 @@ Hoy me tope con el frustrante problema de que  RHEL 7 no viene con soporte para 
   ```
 - Listo. Ahora RHEL ya abre mi memoria USB con formato NTFS. No necesité reiniciar la sesión ni la máquina.
 
-![La herramienta Disks abriendo una memoria USB con formato NFTS](/media/Screenshot_from_2017-08-02_17-07-00.png)
+![La herramienta Disks abriendo una memoria USB con formato NFTS](/static/images/Screenshot_from_2017-08-02_17-07-00.png)
 
 FIN

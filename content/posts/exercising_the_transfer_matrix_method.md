@@ -146,7 +146,7 @@ $$
 
 Which is becoming a bit startling ...
 
-![For mere mortals ...]({{site.baseurl}}/media/abandon-thread_fb_3029909.jpg)
+![For mere mortals ...](/static/images/abandon-thread_fb_3029909.jpg)
 
 ... for mere mortals. Yet we are still here, aren't we?
 

@@ -45,4 +45,4 @@ En esta semana: Tardigrade o oso del agua (water bear), Marihuana, Linux y raspb
 
 El WTF de la semana lo lleva el periódico _The Independent_ de Inglaterra que reporta un incidente en una [librería de Berkley, California](http://www.independent.co.uk/news/world/americas/donald-trump-supporters-bookstore-burn-make-america-great-again-berkeley-california-a8248721.html):
 
-![Screenshot-2018-3-1 Facebook.png]({{site.baseurl}}/media/Screenshot-2018-3-1%20Facebook.png)
+![Screenshot-2018-3-1_Facebook.png](/static/images/Screenshot-2018-3-1_Facebook.png)

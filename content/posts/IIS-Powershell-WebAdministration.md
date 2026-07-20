@@ -11,7 +11,7 @@ tags:
   - windows
 ---
 
-![Pagüer Chel!](/media/IMG_5096b.jpg)
+![Pagüer Chel!](/static/images/IMG_5096b.jpg)
 
 ## Intro
 

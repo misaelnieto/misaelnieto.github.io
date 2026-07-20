@@ -6,7 +6,7 @@ categories:
   - "Python Plone"
 ---
 
-![ Me grok smash ZCML! ](/media/me_grok.jpg)
+![ Me grok smash ZCML! ](/static/images/me_grok.jpg)
 
 Una vez que se ha configurado `grok.five`, se puede añadir un viewlet con solo
 11 líneas de código:

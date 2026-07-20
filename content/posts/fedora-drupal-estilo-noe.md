@@ -7,7 +7,7 @@ categories:
 
 ## Intro
 
-![PHP corriendo su servidor interno desde la linea de comandos]({{ site.url }}/media/Screenshot-2014-06-19-20_10_24.png)
+![PHP corriendo su servidor interno desde la linea de comandos](/static/images/Screenshot-2014-06-19-20_10_24.png)
 
 Tengo unos minutos libres y decidí complicarme la vida un poco más de lo que
 ya esta. Resulta que hace algunas semanas instale Fedora desde cero y ya perdi
@@ -164,7 +164,7 @@ ejecuta el servidor web integrado de php en el puerto `8888`.
 
 Y si, funciona:
 
-![Drupal funcionando en el servidor web integrado de PHP]({{ site.url }}/media/Screenshot_from_2014_06_19_20_06_56_0.png)
+![Drupal funcionando en el servidor web integrado de PHP](/static/images/Screenshot_from_2014_06_19_20_06_56_0.png)
 
 ¿Cómo te quedó el ojo?
 
