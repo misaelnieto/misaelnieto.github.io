@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}404 — Page Not Found &middot; {{ site.title }}{% endblock %}
+{% block extra_css %}
+<style>
+h1 {
+    text-align: center;
+    color: var(--color-rubric-dark);
+}
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+}
+.not-found figure {
+    margin: 0;
+    max-width: 720px;
+    width: 100%;
+}
+.not-found img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--color-border);
+}
+.not-found figcaption {
+    margin: var(--spacing-lg) auto 0;
+    font-family: var(--font-body);
+    font-size: var(--font-size-xl);
+    line-height: 1.5;
+    max-width: 34ch;
+}
+.not-found a {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<header>
+    <h1>404 - Not found</h1>
+</header>
+<section class="not-found">
+    <figure>
+        <img src="/static/404.png" alt="A barren field under a bleak sky">
+        <figcaption>Behold the field wherein I sow my own thoughts. <em>Cast thine eyes upon it &mdash; and see that it is barren.</em></figcaption>
+    </figure>
+    <a href="{{ lang_prefix }}/" class="rubric">Away with thee &mdash; the fields are greener yonder</a>
+</section>
+{% endblock %}
