@@ -1,27 +1,26 @@
 ---
 title: "Práctica: Trabajando con Ramas en Git (Parte 2)"
-summary: "Simula un entorno de equipo en Git. Aprende a trabajar con múltiples ramas, visualizar el historial con `git log --graph` y a integrar cambios de diferentes colaboradores."
-description: "En esta segunda parte del tutorial de ramas de Git, simularás un flujo de trabajo en equipo. Crearás múltiples ramas para diferentes funcionalidades, aprenderás a interpretar el gráfico del historial de commits y fusionarás todo el trabajo en la rama principal. Prepárate para entender los conflictos de merge y el desarrollo colaborativo."
+summary: "Simula un equipo en Git: trabaja con varias ramas a la vez, lee git log --graph y fusiona todo en master."
+description: "Segunda parte del tutorial de ramas en Git: simula un flujo de trabajo en equipo con múltiples ramas, lee git log --graph y fusiona cambios sin perder datos."
 date: "2025-11-05"
 categories:
   - "Tutoriales"
 tags:
-  - "Git"
-  - "GitHub"
-  - "Ramas"
-  - "Tutorial"
-  - "Principiantes"
+  - "git"
+  - "github"
+  - "ramas"
+  - "principiantes"
 image: "/media/git-branch-pt2.png"
 preview: "/media/git-branch-pt2.png"
 locale: "es_MX"
 keywords:
   - "Git, GitHub, branches, tutorial, beginners, ramas, control de versiones"
+extra:
+  mermaid: true
 ---
 
-# 🌳 Práctica Parte 2: Trabajando con Múltiples Ramas en Git
-
 ## 📋 Pre-requisitos
-- Haber completado la [Práctica Parte 1](2025-11-05-practica-github-ramas-pt-1.md)
+- Haber completado la [Práctica Parte 1](/blog/practica-github-ramas-pt-1)
 - Tener Git instalado
 - Tener el proyecto de calculadora de la práctica anterior
 
@@ -60,7 +59,7 @@ Todos trabajan **al mismo tiempo** con copias de la película. Al final, todo se
 
 ### Paso 1: Verificar dónde estamos
 
-Supongamos que tu proyecto esta en `cd C:\Users\TuUsuario\Desktop\mi-calculadora`.
+Supongamos que tu proyecto está en `cd C:\Users\TuUsuario\Desktop\mi-calculadora`.
 
 ```cmd
 cd C:\Users\TuUsuario\Desktop\mi-calculadora
@@ -564,14 +563,14 @@ Ver solo 10 commits hace más fácil entender el árbol.
 
 Crea un mini-proyecto simulando un equipo de 3 personas:
 
-1. **Crea un archivo** `notas.txt` en main con el siguiente contenido:
+1. **Crea un archivo** `notas.txt` en master con el siguiente contenido:
 
 ```
 NOTAS DEL PROYECTO
 ==================
 ```
 
-A continuacion agrega este archivo al repositorio y hazle *commit*.
+A continuación, agrega este archivo al repositorio y hazle *commit*.
 
 ```cmd
 git add notas.txt

@@ -1,16 +1,15 @@
 ---
 title: "Práctica: Trabajando con Ramas en Git (Parte 1)"
 summary: "Aprende a usar ramas en Git para experimentar sin miedo. Crea, cambia y combina ramas en esta guía para principiantes."
-description: "Este tutorial te enseña los conceptos básicos de las ramas en Git. Aprenderás a crear una rama para trabajar en una nueva función, cambiar entre ramas y fusionar tus cambios de nuevo en la rama principal. Esta es la primera parte de una serie de tutoriales sobre Git."
+description: "Tutorial de Git en español para principiantes: crea ramas para experimentar, cambia entre versiones y fusiónalas sin miedo a romper tu trabajo."
 date: "2025-11-03"
 categories:
   - "Tutoriales"
 tags:
-  - "Git"
-  - "GitHub"
-  - "Ramas"
-  - "Tutorial"
-  - "Principiantes"
+  - "git"
+  - "github"
+  - "ramas"
+  - "principiantes"
 image: "/media/unsplash/brian-suh-a4GET0s82rI-unsplash.jpg"
 preview: "/media/unsplash/brian-suh-a4GET0s82rI-unsplash.jpg"
 locale: "es_MX"
@@ -19,7 +18,7 @@ keywords:
 ---
 
 **Instituto Tecnológico de Mexicali**
-Fundamentos de Ingeniería
+Fundamentos de Ingeniería de Software
 2025-2
 
 ## Tu Primera Aventura con Múltiples Versiones 🌳
