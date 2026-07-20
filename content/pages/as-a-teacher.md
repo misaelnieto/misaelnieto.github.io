@@ -3,6 +3,9 @@ title: "As a teacher"
 description: "Course repositories and exercises for the classes Noe teaches at the Instituto Tecnológico de Mexicali"
 created: 01-Feb-2025
 updated: 2026-07-19
+image: /static/hero/teacher.png
+extra:
+  hero: true
 ---
 
 ## Spring 2026 (Ciclo 2026-1, January–June)

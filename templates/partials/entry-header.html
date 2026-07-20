@@ -1,0 +1,19 @@
+<header class="entry-header{% if page.extra.hero %} entry-header--hero{% endif %}">
+  {% if page.extra.hero %}
+  <div class="hero-text">
+    <h1 class="entry-title p-name">
+      {{ page.extra.hero.title | default(value=page.title) | safe }}
+    </h1>
+    {% if page.description %}<p class="hero-tagline">&ldquo;{{ page.description }}&rdquo;</p>{% endif %}
+  </div>
+  {% if page.image %}
+  <figure class="hero-figure">
+    <img src="{{ page.image }}" alt="{{ page.extra.hero.alt | default(value="") }}">
+    {% if page.extra.hero.caption %}<figcaption>{{ page.extra.hero.caption }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+  {% else %}
+  <h1 class="entry-title p-name">{{ page.title }}</h1>
+  {% if page.description %}<p class="entry-description muted">{{ page.description }}</p>{% endif %}
+  {% endif %}
+</header>

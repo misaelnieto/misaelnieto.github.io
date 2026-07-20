@@ -5,12 +5,7 @@
 {% block content %}
 <article class="resume-page h-entry" lang="{{ page.lang | default(value=lang) }}">
 
-  {% if not page.extra.hero %}
-  <header class="entry-header">
-    <h1 class="entry-title p-name">{{ page.title }}</h1>
-    {% if page.description %}<p class="entry-description muted">{{ page.description }}</p>{% endif %}
-  </header>
-  {% endif %}
+  {% include "partials/entry-header.html" %}
 
   {% if page.extra.resume.timeline or page.extra.resume.education %}
   <nav class="resume-jump" aria-label="Jump to section">
