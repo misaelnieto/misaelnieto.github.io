@@ -1,11 +1,15 @@
 ---
 title: "Ditch Google Analytics(GA) for Counter.def"
+description: "How I replaced Google Analytics with Counter.dev for simpler web analytics on my Jekyll blog hosted on GitHub Pages."
 summary: "I hacked Google Analytics away in favor of Counter.dev"
 date: "2022-07-28"
 categories:
   - "Technology"
 tags:
-  - "Google Analytics"
+  - google analytics
+  - counter.dev
+  - web analytics
+  - jekyll
 image: "/media/screenshots/counter_analytics.png"
 ---
 

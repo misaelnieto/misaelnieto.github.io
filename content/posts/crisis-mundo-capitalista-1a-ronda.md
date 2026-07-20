@@ -1,8 +1,9 @@
 ---
-title: " Mesa-debate Crisis del sistema mundo capitalista, Hegemonía y Estado. 1ra ronda "
+title: "Mesa-debate Crisis del sistema mundo capitalista, Hegemonía y Estado. 1ra ronda"
 date: "2014-08-11"
 categories:
   - "Geopolítica"
+description: "Resumen del video de Alfredo Jalife-Rhame sobre la crisis multidimensional del sistema mundo capitalista, incluyendo perspectivas de Alfredo Jalife y Erick Pernett."
 ---
 
 ![Resumen de Video de Alfredo Jalife-Rhame](/media/coins-361488.jpg)

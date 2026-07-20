@@ -3,6 +3,12 @@ title: "Infraestructura Pythonesca en iServices"
 date: "2010-11-19"
 categories:
   - "Python"
+tags:
+  - python
+  - buildout
+  - virtualenv
+  - infrastructure
+  - iservices
 ---
 
 (This post is in spanish and is somewhat more directed to the spanish-speaking

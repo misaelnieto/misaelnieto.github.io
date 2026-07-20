@@ -3,6 +3,11 @@ title: "Mi primera experiencia con Django y zc.buildout en Ubuntu 9.10"
 date: "2009-10-29"
 categories:
   - "Python Django"
+tags:
+  - django
+  - buildout
+  - python
+  - ubuntu
 ---
 
 ## Intro

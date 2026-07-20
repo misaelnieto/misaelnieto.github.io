@@ -2,7 +2,11 @@
 title: "Añadir un nuevo disco a fedora con LVM"
 date: "2017-08-11"
 categories: []
-tags: []
+tags:
+  - fedora
+  - lvm
+  - linux
+  - virtualbox
 image: "/media/Ubuntu-linux-kernel-panic-by-jpangamarca.JPG"
 ---
 

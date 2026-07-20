@@ -2,8 +2,13 @@
 title: "Celda solar sencilla con TCAD de Silvaco (Parte 1)"
 date: "2017-08-15"
 categories: []
-tags: []
+tags:
+  - silvaco
+  - tcad
+  - solar cell
+  - python
 image: "/media/johnny-automatic-old-sun.png"
+description: "Introducción a la simulación de una celda solar de unión PN usando Silvaco TCAD, incluyendo diseño de estructura y proceso de implantación de iones."
 ---
 
 ## Introducción

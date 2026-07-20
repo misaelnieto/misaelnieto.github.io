@@ -1,8 +1,14 @@
 ---
 title: "Cómo instalar paquetes extra en Fedora sin abrir la terminal"
 date: "2014-09-05"
+description: "Cómo instalar software adicional en Fedora sin usar la terminal, para usuarios normales que prefieren interfaces gráficas."
 categories:
   - "Linux Fedora"
+tags:
+  - fedora
+  - linux
+  - package management
+  - usability
 ---
 
 Fedora es mi distro preferida. La uso en casa y en el trabajo y hasta he

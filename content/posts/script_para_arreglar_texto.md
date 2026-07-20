@@ -1,6 +1,7 @@
 ---
 title: "Script para arreglar texto"
 summary: "Use expresiones regulares con Python para arreglar una gran cantidad de texto introducido por el usuario"
+description: "Script en Python usando expresiones regulares para reformatear texto escrito en mayúsculas o minúsculas, convirtiéndolo a formato de oraciones capitalizadas."
 date: "2012-07-16"
 categories:
   - "Español Python Uppercase Mayúsculas"

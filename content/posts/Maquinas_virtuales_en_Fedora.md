@@ -3,6 +3,11 @@ title: " Maquinas virtuales en Fedora "
 date: "2014-05-12"
 categories:
   - "Linux Fedora"
+tags:
+  - fedora
+  - kvm
+  - virtualization
+  - linux
 ---
 
 Generalmente uso VirtualBox para virtualización, pero ahora

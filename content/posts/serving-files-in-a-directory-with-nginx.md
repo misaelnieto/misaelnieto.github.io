@@ -1,6 +1,9 @@
 ---
 title: "Serving files in a directory with nginx"
 date: "2011-07-14"
+description: "Cómo configurar nginx para servir archivos desde un directorio específico con listado automático de archivos."
+categories:
+  - "Servers Nginx"
 ---
 
 I love nginx's simplicity

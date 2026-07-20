@@ -3,6 +3,11 @@ title: "Mis mañas para debuggear Zope/Plone"
 date: "2010-03-15"
 categories:
   - "Plone"
+tags:
+  - plone
+  - zope
+  - debugging
+  - python
 ---
 
 Pongo un par de mañas que uso para depurar y desarrollar aplicaciones Zope y

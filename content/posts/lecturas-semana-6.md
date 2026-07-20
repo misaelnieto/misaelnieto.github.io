@@ -1,6 +1,9 @@
 ---
-title: "2018-02-05-lecturas-semana-6.md"
+title: "Lecturas semana 6 (2018)"
 date: "2018-02-05"
+description: "Lista de lecturas e intereses de la semana 6 del 2018: tecnología, política, ciencia y actualidad."
+categories:
+  - "Lecturas"
 ---
 
 Lecturas de la semana 6 del 2018 (4 al 10 de Febrero; 6 de 52, 46).

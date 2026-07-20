@@ -1,6 +1,7 @@
 ---
 title: "Éxito en Venezuela con Plone"
 date: "2014-09-05"
+description: "Proyecto exitoso de optimización de intranet de documentos con Plone 3.3.5 y Cyn.In para Plumrose, presentado en el World Plone Day 2014 Venezuela."
 categories:
   - "Web Plone"
 ---

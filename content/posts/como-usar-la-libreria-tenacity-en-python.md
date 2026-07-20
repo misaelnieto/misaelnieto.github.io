@@ -7,10 +7,10 @@ categories:
   - "Python"
   - "Tutoriales"
 tags:
-  - "python"
-  - "tenacity"
-  - "tutorial"
-  - "programación"
+  - tenacity
+  - python
+  - tutorial
+  - programming
 image: "https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg"
 preview: "https://upload.wikimedia.org/wikipedia/commons/9/95/Dorylus_nigricans_casent0172643_head_1.jpg"
 locale: "es_MX"

@@ -1,6 +1,7 @@
 ---
-title: "2018-09-14-a-hiring-project.md"
+title: "A hiring project"
 date: "2018-09-14"
+description: "Documentación de un proyecto de contratación: stack tecnológico, configuración de entorno y opciones de modelado de datos para una aplicación web."
 ---
 
 ## A hiring project

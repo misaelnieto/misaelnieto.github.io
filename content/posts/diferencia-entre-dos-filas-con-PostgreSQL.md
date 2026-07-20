@@ -1,6 +1,7 @@
 ---
 title: "Cómo sacar la diferencia entre dos filas con PostgreSQL"
 date: "2015-01-27"
+description: "Aprende a calcular la diferencia entre valores de filas consecutivas en PostgreSQL usando self-joins, ideal para tablas con datos de medición."
 categories:
   - "Postgresql DBA Administración"
 ---

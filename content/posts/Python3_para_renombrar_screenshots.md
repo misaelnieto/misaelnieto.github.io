@@ -3,6 +3,12 @@ title: "Python 3 para renombrar screenshots"
 date: "2014-05-24"
 categories:
   - "Programacion Python"
+tags:
+  - python
+  - python 3
+  - screenshots
+  - automation
+  - scripting
 ---
 
 **Actualizacion** (15-Enero-2017): El problema de Shutter ha sido corregido en

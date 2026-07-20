@@ -1,10 +1,14 @@
 ---
 title: "Convierte texto seleccionado a enlaces en Google Docs"
 summary: "Guía para crear un guión de AppsScript que transforme el texto seleccionado en un documento de Google Docs"
-description: "|"
+description: "Tutorial completo para crear un script de Google Apps Script que convierte texto seleccionado en enlaces automáticamente en Google Docs, ideal para procesar logs de Jenkins."
 date: "2024-08-06"
 categories: []
-tags: []
+tags:
+  - google docs
+  - apps script
+  - javascript
+  - automation
 image: "/assets/img/post_cards/six-assorted-geometrical-objects-besides-a-sheet-w.svg"
 preview: "/assets/img/screenshots/apps_script_new_menu_registered.png"
 locale: "es_MX"

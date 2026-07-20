@@ -3,6 +3,11 @@ title: "Lecciones aprendidas - internacionalización en Plone"
 date: "2010-02-01"
 categories:
   - "Programacion Plone"
+tags:
+  - plone
+  - i18n
+  - internationalization
+  - python
 ---
 
 ## Intro

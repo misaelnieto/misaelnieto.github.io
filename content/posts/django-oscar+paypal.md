@@ -1,7 +1,12 @@
 ---
-title: "2018-03-21-django-oscar+paypal.md"
+title: "Django Oscar con PayPal"
 date: "2018-03-21"
-tags: []
+description: "Guía paso a paso para configurar Django Oscar con PayPal Express Checkout para pagos en línea."
+tags:
+  - django
+  - oscar
+  - paypal
+  - ecommerce
 ---
 
 ## Django Oscar con Paypal

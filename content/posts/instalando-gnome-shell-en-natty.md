@@ -1,8 +1,14 @@
 ---
 title: "Instalando Gnome Shell en Natty"
 date: "2011-04-30"
+description: "Pasos para instalar Gnome Shell en Ubuntu Natty usando PPAs, alternativa a Unity para equipos con poca RAM."
 categories:
   - "Linux Gnome"
+tags:
+  - gnome
+  - gnome-shell
+  - ubuntu
+  - linux
 ---
 
 Después de instalar Ubuntu Natty en una Dell Latitude D620 con 512 MB de RAM,

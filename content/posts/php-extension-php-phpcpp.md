@@ -3,6 +3,11 @@ title: "Programa, compila e instala tu propia extension de PHP con PHP-CPP"
 date: "2015-03-12"
 categories:
   - "Php C++ Apache Administración"
+tags:
+  - php
+  - c++
+  - php-cpp
+  - extension development
 ---
 
 ![Una broma muy simple](/media/extension-cord-147580_1280.png)

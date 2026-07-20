@@ -3,6 +3,7 @@ title: "Detectar el Sistema Operativo en Mono/C#"
 date: "2014-08-28"
 categories:
   - "Español Programación"
+description: "Tutorial para detectar el sistema operativo desde una aplicación C# compilada con Mono, usando Environment.OSVersion.Platform y ejecutando tanto en Linux como en Windows."
 ---
 
 ![Chango](/media/8078455784_1906e170da_o_0.jpg)

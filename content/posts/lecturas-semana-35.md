@@ -1,6 +1,9 @@
 ---
-title: "2018-09-02-lecturas-semana-35.md"
+title: "Lecturas semana 35 (2018)"
 date: "2018-09-02"
+description: "Lecturas de la semana 35 del 2018: cumpleaños de Linux (27 años), frameworks web, historia de Linux y código abierto."
+categories:
+  - "Lecturas"
 ---
 
 # Mis lecturas de la semana 35

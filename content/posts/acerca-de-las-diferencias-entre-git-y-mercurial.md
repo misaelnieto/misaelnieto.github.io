@@ -1,6 +1,7 @@
 ---
 title: "Acerca de las diferencias entre git y mercurial"
 date: "2011-03-19"
+description: "Notas sobre las diferencias clave entre Git y Mercurial desde la perspectiva de un usuario de Git que aprende Mercurial."
 categories:
   - "programacion"
 ---

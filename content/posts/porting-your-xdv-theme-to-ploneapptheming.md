@@ -3,6 +3,12 @@ title: "Porting your xdv theme to plone.app.theming"
 date: "2011-07-13"
 categories:
   - "Plone"
+tags:
+  - plone
+  - plone.app.theming
+  - xdv
+  - diazo
+  - theming
 ---
 
 ## Intro

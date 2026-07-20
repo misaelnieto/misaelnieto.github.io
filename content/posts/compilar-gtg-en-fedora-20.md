@@ -1,6 +1,7 @@
 ---
-title: " Como correr GTG git en Fedora 20 "
+title: "Como correr GTG git en Fedora 20"
 date: "2014-08-11"
+description: "Pasos para compilar y ejecutar GTG desde el repositorio Git en Fedora 20 usando virtualenv."
 categories:
   - "Linux Fedora Gnome GTG"
 ---

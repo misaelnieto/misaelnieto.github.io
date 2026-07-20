@@ -1,6 +1,7 @@
 ---
 title: "Cuatro atajos del teclado de Gnome3"
 date: "2013-01-06"
+description: "Cuatro combinaciones de teclas útiles en Gnome3 usando la tecla Meta/Windows: maximizar, desmaximizar y alinear ventanas al 50% de la pantalla a izquierda o derecha."
 ---
 
 En los últimos días me he encontrado cuatro combinaciones de teclas que me

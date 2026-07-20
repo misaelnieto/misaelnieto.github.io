@@ -1,6 +1,7 @@
 ---
 title: "Sublime 3 en Fedora 20"
 date: "2014-02-07"
+description: "Cómo instalar Sublime 3 en Fedora 20 sin usar la terminal, integrándolo en el catálogo de aplicaciones de GNOME 3."
 categories:
   - "Linux Fedora"
 ---

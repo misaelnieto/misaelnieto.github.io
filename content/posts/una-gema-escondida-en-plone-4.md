@@ -1,6 +1,7 @@
 ---
 title: "Una gema escondida en Plone 4"
 date: "2011-05-18"
+description: "Descubrimiento de la funcionalidad de overlay de imágenes en Plone 4 usando plone.app.jquerytools para mostrar imágenes en popbox al hacer clic."
 categories:
   - "Plone"
 ---

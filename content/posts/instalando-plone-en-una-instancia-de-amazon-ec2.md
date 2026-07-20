@@ -3,6 +3,12 @@ title: "Instalando plone en una instancia de Amazon EC2"
 date: "2011-06-07"
 categories:
   - "Plone"
+tags:
+  - plone
+  - amazon ec2
+  - aws
+  - cloud
+  - deployment
 ---
 
 ## Intro

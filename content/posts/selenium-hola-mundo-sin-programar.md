@@ -1,6 +1,7 @@
 ---
 title: "Hola Mundo con Selenium - Una guía básica sin programación"
 summary: "Aprende a realizar tus primeras pruebas automatizadas con Selenium IDE sin necesidad de escribir código."
+description: "Guía para crear pruebas automatizadas básicas con Selenium IDE sin escribir código, desde la instalación hasta la ejecución de pruebas."
 date: "2014-07-15"
 categories:
   - "Technology"

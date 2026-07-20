@@ -5,10 +5,10 @@ date: "2020-01-17"
 categories:
   - "Technology"
 tags:
-  - "Web"
-  - "Servers"
-  - "Programming"
-  - "Rust"
+  - rust
+  - rocket
+  - web development
+  - crud
 image: "/media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg"
 ---
 

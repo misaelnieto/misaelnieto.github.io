@@ -6,10 +6,11 @@ date: "2025-11-05"
 categories:
   - "Tutoriales"
 tags:
-  - "git"
-  - "github"
-  - "ramas"
-  - "principiantes"
+  - git
+  - github
+  - branches
+  - tutorial
+  - beginners
 image: "/media/git-branch-pt2.png"
 preview: "/media/git-branch-pt2.png"
 locale: "es_MX"

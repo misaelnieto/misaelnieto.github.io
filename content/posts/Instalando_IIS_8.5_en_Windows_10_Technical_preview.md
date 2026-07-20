@@ -3,6 +3,11 @@ title: "Instalando IIS 8.5 en Windows 10 Technical preview"
 date: "2015-01-16"
 categories:
   - "Windows IIS"
+tags:
+  - iis
+  - windows
+  - windows 10
+  - web server
 ---
 
 ![Página de bienvenida de IIS 8.5](/media/Screenshot_from_2015_01_16_17_47_30.png)

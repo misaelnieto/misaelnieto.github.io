@@ -1,6 +1,9 @@
 ---
-title: "2018-02-19-lecturas-semana-8.md"
+title: "Lecturas semana 8 (2018)"
 date: "2018-02-19"
+description: "Lecturas de la semana 8 del 2018: tecnología, ciencia, programación, política y curiosidades diversas."
+categories:
+  - "Lecturas"
 ---
 
 Lecturas para la semana 8 del 2018

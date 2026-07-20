@@ -1,6 +1,9 @@
 ---
-title: "2018-02-12-lecturas-semana-7.md"
+title: "Lecturas semana 7 (2018)"
 date: "2018-02-12"
+description: "Lecturas de la semana 7 del 2018: fotografía documental, tecnología, política social y temas globales."
+categories:
+  - "Lecturas"
 ---
 
 Lecturas para la semana 7 de 2018 (del 11 al 17 de Febrero)

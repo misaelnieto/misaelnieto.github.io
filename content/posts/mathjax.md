@@ -1,8 +1,12 @@
 ---
 title: "Probando MathJax"
 date: "2017-10-23"
+description: "Prueba de MathJax en el sitio para renderizar ecuaciones matemáticas y fórmulas LaTeX en contenido web."
 categories: []
-tags: []
+tags:
+  - mathjax
+  - mathematics
+  - latex
 image: "/media/dfads/7-cube_column_graph.svg"
 ---
 

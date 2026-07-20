@@ -1,6 +1,7 @@
 ---
 title: "Hola mundo de Flask en IIS 8.5 (Windows 10)"
 date: "2015-01-19"
+description: "Guía completa para desplegar aplicaciones Flask en IIS 8.5 (Windows 10) usando FastCGI y Visual Studio."
 categories:
   - "Programación Web"
 ---

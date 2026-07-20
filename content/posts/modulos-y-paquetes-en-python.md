@@ -1,8 +1,14 @@
 ---
 title: "Módulos y paquetes en Python"
 date: "2014-04-25"
+description: "Explicación de módulos y paquetes en Python: cómo funcionan, dónde se encuentran y cómo manipular el Python Path."
 categories:
   - "Python"
+tags:
+  - python
+  - modules
+  - packages
+  - programming
 ---
 
 ![Packages](/media/4772680734_3ab815e07a_n.jpg)

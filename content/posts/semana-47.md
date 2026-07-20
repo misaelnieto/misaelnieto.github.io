@@ -1,6 +1,9 @@
 ---
-title: "2018-11-20-semana-47.md"
+title: "Semana 47 (2018)"
 date: "2018-11-20"
+description: "Lecturas de la semana 47 del 2018: caravana migrante, Roma de Alfonso Cuarón, avión sin partes móviles propulsado por viento iónico."
+categories:
+  - "Lecturas"
 ---
 
 ## Semana 47

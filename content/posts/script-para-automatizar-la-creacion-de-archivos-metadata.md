@@ -1,6 +1,9 @@
 ---
 title: "Script para automatizar la creación de archivos .metadata"
 date: "2009-10-27"
+description: "Script simple en Python para automatizar la creación de archivos .metadata en directorios de skins de temas de Plone."
+categories:
+  - "Python Plone"
 ---
 
 Este es un script para automatizar la creación de archivos `.metadata` que se

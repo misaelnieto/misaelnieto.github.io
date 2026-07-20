@@ -1,6 +1,7 @@
 ---
 title: "Unicode y UTF-8 en Plone"
 date: "2010-02-01"
+description: "Notas sobre problemas con caracteres Unicode en Plone y soluciones mediante configuración de UTF-8 y archivos sitecustomize.py."
 categories:
   - "Python"
 ---

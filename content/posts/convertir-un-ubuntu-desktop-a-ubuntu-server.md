@@ -3,6 +3,7 @@ title: "Convertir un Ubuntu desktop a Ubuntu server"
 date: "2009-12-18"
 categories:
   - "Linux"
+description: "Proceso completo para convertir una instalación de Ubuntu Desktop en un servidor: respaldo, instalación de openssh-server, desactivación de entorno gráfico e instalación de Apache, MySQL y PHP5."
 ---
 
 En la oficina surgiío la necesidad de instalar un servidor ubuntu en una MAC

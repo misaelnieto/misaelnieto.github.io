@@ -1,6 +1,7 @@
 ---
 title: "11 de Diciembre: Día del Idioma Internacional Esperanto"
 date: "2011-12-11"
+description: "Celebración del 11 de diciembre como Día del Idioma Internacional Esperanto, con el himno 'La Espero' en esperanto, español e inglés."
 ---
 
 ## 11 de Diciembre: Día del Idioma Internacional Esperanto

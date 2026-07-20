@@ -1,6 +1,9 @@
 ---
 title: "Probando collective.disqus en este sitio"
 date: "2009-09-15"
+description: "Prueba del plugin collective.disqus para mejoras al sistema de comentarios en Plone, ventajas y desventajas observadas."
+categories:
+  - "Plone"
 ---
 
 Le instalé collective.disqus a este sitio web. Parece una de las mejores

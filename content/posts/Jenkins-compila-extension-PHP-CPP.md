@@ -3,6 +3,12 @@ title: "Jenkins para compilar e instalar una extension de PHP con PHP-CPP"
 date: "2015-03-17"
 categories:
   - "Jenkins DevOps Php"
+tags:
+  - jenkins
+  - php
+  - devops
+  - ci/cd
+  - automation
 ---
 
 ![Un gancho](/media/Grappling_hook_2_PSF.png)

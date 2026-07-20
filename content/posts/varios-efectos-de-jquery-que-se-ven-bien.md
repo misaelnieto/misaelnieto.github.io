@@ -1,6 +1,9 @@
 ---
 title: "Varios efectos de JQuery que se ven bien"
 date: "2010-03-01"
+description: "Colección de efectos jQuery útiles para sitios web: MegaMenu, validación de formularios en vivo y menús deslizantes."
+categories:
+  - "JavaScript jQuery"
 ---
 
 Me encontre en <http://www.geektantra.com> varios efectos de Jquery que pueden

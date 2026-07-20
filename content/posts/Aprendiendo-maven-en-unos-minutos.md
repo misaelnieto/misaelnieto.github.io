@@ -5,8 +5,9 @@ categories:
   - "Programación"
   - "DevOps"
 tags:
-  - "Maven"
-  - "Java"
+  - maven
+  - java
+  - build tool
 ---
 
 

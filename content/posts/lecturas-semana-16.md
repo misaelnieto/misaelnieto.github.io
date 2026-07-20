@@ -1,6 +1,9 @@
 ---
-title: "2018-04-16-lecturas-semana-16.md"
+title: "Lecturas semana 16 (2018)"
 date: "2018-04-16"
+description: "Lecturas de la semana 16 del 2018: Fedora, GNOME, tecnología espacial y ciencia."
+categories:
+  - "Lecturas"
 ---
 
 La lista de lecturas de la semana 16

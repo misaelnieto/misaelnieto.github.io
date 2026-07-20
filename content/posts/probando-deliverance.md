@@ -3,6 +3,11 @@ title: "Probando deliverance"
 date: "2009-08-19"
 categories:
   - "Programación"
+tags:
+  - deliverance
+  - plone
+  - theming
+  - troubleshooting
 ---
 
 Acabo de instalar mi sitio web

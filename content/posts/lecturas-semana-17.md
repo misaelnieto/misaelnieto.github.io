@@ -1,6 +1,9 @@
 ---
-title: "2018-04-24-lecturas-semana-17.md"
+title: "Lecturas semana 17 (2018)"
 date: "2018-04-24"
+description: "Lecturas de la semana 17 del 2018: ciencia, tecnología y psicología holokinética."
+categories:
+  - "Lecturas"
 ---
 
 Las lecturas para esta semana. Solo guarde una.

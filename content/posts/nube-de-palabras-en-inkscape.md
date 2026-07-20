@@ -4,7 +4,10 @@ summary: "Pequeña guía para hacer una nube de palabras (o tag cloud) en Inksca
 date: "2024-05-02"
 categories: []
 tags:
-  - "inkscape"
+  - inkscape
+  - word cloud
+  - design
+  - tutorial
 image: "/media/card_images/wall-of-words.svg"
 ---
 

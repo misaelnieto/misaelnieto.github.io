@@ -1,6 +1,7 @@
 ---
 title: "Tutoriales interesantes en el Pycon 2010"
 date: "2010-01-18"
+description: "Lista de tutoriales interesantes del Pycon 2010: optimización de Python, BFG, desarrollo web TDD, almacenamiento de datos, Pinax, SQLAlchemy, Django, Open Stack y Selenium."
 categories:
   - "Programacion Python"
 ---

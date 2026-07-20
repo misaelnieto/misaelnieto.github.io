@@ -1,6 +1,9 @@
 ---
-title: "2018-03-05-lecturas-semana-10.md"
+title: "Lecturas semana 10 (2018)"
 date: "2018-03-05"
+description: "Lecturas de la semana 10 del 2018: tardígrados, marihuana, Linux, Raspberry Pi, manuscritos medievales, nanocristales solares y más."
+categories:
+  - "Lecturas"
 ---
 
 En esta semana: Tardigrade o oso del agua (water bear), Marihuana, Linux y raspberrypie, El arte de las decoraciones de manuscriptos de la edad media, nanocristales para celdas solares mas eficientes y por ultimo el WTF de la semana.

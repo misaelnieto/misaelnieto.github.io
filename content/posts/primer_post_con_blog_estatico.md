@@ -3,6 +3,12 @@ title: "Primer post con blog estatico"
 date: "2012-06-15"
 categories:
   - "Español Programación Python"
+tags:
+  - jekyll
+  - static site
+  - github pages
+  - blog
+  - markdown
 ---
 
 He decidido abandonar mi sitio personal hecho en Plone y generarlo con puro

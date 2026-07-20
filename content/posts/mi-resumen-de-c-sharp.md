@@ -1,8 +1,14 @@
 ---
 title: "Mi resumen de C#"
 date: "2014-08-28"
+description: "Resumen personal del lenguaje C# y su sintaxis, aprendido mientras se trabaja con Mono y .NET en Linux y Windows."
 categories:
   - "Español Programación"
+tags:
+  - c#
+  - .net
+  - mono
+  - programming
 ---
 
 ![Una mala referencia a algo "afilado"](/media/4105108383_f0d70b3db1_o.jpg)

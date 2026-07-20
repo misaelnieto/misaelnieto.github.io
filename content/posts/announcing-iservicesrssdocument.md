@@ -1,6 +1,9 @@
 ---
 title: "Announcing iservices.rssdocument"
 date: "2011-11-15"
+description: "Anuncio de iservices.rssdocument y collective.collage.rssdocument, productos para integrar feeds RSS en Plone sin almacenar entradas en ZODB."
+categories:
+  - "Plone Products"
 ---
 
 *Note*:  I no longer work for iServices, but they kindly asked me to release

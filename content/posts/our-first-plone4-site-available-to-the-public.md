@@ -1,8 +1,14 @@
 ---
 title: "Our first Plone4 site available to the public"
 date: "2010-09-04"
+description: "Cómo se construyó el primer sitio Plone 4 público, integrando Products.Collage, Products.Carousel y webcoturier.dropdownmenu con temas personalizados."
 categories:
   - "Plone"
+tags:
+  - plone
+  - plone 4
+  - cms
+  - web development
 ---
 
 ## Intro

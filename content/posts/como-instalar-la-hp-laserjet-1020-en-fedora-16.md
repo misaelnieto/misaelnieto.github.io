@@ -1,6 +1,7 @@
 ---
 title: "Cómo instalar la HP LaserJet 1020 en Fedora 16"
 date: "2011-07-02"
+description: "Guía para instalar la impresora HP LaserJet 1020 en Fedora 16 usando hplip-gui, solucionando problemas con el paquete foo2zjs."
 categories:
   - "Linux Fedora"
 ---

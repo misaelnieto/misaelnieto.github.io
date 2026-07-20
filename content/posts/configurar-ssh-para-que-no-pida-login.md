@@ -1,6 +1,7 @@
 ---
 title: "Configurar SSH para que no pida login"
 date: "2013-12-20"
+description: "Guía paso a paso para configurar autenticación basada en llaves SSH, generando llaves RSA, configurando el archivo ~/.ssh/config y registrando llaves públicas en el servidor."
 ---
 
 Creo que nunca he escrito acerca de de ssh.

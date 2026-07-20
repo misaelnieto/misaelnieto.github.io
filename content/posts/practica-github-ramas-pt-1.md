@@ -6,10 +6,11 @@ date: "2025-11-03"
 categories:
   - "Tutoriales"
 tags:
-  - "git"
-  - "github"
-  - "ramas"
-  - "principiantes"
+  - git
+  - github
+  - branches
+  - tutorial
+  - beginners
 image: "/media/unsplash/brian-suh-a4GET0s82rI-unsplash.jpg"
 preview: "/media/unsplash/brian-suh-a4GET0s82rI-unsplash.jpg"
 locale: "es_MX"

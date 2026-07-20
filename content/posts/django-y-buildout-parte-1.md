@@ -1,6 +1,7 @@
 ---
 title: "Django y Buildout (Parte 1)"
 date: "2010-01-18"
+description: "Primera parte de notas sobre cómo usar Django con Buildout para crear entornos de desarrollo replicables e independientes del sistema."
 categories:
   - "Python Buildout DevOps"
 ---

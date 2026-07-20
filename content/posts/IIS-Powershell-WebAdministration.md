@@ -1,8 +1,14 @@
 ---
 title: "Jugando con IIS, Powershell y WebAdministration"
 date: "2014-07-28"
+description: "Cómo controlar y configurar IIS mediante PowerShell usando el módulo WebAdministration para automatización y DevOps."
 categories:
   - "Web DevOps Servers Windows"
+tags:
+  - iis
+  - powershell
+  - devops
+  - windows
 ---
 
 ![Pagüer Chel!](/media/IMG_5096b.jpg)

@@ -1,6 +1,14 @@
 ---
-title: "2018-03-21-django-oscar+payu.md"
+title: "Django Oscar con PayU"
 date: "2018-03-21"
+description: "Guía paso a paso para configurar Django Oscar con el plugin de pagos PayU para tiendas en línea."
+categories:
+  - "Django E-commerce"
+tags:
+  - django
+  - oscar
+  - payu
+  - ecommerce
 ---
 
 ## Django Oscar con Paypal

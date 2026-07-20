@@ -3,6 +3,11 @@ title: "Plone and Apache 2.2"
 date: "2010-10-12"
 categories:
   - "Plone Apache"
+tags:
+  - plone
+  - apache
+  - proxy
+  - configuration
 ---
 
 ## Weirdness with Plone and Apache 2.2

@@ -3,6 +3,7 @@ title: "Create your own private egg repository on amazon EC2"
 date: "2011-03-30"
 categories:
   - "Python"
+description: "Guía completa para crear un repositorio privado de eggs de Python en Amazon EC2 con autenticación básica, usando nginx como servidor web y jarn.mkrelease para subir paquetes."
 ---
 
 I want a private Python egg repository (basic authentication) and I want it on

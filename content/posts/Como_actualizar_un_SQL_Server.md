@@ -3,6 +3,7 @@ title: "¿Cómo actualizar un SQL Server?"
 date: "2014-05-14"
 categories:
   - "SQL SQLServer"
+description: "Guía paso a paso para identificar la versión actual de SQL Server y aplicar el Cumulative Update correspondiente."
 ---
 
 ![Portada]({{ site.baseurl }}/media/Wonder_Lake_Denali.jpg)

@@ -3,6 +3,12 @@ title: "Preparar Ubuntu 14.04 para correr Django "
 date: "2014-07-12"
 categories:
   - "Linux Ubuntu Python Django"
+tags:
+  - django
+  - ubuntu
+  - python
+  - virtualenv
+  - installation
 ---
 
 ![El pony de Django]({{ site.baseurl }}/media/magic-pony-django-wallpaper.png)

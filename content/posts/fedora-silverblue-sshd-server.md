@@ -3,7 +3,11 @@ title: "Instalacion de servidor sshd en Fedora Silverblue"
 summary: "Instrucciones para configurar el accesso ssh a fedora silverblue"
 date: "2022-10-24"
 categories: []
-tags: []
+tags:
+  - fedora
+  - silverblue
+  - ssh
+  - linux
 image: "/media/card_images/a-silver-blue-fedora-hat-besides-a-electrical-sock.svg"
 ---
 

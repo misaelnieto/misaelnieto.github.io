@@ -1,6 +1,7 @@
 ---
 title: "A buildout nano-framework for building Plone 4 sites"
 date: "2011-03-13"
+description: "Framework minimalista basado en buildout para construir sitios Plone 4 con estrategias de backup y despliegue estandarizados."
 categories:
   - "Plone"
 ---

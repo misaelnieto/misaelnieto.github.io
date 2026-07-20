@@ -3,6 +3,11 @@ title: "Plone and security"
 date: "2010-05-28"
 categories:
   - "Plone"
+tags:
+  - plone
+  - security
+  - dos attack
+  - troubleshooting
 ---
 
 My site has been experiencing some downtime this week. The reasons are

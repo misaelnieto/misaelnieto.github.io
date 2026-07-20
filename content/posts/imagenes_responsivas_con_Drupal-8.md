@@ -1,8 +1,13 @@
 ---
 title: "Imagenes responsivas con Drupal 8"
 date: "2014-09-05"
+description: "Instrucciones básicas para activar y configurar el módulo de imágenes responsivas en Drupal 8."
 categories:
   - "Drupal Diseño"
+tags:
+  - drupal
+  - responsive design
+  - images
 ---
 
 Hay que activar el modulo de imagenes responsivas

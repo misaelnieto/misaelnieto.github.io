@@ -2,7 +2,11 @@
 title: "Cómo montar unidades con formato NTFS en RHEL 7.3"
 date: "2017-08-02"
 categories: []
-tags: []
+tags:
+  - rhel
+  - linux
+  - ntfs
+  - filesystem
 image: "/media/oil-lamps-294331.svg"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Último compilado de lecturas del 2018"
 summary: "Este compilado cubre las semanas 50 a 51 del 2018."
+description: "Último compilado de lecturas del 2018, cubriendo las semanas 50 a 51: política, sociedad y tecnología."
 date: "2018-12-19"
 categories:
   - "Lecturas"

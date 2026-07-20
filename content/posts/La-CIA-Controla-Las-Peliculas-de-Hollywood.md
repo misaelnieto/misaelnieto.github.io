@@ -2,7 +2,11 @@
 title: "La CIA controla Las películas de Hollywood"
 date: "2017-08-02"
 categories: []
-tags: []
+tags:
+  - cia
+  - hollywood
+  - geopolitics
+  - alfredo jalife
 image: "/assets/img/post_cards/a-pentagon-and-a-movie-reel.svg"
 ---
 

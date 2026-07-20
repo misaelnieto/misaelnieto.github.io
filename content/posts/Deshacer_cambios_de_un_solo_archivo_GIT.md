@@ -3,6 +3,7 @@ title: "Deshacer los cambios de un solo archivo en un repo GIT"
 date: "2009-09-15"
 categories:
   - "Git"
+description: "Guía para revertir cambios en un solo archivo de un repositorio Git usando el comando git checkout, explicando la diferencia entre git reset y git checkout."
 ---
 
 ## El problema

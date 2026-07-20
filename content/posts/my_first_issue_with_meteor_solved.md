@@ -1,8 +1,14 @@
 ---
 title: "My first issue with meteor solved quickly"
 date: "2012-10-20"
+description: "Cómo resolver el error 'watch ENOSPC' en Meteor ajustando los parámetros de inotify en Linux para monitoreo de archivos."
 categories:
   - "English Programming JavaScript"
+tags:
+  - meteor
+  - javascript
+  - troubleshooting
+  - linux
 ---
 
 #My first issue with meteor solved quickly

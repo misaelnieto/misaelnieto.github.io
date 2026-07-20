@@ -2,7 +2,10 @@
 title: "2018-05-14-gsoc-week-1.md"
 date: "2018-05-14"
 tags:
-  - "GSOC-2018"
+  - gsoc
+  - devsim
+  - solar cell
+  - simulation
 ---
 
 GSOC 2018 - Week 1

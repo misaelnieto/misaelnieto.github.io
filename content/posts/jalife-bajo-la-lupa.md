@@ -1,6 +1,9 @@
 ---
-title: "2018-04-02-jalife-bajo-la-lupa.md"
+title: "Alfredo Jalife Rhame: Bajo La Lupa"
 date: "2018-04-02"
+description: "Recolección de artículos de la columna 'Bajo La Lupa' de Alfredo Jalife Rhame, ordenados cronológicamente."
+categories:
+  - "Politica Internacional"
 ---
 
 Esta es una lista de los articulos de la columna **Bajo La Lupa** de [Alfredo Jalife Rhame](http://www.alfredojalife.com/). Estan ordenadas por fecha con el más reciente hasta arriba y contienen el link al artículo.

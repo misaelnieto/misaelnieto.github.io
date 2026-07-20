@@ -1,6 +1,9 @@
 ---
 title: "Accessing Ext4 volumes on MacOS X"
 date: "2010-11-12"
+description: "Guía para habilitar soporte de volúmenes ext2/ext3/ext4 en Mac OS X usando MacFuse y fuse-ext2."
+categories:
+  - "MacOS Linux"
 ---
 
 Due to some hardware issues with my Laptop PC, I'm temporarily moving from

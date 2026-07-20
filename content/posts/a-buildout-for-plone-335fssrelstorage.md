@@ -1,6 +1,7 @@
 ---
 title: "A buildout for Plone 3.3.5+fss+relstorage"
 date: "2010-04-27"
+description: "Buildout recipe para Plone 3.3.5 usando FileSystemStorage y RelStorage en lugar de ZODB tradicional."
 categories:
   - "Plone"
 ---

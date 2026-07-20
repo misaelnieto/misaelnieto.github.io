@@ -1,6 +1,7 @@
 ---
 title: "Registrar un viewlet en Plone con 11 líneas de código"
 date: "2011-06-20"
+description: "Cómo registrar un viewlet en Plone usando five.grok con solo 11 líneas de código, simplificando el desarrollo."
 categories:
   - "Python Plone"
 ---
