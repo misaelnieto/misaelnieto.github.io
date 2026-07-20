@@ -526,7 +526,7 @@ main > .article-header h1 {
 }
 main h2 {
     font-variant: small-caps;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
     font-size: 1.1rem;
     font-weight: var(--font-weight-regular);
     margin-top: 2.5rem;
@@ -664,6 +664,37 @@ figcaption {
 }
 main h2, main h3 {
     clear: both;
+}
+
+/* Heading hierarchy in page and post content (.entry-content):
+   - h2: auto-numbered with Roman numeral (I., II., ...) in italic serif rubric.
+   - h3: prefixed with a single em-dash (—) in muted ink.
+   - h4: prefixed with a double em-dash (——) in muted ink.
+   - h5: unadorned; relies on typographic weight alone.
+   Color and § anchor icon apply to all wrapped headings via atoms.css.
+   The résumé (which uses .resume-about, not .entry-content) keeps its
+   manual .section-numeral markup and is not affected. */
+.entry-content { counter-reset: h2c; }
+.entry-content h2 { counter-increment: h2c; }
+
+.entry-content h2::before {
+    content: counter(h2c, upper-roman) ".";
+    font-style: italic;
+    font-family: var(--font-serif);
+    color: var(--color-rubric);
+    margin-right: 0.3em;
+}
+
+.entry-content h3::before {
+    content: "—";
+    color: var(--color-muted-light);
+    margin-right: 0.4em;
+}
+
+.entry-content h4::before {
+    content: "——";
+    color: var(--color-muted-light);
+    margin-right: 0.4em;
 }
 @media (max-width: 768px) {
     .figure-left,
@@ -1672,6 +1703,509 @@ footer {
     }
 }
 
+/* === RESUME / CAREER TIMELINE === */
+/* Git-flavored timeline: a vertical trunk with colored dots per branch. */
+.resume-page {
+    max-width: 100%;
+    margin: 0;
+}
+.resume-page .entry-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+.resume-page .entry-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: var(--font-weight-regular);
+    font-style: italic;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+}
+.resume-page .entry-description {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+/* Jump-to nav: quick links to timeline and education */
+.resume-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.5rem 0 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+}
+.resume-jump a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    color: var(--color-rubric);
+    background: transparent;
+    border: 1px solid var(--color-rubric);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.15s, color 0.15s;
+}
+.resume-jump a:hover {
+    background: var(--color-rubric);
+    color: var(--color-paper);
+}
+.resume-jump a:focus-visible {
+    outline: 2px solid var(--color-rubric);
+    outline-offset: 2px;
+}
+
+/* About section (rendered markdown body) */
+.resume-about {
+    margin-bottom: 3rem;
+}
+.resume-about h2 {
+    margin: 1.75rem 0 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--color-border);
+}
+.resume-about ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0 1rem;
+}
+.resume-about li {
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.4rem;
+}
+.resume-about li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-muted-light);
+}
+.resume-about strong {
+    color: var(--color-ink);
+    font-weight: var(--font-weight-semibold);
+}
+.resume-about a {
+    color: var(--color-rubric);
+    text-decoration: none;
+}
+.resume-about a:hover {
+    text-decoration: underline;
+}
+
+/* Timeline section */
+.resume-timeline {
+    margin-bottom: 3rem;
+}
+.timeline-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+.timeline-header h2 {
+    font-variant: small-caps;
+    letter-spacing: 0.02em;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-regular);
+    margin: 0 0 0.75rem;
+    font-family: var(--font-serif);
+}
+.timeline-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0;
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+}
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--color-ink);
+}
+.legend-item[data-branch="main"] .legend-dot { background: var(--color-ink); }
+.legend-item[data-branch="consulting"] .legend-dot { background: var(--color-rubric); }
+.legend-item[data-branch="holokinesis"] .legend-dot { background: #3a6b4a; }
+.legend-item[data-branch="teaching"] .legend-dot { background: #b8860b; }
+
+/* The trunk line + commits */
+.timeline-commits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.commit {
+    position: relative;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.commit:last-child {
+    border-bottom: none;
+}
+
+/* Git-graph rail: 4 parallel lanes for 4 branches */
+.commit-rail {
+    position: relative;
+    width: 64px;
+    min-height: 60px;
+}
+
+/* Each lane is a vertical line at a fixed x position */
+.lane {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: transparent;
+}
+.lane[data-lane="main"]        { left: 8px; }
+.lane[data-lane="consulting"]  { left: 24px; }
+.lane[data-lane="holokinesis"] { left: 40px; }
+.lane[data-lane="teaching"]    { left: 56px; }
+
+/* Lines are drawn (continuous) only when the branch is active at this row */
+.commit[data-active-branches~="main"]        .lane[data-lane="main"]        { background: var(--color-ink); }
+.commit[data-active-branches~="consulting"]  .lane[data-lane="consulting"]  { background: var(--color-rubric); }
+.commit[data-active-branches~="holokinesis"] .lane[data-lane="holokinesis"] { background: #3a6b4a; }
+.commit[data-active-branches~="teaching"]    .lane[data-lane="teaching"]    { background: #b8860b; }
+
+/* Commit dot sits on its branch's lane */
+.lane-dot {
+    position: absolute;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-paper);
+    box-shadow: 0 0 0 1px var(--color-border);
+    z-index: 2;
+}
+.lane-dot[data-branch="main"]        { left: 2px;  background: var(--color-ink); }
+.lane-dot[data-branch="consulting"]  { left: 18px; background: var(--color-rubric); }
+.lane-dot[data-branch="holokinesis"] { left: 34px; background: #3a6b4a; }
+.lane-dot[data-branch="teaching"]    { left: 50px; background: #b8860b; }
+
+/* HEAD marker for ongoing roles */
+.lane-dot--head::after {
+    content: "▲";
+    position: absolute;
+    top: 14px;
+    left: 1px;
+    font-size: 0.55rem;
+    color: var(--color-rubric);
+    font-family: var(--font-mono);
+    line-height: 1;
+    width: 12px;
+    text-align: center;
+}
+
+.commit-body {
+    min-width: 0;
+}
+.commit-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.65rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+    font-family: var(--font-mono);
+    color: var(--color-muted);
+    letter-spacing: 0.02em;
+}
+.commit-hash {
+    color: var(--color-muted-light);
+    text-transform: lowercase;
+}
+.commit-date {
+    color: var(--color-ink);
+    font-weight: var(--font-weight-semibold);
+}
+.commit-arrow {
+    color: var(--color-muted-light);
+    margin: 0 0.1rem;
+}
+.commit-now {
+    color: var(--color-rubric);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.commit-branch-tag {
+    margin-left: auto;
+    padding: 0.1rem 0.45rem;
+    font-size: 0.58rem;
+    background: var(--color-surface-highest);
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.commit[data-branch="main"] .commit-branch-tag {
+    background: rgba(28, 28, 25, 0.08);
+    color: var(--color-ink);
+}
+.commit[data-branch="consulting"] .commit-branch-tag {
+    background: rgba(230, 81, 0, 0.12);
+    color: var(--color-rubric);
+}
+.commit[data-branch="holokinesis"] .commit-branch-tag {
+    background: rgba(58, 107, 74, 0.14);
+    color: #3a6b4a;
+}
+.commit[data-branch="teaching"] .commit-branch-tag {
+    background: rgba(184, 134, 11, 0.16);
+    color: #8a6508;
+}
+.commit-role {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-semibold);
+    margin: 0.15rem 0 0.3rem;
+    line-height: 1.3;
+}
+.commit-org {
+    font-family: var(--font-serif);
+    font-weight: var(--font-weight-regular);
+    font-style: italic;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+.commit-org a {
+    color: var(--color-rubric);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+.commit-org a:hover {
+    border-bottom-color: var(--color-rubric);
+}
+.commit-impact {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin: 0.3rem 0 0;
+}
+.commit-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.55rem 0 0;
+}
+.commit-stack li {
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    font-size: 0.62rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+    background: var(--color-surface-low);
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    margin: 0;
+}
+
+/* Education section */
+.resume-education {
+    margin-bottom: 3rem;
+}
+.resume-education > h2 {
+    font-variant: small-caps;
+    letter-spacing: 0.02em;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-regular);
+    margin: 0 0 1rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-serif);
+}
+.education-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.education-list::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    width: 1px;
+    background: var(--color-border);
+}
+.education-item {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+.education-item:last-child {
+    border-bottom: none;
+}
+.education-rail {
+    position: relative;
+}
+.education-dot {
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--color-paper);
+    border: 2px solid var(--color-ink);
+    z-index: 2;
+}
+.education-meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.02em;
+}
+.education-arrow {
+    color: var(--color-muted-light);
+    margin: 0 0.1rem;
+}
+.education-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    margin: 0 0 0.15rem;
+    line-height: 1.3;
+}
+.education-org {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 0 0 0.25rem;
+}
+.education-org a {
+    color: var(--color-rubric);
+    text-decoration: none;
+}
+.education-org a:hover {
+    text-decoration: underline;
+}
+.education-note {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0.25rem 0 0;
+}
+
+/* Mobile: collapse lanes */
+@media (max-width: 768px) {
+    .commit {
+        grid-template-columns: 48px 1fr;
+        gap: 0.75rem;
+        padding: 1rem 0;
+    }
+    .commit-rail {
+        width: 48px;
+    }
+    .lane[data-lane="main"]        { left: 6px; }
+    .lane[data-lane="consulting"]  { left: 18px; }
+    .lane[data-lane="holokinesis"] { left: 30px; }
+    .lane[data-lane="teaching"]    { left: 42px; }
+    .lane-dot {
+        width: 9px;
+        height: 9px;
+        top: 0.85rem;
+    }
+    .lane-dot[data-branch="main"]        { left: 2px; }
+    .lane-dot[data-branch="consulting"]  { left: 14px; }
+    .lane-dot[data-branch="holokinesis"] { left: 26px; }
+    .lane-dot[data-branch="teaching"]    { left: 38px; }
+    .lane-dot--head::after {
+        top: 11px;
+        font-size: 0.5rem;
+    }
+    .commit-meta {
+        font-size: 0.65rem;
+        gap: 0.45rem;
+    }
+    .commit-branch-tag {
+        margin-left: 0;
+        flex-basis: 100%;
+        margin-top: 0.15rem;
+        align-self: flex-start;
+    }
+    .commit-role {
+        font-size: 1rem;
+    }
+    .commit-org {
+        font-size: 0.88rem;
+    }
+    .education-item {
+        grid-template-columns: 24px 1fr;
+        gap: 0.75rem;
+    }
+    .education-dot {
+        width: 9px;
+        height: 9px;
+        top: 0.35rem;
+    }
+    .education-list::before {
+        left: 4px;
+    }
+}
+
+/* CTA at end of résumé */
+.resume-cta {
+    margin-top: 3rem;
+    padding: 2rem 0 1rem;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+}
+.resume-cta-text {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-muted);
+    font-size: 1rem;
+    margin: 0 0 1rem;
+}
+.resume-cta-button {
+    display: inline-block;
+    padding: 0.55rem 1.75rem;
+    color: var(--color-rubric);
+    background: transparent;
+    border: 1px solid var(--color-rubric);
+    text-decoration: none;
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
+    transition: background 0.15s, color 0.15s;
+}
+.resume-cta-button:hover {
+    background: var(--color-rubric);
+    color: var(--color-paper);
+}
+.resume-cta-button:focus-visible {
+    outline: 2px solid var(--color-rubric);
+    outline-offset: 2px;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 1rem 1rem 2rem;
@@ -1704,4 +2238,25 @@ footer {
     .aspects-grid {
         grid-template-columns: 1fr;
     }
+    .resume-page .entry-title {
+        font-size: 1.5rem;
+    }
+    .timeline-legend {
+        gap: 0.75rem;
+        font-size: 0.68rem;
+    }
+    .commit {
+        grid-template-columns: 40px 1fr;
+    }
+    .commit-rail {
+        width: 40px;
+    }
+    .lane[data-lane="main"]        { left: 5px; }
+    .lane[data-lane="consulting"]  { left: 14px; }
+    .lane[data-lane="holokinesis"] { left: 23px; }
+    .lane[data-lane="teaching"]    { left: 32px; }
+    .lane-dot[data-branch="main"]        { left: 1px; }
+    .lane-dot[data-branch="consulting"]  { left: 10px; }
+    .lane-dot[data-branch="holokinesis"] { left: 19px; }
+    .lane-dot[data-branch="teaching"]    { left: 28px; }
 }

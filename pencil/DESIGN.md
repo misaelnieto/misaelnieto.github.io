@@ -72,6 +72,22 @@ Newsreader is chosen for its optical sizing and calligraphic heritage. It mimics
 
 
 
+### Heading Hierarchy: The Scholar's Cadence
+
+Headings operate as a four-tier apparatus, distinguished not by color or family but by typographic flourish—the same restraint a 19th-century typesetter would exercise.
+
+* **Level 2 (`h2`) — The Division**: Prefixed with an auto-incremented Roman numeral (`I.`, `II.`, `III.`) set in italic serif rubric. This is the primary structural unit of an essay or page—the equivalent of a chapter heading.
+
+* **Level 3 (`h3`) — The Section**: Prefixed with a single em-dash (`—`) in muted ink. Subservient to the Roman numeral above; signals a sub-topic within the same division.
+
+* **Level 4 (`h4`) — The Sub-section**: Prefixed with a double em-dash (`——`), set in italic. A further level of granularity, used sparingly.
+
+* **Level 5 (`h5`) — The Note**: Unadorned; relies on typographic weight alone. Reserved for rare cases (e.g., definitions within a sub-section).
+
+All wrapped headings receive the **rubric color** (`#E65100`) and a `§` anchor icon on hover, mimicking the marginal cross-references of scholarly texts. This apparatus applies to **page and post bodies** (the `.entry-content` wrapper); the résumé and homepage retain their bespoke numbering via the manual `.section-numeral` class.
+
+
+
 ---
 
 

@@ -11,7 +11,7 @@ extra:
     caption: "FIG. 1337—A GENTLEMAN NAMED NOE NIETO WHO WORKS WITH COMPUTERS"
   aspects:
     - title: "As a professional"
-      description: "An investigation into decentralized peer-to-peer synchronization without the overhead of modern gossip networks."
+      description: "25 years across the stack. Engineering résumé with a git-flavored timeline of career, consulting, and teaching. 100% remote from Baja California."
       url: "/as-a-professional"
     - title: "As a teacher"
       description: "A custom virtual machine architecture designed for formal verification. Built to ensure mathematical certainty."

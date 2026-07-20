@@ -105,20 +105,23 @@ hr {
 /* Heading anchor links — § icon appears on hover, like GitHub */
 a:has(> h2),
 a:has(> h3),
-a:has(> h4) {
+a:has(> h4),
+a:has(> h5) {
     position: relative;
     display: block;
-    color: inherit;
+    color: var(--color-rubric);
     text-decoration: none;
 }
 a:has(> h2):hover,
 a:has(> h3):hover,
-a:has(> h4):hover {
+a:has(> h4):hover,
+a:has(> h5):hover {
     text-decoration: none;
 }
 a:has(> h2)::after,
 a:has(> h3)::after,
-a:has(> h4)::after {
+a:has(> h4)::after,
+a:has(> h5)::after {
     content: "§";
     position: absolute;
     top: 0;
@@ -131,6 +134,7 @@ a:has(> h4)::after {
 }
 a:has(> h2):hover::after,
 a:has(> h3):hover::after,
-a:has(> h4):hover::after {
+a:has(> h4):hover::after,
+a:has(> h5):hover::after {
     opacity: 1;
 }

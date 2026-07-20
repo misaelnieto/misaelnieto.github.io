@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} &middot; {{ site.title }}{% endblock %}
+
+{% block content %}
+<article class="resume-page h-entry" lang="{{ page.lang | default(value=lang) }}">
+
+  {% if not page.extra.hero %}
+  <header class="entry-header">
+    <h1 class="entry-title p-name">{{ page.title }}</h1>
+    {% if page.description %}<p class="entry-description muted">{{ page.description }}</p>{% endif %}
+  </header>
+  {% endif %}
+
+  {% if page.extra.resume.timeline or page.extra.resume.education %}
+  <nav class="resume-jump" aria-label="Jump to section">
+    {% if page.extra.resume.timeline %}
+    <a href="#timeline-heading">Career timeline <span aria-hidden="true">↓</span></a>
+    {% endif %}
+    {% if page.extra.resume.education %}
+    <a href="#education-heading">Education <span aria-hidden="true">↓</span></a>
+    {% endif %}
+  </nav>
+  {% endif %}
+
+  {% if page.content and page.content | trim | length > 0 %}
+  <section class="resume-about e-content">
+    {{ page.content | safe }}
+  </section>
+  {% endif %}
+
+  {% if page.extra.resume.timeline %}
+  <section class="resume-timeline" aria-labelledby="timeline-heading">
+    <header class="timeline-header">
+      <h2 id="timeline-heading">
+        <span class="section-numeral">I.</span>
+        Career timeline
+      </h2>
+      {% if page.extra.resume.branches %}
+      <p class="timeline-legend">
+        {% for branch in page.extra.resume.branches %}
+        <span class="legend-item" data-branch="{{ branch.id }}">
+          <span class="legend-dot" aria-hidden="true"></span>
+          <span class="legend-label">{{ branch.label }}</span>
+        </span>
+        {% endfor %}
+      </p>
+      {% endif %}
+    </header>
+
+    <ol class="timeline-commits">
+      {% for commit in page.extra.resume.timeline %}
+      {% set_global row_active = "" %}
+      {% set_global c_int = commit.date | replace(from="-", to="") | int %}
+      {% for b in page.extra.resume.branches %}
+      {% if b.started %}
+      {% set_global b_int = b.started | replace(from="-", to="") | int %}
+      {% if b_int <= c_int %}
+      {% set_global row_active = row_active ~ " " ~ b.id %}
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      <li class="commit" data-branch="{{ commit.branch }}" data-active-branches="{{ row_active | trim }}">
+        <div class="commit-rail" aria-hidden="true">
+          {% for branch in page.extra.resume.branches %}
+          <span class="lane" data-lane="{{ branch.id }}"></span>
+          {% endfor %}
+          <span class="lane-dot{% if commit.ongoing %} lane-dot--head{% endif %}" data-branch="{{ commit.branch }}"></span>
+        </div>
+
+        <div class="commit-body">
+          <div class="commit-meta">
+            <span class="commit-hash">{{ commit.hash | default(value="       ") }}</span>
+            <time class="commit-date" datetime="{{ commit.date }}">
+              {{ commit.date }}
+              {% if commit.ongoing %}<span class="commit-arrow"> →</span> <span class="commit-now">present</span>{% elif commit.end %}<span class="commit-arrow"> →</span> {{ commit.end }}{% endif %}
+            </time>
+            <span class="commit-branch-tag">{{ commit.branch }}</span>
+          </div>
+
+          <h3 class="commit-role">
+            {{ commit.role }}
+            {% if commit.org %}
+            <span class="commit-org">
+              ·
+              {% if commit.url %}<a href="{{ commit.url }}">{{ commit.org }}</a>{% else %}{{ commit.org }}{% endif %}
+            </span>
+            {% endif %}
+          </h3>
+
+          {% if commit.impact %}
+          <p class="commit-impact">{{ commit.impact }}</p>
+          {% endif %}
+
+          {% if commit.stack and commit.stack | length > 0 %}
+          <ul class="commit-stack" aria-label="Stack">
+            {% for tech in commit.stack %}<li>{{ tech }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  {% if page.extra.resume.education %}
+  <section class="resume-education" aria-labelledby="education-heading">
+    <h2 id="education-heading">
+      <span class="section-numeral">II.</span>
+      Education &amp; certifications
+    </h2>
+
+    <ol class="education-list">
+      {% for item in page.extra.resume.education %}
+      <li class="education-item">
+        <div class="education-rail" aria-hidden="true">
+          <span class="education-dot"></span>
+        </div>
+        <div class="education-body">
+          <div class="education-meta">
+            <time class="education-date" datetime="{{ item.date }}">
+              {{ item.date }}{% if item.end %} <span class="education-arrow">→</span> {{ item.end }}{% endif %}
+            </time>
+          </div>
+          <h3 class="education-title">{{ item.title }}</h3>
+          <p class="education-org">
+            {% if item.url %}<a href="{{ item.url }}">{{ item.org }}</a>{% else %}{{ item.org }}{% endif %}
+          </p>
+          {% if item.note %}<p class="education-note muted">{{ item.note }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  <div class="resume-cta">
+    <p class="resume-cta-text">Want to work together, or just say hi?</p>
+    <a href="/contact" class="resume-cta-button">Get in touch <span aria-hidden="true">→</span></a>
+  </div>
+
+  {% if page.url %}
+  <a href="{{ page.url }}" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  {% endif %}
+</article>
+{% endblock %}
