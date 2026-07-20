@@ -2,7 +2,11 @@
 title: "Impresión bajo demanda o POD (Print on demand)"
 date: "2017-02-05"
 categories: []
-tags: []
+tags:
+  - print on demand
+  - pod
+  - printing
+  - publishing
 image: "/media/Book_decoration_BPPxi.svg"
 ---
 

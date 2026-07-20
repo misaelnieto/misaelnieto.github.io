@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Bitácora{% if pagination and pagination.current_page > 1 %} · pág. {{ pagination.current_page }}{% endif %} &middot; {{ site.title }}{% endblock %}
+
+{% block content %}
+<header class="entry-header">
+  <h1 class="entry-title p-name">Bitácora{% if pagination and pagination.current_page > 1 %} <span class="pagination-suffix">· pág. {{ pagination.current_page }}</span>{% endif %}</h1>
+  <p class="entry-description muted">Ensayos, tutoriales y notas sobre ingeniería de software y otras obsesiones.</p>
+</header>
+
+{% if pagination is undefined or pagination.current_page == 1 %}
+<p>Bitácora de Noe Nieto. Aquí viven mis escritos sobre ingeniería de software, tutoriales técnicos y otras obsesiones que no cupieron en otra parte. El orden es cronológico inverso — lo más reciente arriba, lo más antiguo al fondo — como conviene a un cuaderno que se sigue escribiendo.</p>
+{% endif %}
+
+<hr class="sober-line" />
+
+<ol class="blog-index">
+  {% for collection in collections %}
+  {% if collection.name == "posts" %}
+  {% for item in collection.items %}
+  <li class="blog-index-entry">
+    <a href="{{ lang_prefix }}{{ item.url }}" class="entry-title">{{ item.title }}</a>
+    <span class="entry-leader" aria-hidden="true"></span>
+    <time class="entry-date" datetime="{{ item.date }}">{{ item.date }}</time>
+  </li>
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+</ol>
+
+{% if pagination %}
+<nav class="pagination" aria-label="Pagination">
+  {% if pagination.prev_url %}<a href="{{ pagination.prev_url }}" rel="prev">&larr; {{ t.newer | default(value="Más recientes") }}</a>{% else %}<span></span>{% endif %}
+  <span class="pagination-meta">{{ t.page_n_of_total | default(value="Página {n} de {total}") | replace(from="{n}", to=pagination.current_page ~ "") | replace(from="{total}", to=pagination.total_pages ~ "") }}</span>
+  {% if pagination.next_url %}<a href="{{ pagination.next_url }}" rel="next">{{ t.older | default(value="Más antiguos") }} &rarr;</a>{% else %}<span></span>{% endif %}
+</nav>
+{% endif %}
+{% endblock %}

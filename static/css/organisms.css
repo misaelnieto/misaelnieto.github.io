@@ -372,6 +372,82 @@ main {
     text-transform: uppercase;
 }
 
+/* === BLOG INDEX — old book index / directory style ===
+   Used by templates/posts-index.html for the /blog collection listing.
+   Dotted-leader between title and date is a decorative filete (allowed by
+   the design-system "no dividers" rule, which is about card separators,
+   not typographic leaders from the scholarly-monograph tradition). */
+.blog-index {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+.blog-index-entry {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.55rem 0;
+}
+.blog-index-entry .entry-title {
+    flex-shrink: 0;
+    max-width: 70%;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--color-ink);
+    text-decoration: none;
+}
+.blog-index-entry .entry-title:hover {
+    color: var(--color-rubric);
+}
+.blog-index-entry .entry-leader {
+    flex: 1;
+    min-width: 2rem;
+    height: 1em;
+    align-self: center;
+    /* Vintage book-index leader: small circular vignettes that expand to fill
+       the space between title and date. Color is muted-light so the dots stay
+       subordinate to both title (ink) and date (muted), as the design-system
+       demands for decorative filetes. Explicit `circle` keyword prevents the
+       diamond-like anti-aliasing artefact that browsers produce when the
+       radial-gradient has no shape hint at small radii. */
+    background-image: radial-gradient(circle, var(--color-muted-light) 1px, transparent 1.4px);
+    background-size: 6px 100%;
+    background-repeat: repeat-x;
+    background-position: center;
+}
+.blog-index-entry .entry-date {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+    white-space: nowrap;
+}
+/* Pagination suffix inside H1 on pages 2+ (e.g. "Bitácora · pág. 2") */
+.entry-title .pagination-suffix {
+    color: var(--color-muted);
+    font-style: italic;
+    font-size: 0.65em;
+    letter-spacing: 0.02em;
+}
+@media (max-width: 600px) {
+    .blog-index-entry {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        padding: 0.65rem 0;
+    }
+    .blog-index-entry .entry-leader {
+        display: none;
+    }
+    .blog-index-entry .entry-title {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+    .blog-index-entry .entry-date {
+        order: 2;
+    }
+}
+
 /* === HOMEPAGE CONTENT === */
 .homepage-content {
     margin-bottom: 2.5rem;

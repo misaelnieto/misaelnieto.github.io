@@ -16,6 +16,7 @@ listed = true
 url_prefix = "/blog"
 nested = false
 default_template = "post.html"
+paginate = 10
 
 [[collections]]
 name = "pages"
