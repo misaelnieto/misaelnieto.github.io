@@ -14,7 +14,7 @@ extra:
       description: "25 years across the stack. Engineering résumé with a git-flavored timeline of career, consulting, and teaching. 100% remote from Baja California."
       url: "/as-a-professional"
     - title: "As a teacher"
-      description: "A custom virtual machine architecture designed for formal verification. Built to ensure mathematical certainty."
+      description: "Course repositories, exercises, and materials from Noe's ITM classes — SOA, Software Engineering, and Languages and Automata."
       url: "/as-a-teacher"
     - title: "As a human being"
       description: "The non-coding side of Noe: husband, dog parent, Holokinetic Psychology instructor, reader of David Bohm."
