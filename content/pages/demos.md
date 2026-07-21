@@ -16,7 +16,7 @@ A working sample of stuff I've shipped over the years — live apps you can poke
 
 Live apps, interactive widgets, and prototypes. If it has a hosted URL, click and try it.
 
-- [LM317 Calculator](https://github.com/misaelnieto/lm317-calculator) — live at [demos.noenieto.com/lm317-calculator](https://demos.noenieto.com/lm317-calculator/). A React calculator for the LM317 adjustable voltage regulator: pick your resistors, read the output voltage.
+- [LM317 Calculator](https://github.com/misaelnieto/lm317-calculator) — live at [lm317-calculator.vercel.app](https://lm317-calculator.vercel.app/). A React calculator for the LM317 adjustable voltage regulator: pick your resistors, read the output voltage.
 - [CHPT Konvertilo](https://github.com/misaelnieto/chpt-konvertilo) — live at [noenieto.com/demos/chpt-konvertilo](https://www.noenieto.com/demos/chpt-konvertilo/). Converts CHPT subtitles (produced by some DVD authoring tools) into Matroska XML or Audacity labels.
 - [Limpia Emails](https://github.com/misaelnieto/limpia-emails) — paste in a blob of text, get back every email address it contains, deduplicated.
 - [Mallonga](https://github.com/misaelnieto/mallonga) — live at [eta.noenieto.com](https://eta.noenieto.com/). A classic URL shortener built with Django, test-first.

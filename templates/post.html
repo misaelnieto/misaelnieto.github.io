@@ -4,39 +4,37 @@
 
 {% block content %}
 <article class="h-entry post" lang="{{ page.lang | default(value=lang) }}">
-  <header class="entry-header">
-    <h1 class="entry-title p-name">{{ page.title }}</h1>
+  {% include "partials/entry-header.html" %}
 
-    <div class="entry-meta">
-      {% if page.date %}
-      <time class="dt-published" datetime="{{ page.date }}">
-        {{ page.date | date(format="%Y-%m-%d") }}
-      </time>
-      {% endif %}
-
-      {% if page.reading_time is defined %}
-      <span class="reading-time">{{ page.reading_time }} {{ t.min_read }}</span>
-      {% endif %}
-
-      {% if data.author is defined %}
-      <span class="p-author h-card">
-        {% if data.author.url %}
-        <a class="u-url p-name" href="{{ data.author.url }}">{{ data.author.name }}</a>
-        {% else %}
-        <span class="p-name">{{ data.author.name }}</span>
-        {% endif %}
-      </span>
-      {% endif %}
-    </div>
-
-    {% if page.tags is defined %}
-    <div class="tags">
-      {% for tag in page.tags %}
-        <a class="p-category" href="{{ lang_prefix }}/tags/{{ tag | slugify }}/">{{ tag }}</a>
-      {% endfor %}
-    </div>
+  <div class="entry-meta">
+    {% if page.date %}
+    <time class="dt-published" datetime="{{ page.date }}">
+      {{ page.date | date(format="%Y-%m-%d") }}
+    </time>
     {% endif %}
-  </header>
+
+    {% if page.reading_time is defined %}
+    <span class="reading-time">{{ page.reading_time }} {{ t.min_read }}</span>
+    {% endif %}
+
+    {% if data.author is defined %}
+    <span class="p-author h-card">
+      {% if data.author.url %}
+      <a class="u-url p-name" href="{{ data.author.url }}">{{ data.author.name }}</a>
+      {% else %}
+      <span class="p-name">{{ data.author.name }}</span>
+      {% endif %}
+    </span>
+    {% endif %}
+  </div>
+
+  {% if page.tags is defined %}
+  <div class="tags">
+    {% for tag in page.tags %}
+    <a class="p-category" href="{{ lang_prefix }}/tags/{{ tag | slugify }}/">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
 
   <div class="entry-content e-content">
     {{ page.content | safe }}

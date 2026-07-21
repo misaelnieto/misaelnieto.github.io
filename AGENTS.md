@@ -50,7 +50,19 @@ seite usa **Tera** (Jinja2-compatible). Todo extiende `base.html`.
   ```tera
   {% include "partials/entry-header.html" %}
   ```
-  Plantillas que ya lo incluyen: `page.html`, `resume.html`, `index.html`. `post.html` mantiene su propio header (no usa hero). Si añades un template nuevo con hero, incluye el partial o el hero no aparecerá (regresión histórica del commit `19c4ee9`).
+  Plantillas que ya lo incluyen: `page.html`, `post.html`, `resume.html`, `index.html`. Si añades un template nuevo con hero, incluye el partial o el hero no aparecerá.
+- **Cómo activar el hero en un post/page**: definir `extra.hero` en el frontmatter. Sin ese bloque, el partial renderiza solo el `<h1>` + description (sin imagen). Con él, renderiza la figura del hero. Campos:
+  ```yaml
+  image: "/static/images/posts/mi-post.png"   # obligatorio — el partial usa page.image como src del <img>
+  extra:
+    hero:                                       # su mera existencia activa el branch del hero
+      alt: "Texto alt descriptivo para screen readers."   # obligatorio — sin esto el <img> queda sin alt
+      caption: "Texto al pie de la figura."              # opcional — si se omite, no renderiza <figcaption>
+  ```
+  Notas:
+  - `image:` también alimenta los meta tags OG/Twitter en `base.html` (`og:image`, `twitter:card`). Es **metadata SEO + source del hero visual** al mismo tiempo.
+  - `extra.hero.caption` se renderiza como texto plano (sin `| safe` en el partial). Si necesitas énfasis (cursivas, enlaces), hay que editar el partial.
+  - Para un hero sin imagen (solo título grande + tagline), basta con declarar `extra.hero:` sin más campos — el partial entra al branch hero pero omite la rama `if page.image`.
 - **El 404 se customiza por plantilla**, no por markdown: `templates/404.html` extiende `base.html` y sobreescribe el bundle por defecto.
 - **Shortcodes** son markdown-only (`{{< figure(...) >}}`). No funcionan dentro de plantillas `.html`.
 - **Imágenes**: seite procesa `<img src="/static/...">` automáticamente (WebP + `srcset` responsive, widths 480/800/1200). No hace falta escribir `<picture>` a mano — el build lo inyecta.
