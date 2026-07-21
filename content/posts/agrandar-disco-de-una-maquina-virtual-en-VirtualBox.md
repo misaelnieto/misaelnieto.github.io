@@ -5,7 +5,7 @@ categories:
   - "VirtualBox DevOps"
 ---
 
-![Cambiar tamaño de disco duro en VirtualBox](/static/images/3219157599_34c9a86f3c_o.jpg)
+![Cambiar tamaño de disco duro en VirtualBox](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/3219157599_34c9a86f3c_o.jpg)
 
 Aca lo explican en ingles: [How to enlarge a Virtual Machine's Disk - VirtualBox or VMWare](http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/).
 A diferencia del sitio anterior el hypervisor corre sobre Fedora 20.
@@ -13,25 +13,25 @@ A diferencia del sitio anterior el hypervisor corre sobre Fedora 20.
 Primero hay que apagar la VM. Luego en el VirtualBox manager se puede sacar la
 ruta en disco de la VM mediante el menu contextual:
 
-![Para conocer la ruta del archivo de disco duro de la maquna virtual podemos usar VirtualBox Manager](/static/images/Screenshot_from_2015_01_19_10_08_28.png)
+![Para conocer la ruta del archivo de disco duro de la maquna virtual podemos usar VirtualBox Manager](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-08-28.png)
 
 Justo despues de seleccionar la acción `Show in File Manager` se va abrir el administrador de archivos.
 En mi caso abre el administrador de archivos de GNOME.
 
-![El administrador de archivos de GNOME abierto en la ruta de la máquina virtual.](/static/images/Screenshot_from_2015_01_19_09_52_04.png)
+![El administrador de archivos de GNOME abierto en la ruta de la máquina virtual.](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-04.png)
 
 El administrador de archivos de GNOME tiene una combinación de teclas para
 convertir la barra de ruta en una entrada de texto. La combinación de teclas
 es `Ctrl` + `L`. Después copio el texto con `Ctrl` + `C`.
 
-![Truco para copiar la ruta de la máquina virtual](/static/images/Screenshot_from_2015_01_19_09_52_19.png)
+![Truco para copiar la ruta de la máquina virtual](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-19.png)
 
 Ya tengo la ruta de la máquina virtual, asi que es momento de pasar a la
 consola y entrar a la carpeta de la máquina virtual. Para pegar texto en la
 consola uso la combinación de teclas `Ctrl`+`Shift`+`V`. Tambien se puede usar el
 menú contextual, el menú editar o hacer click con el botón medio del mouse.
 
-![Consola en el directorio de la VM](/static/images/Screenshot_from_2015_01_19_10_00_28.png)
+![Consola en el directorio de la VM](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28.png)
 
 El comando resultante en mi caso fue:
 
@@ -63,30 +63,30 @@ disco duro.
 Comenzamos con arrancar la herramienta. En Windows 10, windows 8 y Windows 8.1
 sale listada si escribo `compmgmt.msc` en la busqueda del menu inicio.
 
-![Windoge 10 y compmgmt.msc - Solo tuve que hacer click en el iconito.](/static/images/Screenshot_from_2015_01_19_10_48_56.png)
+![Windoge 10 y compmgmt.msc - Solo tuve que hacer click en el iconito.](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-48-56.png)
 
 En versiones anteriores se tiene que usar el dialogo de Run.
 
 Una vez abierta la ventana de Computer Management, entramos a la seccion `Storage-> Disk Management`.
 
-![Windows ya reconoce el nuevo tamaño del disco](/static/images/Screenshot_from_2015_01_19_10_49_33.png)
+![Windows ya reconoce el nuevo tamaño del disco](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33.png)
 
 Para extender el tamaño de la partición hay que hacer click con el botón
 derecho del mouse sobre la partición que quiero agrandar y seleccionar `Extend
 Volume ...`
 
-![Click en Extend volume](/static/images/Screenshot_from_2015_01_19_10_50_12.png)
+![Click en Extend volume](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12.png)
 
 Cuando le haces click al menu sale un asistente que te lleva por todo el
 proceso. Como solo vamos a extender la partición el proceso es bastante
 sencillo y solo tenemos que picar *Next* hasta que se acaba el asistente. Los
 valores que selecciona el asistente por default son los correctos en mi caso.
 
-![Opciones para cambiar el tamaño del disco](/static/images/Screenshot_from_2015_01_19_10_50_56.png)
+![Opciones para cambiar el tamaño del disco](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-56.png)
 
 Al finalizar el asistente la partición ya esta usando todo el espacio libre del disco.
 
-![El nuevo tamaño del disco.](/static/images/Screenshot_from_2015_01_19_10_51_25.png)
+![El nuevo tamaño del disco.](/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25.png)
 
 
 Fin.

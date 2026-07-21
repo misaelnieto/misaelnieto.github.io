@@ -8,7 +8,7 @@ tags:
   - silverblue
   - ssh
   - linux
-image: "/media/card_images/a-silver-blue-fedora-hat-besides-a-electrical-sock.svg"
+image: "/static/images/posts/fedora-silverblue-sshd-server/a-silver-blue-fedora-hat-besides-a-electrical-sock.svg"
 ---
 
 He estado usando Fedora Silverblue en mi laptop personal desde hace varias semanas y hoy quise instalar un servidor sshd en mi laptop. Creí que la solución sería algún comando con rpm-ostree, pero no fue necesario! El servidor de openssh ya viene preinstalado en la imagen de silverblue, así que solo fue necesario activar el servicio y arrancarlo.

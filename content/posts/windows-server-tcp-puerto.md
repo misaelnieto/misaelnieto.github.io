@@ -5,7 +5,7 @@ categories:
   - "Español Windows Servers DevOps"
 ---
 
-![Cover](/static/images/3743184350_e992e763f5_o.jpg)
+![Cover](/static/images/posts/windows-server-tcp-puerto/3743184350_e992e763f5_o.jpg)
 
 Estaba configurando Selenium Server en un Windows Server 2008 R2. Probé a
 correrlo y, sin saberlo, arranque Selenium en modo

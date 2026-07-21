@@ -3,7 +3,7 @@ title: "Cómo instalar la HP LaserJet 1020 en Fedora 15"
 date: "2011-07-01"
 ---
 
-![HP LaserJet 1020](/static/images/hp_laserjet_1020.jpg)
+![HP LaserJet 1020](/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-15/hp-laserjet-1020.jpg)
 
 
 ## Descripción de la HP LaserJet 1020

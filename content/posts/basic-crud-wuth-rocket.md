@@ -9,7 +9,7 @@ tags:
   - rocket
   - web development
   - crud
-image: "/media/unsplash/spacex--p-KCm6xB9I-unsplash.jpg"
+image: "/static/images/posts/basic-crud-wuth-rocket/spacex--p-KCm6xB9I-unsplash.jpg"
 ---
 
 This is what I went through while creating my first web app in Rust.
@@ -157,11 +157,11 @@ $ foundation watch
 
 Browsersync was installed, so it pops a browser window that shows the *Welcome to foundation* window:
 
-![Screenshot of the Welcome to foundation screen](/static/images/Screenshot_from_2020-01-19_17-26-54.png)
+![Screenshot of the Welcome to foundation screen](/static/images/posts/basic-crud-wuth-rocket/screenshot-2020-01-19-172654.png)
 
 The `foundation watch`  command spins it's own web server on http://localhost:3000, but we are using the web server provided by rocket, so I deleted the `index.html` file, removed the BrowserSync  configuration from `gulpfile.js` and `package.json`. I also re/moved other files to leave the static directory as clean as possible. This is how it looks now:
 
-![Project directory structure](/static/images/Screenshot_from_2020-01-19_18-07-29.png)
+![Project directory structure](/static/images/posts/basic-crud-wuth-rocket/screenshot-2020-01-19-180729.png)
 
 ## Credits
 

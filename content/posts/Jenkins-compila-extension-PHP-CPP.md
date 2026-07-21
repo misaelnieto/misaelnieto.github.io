@@ -11,7 +11,7 @@ tags:
   - automation
 ---
 
-![Un gancho](/static/images/Grappling_hook_2_PSF.png)
+![Un gancho](/static/images/posts/Jenkins-compila-extension-PHP-CPP/grappling-hook-2-psf.png)
 
 ## Intro
 

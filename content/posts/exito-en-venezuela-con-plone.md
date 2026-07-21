@@ -12,7 +12,7 @@ su intranet de documentos que corrian con Plone 3.3.5 y Cyn.In.
 
 Aplicamos el siguiente esquema de escalabilidad general de Plone:
 
-![Cluster de Plone para escalar sitios de alta disponibilidad](/static/images/Plone_Cluster.png)
+![Cluster de Plone para escalar sitios de alta disponibilidad](/static/images/posts/exito-en-venezuela-con-plone/plone-cluster.png)
 
 
 ¡Al cliente le encantó la mejora y hasta hicieron una presentacion de su sitio
@@ -24,7 +24,7 @@ presentación:
 > los resultados luego de nuestro trabajo el evento fue una de los mas
 > exitosos fue mas de 70 personas.
 
-![Leonardo Caballero en la WPD venezuela 2014](/static/images/100_3697.png)
+![Leonardo Caballero en la WPD venezuela 2014](/static/images/posts/exito-en-venezuela-con-plone/100-3697.png)
 
 Me da mucho gusto que haya proyectos exitosos como éste usando Software Libre
 y que uno pueda participar aunque sea con un granito de arena.

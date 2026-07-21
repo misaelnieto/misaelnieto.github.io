@@ -7,6 +7,7 @@
     {% set _og_title = page.title | default(value=site.title) %}
     {% set _og_desc = page.description | default(value=page.excerpt | default(value=site.description)) | striptags | trim %}
     {% set _og_image = page.image | default(value='/static/profile.png') %}
+    {% if not _og_image is starting_with("http") %}{% set _og_image = site.base_url ~ _og_image %}{% endif %}
     <title>{% block title %}{{ site.title }}{% endblock %}</title>
     <meta name="description" content="{{ _og_desc }}">
     {% if page.tags | length > 0  %}
@@ -23,7 +24,6 @@
     <meta property="og:title" content="{{ _og_title }}">
     <meta property="og:description" content="{{ _og_desc }}">
     <meta property="og:image" content="{{ _og_image }}">
-    <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ _og_title }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:locale" content="{{ lang | replace(from='_', to='-') }}">
@@ -60,7 +60,7 @@
     {"@context":"https://schema.org","@type":"Person","name":{{ _ld_author_name | json_encode() }}{% if data.author.url %},"url":{{ data.author.url | json_encode() }}{% endif %}{% if data.author.email %},"email":"mailto:{{ data.author.email }}"{% endif %}{% if data.author.same_as %},"sameAs":{{ data.author.same_as | json_encode() }}{% endif %}}
     </script>
     {% if page.collection == 'posts' %}<script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":{{ _ld_title | json_encode() }},"description":{{ _ld_desc | json_encode() }},"datePublished":{{ page.date | default(value='') | json_encode() }}{% if page.updated %},"dateModified":{{ page.updated | json_encode() }}{% endif %},"mainEntityOfPage":{"@type":"WebPage","@id":{{ site.base_url | json_encode() }}},"image":{"@type":"ImageObject","url":{{ _og_image | json_encode() }},"width":1200,"height":630},"author":{"@type":"Person","name":{{ _ld_author_name | json_encode() }}{% if data.author.same_as %},"sameAs":{{ data.author.same_as | json_encode() }}{% endif %}},"publisher":{"@type":"Organization","name":{{ site.title | json_encode() }},"logo":{"@type":"ImageObject","url":{{ _ld_logo_url | json_encode() }}}},"url":{{ site.base_url | json_encode() }}{% if page.tags is defined and page.tags | length > 0 %},"keywords":{{ page.tags | json_encode() | safe }}{% endif %}{% if page.word_count %},"wordCount":{{ page.word_count }}{% endif %}{% if page.section %},"articleSection":{{ page.section | json_encode() }}{% endif %}}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":{{ _ld_title | json_encode() }},"description":{{ _ld_desc | json_encode() }},"datePublished":{{ page.date | default(value='') | json_encode() }}{% if page.updated %},"dateModified":{{ page.updated | json_encode() }}{% endif %},"mainEntityOfPage":{"@type":"WebPage","@id":{{ site.base_url | json_encode() }}},"image":{"@type":"ImageObject","url":{{ _og_image | json_encode() }}},"author":{"@type":"Person","name":{{ _ld_author_name | json_encode() }}{% if data.author.same_as %},"sameAs":{{ data.author.same_as | json_encode() }}{% endif %}},"publisher":{"@type":"Organization","name":{{ site.title | json_encode() }},"logo":{"@type":"ImageObject","url":{{ _ld_logo_url | json_encode() }}}},"url":{{ site.base_url | json_encode() }}{% if page.tags is defined and page.tags | length > 0 %},"keywords":{{ page.tags | json_encode() | safe }}{% endif %}{% if page.word_count %},"wordCount":{{ page.word_count }}{% endif %}{% if page.section %},"articleSection":{{ page.section | json_encode() }}{% endif %}}
     </script>
     {% elif page.collection %}<script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":{{ _ld_title | json_encode() }},"description":{{ _ld_desc | json_encode() }}{% if page.updated %},"dateModified":{{ page.updated | json_encode() }}{% endif %},"mainEntityOfPage":{"@type":"WebPage","@id":{{ site.base_url | json_encode() }}},"image":{"@type":"ImageObject","url":{{ _og_image | json_encode() }}},"author":{"@type":"Person","name":{{ _ld_author_name | json_encode() }}},"publisher":{"@type":"Organization","name":{{ site.title | json_encode() }}},"url":{{ site.base_url | json_encode() }}}

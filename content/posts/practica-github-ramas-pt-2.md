@@ -11,8 +11,8 @@ tags:
   - branches
   - tutorial
   - beginners
-image: "/media/git-branch-pt2.png"
-preview: "/media/git-branch-pt2.png"
+image: "/static/images/posts/practica-github-ramas-pt-2/git-branch-pt2.png"
+preview: "/static/images/posts/practica-github-ramas-pt-2/git-branch-pt2.png"
 locale: "es_MX"
 keywords:
   - "Git, GitHub, branches, tutorial, beginners, ramas, control de versiones"

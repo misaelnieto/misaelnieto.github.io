@@ -10,7 +10,7 @@ tags:
   - counter.dev
   - web analytics
   - jekyll
-image: "/media/screenshots/counter_analytics.png"
+image: "/static/images/posts/ditch-Google-Analytics-for-counter/counter-analytics.png"
 ---
 
 Nowadays GA is becoming quite complex for me; it looks so complex that I couldn't find a way to upgrade my blog to GA 4 and I got impatient, so I thought I could switch to something else.

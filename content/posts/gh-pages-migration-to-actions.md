@@ -4,12 +4,12 @@ summary: "GH Pages is too restrictive, let's fix it with GH Actions"
 date: "2020-05-11"
 categories: []
 tags: []
-image: "/media/unsplash/markus-spiske-Tem0_jHYDgQ-unsplash.jpg"
+image: "/static/images/posts/gh-pages-migration-to-actions/markus-spiske-Tem0_jHYDgQ-unsplash.jpg"
 ---
 
 This is how my blog looks before update:
 
-![Before update](/static/images/screenshots/Screenshot_2020-05-11-blog.png)
+![Before update](/static/images/posts/gh-pages-migration-to-actions/screenshot-2020-05-11-blog.png)
 
 GitHub Pages is cool, but it only supports [a fixed set of themes](https://pages.github.com/themes/). After several
 years of neglect, the COVID19 quarantine gave me enough spare time to give my
@@ -92,7 +92,7 @@ robot won't try to build my site.
 Finally I reconfigured my DNS to point to the new server. And this is the way it
 looks now.
 
-![After update](/static/images/screenshots/Screenshot_2020-05-12-blog.png){:class="img-responsive"}
+![After update](/static/images/posts/gh-pages-migration-to-actions/screenshot-2020-05-12-blog.png){:class="img-responsive"}
 
 
 ## Credits

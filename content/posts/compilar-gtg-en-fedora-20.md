@@ -6,7 +6,7 @@ categories:
   - "Linux Fedora Gnome GTG"
 ---
 
-![Notas y cosas que hacer](/static/images/memo-150388.png)
+![Notas y cosas que hacer](/static/images/posts/compilar-gtg-en-fedora-20/memo-150388.png)
 
 
 Me gusta GTG, pero quiero echarlo a andar en Fedora 20 desde el repo Git. Así es como le hice.
@@ -76,7 +76,7 @@ gtg
 
 Y así se ve:
 
-![GTG git desde Fedora 20GTG git desde la consola de Fedora 20](/static/images/Screenshot_from_2014_08_11_17_46_09.png)
+![GTG git desde Fedora 20GTG git desde la consola de Fedora 20](/static/images/posts/compilar-gtg-en-fedora-20/screenshot-from-2014-08-11-17-46-09.png)
 
 Fin.
 

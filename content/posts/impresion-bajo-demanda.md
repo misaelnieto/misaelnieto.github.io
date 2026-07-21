@@ -7,7 +7,7 @@ tags:
   - pod
   - printing
   - publishing
-image: "/media/Book_decoration_BPPxi.svg"
+image: "/static/images/posts/impresion-bajo-demanda/book-decoration-bppxi.svg"
 ---
 
 La idea de la impresión bajo demanda es poder imprimir libros o revistas en el

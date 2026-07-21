@@ -11,7 +11,7 @@ tags:
   - installation
 ---
 
-![El pony de Django](/static/images/magic-pony-django-wallpaper.png)
+![El pony de Django](/static/images/posts/prepara_ubuntu_1404_para_django/magic-pony-django-wallpaper.png)
 
 
 ## Instala los paquetes

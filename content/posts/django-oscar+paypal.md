@@ -225,7 +225,7 @@ Ahora es momento de arrancar Django:
 
 Y aqui tienes, una tienda de Oscar recien creada:
 
-![Oscar sabor vainilla](/static/images/Screenshot-2018-3-21_Oscar_-.png)
+![Oscar sabor vainilla](/static/images/posts/django-oscar+paypal/screenshot-2018-03-21-oscar.png)
 
 
 ## Parte 2 - Instalación y configuración del plugin de PayPal
@@ -250,9 +250,9 @@ Voy a usar la consola de paypal para hacer las pruebas con el entorno _sandbox_.
 
 El email, la contraseña y la firma para el API los encuentras abriendo el perfil de usuario.
 
-![Primero abre el usuario](/static/images/Screenshot-2018-3-25_Sandbox_accounts_-_PayPal_Developer.png)
+![Primero abre el usuario](/static/images/posts/django-oscar+paypal/screenshot-2018-03-25-sandbox-accounts-paypal-developer.png)
 
-![Luego encontrarás las credenciales](/static/images/Screenshot-2018-3-25_Sandbox_accounts_-_PayPal_Developer_1_.png)
+![Luego encontrarás las credenciales](/static/images/posts/django-oscar+paypal/screenshot-2018-03-25-sandbox-accounts-paypal-developer-1.png)
 
 Despues de esto hay que modificar `urls.py` para agregar las urls de la aplicacion de paypal. El archivo queda asi:
 
@@ -324,7 +324,7 @@ No hay que olvidar correr las migraciones:
 
 Despues de arrancar Django podemos ver que en el dashboard ya se creó el menu `Payments`:
 
-![Ahi esta funciona.](/static/images/qjQt4Md2pm.png)
+![Ahi esta funciona.](/static/images/posts/django-oscar+paypal/qjqt4md2pm.png)
 
 
 Pero todavia queda varias tareas por hacer.
@@ -351,30 +351,30 @@ Pero todavia queda varias tareas por hacer.
 
 Una vez terminado todo esto podemos entrar al la tienda usando la cuenta de pedro perez y abres el producto y abrimos el producto que acabamos de crear.
 
-![Listo a comprar el producto](/static/images/A8kFaYlaxL.png)
+![Listo a comprar el producto](/static/images/posts/django-oscar+paypal/a8kfaylaxl.png)
 
 Despues de agrgegar el producto al carrito podemos ir al carrito para ver las opciones de pago y ahi en la ezquina inferior izquierda tenemos el boton de pago de paypal. Por el momento no nos preocuparemos mucho por lo estetico ya que estamos probando funcionalidad.
 
-![Ahi esta el icono amarillo de Paypal](/static/images/Screenshot-2018-3-26_Cart_Oscar_-.png)
+![Ahi esta el icono amarillo de Paypal](/static/images/posts/django-oscar+paypal/screenshot-2018-03-26-cart-oscar.png)
 
 Pero antes de hacer click en el boton amarillo de Paypal es necesario poder recibir notificaciones de Paypal directamente en mi instancia de django en localhost, y esto se hace posible gracias a [ngrok](https://ngrok.com/). `ngrok` es un servicio gratuito para pruebas de este tipo. Y configurarlo es bastante fácil: `./ngrok`.
 
-![ngrok haciendo un tunel.](/static/images/Screenshot_from_2018-03-26_19-14-54.png)
+![ngrok haciendo un tunel.](/static/images/posts/django-oscar+paypal/screenshot-2018-03-26-191454.png)
 
 Nota: hay que agregar 5603f7b3.ngrok.io a la lista de  ALLOWED_HOSTS por que si no Django va a fallar con el error `DisallowedHost at /`.
 
 Ahora si, ya todo esta listo para hacer el pago, presionemos el botón de Paypal y nos vamos a la pantalla de 
 login del sandbox de Paypal.
 
-![Hay que usar alguna cuenta creada en la consola de pruebas de Paypal.](/static/images/Screenshot-2018-3-26_Pagar_con_mi_cuenta_PayPal_-_PayPal_1_.png)
+![Hay que usar alguna cuenta creada en la consola de pruebas de Paypal.](/static/images/posts/django-oscar+paypal/screenshot-2018-03-26-pagar-con-mi-cuenta-paypal-paypal-1.png)
 
 Para poder pagar hay que usar alguna cuenta creada en la consola de pruebas de Paypal. Despues de hacer login pasamos a revisar la informacion de cobro y pago.
 
-![Ultima revision antes de pagar.](/static/images/Screenshot-2018-3-26_Revise_su_informaci_n.png)
+![Ultima revision antes de pagar.](/static/images/posts/django-oscar+paypal/screenshot-2018-03-26-revise-su-informaci-n.png)
 
 Despues de presionar el boton amarillo de Continuar, paypal nos redirigirá de regreso a la tienda:
 
-![De regreso a Oscar](/static/images/Screenshot-2018-3-26_Order_preview_Checkout_Oscar_-.png)
+![De regreso a Oscar](/static/images/posts/django-oscar+paypal/screenshot-2018-03-26-order-preview-checkout-oscar.png)
 
 Ya solo falta presionar el boton azul de _Place Order_ y el proceso de compra y pago ha terminado.
 

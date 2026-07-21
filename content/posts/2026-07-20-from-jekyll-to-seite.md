@@ -14,7 +14,7 @@ tags:
   - opencode
   - atomic-design
   - migration
-image: "/static/images/posts/seite-1.png"
+image: "/static/images/posts/2026-07-20-from-jekyll-to-seite/seite-1.png"
 extra:
   hero:
     alt: "A fleet of 19th-century wooden sailing vessels migrating across a churning sea toward a distant lighthouse. Woodcut engraving in the style of Gustave Doré, with hand-tinted rubric vermillion accents on the lead boat's pennant and the lighthouse beam."
@@ -35,16 +35,16 @@ The previous version of the site was [Jekyll](https://jekyllrb.com/) on top of t
 
 This is what it looked like:
 
-![The old frontpage, with a photo from my wedding day as the hero image.](/static/images/screenshots/nnoenieto-jekill-bulma1.png)
+![The old frontpage, with a photo from my wedding day as the hero image.](/static/images/posts/2026-07-20-from-jekyll-to-seite/nnoenieto-jekill-bulma1.png)
 *The frontpage. Yes, that is me on my wedding day. Not exactly the professional first impression I was hoping to make.*
 
-![The old résumé page, plain and grey.](/static/images/screenshots/nnoenieto-jekill-bulma2.png)
+![The old résumé page, plain and grey.](/static/images/posts/2026-07-20-from-jekyll-to-seite/nnoenieto-jekill-bulma2.png)
 *My résumé. As boring as you remember.*
 
-![The old blog index, colorful but visually noisy.](/static/images/screenshots/nnoenieto-jekill-bulma3.png)
+![The old blog index, colorful but visually noisy.](/static/images/posts/2026-07-20-from-jekyll-to-seite/nnoenieto-jekill-bulma3.png)
 *The blog index. Lots of color, no hierarchy, no rhythm.*
 
-![An unfinished 'about my life' section.](/static/images/screenshots/nnoenieto-jekill-bulma4.png)
+![An unfinished 'about my life' section.](/static/images/posts/2026-07-20-from-jekyll-to-seite/nnoenieto-jekill-bulma4.png)
 *Where I was going to write about my life. I never finished it.*
 
 The site had a lot of problems, visually speaking. The typography was generic, the layout had no real system behind it, and every page felt like a slightly different accident. After fourteen years of patching, it was time to bite the bullet and rebuild the thing properly.
@@ -214,4 +214,4 @@ Fourteen years, three static site generators, and I am still not a designer. But
 
 If you ever stumble upon Seite, give it a shot. And if Claude's price tag puts you off — now you know it can be hacked. See you in the next post. 👋
 
-![A small wooden boat rocking on a wavy sea at sunset. Woodcut engraving in the style of Gustave Doré.](/static/images/posts/seite-2.png)
+![A small wooden boat rocking on a wavy sea at sunset. Woodcut engraving in the style of Gustave Doré.](/static/images/posts/2026-07-20-from-jekyll-to-seite/seite-2.png)

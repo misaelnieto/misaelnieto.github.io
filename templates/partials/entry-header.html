@@ -6,9 +6,16 @@
     </h1>
     {% if page.description %}<p class="hero-tagline">&ldquo;{{ page.description }}&rdquo;</p>{% endif %}
   </div>
-  {% if page.image %}
+  {% if page.extra.hero.image %}
+    {% set _hero_src = page.extra.hero.image %}
+  {% elif page.image %}
+    {% set _hero_src = page.image | replace(from=site.base_url, to="") %}
+  {% else %}
+    {% set _hero_src = "" %}
+  {% endif %}
+  {% if _hero_src %}
   <figure class="hero-figure">
-    <img src="{{ page.image }}" alt="{{ page.extra.hero.alt | default(value="") }}">
+    <img src="{{ _hero_src }}" alt="{{ page.extra.hero.alt | default(value="") }}">
     {% if page.extra.hero.caption %}<figcaption>{{ page.extra.hero.caption }}</figcaption>{% endif %}
   </figure>
   {% endif %}

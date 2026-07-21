@@ -6,7 +6,7 @@ categories:
   - "Python Plone"
 ---
 
-![ Me grok smash ZCML! ](/static/images/me_grok.jpg)
+![ Me grok smash ZCML! ](/static/images/posts/registrar-un-viewlet-en-plone-con-11-lineas-de-codigo/me-grok.jpg)
 
 Una vez que se ha configurado `grok.five`, se puede añadir un viewlet con solo
 11 líneas de código:

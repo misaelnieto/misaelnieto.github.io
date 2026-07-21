@@ -25,7 +25,7 @@ el panel de la izquierda, selecciona `Installed` → `Templates` → `Python` �
 finalmente `Flask Web Project` en el panel central. Click `Ok` para crear el
 proyecto.
 
-![Nuevo proyecto Flask - Click en OK para guardar el proyecto](/static/images/Screenshot_from_2015_01_19_15_51_37.png)
+![Nuevo proyecto Flask - Click en OK para guardar el proyecto](/static/images/posts/flask-IIS/screenshot-from-2015-01-19-15-51-37.png)
 
 ## Instalar Python
 
@@ -33,7 +33,7 @@ Para poder probar el sitio Flask es necesario un interprete de Python.
 Obviamente Windows no trae uno y hay que instalarlo desde la web de Python
 [www.python.org](http://www.python.org).
 
-![Instalador de PythonNext, Next, Next ... zzz](/static/images/Screenshot_from_2015_01_19_16_17_10.png)
+![Instalador de PythonNext, Next, Next ... zzz](/static/images/posts/flask-IIS/screenshot-from-2015-01-19-16-17-10.png)
 
 Instalar Python en windows es bastante sencillo. Hay que bajar el
 instalador, abrirlo y pulsar el boton `Next` del asistente hasta que tengamos la
@@ -44,7 +44,7 @@ Python 3.4.2 de 32 bits
 
 La mejor manera de configurar el entorno virtual es mediante `Solution Explorer`.
 
-![Nuevo entorno virtual. Seleccionar Add Virtual Environment](/static/images/Screenshot_from_2015_01_20_11_57_03_0.png)
+![Nuevo entorno virtual. Seleccionar Add Virtual Environment](/static/images/posts/flask-IIS/screenshot-from-2015-01-20-11-57-03-0.png)
 
 Luego hay que hacer click con el botón derecho del mouse en `FlaskWebProject1`
 → `Python Environments` y seleccionar la opción `Add Virtual Environment`. En
@@ -56,7 +56,7 @@ la ventana de diálogo rellena los campos con los siguientes valores:
 
 Luego solo falta picar en el botón `Create`.
 
-![Solo falta picar en el botón Create](/static/images/Screenshot_from_2015-01-20.png)
+![Solo falta picar en el botón Create](/static/images/posts/flask-IIS/screenshot-from-2015-01-20.png)
 
 Tras bambalinas VS (bueno, en realidad es PTVS) creará el entorno virtual y lo
 activará (lo que equivale al `mkvirtualenv` en Linux/Unix/Mac) y después
@@ -65,20 +65,20 @@ equivale al comando  `pip install -r requirements.txt`. Al terminar este proceso
 verás que el entorno virtual llamado **Flask** ya se encuentra listado en `Solution
 Explorer`.
 
-![Virtualenv Activado](/static/images/Screenshot_from_2015-01-20_16-09-23.png)
+![Virtualenv Activado](/static/images/posts/flask-IIS/screenshot-2015-01-20-160923.png)
 
 ## Probando Flask en modo depuración
 
 En VS solo será necesario hacer click en el botón de debug para arrancar el
 pequeño servidor integrado de Flask.
 
-![Botón para arrancar Flask en modo debug](/static/images/Screenshot_from_2015_01_20_16_14_07.png)
+![Botón para arrancar Flask en modo debug](/static/images/posts/flask-IIS/screenshot-from-2015-01-20-16-14-07.png)
 
 VS lanzará un intérprete de python (para ser exactos: el `Python.exe` del
 entorno virtual `Flask`), correrá `runserver.py` y cuando termine de arrancar
 abrirá una ventana de Firefox (en mi caso) para que cargue el sitio.
 
-![Y aquí esta la prueba: Flask corriendo en windoge](/static/images/Screenshot_from_2015_01_20_16_13_47.png)
+![Y aquí esta la prueba: Flask corriendo en windoge](/static/images/posts/flask-IIS/screenshot-from-2015-01-20-16-13-47.png)
 
 ## Ahora que corra en IIS
 
@@ -91,28 +91,28 @@ instalación es bastante similar a cualquier otro software.
 
 Ya instalado el *Web Platform Installer* hay que abrirlo e Instalar `WFastCGI Gateway for IIS and Python`.
 
-![Buscar `Python` en el Web Platform Installed](/static/images/Screenshot_from_2015_01_20_16_32_45.png)
+![Buscar `Python` en el Web Platform Installed](/static/images/posts/flask-IIS/screenshot-from-2015-01-20-16-32-45.png)
 
 Seleccioné `WFastCGI 2.1 Gateway for IIS and Python 3.4` y le piqué al botón
 `Add`. Con eso se habilitó el botón Install (en la esquina inferior derecha).
 Al picarle al botón se abrió una ventana modal con pasos. En el primer paso se
 informa de los prerequisitos. Yo le piqué en `I Accept`.
 
-![I accept](/static/images/Screenshot_from_2015_01_20_16_37_58.png)
+![I accept](/static/images/posts/flask-IIS/screenshot-from-2015-01-20-16-37-58.png)
 
 El segundo paso es la instalación.
 
-![Proceso](/static/images/Screenshot_from_2015_01_20_16_39_38.png)
+![Proceso](/static/images/posts/flask-IIS/screenshot-from-2015-01-20-16-39-38.png)
 
 Hay que esperar a que descarge Python y otras cosas.
 
-![Asi termina](/static/images/Screenshot_from_2015_01_20_16_40_15.png)
+![Asi termina](/static/images/posts/flask-IIS/screenshot-from-2015-01-20-16-40-15.png)
 
 Nota: Parece que el `Web Installer` detectó que existía una instalación de
 Python 3, pero no estoy seguro. Pero de lo que si estoy seguro es de que
 instaló un script (`wfastcgi.py`) en `C:\Python34\Scripts. wfastcgi.py`.
 
-![El script de WFastCGI](/static/images/Screenshot_from_2015_01_21_15_46_02.png)
+![El script de WFastCGI](/static/images/posts/flask-IIS/screenshot-from-2015-01-21-15-46-02.png)
 
 ¿Y qué es [FastCGI](http://www.fastcgi.com/)? Es CGI pero con algunas
 extensiones. El script `wfastcgi.py` [es una
@@ -133,7 +133,7 @@ Dism /online /Get-FeatureInfo /FeatureName:IIS-CGI
 
 Y sale esto:
 
-![Usando dism para saber el estatus de una caracteristica de windoge](/static/images/Screenshot_from_2015_01_21_15_26_42.png)
+![Usando dism para saber el estatus de una caracteristica de windoge](/static/images/posts/flask-IIS/screenshot-from-2015-01-21-15-26-42.png)
 
 El comando para instalar el CGI de IIS es:
 
@@ -144,7 +144,7 @@ Dism /online /Enable-Feature /FeatureName:IIS-CGI
 Ahora comienzo a pensar que me pude ahorrar tantos screenshots del proceso de
 instalación y hacerlo desde la línea de comandos. pff!
 
-![Instalacion de Caracteristica IIS-CGI](/static/images/Screenshot_from_2015_01_21_15_31_07.png)
+![Instalacion de Caracteristica IIS-CGI](/static/images/posts/flask-IIS/screenshot-from-2015-01-21-15-31-07.png)
 
 Ahemmm... De regreso a lo que estaba haciendo ...
 

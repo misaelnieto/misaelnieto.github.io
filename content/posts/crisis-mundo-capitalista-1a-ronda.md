@@ -6,7 +6,7 @@ categories:
 description: "Resumen del video de Alfredo Jalife-Rhame sobre la crisis multidimensional del sistema mundo capitalista, incluyendo perspectivas de Alfredo Jalife y Erick Pernett."
 ---
 
-![Resumen de Video de Alfredo Jalife-Rhame](/static/images/coins-361488.jpg)
+![Resumen de Video de Alfredo Jalife-Rhame](/static/images/posts/crisis-mundo-capitalista-1a-ronda/coins-361488.jpg)
 
 Este es un resumen que hago de [este video](https://www.youtube.com/watch?v=xeZ5ai5nQ-Q)
 

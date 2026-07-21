@@ -34,7 +34,7 @@ condiciones que hay en el servidor en nuestro entorno de desarrollo.
 
 Todo este cambio se resume en la siguiente imagen:
 
-![Pip distribute](/static/images/2009_distribute.png)
+![Pip distribute](/static/images/posts/django-y-buildout-parte-1/2009-distribute.png)
 
 Una vez terminado el intento de explicación, pongámonos manos a la obra. Aquí
 está una lista de instrucciones necesarias para instalar distribute en una

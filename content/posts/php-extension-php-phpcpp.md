@@ -10,7 +10,7 @@ tags:
   - extension development
 ---
 
-![Una broma muy simple](/static/images/extension-cord-147580_1280.png)
+![Una broma muy simple](/static/images/posts/php-extension-php-phpcpp/extension-cord-147580-1280.png)
 
 ## Intro
 
@@ -201,7 +201,7 @@ extensión. Lo puse en un directorio visible por apache2 y lo nombré
 
 Y si la configuración es correcta, se deberá ver algo así:
 
-![La extension funcionando](/static/images/Captura-de-pantalla-de-2015-03-13-09.15.55.png)
+![La extension funcionando](/static/images/posts/php-extension-php-phpcpp/captura-de-pantalla-de-2015-03-13-09-15-55.png)
 
 Los textos "Hola mundo" y "string" provienen del complemento noe_estension.so
 

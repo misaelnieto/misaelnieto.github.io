@@ -8,7 +8,7 @@ categories:
 
 I love nginx's simplicity
 
-![Serving files in a directory with nginx](/static/images/nginx.png)
+![Serving files in a directory with nginx](/static/images/posts/serving-files-in-a-directory-with-nginx/nginx.png)
 
 Today I wanted to publish some files in a directory with nginx and I was
 surprised how easy it was.

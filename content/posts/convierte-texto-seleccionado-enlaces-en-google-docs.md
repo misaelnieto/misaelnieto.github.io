@@ -9,8 +9,8 @@ tags:
   - apps script
   - javascript
   - automation
-image: "/assets/img/post_cards/six-assorted-geometrical-objects-besides-a-sheet-w.svg"
-preview: "/assets/img/screenshots/apps_script_new_menu_registered.png"
+image: "/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/six-assorted-geometrical-objects-besides-a-sheet-w.svg"
+preview: "/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered.png"
 locale: "es_MX"
 keywords: []
 ---
@@ -50,11 +50,11 @@ También puedes extender la funcionalidad de Google Docs añadiendo menús perso
 
 ¿Ok, y cómo empiezo con el Editor de Scripts?: Puedes acceder al editor de scripts en *Google Docs* yendo a `Extensiones` > `Apps Script`.
 
-![Acceso al menu de Apps Script desde Google Docs.](/static/images/screenshots/apps_script_menu.png)
+![Acceso al menu de Apps Script desde Google Docs.](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-menu.png)
 
 Esto abrirá el entorno de desarrollo de Apps Script donde puedes escribir y gestionar tus scripts.
 
-![Entorno de desarrollo de Apps Script](/static/images/screenshots/apps_script_ide.png)
+![Entorno de desarrollo de Apps Script](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide.png)
 
 Ya dentro de AppsScript tenemos acceso al API de Google Docs. En este ejemplo quiero un menú personalizado que ejecute la funcion que dsescribí anteriormente. En Apps Script existe una funcion especial `onOpen`. Esta funcion se va a ejecutarse automáticamente cuando se abre el documento de Google Docs. Cuando se ejecute, voy a registrar el menu que ejecutará la funcion que quiero. Gracias a ChatGPT, rapidamente pude saber la secuencia de comandos a ejecutar para registrar el menu:
 
@@ -105,15 +105,15 @@ function createLinksFromSelectedText() {
 
 Ahora es momento de ejecutar la funcion. Para eso, primero guardamos (1), y luego corremos la funcion (2):
 
-![Guardar y correr la funcion](/static/images/screenshots/apps_script_save_and_run.png)
+![Guardar y correr la funcion](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run.png)
 
 **Nota**: Cuando ejecutas un script por primera vez, Google te pedirá que autorices el script para acceder a tus datos de Google Docs. Esto es para asegurar que el script tiene permiso para realizar las acciones necesarias.
 
-![La primera vez que corres la funcion te pide autorizacion](/static/images/screenshots/apps_script_auth_required.png)
+![La primera vez que corres la funcion te pide autorizacion](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required.png)
 
 Despues de correr la funcion, abrimos de nuevo nuestro documento y ya veremos que se registro el nuevo menu:
 
-![El menu ya esta registrado](/static/images/screenshots/apps_script_new_menu_registered.png)
+![El menu ya esta registrado](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered.png)
 
 Si hacemos click en el menu no va a pasar nada porque la funcion `createLinksFromSelectedText` aun no hace nada. Pero a continuacion vamos a solucionar esto.
 
@@ -170,17 +170,17 @@ selectedElements.forEach(function(element) {
 
 Finalmente guardamos. Haremos tres pruebas. Primero vamos a ver que pasa cuando no seleccionas nada:
 
-![Si no seleccionas texto te sale una alerta](/static/images/screenshots/apps_script_no_selection.png)
+![Si no seleccionas texto te sale una alerta](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-no-selection.png)
 
 Muy bien, ahora pondremos el texto que queremos que convierta:
 
-![Texto para convertir](/static/images/screenshots/apps_scripts_select_text.png)
+![Texto para convertir](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text.png)
 
 **Nota**: No olvides seleccionar el texto.
 
 Y vamos a ver el resultado:
 
-![Texto convertido a links](/static/images/screenshots/apps_scripts_converted_text.png)
+![Texto convertido a links](/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text.png)
 
 !SI!
 

@@ -11,7 +11,7 @@ tags:
   - programming
 ---
 
-![Packages](/static/images/4772680734_3ab815e07a_n.jpg)
+![Packages](/static/images/posts/modulos-y-paquetes-en-python/4772680734-3ab815e07a-n.jpg)
 
 Cuando comenzamos a usar Python, tarde o temprano llegaremos al usar módulos y
 paquetes.

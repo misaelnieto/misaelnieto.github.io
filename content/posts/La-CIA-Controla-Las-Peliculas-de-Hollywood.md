@@ -7,7 +7,7 @@ tags:
   - hollywood
   - geopolitics
   - alfredo jalife
-image: "/assets/img/post_cards/a-pentagon-and-a-movie-reel.svg"
+image: "/static/images/posts/La-CIA-Controla-Las-Peliculas-de-Hollywood/a-pentagon-and-a-movie-reel.svg"
 ---
 
 En su columna [Bajo la Lupa, del 23 de septiembre de 2017](https://www.jornada.com.mx/2017/07/23/opinion/012o1pol) y republicado en [Telesur TV](http://www.telesurtv.net/bloggers/Las-guerras-de-Hollywood-en-nombre-del-Pentagono-y-la-CIA-20170723-0001.html), el reconocido analista geopolítico, [Alfredo Jalife-Rhame](https://www.alfredojalife.com/), abordó el interestante tema de cómo es que la CIA y el Pentágono dictan, vetan y dan visto bueno a las películas estadounidenses que tanto nos agradan. Si no hubiera sido Jalife el que abordara este tema, para mi sería siendo un tema perteneciente a la categoría de *conspiranoia*.

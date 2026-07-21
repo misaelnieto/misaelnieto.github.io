@@ -6,7 +6,7 @@ categories:
   - "Postgresql DBA Administración"
 ---
 
-![Elefantote](/static/images/401930619_c6ce5e6f54_o.jpg)
+![Elefantote](/static/images/posts/diferencia-entre-dos-filas-con-PostgreSQL/401930619_c6ce5e6f54_o.jpg)
 
 Tengo una tabla muy simple donde se guardan mediciones. Cada fila corresponde
 a una medición y cada fila tiene una columna con el ID.

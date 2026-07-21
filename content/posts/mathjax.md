@@ -7,7 +7,7 @@ tags:
   - mathjax
   - mathematics
   - latex
-image: "/media/dfads/7-cube_column_graph.svg"
+image: "/static/images/posts/mathjax/7-cube-column-graph.svg"
 ---
 
 Se supone que MathJax esta soportado en ~~Github~~ Jekyll. A ver si sirve.
