@@ -266,6 +266,19 @@ main {
     line-height: 1.35;
 }
 
+/* === Figure/illustration auto-counter === */
+
+.content-container {
+    counter-reset:illustration 1;
+}
+
+.content-container figure figcaption ::before{
+    content: "Fig. " counter(illustration) ":";
+    font-weight: bold;
+    color: var(--color-rubric-dark);
+    margin-right: 0.5rem;
+}
+
 /* === FRONTPAGE SECTIONS === */
 .frontpage-aspects,
 .frontpage-musings {
@@ -287,7 +300,7 @@ main {
 }
 .aspects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
 .aspect-ref {
@@ -298,7 +311,7 @@ main {
 }
 .aspect-card h3 {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: var(--font-weight-semibold);
     margin: 0.3rem 0 0.5rem;
 }
@@ -324,7 +337,7 @@ main {
     inset: 0;
 }
 .aspect-card p {
-    font-size: 0.88rem;
+    font-size: 0.68rem;
     line-height: 1.6;
     color: var(--color-muted);
 }
@@ -1731,6 +1744,12 @@ footer {
     header:not(.entry-header--hero) h1,
     .site-title {
         font-size: 2.5rem;
+    }
+}
+@media (min-width: 1800px) {
+    header:not(.entry-header--hero) h1,
+    .site-title {
+        font-size: 2.1rem;
     }
 }
 @media (max-width: 768px) {

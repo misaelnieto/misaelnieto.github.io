@@ -19,4 +19,8 @@ extra:
     - title: "As a human being"
       description: "The non-coding side of Noe: husband, dog parent, Holokinetic Psychology instructor, reader of David Bohm."
       url: "/as-a-human"
+    - title: "Holokinetic Psychology"
+      description: "My role as associate instructor and colaborator of the International Academy of Holokinetic Psychology"
+      url: "/as-aiph-instructor"
+      
 ---

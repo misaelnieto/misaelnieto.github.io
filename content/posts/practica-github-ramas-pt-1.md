@@ -11,8 +11,8 @@ tags:
   - branches
   - tutorial
   - beginners
-image: "/static/images/posts/practica-github-ramas-pt-1/brian-suh-a4GET0s82rI-unsplash.jpg"
-preview: "/static/images/posts/practica-github-ramas-pt-1/brian-suh-a4GET0s82rI-unsplash.jpg"
+image: "/static/images/posts/practica-github-ramas-pt-1/brian-suh-a4GET0s82rI-unsplash.png"
+preview: "/static/images/posts/practica-github-ramas-pt-1/brian-suh-a4GET0s82rI-unsplash.png"
 locale: "es_MX"
 keywords:
   - "Git, GitHub, branches, tutorial, beginners, ramas, control de versiones"

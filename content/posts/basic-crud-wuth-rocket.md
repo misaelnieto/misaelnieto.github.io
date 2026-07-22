@@ -9,7 +9,7 @@ tags:
   - rocket
   - web development
   - crud
-image: "/static/images/posts/basic-crud-wuth-rocket/spacex--p-KCm6xB9I-unsplash.jpg"
+image: "/static/images/posts/basic-crud-wuth-rocket/spacex--p-KCm6xB9I-unsplash.png"
 ---
 
 This is what I went through while creating my first web app in Rust.

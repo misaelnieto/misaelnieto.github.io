@@ -8,7 +8,7 @@ categories:
 tags:
   - "Sociedad"
   - "Facebook"
-image: "/static/images/posts/lecturas-semana-50-51/utsav-srestha-HeNrEdA4Zp4-unsplash.jpg"
+image: "/static/images/posts/lecturas-semana-50-51/utsav-srestha-HeNrEdA4Zp4-unsplash.png"
 ---
 
 # Lecturas de las semanas 50 y 51 del 2018

@@ -7,7 +7,7 @@ tags:
   - lvm
   - linux
   - virtualbox
-image: "/static/images/posts/anadir_nuevo_disco_a fedora_con_lvm/ubuntu-linux-kernel-panic-by-jpangamarca.jpg"
+image: "/static/images/posts/anadir_nuevo_disco_a fedora_con_lvm/ubuntu-linux-kernel-panic-by-jpangamarca.png"
 ---
 
 > **Nota:** Este post lo redacte en 2014, pero lo estoy publicando en 2017. Ya no tengo acceso al hardware mencionado en este articulo.

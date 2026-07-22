@@ -4,7 +4,7 @@ summary: "GH Pages is too restrictive, let's fix it with GH Actions"
 date: "2020-05-11"
 categories: []
 tags: []
-image: "/static/images/posts/gh-pages-migration-to-actions/markus-spiske-Tem0_jHYDgQ-unsplash.jpg"
+image: "/static/images/posts/gh-pages-migration-to-actions/markus-spiske-Tem0_jHYDgQ-unsplash.png"
 ---
 
 This is how my blog looks before update:

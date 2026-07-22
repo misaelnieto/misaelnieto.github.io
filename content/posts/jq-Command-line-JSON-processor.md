@@ -2,7 +2,7 @@
 title: "Learning to use jq, the Command-line JSON processor"
 date: "2018-12-20"
 categories: []
-image: "/static/images/posts/jq-Command-line-JSON-processor/hello-i-m-nik-6HzhFuiVO60-unsplash.jpg"
+image: "/static/images/posts/jq-Command-line-JSON-processor/hello-i-m-nik-6HzhFuiVO60-unsplash.png"
 ---
 
 Today I learned that [jq](https://stedolan.github.io/jq/) exists. It's a json preprocessor for the command line. Let's dive in!

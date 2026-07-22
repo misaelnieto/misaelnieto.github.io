@@ -4,7 +4,7 @@ summary: "It's really simple, just checkout and rsync"
 date: "2020-05-17"
 categories: []
 tags: []
-image: "/static/images/posts/simplest-gh-workflow-for-static-pages/alvaro-reyes-qWwpHwip31M-unsplash.jpg"
+image: "/static/images/posts/simplest-gh-workflow-for-static-pages/alvaro-reyes-qWwpHwip31M-unsplash.png"
 ---
 
 Ever since I learned about [GitHub

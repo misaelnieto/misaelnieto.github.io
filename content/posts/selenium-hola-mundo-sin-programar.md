@@ -11,7 +11,7 @@ tags:
   - "Programación"
   - "Selenium"
   - "Testing"
-image: "/static/images/posts/selenium-hola-mundo-sin-programar/spacex--p-KCm6xB9I-unsplash.jpg"
+image: "/static/images/posts/selenium-hola-mundo-sin-programar/spacex--p-KCm6xB9I-unsplash.png"
 ---
 
 ## Introducción a Selenium: ¡Hola Mundo sin código!
