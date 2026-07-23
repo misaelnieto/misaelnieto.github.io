@@ -1,31 +1,37 @@
 ---
 title: "Cuatro atajos del teclado de Gnome3"
 date: "2013-01-06"
-description: "Cuatro combinaciones de teclas útiles en Gnome3 usando la tecla Meta/Windows: maximizar, desmaximizar y alinear ventanas al 50% de la pantalla a izquierda o derecha."
+summary: "Cuatro combinaciones útiles con la tecla Meta en GNOME 3."
+description: "Cuatro combinaciones de teclas útiles en GNOME 3 usando la tecla Meta/Windows: maximizar, desmaximizar y alinear ventanas al 50% de la pantalla a izquierda o derecha."
+categories:
+  - "Tutoriales"
+  - "Linux"
+tags:
+  - gnome
+  - gnome3
+  - atajos
+  - teclado
+  - shortcuts
+locale: "es_MX"
+keywords: "gnome3, atajos de teclado, meta, maximizar, tiling, shortcuts"
 ---
 
 En los últimos días me he encontrado cuatro combinaciones de teclas que me
 ahorrarán muchos clicks. Se trata de la combinación de la tecla `Meta` o
-`Windows` y la teclas de dirección. Aquí les va la tabla de lo que hace cada
+`Windows` y las teclas de dirección. Aquí les va la tabla de lo que hace cada
 una:
 
-+----------------------------+-------------------------------------------------------------------------------+
-|   Combinación de teclas    | Acción                                                                        |
-+============================+===============================================================================+
-| `Meta` **+** `Arriba`        | Maximizar la ventana actual.                                                  |
-+----------------------------+-------------------------------------------------------------------------------+
-| `Meta` **+** `Abajo`         | Desmaximizar la ventana actual.                                               |
-+----------------------------+-------------------------------------------------------------------------------+
-| `Meta` **+** `Derecha`       | Alinear la ventana para que ocupe el 50% de la pantalla hacia la derecha.*    |
-+----------------------------+-------------------------------------------------------------------------------+
-| `Meta` **+** `Izquierda`     | Alinear la ventana para que ocupe el 50% de la pantalla *hacia la izquierda.* |
-+----------------------------+-------------------------------------------------------------------------------+
+| Combinación de teclas      | Acción                                                                        |
+|----------------------------|-------------------------------------------------------------------------------|
+| `Meta` **+** `Arriba`      | Maximizar la ventana actual.                                                  |
+| `Meta` **+** `Abajo`       | Desmaximizar la ventana actual.                                               |
+| `Meta` **+** `Derecha`     | Alinear la ventana para que ocupe el 50% de la pantalla hacia la derecha.     |
+| `Meta` **+** `Izquierda`   | Alinear la ventana para que ocupe el 50% de la pantalla *hacia la izquierda*. |
 
 A excepción de `Meta` **+** `Abajo`, todos los demás atajos alternan entre el
-tamaño y posiciones anteriores y el nuevo tamaño/posición. Por ejemlo,
+tamaño y posiciones anteriores y el nuevo tamaño/posición. Por ejemplo,
 supongamos que la ventana estaba maximizada y la acomodas para que tome el 50%
-de la izquierda con `Meta` **+** `Izquierda`, si presionas la misma
+de la izquierda con `Meta` **+** `Izquierda`; si presionas la misma
 combinación, la ventana volverá a su tamaño maximizado.
 
 ¿Ya lo probaste?
-

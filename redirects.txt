@@ -80,12 +80,34 @@
 /blog/my_first_issue_with_meteor_solved -> /blog/my-first-issue-with-meteor-solved
 /blog/my_first_issue_with_meteor_solved/ -> /blog/my-first-issue-with-meteor-solved
 
+# ----------------------------------------------------------------------------
+# Bloque 6 (curaduría posts 2012-11 a 2014-05)
+# ----------------------------------------------------------------------------
+
+# 4 slugs con guiones bajos y/o mayúsculas, normalizados a kebab-case.
+
+# Tutorial de git para Windows (era: tutorial_de_git_con_windoze)
+/blog/tutorial_de_git_con_windoze -> /blog/tutorial-git-windoze
+/blog/tutorial_de_git_con_windoze/ -> /blog/tutorial-git-windoze
+
+# Instalar Sublime 3 en Fedora 20 (era: sublime_3_en_fedora_20)
+/blog/sublime_3_en_fedora_20 -> /blog/sublime-3-en-fedora-20
+/blog/sublime_3_en_fedora_20/ -> /blog/sublime-3-en-fedora-20
+
+# KVM en Fedora (era: Maquinas_virtuales_en_Fedora)
+/blog/Maquinas_virtuales_en_Fedora -> /blog/maquinas-virtuales-en-fedora
+/blog/Maquinas_virtuales_en_Fedora/ -> /blog/maquinas-virtuales-en-fedora
+
+# Cumulative Update SQL Server 2012 (era: Como_actualizar_un_SQL_Server)
+/blog/Como_actualizar_un_SQL_Server -> /blog/como-actualizar-sql-server
+/blog/Como_actualizar_un_SQL_Server/ -> /blog/como-actualizar-sql-server
+
 
 # ============================================================================
 # Resumen
 # ============================================================================
 #
-# Total redirects pendientes: 8 slugs × 2 variantes (con/sin slash) = 16 reglas.
+# Total redirects pendientes: 12 slugs × 2 variantes (con/sin slash) = 24 reglas.
 #
 # Estado por bloque:
 #   Bloque 1: 1 rename
@@ -93,10 +115,12 @@
 #   Bloque 3: 0 renames
 #   Bloque 4: 0 renames
 #   Bloque 5: 4 renames
-#   Total:   8 renames
+#   Bloque 6: 4 renames
+#   Total:   12 renames
 #
 # Histórico de commits de curaduría:
 #   ce5f0f9  Bloque 1 (2009-01 a 2010-01)
 #   4848b58  Bloque 2 (2010-02 a 2010-06)
 #   e840f18  Bloque 3 (2010-08 a 2011-04)
 #   9f24798  Bloque 4 (2011-05 a 2011-10)
+#   e966922  Bloque 5 (2011-11 a 2012-11)
