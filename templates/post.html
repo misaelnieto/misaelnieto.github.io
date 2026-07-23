@@ -5,6 +5,7 @@
 {% block content %}
 <article class="h-entry post" lang="{{ page.lang | default(value=lang) }}">
   {% include "partials/entry-header.html" %}
+  {% include "partials/deprecated-notice.html" %}
 
   <div class="entry-meta">
     {% if page.date %}

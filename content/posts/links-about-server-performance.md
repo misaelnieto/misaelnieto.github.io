@@ -1,6 +1,9 @@
 ---
 title: "Links about server performance"
 date: "2009-01-17"
+extra:
+  deprecated: true
+  deprecated_reason: "los enlaces originales ya no resuelven y el contenido es curaduría de terceros sin voz propia"
 ---
 
 I'm gathering different links to server performance. This is in strong bias to

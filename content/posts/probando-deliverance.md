@@ -8,6 +8,9 @@ tags:
   - plone
   - theming
   - troubleshooting
+extra:
+  deprecated: true
+  deprecated_reason: "Deliverance fue deprecado hace años en favor de Diazo/plone.app.theming"
 ---
 
 Acabo de instalar mi sitio web

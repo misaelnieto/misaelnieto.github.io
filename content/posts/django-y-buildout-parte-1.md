@@ -1,53 +1,70 @@
 ---
 title: "Django y Buildout (Parte 1)"
 date: "2010-01-18"
+summary: "Cómo montar un buildout de Django 1.1 desde cero en Ubuntu Karmic: distribute, pip, paster y djangorecipe."
 description: "Primera parte de notas sobre cómo usar Django con Buildout para crear entornos de desarrollo replicables e independientes del sistema."
 categories:
-  - "Python Buildout DevOps"
+  - "Tutoriales"
+  - "Python"
+  - "DevOps"
+tags:
+  - django
+  - buildout
+  - python
+  - pip
+  - djangorecipe
+locale: "es_MX"
+keywords: "django, buildout, pip, distribute, paster, djangorecipe, ubuntu"
+extra:
+  deprecated: true
+  deprecated_reason: "Django 1.1, zc.buildout, distribute y paster quedaron obsoletos; el flujo moderno usa pip + venv"
 ---
 
 ## Intro
 
-Esta es la primera parte de las notas que escribo acerca de cómo usar Django
-con Buildout. Esto fué realizado en una instalación limpia de Ubuntu Karmic
-9.10
+Estas son las notas de mi primer buildout serio con Django, realizado en una
+instalación limpia de Ubuntu Karmic 9.10. Es la continuación natural de [Mi
+primera experiencia con Django y zc.buildout][intro] — aquí ya entramos en
+materia con el esqueleto del proyecto.
 
-Esta es una guía de instalación de Django que es diferente a la que se anuncia
-en la página web de Django. Usaremos buildout, que es una interesante manera
-de replicar en entorno de desarrollo en producción y viceversa.
+[intro]: /blog/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910 "Mi primera experiencia con Django y zc.buildout"
+
+Esta es una guía de instalación de Django diferente a la que se anuncia en la
+página web de Django. Usaremos buildout, que es una interesante manera de
+replicar el entorno de desarrollo en producción y viceversa.
 
 Una de las principales ventajas de usar buildout para nuestros proyectos en
-python es que es posible crear un entorno independiente de las librerías del
+Python es que es posible crear un entorno independiente de las librerías del
 sistema. En la práctica esto significa que se puede replicar las mismas
 condiciones que hay en el servidor en nuestro entorno de desarrollo.
 
-## Paso 1 - Instalación de distribute y PIP
+## Paso 1 — Instalación de distribute y PIP
 
- Primero, algunas notas:
+Primero, algunas notas:
 
-* Python usa distutils para manejar sus librerías.
-* Después del lanzamiento de distutils, emergió el sistema setuptools para automatizar el manejo de dependencias y el manejo de paquetes. Según Tarek Ziade, en su libro Expert Python Programming: Learn best practices to designing, coding, and distributing your Python software, setuptools es a Python lo que apt es a Debian/Ubuntu.
-* Las librerías de python se distribuyen en un formato común, que en la comunidad python les han llamado huevos (eggs). Un huevo de python es un archivo zip, pero con la extensión .egg.
-* El PyPi (Python Package Index) es el lugar principal donde se concentran la mayoría de los huevos de Python. Existen otros índices, tales como el índice de productos de Plone. El PyPi viene siendo a Python, como los repositorios de paquetes a Debian/Ubuntu.
-* setuptools ha estado envejeciendo y en base a eso, Tarek Ziade decidió hacer un fork de setuptools llamado distribute (<http://pypi.python.org/pypi/distribute>)
-* PIP es el reemplazo de easy_install.
+* Python usa `distutils` para manejar sus librerías.
+* Después del lanzamiento de distutils, emergió el sistema `setuptools` para automatizar el manejo de dependencias y el manejo de paquetes. Según Tarek Ziade, en su libro *Expert Python Programming*, setuptools es a Python lo que `apt` es a Debian/Ubuntu.
+* Las librerías de Python se distribuyen en un formato común, que en la comunidad Python les han llamado huevos (eggs). Un huevo de Python es un archivo zip, pero con la extensión `.egg`.
+* El PyPI (Python Package Index) es el lugar principal donde se concentran la mayoría de los huevos de Python. Existen otros índices, tales como el índice de productos de Plone. El PyPI viene siendo a Python como los repositorios de paquetes a Debian/Ubuntu.
+* `setuptools` ha estado envejeciendo y en base a eso, Tarek Ziade decidió hacer un fork llamado `distribute` (<http://pypi.python.org/pypi/distribute>).
+* `pip` es el reemplazo de `easy_install`.
 
 Todo este cambio se resume en la siguiente imagen:
 
 ![Pip distribute](/static/images/posts/django-y-buildout-parte-1/2009-distribute.png)
 
 Una vez terminado el intento de explicación, pongámonos manos a la obra. Aquí
-está una lista de instrucciones necesarias para instalar distribute en una
-máquina limpia. Se instalará distribute, pip y pastescript.
+está una lista de instrucciones necesarias para instalar `distribute` en una
+máquina limpia. Se instalará distribute, pip y pastescript:
 
 ```
 tzicatl@hormiga-negra:~ $ wget http://python-distribute.org/distribute_setup.py
-tzicatl@hormiga-negra:~ $ sudo python distribute_setup.py 
+tzicatl@hormiga-negra:~ $ sudo python distribute_setup.py
 tzicatl@hormiga-negra:~ $ sudo easy_install pip
 tzicatl@hormiga-negra:~ $ sudo pip install PasteScript
 ```
 
-Ahora, probando paster:
+Ahora, probando `paster`:
 
 ```
 tzicatl@hormiga-negra:~/Descargas$ paster create --list-templates
@@ -57,15 +74,14 @@ Available templates:
 tzicatl@hormiga-negra:~/Descargas$
 ```
 
-Funciona!!.
+¡Funciona!
 
-El siguiente paso es instalar las plantillas necesarias para que paster genere
-todo el esqueleto de nuestro proyecto con Django. En PyPi hay dos huevos con
-recetas para crear projectos con Django y Buildout,
+El siguiente paso es instalar las plantillas necesarias para que `paster`
+genere todo el esqueleto de nuestro proyecto con Django. En PyPI hay dos
+huevos con recetas para crear proyectos con Django y buildout:
 
-* <http://pypi.python.org/pypi/fez.djangoskel/> Contiene plantillas para crear esqueletos de código y construir una instancia de django usando buildout.
-
-* <http://pypi.python.org/pypi/djangorecipe> Descarga Django y lo instala en un lugar independiente de las liberías que tiene el sistema.
+* <http://pypi.python.org/pypi/fez.djangoskel/> Contiene plantillas para crear esqueletos de código y construir una instancia de Django usando buildout.
+* <http://pypi.python.org/pypi/djangorecipe> Descarga Django y lo instala en un lugar independiente de las librerías que tiene el sistema.
 
 Comenzamos por instalar `fez.djangoskel`:
 
@@ -88,7 +104,7 @@ Available templates:
 tzicatl@laptop:~ $
 ```
 
-## Paso 2 - Crear un buildout para django
+## Paso 2 — Crear un buildout para django
 
 ```
 tzicatl@laptop:~/programar$ paster create -t django_buildout
@@ -118,31 +134,27 @@ See README.txt for details
 tzicatl@laptop:~/programar$
 ```
 
-Con esta instrucción se ha creado un directorio my_djangobuildout que contiene
-los archivos necesarios para arrancar nuestra buildout. Veamos qué archivos
-contiene:
+Con esta instrucción se ha creado un directorio `my_djangobuildout` que
+contiene los archivos necesarios para arrancar nuestra buildout. Veamos qué
+archivos contiene:
 
 ```
 tzicatl@laptop:~/programar$ cd my_djangobuildout/
 tzicatl@laptop:~/programar/my_djangobuildout$ ls
-bootstrap.py  buildout.cfg  devel.cfg  README.txt 
+bootstrap.py  buildout.cfg  devel.cfg  README.txt
 tzicatl@laptop:~/programar/my_djangobuildout$
-
- Tenemos 3 archivos:
-
-    bootstrap.py
-        Ejecuta este archivo para crear un directorio bin/ con los diferentes scripts que se han configurado en buildout.cfg.
-    buildout.cfg
-        Es el archivo de configuración principal. Aquí se instruye a buildout sobre qué scripts ejecutar. También aquí controlaremos qué librerías extras se instalaran en nuestro entorno.
-    devel.cfg
-        Opciones de configuración extras para el modo de depurado.
-    README.txt
-        Archivo README ;)
 ```
 
-Ahora modificamos buildout.cfg para que todo se ejecute con python2.6 y se
-instalen 2 librerías extra de manera independiente del sistema. El
-buildout.cfg original es este:
+Tenemos 4 archivos:
+
+* **`bootstrap.py`** &mdash; ejecuta este archivo para crear un directorio `bin/` con los diferentes scripts que se han configurado en `buildout.cfg`.
+* **`buildout.cfg`** &mdash; el archivo de configuración principal. Aquí se instruye a buildout sobre qué scripts ejecutar. También aquí controlaremos qué librerías extras se instalarán en nuestro entorno.
+* **`devel.cfg`** &mdash; opciones de configuración extras para el modo de depurado.
+* **`README.txt`** &mdash; archivo README ;)
+
+Ahora modificamos `buildout.cfg` para que todo se ejecute con `python2.6` y se
+instalen dos librerías extra de manera independiente del sistema. El
+`buildout.cfg` original es este:
 
 ```ini
 [buildout]
@@ -155,16 +167,18 @@ project = projects
 wsgi=true
 settings=production
 ```
+
 Y completadas las modificaciones queda así:
 
 ```ini
+[buildout]
 executable=/usr/bin/python2.6
-parts = 
+parts =
     zlib
     PIL
     django
 
-eggs = 
+eggs =
     PIL
 
 [django]
@@ -174,12 +188,12 @@ project = projects
 wsgi=true
 settings=production
 
-# Build zlib for PIL, and PIL so we don not rely on something in the system
+# Compila zlib para PIL y PIL para no depender de nada del sistema
 [zlib]
 recipe = hexagonit.recipe.cmmi
 url = http://www.zlib.net/zlib-1.2.3.tar.gz
 configure-options = --shared
- 
+
 [PIL]
 recipe = zc.recipe.egg:custom
 egg = PIL
@@ -188,15 +202,14 @@ include-dirs = ${zlib:location}/include
 library-dirs = ${zlib:location}/lib
 rpath = ${zlib:location}/lib
 ```
- 
 
-* **Nota1**: Este es el momento perfecto para añadir los archivos que estan dentro del buildout a un repositorio git o SVN.
-* **Nota 2**: Ahora es momento de configurar ~/.buildout/default.cfg para designar un directorio común de cache de huevos de python (.egg). (Link hacia la documentación de Plone).
+* **Nota 1:** Este es el momento perfecto para añadir los archivos que están dentro del buildout a un repositorio git o SVN.
+* **Nota 2:** Ahora es momento de configurar `~/.buildout/default.cfg` para designar un directorio común de caché de huevos de Python (`.egg`).
 
-Ejecutamos `bootstrap.py`
+Ejecutamos `bootstrap.py`:
 
 ```
-tzicatl@laptop:~/programar/my_djangobuildout$ python2.6 bootstrap.py 
+tzicatl@laptop:~/programar/my_djangobuildout$ python2.6 bootstrap.py
 Creating directory '/home/tzicatl/programar/my_djangobuildout/bin'.
 Creating directory '/home/tzicatl/programar/my_djangobuildout/parts'.
 Creating directory '/home/tzicatl/programar/my_djangobuildout/develop-eggs'.
@@ -204,12 +217,12 @@ Generated script '/home/tzicatl/programar/my_djangobuildout/bin/buildout'.
 tzicatl@laptop:~/programar/my_djangobuildout$
 ```
 
-Ahora ya podemos ejecutar el buildout que automaticamente bajará, compilará e
-instalará Django, Zlib y PIL en un entorno aislado del sistema.  Lo que se va
-a ver en la consola será algo como esto:
+Ahora ya podemos ejecutar el buildout que automáticamente bajará, compilará e
+instalará Django, Zlib y PIL en un entorno aislado del sistema. Lo que se va a
+ver en la consola será algo como esto:
 
 ```
-tzicatl@laptop:~/programar/my_djangobuildout$ bin/buildout 
+tzicatl@laptop:~/programar/my_djangobuildout$ bin/buildout
 Unused options for buildout: 'download-directory'.
 Installing django.
 Getting distribution for 'zc.buildout'.
@@ -234,11 +247,13 @@ development.py  __init__.py  media  production.py  settings.py  templates  urls.
 tzicatl@laptop:~/programar/my_djangobuildout$
 ```
 
-A continuación se explicará cáda uno de los directorios y archivos
+A continuación se explica cada uno de los directorios y archivos:
 
-* `bin/`: El directorio donde residen los programas y scripts para construir una instancia de django y controlarla.
-* `develop-eggs/`: Aquí se depositan huevos de python
-* `parts/`: Si existe alguna librería de python que no esté empaquetada como huevo (por ejemplo, zlib), este será el lugar donde residirán esas librerías.
-* `projects/`: Aquí es donde depositaremos nuestro código que conformará nuestra aplicación de Django.
+* **`bin/`** &mdash; el directorio donde residen los programas y scripts para construir una instancia de Django y controlarla.
+* **`develop-eggs/`** &mdash; aquí se depositan huevos de Python.
+* **`parts/`** &mdash; si existe alguna librería de Python que no esté empaquetada como huevo (por ejemplo, zlib), este será el lugar donde residirán esas librerías.
+* **`projects/`** &mdash; aquí es donde depositaremos nuestro código que conformará nuestra aplicación de Django.
 
-Hasta aquí la primera entrega de mis Notas.
+Hasta aquí la primera entrega. En la siguiente ya empezamos a escribir la app
+encima de este esqueleto &mdash; con `manage.py` corriendo sobre el binario que
+nos dejó buildout.

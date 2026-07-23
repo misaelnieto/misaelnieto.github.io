@@ -1066,6 +1066,13 @@ sup.footnote-reference a:hover {
 .callout p:last-child {
     margin-bottom: 0;
 }
+.deprecation-notice {
+    padding-left: 1.4rem;
+}
+.deprecation-notice p:not(.callout-title) {
+    font-size: 0.88rem;
+    font-style: italic;
+}
 
 /* === CONTACT FORM === */
 .contact-form {

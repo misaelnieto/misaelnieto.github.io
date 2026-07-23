@@ -4,6 +4,9 @@ date: "2010-01-18"
 description: "Lista de tutoriales interesantes del Pycon 2010: optimización de Python, BFG, desarrollo web TDD, almacenamiento de datos, Pinax, SQLAlchemy, Django, Open Stack y Selenium."
 categories:
   - "Programacion Python"
+extra:
+  deprecated: true
+  deprecated_reason: "las URLs de PyCon 2010 ya no resuelven y el cuerpo del post es copy-paste de abstracts sin curaduría propia"
 ---
 
 Parece que este año, el equipo técnico de iServices viajará al Pycon 2010 y

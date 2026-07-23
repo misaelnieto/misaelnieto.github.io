@@ -1,0 +1,10 @@
+{% if page.extra.deprecated %}
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora{% if page.extra.deprecated_reason %}: {{ page.extra.deprecated_reason }}{% endif %}.
+  </p>
+</aside>
+{% endif %}

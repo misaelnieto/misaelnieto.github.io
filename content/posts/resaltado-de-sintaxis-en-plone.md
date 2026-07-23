@@ -3,6 +3,9 @@ title: "Resaltado de sintaxis en plone"
 date: "2009-09-21"
 tags:
   - "Plone"
+extra:
+  deprecated: true
+  deprecated_reason: "Plone 4 ya no se mantiene y SyntaxHighlighter quedó absorbido por editores modernos"
 ---
 
 ¿Por qué no hay resaltado de sintaxis en plone?
