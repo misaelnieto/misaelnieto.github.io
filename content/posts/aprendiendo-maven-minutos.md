@@ -1,25 +1,27 @@
 ---
-title: "Aprendiendo maven en unos minutos"
+title: "Aprendiendo Maven en unos minutos"
+summary: "Apuntes rápidos sobre Maven, el build tool de Java, en cinco minutos."
+description: "Notas introductorias sobre Apache Maven: qué es, cómo invocarlo con mvn, en qué se parece a zc.buildout y Autotools, y qué cosas NO es Maven."
 date: "2014-07-16"
 categories:
-  - "Programación"
+  - "Tutoriales"
   - "DevOps"
 tags:
   - maven
   - java
-  - build tool
+  - build-tool
+  - jvm
+locale: "es_MX"
+keywords: "maven, java, build tool, mvn, apache maven, jvm"
 ---
-
 
 ![Regresando al kinder](/static/images/posts/Aprendiendo-maven-en-unos-minutos/404321726_1dd8836d14_o.jpg)
 
-
-
-Encontre una pequeña guía: <http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html>
+Encontré una pequeña guía: <http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html>
 
 Y lo que aprendí es que:
 
-* Maven es una palabra que significa alguien que sabe mucho acerca de un tema en específico. Link
+* Maven es una palabra que significa *alguien que sabe mucho acerca de un tema en específico*.
 
 * Maven se invoca con la orden `mvn`. Por ejemplo: `mvn --version`:
 
@@ -34,15 +36,15 @@ OS name: "linux", version: "3.15.4-200.fc20.x86_64", arch: "amd64", family: "uni
 nnieto@wks-nnieto Code$
 ```
 
-* Hay toda una página dedicada a explicar [qué es Maven](http://maven.apache.org/what-is-maven.html). Segun esto, Maven sirve para:
+* Hay toda una página dedicada a explicar [qué es Maven](http://maven.apache.org/what-is-maven.html). Según esto, Maven sirve para:
 
     - Hacer más fácil la tarea de construir un proyecto de software, obviamente en Java.
 
-    - Se converte en una herramienta standard de la comunidad *Javera*. Los
+    - Se convierte en una herramienta estándar de la comunidad *javera*. Los
       iniciados en Maven saben reconstruir un proyecto para tener una idea
       general de cómo funciona el software.
 
-    - Y dicen que también se convierte en documentacion del proyecto.
+    - Y dicen que también se convierte en documentación del proyecto.
 
     - A partir de todo esto concluyo que Maven es una herramienta parecida a
     [Autotools](https://es.wikipedia.org/wiki/GNU_build_system) para el mundo
@@ -59,4 +61,4 @@ nnieto@wks-nnieto Code$
     - *Maven no es* un conjunto de recetas/scriptlets reusables de Ant.
 
 ---
-Creo que la imagen de portada la baje de Flickr, pero perdí el link. Si alguien lo sabe avíseme.
+Creo que la imagen de portada la bajé de Flickr, pero perdí el link. Si alguien lo sabe, avíseme.

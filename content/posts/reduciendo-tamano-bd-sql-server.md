@@ -1,8 +1,22 @@
 ---
 title: "Reduciendo el tamaño de una BD en SQL Server"
+summary: "Receta DBA para encoger bitácoras y archivos .mdf en SQL Server 2008 R2."
+description: "Guía paso a paso para reducir el tamaño de una base de datos de SQL Server cambiando el modelo de recuperación a SIMPLE y usando DBCC SHRINKFILE y SHRINKDATABASE."
 date: "2014-06-26"
 categories:
-  - "SQLServer"
+  - "Bases de datos"
+tags:
+  - sql-server
+  - sqlserver
+  - dbcc
+  - shrinkfile
+  - recovery-model
+  - dba
+locale: "es_MX"
+keywords: "sql server, shrinkfile, shrinkdatabase, recovery model, dbcc, dba, reducir tamaño"
+extra:
+  deprecated: true
+  deprecated_reason: "SQL Server 2008 R2 llegó a fin de vida. Los comandos DBCC SHRINKFILE y SHRINKDATABASE siguen existiendo en versiones modernas, pero las recomendaciones de Paul Randal sobre por qué NO encoger archivos de datos siguen siendo la postura autoritativa; leerlo antes de aplicar nada."
 ---
 
 ## Intro
@@ -10,20 +24,20 @@ categories:
 Esta es otra de mis aventuras como DBA de SQL Server.
 
 El reto ahora es reducir el tamaño de una base de datos de SQL Server. El
-servidor es SQL Server 2008r2. Lo bueno es que esta base de datos es para los
+servidor es SQL Server 2008 R2. Lo bueno es que esta base de datos es para los
 desarrolladores y tengo permisos de romper cosas, borrar bitácoras, alterar
-valores, etc ¡A darle pues! ¿De qué tamaño es la BD?
+valores, etc. ¡A darle pues! ¿De qué tamaño es la BD?
 
-Este es el primer paso. Averiguar qué tanto espacio esta ocupando la base de
-datos. De antemano se que el archivo de respaldo pesa alrededor de `800 GB`
+Este es el primer paso. Averiguar qué tanto espacio está ocupando la base
+de datos. De antemano sé que el archivo de respaldo pesa alrededor de `800 GB`.
 ¿Pero cuánto usa en realidad en el disco duro?
 
 [Pinal Dave](http://blog.sqlauthority.com/2010/02/08/sql-server-find-the-size-of-database-file-find-the-size-of-log-file/) al rescate:
 
 ```sql
 SELECT DB_NAME(database_id) AS DatabaseName,
-Name AS Logical_Name,
-Physical_Name, (size*8)/1024 SizeMB, ((size*8)/1024)/1024 SizeGB
+       Name AS Logical_Name,
+       Physical_Name, (size*8)/1024 SizeMB, ((size*8)/1024)/1024 SizeGB
 FROM sys.master_files
 WHERE DB_NAME(database_id) = 'MI_DB_GIGANTE';
 GO
@@ -60,11 +74,11 @@ Y el resultado en Gigabytes:
 El resultado original era `125206936` bloques de `8KB` cada uno. ¡Casi un
 Terabyte!
 
-Ahora ¿Cómo le hago para reducir el tamaño?
+Ahora ¿cómo le hago para reducir el tamaño?
 
 ## Recovery model
 
-El _Recovery Model_ de SQL Server afecta la manera en que se hacen respaldos y
+El *Recovery Model* de SQL Server afecta la manera en que se hacen respaldos y
 cómo se restauran. SQL Server puede registrar todas y cada una de las
 operaciones de la base de datos en una bitácora. La bitácora permite restaurar
 una base de datos en un punto exacto en el pasado, por ejemplo: ayer a las
@@ -72,14 +86,15 @@ una base de datos en un punto exacto en el pasado, por ejemplo: ayer a las
 
 Existen tres modos de recuperación:
 
-* **Simple**.  No guarda nada en las bitácoras.
+* **Simple**. No guarda nada en las bitácoras.
 
 * **Full**. Guarda todas las operaciones en las bitácoras. El modelo más seguro.
 
 * **Bulk logged**. Guarda las operaciones en masa o volumen. Puede perder
 datos si la bitácora se daña, pero usa menos espacio en disco.
 
-Tengo la ventaja de que esta base de datos es para los desarrolladores, así que la desición es fácil: Podemos usar el modo **simple**.
+Tengo la ventaja de que esta base de datos es para los desarrolladores, así
+que la decisión es fácil: podemos usar el modo **Simple**.
 
 ```sql
 ALTER DATABASE [MI_DB_GIGANTE] SET RECOVERY SIMPLE WITH NO_WAIT;
@@ -91,18 +106,17 @@ Con esto nos aseguramos que las bitácoras no crezcan. ¿Qué sigue?
 ## Encoger las bitácoras
 
 **CUIDADO**: Encoger las bitácoras hará que pierdas información. Yo tengo la
-ventaja de tener una base de datos de prueba. No lo tomes esto como una
-recetita sin entender lo que estas haciendo. Para dejar claro, **no sigas
-leyendo este post si antes no has leido los siguientes sitios:
+ventaja de tener una base de datos de prueba. No tomes esto como una
+recetita sin entender lo que estás haciendo. Para dejar claro, **no sigas
+leyendo este post si antes no has leído** los siguientes sitios:
 
 * [SQL SERVER – SHRINKFILE and TRUNCATE Log File in SQL Server 2008](http://blog.sqlauthority.com/2010/05/03/sql-server-shrinkfile-and-truncate-log-file-in-sql-server-2008/) de Pinal Dave
 
-* [[Why you should not shrink your data files](http://www.sqlskills.com/blogs/paul/why-you-should-not-shrink-your-data-files/) de Paul S. Randal
+* [Why you should not shrink your data files](http://www.sqlskills.com/blogs/paul/why-you-should-not-shrink-your-data-files/) de Paul S. Randal
 
+¿Ya los leíste? Sigamos.
 
-¿Ya los leiste? Sigamos.
-
-Anteriormente ya habia sacado el tamaño del archivo de `LOG`. Era de 98
+Anteriormente ya había sacado el tamaño del archivo de `LOG`. Era de 98
 Gigabytes. Con `DBCC SHRINKFILE` me podré deshacer de los logs.
 
 ```sql
@@ -110,10 +124,9 @@ DBCC SHRINKFILE (Data_Log)
 ```
 
 ¿Sirvió de algo? Vamos a averiguarlo ejecutando la primera consulta de este
-¿post, pero ahora sobre sobre `sys.master_files`.
+post, pero ahora sobre `sys.master_files`:
 
-```mysql
-
+```sql
 DatabaseName     Logical_Name    Physical_Name                  SizeMB  SizeGB
 ==============================================================================
 MI_DB_GIGANTE    db_Data         C:\MI_DB_GIGANTE\Data.mdf      238000  232
@@ -123,11 +136,11 @@ MI_DB_GIGANTE    db_Data03       C:\MI_DB_GIGANTE\Data03.mdf    75000   73
 MI_DB_GIGANTE    db_Data04       C:\MI_DB_GIGANTE\Data04.mdf    75000   73
 ```
 
-¡Que bien! ¡Se liberaron **98 Gigabytes**!
+¡Qué bien! ¡Se liberaron **98 Gigabytes**!
 
 ## Encogiendo los datos
 
-Use `DBCC SHRINKDATABASE`, pero no liberó demasiado espacio.
+Usé `DBCC SHRINKDATABASE`, pero no liberó demasiado espacio.
 
 ```sql
 DBCC SHRINKDATABASE (MI_DB_GIGANTE, 10);
@@ -135,8 +148,7 @@ GO
 ```
 
 La documentación dice que para que regrese el espacio usado al sistema
-operativo hay que usar el parametro `TRUNCATEONLY`.
-
+operativo hay que usar el parámetro `TRUNCATEONLY`.
 
 ```sql
 DBCC SHRINKDATABASE (MI_DB_GIGANTE, TRUNCATEONLY);
@@ -145,7 +157,7 @@ GO
 
 Pero tampoco vi ninguna mejora significativa.
 
-``` sql
+```sql
 DatabaseName     Logical_Name    Physical_Name                  SizeMB  SizeGB
 ==============================================================================
 MI_DB_GIGANTE    db_Data         C:\MI_DB_GIGANTE\Data.mdf      237970  232
@@ -159,7 +171,7 @@ MI_DB_GIGANTE    db_Data04       C:\MI_DB_GIGANTE\Data04.mdf    75000   73
 ## Encogiendo los archivos de datos
 
 Estaba monitoreando la misma base de datos cuando vi que alguien más estaba
-corriendo `DBCC` sobre uno de los archivos de de datos. Le pregunté acerca de
+corriendo `DBCC` sobre uno de los archivos de datos. Le pregunté acerca de
 eso y como resultado intenté de nuevo en mi base de datos.
 
 Elegí `db_Data03` como conejillo de indias.
@@ -169,7 +181,7 @@ DBCC SHRINKFILE (db_Data03)
 ```
 
 El comando tardó dos minutos en completar y devolvió las siguientes
-estadisticas:
+estadísticas:
 
 ```
 DbId    FileId  CurrentSize     MinimumSize     UsedPages       EstimatedPages
@@ -179,15 +191,15 @@ DbId    FileId  CurrentSize     MinimumSize     UsedPages       EstimatedPages
 En la documentación de DBCC explican qué significa cada uno de esos campos.
 Las que me interesan son:
 
-* **CurrentSize**: El número de páginas de `8 KB` que el archivo ocupa actualmente.
+* **CurrentSize**: el número de páginas de `8 KB` que el archivo ocupa actualmente.
 
-* **MinimumSize**: El número de páginas de `8 KB` que el archivo podría ocupar, como mínimo.
+* **MinimumSize**: el número de páginas de `8 KB` que el archivo podría ocupar, como mínimo.
 
-* **UsedPages**: El número de páginas de `8 KB` que utiliza actualmente el archivo
+* **UsedPages**: el número de páginas de `8 KB` que utiliza actualmente el archivo.
 
-* **EstimatedPages**: El número de páginas de `8 KB` que el Motor de base de datos estima que puede reducir del archivo.
+* **EstimatedPages**: el número de páginas de `8 KB` que el Motor de base de datos estima que puede reducir del archivo.
 
-Por lo que veo no voy a tener suerte con este archivo. Voy a probar con `db_data_04` y `db_Data`.
+Por lo que veo no voy a tener suerte con este archivo. Voy a probar con `db_Data04` y `db_Data`:
 
 ```sql
 DBCC SHRINKFILE (db_Data04)
@@ -202,3 +214,4 @@ DbId    FileId  CurrentSize MinimumSize UsedPages   EstimatedPages
 
 Se me terminó el tiempo :( Ojalá tenga tiempo para terminarlo y ofrecer alguna solución útil.
 
+**FIN**

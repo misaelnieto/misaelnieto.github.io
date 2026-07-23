@@ -102,12 +102,38 @@
 /blog/Como_actualizar_un_SQL_Server -> /blog/como-actualizar-sql-server
 /blog/Como_actualizar_un_SQL_Server/ -> /blog/como-actualizar-sql-server
 
+# ----------------------------------------------------------------------------
+# Bloque 7 (curaduría posts 2014-05 a 2014-07)
+# ----------------------------------------------------------------------------
+
+# 5 slugs con guiones bajos y/o mayúsculas, normalizados a kebab-case.
+
+# Script Python 3 para renombrar screenshots (era: Python3_para_renombrar_screenshots)
+/blog/Python3_para_renombrar_screenshots -> /blog/python3-renombrar-screenshots
+/blog/Python3_para_renombrar_screenshots/ -> /blog/python3-renombrar-screenshots
+
+# Reducir tamaño de BD SQL Server (era: reduciendo_tamano_BD_SQL_Server)
+/blog/reduciendo_tamano_BD_SQL_Server -> /blog/reduciendo-tamano-bd-sql-server
+/blog/reduciendo_tamano_BD_SQL_Server/ -> /blog/reduciendo-tamano-bd-sql-server
+
+# Preparar Ubuntu 14.04 para Django (era: prepara_ubuntu_1404_para_django)
+/blog/prepara_ubuntu_1404_para_django -> /blog/prepara-ubuntu-1404-django
+/blog/prepara_ubuntu_1404_para_django/ -> /blog/prepara-ubuntu-1404-django
+
+# Aprendiendo Maven (era: Aprendiendo-maven-en-unos-minutos)
+/blog/Aprendiendo-maven-en-unos-minutos -> /blog/aprendiendo-maven-minutos
+/blog/Aprendiendo-maven-en-unos-minutos/ -> /blog/aprendiendo-maven-minutos
+
+# SFTP enjaulado chroot (era: Servidor-SFTP-enjaulado-con-chroot)
+/blog/Servidor-SFTP-enjaulado-con-chroot -> /blog/servidor-sftp-enjaulado-chroot
+/blog/Servidor-SFTP-enjaulado-con-chroot/ -> /blog/servidor-sftp-enjaulado-chroot
+
 
 # ============================================================================
 # Resumen
 # ============================================================================
 #
-# Total redirects pendientes: 12 slugs × 2 variantes (con/sin slash) = 24 reglas.
+# Total redirects pendientes: 17 slugs × 2 variantes (con/sin slash) = 34 reglas.
 #
 # Estado por bloque:
 #   Bloque 1: 1 rename
@@ -116,11 +142,13 @@
 #   Bloque 4: 0 renames
 #   Bloque 5: 4 renames
 #   Bloque 6: 4 renames
-#   Total:   12 renames
+#   Bloque 7: 5 renames
+#   Total:   17 renames
 #
 # Histórico de commits de curaduría:
 #   ce5f0f9  Bloque 1 (2009-01 a 2010-01)
 #   4848b58  Bloque 2 (2010-02 a 2010-06)
 #   e840f18  Bloque 3 (2010-08 a 2011-04)
-#   9f24798  Bloque 4 (2011-05 a 2011-10)
+#   b1fc91e  Bloque 4 (2011-05 a 2011-10)
 #   e966922  Bloque 5 (2011-11 a 2012-11)
+#   13ff3d6  Bloque 6 (2012-11 a 2014-05)

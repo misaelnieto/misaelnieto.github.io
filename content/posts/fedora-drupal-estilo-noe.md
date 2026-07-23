@@ -1,23 +1,39 @@
 ---
 title: "Preparando Fedora para Drupal 7 al estilo Noe"
+summary: "Cómo correr Drupal 7 en Fedora usando el servidor PHP integrado y SQLite."
+description: "Tutorial para instalar Drupal 7 en Fedora sin Apache ni MySQL, usando el servidor web integrado de PHP, SQLite, composer y Drush; incluye el comando site-install."
 date: "2014-06-19"
 categories:
-  - "Linux Fedora Drupal"
+  - "Tutoriales"
+  - "Linux"
+tags:
+  - drupal
+  - drupal-7
+  - fedora
+  - php
+  - drush
+  - composer
+  - sqlite
+locale: "es_MX"
+keywords: "drupal 7, fedora, php, sqlite, drush, composer, servidor web integrado"
+extra:
+  deprecated: true
+  deprecated_reason: "Drupal 7 llegó a fin de vida en enero de 2025; Drush dev-master y el flujo con yum/composer de 2014 quedaron obsoletos. El concepto (PHP built-in server + SQLite) sigue vigente pero las versiones específicas no."
 ---
 
 ## Intro
 
-![PHP corriendo su servidor interno desde la linea de comandos](/static/images/posts/fedora-drupal-estilo-noe/screenshot-2014-06-19-20-10-24.png)
+![PHP corriendo su servidor interno desde la línea de comandos](/static/images/posts/fedora-drupal-estilo-noe/screenshot-2014-06-19-20-10-24.png)
 
 Tengo unos minutos libres y decidí complicarme la vida un poco más de lo que
-ya esta. Resulta que hace algunas semanas instale Fedora desde cero y ya perdi
-todo lo que estaba haciendo con Drupal. Ahora lo tengo que re hacer, pero:
+ya está. Resulta que hace algunas semanas instalé Fedora desde cero y ya perdí
+todo lo que estaba haciendo con Drupal. Ahora lo tengo que rehacer, pero:
 
-* No voy a usar Apache por que PHP ya trae un servidor web integrado y
-* funciona bastante bien para desarrollar cosas en Drupal.
+* No voy a usar Apache, porque PHP ya trae un servidor web integrado y
+  funciona bastante bien para desarrollar cosas en Drupal.
 
-* Tampoco voy a instalar MySQL o MariaDB por que Drupal puede usar SQLite y
-* tambien funciona bastante bien.
+* Tampoco voy a instalar MySQL o MariaDB, porque Drupal puede usar SQLite y
+  también funciona bastante bien.
 
 * Solo necesito instalar PHP, composer y drush para comenzar a chambear.
 
@@ -32,9 +48,9 @@ usar la librería de gráficos GD.
 sudo yum install php php-cli php-pdo php-gd
 ```
 
-Cuando se instala php, automaticamente se instala Apache. Para revisar si
-Apache se arranca junto con la maquina se puede hacer uso de `systemctl` (Fedora
-ya viene con systemd)
+Cuando se instala php, automáticamente se instala Apache. Para revisar si
+Apache se arranca junto con la máquina se puede hacer uso de `systemctl` (Fedora
+ya viene con systemd):
 
 ```bash
 $ systemctl status httpd
@@ -52,17 +68,21 @@ Ya tenemos php, ahora es necesario instalar
 $ mkdir -p ~/bin
 $ cd ~/bin
 $ curl -sS https://getcomposer.org/installer | php
-All settings correct f0r using Composer
+```
 
+Salida:
+
+```
+All settings correct for using Composer
 Downloading...
 
 Composer successfully installed to: /home/nnieto/bin/composer.phar
 Use it: php composer.phar
 ```
 
-El primer comando es para crear el directorio `~/bin`. Fedora ya esta
+El primer comando es para crear el directorio `~/bin`. Fedora ya está
 configurado para incluir ese directorio en `$PATH`. Si en ese directorio
-colocamos algun o script que sea ejecutable, podremos invocarlo solo con su
+colocamos algún script que sea ejecutable, podremos invocarlo solo con su
 nombre desde cualquier lugar.
 
 ## Instalar Drush
@@ -82,7 +102,8 @@ Updating dependencies (including require-dev)
 Writing lock file
 Generating autoload files
 ```
-Luego hice una liga simbólica hacia el directorio `~/bin`
+
+Luego hice una liga simbólica hacia el directorio `~/bin`:
 
 ```bash
 $ ln -s ~/.composer/vendor/drush/drush/drush ~/bin/drush
@@ -93,7 +114,7 @@ $ ln -s ~/.composer/vendor/drush/drush/drush ~/bin/drush
 ## Instalar Drupal con Drush
 
 Según [este sitio](http://www.coderintherye.com/install-drupal-7-using-drush)
-con Drush puedo instalar y configura Drupal 7 en dos patadas. ¡Eso me gusta!
+con Drush puedo instalar y configurar Drupal 7 en dos patadas. ¡Eso me gusta!
 
 ```bash
 $ drush dl drupal-7.x
@@ -101,15 +122,13 @@ Project drupal (7.x-dev) downloaded to /home/nnieto/Code/Hkl/hkl_drupal/drupal-7
 Project drupal Contains:                                                                  [success]
  - 3 profiles: standard, minimal, testing
  - 4 themes: seven, stark, bartik, garland
- - 47 modules: update, menu, dashboard, simpletest, forum, image, help, aggregator, rdf, blog, syslog, search, dblog, trigger, locale, profile, number, text,
-field_sql_storage, options, list, field, translation, shortcut, taxonomy, field_ui, toolbar, user, file, comment, tracker, system, color, php, contextual,
-block, statistics, contact, openid, node, overlay, book, poll, filter, path, drupal_system_listing_incompatible_test, drupal_system_listing_compatible_test
+ - 47 modules: ...
 ```
 
 ¿Qué hizo? Bajó una copia de Drupal (asumo que era la más reciente) y la puso
-en una carpeta de nombre drupal-7.x-dev. Nada mal.
+en una carpeta de nombre `drupal-7.x-dev`. Nada mal.
 
-Ahora es momento de usar drush para configurar el sitio desde la linea de comandos:
+Ahora es momento de usar drush para configurar el sitio desde la línea de comandos:
 
 ```bash
 $ cd drupal-7.x-dev
@@ -119,16 +138,15 @@ You are about to CREATE the 'sites/default/files/.ht.sqlite' database.
 Do you want to continue? (y/n): y
 Starting Drupal installation. This takes a few seconds ...       [ok]
 Installation complete.  User name: admin  User password: admin   [ok]
-
 ```
 
 ¡Ooookey! ¿Qué quiere decir esto? ¿Ya instaló y configuró Drupal? ¿Apoco ya no
-necesito correr el wizard de instalación? ¿Dónde puso la base de datos?
+necesito correr el *wizard* de instalación? ¿Dónde puso la base de datos?
 
-Primero contesto la última pregunta: ¿Dónde metio la base de datos? Bueno, yo
-se que estoy dentro del directorio de instalación de Drupal y que la URI de la
+Primero contesto la última pregunta: ¿Dónde metió la base de datos? Bueno, yo
+sé que estoy dentro del directorio de instalación de Drupal y que la URI de la
 base de datos fue `sqlite://sites/default/files/.ht.sqlite` y además esa URI se
-parece  al directorio sites de Drupal. ¿Será?
+parece al directorio `sites` de Drupal. ¿Será?
 
 ```bash
 $ ls -la sites/default/files/
@@ -140,13 +158,13 @@ dr-xr-xr-x. 3 nnieto nnieto   4096 Jun 19 19:43 ..
 drwxrwxr-x. 2 nnieto nnieto   4096 Jun 19 19:46 styles
 ```
 
-¡Si! Ahí esta el archivo `.ht.sqlite :) Ya voy entendiendo...
+¡Sí! Ahí está el archivo `.ht.sqlite`. Ya voy entendiendo...
 
 
 ## Corriendo el servidor web de PHP
 
 Python y Node.js traen servidores web integrados. Esos servidores web son muy
-básicos que no estan hechos para ponerlos en producción. Pero sirven muy bien
+básicos y no están hechos para ponerlos en producción. Pero sirven muy bien
 para desarrollo y evitar la molestia de configurar un servidor real. PHP
 también tiene un servidor web integrado. Me lo dijeron en
 [StackExchange](http://drupal.stackexchange.com/questions/111200/how-to-run-drupal-from-the-console)
@@ -159,13 +177,14 @@ Listening on http://localhost:8000
 Document root is /home/nnieto/Code/Hkl/hkl_drupal/drupal-7.x-dev
 Press Ctrl-C to quit.
 ```
+
 **Actualización**: Las versiones recientes de Drush incluyen un comando `rs` que
 ejecuta el servidor web integrado de php en el puerto `8888`.
 
-Y si, funciona:
+Y sí, funciona:
 
 ![Drupal funcionando en el servidor web integrado de PHP](/static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0.png)
 
 ¿Cómo te quedó el ojo?
 
--- Fin
+**FIN**
