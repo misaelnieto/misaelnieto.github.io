@@ -1,21 +1,32 @@
 ---
-title: "Goodbye world"
+title: "Goodbye, world"
 date: "2011-10-13"
+summary: "Un pequeño adiós a Dennis Ritchie, el padre de C y co-creador de Unix, fallecido en octubre de 2011."
+description: "Eulogy to Dennis Ritchie, co-creator of C and Unix, written the week of his passing in October 2011."
+categories:
+  - "Reflexión"
+tags:
+  - dennis-ritchie
+  - c-language
+  - unix
+  - in-memoriam
+locale: "en"
+keywords: "dennis ritchie, dmr, c programming language, unix, kernighan, thompson, bell labs"
 ---
 
-## My euolgy to Denis Ritchie
+## My eulogy to Dennis Ritchie
 
-In Mexico you have to go to 6 years of elementary school, 3 for secondary and
-another three of Bachelor/high-school just before you can get to the
-University.
+In Mexico you have to go through 6 years of elementary school, 3 for
+*secundaria* and another three of *bachillerato* / high-school just before you
+can get to the University.
 
 During my three years of high-school I was taught the C language. The first
-paragraphs on my text book on C talked about Unix and some of the doings of
-Kernigham, Ritchie and Thomson in the Bell Labs.
+paragraphs of my textbook on C talked about Unix and some of the doings of
+Kernighan, Ritchie and Thompson in the Bell Labs.
 
 Once in the University, one of the first things that I did was to get a hold
-of "The C programming language". I don't remember whether it was on spanish or
-english.
+of *The C programming language*. I don't remember whether it was in Spanish or
+English.
 
 Nowadays I work as a Python programmer on Linux systems. And I enjoy it. So
 thanks Dennis, and farewell.
@@ -23,8 +34,8 @@ thanks Dennis, and farewell.
 ```c
 #include <stdio.h>
 
-int main (int argc, char * argv[]) {
-    printf ("Goodbye, world.\n");
+int main(int argc, char * argv[]) {
+    printf("Goodbye, world.\n");
 
     return 0;
 }

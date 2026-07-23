@@ -1,14 +1,22 @@
 ---
 title: "Porting your xdv theme to plone.app.theming"
 date: "2011-07-13"
+summary: "Step-by-step checklist for moving a collective.xdv theme to plone.app.theming on Plone 4.1."
+description: "Tasks to port an xdv theme to plone.app.theming on Plone 4.1: GS profile, theme.xml, Diazo namespaces, ZCML, manifest.cfg."
 categories:
   - "Plone"
+  - "Tutoriales"
 tags:
   - plone
-  - plone.app.theming
+  - plone-app-theming
   - xdv
   - diazo
   - theming
+locale: "en"
+keywords: "plone.app.theming, collective.xdv, diazo, manifest.cfg, theme.xml, buildout"
+extra:
+  deprecated: true
+  deprecated_reason: "xdv was deprecated; plone.app.theming/Diazo is still in Plone 6 but the migration described here was for Plone 4.1"
 ---
 
 ## Intro
@@ -16,11 +24,11 @@ tags:
 This is a list of tasks to remind me what to do when porting a `xdv` theme to
 `plone.app.theming`.
 
-Replace "`my.theme`" or "`my/theme`" with your theme namespace.
+Replace `my.theme` or `my/theme` with your theme namespace.
 
 ## Use Plone 4.1
 
-Migrate site to Plone 4.1 or add proper version dependencies to "`extends`"
+Migrate site to Plone 4.1 or add proper version dependencies to `extends`
 sections on buildout.
 
 ## Add setuptools dependency on plone.app.theming
@@ -29,16 +37,17 @@ Depend on `plone.app.theming` on `setup.py`:
 
 ```python
 install_requires=[
- 'setuptools',
- # -*- Extra requirements: -*-
-          'plone.app.theming',
+    'setuptools',
+    # -*- Extra requirements: -*-
+    'plone.app.theming',
 ]
 ```
 
 ## Update GS Profile
 
-If working on a egg, change the profile dependency from `collective.xdv` to
-`plone.app.theming`. On `profiles/default/metadata.xml` locate the following line:
+If working on an egg, change the profile dependency from `collective.xdv` to
+`plone.app.theming`. On `profiles/default/metadata.xml` locate the following
+line:
 
 ```xml
 <dependency>profile-collective.xdv:default</dependency>
@@ -51,29 +60,30 @@ And change it to:
 ```
 
 Also create the file `profiles/default/theme.xml` with the following contents
-(This also enables the theme upon installation):
+(this also enables the theme upon installation):
 
 ```xml
 <theme>
- <name>my.theme</name>
- <enabled>true</enabled>
+    <name>my.theme</name>
+    <enabled>true</enabled>
 </theme>
 ```
 
 ## On the top level resource directory ...
 
-Change the `rules.xml` namespace. Open `rules.xml` (and other xml files) on
-you static directory. Change the xml namespace from:
+Change the `rules.xml` namespace. Open `rules.xml` (and other XML files) on
+your static directory. Change the XML namespace from:
 
 ```xml
- xmlns="http://namespaces.plone.org/xdv"
- xmlns:css="http://namespaces.plone.org/xdv+css"
+xmlns="http://namespaces.plone.org/xdv"
+xmlns:css="http://namespaces.plone.org/xdv+css"
 ```
+
 To:
 
 ```xml
- xmlns="http://namespaces.plone.org/diazo"
- xmlns:css="http://namespaces.plone.org/diazo/css"
+xmlns="http://namespaces.plone.org/diazo"
+xmlns:css="http://namespaces.plone.org/diazo/css"
 ```
 
 ## ZCML
@@ -109,4 +119,3 @@ prefix = /++theme++my.theme/directory
 
 That file serves as a replacement for some settings that you'd normally insert
 into `plone.app.registry` using `registry.xml` import step.
-
