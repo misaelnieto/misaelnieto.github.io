@@ -1,13 +1,23 @@
 ---
-title: "Programa, compila e instala tu propia extension de PHP con PHP-CPP"
+title: "Programa, compila e instala tu propia extensión de PHP con PHP-CPP"
+summary: "Cómo crear una extensión nativa de PHP en C++ usando PHP-CPP, Makefile y php5enmod."
+description: "Tutorial paso a paso para compilar e instalar una extensión nativa de PHP escrita en C++ con la librería PHP-CPP en Ubuntu 14.04, incluyendo Makefile y activation con php5enmod."
 date: "2015-03-12"
 categories:
-  - "Php C++ Apache Administración"
+  - "Tutoriales"
+  - "Web"
 tags:
   - php
-  - c++
+  - c-plus-plus
   - php-cpp
-  - extension development
+  - extension
+  - ubuntu
+  - apache
+locale: "es_MX"
+keywords: "PHP-CPP, extensión PHP, C++, Ubuntu 14.04, php5-dev, php5enmod, Makefile"
+extra:
+  deprecated: true
+  deprecated_reason: "PHP 5 está obsoleto desde enero de 2019; php5-dev y php5enmod ya no existen en PHP 7/8. PHP-CPP sigue en desarrollo pero requiere PHP 7+ y su API moderna es distinta."
 ---
 
 ![Una broma muy simple](/static/images/posts/php-extension-php-phpcpp/extension-cord-147580-1280.png)
@@ -15,31 +25,32 @@ tags:
 ## Intro
 
 El proyecto [PHP-CPP](http://www.php-cpp.com/documentation) te permite
-compilar tu propia extension en C++. Estas notas son los pasos que tuve que
+compilar tu propia extensión en C++. Estas notas son los pasos que tuve que
 seguir para conseguir hacer funcionar el típico Hola mundo.
 
 ## Manos a la obra
 
-Las pruebas las hice en Ubuntu 14.04. Previamente intente hacerlo en un Ubuntu
-12.04 (por que un servidor tenia esa versión) pero el compilador que trae es
-muy viejo y al ejecutar make el proceso falla con el siguiente mensaje:
+Las pruebas las hice en Ubuntu 14.04. Previamente intenté hacerlo en un Ubuntu
+12.04 (porque un servidor tenía esa versión) pero el compilador que trae es
+muy viejo y al ejecutar `make` el proceso falla con el siguiente mensaje:
 
 ```
 error: unrecognized command line option "-std=c++11"
 ```
 
-Despues de mucho buscar encontré ésta [pregunta en stackoverflow](http://stackoverflow.com/questions/27341599/cc1plus-error-unrecognized-command-line-option-std-c11).
+Después de mucho buscar encontré esta [pregunta en
+StackOverflow](http://stackoverflow.com/questions/27341599/cc1plus-error-unrecognized-command-line-option-std-c11).
 Básicamente el error se debe a que el compilador de Ubuntu 12.04 es muy viejo.
 Es posible instalar un compilador más reciente, pero vale mejor aprovechar el
 tiempo para actualizar la máquina a Ubuntu 14.04.
 
-El primer paso es instalar compiladores, librerias y utilidades:
+El primer paso es instalar compiladores, librerías y utilidades:
 
 ```console
 sudo aptitude install php5-dev build-essential git
 ```
 
-Luego clonamos el repo de PHP-CPP, corremos make y make install.
+Luego clonamos el repo de PHP-CPP, corremos `make` y `make install`.
 
 ```console
 git clone https://github.com/CopernicaMarketingSoftware/PHP-CPP.git
@@ -47,13 +58,14 @@ make
 sudo make install
 ```
 
-El `Makefile` es lo suficientemente inteligente como para averigüar el lugar
-correcto dónde poner las librerias. Después de compilar e instalar PHP-CPP es
+El `Makefile` es lo suficientemente inteligente como para averiguar el lugar
+correcto dónde poner las librerías. Después de compilar e instalar PHP-CPP es
 momento de compilar una extensión de PHP para comprobar que todo funciona
-bien. [Basado en el tutorial de PHP-CPP](http://www.php-cpp.com/documentation/your-first-extension)
-usé archivos: `main.cpp`, `Makefile` y `noe_extension.ini`.
+bien. [Basado en el tutorial de
+PHP-CPP](http://www.php-cpp.com/documentation/your-first-extension) usé los
+archivos: `main.cpp`, `Makefile` y `noe_extension.ini`.
 
-El `Makefile` se ve asi:
+El `Makefile` se ve así:
 
 ```make
 NAME                    =       noe_extension
@@ -87,7 +99,7 @@ clean:
                                 ${RM} ${EXTENSION} ${OBJECTS}
 ```
 
-El archivo `main.c` se ve asi:
+El archivo `main.cpp` se ve así:
 
 ```cpp
 #include <stdlib.h>
@@ -96,7 +108,6 @@ El archivo `main.c` se ve asi:
 Php::Value hello()
 {
   return "Hola Mundo";
-
 }
 
 Php::Value myFunction()
@@ -119,7 +130,7 @@ extern "C" {
     /**
      *  Function that is called by PHP right after the PHP process
      *  has started, and that returns an address of an internal PHP
-     *  strucure with all the details and features of your extension
+     *  structure with all the details and features of your extension
      *
      *  @return void*   a pointer to an address that is understood by PHP
      */
@@ -152,8 +163,8 @@ make
 sudo make install
 ```
 
-El `Makefile` anterior (osea, el segundo) tambien es lo suficientemente
-inteligente como para averigüar el lugar correcto dónde poner la libreria
+El `Makefile` anterior (o sea, el segundo) también es lo suficientemente
+inteligente como para averiguar el lugar correcto dónde poner la librería
 compilada (`noe_extension.so`) y el archivo `noe_extension.ini`. En el Ubuntu
 14.04 donde probé esto los archivos quedaron en estas dos rutas:
 
@@ -161,36 +172,36 @@ compilada (`noe_extension.so`) y el archivo `noe_extension.ini`. En el Ubuntu
 * `/etc/php5/mods-available/noe_extension.ini`
 
 Aunque la localización de `noe_extension.ini` es la correcta, hay que saber
-que el estilo de configuración de las extensions de PHP en Debian/Ubuntu es
-muy parecido al de sitos y módulos de apache2. En Ubuntu/Debian hay que usar
-los comandos `a2enconf`, `a2enmod` y `a2ensite` para activar algun archivo con
-extensión `.conf` en particular. De igual manera, en Debian/Ubuntu tambien
+que el estilo de configuración de las extensiones de PHP en Debian/Ubuntu es
+muy parecido al de sitios y módulos de Apache 2. En Ubuntu/Debian hay que usar
+los comandos `a2enconf`, `a2enmod` y `a2ensite` para activar algún archivo con
+extensión `.conf` en particular. De igual manera, en Debian/Ubuntu también
 existen los comandos `php5enmod` y `phpdismod`. Usé `php5enmod` para dar mi
-modulo de alta:
+módulo de alta:
 
 ```console
 sudo php5enmod noe_extension
 ```
 
-Esto crea una liga simbolica `/etc/php5/apache2/conf.d/20-noe_extension.ini`
-que apunta hacia `/etc/php5/mods-available/noe_extension.ini`. Despues de esto
-reiniciamos apache:
+Esto crea una liga simbólica `/etc/php5/apache2/conf.d/20-noe_extension.ini`
+que apunta hacia `/etc/php5/mods-available/noe_extension.ini`. Después de esto
+reiniciamos Apache:
 
 ```console
 sudo service apache2 restart
 ```
 
-Después de esto, sólo fató escribir un peueño script de php para usar la
-extensión. Lo puse en un directorio visible por apache2 y lo nombré
+Después de esto, sólo faltó escribir un pequeño script de PHP para usar la
+extensión. Lo puse en un directorio visible por Apache 2 y lo nombré
 `index.php`:
 
 ```php
 <html>
   <head>
-     <title>Extension de PHP de Noe</title>
+     <title>Extensión de PHP de Noe</title>
   </head>
   <body>
-  <h3>Extension de PHP de Noe</h3>
+  <h3>Extensión de PHP de Noe</h3>
   <ul>
      <li>Hola: <?php echo (hello()); ?> </li>
      <li>MyFunction: <?php echo myFunction(); ?></li>
@@ -201,13 +212,13 @@ extensión. Lo puse en un directorio visible por apache2 y lo nombré
 
 Y si la configuración es correcta, se deberá ver algo así:
 
-![La extension funcionando](/static/images/posts/php-extension-php-phpcpp/captura-de-pantalla-de-2015-03-13-09-15-55.png)
+![La extensión funcionando](/static/images/posts/php-extension-php-phpcpp/captura-de-pantalla-de-2015-03-13-09-15-55.png)
 
-Los textos "Hola mundo" y "string" provienen del complemento noe_estension.so
+Los textos «Hola Mundo» y «string» provienen del complemento `noe_extension.so`.
 
-Eso es todo.
+**FIN**
 
-----
-La imagen "extension cord" proviene de <http://pixabay.com/en/extension-cord-cable-electronics-147580/>
-
-Tomada el dia 13 de Marzo del 2015.
+---
+La imagen «extension cord» proviene de
+<http://pixabay.com/en/extension-cord-cable-electronics-147580/>. Tomada el
+día 13 de marzo del 2015.

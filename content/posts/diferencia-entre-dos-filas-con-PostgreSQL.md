@@ -1,9 +1,18 @@
 ---
 title: "Cómo sacar la diferencia entre dos filas con PostgreSQL"
-date: "2015-01-27"
+summary: "Calcular la diferencia entre filas consecutivas en PostgreSQL con un self-join."
 description: "Aprende a calcular la diferencia entre valores de filas consecutivas en PostgreSQL usando self-joins, ideal para tablas con datos de medición."
+date: "2015-01-27"
 categories:
-  - "Postgresql DBA Administración"
+  - "Bases de datos"
+tags:
+  - postgresql
+  - sql
+  - self-join
+  - window-functions
+  - lag
+locale: "es_MX"
+keywords: "PostgreSQL, diferencia entre filas, self-join, window function, lag, mediciones"
 ---
 
 ![Elefantote](/static/images/posts/diferencia-entre-dos-filas-con-PostgreSQL/401930619_c6ce5e6f54_o.jpg)
@@ -22,42 +31,53 @@ Ahora insertaré algunos datos.
 
 ```sql
 INSERT INTO history(conteo)
-VALUES (43), (63), (22), (41) ,(85);
+VALUES (43), (63), (22), (41), (85);
 ```
 
-Necesito calcular qué tanto ha cambiado el valor de conteo de una columna con
-respecto a la columna anterior. ¿Cómo se hace eso? La respuesta es más
+Necesito calcular qué tanto ha cambiado el valor de `conteo` de una columna
+con respecto a la columna anterior. ¿Cómo se hace eso? La respuesta es más
 sencilla de lo que me imaginé. Este es uno de esos casos donde se puede hacer
-un JOIN de la tabla consigo misma. Esto en inglés se le llama *Self-join*.
+un `JOIN` de la tabla consigo misma. Esto en inglés se le llama *self-join*.
 
 ```sql
-SELECT Y.id, Y.conteo- X.conteo AS "Diferencia"
+SELECT Y.id, Y.conteo - X.conteo AS "Diferencia"
 FROM history X
-JOIN history Y ON X.id=(Y.id -1)
+JOIN history Y ON X.id = (Y.id - 1)
 ORDER BY Y.id DESC;
 ```
 
-La solución, en este caso especifico, consiste en aprovechar que la columna ID
-es un numero entero que crece conforme se van insertando columnas. Simplemente
-se busca que el id de la columna anterior sea equivalente al de la columna
+La solución, en este caso específico, consiste en aprovechar que la columna ID
+es un número entero que crece conforme se van insertando columnas. Simplemente
+se busca que el ID de la columna anterior sea equivalente al de la columna
 actual menos uno.
 
 El resultado es este:
 
-| ID | DIFERENCIA |
+| ID | Diferencia |
 |----|:----------:|
 | 5  | 44         |
 | 4  | 19         |
 | 3  | -41        |
 | 2  | 20         |
 
-
-Obviamente en condiciones reales no todas las tablas tendrán un id seriado de
-1 en 1. Pero si la tabla incluye la fecha y hora de la creacion de la columna
+Obviamente en condiciones reales no todas las tablas tendrán un ID seriado de
+1 en 1. Pero si la tabla incluye la fecha y hora de la creación de la columna
 se puede usar esta columna.
 
-Aca dejo un [SQLFiddle](http://sqlfiddle.com/#!15/76b2a/6) para que puedas jugar con los datos.
+Acá dejo un [SQLFiddle](http://sqlfiddle.com/#!15/76b2a/6) para que puedas
+jugar con los datos.
+
+**Nota**: En PostgreSQL moderno (8.4+) la forma idiomática de hacer esto es con
+*window functions*, específicamente `LAG()`:
+
+```sql
+SELECT id, conteo - LAG(conteo) OVER (ORDER BY id) AS "Diferencia"
+FROM history
+ORDER BY id DESC;
+```
 
 ----
 
 * La imagen del elefante la tomé de <https://flic.kr/p/BvZYg>
+
+**FIN**

@@ -161,11 +161,38 @@
 /blog/Instalando_IIS_8.5_en_Windows_10_Technical_preview/ -> /blog/instalar-iis-windows-10
 
 
+# ----------------------------------------------------------------------------
+# Bloque 9 (curaduría posts 2015-01 a 2017-08)
+# ----------------------------------------------------------------------------
+
+# 4 slugs con mayúsculas iniciales y/o guiones bajos, normalizados a kebab-case.
+
+# Jenkins compila extensión PHP-CPP (era: Jenkins-compila-extension-PHP-CPP)
+/blog/Jenkins-compila-extension-PHP-CPP -> /blog/jenkins-compila-extension-php-cpp
+/blog/Jenkins-compila-extension-PHP-CPP/ -> /blog/jenkins-compila-extension-php-cpp
+
+# La CIA controla las películas de Hollywood (era: La-CIA-Controla-Las-Peliculas-de-Hollywood)
+/blog/La-CIA-Controla-Las-Peliculas-de-Hollywood -> /blog/cia-controla-peliculas-hollywood
+/blog/La-CIA-Controla-Las-Peliculas-de-Hollywood/ -> /blog/cia-controla-peliculas-hollywood
+
+# Añadir un nuevo disco a Fedora con LVM (era: anadir_nuevo_disco_a fedora_con_lvm — note el ESPACIO en el filename)
+/blog/anadir_nuevo_disco_a%20fedora_con_lvm -> /blog/anadir-nuevo-disco-fedora-lvm
+/blog/anadir_nuevo_disco_a%20fedora_con_lvm/ -> /blog/anadir-nuevo-disco-fedora-lvm
+# Variante sin encoding del espacio (por si el cliente HTTP no lo urlencodea):
+/blog/anadir_nuevo_disco_a fedora_con_lvm -> /blog/anadir-nuevo-disco-fedora-lvm
+/blog/anadir_nuevo_disco_a fedora_con_lvm/ -> /blog/anadir-nuevo-disco-fedora-lvm
+
+# Celda solar sencilla con Silvaco (era: Celda-solar-sencilla-con-Silvaco)
+/blog/Celda-solar-sencilla-con-Silvaco -> /blog/celda-solar-sencilla-silvaco
+/blog/Celda-solar-sencilla-con-Silvaco/ -> /blog/celda-solar-sencilla-silvaco
+
+
 # ============================================================================
 # Resumen
 # ============================================================================
 #
-# Total redirects pendientes: 22 slugs × 2 variantes (con/sin slash) = 44 reglas.
+# Total redirects pendientes: 26 slugs × 2 variantes (con/sin slash) = 52+ reglas.
+# (El slug con espacio tiene variantes adicionales por URL-encoding del %20.)
 #
 # Estado por bloque:
 #   Bloque 1: 1 rename
@@ -177,7 +204,8 @@
 #   Bloque 7: 5 renames
 #   Unificación Drupal 7: 2 redirects
 #   Bloque 8: 3 renames
-#   Total:   22 redirects
+#   Bloque 9: 4 renames
+#   Total:   26 redirects
 #
 # Histórico de commits de curaduría:
 #   ce5f0f9  Bloque 1 (2009-01 a 2010-01)
@@ -188,3 +216,4 @@
 #   13ff3d6  Bloque 6 (2012-11 a 2014-05)
 #   564eb47  Bloque 7 (2014-05 a 2014-07)
 #   70dfa82  Unificación Drupal 7
+#   2a023cc  Bloque 8 (2014-08 a 2015-01)
