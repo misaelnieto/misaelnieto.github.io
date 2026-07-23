@@ -1,6 +1,6 @@
 ---
-title: "Preparando Fedora para Drupal 7 al estilo Noe"
-summary: "Cómo correr Drupal 7 en Fedora usando el servidor PHP integrado y SQLite."
+title: "Drupal 7 a mi estilo con Fedora"
+summary: "Cómo correr Drupal 7 en Fedora con el servidor PHP integrado y SQLite."
 description: "Tutorial para instalar Drupal 7 en Fedora sin Apache ni MySQL, usando el servidor web integrado de PHP, SQLite, composer y Drush; incluye el comando site-install."
 date: "2014-06-19"
 categories:
@@ -18,7 +18,7 @@ locale: "es_MX"
 keywords: "drupal 7, fedora, php, sqlite, drush, composer, servidor web integrado"
 extra:
   deprecated: true
-  deprecated_reason: "Drupal 7 llegó a fin de vida en enero de 2025; Drush dev-master y el flujo con yum/composer de 2014 quedaron obsoletos. El concepto (PHP built-in server + SQLite) sigue vigente pero las versiones específicas no."
+  deprecated_reason: "Drupal 7 llegó a fin de vida en enero de 2025; Drush dev-master y el flujo con yum/composer de 2014 están desactualizados. El concepto (PHP built-in server + SQLite) sigue vigente pero las versiones específicas no reflejan el estado actual."
 ---
 
 ## Intro
