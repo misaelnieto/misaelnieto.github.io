@@ -1,21 +1,34 @@
 ---
 title: "Theming Plone 4 - Part 1"
 date: "2010-05-19"
+summary: "Setting up the environment, creating a Plone 4 buildout from scratch and preparing a theme product with paster."
+description: "Step-by-step guide to prepare a Plone 4 theming environment on Ubuntu Lucid: install zopeskel, create the buildout, scaffold a plone3_theme product and fine-tune it before running buildout."
 categories:
+  - "Tutoriales"
   - "Plone"
+tags:
+  - plone
+  - theming
+  - buildout
+  - zopeskel
+locale: "en"
+keywords: "plone 4, theming, buildout, zopeskel, paster, sunburst theme"
+extra:
+  deprecated: true
+  deprecated_reason: "Plone 4 theming via plone3_theme product is deprecated; Plone 5+ uses Diazo/Mosaic"
 ---
 
 Lately I've been doing themes for Plone 4. I forget things, so these notes
-serve as documentation for some tricks I usally do for theming. There might be
-better ways to do some of them, so your comments are greatly appreciated. The
-audience is for anyone who has previous experience with buildout, Plone, Plone
+serve as documentation for some tricks I usually do for theming. There might
+be better ways to do some of them, so your comments are greatly appreciated.
+The audience is anyone who has previous experience with buildout, Plone, Plone
 theming and related technologies like JavaScript, HTML, CSS and so on.
 
-**UPDATE**: Part 2 is now available. This is the Part 1.
+**UPDATE:** Part 2 is now available. This is Part 1.
 
-## Setting up the environment.
+## Setting up the environment
 
-I will use pastescript and buidlout on linux. On a clean install of Ubuntu
+I will use `pastescript` and buildout on Linux. On a clean install of Ubuntu
 Lucid Lynx, I did:
 
 ```console
@@ -86,7 +99,7 @@ Creating directory ./plone4b3
 **  See README.txt for details.
 **************************************************************************
 
-And finally, let's run bootstrap and buildout to download Plone3.
+And finally, let's run bootstrap and buildout to download Plone 3.
 
 tzicatl@tzicatl-lynx:~/plone4b3$ python bootstrap.py
 Creating directory '/home/tzicatl/plone4b3/bin'.
@@ -98,6 +111,7 @@ tzicatl@tzicatl-lynx:~/plone4b3$ bin/buildout
 .....
 $
 ```
+
 ## Create theme product and add it to the buildout
 
 Now, let's create the theme. We are going to base our design on [this
@@ -123,64 +137,64 @@ Skin Name (Name of the theme (human facing, added to portal_skins)) ['']: FreeCS
 Empty Styles? (Override default public stylesheets with empty ones?) [False]:
 Include Documentation? (Include in-line documentation in generated code?) [True]: False
 Version (Version number for project) ['1.0']:
-Description (One-line description of the project) ['An installable theme for Plone 3']: An Installable theme for Plone 4
+Description (One-line description of the project) ['An installable theme for Plone 3']: An installable theme for Plone 4
 Creating template basic_namespace
 Creating directory ./plonetheme.hanging
 
 ....
 ```
 
-Now it's time to modify `buildout.cfg` in order to add the new created theme
-product. So it's also time to do some extra modifications, these include:
+Now it's time to modify `buildout.cfg` in order to add the newly created theme
+product. So it's also time to do some extra modifications; these include:
 
-* Remove all coments
-* Move eggs and zml declarations from [instance] section to [buildout] section
-* Add PIL and plonetheme.hanging to the eggs section
-* Add ZCML slug for plonetheme.hanging
+* Remove all comments.
+* Move `eggs` and `zcml` declarations from the `[instance]` section to the `[buildout]` section.
+* Add PIL and `plonetheme.hanging` to the eggs section.
+* Add ZCML slug for `plonetheme.hanging`.
 
-## Fine tune the theme package
+## Fine-tune the theme package
 
-Before running buildout, we are going to "fine tune" the theme package.
+Before running buildout, we are going to "fine-tune" the theme package.
 
-Lets start with `src/plonetheme.hanging/setup.py`
+Let's start with `src/plonetheme.hanging/setup.py`:
 
-* Add author and author e-mail
-* Change url from <http://svn.plone.org/svn/collective/>  to <http://github.com/tzicatl/plone4andtheme>
-* Change license from "GPL" to "Creative Commons Attribution 3.0 Unported" (I'm not a lawyer so i don't know if i'm doing it right)
+* Add author and author e-mail.
+* Change url from <http://svn.plone.org/svn/collective/> to <http://github.com/tzicatl/plone4andtheme>.
+* Change license from "GPL" to "Creative Commons Attribution 3.0 Unported" (I'm not a lawyer, so I don't know if I'm doing it right).
 * Modify `README` to include credits and description.
 * Rename `docs/LICENSE.GPL` to `LICENSE.CC` and paste the CC license contents.
 * Edit `src/plonetheme.hanging/plonetheme/hanging/configure.zcml` and delete the line `<i18n:registerTranslations directory="locales" />`. This is because we are not doing locales on this theme, but we can.
-* I don't like the long names that paster creates for the folders inside skins directory. So usually change them to something shorter. In order to do that:
+* I don't like the long names that paster creates for the folders inside the skins directory, so I usually change them to something shorter. In order to do that:
     - Rename the directory, for example: rename from `plonetheme_hanging_custom_images` to `hangingtheme_images`.
     - Change the corresponding name in `skins.zcml` and `profiles/default/skins.xml` (working from `src/plonetheme.hanging/plonetheme/hanging`).
     - Note 1: Using your editor's "Search & Replace" is a good idea.
-    - Note 2: You can add another extra skin layers by adding directories and editing the two above files.
+    - Note 2: You can add another extra skin layer by adding directories and editing the two files above.
 * Change the base theme from "Plone Default" to "Sunburst Theme" by editing `profiles/default/skins.xml`.
-    - Open the file and look for this line: "`<skin-path name="FreeCSSTemplates.org Hanging" based-on="Plone Default">`"
-    - Change the based-on parameter from "Plone Default"  to "Sunburst Theme"
-    - This step is important in order to get all the new plone4 look & feel and change it to suit our needs.
+    - Open the file and look for this line: `<skin-path name="FreeCSSTemplates.org Hanging" based-on="Plone Default">`
+    - Change the `based-on` parameter from "Plone Default" to "Sunburst Theme".
+    - This step is important in order to get all the new Plone 4 look & feel and change it to suit our needs.
 
 Now, we are ready to run the buildout process.
 
-First, run `bootstrap.py` if you haven't already done so
+First, run `bootstrap.py` if you haven't already done so:
 
 ```
 $ python bootstrap.py
 ```
 
-The buildout process will thake some minutes depending on the speed of your
-computer and mainly your network bandwidth.
+The buildout process will take some minutes depending on the speed of your
+computer and mainly your network bandwidth:
 
 ```
-$bin/buildout
+$ bin/buildout
 ```
 
 You might see some warnings but you should not see any error.
 
-## Start plone instance
+## Start the Plone instance
 
-If the buildout process was sucessful, now you will be able to start your
-plone instance in foreground mode
+If the buildout process was successful, now you will be able to start your
+Plone instance in foreground mode:
 
 ```console
 tzicatl@tzicatl-lynx:~/plone4b3$ bin/instance fg
@@ -193,16 +207,15 @@ tzicatl@tzicatl-lynx:~/plone4b3$ bin/instance fg
 ```
 
 Create a site and install the newly created theme. You should see a site equal
-to plone4's SunBurst Theme
+to Plone 4's SunBurst Theme:
 
-![Our plone theme](/static/images/posts/theming-plone-4---part-1/plone4-theming1.png)
+![Our Plone theme](/static/images/posts/theming-plone-4-part-1/plone4-theming1.png)
 
 ## Wrap up
 
 On this installment we learned (or I hope so) to prepare our system for
-buildout and Zope, we learned to create a Plone 4 instance from scratch and
-also learned to create and prepare a plone product for the new theme we are
+buildout and Zope; we learned to create a Plone 4 instance from scratch and
+also learned to create and prepare a Plone product for the new theme we are
 going to make.
 
-That's all for now. Wait for the Part 2.
-
+That's all for now. Wait for Part 2.

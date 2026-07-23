@@ -1,20 +1,29 @@
 ---
-title: "Lecciones aprendidas - internacionalización en Plone"
+title: "Lecciones aprendidas: internacionalización en Plone"
 date: "2010-02-01"
+summary: "Cómo se hacen traducciones en Plone 3 con i18ndude, PTS, y los directorios i18n/locales."
+description: "Resumen técnico sobre el proceso de internacionalización en productos de Plone 3: i18ndude, Placeless Translation Service, casos típicos y solución a actions.xml."
 categories:
-  - "Programacion Plone"
+  - "Tutoriales"
+  - "Plone"
 tags:
   - plone
   - i18n
   - internationalization
   - python
+  - zope
+locale: "es_MX"
+keywords: "plone, i18n, i18ndude, placeless translation service, traducciones, zope"
+extra:
+  deprecated: true
+  deprecated_reason: "Plone 3 LTS es EOL; el flujo moderno usa zope.i18nmessageid y otras herramientas"
 ---
 
 ## Intro
 
-Este es un resúmen de lo que he aprendido acerca de cómo se hacen las
+Este es un resumen de lo que he aprendido acerca de cómo se hacen las
 traducciones tanto para productos de terceros, mis propios productos y hasta
-completar o cambiar algunas traducciones del mismo plone.
+completar o cambiar algunas traducciones del mismo Plone.
 
 En este documento intento concentrar lo poco que he aprendido acerca del
 proceso de internacionalización en productos en Plone.
@@ -24,7 +33,7 @@ proceso de internacionalización en productos en Plone.
 El componente de software encargado de administrar todas las traducciones de
 las docenas de diferentes paquetes o huevos que componen Plone se llama
 Placeless Translation Service. Se encuentra dentro del Panel de control de
-Zope (No de Plone). Por ejemplo :
+Zope (no de Plone). Por ejemplo:
 `http://localhost:8080/Control_Panel/TranslationService/manage_main`
 
 Encuentro varios casos en la que es necesario tomar ventaja de la maquinaria
@@ -32,13 +41,13 @@ de traducción de Plone:
 
 1. Se ha integrado un CMS Plone con productos de terceros y alguno de esos productos no tiene traducción al español.
 2. Alguno de los productos tiene traducción deficiente o incompleta. Por deficiente quiero decir que lo que ya está traducido expresa conceptos muy técnicos, rebuscados o abstractos que hacen que la experiencia del usuario sea difícil.
-3. Partes de plone no están traducidas o la traducción no se ajusta a las necesidades del usuario final.
+3. Partes de Plone no están traducidas o la traducción no se ajusta a las necesidades del usuario final.
 
-También puedo listar, ahora de manera mas técnica, los casos de traducción:
+También puedo listar, ahora de manera más técnica, los casos de traducción:
 
 * Traducir mensajes de las plantillas de Plone
-* Traducir mensajes de archivos de python (Restricted Python)
-* Traducir mensajes de archivos de python
+* Traducir mensajes de archivos de Python (Restricted Python)
+* Traducir mensajes de archivos de Python
     - Schemas y Archetypes
     - Todo lo demás
 * Traducir ZCML
@@ -56,7 +65,7 @@ para mantener múltiples idiomas de las traducciones.
 
 En iServices nos dedicamos principalmente al e-Learning. Hemos escogido a
 Python como nuestra plataforma de desarrollo. Plone es usado como la base para
-el LCMS eduintelligent y hay planes para liberarlo al mundo pero aún hay mucho
+el LCMS eduIntelligent y hay planes para liberarlo al mundo, pero aún hay mucho
 código que depurar y mejorar antes de liberarlo.
 
 Por lo que he visto, la manera de añadir traducciones a un determinado
@@ -64,12 +73,12 @@ producto es, a groso modo:
 
 * Identificar y marcar las cadenas candidatas a traducción. El lenguaje que se usa en código fuente es inglés y después se traduce al español, que es el idioma que maneja la vasta mayoría de nuestros clientes.
 * Se usó un script para extraer las cadenas de traducción por primera vez, y después se fueron añadiendo y manteniendo a mano.
-* Hay muchas veces que se escribe contenido y/o mensajes en español y las cadenas no se marcan para traducción o símplemente no se traducen. No estoy condenando, yo mismo lo he hecho ante la presión de las fechas de entrega o simplemente por que el programador fué perezoso o por alguna extraña razón, a Plone o a Zope, no le dió la gana tomar las traducciones.
+* Hay muchas veces que se escribe contenido y/o mensajes en español y las cadenas no se marcan para traducción o simplemente no se traducen. No estoy condenando: yo mismo lo he hecho ante la presión de las fechas de entrega o simplemente porque el programador fue perezoso, o por alguna extraña razón a Plone o a Zope no le dio la gana tomar las traducciones.
 
 ## Haciendo uso de i18ndude
 
 `i18ndude` es la herramienta preferida para extraer cadenas de traducción de
-los productos de plone (de terceros o propios). Se puede instalar a nivel de
+los productos de Plone (de terceros o propios). Se puede instalar a nivel de
 sistema o mediante buildout. Aquí muestro una receta para usar `i18ndude` desde
 buildout:
 
@@ -90,8 +99,8 @@ Al añadir lo de arriba a `buildout.cfg` y después de ejecutar `bin/buildout`,
 encontraremos la orden `bin/i18ndude` lista para ser usada y de manera
 independiente del sistema.
 
-Ahora, para poder usar i18ndude, dentro de nuestros productos, modifiqué un
-script que tomé de `p4a.video`. Luce así:
+Ahora, para poder usar `i18ndude` dentro de nuestros productos, modifiqué un
+script que tomé de `p4a.video`. luce así:
 
 ```bash
 #!/bin/bash 
@@ -126,35 +135,37 @@ find locales -depth -type d   \
 
 ## Diferentes datos (sin orden aparente)
 
-Aquí agrupo diferentes datos que he encontrado que estan relacionados con este
+Aquí agrupo diferentes datos que he encontrado que están relacionados con este
 tema, pero que no he encontrado alguna forma de estructurar.
 
-### El origen de la directiva registerTransations
+### El origen de la directiva registerTranslations
 
- El origen de la directiva:
+El origen de la directiva:
+
 ```xml
 <i18n:registerTranslations directory="locales" />
 ```
-Probablemente viene de aqui:
+
+Probablemente viene de aquí:
 
 <https://mail.zope.org/pipermail/zope3-dev/2006-May/019494.html>
 
-### Notas de internacionalización con PTS en el wiki de zope
+### Notas de internacionalización con PTS en el wiki de Zope
 
-Aquí: <http://wiki.zope.org/zope2/HowToInternationaliseWithPTS>P
+Aquí: <http://wiki.zope.org/zope2/HowToInternationaliseWithPTS>
 
 ### Problema al traducir actions.xml
 
 Me puse a traducir `actions.xml` que puse dentro de un tema. Pero lo primero que
-ocurrió es que habia fallos al instalar el tema. Al final del traceback
-teniamos esto:
+ocurrió es que había fallos al instalar el tema. Al final del traceback
+teníamos esto:
 
 ```
 BadRequest: The property i18n_domain does not exist
 ```
 
-Esto fue por que al añadir el soporte de internacionalizacion, especifique el
-dominio en el sitio equivocado. Osea que fue así:
+Esto fue porque al añadir el soporte de internacionalización, especifiqué el
+dominio en el sitio equivocado. O sea que fue así:
 
 ```xml
  <object name="user" meta_type="CMF Action Category"
@@ -189,8 +200,8 @@ Pero la manera correcta es así:
 </object>
 ```
 
-Y la solucion la pude encontrar gracias a esta página:
+Y la solución la pude encontrar gracias a esta página:
 
 <http://banyan.usc.edu/log/plone-old/plone-logs>
 
-Eso es todo
+**FIN**

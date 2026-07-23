@@ -1,34 +1,46 @@
 ---
-title: "A buildout for Plone 3.3.5+fss+relstorage"
+title: "A buildout for Plone 3.3.5 + fss + relstorage"
 date: "2010-04-27"
+summary: "An unusual Plone 3.3.5 buildout using FileSystemStorage and RelStorage instead of the traditional ZODB."
 description: "Buildout recipe para Plone 3.3.5 usando FileSystemStorage y RelStorage en lugar de ZODB tradicional."
 categories:
   - "Plone"
+  - "DevOps"
+tags:
+  - plone
+  - buildout
+  - relstorage
+  - filesystemstorage
+locale: "en"
+keywords: "plone, buildout, relstorage, filesystemstorage, zodb alternative"
+extra:
+  deprecated: true
+  deprecated_reason: "iw.fss ya no se mantiene y Plone 3.3.5 es EOL; RelStorage moderno tiene config muy diferente"
 ---
 
 This is an uncommon Plone buildout. There is no ZODB. Instead, we use
 FileSystemStorage for files, images, and so on, and RelStorage for storing
 everything else in a relational DB.
 
-**Edit**: Changed the title because it can confuse new users that this is the
-"standard" way to setu-up plone. This is not.
+**Edit:** Changed the title because it can confuse new users into thinking this
+is the "standard" way to set up Plone. It is not.
 
 ## Intro
 
-On iServices, we used the Plone+FileSystemStorage+RelStorage bundle for
-several reasons that I don't remember well. If I have to answer why did we
-used that combination, I'd probably pass this question to
+On iServices, we used the Plone + FileSystemStorage + RelStorage bundle for
+several reasons that I don't remember well. If I have to answer why we used
+that combination, I'd probably pass this question to
 [@erik_river](http://twitter.com/erik_river) to answer it. He was the first
 one who made it work.
 
-So, I mantain all these sites, and over time we had some different ways to
+So, I maintain all these sites, and over time we had some different ways to
 integrate the software bundle. Recently I had to upgrade this site to Plone
 3.3.5 and resolved to make a definitive buildout recipe. And thanks to the
 help of the guys at the [ZODB-dev](https://mail.zope.org/pipermail/zodb-dev/2010-April/013254.html)
-mailing list I give you my ultimate Plone+FileSystemStorage+Relstorage
+mailing list I give you my ultimate Plone + FileSystemStorage + RelStorage
 buildout recipe.
 
-Note: Read the [RelStorage](http://pypi.python.org/pypi/RelStorage) documentation
+Note: read the [RelStorage](http://pypi.python.org/pypi/RelStorage) documentation.
 
 The buildout recipe:
 
@@ -71,7 +83,7 @@ rel-storage =
     type postgresql
     dbname plone335_zodb
     user zope
-    password s3cr3t
+    password CHANGE_ME
     host localhost
 
 [versions]

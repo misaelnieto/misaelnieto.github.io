@@ -1,31 +1,44 @@
 ---
 title: "Unicode y UTF-8 en Plone"
 date: "2010-02-01"
+summary: "Notas sobre cómo lidiar con caracteres no-ASCII (acentos, eñes) en Plone 3 con sitecustomize.py."
 description: "Notas sobre problemas con caracteres Unicode en Plone y soluciones mediante configuración de UTF-8 y archivos sitecustomize.py."
 categories:
   - "Python"
+  - "Plone"
+tags:
+  - python
+  - unicode
+  - utf-8
+  - plone
+locale: "es_MX"
+keywords: "python, unicode, utf-8, plone, sitecustomize, zope"
+extra:
+  deprecated: true
+  deprecated_reason: "Python 3 maneja Unicode por defecto; el truco de sitecustomize ya no es necesario"
 ---
 
-Notas acerca de errores con acentos y eñes y etc etc. Y aún no entiendo bien
+Notas acerca de errores con acentos y eñes y etcétera. Y aún no entiendo bien
 por qué truena.
 
-Tengo este producto de plone que trae buenos links (bueno, un solo link bueno):
+Tengo este producto de Plone que trae buenos links (bueno, un solo link bueno):
 
 <http://plone.org/products/unicodeerrordetector>
 
-Recomienda este articulo de Joel On software: <http://www.joelonsoftware.com/articles/Unicode.html>
+Recomienda este artículo de Joel On Software: <http://www.joelonsoftware.com/articles/Unicode.html>
 
 Ahora, Erik opina esto:
 
-Dentro de un buildout de plone:
+Dentro de un buildout de Plone:
 
 ```
 $ cd parts/zope2/lib/python
 ```
 
-Crear, en ese directorio, un archivo con el nombre `sitecustomize.py` que contenga lo siguiente
+Crear, en ese directorio, un archivo con el nombre `sitecustomize.py` que
+contenga lo siguiente:
 
-```
+```python
 import sys
 sys.setdefaultencoding('utf-8')
 ```
@@ -63,5 +76,5 @@ need another batch size, you might append this to your `zope.conf`::
 ```
 
 Esto pinta como para hacer un buen documento de las cosas que no deben hacerse
-al desarrollar productos en plone. Cosas que se rompen cuando le pones acentos
+al desarrollar productos en Plone. Cosas que se rompen cuando le pones acentos
 a las cosas.
