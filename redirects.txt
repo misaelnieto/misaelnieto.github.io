@@ -142,12 +142,30 @@
 /blog/fedora-drupal-estilo-noe -> /blog/drupal7-a-mi-estilo-con-fedora
 /blog/fedora-drupal-estilo-noe/ -> /blog/drupal7-a-mi-estilo-con-fedora
 
+# ----------------------------------------------------------------------------
+# Bloque 8 (curaduría posts 2014-08 a 2015-01)
+# ----------------------------------------------------------------------------
+
+# 3 slugs con guiones bajos y/o mayúsculas, normalizados a kebab-case.
+
+# Imágenes responsivas con Drupal 8 (era: imagenes_responsivas_con_Drupal-8)
+/blog/imagenes_responsivas_con_Drupal-8 -> /blog/imagenes-responsivas-drupal-8
+/blog/imagenes_responsivas_con_Drupal-8/ -> /blog/imagenes-responsivas-drupal-8
+
+# Drupal 8 Beta en OpenShift (era: Drupal-8-Beta-en-OpenShift)
+/blog/Drupal-8-Beta-en-OpenShift -> /blog/drupal-8-beta-openshift
+/blog/Drupal-8-Beta-en-OpenShift/ -> /blog/drupal-8-beta-openshift
+
+# Instalar IIS en Windows 10 (era: Instalando_IIS_8.5_en_Windows_10_Technical_preview)
+/blog/Instalando_IIS_8.5_en_Windows_10_Technical_preview -> /blog/instalar-iis-windows-10
+/blog/Instalando_IIS_8.5_en_Windows_10_Technical_preview/ -> /blog/instalar-iis-windows-10
+
 
 # ============================================================================
 # Resumen
 # ============================================================================
 #
-# Total redirects pendientes: 19 slugs × 2 variantes (con/sin slash) = 38 reglas.
+# Total redirects pendientes: 22 slugs × 2 variantes (con/sin slash) = 44 reglas.
 #
 # Estado por bloque:
 #   Bloque 1: 1 rename
@@ -158,7 +176,8 @@
 #   Bloque 6: 4 renames
 #   Bloque 7: 5 renames
 #   Unificación Drupal 7: 2 redirects
-#   Total:   19 redirects
+#   Bloque 8: 3 renames
+#   Total:   22 redirects
 #
 # Histórico de commits de curaduría:
 #   ce5f0f9  Bloque 1 (2009-01 a 2010-01)
@@ -168,3 +187,4 @@
 #   e966922  Bloque 5 (2011-11 a 2012-11)
 #   13ff3d6  Bloque 6 (2012-11 a 2014-05)
 #   564eb47  Bloque 7 (2014-05 a 2014-07)
+#   70dfa82  Unificación Drupal 7
