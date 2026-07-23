@@ -1,9 +1,22 @@
 ---
-title: "Create your own private egg repository on amazon EC2"
+title: "Create your own private egg repository on Amazon EC2"
 date: "2011-03-30"
-categories:
-  - "Python"
+summary: "How to build a private Python egg repository on EC2 with nginx, basic auth and jarn.mkrelease for uploading."
 description: "Guía completa para crear un repositorio privado de eggs de Python en Amazon EC2 con autenticación básica, usando nginx como servidor web y jarn.mkrelease para subir paquetes."
+categories:
+  - "Tutoriales"
+  - "DevOps"
+tags:
+  - amazon-ec2
+  - nginx
+  - python
+  - jarn-mkrelease
+  - eggs
+locale: "en"
+keywords: "amazon ec2, nginx, jarn.mkrelease, private egg repository, zest.releaser, ebs"
+extra:
+  deprecated: true
+  deprecated_reason: "jarn.mkrelease y el flujo de eggs basado en buildout están obsoletos; el flujo moderno es pip + private PyPI (p.ej. devpi, AWS CodeArtifact)"
 ---
 
 I want a private Python egg repository (basic authentication) and I want it on
@@ -11,46 +24,45 @@ the cloud. Let's see how it goes.
 
 ## Intro
 
-We are starting to do more plone development. I started to learn and use
+We are starting to do more Plone development. I started to learn and use
 [jarn.mkrelease](http://pypi.python.org/pypi/jarn.mkrelease) so I can properly
-package my code and publish it on PyPI and re-use in different projects. But
+package my code and publish it on PyPI and reuse it in different projects. But
 I've yet to solve the problem of non-public code. So I found that
-[`zc.buildout` might be able to open a pasword protected URL]
-(http://stackoverflow.com/questions/4066571/using-custom-packages-on-my-python-project).
+[`zc.buildout` might be able to open a password-protected URL](http://stackoverflow.com/questions/4066571/using-custom-packages-on-my-python-project).
 
-The idea is simple: setup a private package repository (a simple web server,
-with a directory listing that's pasword protected) and use zest.releaser to
-upload eggs to the webserver using sftp, scp or something like that.
+The idea is simple: set up a private package repository (a simple web server,
+with a directory listing that's password protected) and use `zest.releaser` to
+upload eggs to the web server using sftp, scp or something like that.
 
-The web server can be anywere, so I created one on AWS.
+The web server can be anywhere, so I created one on AWS.
 
-## Building the webserver
+## Building the web server
 
 So I went to create a new account on Amazon EC2 in order to take advantage of
 the Free Usage Tier that's already available.
 
-Once I finished the process, It was time to select the AMI. I had to read
-through Ubuntu's [EC2 Starters Guide](https://help.ubuntu.com/community/EC2StartersGuide) 
-to figure out which AMI to install.
-Copying and Pasting Ubuntu's Amazon ID into the "Community AMIs" search box
-helped me to narrow the possible options. So, just for the fun of it, I
-selected the latest natty server image for i386 (ami-0476846d).
+Once I finished the process, it was time to select the AMI. I had to read
+through Ubuntu's [EC2 Starters Guide](https://help.ubuntu.com/community/EC2StartersGuide)
+to figure out which AMI to install. Copying and pasting Ubuntu's Amazon ID
+into the "Community AMIs" search box helped me narrow the possible options.
+So, just for the fun of it, I selected the latest Natty server image for i386
+(`ami-0476846d`).
 
-All the rest of the steps are very straightforward: setup the server size
-(t1.micro), create the server key and configure the firewall (allow SSH, HTTP
-and HTTPS). After some seconds the instance is up and running.
+All the rest of the steps are very straightforward: set up the server size
+(`t1.micro`), create the server key and configure the firewall (allow SSH,
+HTTP and HTTPS). After some seconds the instance is up and running.
 
-This AMI image uses 8GB of EBS storage to "persist" it's configuration. That
-leaves me 2 GB for a stand-alone AMI image. I will use this image to store all
+This AMI image uses 8 GB of EBS storage to "persist" its configuration. That
+leaves me 2 GB for a standalone AMI image. I will use this image to store all
 the eggs for my private repository.
 
 So I went to "EBS Volumes" in the control panel, created the 2 GB volume (need
-to be careful to select the same zone as the AMI EBS storage) and, when
-finally available (blue dot), right click on it and select "Attach", select
+to be careful to select the same zone as the AMI EBS storage) and, when it was
+finally available (blue dot), right-click on it and select "Attach", select
 the AMI instance and the filesystem node and restart the instance.
 
 Next, we need to make the partition and format the new available volume. I
-used `cfdisk` to create the partition,
+used `cfdisk` to create the partition:
 
 ```bash
 sudo cfdisk /dev/xvdb
@@ -67,43 +79,45 @@ proc             /proc   proc    nodev,noexec,nosuid    0       0
 LABEL=uec-rootfs /       ext4    defaults               0       0
 /dev/xvdb1      /var/www ext3   defaults,noatime,noexec 0       0
 ```
-*Note*: I used noatime option in order to avoid double writes to the EBS volume.
 
-Now it is time to setup the webserver. I like nginx and
+*Note:* I used the `noatime` option in order to avoid double writes to the EBS volume.
+
+Now it is time to set up the web server. I like nginx and
 [there's a PPA for it](https://launchpad.net/~nginx/+archive/stable).
 So this one-liner installs it:
 
 ```bash
 sudo add-apt-repository ppa:nginx/stable && sudo apt-get update && sudo apt-get -y install nginx
 ```
-Now let's do the nginx configuration. nginx runs as the `www-data` user
 
-I want to have the logs on the separate EBS volume, So, let's change
-`/etc/nginx/nginx.conf` and set the the path of the logfiles to:
+Now let's do the nginx configuration. nginx runs as the `www-data` user.
+
+I want to have the logs on the separate EBS volume, so let's change
+`/etc/nginx/nginx.conf` and set the path of the log files to:
 
 ```nginx
 access_log /var/www/logs/access.log;
 error_log /var/www/logs/error.log;
 ```
 
-Then, let's setup the root directory and enable index listing by changing the
+Then, let's set up the root directory and enable index listing by changing the
 lines. For the root directory, I changed this line:
 
 ```nginx
 root /var/www/webfiles;
 ```
 
-And to enable index listing I have to modify `/etc/nginx/sites-
-available/default` :
+And to enable index listing I have to modify
+`/etc/nginx/sites-available/default`:
 
 ```nginx
 location / {
- try_files $uri $uri/ /index.html;
- autoindex on;
- }
+    try_files $uri $uri/ /index.html;
+    autoindex on;
+}
 ```
 
-Next, I mannually created the directories that will be used for files and logs.
+Next, I manually created the directories that will be used for files and logs:
 
 ```bash
 sudo mkdir -p /var/www/webfiles
@@ -111,15 +125,15 @@ sudo mkdir -p /var/www/logs
 ```
 
 By default these directories are owned by root, so we have to give permissions
-to the ubuntu user in the `webfiles/` directory and permissions to `ww-data` on
-`webfiles/`.
+to the `ubuntu` user in the `webfiles/` directory and permissions to
+`www-data` on `webfiles/`.
 
 ```bash
 sudo chown -R www-data /var/www/logs/
 sudo chown -R ubuntu /var/www/webfiles
 ```
 
-It's also very wise to create a skeleton directory to hold out packages:
+It's also very wise to create a skeleton directory to hold our packages:
 
 ```bash
 mkdir -p /var/www/webfiles/public
@@ -127,59 +141,63 @@ mkdir -p /var/www/webfiles/private/customerA
 mkdir -p /var/www/webfiles/private/customerB
 ```
 
-Finally restart the nginx server.
+Finally restart the nginx server:
 
 ```bash
 sudo service nginx restart
 ```
 
-### Assign a DNS Name
+### Assign a DNS name
 
-I had two options: 1) Add a CNAME record that points to the DNS name of the
-EC2-Instance or 2) Allocate 1 Elastic IP, associate/route it to the EC-2
-instance and use an A Record.
+I had two options: (1) add a CNAME record that points to the DNS name of the
+EC2 instance, or (2) allocate 1 Elastic IP, associate/route it to the EC2
+instance and use an A record.
 
-I choosed option 2 because I want to treat this EC2 Instance as somethig
-disposable. The Amazon free tier covers the first 100 remaps for each elastic
-IP. I'm pretty sure we will be way below this level. Password-protected
-directories on nginx
+I chose option 2 because I want to treat this EC2 instance as something
+disposable. The Amazon free tier covers the first 100 remaps for each Elastic
+IP. I'm pretty sure we will be way below this level.
+
+### Password-protected directories on nginx
 
 The repository will have public and private areas. For example:
-`http://dist.myserver.com/public` and `http://dist.myserver.com/private`. First,
-let's modify `/etc/nginx/sites-available/default` and add the following:
+`http://dist.myserver.com/public` and `http://dist.myserver.com/private`.
+First, let's modify `/etc/nginx/sites-available/default` and add the
+following:
 
 ```nginx
 location ^~ /private/ {
- autoindex on;
- auth_basic            "Restricted";
- auth_basic_user_file  /etc/nginx/htpasswd;
- }
+    autoindex on;
+    auth_basic            "Restricted";
+    auth_basic_user_file  /etc/nginx/htpasswd;
+}
 ```
 
 The first line inside the `location` directive turns on automatic indexing. The
 second and third line enable the
 [basic authentication mechanism of nginx](http://wiki.nginx.org/HttpAuthBasicModule).
 
-To generate the `htpasswd` file we can use [this script](http://trac.edgewall.org/browser/trunk/contrib/htpasswd.py).
+To generate the `htpasswd` file we can use
+[this script](http://trac.edgewall.org/browser/trunk/contrib/htpasswd.py).
 
 ```bash
 python htpasswd.py -c -b htpasswordfile secretuser supersecretpassword
 ```
 
-Once generated, copy the htpasswd file to `/etc/nginx` and fix the permissions ...
+Once generated, copy the `htpasswd` file to `/etc/nginx` and fix the
+permissions:
 
 ```bash
 sudo chown -R www-data:root htpasswd
 sudo chmod 600 htpasswd
 ```
 
-... create the public and private directorties....
+Create the public and private directories:
 
 ```bash
 sudo mkdir /var/www/webfiles/{public,private}
 ```
 
-.... and restart the webserver.
+And restart the web server:
 
 ```bash
 sudo service nginx restart
@@ -188,17 +206,17 @@ sudo service nginx restart
 ## Releasing eggs to the repository
 
 First we need to automate the login procedure to the Amazon EC2 instance.
-Normally, I would use this to login without password:
+Normally, I would use this to log in without password:
 
 ```bash
 ssh -i /path/to/server_key.pem ubuntu@myserver.com
 ```
 
-But some programs might not be able to give you options to include a ssh key.
-The solution, then is to tell openssh that it should use that key whenever we
-login to myserver.com.
+But some programs might not be able to give you options to include a SSH key.
+The solution, then, is to tell OpenSSH that it should use that key whenever we
+log in to `myserver.com`.
 
-First copy the `.pem` key to `~/.ssh` , then edit `~/.ssh/config` and add the
+First copy the `.pem` key to `~/.ssh`, then edit `~/.ssh/config` and add the
 following lines:
 
 ```ssh
@@ -207,7 +225,7 @@ Host dist.myserver.com
 ```
 
 Now we need to install `jarn.mkrelease`. I used buildout; I just added the
-following lines and included mkrelease in the parts section on `[buildout]`.
+following lines and included `mkrelease` in the `parts` section on `[buildout]`:
 
 ```ini
 [buildout]
@@ -220,35 +238,36 @@ parts =
     eggs = jarn.mkrelease
 ```
 
-That installs mkrelease in `bin/` directory of buildout. Now it's time to
+That installs `mkrelease` in the `bin/` directory of buildout. Now it's time to
 configure `jarn.mkrelease` to upload eggs to our new repository by adding the
 following configuration to `~/.mkrelease`:
 
 ```ini
 [aliases]
 plone =
- pypi
- ploneorg
+    pypi
+    ploneorg
 
 myserver_public =
- user@dist.myserver.com:/var/www/webfiles/public
+    user@dist.myserver.com:/var/www/webfiles/public
 clientA =
- user@dist.iservices.com:/var/www/webfiles/private/clientA
+    user@dist.iservices.com:/var/www/webfiles/private/clientA
 ```
 
-**Note: Do not forget to create the directorties and set the appropiate
-**permissions to `/var/www/webfiles`.
+**Note:** Do not forget to create the directories and set the appropriate
+permissions on `/var/www/webfiles`.
 
-Let's also configure `~/.pypirc` with the information about pypi and plone.org:
+Let's also configure `~/.pypirc` with the information about PyPI and
+plone.org:
 
 ```ini
 [distutils]
 index-servers =
- pypi
- ploneorg
+    pypi
+    ploneorg
 
 [pypi]
-username = mysuer
+username = myuser
 password = password
 
 [ploneorg]
@@ -264,22 +283,23 @@ code for one egg and it's a git repository:
 ```bash
 cd my.product/
 ls
-  docs  my  my.product.egg-info README.rst  setup.cfg  setup.py
+    docs  my  my.product.egg-info README.rst  setup.cfg  setup.py
 ```
 
-To release to pypi and plone.org:
+To release to PyPI and plone.org:
 
 ```bash
 bin/mkrelease -T -d pypi .
 bin/mkrelease -T -d ploneorg .
 ```
 
-To release to `myserver_public` :
+To release to `myserver_public`:
 
 ```bash
 bin/mkrelease -T -d myserver_public .
 ```
-And finally, releasing to clientA :
+
+And finally, releasing to `clientA`:
 
 ```bash
 bin/mkrelease -T -d clientA .
@@ -288,7 +308,7 @@ bin/mkrelease -T -d clientA .
 ## Using the private and public repository
 
 Once you've released your eggs to your public and private repositories, it's
-time to use them in your buildout. And turns out to be brain-dead easy.
+time to use them in your buildout. And it turns out to be brain-dead easy.
 
 Public repo:
 
@@ -296,8 +316,9 @@ Public repo:
 [buildout]
 find-links =
     ...
-    http://dist.myserver.com/public 
+    http://dist.myserver.com/public
 ```
+
 And for the private repo:
 
 ```ini
@@ -305,7 +326,7 @@ And for the private repo:
 find-links =
     ...
     http://username:password@dist.myserver.com/private
-    http://username:passowrd@dist.myserver.com/private/clientA
+    http://username:password@dist.myserver.com/private/clientA
 ```
 
 The End.

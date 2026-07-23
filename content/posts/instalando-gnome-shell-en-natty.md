@@ -1,25 +1,31 @@
 ---
-title: "Instalando Gnome Shell en Natty"
+title: "Instalando GNOME Shell en Natty"
 date: "2011-04-30"
-description: "Pasos para instalar Gnome Shell en Ubuntu Natty usando PPAs, alternativa a Unity para equipos con poca RAM."
+summary: "GNOME Shell vía PPA en Ubuntu Natty, como alternativa liviana a Unity en una Latitude D620 con 512 MB de RAM."
+description: "Pasos para instalar GNOME Shell en Ubuntu Natty usando PPAs, alternativa a Unity para equipos con poca RAM."
 categories:
-  - "Linux Gnome"
+  - "Linux"
 tags:
-  - gnome
-  - gnome-shell
   - ubuntu
-  - linux
+  - gnome-shell
+  - gnome3
+  - unity
+locale: "es_MX"
+keywords: "ubuntu natty, gnome shell, gnome3, ppa, unity, latitude d620"
+extra:
+  deprecated: true
+  deprecated_reason: "Ubuntu 11.04 Natty Narwhal es EOL; GNOME Shell viene preinstalado en distros Linux modernas"
 ---
 
 Después de instalar Ubuntu Natty en una Dell Latitude D620 con 512 MB de RAM,
 noté un poco lento el Unity. La expansión de RAM tardará algunos días en
-llegar así que le instalé Gnome Shell y me gustó.
+llegar, así que le instalé GNOME Shell y me gustó.
 
-Dicen los chismes que Gnome Shell no estará disponible en los repos oficiales
+Dicen los chismes que GNOME Shell no estará disponible en los repos oficiales
 de Ubuntu hasta que salga Oneric. Unity se ve muy bonito, pero ya había
-probado GnomeShell antes y quise probarlo de nuevo
+probado GNOME Shell antes y quise probarlo de nuevo.
 
-Me quedan 2 opciones: Instalarlo mediante JhBuild o mediante PPAs. Decidí
+Me quedan 2 opciones: instalarlo mediante JHBuild o mediante PPAs. Decidí
 escoger los PPAs. Y así fue:
 
 ```bash
@@ -29,25 +35,25 @@ sudo apt-get update && sudo apt-get dist-upgrade
 
 ¡Y eso es todo!
 
-Después de algunos minutos sali de mi sessión y volví a entrar teniendo
-cuidado de seleccionar la sesión "Gnome Shell".
+Después de algunos minutos salí de mi sesión y volví a entrar teniendo
+cuidado de seleccionar la sesión "GNOME Shell".
 
-Así quedo mi escritorio (Click en la imagen para verla en tamaño completo):
+Así quedó mi escritorio (click en la imagen para verla en tamaño completo):
 
-![Gnome Shell en Ubunu Natty](/static/images/posts/instalando-gnome-shell-en-natty/gnome-shell-natty.png)
+![GNOME Shell en Ubuntu Natty](/static/images/posts/instalando-gnome-shell-en-natty/gnome-shell-natty.png)
 
-El gnome shell que se instala con estos PPA's contiene lo mínimo necesario
-para ejecutar el entorno. El día de hoy subieron un paquete al PPA con algunos
-temas. Pero aunque solo traiga el tema default de GTK, en mi opinión, se
-siente mejor que Unity para máquinas con poca RAM.
+El GNOME Shell que se instala con estos PPAs contiene lo mínimo necesario para
+ejecutar el entorno. El día de hoy subieron un paquete al PPA con algunos
+temas. Pero aunque solo traiga el tema default de GTK, en mi opinión, se siente
+mejor que Unity para máquinas con poca RAM.
 
 Podría usar Fedora o Debian, pero Ubuntu no solo es la interfaz gráfica.
 
-*Actualización (3 de Mayo)*
+*Actualización (3 de mayo).*
 
 Tuve que instalar el paquete `gnome-shell` a mano para que instalara otras
-dependencias, entre ellas, el nuevo tema Adawita. Por si esto no les funciona,
-también instalen `gnome-tweak-tool`. Asegurense de reiniciar.
+dependencias, entre ellas, el nuevo tema Adwaita. Por si esto no les funciona,
+también instalen `gnome-tweak-tool`. Asegúrense de reiniciar.
 
 ```bash
 sudo apt-get install gnome-shell
@@ -55,5 +61,4 @@ sudo apt-get install gnome-shell
 
 El shell se ve mejor:
 
-![Un pantallazo de GnomeShell en Natty después de activar el tema Adawita](/static/images/posts/instalando-gnome-shell-en-natty/gnome-shell-natty-adawita.png)
-
+![Un pantallazo de GNOME Shell en Natty después de activar el tema Adwaita](/static/images/posts/instalando-gnome-shell-en-natty/gnome-shell-natty-adawita.png)
