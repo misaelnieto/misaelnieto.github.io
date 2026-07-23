@@ -1,8 +1,8 @@
 [site]
 title = "Noe Nieto"
 description = "Mi sitio personal | Personal site"
-# base_url = "https://noenieto.com"
-base_url = "http://localhost:4000"
+base_url = "https://noenieto.com"
+# base_url = "http://localhost:4000"
 language = "es"
 author = "Noe Nieto"
 
@@ -36,10 +36,11 @@ public_dir = "public"
 minify = true
 fingerprint = true
 math = true
+mermaid = true
 
 [deploy]
 target = "github-pages"
-auto_commit = true
+repo = "git@github.com:misaelnieto/noenieto_com.git"
 
 [images]
 widths = [480, 800, 1200]
