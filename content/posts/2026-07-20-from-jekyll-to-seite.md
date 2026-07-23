@@ -23,7 +23,7 @@ keywords:
   - "seite, jekyll, ssg, static site generator, migration, tailwindcss, opencode"
 ---
 
-In June 2012 I [wrote a post](/blog/primer_post_con_blog_estatico) announcing that I was abandoning [Plone](http://plone.org/) and moving my personal site to Jekyll. Fourteen years later, in June 2026, I packed my bags again: I left Jekyll and moved the whole site to [Seite](https://seite.sh), a static site generator that calls itself *AI-first*.
+In June 2012 I [wrote a post](/blog/primer-post-blog-estatico) announcing that I was abandoning [Plone](http://plone.org/) and moving my personal site to Jekyll. Fourteen years later, in June 2026, I packed my bags again: I left Jekyll and moved the whole site to [Seite](https://seite.sh), a static site generator that calls itself *AI-first*.
 
 This post is the story of that migration — the stack, the hacks, the bugs I filed, the parts I'm proud of, and the parts I'm not. If you are thinking about moving an old blog to a modern SSG, or you are just curious about what an "AI-first" static site generator actually means in practice, this is for you.
 

@@ -1,0 +1,102 @@
+# Redirects SEO acumulados
+# ========================
+#
+# Registro de slugs renombrados durante la curaduría de posts viejos.
+# GitHub Pages (deploy actual) no soporta redirects nativos, así que este
+# archivo es solo registro; la implementación queda pendiente.
+#
+# Opciones de implementación (decidir más adelante):
+#   (a) Generar HTML con <meta http-equiv="refresh" content="0; url=...">
+#       en cada URL vieja, al estilo jekyll-redirect-from.
+#   (b) Servir redirects desde un CDN frontal (Cloudflare Pages, Netlify)
+#       con sintaxis `from  to  301`.
+#   (c) Mover el dominio a un hosting que soporte redirects server-side.
+#
+# Formato de cada entrada:
+#   OLD_PATH -> NEW_PATH     (BLOQUE N, slug rename motivo)
+#
+# donde OLD_PATH/NEW_PATH son rutas absolutas sin dominio.
+# Convención URL de posts del sitio: /blog/<slug> SIN slash final.
+# (Nota: algunas URLs con slash final ya devuelven 404; los redirects
+# deben contemplar ambas variantes: con y sin slash final.)
+
+# ----------------------------------------------------------------------------
+# Bloque 1 (commit ce5f0f9, curaduría posts 2009-01 a 2010-01)
+# ----------------------------------------------------------------------------
+
+# Post sobre `git checkout -- <ruta>` para descartar cambios de un archivo.
+# Slug original tenía guiones bajos y mayúsculas; normalizado a kebab-case.
+/blog/Deshacer_cambios_de_un_solo_archivo_GIT -> /blog/deshacer-cambios-un-archivo-git
+/blog/Deshacer_cambios_de_un_solo_archivo_GIT/ -> /blog/deshacer-cambios-un-archivo-git
+
+# ----------------------------------------------------------------------------
+# Bloque 2 (commit 4848b58, curaduría posts 2010-02 a 2010-06)
+# ----------------------------------------------------------------------------
+
+# 3 slugs con triples guiones `---` (problema de parsing en algunos sistemas).
+# Normalizados a guión simple entre segmentos.
+
+# Lecciones de i18n en Plone 3 (era: lecciones-aprendidas---internacionalizacion-en-plone)
+/blog/lecciones-aprendidas---internacionalizacion-en-plone -> /blog/lecciones-aprendidas-internacionalizacion-plone
+/blog/lecciones-aprendidas---internacionalizacion-en-plone/ -> /blog/lecciones-aprendidas-internacionalizacion-plone
+
+# Theming Plone 4 Parte 1 (era: theming-plone-4---part-1)
+/blog/theming-plone-4---part-1 -> /blog/theming-plone-4-part-1
+/blog/theming-plone-4---part-1/ -> /blog/theming-plone-4-part-1
+
+# Theming Plone 4 Parte 2 (era: theming-plone-4---part-2)
+/blog/theming-plone-4---part-2 -> /blog/theming-plone-4-part-2
+/blog/theming-plone-4---part-2/ -> /blog/theming-plone-4-part-2
+
+# ----------------------------------------------------------------------------
+# Bloque 3 (commit e840f18, curaduría posts 2010-08 a 2011-04)
+# ----------------------------------------------------------------------------
+# (sin renombres de slug)
+
+# ----------------------------------------------------------------------------
+# Bloque 4 (commit 9f24798, curaduría posts 2011-05 a 2011-10)
+# ----------------------------------------------------------------------------
+# (sin renombres de slug)
+
+# ----------------------------------------------------------------------------
+# Bloque 5 (curaduría posts 2011-11 a 2012-11)
+# ----------------------------------------------------------------------------
+
+# 4 slugs con guiones bajos, normalizados a kebab-case.
+
+# Migración Plone -> Jekyll (era: primer_post_con_blog_estatico)
+/blog/primer_post_con_blog_estatico -> /blog/primer-post-blog-estatico
+/blog/primer_post_con_blog_estatico/ -> /blog/primer-post-blog-estatico
+
+# SES SMTP + Python/Grok/Django (era: using_amazon_ses_with_your_python_applications)
+/blog/using_amazon_ses_with_your_python_applications -> /blog/using-amazon-ses-with-your-python-applications
+/blog/using_amazon_ses_with_your_python_applications/ -> /blog/using-amazon-ses-with-your-python-applications
+
+# Script de regex para capitalizar texto (era: script_para_arreglar_texto)
+/blog/script_para_arreglar_texto -> /blog/script-para-arreglar-texto
+/blog/script_para_arreglar_texto/ -> /blog/script-para-arreglar-texto
+
+# Error ENOSPC en Meteor (era: my_first_issue_with_meteor_solved)
+/blog/my_first_issue_with_meteor_solved -> /blog/my-first-issue-with-meteor-solved
+/blog/my_first_issue_with_meteor_solved/ -> /blog/my-first-issue-with-meteor-solved
+
+
+# ============================================================================
+# Resumen
+# ============================================================================
+#
+# Total redirects pendientes: 8 slugs × 2 variantes (con/sin slash) = 16 reglas.
+#
+# Estado por bloque:
+#   Bloque 1: 1 rename
+#   Bloque 2: 3 renames
+#   Bloque 3: 0 renames
+#   Bloque 4: 0 renames
+#   Bloque 5: 4 renames
+#   Total:   8 renames
+#
+# Histórico de commits de curaduría:
+#   ce5f0f9  Bloque 1 (2009-01 a 2010-01)
+#   4848b58  Bloque 2 (2010-02 a 2010-06)
+#   e840f18  Bloque 3 (2010-08 a 2011-04)
+#   9f24798  Bloque 4 (2011-05 a 2011-10)
