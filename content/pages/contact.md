@@ -1,11 +1,11 @@
 ---
-title: "Reaching out"
-description: "Looking to get in touch? Here are all the places where you can find, follow, or message me."
+title: "Contacto"
+description: "¿Quieres ponerte en contacto? Aquí tienes todos los lugares donde puedes encontrarme, seguirme o escribirme."
 image: /static/hero/contact.png
-tags: ["contact", "linkedin", "github"]
+tags: ["contacto", "linkedin", "github"]
 extra:
   hero:
-    alt: "contact me"
+    alt: "Útiles de correspondencia — sobre y pluma — grabados en tinta sobre pergamino, estilo siglo XIX."
     caption: ""
 
 ---
@@ -20,7 +20,7 @@ extra:
         <span class="contact-card__label">GitHub</span>
     </a>
     <a class="contact-card" href="mailto:nnieto@noenieto.com">
-        <img src="/static/icons/mail.svg" alt="Email">
-        <span class="contact-card__label">Email</span>
+        <img src="/static/icons/mail.svg" alt="Correo electrónico">
+        <span class="contact-card__label">Correo</span>
     </a>
 </section>

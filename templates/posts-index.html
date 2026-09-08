@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}La Bitácora{% if pagination and pagination.current_page > 1 %} · Page {{ pagination.current_page }}{% endif %} &middot; {{ site.title }}{% endblock %}
+{% block title %}La Bitácora{% if pagination and pagination.current_page > 1 %} · Página {{ pagination.current_page }}{% endif %} &middot; {{ site.title }}{% endblock %}
 
 {% block content %}
 <header class="entry-header">
-  <h1 class="entry-title p-name">La Bitácora{% if pagination and pagination.current_page > 1 %} <span class="pagination-suffix">· Page {{ pagination.current_page }}</span>{% endif %}</h1>
-  <p class="entry-description muted">Essays, tutorials and random notes about my journey through Engineering (mostly Software).</p>
+  <h1 class="entry-title p-name">La Bitácora{% if pagination and pagination.current_page > 1 %} <span class="pagination-suffix">· Página {{ pagination.current_page }}</span>{% endif %}</h1>
+  <p class="entry-description muted">Ensayos, tutoriales y notas sueltas sobre mi recorrido por la Ingeniería —principalmente Software—.</p>
 </header>
 
 {% if pagination is undefined or pagination.current_page == 1 %}
-<p>Here you will find writings I've done over the time, in inverse chronological order &mdash; most recent first </p>
+<p>Aquí encontrarás todo lo que he escrito a lo largo del tiempo, en orden cronológico inverso &mdash; lo más reciente primero.</p>
 {% endif %}
 
 <hr class="sober-line" />
@@ -29,7 +29,7 @@
 </ol>
 
 {% if pagination %}
-<nav class="pagination" aria-label="Pagination">
+<nav class="pagination" aria-label="Paginación">
   {% if pagination.prev_url %}<a href="{{ pagination.prev_url }}" rel="prev">&larr; {{ t.newer | default(value="Más recientes") }}</a>{% else %}<span></span>{% endif %}
   <span class="pagination-meta">{{ t.page_n_of_total | default(value="Página {n} de {total}") | replace(from="{n}", to=pagination.current_page ~ "") | replace(from="{total}", to=pagination.total_pages ~ "") }}</span>
   {% if pagination.next_url %}<a href="{{ pagination.next_url }}" rel="next">{{ t.older | default(value="Más antiguos") }} &rarr;</a>{% else %}<span></span>{% endif %}
