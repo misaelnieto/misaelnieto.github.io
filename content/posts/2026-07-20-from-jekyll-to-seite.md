@@ -150,13 +150,13 @@ When that flag is set, `base.html` lazy-loads Mermaid from the jsDelivr CDN and 
 
 This is the part where I get to brag a little. Here are the bits of the rebuild I am proudest of.
 
-### The "As a human" page (and the three skills it forced me to write)
+### The personal section (and the three skills it forced me to write)
 
-If the résumé below is the page I am *technically* proudest of, [As a human](/as-a-human) is the one I am *emotionally* proudest of. It is the personal corner of the site — the story of my wife Xochitl and me, the eight dogs we currently share a house with, the four we have lost, and the philosophical thread underneath all of it.
+If the résumé is the page I am *technically* proudest of, the personal section is the one I am *emotionally* proudest of — the corner of the site where I stepped away from code to write about family, home, and the thread underneath it all.
 
-The hero image is a redrawn, illustrated version of a photo from my wedding day. The old Jekyll site just showed the original photo straight up, and it never sat right with me. This time I fed the photo into [Gemini](https://gemini.google.com/) with a prompt from my `ilustracion` skill — Doré-style cross-hatching, 19th-century ink-on-parchment — and what came back is, frankly, beautiful. It is the portrait I always wanted on the front of my site, and it took an LLM to draw it for me.
+The hero image is a redrawn, illustrated version of a personal photo. The old Jekyll site just showed the original straight up, and it never sat right with me. This time I fed it into [Gemini](https://gemini.google.com/) with a prompt from my `ilustracion` skill — Doré-style cross-hatching, 19th-century ink-on-parchment — and what came back is, frankly, beautiful. It is the portrait I always wanted on the front of my site, and it took an LLM to draw it for me.
 
-The body of the page tells the dog saga: how Bombon chose Xochitl within minutes of meeting her, how we lost Turrón too early, the parvovirus summer of 2021, the Chihuahua puppy abandoned in a shoebox in the middle of a 50 °C summer. Eight dogs, currently. Plus the in-memoriam list. I do not think I could have written any of this by hand — not because it is technically hard, but because it is emotionally heavy. The `redaccion` skill gave me enough editorial distance to draft it without freezing up.
+The body of that section tells a long family story — arrivals, losses, and the quiet continuity of sharing a home over many years. I do not think I could have written any of it by hand — not because it is technically hard, but because it is emotionally heavy. The `redaccion` skill gave me enough editorial distance to draft it without freezing up.
 
 And here is the part that genuinely surprised me: **building this page is what forced me to write the three custom skills in the first place.**
 
@@ -174,7 +174,7 @@ For `as-a-teacher` it read my course repositories and produced a structured per-
 
 That *Archived* category is where things got unexpectedly productive. While the agent was already in there cataloging, I had it help me actually archive a bunch of repositories I had not touched in years — LFS plugins, an old Haroopad Flatpak, a PHP hook deploy tool, a Calculadora Gasolinazo Android app from 2013. Technical debt that had been sitting on my profile for over a decade, cleaned up in an afternoon.
 
-Real talk: writing those three pages by hand — `as-a-human`, `demos`, `as-a-teacher` — would have taken me months. Honestly, probably never. The emotional cost of the dog saga alone would have killed the project. With the agent, each page took a couple of 15-minute rounds of me directing and correcting. That is the whole pitch of this post in one sentence.
+Real talk: writing those three pages by hand — the personal section, `demos`, `as-a-teacher` — would have taken me months. Honestly, probably never. The emotional cost alone would have killed the project. With the agent, each page took a couple of 15-minute rounds of me directing and correcting. That is the whole pitch of this post in one sentence.
 
 ### My résumé is a literal git commit graph
 
