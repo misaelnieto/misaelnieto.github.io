@@ -37,6 +37,20 @@
   </div>
   {% endif %}
 
+  {% if page.toc %}
+  <nav class="toc" aria-label="{{ t.contents }}">
+    <h2 class="toc-heading">{{ t.contents }}</h2>
+    <ol class="toc-list">
+      {% for entry in page.toc %}
+      <li class="toc-entry toc-level-{{ entry.level }}">
+        <a href="#{{ entry.id }}" class="toc-link">{{ entry.text }}</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+
   <div class="entry-content e-content">
     {{ page.content | safe }}
   </div>

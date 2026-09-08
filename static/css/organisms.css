@@ -461,6 +461,85 @@ main {
     }
 }
 
+/* === TABLE OF CONTENTS (post) === */
+/* Vintage book index style, matching .blog-index dot-leader aesthetic. */
+.toc {
+    margin: 1.5rem 0 2rem;
+}
+.toc-heading {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    margin: 0 0 0.4rem;
+}
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.toc-entry {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.1rem 0;
+}
+.toc-entry .toc-link {
+    flex-shrink: 0;
+    max-width: 75%;
+    font-family: var(--font-serif);
+    font-size: 0.925rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    padding-left: calc((var(--toc-level, 1) - 1) * 1.2rem);
+}
+.toc-entry .toc-link:hover {
+    color: var(--color-rubric);
+}
+/* Level 1 entries get chapter-style small-caps */
+.toc-level-1 .toc-link {
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+}
+/* Sub-entries in regular serif */
+.toc-level-2 .toc-link {
+    font-size: 0.875rem;
+    font-variant: normal;
+    letter-spacing: normal;
+}
+.toc-level-3 .toc-link {
+    font-size: 0.825rem;
+    font-variant: normal;
+    letter-spacing: normal;
+}
+.toc-entry .toc-leader {
+    flex: 1;
+    min-width: 1.5rem;
+    height: 1em;
+    align-self: center;
+    background-image: radial-gradient(circle, var(--color-muted-light) 1px, transparent 1.4px);
+    background-size: 6px 100%;
+    background-repeat: repeat-x;
+    background-position: center;
+}
+@media (max-width: 600px) {
+    .toc-entry {
+        flex-wrap: wrap;
+        gap: 0.2rem;
+        padding: 0.3rem 0;
+    }
+    .toc-entry .toc-leader {
+        display: none;
+    }
+    .toc-entry .toc-link {
+        max-width: 100%;
+        flex: 1 1 100%;
+        padding-left: calc((var(--toc-level, 1) - 1) * 0.8rem);
+    }
+}
+
 /* === HOMEPAGE CONTENT === */
 .homepage-content {
     margin-bottom: 2.5rem;

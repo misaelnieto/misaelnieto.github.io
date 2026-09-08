@@ -11,7 +11,7 @@ extra:
     caption: "El justfile que sobrevivió al caos corporativo."
 ---
 
-# Introduction
+## Introduction
 
 Think about the absurdity of modern developer experience for a second. We spent years mastering complex algorithms, distributed systems, and clean architecture... only to spend half our Tuesday in Slack asking: *"Hey, does anyone remember the secret flags to run local integration tests?"*
 
