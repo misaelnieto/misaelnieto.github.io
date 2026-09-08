@@ -19,12 +19,12 @@ extra:
         started: "2025-01"
     timeline:
       - date: "2026-01"
+        end: "2026-06"
         branch: teaching
-        ongoing: true
         hash: "3c4d5e6"
         role: "Profesor interino — Lenguajes y Autómatas I"
         org: "Instituto Tecnológico de Mexicali"
-        impact: "Currently teaching formal languages and automata theory."
+        impact: "Formal languages and automata theory."
 
       - date: "2025-08"
         end: "2025-12"
@@ -32,7 +32,7 @@ extra:
         hash: "2b3c4d5"
         role: "Profesor interino — Fundamentos de Ingeniería de Software & Arquitectura de Computadoras"
         org: "Instituto Tecnológico de Mexicali"
-        impact: "Two courses in the August–December term: software engineering fundamentals and computer architecture."
+        impact: "Software Engineering Fundamentals and Computer Architecture 101."
 
       - date: "2025-01"
         end: "2025-06"
@@ -46,20 +46,20 @@ extra:
         branch: main
         ongoing: true
         hash: "f2a3b4c"
-        role: "Senior Software Developer in Test"
-        org: "Dextra Technologies (a Deloitte business)"
+        role: "Senior Consultant"
+        org: "Deloitte"
         url: "https://www.linkedin.com/company/dextra-technologies"
-        impact: "Currently owning SDET work and test automation for Deloitte-grade delivery."
+        impact: "Test Automation and Quality Engineering"
         stack: ["Python", "Linux", "Jenkins", "Android", "Kotlin"]
 
       - date: "2020-07"
-        end: "2020-08"
+        end: "2021-08"
         branch: main
         hash: "e1f2a3b"
         role: "Backend engineer"
         org: "Kimetrics"
-        impact: "Two-month BI-for-retail engagement: data pipelines across AWS Redshift, S3, ECS, with Knime and Docker."
-        stack: ["Python", "AWS Redshift", "Docker", "Knime"]
+        impact: "Developed data pipelines for the company's flagship BI engine for the retail industry"
+        stack: ["Django", "ScraPY", "OpenPyxl", "Pandas", "AWS RDS", "AWS ECS", "Postgres", "Docker", "Knime"]
 
       - date: "2018-10"
         end: "2020-02"
@@ -67,16 +67,16 @@ extra:
         hash: "d0e1f2a"
         role: "Web Developer (Librem One)"
         org: "Purism SPC"
-        impact: "Integrated WordPress + WooCommerce with a Django middleware. Bits of LDAP, Jekyll, Zola, and GitLab CI along the way."
-        stack: ["PHP", "WordPress", "Django", "Bash", "Vagrant"]
+        impact: "Delivered seamless payment and onboarding integration of a subscription-based account system for the Liberty Deckhost Plan for LibremOne"
+        stack: ["WordPress", "Woocommerce", "Django", "Bash", "Vagrant", "Zola", "Python"]
 
       - date: "2015-11"
         end: "2017-08"
         branch: main
         hash: "c9d0e1f"
-        role: "SRAX Web Developer"
+        role: "Backend Engineer"
         org: "Social Reality / SRAX"
-        impact: "Modernized a legacy LAMP ad-exchange: replaced manual onboarding with tested PHP, integrated new ad exchanges, and wrote the deploy tooling the C++ team actually wanted to use."
+        impact: "Co-led the complete overhaul of the onboarding process of the mission-critical ad-exchange: database schemas and stored procedures were properly engineered and unit-tested to replace manual onboarding process. New Ad exchanges were integrated and to decrease deployment friction, wrote the deploy tooling the C++ team. Developer only neede to push a commit to deploy. Years before github actions were published!"
         stack: ["PHP", "CodeIgniter", "C++", "LAMP", "PHPUnit", "New Relic"]
 
       - date: "2013-10"
@@ -85,24 +85,24 @@ extra:
         hash: "b8c9d0e"
         role: "Developer & Sysadmin"
         org: "Valutech Outsourcing (now Clover Wireless)"
-        impact: "First data-center gig: SQL Server HA, IIS, Linux hosts, Active Directory, terabyte-scale backups. Built a few internal tools in ASP.NET MVC and Python on the side."
-        stack: ["SQL Server", "IIS", "Linux", "Active Directory", "AWS S3"]
+        impact: "First data-center gig: SQL Server in High Availability needed terabyte-scale backups. Built a high-speed solution for the backup to AWS S3 plus a few internal tools."
+        stack: ["SQL Server", "IIS", "Linux", "Active Directory", "AWS S3", "RabbitMQ", "Boto", "Python", "Bash", "Git"]
 
       - date: "2013-01"
         branch: holokinesis
         ongoing: true
         hash: "a7b8c9d"
-        role: "Active collaborator"
-        org: "Academia Internacional de Psicología Holokinética"
-        impact: "Started active collaboration with the Academia, alongside the publishing work."
+        role: "Chief Technology Officer"
+        org: "International Academy of Holokinetic Psychology"
+        impact: "Really! I've become the Chief Tecnology Officer for the AIPH! After almost 20 years of collaboration I now define the roadmap for all our technologies needed and oversee the implementation!"
 
       - date: "2011-08"
         end: "2014-03"
         branch: consulting
         hash: "f6a1b2c"
-        role: "Full-stack developer (side gig)"
+        role: "Full-stack developer"
         org: "HomeViva"
-        impact: "Helped build a LatAm construction-tech startup: migrated the stack from LAMP + jQuery to Pyramid + Angular 1.x, and ran the AWS Linux fleet on the side."
+        impact: "Helped build a LatAm construction-tech startup: migrated the stack from Plone to Grok (A python web framework) and then to a REST Pyramid/SQLAlchemy backend + Angular 1.x frontend, and ran the AWS Linux fleet on the side."
         stack: ["Python", "Pyramid", "Angular.js", "AWS"]
 
       - date: "2010-01"
@@ -117,28 +117,28 @@ extra:
         end: "2011-04"
         branch: main
         hash: "d4e5f6a"
-        role: "Web/Python Developer & Linux Sysadmin"
+        role: "Full stack developer"
         org: "iServices de México"
-        impact: "Ran their Plone-based LCMS and the Linux underneath it — scaling, integration, break-fix."
-        stack: ["Plone", "Python", "ZODB", "PostgreSQL", "RelStorage"]
+        impact: "Plone-based LCMS. High Availability architecture behind: scaling, integration, break-fix."
+        stack: ["Plone", "Python", "ZODB", "PostgreSQL", "RelStorage", "HAProxy", "Varnish"]
 
       - date: "2006-05"
         end: "2008-12"
         branch: main
         hash: "c3d4e5f"
         role: "Data Acquisition Engineer"
-        org: "Honeywell Aerospace — MRTC"
-        impact: "Owned DA hardware commissioning and became the in-house specialist for pressure, temperature, vibration, and video-over-IP. Earned the Six Sigma Green Belt along the way."
-        stack: ["Linux", "Python", "PHP", "GStreamer"]
+        org: "Honeywell Aerospace de México"
+        impact: "DA specialist for pressure, temperature, vibration and Video surveillance."
+        stack: ["Linux", "Python", "PHP", "GStreamer", "Electronics", "Data Acquisition", "Instrumentation"]
 
       - date: "2006-02"
-        end: "2006-03"
+        end: "2006-05"
         branch: main
         hash: "b2c3d4e"
-        role: "Multiplayer programmer (contract)"
+        role: "Multiplayer programmer"
         org: "Gameloft"
         impact: "Brief but fun: shipped multiplayer server patches and device-specific adaptations for J2ME mobile titles."
-        stack: ["C++", "Apache"]
+        stack: ["C++", "Apache", "J2ME"]
 
       - date: "2001-01"
         branch: consulting
@@ -185,7 +185,7 @@ extra:
 
 ## Now
 
-Senior Software Developer at **Deloitte**, since August 2021. Running **NNieto Consulting** on the side — going strong since 2001. Teaching at the **Instituto Tecnológico de Mexicali** since January 2025. Actively helping **Holokinesis Libros** and **Academia Internacional de Psicología Holokinética** promote the study of [Unitary Perception](https://percepcionunitaria.org/en) around the world.
+Senior Software Developer at **Deloitte**, since August 2021 and actively working with the [International Academy of Holokinetic Psychology](https://www.percepcionunitaria.org/en/aiph) to  promote the study of [Unitary Perception](https://percepcionunitaria.org/en) around the world. Teaching at the **Instituto Tecnológico de Mexicali** since January 2025. Occasionally running small gigs as **NNieto Consulting** on the side.
 
 ## My tool belt
 
