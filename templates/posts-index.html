@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Bitácora{% if pagination and pagination.current_page > 1 %} · pág. {{ pagination.current_page }}{% endif %} &middot; {{ site.title }}{% endblock %}
+{% block title %}La Bitácora{% if pagination and pagination.current_page > 1 %} · Page {{ pagination.current_page }}{% endif %} &middot; {{ site.title }}{% endblock %}
 
 {% block content %}
 <header class="entry-header">
-  <h1 class="entry-title p-name">Bitácora{% if pagination and pagination.current_page > 1 %} <span class="pagination-suffix">· pág. {{ pagination.current_page }}</span>{% endif %}</h1>
-  <p class="entry-description muted">Ensayos, tutoriales y notas sobre ingeniería de software y otras obsesiones.</p>
+  <h1 class="entry-title p-name">La Bitácora{% if pagination and pagination.current_page > 1 %} <span class="pagination-suffix">· Page {{ pagination.current_page }}</span>{% endif %}</h1>
+  <p class="entry-description muted">Essays, tutorials and random notes about my journey through Engineering (mostly Software).</p>
 </header>
 
 {% if pagination is undefined or pagination.current_page == 1 %}
-<p>Bitácora de Noe Nieto. Aquí viven mis escritos sobre ingeniería de software, tutoriales técnicos y otras obsesiones que no cupieron en otra parte. El orden es cronológico inverso — lo más reciente arriba, lo más antiguo al fondo — como conviene a un cuaderno que se sigue escribiendo.</p>
+<p>Here you will find writings I've done over the time, in inverse chronological order &mdash; most recent first </p>
 {% endif %}
 
 <hr class="sober-line" />
