@@ -102,6 +102,7 @@ A small, centered SVG of a Victorian woodcut ornament (fleuron) marking the end 
 - **No Rounded Corners**: 0px means 0px. A 2px radius already destroys the illusion.
 - **No Shadows**: depth must be flat. For an "active" feel, shift to `secondary` color or change the background tone.
 - **No Icons**: use labeled text or technical woodcut illustrations. Replace "hamburger"/"gear" icons with text labels like "INDEX" or "APPARATUS."
+- **No Top Air**: never add `padding-top` to `body` or `body > header` (including media queries) — see §7 Page Frame. Vertical space is reserved for content, not dead air above the header.
 
 ---
 
@@ -110,6 +111,15 @@ A small, centered SVG of a Victorian woodcut ornament (fleuron) marking the end 
 - **Margin-Global** `spacing-12` (4rem): desktop layouts, the luxurious wide-margin monograph look.
 - **Paragraph Spacing** `spacing-4` (1.4rem): between text blocks.
 - **Section Break** `spacing-24` (8.5rem): signals a major topical shift.
+
+### Page Frame — Zero Top Waste (enmienda 2026-09)
+
+**Regla autoritativa:** `body` y `body > header` llevan `padding-top: 0` en todos los breakpoints. El desperdicio vertical arriba del header está prohibido.
+
+- `body` (`static/css/atoms.css:16`): `padding: 0 clamp(...) clamp(...)` — top siempre `0`, incluso en `@media (max-width:1000px)` y `(max-width:600px)`.
+- `body > header` (`static/css/organisms.css:4`): `padding: 0 2rem 1.5rem` — sin aire arriba; el respiro es inferior (`padding-bottom`) y el filete `border-bottom: 3px solid ink` hace de borde superior efectivo.
+- **No reintroducir** `padding-top` en ningún media query ni override. El espacio lateral (`clamp` / `1.5rem` / `1rem`) y el inferior sí se conservan.
+- Racional: la monografía no deja margen muerto sobre el encabezado; el contenido útil debe empezar en el primer píxel del viewport, como un pliego impreso a sangre en el borde superior.
 
 ---
 

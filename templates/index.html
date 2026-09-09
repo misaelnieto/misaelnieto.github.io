@@ -9,12 +9,10 @@
 
 <hr class="sober-line" />
 
-<section class="frontpage-aspects">
-  <h2 id="aspects" class="frontpage-heading"><span class="section-numeral">I.</span> ASPECTS</h2>
+<section class="frontpage-aspects" id="aspects">
   <div class="aspects-grid">
     {% for aspect in page.extra.aspects %}
     <div class="aspect-card">
-      <span class="aspect-ref">REF. 00{{ loop.index }}</span>
       <h3><a href="{{ lang_prefix }}{{ aspect.url }}">{{ aspect.title }}</a></h3>
       <p>{{ aspect.description }}</p>
     </div>
@@ -22,26 +20,6 @@
   </div>
 </section>
 
-<hr class="sober-line" />
-
-<section class="frontpage-musings">
-  <h2 id="musings" class="frontpage-heading"><span class="section-numeral">II.</span> LATEST MUSINGS</h2>
-  <ul class="musings-list">
-    {% for collection in collections %}
-    {% if collection.name == "posts" %}
-    {% for item in collection.items | slice(end=3) %}
-    <li>
-      <span class="musing-date">{{ item.date }}</span>
-      <div class="musing-content">
-        <h4><a href="{{ lang_prefix }}{{ item.url }}">{{ item.title }}</a></h4>
-        {% if item.tags %}<span class="musing-category">{{ item.tags | first | upper }}</span>{% endif %}
-      </div>
-    </li>
-    {% endfor %}
-    {% endif %}
-    {% endfor %}
-  </ul>
-</section>
 {% else %}
 {{ page.content | safe }}
 {% endif %}

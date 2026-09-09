@@ -4,7 +4,7 @@
 body > header {
     width: 100%;
     margin-bottom: 2.5rem;
-    padding: 1.5rem 2rem;
+    padding: 0 2rem 1.5rem;
     border-bottom: none;
 }
 header:not(.entry-header--hero) h1,
@@ -43,19 +43,90 @@ header > p {
 .header-first-row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;
+    gap: 2rem;
     border-bottom: 3px solid var(--color-ink);
     padding-bottom: var(--spacing-sm);
     margin-bottom: var(--spacing-base);
 }
 .header-first-row .site-title {
     margin: 0;
+    flex-shrink: 0;
+    align-self: center;
+}
+/* Columna derecha: search arriba, nav abajo, todo alineado a la derecha */
+.header-first-row__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.45rem;
+    flex-shrink: 0;
+    min-width: 220px;
+}
+.header-first-row .search-stack {
+    position: relative;
+    width: 240px;
+    max-width: 36vw;
+}
+.header-first-row .search-form {
+    margin: 0;
+    max-width: none;
+    width: 100%;
+}
+.header-first-row .search-form input {
+    font-size: 0.78rem;
+    padding: 0.2rem 0;
+    text-align: right;
+}
+.header-first-row #search-results {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: auto;
+    width: 320px;
+    max-width: 85vw;
+    z-index: 10;
+}
+/* Cuando solo el search ocupa la columna, el nav queda debajo pegado al filete */
+.header-first-row__actions .site-nav {
+    margin-top: 0.15rem;
+}
+@media (max-width: 640px) {
+    .header-first-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.9rem;
+    }
+    .header-first-row .site-title {
+        align-self: flex-start;
+    }
+    .header-first-row__actions {
+        align-items: stretch;
+        width: 100%;
+        min-width: 0;
+    }
+    .header-first-row .search-stack {
+        width: 100%;
+        max-width: none;
+    }
+    .header-first-row .search-form input {
+        text-align: left;
+    }
+    .header-first-row #search-results {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+    .header-first-row__actions .site-nav ol {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+    }
 }
 nav.site-nav {
     margin-top: 0;
 }
 nav.site-nav ol {
-    list-style-type: upper-roman;
+    list-style-type: none;
     display: flex;
     gap: 2.5rem;
     margin: 0;
@@ -71,7 +142,7 @@ nav.site-nav li::marker {
 nav.site-nav a {
     color: var(--color-rubric);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -86,27 +157,14 @@ nav.site-nav a:hover {
     gap: 1.5rem;
     position: relative;
 }
+.header-second-row:empty {
+    display: none;
+}
 .header-second-row > p {
     flex-shrink: 0;
     font-variant: small-caps;
     color: var(--color-muted);
     margin-bottom: 0;
-}
-.header-second-row .search-form {
-    margin-top: 0;
-    margin-left: auto;
-    max-width: 220px;
-}
-.header-second-row .search-form input {
-    font-size: 0.78rem;
-    padding: 0.2rem 0;
-}
-.header-second-row #search-results {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 10;
 }
 
 /* Language switcher */
@@ -224,7 +282,7 @@ main {
 }
 .hero-text h1 {
     font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-size: clamp(2rem,5vw,4rem);
     line-height: 0.92;
     font-weight: var(--font-weight-regular);
     font-style: italic;
@@ -300,7 +358,7 @@ main {
 }
 .aspects-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 .aspect-ref {
@@ -320,6 +378,7 @@ main {
     padding: 0.5rem 0;
     border-bottom: 2px solid transparent;
     transition: border-color 0.15s;
+    text-align: center;
 }
 .aspect-card:hover {
     border-bottom-color: var(--color-rubric);
@@ -1858,7 +1917,7 @@ footer {
 
 @media (max-width: 1000px) {
     body {
-        padding: 1.5rem 1.5rem 3rem;
+        padding: 0 1.5rem 3rem;
     }
     header {
         width: 100%;
@@ -2397,7 +2456,7 @@ footer {
 
 @media (max-width: 600px) {
     body {
-        padding: 1rem 1rem 2rem;
+        padding: 0 1rem 2rem;
         font-size: 1rem;
     }
     .hero,

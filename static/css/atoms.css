@@ -17,8 +17,10 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 4rem)
-        clamp(2rem, 4vw, 4rem);
+    padding:
+        0
+        clamp(1rem, 3vw, 4rem)
+        clamp(2rem, 4vw, 4rem); /* top:0 — sin aire muerto arriba (design-system §7) */
     font-family: var(--font-body);
     font-size: 1.125rem;
     line-height: 1.75;

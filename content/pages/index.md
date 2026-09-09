@@ -1,23 +1,22 @@
 ---
 title: "Noe Nieto"
-description: "Senior Software developer with 25+ years of experience in the software industry"
+description: "Me dan madejas enredadas y las entrego como ovillos ordenados — sin cortar, sin romper. Veinte años de software detrás; por delante, proyectos de punta a punta, docencia y, algún día, la investigación de lo que está más allá del pensamiento."
 image: "/static/profile.png"
 extra:
   hero:
     title: |
-      <span class="hero-title-black">Senior</span><br>
-      <span class="hero-title-rubric">Software<br>Engineer</span>
-    alt: "A drawing of Noe Nieto created with AI, based on a photograph taken by his wife."
-    caption: "FIG. 1337—A GENTLEMAN NAMED NOE NIETO WHO WORKS WITH COMPUTERS"
+      <span class="hero-title-black">Del enredo</span><br>
+      <span class="hero-title-rubric">al orden</span>
+    alt: "Dibujo de Noe Nieto creado con IA, a partir de una fotografía tomada por su esposa."
   aspects:
-    - title: "As a professional"
-      description: "25 years across the stack. Engineering résumé with a git-flavored timeline of career, consulting, and teaching. 100% remote from Baja California."
+    - title: "Como profesional"
+      description: "25 años en toda la pila. Currículum de ingeniería con una línea de tiempo estilo git: carrera, consultoría y docencia. 100% remoto desde Baja California."
       url: "/as-a-professional"
-    - title: "As a teacher"
-      description: "Course repositories, exercises, and materials from Noe's ITM classes — SOA, Software Engineering, and Languages and Automata."
+    - title: "Como docente"
+      description: "Repositorios de cursos, ejercicios y materiales de las clases de Noe en el ITM: SOA, Ingeniería de Software y Lenguajes y Autómatas."
       url: "/as-a-teacher"
-    - title: "Holokinetic Psychology"
-      description: "My role as associate instructor and colaborator of the International Academy of Holokinetic Psychology"
+    - title: "Psicología Holokinética"
+      description: "Mi rol como instructor asociado y colaborador de la Academia Internacional de Psicología Holokinética."
       url: "/as-aiph-instructor"
-      
+
 ---
