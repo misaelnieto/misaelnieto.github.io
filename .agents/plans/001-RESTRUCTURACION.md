@@ -54,14 +54,19 @@ Software (20 años, cerrando) ──► PUENTE (ahora) ──► Difusión AIPH 
 - `/as-a-human`: 388 views de solo 11 visitantes (auto-tráfico: él + esposa). No hay
   público que perder al retirarla.
 
-### 1.5 Reglas de idioma
+### 1.5 Reglas de idioma (decisión 2026-09-07: español primero)
 
-- Blog: **español** (idioma natural, alumnos lo leen).
-- CV / página profesional: **inglés** (función probada: reclutadores).
-- Teaching: **español**.
-- No bilingüismo completo: no hay audiencia que lo justifique.
-- Escribir EN "esperando que alguien discuta": cortado como estrategia; solo como
-  experimento con costo definido (1 pieza + 3 meses + medición).
+- **Todo el sitio en español**, con excepciones puntuales en inglés:
+  `as-a-professional.md` y el CV (`resume.html`) — función probada: reclutadores.
+  Excepciones futuras: caso por caso.
+- Justificación: la audiencia real es ES (alumnos ITM con inglés débil, contactos
+  profesionales mexicanos); los traductores automáticos de 2026 cubren al lector EN
+  ocasional; el experimento "escribir EN esperando discusión" quedó cortado (sin
+  canales ni tiempo de feedback).
+- Posts históricos en EN (`from-jekyll-to-seite`, `the-justfile-task-runner-guide`,
+  `goodbye-world`, y la cola larga 2010–2018): quedan como están — no se reescribe
+  historia. Traducir los dos posts EN de 2026: opcional, baja prioridad.
+- Posts nuevos: siempre ES.
 
 ---
 
@@ -72,7 +77,7 @@ Software (20 años, cerrando) ──► PUENTE (ahora) ──► Difusión AIPH 
 | Cabecera profesional | `/`, `/as-a-professional`, `/resume` | EN (CV) / ES (home) | Financia la transición |
 | Blog | `/blog` | ES | Gimnasio de escritura + oficio |
 | Docencia | `/as-a-teacher` | ES | Audiencia real (alumnos ITM) |
-| Mención AIPH | `/as-aiph-instructor` (simplificada) | ES/EN | Honor + enlaces oficiales |
+| Mención AIPH | `/as-aiph-instructor` (simplificada) | ES | Honor + enlaces oficiales |
 | Archivo | `/blog` (posts < 2025 marcados) | ES | Sin mantenimiento, sin culpa |
 | ~~As a human being~~ | *(retirada)* | — | Riesgo OSINT; no había audiencia |
 
@@ -92,31 +97,31 @@ Software (20 años, cerrando) ──► PUENTE (ahora) ──► Difusión AIPH 
 
 ### Fase 0 — Acción manual del usuario (no agente)
 
-- [ ] Umami (cloud.umami.is → sitio → Settings): excluir IP propia y la de Xochitl.
-- [ ] Decidir email canónico: `author.yaml` dice `noe@noenieto.com`, `contact.md` usa
+- [x] Umami (cloud.umami.is → sitio → Settings): excluir IP propia y la de Xochitl. (Update: umami no tiene ese filtro)
+- [x] Decidir email canónico: `author.yaml` dice `noe@noenieto.com`, `contact.md` usa
   `nnieto@noenieto.com`. Unificar.
 
 ### Fase 1 — Privacidad (retiro de "As a human being")
 
-- [ ] `content/pages/as-a-human.md` → mover a `_unused_images/`-equivalente de contenido:
+- [x] `content/pages/as-a-human.md` → mover a `_unused_images/`-equivalente de contenido:
   archivar el markdown en `_unused_content/` (crear; fuera de `content/` para que no
   compile). NO borrar.
-- [ ] Cuarentena de imágenes asociadas → `_unused_images/`: `static/dogs/*` (10 imgs),
+- [x] Cuarentena de imágenes asociadas → `_unused_images/`: `static/dogs/*` (10 imgs),
   `static/hero/familia.png`, `static/hero/familia-perruna.png`.
-- [ ] `content/pages/index.md`: eliminar la tarjeta de aspecto "As a human being".
-- [ ] `content/posts/2026-07-20-from-jekyll-to-seite.md:155`: editar el párrafo que enlaza
+- [x] `content/pages/index.md`: eliminar la tarjeta de aspecto "As a human being".
+- [x] `content/posts/2026-07-20-from-jekyll-to-seite.md:155`: editar el párrafo que enlaza
   a `/as-a-human` (enlace roto potencial + menciona a Xochitl y la saga de perros).
   Reescribir breve, sin nombres de terceros.
-- [ ] Auditoría de datos personales en contenido (grep + revisión humana):
+- [x] Auditoría de datos personales en contenido (grep + revisión humana):
   - Nombres de terceros: `Xochitl`, familiares.
   - Posts tipo bitácora: `semana-29` ("Mi bitacora de actividades"), series `lecturas-*`.
   - Decisión por pieza: dejar / suavizar. El tráfico de estos posts es ~0; sin urgencia.
-- [ ] `data/author.yaml`: revisar URL de Facebook `https://www.facebook.com/nmnieto/x`
+- [x] `data/author.yaml`: revisar URL de Facebook `https://www.facebook.com/nmnieto/x`
   (sufijo `/x` sospechoso de typo).
 
 ### Fase 2 — Mención AIPH digna
 
-- [ ] Reescribir `content/pages/as-aiph-instructor.md` como página corta:
+- [ ] Reescribir `content/pages/as-aiph-instructor.md` como página corta **en español**:
   - Rol: associate instructor, AIPH (~7 integrantes).
   - Enlaces a canales oficiales de difusión (percepcionunitaria.org y afines).
   - Una línea sobre el interés futuro (Bohm, posible investigación/doctorado).
@@ -133,10 +138,28 @@ Software (20 años, cerrando) ──► PUENTE (ahora) ──► Difusión AIPH 
     transición: ingeniero senior que toma las riendas de desarrollos para resolver
     problemas de cliente; rigor de ingeniería en la era agéntica; docencia al lado.
     (Alineado con la descripción de `as-a-professional.md`.)
-  - Hero: mantener (ya dice Senior Software Engineer); revisar `caption`/`alt`.
+  - Hero: "Senior Software Engineer" se mantiene como marca (mismo registro que el CV)
+    o se traduce — decidir al ejecutar; revisar `caption`/`alt`.
   - Aspects finales: 3 tarjetas — Professional / Teaching / Holokinetic Psychology.
+  - Modelo de portada (3 funciones): **declaración** (hero/posicionamiento),
+    **enrutado suave** (3 puertas con descripciones — sin pedirle al visitante
+    auto-identificarse), **prueba de vida** (últimas entradas). La home no es un
+    portal de selección explícita; atiende el momento "quién es esta persona".
+- [ ] Traducir a español las páginas hoy en EN (audiencia ES): `contact.md`,
+  `demos.md`, `as-a-teacher.md` (crítico: sus lectores son alumnos sin inglés fuerte).
+- [ ] Opcional: `templates/404.html` está en pseudo-inglés arcaico ("Behold the
+  field…"); hispanizar manteniendo el tono lúdico.
 - [ ] `data/nav.yaml`: añadir entrada "Teaching" → `/as-a-teacher` (los alumnos entran
-  directo; hoy no está en nav).
+  directo; hoy no está en nav). Hispanizar etiquetas de nav (About → Acerca,
+  Contact → Contacto) — la audiencia por defecto es ES.
+- [ ] Hispanizar el chrome de la UI en `data/i18n/es.yaml` (los defaults del tema son EN;
+  hoy solo traduce `contents`). Claves usadas por los templates: `newer`, `older`,
+  `search_placeholder`, `search_label`, `no_results`, `min_read`, `next_post`,
+  `prev_post`, `page_n_of_total`. Nota: `language = "es"` ya está en `seite.toml`
+  (html lang, og:locale, RSS); esto es solo la capa de strings visibles.
+- [ ] Aceptado (no-goal): las páginas EN (resume, as-a-professional) emiten
+  `lang="es"` — corregirlo exigiría el modo i18n completo de seite (`[languages]` +
+  sufijos `.en.md`); no vale el costo para 2-3 páginas.
 
 ### Fase 4 — Marcar el archivo (posts < 2025-01-01)
 
@@ -176,7 +199,8 @@ Software (20 años, cerrando) ──► PUENTE (ahora) ──► Difusión AIPH 
    cuántico-técnico.
 2. AIPH: si escribe algo de Percepción Unitaria/Bohm-difusión → se publica con la AIPH,
    no aquí. Aquí solo la mención.
-3. Profesional: EN. Teaching: ES.
+3. Español por defecto en todo. Excepciones EN: `as-a-professional` y CV. Posts
+   nuevos: ES.
 4. No crear secciones nuevas sin pasar por este plan. La fragmentación venía de fingir
    tres sitios en uno.
 5. Metadatos mínimos por post: `title`, `description` (= qué se lleva el lector),
