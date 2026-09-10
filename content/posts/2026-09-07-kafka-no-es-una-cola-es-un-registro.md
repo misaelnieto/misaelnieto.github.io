@@ -15,6 +15,7 @@ keywords:
   - "kafka, commit log, topic, offset, replay"
 extra:
   mermaid: true
+draft: true
 ---
 
 En el post anterior, [¿Por qué se llama Kafka? Y qué hace, en realidad](/blog/que-es-kafka-y-por-que-se-llama-asi), vimos qué es Kafka a grandes rasgos: un sistema para que tus aplicaciones se comuniquen de forma asíncrona —unos publican eventos, otros los leen cuando puedan—. Hoy toca deshacernos del malentendido que casi todos traemos de fábrica.

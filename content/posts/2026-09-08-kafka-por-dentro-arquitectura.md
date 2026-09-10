@@ -15,6 +15,7 @@ locale: "es_MX"
 keywords: "kafka, brokers, topics, particiones, consumidores, consumer groups, arquitectura"
 extra:
   mermaid: true
+draft: true
 ---
 
 En el [post anterior](/blog/kafka-no-es-una-cola-es-un-registro) dijimos que Kafka no es una cola: es un **commit log**. Un archivo append-only donde cada mensaje lleva un offset, y los consumidores no reciben eventos — los leen, a su ritmo, desde donde se quedaron. Esa idea es la clave de todo lo que viene.
