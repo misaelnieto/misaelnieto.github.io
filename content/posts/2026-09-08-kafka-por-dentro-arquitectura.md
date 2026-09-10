@@ -17,7 +17,7 @@ extra:
   mermaid: true
 ---
 
-En el [post anterior](/blog/kafka-no-es-una-cola-es-un-registro/) dijimos que Kafka no es una cola: es un **commit log**. Un archivo append-only donde cada mensaje lleva un offset, y los consumidores no reciben eventos — los leen, a su ritmo, desde donde se quedaron. Esa idea es la clave de todo lo que viene.
+En el [post anterior](/blog/kafka-no-es-una-cola-es-un-registro) dijimos que Kafka no es una cola: es un **commit log**. Un archivo append-only donde cada mensaje lleva un offset, y los consumidores no reciben eventos — los leen, a su ritmo, desde donde se quedaron. Esa idea es la clave de todo lo que viene.
 
 Pero un log en un archivo de texto no escala. Si tu empresa produce un millón de eventos por segundo, necesitas repartir ese log en múltiples máquinas, replicarlo para que no se pierda nada, y permitir que docenas de consumidores lo lean en paralelo sin estorbarse. Eso es exactamente lo que Kafka resuelve con su arquitectura.
 
@@ -29,7 +29,7 @@ Vamos a abrir la caja.
 
 Un **producer** es cualquier sistema que envía mensajes a Kafka. Puede ser una aplicación Java, un microservicio en Go, un agente de colecta de logs, un IoT sensor — da igual. El producer no necesita saber quién va a leer, ni cuántos consumers existen, ni dónde está el broker. Solo sabe dos cosas: el **topic** al que escribe y el **broker** al que le manda el mensaje.
 
-Conecta con la idea de [desacoplamiento del Post A](/blog/que-es-kafka-y-por-que-se-llama-asi/): el producer no tiene dependencia temporal ni espacial con el consumer. Puede estar escribiendo mientras el consumer está dormido, o el consumer puede leer eventos de hace tres meses.
+Conecta con la idea de [desacoplamiento del Post A](/blog/que-es-kafka-y-por-que-se-llama-asi): el producer no tiene dependencia temporal ni espacial con el consumer. Puede estar escribiendo mientras el consumer está dormido, o el consumer puede leer eventos de hace tres meses.
 
 ### Brokers: la máquina que guarda el log
 
@@ -92,7 +92,7 @@ flowchart TB
     P2 -.-> R6["Réplica follower"]
 ```
 
-¿Ves la conexión con el [Post B](/blog/kafka-no-es-una-cola-es-un-registro/)? Cada partición es exactamente ese commit log que describimos: un offset, un mensaje, otro offset, otro mensaje. La diferencia es que ahora el log está **fraccionado** en pedazos manejables que pueden vivir en máquinas distintas.
+¿Ves la conexión con el [Post B](/blog/kafka-no-es-una-cola-es-un-registro)? Cada partición es exactamente ese commit log que describimos: un offset, un mensaje, otro offset, otro mensaje. La diferencia es que ahora el log está **fraccionado** en pedazos manejables que pueden vivir en máquinas distintas.
 
 ### Réplicas: tolerancia a fallos
 

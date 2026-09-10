@@ -1,57 +1,66 @@
 # Kafka — claves de personajes y narrativa (temporal)
 
-Serie de 3 posts sobre Apache Kafka (es_MX). Este archivo guarda las claves de la sección «El problema» del Post A.
+Serie de 3 posts sobre Apache Kafka (es_MX). Este archivo guarda las claves de la parábola del Post A.
 
 ## Post A — datos fijos
 - Archivo: `content/posts/2026-09-06-que-es-kafka-y-por-que-se-llama-asi.md`
 - Título: «¿Por qué se llama Kafka? Y qué hace, en realidad»
-- Secciones: «¿Por qué se llama Kafka?» (lista) → «El problema» (en edición) → «La idea» → «¿Entonces qué es Kafka?» → «Coda»
+- Estructura: «¿Por qué se llama Kafka?» → «El Despacho…» (**solo historia**) → «Comunicación síncrona vs acoplada» (**mapeo + explicaciones técnicas**) → «La idea» → «¿Entonces qué es Kafka?» → «Coda»
+- Cierre narrativo exacto: «Y más importante: nadie recordaba, ni siquiera El Chief, que el aire era pirata.» Después va el análisis.
+- Regla de capas: la narrativa NO explica la tesis; toda explicación técnica vive en el análisis.
 
 ## Registro narrativo (cómo escribir)
-- **Kafkiano** = absurdo + burocrático + narrado con calma. NO es "oscuro/angustiante".
-- **Flat affect / extrañamiento**: lo grotesco con voz llana. Subestimar, no dramatizar.
-- **Subtexto / intertexto**: recrear *La metamorfosis* sin nombrarla. La referencia es un fantasma.
-- **Eco estructural**: la apertura dice "hombre que amanece cucaracha" → aquí el lector lo vive.
+- **Kafkiano** = absurdo + burocrático + narrado con calma (flat affect). Subestimar, no dramatizar.
+- **Subtexto**: recrear *La metamorfosis* sin nombrarla.
 - Voz del autor: mexicano, tuteo, code-switching, sarcasmo a costa propia (skill `redaccion`).
+- Nomenclatura: nombres propios sin artículo (nada de «la Celia»).
 
 ## Escenario
-Nombre: **«Despacho Especial Aduanal Deadlock y Asociados S.A. de C.V.»** — acrónimo **DEUDA**.
-- "Deadlock y Asociados" = fachada legal bufona (patrón "X y Asociados"), la palabra escondida es un *deep cut* técnico: el deadlock = comunicación síncrona acoplada congelada (Karime ↔ Regina).
-- Acrónimo **DEUDA** = la condición kafkiana (culpa impaga, Josef K., Gregor). Bomba narrativa *reversible*: puede detonarse en el Post B (el registro/commit log = deuda que crece) o en el cierre del Post C (la agencia ya "no debe" nada), o no detonarse (subtexto puro).
+Nombre: **«Despacho Especial Aduanal Deadlock y Asociados S.A. de C.V.»** — acrónimo **DEUDA** (kicker en el análisis).
+- Agencia en Mexicali, B.C.; sucursal nueva abre en enero (clima fresco). Ola de calor «de un día para otro» (36 → 42…; 54 °C el día del fallo).
+- El calor = la metamorfosis (punto de giro). La oficina = el sistema; cada empleado = un servicio.
+- Descripción de la agencia: solo 3 datos (sucursal nueva, almacén + mostradores + cubículos, meses templados sin prisa). Fuera café/galletas/sala de espera (set dressing, no foreshadow).
 
-Agencia aduanal nueva en Mexicali, B.C. Abierta en enero (clima fresco). La primavera se disfruta; la ola de calor llega **de un día para otro** (38 → 39 → 37 → 42, y no baja hasta octubre). Todo mundo prende el aire día y noche o muere.
-
-**El calor = la metamorfosis** (punto de giro). La oficina = el sistema. Cada empleado = un servicio.
-
-## Reparto (personajes = servicios)
-| Personaje | Origen | Servicio | Personalidad | Defecto / modo de fallo |
+## Reparto (nombres = acrónimo técnico; el acrónimo se revela SOLO en el análisis)
+| Personaje | Acrónimo | Sistema real | Rol en la historia | Modo de fallo |
 |---|---|---|---|---|
-| **Regina Osuna** | Mexicali | Inventario | 30+ años en la agencia, inventario impecable; trae abanico personal hasta en invierno; verano pasado irritable. NO se menciona menopausia (inferida). | **Degradación / retiro**: se va a "trabajar desde casa" (3pm, antes de las 5pm) pero no puede: la mercancía real está en la oficina. Disponibilidad declarada ≠ real. |
-| **La Karime** (Karime Crostwhite) | Sinaloa | Pedidos | Veinteañera, trabaja bien, carácter fuerte; uñas gelish + TikTok = se atrasa. NO "buchona" (descartado: eco narco). | **Bloqueo síncrono**: impaciente (timeout corto) + lenta (procesamiento), espera respuesta que no llega y revienta |
-| **Marcos Javier** (siempre los dos nombres) | Mexicali | Notificaciones | Gay (evidente pero irrelevante, modelo Whis), afable, empático, bien vestido, mediador, centro de la oficina | **Canal opaco**: chisme sun mensaje→distorsiona (fan-out sin registro). No villano activo; colapsa bajo consultas. «el pez por la boca muere» (el chisme = canal de estado no confiable que colapsa) |
-| **José Rojas "El Chief"** | CDMX (vive en Mexicali) | Sistemas | Habla/viste como El Vítor pero niega el cantadito; medio agresivo, malhablado; le dan carrilla; SODA caliente | **Complejo de Casandra**: dice la verdad (correo/mensaje de WhatsApp), nadie le cree hasta que es tarde. Sube a la azotea a debuggear |
-| **El Aire Acondicionado** | — | infraestructura | Nuevo, **defectuoso** (nadie lo sabe) | **Fallo silencioso**: muere sin avisar, sin log, sin error. Muere a las 3pm, 54°C |
+| **Diana Báez** | DB | Microsoft Access (legacy) | Inventario, fuente de verdad, impecable desde siempre; abanico en invierno (señal de envejecimiento, menopausia jamás explícita) | Correcta pero NO disponible: sin réplica, sin acceso remoto, sin reemplazo. Se retira y el inventario queda inaccesible. «La base de datos no perdió información; perdió disponibilidad.» |
+| **Celia R. Montes** | CRM | CRM / intake multicanal (teléfono, mostrador, WhatsApp) | Atención a clientes; cierra pedidos | Bloqueo síncrono: no cierra nada hasta que Diana responde. **NO es «frontend»; olvidar Django.** |
+| **Rey Díaz** | Redis | Redis Pub/Sub (relay efímero) | Mensajero y coordinador, organizado y diligente, chismoso; memoria de corto plazo: el día lo graba palabra por palabra, pero «no le preguntes qué hizo ayer, porque nunca se acuerda». Muy eficiente → nadie se preocupa de su olvido (tercera señal ignorada, junto al abanico y la caja pirata). Conductor de los reportes diarios de El Chief | Canal sin persistencia, sin replay, sin audit log. Memoria volátil = RAM: perfecta en vivo, borrada al reiniciar. No inventa el rumor; el rumor se completa solo. |
+| **Luis Omar García «El Chief»** | LOG | Observabilidad + operación (Grafana/Loki/Prometheus/Alertmanager + on-call humano) y config management (Chef/Salt: instala, actualiza, mantiene la infraestructura con las manos); manda reportes diarios que nadie lee, enrutados por Rey | Sistemas; detecta la anomalía del AC, avisa, repara; sube a la azotea | Complejo de Casandra: alerta informal que se diluye por el canal de Rey. Su hospitalización = el monitoreo cae y nadie lo sabe (sin heartbeat, sin guardia alterna, sin escalamiento). NO es Grafana a secas: es «el monitoreo con patas». |
+| **El Aire Acondicionado** | — | infraestructura ambiental | Nuevo, pirata (caja de una marca, aparato de otra) | Fallo silencioso a las 3pm, 54 °C, agosto. Detonante externo, NO causa. |
+
+- Tratamiento: «doña Diana»; en prosa «Luis Omar», en diálogos «Chief»; Rey Díaz siempre con nombre y apellido (regla heredada de Marcos Javier).
+- Los nombres suenan a persona; los acrónimos (DB, CRM, Redis, LOG) se detonan en la sección de análisis, no en la historia.
 
 ## El AC (pieza clave)
-- Doble función: **termómetro** (sufre el calor) + **causante misterioso** del fallo en cascada.
-- Falla a las 3pm, a 54 °C pronosticados, en pleno agosto, fiel a la ley de Murphy (54, no 57: respetar verosimilitud del flat affect, récord real ~52).
-- Reemplaza al canadiense (descartado por "barato"/explícito; el AC es absurdo implícito).
-- En software: **punto único de fallo** con **bug latente** que solo estalla bajo carga.
-- El AC es el **detonante**; el **acoplamiento** es el desastre. El desenlace debe nombrar el diseño (la espera), no el aparato.
+- Falla a las 3pm, 54 °C pronosticados, pleno agosto (verosimilitud: récord real ~52; ley de Murphy sin exagerar).
+- El Chief detecta la anomalía (caja de una marca, aparato de otra), avisa por el canal de Rey, nadie sabe qué hacer con la información, instala de todos modos («tenemos garantía»).
+- El AC es el **detonante**; la comunicación síncrona/acoplada es el desastre. La lección nombra el diseño (la espera), no el aparato.
 
 ## Tema unificador
-**La comunicación** (el post trata de comunicación entre servicios). Cada personaje = un modo de fallo de la comunicación: Regina (retiro/degradación), Karime (bloqueo síncrono), Marcos Javier (canal opaco sin registro), José (señal ignorada), AC (silencio). La lección central: **acoplamiento síncrono → cascada**. El chisme NO es la lección; es opacidad. En la retoma jamás decir "Kafka es como un chisme confiable" — el chisme falla por no dejar registro (semilla de Post B).
+**La comunicación entre servicios.** Modos de fallo: Diana (disponibilidad), Celia (bloqueo síncrono), Rey (canal efímero), Luis Omar (señal ignorada + operador sin redundancia), AC (silencio). Lección central: **acoplamiento síncrono → cascada; el AC solo hizo visible la falta de tolerancia a fallos**. Jamás decir «Kafka es como un chisme confiable» — el chisme falla por no dejar registro (semilla del Post B).
 
-## Beats del relato
-1. **Setup** (enero–primavera): agencia nueva, fresco, el acoplamiento funciona con carga baja. Se presenta el reparto. José instala el AC, le huele raro, manda mensaje al grupo que nadie lee (semilla de Casandra). Carrilla por El Vítor.
-2. **Punto de giro**: la ola de calor «de un día para otro».
-3. **Incidente incitador**: 54 °C, las 3pm; el AC muere en silencio (incomprensible). El Chief sube a la azotea a debuggear, baja derrotado, sudando, la soda caliente.
-4. **Cascada**: Regina se retira a "trabajar desde casa" (3pm, no regresa hoy, quizá días) → Karime espera frente al escritorio vacío y revienta → Marcos Javier amplifica con chisme sin registro (canal opaco) → colapsa bajo consultas → la oficina queda sin nadie que sepa qué pasa.
-5. **Incomprensión**: El Chief mira (Casandra + Gregor), con el gel derretido: «el aire solo hizo la pregunta; los tumbó la espera».
-6. **Remate** (ya fuera del relato, en el post): nombrar la lección — comunicación síncrona y acoplada — y el acrónimo **DEUDA** como kicker («El SAT la conoce como DEUDA. Yo no podría estar más de acuerdo»).
+## Beats del relato (versión comprimida, ~1,500–1,700 palabras)
+1. **Setup mínimo**: agencia nueva, enero, reparto en pinceladas funcionales. Diana y el abanico como señal ignorada (requisito detrás del escritorio, 2–3 líneas).
+2. **La costumbre**: grito-y-espera Celia → Diana (diálogo íntegro «¡Báez!…»), luego Celia → Rey. «Lo que no quedó escrito, sencillamente no existe» — una sola vez en todo el post.
+3. **Rey en un solo párrafo** (mensajero, chismoso, memoria de corto plazo: «ayer, para Rey Díaz, no existe»; eficiente → nadie anota nada).
+4. **AC**: carrilla + lotería en estilo indirecto (conservar «se nos cae el changarro») + caja pirata condensada («Un aire pirata, dijo.») + maldición de Casandra + instala de todos modos («tenemos garantía»). Un solo latiguillo («¡Abuelita de Batman!», embebido en la narración). **Regla de modalidad: la única línea de diálogo directo del post es el grito «¡Báez!…» del setup** — se oye la petición cuando funciona; cuando falla, solo llega el eco en indirecto y el silencio. Todo lo demás va en estilo indirecto.
+5. **Meses templados** → ola de calor «de un día para otro» → el AC muere (*Thump.*, sin log, sin error).
+6. **Cascada**: Diana se va (payoff del abanico: «un abanico no parece una alarma») → Celia espera frente al escritorio vacío y revienta → Rey redondea rumores → la fila frente a su escritorio («Sin Rey Díaz, la oficina se queda sin noticias. Con Rey Díaz, sin hechos»).
+7. **Sin explicación de tesis en la narrativa**: conservar «El aire solo hizo la pregunta» + imagen de la fila; fuera el párrafo-explicación (eso vive en el análisis).
+8. **Desenlace en UN párrafo**: hospital sin avisar, Rey abre por inercia («la costumbre no pregunta por las personas; solo sigue»), Celia improvisa, garantía, normalidad → «nadie recordaba que el aire era pirata.»
+
+## Análisis («Comunicación síncrona vs acoplada»)
+- Aquí se revela el truco de los nombres: **Diana Báez = DB** (Access legacy, fuente de verdad), **Celia R. Montes = CRM** (intake multicanal), **Rey Díaz = Redis** (Pub/Sub efímero, sin persistencia), **Luis Omar García = LOG** (observabilidad + operación).
+- Mapeo compacto y escaneable: una entrada por servicio, negritas en el nombre.
+- Luis Omar: su ausencia = segunda falla sin registro (compound failure).
+- Kicker **DEUDA** aquí.
+- Mermaid con nodos renombrados (C/D/R/L).
+- Pendiente: decidir si el título cambia a «Síncrono, acoplado y sin tolerancia a fallos».
 
 ## POV
-Narración en voz de Noé, dirigida al lector con «tú», José como personaje focal. El lector comparte la experiencia de José (Casandra + Gregor) sin "ponerse" el gel.
+Voz de Noé, «tú» al lector; Luis Omar (LOG) como personaje focal (Casandra + Gregor).
 
 ## Cross-links
 - A: `/blog/que-es-kafka-y-por-que-se-llama-asi/`

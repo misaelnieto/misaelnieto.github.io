@@ -17,7 +17,7 @@ extra:
   mermaid: true
 ---
 
-En el post anterior, [¿Por qué se llama Kafka? Y qué hace, en realidad](/blog/que-es-kafka-y-por-que-se-llama-asi/), vimos qué es Kafka a grandes rasgos: un sistema para que tus aplicaciones se comuniquen de forma asíncrona —unos publican eventos, otros los leen cuando puedan—. Hoy toca deshacernos del malentendido que casi todos traemos de fábrica.
+En el post anterior, [¿Por qué se llama Kafka? Y qué hace, en realidad](/blog/que-es-kafka-y-por-que-se-llama-asi), vimos qué es Kafka a grandes rasgos: un sistema para que tus aplicaciones se comuniquen de forma asíncrona —unos publican eventos, otros los leen cuando puedan—. Hoy toca deshacernos del malentendido que casi todos traemos de fábrica.
 
 Porque resulta que Kafka **no es una cola**. Se parece, se usa como si lo fuera y hasta las comparaciones de la documentación invitan a pensarlo así. Pero por dentro es otra cosa: un **registro**. Y esa diferencia, que suena a puro pedantería de arquitecto, es la que explica por qué Kafka resuelve problemas donde una cola tradicional se queda corta.
 
@@ -100,6 +100,6 @@ Eso de "los mismos datos, muchas lecturas independientes" es algo que una cola s
 
 Hasta aquí la parte conceptual: ya sabes que Kafka es un registro append-only, persistente y replicado; ya sabes qué son el topic, el offset y el replay; y ya sospechas por qué el replay se siente como hacer trampa… del lado bueno.
 
-Pero todo esto de cuadernos, renglones y bitácoras suena muy bonito en el papel. Para que todo esto funcione hace falta una máquina —de hecho, varias—. En el siguiente post abrimos la caja y vemos qué hay adentro: brokers, partitions y réplicas. La cita es aquí: [Kafka por dentro](/blog/kafka-por-dentro-arquitectura/).
+Pero todo esto de cuadernos, renglones y bitácoras suena muy bonito en el papel. Para que todo esto funcione hace falta una máquina —de hecho, varias—. En el siguiente post abrimos la caja y vemos qué hay adentro: brokers, partitions y réplicas. La cita es aquí: [Kafka por dentro](/blog/kafka-por-dentro-arquitectura).
 
 ¡Saludos! 👋
