@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Drupal 8 Beta en OpenShift &middot; Noe Nieto</title>
+    <meta name="description" content="Instalación del core de Drupal 8 Beta en OpenShift Online v2 para crear un blog gratuito, paso a paso: cuenta, aplicación, CNAME y credenciales.">
+    
+    <meta name="keywords" content="drupal, drupal-8, openshift, paas, mysql, cname, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Drupal 8 Beta en OpenShift">
+    <meta property="og:description" content="Instalación del core de Drupal 8 Beta en OpenShift Online v2 para crear un blog gratuito, paso a paso: cuenta, aplicación, CNAME y credenciales.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Drupal 8 Beta en OpenShift">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2014-09-07">
+    
+    
+    <meta property="article:tag" content="drupal">
+    <meta property="article:tag" content="drupal-8">
+    <meta property="article:tag" content="openshift">
+    <meta property="article:tag" content="paas">
+    <meta property="article:tag" content="mysql">
+    <meta property="article:tag" content="cname">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Drupal 8 Beta en OpenShift">
+    <meta name="twitter:description" content="Instalación del core de Drupal 8 Beta en OpenShift Online v2 para crear un blog gratuito, paso a paso: cuenta, aplicación, CNAME y credenciales.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Drupal 8 Beta en OpenShift">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/drupal-8-beta-openshift.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Drupal 8 Beta en OpenShift","description":"Instalación del core de Drupal 8 Beta en OpenShift Online v2 para crear un blog gratuito, paso a paso: cuenta, aplicación, CNAME y credenciales.","datePublished":"2014-09-07","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["drupal","drupal-8","openshift","paas","mysql","cname"],"wordCount":389}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Drupal 8 Beta en OpenShift"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Drupal 8 Beta en OpenShift</h1>
+  <p class="entry-description muted">Instalación del core de Drupal 8 Beta en OpenShift Online v2 para crear un blog gratuito, paso a paso: cuenta, aplicación, CNAME y credenciales.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: OpenShift Online v2 cerró en 2016 (reemplazado por v3 basado en Kubernetes/Docker); Drupal 8 EOL noviembre 2021. Ninguno de los dos servicios/existe en esta forma..
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2014-09-07">
+      2014-09-07
+    </time>
+    
+
+    
+    <span class="reading-time">1 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/drupal/">drupal</a>
+    
+    <a class="p-category" href="/tags/drupal-8/">drupal-8</a>
+    
+    <a class="p-category" href="/tags/openshift/">openshift</a>
+    
+    <a class="p-category" href="/tags/paas/">paas</a>
+    
+    <a class="p-category" href="/tags/mysql/">mysql</a>
+    
+    <a class="p-category" href="/tags/cname/">cname</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p>Decidí instalar el core de Drupal 8 Beta en OpenShift para hacerme un blog
+gratis.</p>
+<ol>
+<li>
+<p>Primero abrí mi cuenta en <a href="https://www.openshift.com/">OpenShift</a>.</p>
+</li>
+<li>
+<p>En el panel de control de OpenShift seleccioné <code>Applications -&gt; Add Application</code>.</p>
+</li>
+<li>
+<p>Puse Drupal en el cuadro de búsqueda. Como opciones se encuentra Drupal 7 y
+Drupal 8. Escogí el 8 porque me gusta complicarme la vida.</p>
+</li>
+<li>
+<p>El siguiente paso es escoger el nombre de la aplicación. Elegí <code>mosaiko</code>
+(mosaico en esperanto) y dejé todas las demás configuraciones sin tocar. Solo
+faltó presionar el botoncito azul de <code>Create Application</code>.</p>
+</li>
+<li>
+<p>Inmediatamente se desactiva el botoncito azul y sale una ruedita de esas
+que dan vueltas para indicarte que «no me molestes hasta que yo te diga que
+ya está listo». Y se tarda unos 5 minutos en crear el <em>gear</em> de Drupal.</p>
+</li>
+<li>
+<p>Hasta el momento de escribir este post, no tengo la menor idea de lo que es
+un <em>gear</em> pero se parece mucho a un contenedor de Docker.</p>
+</li>
+<li>
+<p>Cuando termina de crear el <em>gear</em>, el sitio te muestra un cuadrito verde con
+el nombre de usuario de MySQL, el password y la base de datos de Drupal, que
+es el mismo nombre que la instancia de Drupal: <code>mosaiko</code>.</p>
+</li>
+<li>
+<p>Mi sitio Drupal quedó accesible desde <code>mosaiko-nnieto.rhcloud.com</code>. Este es
+el alias de la aplicación. Se pueden añadir muchos alias. En la página de
+<em>overview</em> de la aplicación se muestra el nombre de dominio que quedó
+configurado (<code>mosaiko-nnieto.rhcloud.com</code>).</p>
+<p>A un lado hay un link chiquito que dice <em>change</em>. Ahí es donde hay que
+picarle para dar de alta el alias para la aplicación. El alias no es otra
+cosa que el CNAME. Primero configuré el CNAME para que apunte a
+<code>mozaiko-nnieto.rhcloud.com</code>, luego puse el nombre de dominio completo en
+<em>Domain name</em>; en este caso el nombre es <code>mozaico.noenieto.com</code>.</p>
+</li>
+<li>
+<p>Falta una cosa: la contraseña del administrador. Por default es
+<code>openshift_changeme</code>. Obviamente le cambié el <code>user_id</code>, el password y
+muchas otras cosas, así que no intentes hackear este sitio, ¿ok?</p>
+</li>
+<li>
+<p>Inmediatamente después de entrar a Drupal y cambiar la contraseña del
+admin, me puse a escribir este post. El editor WYSIWYG que trae el Drupal 8
+es una maravilla ¡Me encanta!</p>
+</li>
+</ol>
+<p>Eso es todo. Es mi primera experiencia seria con OpenShift y Drupal 8.</p>
+<ul>
+<li>Foto de Elke Blok, CC BY-NC-SA 2.0</li>
+</ul>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/drupal-8-beta-openshift" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/instalar-iis-windows-10" rel="next">&larr; Instalar IIS 8.5 en Windows 10 Technical Preview</a>
+  
+  
+  <a href="/blog/imagenes-responsivas-drupal-8" rel="prev">Imágenes responsivas con Drupal 8 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+</body>
+</html>

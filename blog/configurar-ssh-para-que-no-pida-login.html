@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Configurar SSH para que no pida login &middot; Noe Nieto</title>
+    <meta name="description" content="Guía paso a paso para configurar autenticación basada en llaves SSH, generando llaves RSA, configurando el archivo ~/.ssh/config y registrando llaves públicas en el servidor.">
+    
+    <meta name="keywords" content="ssh, sysadmin, linux, authentication, ssh-keys, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Configurar SSH para que no pida login">
+    <meta property="og:description" content="Guía paso a paso para configurar autenticación basada en llaves SSH, generando llaves RSA, configurando el archivo ~/.ssh/config y registrando llaves públicas en el servidor.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Configurar SSH para que no pida login">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2013-12-20">
+    
+    
+    <meta property="article:tag" content="ssh">
+    <meta property="article:tag" content="sysadmin">
+    <meta property="article:tag" content="linux">
+    <meta property="article:tag" content="authentication">
+    <meta property="article:tag" content="ssh-keys">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Configurar SSH para que no pida login">
+    <meta name="twitter:description" content="Guía paso a paso para configurar autenticación basada en llaves SSH, generando llaves RSA, configurando el archivo ~/.ssh/config y registrando llaves públicas en el servidor.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Configurar SSH para que no pida login">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/configurar-ssh-para-que-no-pida-login.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Configurar SSH para que no pida login","description":"Guía paso a paso para configurar autenticación basada en llaves SSH, generando llaves RSA, configurando el archivo ~/.ssh/config y registrando llaves públicas en el servidor.","datePublished":"2013-12-20","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["ssh","sysadmin","linux","authentication","ssh-keys"],"wordCount":543}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Configurar SSH para que no pida login"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Configurar SSH para que no pida login</h1>
+  <p class="entry-description muted">Guía paso a paso para configurar autenticación basada en llaves SSH, generando llaves RSA, configurando el archivo ~/.ssh/config y registrando llaves públicas en el servidor.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2013-12-20">
+      2013-12-20
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/ssh/">ssh</a>
+    
+    <a class="p-category" href="/tags/sysadmin/">sysadmin</a>
+    
+    <a class="p-category" href="/tags/linux/">linux</a>
+    
+    <a class="p-category" href="/tags/authentication/">authentication</a>
+    
+    <a class="p-category" href="/tags/ssh-keys/">ssh-keys</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p>Creo que nunca he escrito acerca de SSH.</p>
+<p>SSH tiene una característica que me gusta mucho. Se llama <em>Key Based
+Authentication</em> o <em>Autenticación basada en llaves</em>. La uso para administrar
+servidores Linux y correr scripts remotos con <a href="http://fabfile.org/">Fabric</a>;
+todo esto sin tener que estar escribiendo nombres de usuario y contraseñas.</p>
+<p>Las <em>llaves</em> son simples archivos de texto que se generan mediante el comando
+<code>ssh-keygen</code>. A continuación un ejemplo de cómo generar una llave con el
+algoritmo <a href="http://es.wikipedia.org/wiki/RSA">RSA</a>.</p>
+<pre><code>$ cd ~/.ssh
+$ ssh-keygen -b 4096 -C &quot;Llaves para encripción SSH con 4096 bits&quot; -f llave
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same same passphrase again:
+Your identification has been saved in llave.
+Your public key has been saved in llave.pub.
+The key fingerprint is:
+21:77:3b:2a:24:02:65:42:b6:45:b1:cc:f8:a7:a7:33 Llaves para encripción SSH con 4096 bits
+The key's randomart image is:
++--[ RSA 4096]----+
+|oo++.            |
+|.+* .            |
+|.o +  . o .      |
+| ..    o o .     |
+|  ..... S o      |
+|   .oo   . .     |
+|   . .. .        |
+|   Eo  .         |
+|   .o            |
++-----------------+
+$ ls
+llave  llave.pub
+</code></pre>
+<p>Para mayor comodidad, cuando me pidió la contraseña presioné <em>enter</em> 2 veces
+para que la llave no tenga contraseña.</p>
+<p><strong>Nota</strong>: Una llave de SSH sin contraseña constituye una vulnerabilidad,
+especialmente si está configurada para dar acceso a otros servidores.</p>
+<p>Como resultado de esta operación, se han generado dos archivos: uno con el
+nombre <code>llave</code> y otro con el nombre <code>llave.pub</code>.</p>
+<p>El archivo <code>llave</code> constituye la llave privada mientras que el archivo
+<code>llave.pub</code> constituye la llave pública. Ambos son archivos de texto:</p>
+<pre><code>$ cat llave.pub
+ssh-rsa AAAAB3Nza[... muchos caracteres ...]+gLLuKw== Llaves para encripción SSH con 4096 bits
+$ cat llave
+-----BEGIN RSA PRIVATE KEY-----
+MIIJKQIBAAKCAgEA2HgV5H2MTjaROx0Nj+jXClSuloBCQB0R2m3ig2rJXX4y/Jvg
+FnK3ldstd5+92f/SnH0lbakedo/GHj4/zOO5CYMaPO4Ytg8L7QoxoSaloy0UR8sR
+D6P7JnPHzAmD8kUC9/sYM0bV6P4y8NsK9c2uWOIAh7BScNlLStqQ/UYdqA6NWnlu
+[ ... muchas líneas de texto con caracteres raros ...]
+Rt81DJr3/Ap/0hc24FYERSDOQ2eyncDZ+ZLoQSMNZ3frFb6lxh0yBbeVT8eI
+-----END RSA PRIVATE KEY-----
+</code></pre>
+<p>Ahora es momento de escribir la configuración de SSH del lado del cliente.</p>
+<pre><code>$ touch ~/.ssh/config
+</code></pre>
+<p>El contenido del archivo es el siguiente:</p>
+<pre><code>
+    Host servidor.com
+        IdentityFile ~/.ssh/llave
+        User pancho
+</code></pre>
+<p>La primera línea <code>Host servidor.com</code> le dice a SSH que las siguientes líneas
+serán solamente para el servidor <code>servidor.com</code>.</p>
+<p>La segunda línea define la ruta hacia la llave <em>privada</em>.</p>
+<p>La tercera línea define el nombre de usuario para <code>servidor.com</code>. Normalmente
+SSH usa el nombre de usuario definido en las variables de entorno. Esta línea
+es especialmente útil cuando el nombre de usuario de la sesión del sistema
+cliente es diferente al nombre de usuario del servidor.</p>
+<p>¿Recuerdas la llave pública? ¿Qué hacemos con ese archivo? La llave pública se
+la podrás enviar al administrador del servidor, o si tú ya tienes acceso,
+podrás subir la llave pública al servidor, usando <code>scp</code>, por ejemplo:</p>
+<pre><code>scp ~/.ssh/llave.pub usuario@servidor.com:~/.ssh/
+</code></pre>
+<p>Antes de cerrar la sesión en el servidor, tendrás que registrar la llave
+pública como una llave autorizada.</p>
+<pre><code>$ cd ~/.ssh
+$ cat llave.pub &gt;&gt; authorized_keys
+$ chmod -R 700 ~/.ssh
+</code></pre>
+<p>Cierra la sesión con el servidor. Ya solo falta establecer los permisos en el
+directorio <code>.ssh</code> local.</p>
+<pre><code>
+$ chmod -R 700 ~/.ssh
+</code></pre>
+<p>Finalmente, prueba la conexión.</p>
+<pre><code>    $ ssh servidor.com
+    Last login: Fri Dec 20 22:02:42 2013 from 91.138.271.122
+    [tzicatl@servidor ~]$
+</code></pre>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/configurar-ssh-para-que-no-pida-login" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/sublime-3-en-fedora-20" rel="next">&larr; Sublime 3 en Fedora 20</a>
+  
+  
+  <a href="/blog/gtg-enabling-missing-plugins-for-fedora-20" rel="prev">GTG: Enabling missing plugins for Fedora 20 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

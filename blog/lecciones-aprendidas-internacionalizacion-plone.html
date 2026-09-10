@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Lecciones aprendidas: internacionalización en Plone &middot; Noe Nieto</title>
+    <meta name="description" content="Resumen técnico sobre el proceso de internacionalización en productos de Plone 3: i18ndude, Placeless Translation Service, casos típicos y solución a actions.xml.">
+    
+    <meta name="keywords" content="plone, i18n, internationalization, python, zope, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Lecciones aprendidas: internacionalización en Plone">
+    <meta property="og:description" content="Resumen técnico sobre el proceso de internacionalización en productos de Plone 3: i18ndude, Placeless Translation Service, casos típicos y solución a actions.xml.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Lecciones aprendidas: internacionalización en Plone">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2010-02-01">
+    
+    
+    <meta property="article:tag" content="plone">
+    <meta property="article:tag" content="i18n">
+    <meta property="article:tag" content="internationalization">
+    <meta property="article:tag" content="python">
+    <meta property="article:tag" content="zope">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lecciones aprendidas: internacionalización en Plone">
+    <meta name="twitter:description" content="Resumen técnico sobre el proceso de internacionalización en productos de Plone 3: i18ndude, Placeless Translation Service, casos típicos y solución a actions.xml.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Lecciones aprendidas: internacionalización en Plone">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/lecciones-aprendidas-internacionalizacion-plone.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Lecciones aprendidas: internacionalización en Plone","description":"Resumen técnico sobre el proceso de internacionalización en productos de Plone 3: i18ndude, Placeless Translation Service, casos típicos y solución a actions.xml.","datePublished":"2010-02-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["plone","i18n","internationalization","python","zope"],"wordCount":934}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Lecciones aprendidas: internacionalización en Plone"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Lecciones aprendidas: internacionalización en Plone</h1>
+  <p class="entry-description muted">Resumen técnico sobre el proceso de internacionalización en productos de Plone 3: i18ndude, Placeless Translation Service, casos típicos y solución a actions.xml.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Plone 3 LTS es EOL; el flujo moderno usa zope.i18nmessageid y otras herramientas.
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2010-02-01">
+      2010-02-01
+    </time>
+    
+
+    
+    <span class="reading-time">3 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/plone/">plone</a>
+    
+    <a class="p-category" href="/tags/i18n/">i18n</a>
+    
+    <a class="p-category" href="/tags/internationalization/">internationalization</a>
+    
+    <a class="p-category" href="/tags/python/">python</a>
+    
+    <a class="p-category" href="/tags/zope/">zope</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#placeless-translation-service" class="toc-link">Placeless Translation Service</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#internacionalización-en-iservices" class="toc-link">Internacionalización en iServices</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#haciendo-uso-de-i18ndude" class="toc-link">Haciendo uso de i18ndude</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#diferentes-datos-sin-orden-aparente" class="toc-link">Diferentes datos (sin orden aparente)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#el-origen-de-la-directiva-registertranslations" class="toc-link">El origen de la directiva registerTranslations</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#notas-de-internacionalización-con-pts-en-el-wiki-de-zope" class="toc-link">Notas de internacionalización con PTS en el wiki de Zope</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#problema-al-traducir-actions-xml" class="toc-link">Problema al traducir actions.xml</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="intro">Intro</h2>
+<p>Este es un resumen de lo que he aprendido acerca de cómo se hacen las
+traducciones tanto para productos de terceros, mis propios productos y hasta
+completar o cambiar algunas traducciones del mismo Plone.</p>
+<p>En este documento intento concentrar lo poco que he aprendido acerca del
+proceso de internacionalización en productos en Plone.</p>
+<h2 id="placeless-translation-service">Placeless Translation Service</h2>
+<p>El componente de software encargado de administrar todas las traducciones de
+las docenas de diferentes paquetes o huevos que componen Plone se llama
+Placeless Translation Service. Se encuentra dentro del Panel de control de
+Zope (no de Plone). Por ejemplo:
+<code>http://localhost:8080/Control_Panel/TranslationService/manage_main</code></p>
+<p>Encuentro varios casos en la que es necesario tomar ventaja de la maquinaria
+de traducción de Plone:</p>
+<ol>
+<li>Se ha integrado un CMS Plone con productos de terceros y alguno de esos productos no tiene traducción al español.</li>
+<li>Alguno de los productos tiene traducción deficiente o incompleta. Por deficiente quiero decir que lo que ya está traducido expresa conceptos muy técnicos, rebuscados o abstractos que hacen que la experiencia del usuario sea difícil.</li>
+<li>Partes de Plone no están traducidas o la traducción no se ajusta a las necesidades del usuario final.</li>
+</ol>
+<p>También puedo listar, ahora de manera más técnica, los casos de traducción:</p>
+<ul>
+<li>Traducir mensajes de las plantillas de Plone</li>
+<li>Traducir mensajes de archivos de Python (Restricted Python)</li>
+<li>Traducir mensajes de archivos de Python
+<ul>
+<li>Schemas y Archetypes</li>
+<li>Todo lo demás</li>
+</ul>
+</li>
+<li>Traducir ZCML
+<ul>
+<li>User actions</li>
+<li>Archetypes</li>
+<li>Workflows</li>
+</ul>
+</li>
+</ul>
+<p>Lo que aprendí en <a href="http://maurits.vanrees.org/weblog/archive/2007/09/i18n-locales-and-plone-3.0">este post</a>
+de <a href="http://maurits.vanrees.org/">Maurits van Rees</a> es el por qué se
+usan los directorios <strong>i18n</strong> y <strong>locales</strong> y cuál es la diferencia entre usar uno u
+otro. Después de leer esto presento mis 2 centavos con los scripts que uso
+para mantener múltiples idiomas de las traducciones.</p>
+<h2 id="internacionalización-en-iservices">Internacionalización en iServices</h2>
+<p>En iServices nos dedicamos principalmente al e-Learning. Hemos escogido a
+Python como nuestra plataforma de desarrollo. Plone es usado como la base para
+el LCMS eduIntelligent y hay planes para liberarlo al mundo, pero aún hay mucho
+código que depurar y mejorar antes de liberarlo.</p>
+<p>Por lo que he visto, la manera de añadir traducciones a un determinado
+producto es, a groso modo:</p>
+<ul>
+<li>Identificar y marcar las cadenas candidatas a traducción. El lenguaje que se usa en código fuente es inglés y después se traduce al español, que es el idioma que maneja la vasta mayoría de nuestros clientes.</li>
+<li>Se usó un script para extraer las cadenas de traducción por primera vez, y después se fueron añadiendo y manteniendo a mano.</li>
+<li>Hay muchas veces que se escribe contenido y/o mensajes en español y las cadenas no se marcan para traducción o simplemente no se traducen. No estoy condenando: yo mismo lo he hecho ante la presión de las fechas de entrega o simplemente porque el programador fue perezoso, o por alguna extraña razón a Plone o a Zope no le dio la gana tomar las traducciones.</li>
+</ul>
+<h2 id="haciendo-uso-de-i18ndude">Haciendo uso de i18ndude</h2>
+<p><code>i18ndude</code> es la herramienta preferida para extraer cadenas de traducción de
+los productos de Plone (de terceros o propios). Se puede instalar a nivel de
+sistema o mediante buildout. Aquí muestro una receta para usar <code>i18ndude</code> desde
+buildout:</p>
+<pre><code>[buildout]
+parts =
+    ...
+    i18ndude
+
+...
+
+[i18ndude]
+recipe = zc.recipe.egg
+eggs = i18ndude
+</code></pre>
+<p>Al añadir lo de arriba a <code>buildout.cfg</code> y después de ejecutar <code>bin/buildout</code>,
+encontraremos la orden <code>bin/i18ndude</code> lista para ser usada y de manera
+independiente del sistema.</p>
+<p>Ahora, para poder usar <code>i18ndude</code> dentro de nuestros productos, modifiqué un
+script que tomé de <code>p4a.video</code>. luce así:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">#!/bin/bash 
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">edutrainingcenter</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">DOMAIN_PLONE</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">plone</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">I18NDUDE</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">../../bin/i18ndude
+</span><span style="color:#65737e;"># If you want to add another language create folders and empty file:
+</span><span style="color:#65737e;">#   mkdir -p locales/&lt;lang_code&gt;/LC_MESSAGES
+</span><span style="color:#65737e;">#   touch locales/&lt;lang_code&gt;/LC_MESSAGES/$DOMAIN.po
+</span><span style="color:#65737e;"># and run this script
+</span><span style="color:#65737e;"># Example: locales/hu/LC_MESSAGES/$DOMAIN.po
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">touch</span><span style="color:#c0c5ce;"> locales/$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">.pot
+</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">I18NDUDE</span><span style="color:#c0c5ce;"> rebuild-pot</span><span style="color:#bf616a;"> --pot</span><span style="color:#c0c5ce;"> locales/$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">.pot</span><span style="color:#bf616a;"> --create </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;"> ./
+</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">I18NDUDE</span><span style="color:#c0c5ce;"> rebuild-pot</span><span style="color:#bf616a;"> --pot</span><span style="color:#c0c5ce;"> locales/$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">-$</span><span style="color:#bf616a;">DOMAIN_PLONE</span><span style="color:#c0c5ce;">.pot</span><span style="color:#bf616a;"> --create </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">DOMAIN_PLONE</span><span style="color:#c0c5ce;"> ./
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># sync all locales
+</span><span style="color:#8fa1b3;">find</span><span style="color:#c0c5ce;"> locales</span><span style="color:#bf616a;"> -depth -type</span><span style="color:#c0c5ce;"> d   \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">grep</span><span style="color:#bf616a;"> -v</span><span style="color:#c0c5ce;"> .svn \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">grep</span><span style="color:#bf616a;"> -v</span><span style="color:#c0c5ce;"> LC_MESSAGES \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">sed</span><span style="color:#bf616a;"> -e </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">s/locales\/\(.*\)$/\1/</span><span style="color:#c0c5ce;">&quot; \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">xargs</span><span style="color:#bf616a;"> -I </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">I18NDUDE</span><span style="color:#c0c5ce;"> sync</span><span style="color:#bf616a;"> --pot</span><span style="color:#c0c5ce;"> locales/$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">.pot locales/%/LC_MESSAGES/$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">.po
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># sync all locales
+</span><span style="color:#8fa1b3;">find</span><span style="color:#c0c5ce;"> locales</span><span style="color:#bf616a;"> -depth -type</span><span style="color:#c0c5ce;"> d   \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">grep</span><span style="color:#bf616a;"> -v</span><span style="color:#c0c5ce;"> .svn \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">grep</span><span style="color:#bf616a;"> -v</span><span style="color:#c0c5ce;"> LC_MESSAGES \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">sed</span><span style="color:#bf616a;"> -e </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">s/locales\/\(.*\)$/\1/</span><span style="color:#c0c5ce;">&quot; \
+</span><span style="color:#c0c5ce;">     | </span><span style="color:#8fa1b3;">xargs</span><span style="color:#bf616a;"> -I </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">I18NDUDE</span><span style="color:#c0c5ce;"> sync</span><span style="color:#bf616a;"> --pot</span><span style="color:#c0c5ce;"> locales/$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">-$</span><span style="color:#bf616a;">DOMAIN_PLONE</span><span style="color:#c0c5ce;">.pot locales/%/LC_MESSAGES/$</span><span style="color:#bf616a;">DOMAIN</span><span style="color:#c0c5ce;">-$</span><span style="color:#bf616a;">DOMAIN_PLONE</span><span style="color:#c0c5ce;">.po
+</span></pre>
+<h2 id="diferentes-datos-sin-orden-aparente">Diferentes datos (sin orden aparente)</h2>
+<p>Aquí agrupo diferentes datos que he encontrado que están relacionados con este
+tema, pero que no he encontrado alguna forma de estructurar.</p>
+<h3 id="el-origen-de-la-directiva-registertranslations">El origen de la directiva registerTranslations</h3>
+<p>El origen de la directiva:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">i18n:registerTranslations </span><span style="color:#d08770;">directory</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">locales</span><span style="color:#c0c5ce;">&quot; /&gt;
+</span></pre>
+<p>Probablemente viene de aquí:</p>
+<p><a href="https://mail.zope.org/pipermail/zope3-dev/2006-May/019494.html">https://mail.zope.org/pipermail/zope3-dev/2006-May/019494.html</a></p>
+<h3 id="notas-de-internacionalización-con-pts-en-el-wiki-de-zope">Notas de internacionalización con PTS en el wiki de Zope</h3>
+<p>Aquí: <a href="http://wiki.zope.org/zope2/HowToInternationaliseWithPTS">http://wiki.zope.org/zope2/HowToInternationaliseWithPTS</a></p>
+<h3 id="problema-al-traducir-actions-xml">Problema al traducir actions.xml</h3>
+<p>Me puse a traducir <code>actions.xml</code> que puse dentro de un tema. Pero lo primero que
+ocurrió es que había fallos al instalar el tema. Al final del traceback
+teníamos esto:</p>
+<pre><code>BadRequest: The property i18n_domain does not exist
+</code></pre>
+<p>Esto fue porque al añadir el soporte de internacionalización, especifiqué el
+dominio en el sitio equivocado. O sea que fue así:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;"> &lt;</span><span style="color:#bf616a;">object </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">user</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">meta_type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">CMF Action Category</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#c0c5ce;">         </span><span style="color:#d08770;">i18n:domain</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">iservicestheme.domain</span><span style="color:#c0c5ce;">&quot;&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">title</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">object </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">perfil</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">meta_type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">CMF Action</span><span style="color:#c0c5ce;">&quot; &gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">title</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">i18n:translate</span><span style="color:#c0c5ce;">=&quot;&quot;&gt;Profile&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">description</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">i18n:translate</span><span style="color:#c0c5ce;">=&quot;&quot;&gt;Access to my profile&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">url_expr</span><span style="color:#c0c5ce;">&quot;&gt;string:${member/absolute_url}&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">icon_expr</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">available_expr</span><span style="color:#c0c5ce;">&quot;&gt;python:member is not None&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">permissions</span><span style="color:#c0c5ce;">&quot;/&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">visible</span><span style="color:#c0c5ce;">&quot;&gt;True&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;/</span><span style="color:#bf616a;">object</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">object</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>Pero la manera correcta es así:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;"> &lt;</span><span style="color:#bf616a;">object </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">user</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">meta_type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">CMF Action Category</span><span style="color:#c0c5ce;">&quot;&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">title</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">object </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">perfil</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">meta_type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">CMF Action</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">i18n:domain</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">iservicestheme.domain</span><span style="color:#c0c5ce;">&quot;&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">title</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">i18n:translate</span><span style="color:#c0c5ce;">=&quot;&quot;&gt;Profile&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">description</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">i18n:translate</span><span style="color:#c0c5ce;">=&quot;&quot;&gt;Access to my profile&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">url_expr</span><span style="color:#c0c5ce;">&quot;&gt;string:${member/absolute_url}&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">icon_expr</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">available_expr</span><span style="color:#c0c5ce;">&quot;&gt;python:member is not None&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">permissions</span><span style="color:#c0c5ce;">&quot;/&gt;
+</span><span style="color:#c0c5ce;">   &lt;</span><span style="color:#bf616a;">property </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">visible</span><span style="color:#c0c5ce;">&quot;&gt;True&lt;/</span><span style="color:#bf616a;">property</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;/</span><span style="color:#bf616a;">object</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">object</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>Y la solución la pude encontrar gracias a esta página:</p>
+<p><a href="http://banyan.usc.edu/log/plone-old/plone-logs">http://banyan.usc.edu/log/plone-old/plone-logs</a></p>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/lecciones-aprendidas-internacionalizacion-plone" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/varios-efectos-de-jquery-que-se-ven-bien" rel="next">&larr; Varios efectos de JQuery que se ven bien</a>
+  
+  
+  <a href="/blog/unicode-y-utf-8-en-plone" rel="prev">Unicode y UTF-8 en Plone &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

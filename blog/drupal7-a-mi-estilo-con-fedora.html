@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Drupal 7 a mi estilo con Fedora &middot; Noe Nieto</title>
+    <meta name="description" content="Tutorial para instalar Drupal 7 en Fedora sin Apache ni MySQL, usando el servidor web integrado de PHP, SQLite, composer y Drush; incluye el comando site-install.">
+    
+    <meta name="keywords" content="drupal, drupal-7, fedora, php, drush, composer, sqlite, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Drupal 7 a mi estilo con Fedora">
+    <meta property="og:description" content="Tutorial para instalar Drupal 7 en Fedora sin Apache ni MySQL, usando el servidor web integrado de PHP, SQLite, composer y Drush; incluye el comando site-install.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Drupal 7 a mi estilo con Fedora">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2014-06-19">
+    
+    
+    <meta property="article:tag" content="drupal">
+    <meta property="article:tag" content="drupal-7">
+    <meta property="article:tag" content="fedora">
+    <meta property="article:tag" content="php">
+    <meta property="article:tag" content="drush">
+    <meta property="article:tag" content="composer">
+    <meta property="article:tag" content="sqlite">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Drupal 7 a mi estilo con Fedora">
+    <meta name="twitter:description" content="Tutorial para instalar Drupal 7 en Fedora sin Apache ni MySQL, usando el servidor web integrado de PHP, SQLite, composer y Drush; incluye el comando site-install.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Drupal 7 a mi estilo con Fedora">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/drupal7-a-mi-estilo-con-fedora.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Drupal 7 a mi estilo con Fedora","description":"Tutorial para instalar Drupal 7 en Fedora sin Apache ni MySQL, usando el servidor web integrado de PHP, SQLite, composer y Drush; incluye el comando site-install.","datePublished":"2014-06-19","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["drupal","drupal-7","fedora","php","drush","composer","sqlite"],"wordCount":754}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Drupal 7 a mi estilo con Fedora"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Drupal 7 a mi estilo con Fedora</h1>
+  <p class="entry-description muted">Tutorial para instalar Drupal 7 en Fedora sin Apache ni MySQL, usando el servidor web integrado de PHP, SQLite, composer y Drush; incluye el comando site-install.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Drupal 7 llegó a fin de vida en enero de 2025; Drush dev-master y el flujo con yum/composer de 2014 están desactualizados. El concepto (PHP built-in server + SQLite) sigue vigente pero las versiones específicas no reflejan el estado actual..
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2014-06-19">
+      2014-06-19
+    </time>
+    
+
+    
+    <span class="reading-time">3 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/drupal/">drupal</a>
+    
+    <a class="p-category" href="/tags/drupal-7/">drupal-7</a>
+    
+    <a class="p-category" href="/tags/fedora/">fedora</a>
+    
+    <a class="p-category" href="/tags/php/">php</a>
+    
+    <a class="p-category" href="/tags/drush/">drush</a>
+    
+    <a class="p-category" href="/tags/composer/">composer</a>
+    
+    <a class="p-category" href="/tags/sqlite/">sqlite</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#instalando-php" class="toc-link">Instalando PHP</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#instalar-composer" class="toc-link">Instalar composer</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#instalar-drush" class="toc-link">Instalar Drush</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#instalar-drupal-con-drush" class="toc-link">Instalar Drupal con Drush</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#corriendo-el-servidor-web-de-php" class="toc-link">Corriendo el servidor web de PHP</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="intro">Intro</h2>
+<p><picture><source type="image/webp" srcset="/static/images/posts/fedora-drupal-estilo-noe/screenshot-2014-06-19-20-10-24.webp 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/fedora-drupal-estilo-noe/screenshot-2014-06-19-20-10-24.png" alt="PHP corriendo su servidor interno desde la línea de comandos"  srcset="/static/images/posts/fedora-drupal-estilo-noe/screenshot-2014-06-19-20-10-24.png 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="480" height="125" /></picture></p>
+<p>Tengo unos minutos libres y decidí complicarme la vida un poco más de lo que
+ya está. Resulta que hace algunas semanas instalé Fedora desde cero y ya perdí
+todo lo que estaba haciendo con Drupal. Ahora lo tengo que rehacer, pero:</p>
+<ul>
+<li>
+<p>No voy a usar Apache, porque PHP ya trae un servidor web integrado y
+funciona bastante bien para desarrollar cosas en Drupal.</p>
+</li>
+<li>
+<p>Tampoco voy a instalar MySQL o MariaDB, porque Drupal puede usar SQLite y
+también funciona bastante bien.</p>
+</li>
+<li>
+<p>Solo necesito instalar PHP, composer y drush para comenzar a chambear.</p>
+</li>
+</ul>
+<p>¡Manos a la obra!</p>
+<h2 id="instalando-php">Instalando PHP</h2>
+<p>Instalé <code>php</code> junto con <code>php-pdo</code> (para SQLite) y <code>php-gd</code> para que Drupal pueda
+usar la librería de gráficos GD.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">sudo</span><span style="color:#c0c5ce;"> yum install php php-cli php-pdo php-gd
+</span></pre>
+<p>Cuando se instala php, automáticamente se instala Apache. Para revisar si
+Apache se arranca junto con la máquina se puede hacer uso de <code>systemctl</code> (Fedora
+ya viene con systemd):</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> systemctl status httpd
+</span><span style="color:#8fa1b3;">httpd.service</span><span style="color:#c0c5ce;"> - The Apache HTTP Server
+</span><span style="color:#c0c5ce;">   </span><span style="color:#8fa1b3;">Loaded:</span><span style="color:#c0c5ce;"> loaded (/usr/lib/systemd/system/httpd.service; </span><span style="color:#8fa1b3;">disabled</span><span style="color:#c0c5ce;">)
+</span><span style="color:#c0c5ce;">   </span><span style="color:#8fa1b3;">Active:</span><span style="color:#c0c5ce;"> inactive (dead)
+</span></pre>
+<h2 id="instalar-composer">Instalar composer</h2>
+<p>Ya tenemos php, ahora es necesario instalar
+<a href="https://getcomposer.org/">composer</a> de manera local.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> mkdir</span><span style="color:#bf616a;"> -p ~</span><span style="color:#c0c5ce;">/bin
+</span><span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> cd </span><span style="color:#bf616a;">~</span><span style="color:#c0c5ce;">/bin
+</span><span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> curl</span><span style="color:#bf616a;"> -sS</span><span style="color:#c0c5ce;"> https://getcomposer.org/installer | </span><span style="color:#8fa1b3;">php
+</span></pre>
+<p>Salida:</p>
+<pre><code>All settings correct for using Composer
+Downloading...
+
+Composer successfully installed to: /home/nnieto/bin/composer.phar
+Use it: php composer.phar
+</code></pre>
+<p>El primer comando es para crear el directorio <code>~/bin</code>. Fedora ya está
+configurado para incluir ese directorio en <code>$PATH</code>. Si en ese directorio
+colocamos algún script que sea ejecutable, podremos invocarlo solo con su
+nombre desde cualquier lugar.</p>
+<h2 id="instalar-drush">Instalar Drush</h2>
+<p>Ahora es momento de instalar <a href="https://github.com/drush-ops/drush">Drush</a> con:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> composer.phar global require drush/drush:dev-master
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">Changed</span><span style="color:#c0c5ce;"> current directory to /home/nnieto/.composer
+</span><span style="color:#8fa1b3;">./composer.json</span><span style="color:#c0c5ce;"> has been updated
+</span><span style="color:#8fa1b3;">Loading</span><span style="color:#c0c5ce;"> composer repositories with package information
+</span><span style="color:#8fa1b3;">Updating</span><span style="color:#c0c5ce;"> dependencies (including require-dev)
+</span><span style="color:#c0c5ce;">  </span><span style="color:#8fa1b3;">-</span><span style="color:#c0c5ce;"> Updating drush/drush dev-master (7dd8076 =&gt; </span><span style="color:#d08770;">12942</span><span style="color:#c0c5ce;">ed)
+</span><span style="color:#c0c5ce;">    </span><span style="color:#8fa1b3;">Checking</span><span style="color:#c0c5ce;"> out 12942ed3eaf8b6be5372baec32169ba61a04b22f
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">Writing</span><span style="color:#c0c5ce;"> lock file
+</span><span style="color:#8fa1b3;">Generating</span><span style="color:#c0c5ce;"> autoload files
+</span></pre>
+<p>Luego hice una liga simbólica hacia el directorio <code>~/bin</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> ln</span><span style="color:#bf616a;"> -s ~</span><span style="color:#c0c5ce;">/.composer/vendor/drush/drush/drush </span><span style="color:#bf616a;">~</span><span style="color:#c0c5ce;">/bin/drush
+</span></pre>
+<p>¿Por qué? Para que pueda invocar a drush desde cualquier ruta :)</p>
+<h2 id="instalar-drupal-con-drush">Instalar Drupal con Drush</h2>
+<p>Según <a href="http://www.coderintherye.com/install-drupal-7-using-drush">este sitio</a>
+con Drush puedo instalar y configurar Drupal 7 en dos patadas. ¡Eso me gusta!</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> drush dl drupal-7.x
+</span><span style="color:#8fa1b3;">Project</span><span style="color:#c0c5ce;"> drupal (7.x-dev) </span><span style="color:#8fa1b3;">downloaded</span><span style="color:#c0c5ce;"> to /home/nnieto/Code/Hkl/hkl_drupal/drupal-7.x-dev.   </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">success</span><span style="color:#b48ead;">]
+</span><span style="color:#8fa1b3;">Project</span><span style="color:#c0c5ce;"> drupal Contains:                                                                  </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">success</span><span style="color:#b48ead;">]
+</span><span style="color:#c0c5ce;"> </span><span style="color:#8fa1b3;">-</span><span style="color:#c0c5ce;"> 3 profiles: standard, minimal, testing
+</span><span style="color:#c0c5ce;"> </span><span style="color:#8fa1b3;">-</span><span style="color:#c0c5ce;"> 4 themes: seven, stark, bartik, garland
+</span><span style="color:#c0c5ce;"> </span><span style="color:#8fa1b3;">-</span><span style="color:#c0c5ce;"> 47 modules: ...
+</span></pre>
+<p>¿Qué hizo? Bajó una copia de Drupal (asumo que era la más reciente) y la puso
+en una carpeta de nombre <code>drupal-7.x-dev</code>. Nada mal.</p>
+<p>Ahora es momento de usar drush para configurar el sitio desde la línea de comandos:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> cd drupal-7.x-dev
+</span><span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> drush site-install standard</span><span style="color:#bf616a;"> --account-name</span><span style="color:#c0c5ce;">=admin</span><span style="color:#bf616a;"> --account-pass</span><span style="color:#c0c5ce;">=admin</span><span style="color:#bf616a;"> --db-url</span><span style="color:#c0c5ce;">=sqlite://sites/default/files/.ht.sqlite
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">You</span><span style="color:#c0c5ce;"> are about to CREATE the &#39;</span><span style="color:#a3be8c;">sites/default/files/.ht.sqlite</span><span style="color:#c0c5ce;">&#39; database.
+</span><span style="color:#8fa1b3;">Do</span><span style="color:#c0c5ce;"> you want to continue? (y/n)</span><span style="color:#96b5b4;">:</span><span style="color:#c0c5ce;"> y
+</span><span style="color:#8fa1b3;">Starting</span><span style="color:#c0c5ce;"> Drupal installation. This takes a few seconds ...       </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">ok</span><span style="color:#b48ead;">]
+</span><span style="color:#8fa1b3;">Installation</span><span style="color:#c0c5ce;"> complete.  User name: admin  User password: admin   </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">ok</span><span style="color:#b48ead;">]
+</span></pre>
+<p>¡Ooookey! ¿Qué quiere decir esto? ¿Ya instaló y configuró Drupal? ¿Apoco ya no
+necesito correr el <em>wizard</em> de instalación? ¿Dónde puso la base de datos?</p>
+<p>Primero contesto la última pregunta: ¿Dónde metió la base de datos? Bueno, yo
+sé que estoy dentro del directorio de instalación de Drupal y que la URI de la
+base de datos fue <code>sqlite://sites/default/files/.ht.sqlite</code> y además esa URI se
+parece al directorio <code>sites</code> de Drupal. ¿Será?</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> ls</span><span style="color:#bf616a;"> -la</span><span style="color:#c0c5ce;"> sites/default/files/
+</span><span style="color:#8fa1b3;">total</span><span style="color:#c0c5ce;"> 780
+</span><span style="color:#8fa1b3;">drwxrwxr-x.</span><span style="color:#c0c5ce;"> 3 nnieto nnieto   4096 Jun 19 19:52 .
+</span><span style="color:#8fa1b3;">dr-xr-xr-x.</span><span style="color:#c0c5ce;"> 3 nnieto nnieto   4096 Jun 19 19:43 ..
+</span><span style="color:#8fa1b3;">-r--r--r--.</span><span style="color:#c0c5ce;"> 1 nnieto nnieto    476 Jun 19 19:45 .htaccess
+</span><span style="color:#8fa1b3;">-rw-r--r--.</span><span style="color:#c0c5ce;"> 1 nnieto nnieto 778240 Jun 19 19:52 .ht.sqlite
+</span><span style="color:#8fa1b3;">drwxrwxr-x.</span><span style="color:#c0c5ce;"> 2 nnieto nnieto   4096 Jun 19 19:46 styles
+</span></pre>
+<p>¡Sí! Ahí está el archivo <code>.ht.sqlite</code>. Ya voy entendiendo...</p>
+<h2 id="corriendo-el-servidor-web-de-php">Corriendo el servidor web de PHP</h2>
+<p>Python y Node.js traen servidores web integrados. Esos servidores web son muy
+básicos y no están hechos para ponerlos en producción. Pero sirven muy bien
+para desarrollo y evitar la molestia de configurar un servidor real. PHP
+también tiene un servidor web integrado. Me lo dijeron en
+<a href="http://drupal.stackexchange.com/questions/111200/how-to-run-drupal-from-the-console">StackExchange</a>
+;).</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> php</span><span style="color:#bf616a;"> -S</span><span style="color:#c0c5ce;"> localhost:8000
+</span><span style="color:#8fa1b3;">PHP</span><span style="color:#c0c5ce;"> 5.5.13 Development Server started at Thu Jun 19 20:05:10 2014
+</span><span style="color:#8fa1b3;">Listening</span><span style="color:#c0c5ce;"> on http://localhost:8000
+</span><span style="color:#8fa1b3;">Document</span><span style="color:#c0c5ce;"> root is /home/nnieto/Code/Hkl/hkl_drupal/drupal-7.x-dev
+</span><span style="color:#8fa1b3;">Press</span><span style="color:#c0c5ce;"> Ctrl-C to quit.
+</span></pre>
+<p><strong>Actualización</strong>: Las versiones recientes de Drush incluyen un comando <code>rs</code> que
+ejecuta el servidor web integrado de php en el puerto <code>8888</code>.</p>
+<p>Y sí, funciona:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0-480w.webp 480w, /static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0-800w.webp 800w, /static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0.webp 977w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0.png" alt="Drupal funcionando en el servidor web integrado de PHP"  srcset="/static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0-480w.png 480w, /static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0-800w.png 800w, /static/images/posts/fedora-drupal-estilo-noe/screenshot-from-2014-06-19-20-06-56-0.png 977w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="977" height="835" /></picture></p>
+<p>¿Cómo te quedó el ojo?</p>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/drupal7-a-mi-estilo-con-fedora" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/reduciendo-tamano-bd-sql-server" rel="next">&larr; Reduciendo el tamaño de una BD en SQL Server</a>
+  
+  
+  <a href="/blog/seo-hkl" rel="prev">SEO para HolokinesisLibros.com &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

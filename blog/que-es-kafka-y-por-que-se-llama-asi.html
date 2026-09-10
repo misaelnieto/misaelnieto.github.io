@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>¿Por qué se llama Kafka? Y qué hace, en realidad &middot; Noe Nieto</title>
+    <meta name="description" content="¿Por qué Apache Kafka se llama así y qué hace? Descubre el problema de la comunicación acoplada entre servicios y cómo las colas de mensajería lo resuelven.">
+    
+    <meta name="keywords" content="kafka, mensajeria, arquitectura, sistemas-distribuidos, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="¿Por qué se llama Kafka? Y qué hace, en realidad">
+    <meta property="og:description" content="¿Por qué Apache Kafka se llama así y qué hace? Descubre el problema de la comunicación acoplada entre servicios y cómo las colas de mensajería lo resuelven.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="¿Por qué se llama Kafka? Y qué hace, en realidad">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2026-09-06">
+    
+    
+    <meta property="article:tag" content="kafka">
+    <meta property="article:tag" content="mensajeria">
+    <meta property="article:tag" content="arquitectura">
+    <meta property="article:tag" content="sistemas-distribuidos">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="¿Por qué se llama Kafka? Y qué hace, en realidad">
+    <meta name="twitter:description" content="¿Por qué Apache Kafka se llama así y qué hace? Descubre el problema de la comunicación acoplada entre servicios y cómo las colas de mensajería lo resuelven.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="¿Por qué se llama Kafka? Y qué hace, en realidad">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/que-es-kafka-y-por-que-se-llama-asi.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"¿Por qué se llama Kafka? Y qué hace, en realidad","description":"¿Por qué Apache Kafka se llama así y qué hace? Descubre el problema de la comunicación acoplada entre servicios y cómo las colas de mensajería lo resuelven.","datePublished":"2026-09-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["kafka","mensajeria","arquitectura","sistemas-distribuidos"],"wordCount":4775}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"¿Por qué se llama Kafka? Y qué hace, en realidad"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">¿Por qué se llama Kafka? Y qué hace, en realidad</h1>
+  <p class="entry-description muted">¿Por qué Apache Kafka se llama así y qué hace? Descubre el problema de la comunicación acoplada entre servicios y cómo las colas de mensajería lo resuelven.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2026-09-06">
+      2026-09-06
+    </time>
+    
+
+    
+    <span class="reading-time">20 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/kafka/">kafka</a>
+    
+    <a class="p-category" href="/tags/mensajeria/">mensajeria</a>
+    
+    <a class="p-category" href="/tags/arquitectura/">arquitectura</a>
+    
+    <a class="p-category" href="/tags/sistemas-distribuidos/">sistemas-distribuidos</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#por-qué-se-llama-kafka" class="toc-link">¿Por qué se llama Kafka?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#el-despacho" class="toc-link">El Despacho</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#el-diagnóstico-síncrono-y-acoplado" class="toc-link">El diagnóstico: síncrono y acoplado</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#la-idea-desacoplar-con-mensajería-asíncrona" class="toc-link">La idea: desacoplar con mensajería asíncrona</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#entonces-qué-es-kafka" class="toc-link">¿Entonces qué es Kafka?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#coda" class="toc-link">Coda</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="por-qué-se-llama-kafka">¿Por qué se llama Kafka?</h2>
+<p>Confieso algo: la primera vez que escuché «<a href="https://kafka.apache.org/">Apache Kafka</a>», mi única referencia era <a href="https://es.wikipedia.org/wiki/La_metamorfosis"><em>La metamorfosis</em></a> de Franz Kafka. Y la primera emoción que me surgió no fue interés, sino desconcierto: <em>¿qué? ¿Qué tiene que ver la historia de un hombre que amanece convertido en cucaracha con un proyecto de código abierto?</em></p>
+<p>El error era mío, y era de ignorancia: no he leído toda la obra de Franz Kafka, solo esa novela corta. Sin el resto del contexto, el chiste se me escapaba por completo.</p>
+<p>La historia parece ser así: <a href="https://x.com/jaykreps">Jay Kreps</a>, junto con <a href="https://www.nehanarkhede.com/">Neha Narkhede</a> y <a href="https://www.linkedin.com/in/junrao/">Jun Rao</a>, crearon Kafka mientras trabajaban en LinkedIn<sup class="footnote-reference"><a href="#kreps-et-al-2011">1</a></sup>. A Kreps se le ocurrió el nombre como un juego de palabras técnico y literario<sup class="footnote-reference"><a href="#narkhede-et-al-2017">2</a></sup>:</p>
+<blockquote>
+<p>"I thought that since Kafka was a system optimized for writing, using a writer's name would make sense. I had taken a lot of lit classes in college and liked Franz Kafka. Plus the name sounded cool for an open source project."</p>
+<p>— Jay Kreps, citado en <em>Kafka: The Definitive Guide</em>, cap. 1<sup class="footnote-reference"><a href="#narkhede-et-al-2017">2</a></sup></p>
+</blockquote>
+<p>Y en español:</p>
+<blockquote>
+<p>«Pensé que, como Kafka era un sistema optimizado para escribir, usar el nombre de un escritor tendría sentido. Tomé muchas clases de literatura en la universidad y me gustaba Franz Kafka. Además, el nombre sonaba genial para un proyecto de código abierto.»</p>
+</blockquote>
+<p>Para entender el chiste técnico hay que cruzar de la programación y sistemas a la literatura. Kreps ya dio ese salto —por eso eligió nombrarlo así—; a mí me costó más, pero yendo despacio es posible ver lo que él vio.</p>
+<p>La raíz del chiste técnico radica en el <em>write-optimized</em>: estar <strong>optimizado para escribir</strong>. Kafka está diseñado para guardar y registrar millones de eventos por segundo en un registro de datos (un <em>commit log</em>); su punto fuerte es la velocidad para escribir datos masivos en disco, de forma continua. Y escribir aquí tiene un truco: solo se van pegando hojas al final del cuaderno, jamás se corrige una de en medio; y leer no es distinto: abres cualquier página marcada, pero siempre hacia adelante. Por eso es tan rápido. Y aquí va el puente: Franz Kafka, el escritor, era justo eso — un autor obsesivo que escribía de manera compulsiva, de madrugada. Trabajó catorce años en una aseguradora, de ocho a dos de la tarde, y las noches las dedicó a escribir. <a href="https://es.wikipedia.org/wiki/La_condena">La condena</a> la escribió de un tirón en una sola noche de septiembre de 1912. <strong>El juego de palabras de Kreps une el rendimiento del software, que escribe datos rapidísimo, con la personalidad del autor, que escribía sin parar</strong>.</p>
+<p>Pero el puente no termina ahí, y ahí está la ironía: ambos compran velocidad y pagan con legibilidad. Aclaro: esta lectura es mía, no de Kreps. La crítica literaria describe la prosa de Kafka como clara, precisa, sobria —lo laberíntico es la situación, no la sintaxis—; el puente funciona con algo más terroso: textos escritos de madrugada y sin lector en mente, algo parecido a lo que sentirías si leyeras un <em>commit log</em> crudo de Apache Kafka. Ambos legibles solo para quien sabe reconstruir el contexto. Y la ironía se invierte sola: el escritor que pidió a Max Brod que quemaran casi todos sus manuscritos —el más <em>delete-happy</em> de la literatura— le pone nombre al sistema cuya virtud es que nada de lo escrito se borra (salvo por retención). Kreps no lo eligió por legible; lo eligió por incansable.</p>
+<p>Ya cruzamos el puente del nombre. Ahora viene lo serio: el problema que Kafka resuelve no tiene nada de literario — es de los que te despiertan a las tres de la mañana en producción. Propongo una historia.</p>
+<h2 id="el-despacho">El Despacho</h2>
+<p>El <strong>Despacho Especial Unido Deadlock y Asociados, S.A. de C.V.</strong> es una agencia aduanal en Mexicali, Baja California. En enero abrió una sucursal nueva cerca de la garita Nuevo Mexicali: almacén grande, mostradores, cubículos para unos diez empleados, aunque casi siempre hay cuatro. En los meses templados se trabaja con ventanas abiertas, se platica en la puerta y nadie tiene prisa.</p>
+<p><strong>Diana Báez</strong> <em>lleva el inventario impecable desde siempre</em>. Nunca se ha perdido un embarque, con una sola excepción: el verano pasado. Un requisito aduanal se traspapeló y la mercancía del cliente quedó retenida. El detalle es que últimamente a Diana le da más calor de lo normal, y por eso trae su abanico incluso en invierno. El viento del abanico empujó el requisito detrás del escritorio, donde quedó oculto meses. Diana desmontó el escritorio entero, sudando, y lo encontró. Todos lo tomaron como rareza, no como señal.</p>
+<p><strong>Celia R. Montes</strong> <em>lleva la atención al cliente por teléfono, mostrador y WhatsApp</em>. Es eficiente cuando se concentra, pero se toma su tiempo mientras presiona a los demás para que todo salga ya.</p>
+<p>Entre Celia y Diana no hay un sistema, hay una costumbre. <em>Nadie escribe un pedido en ninguna parte</em>: Celia atiende al cliente y, con el cliente todavía esperando, le grita a Diana por encima de los cubículos:</p>
+<blockquote>
+<p>—¡Diana! ¿Me confirmas si hay veinte del modelo que te dije?</p>
+</blockquote>
+<p>Y Diana, sin levantar la vista, le responde de memoria. Así ha funcionado los treinta años que lleva la agencia. Cuando hay poco trabajo, la costumbre alcanza y sobra. El detalle está en que <em>cada pedido depende de que Diana, en ese instante exacto, esté de pie y le conteste</em>. Y Celia, mientras tanto, <em>sostiene el pedido en la línea</em>: el teléfono sonando y el cliente mirándola desde la sala de espera.</p>
+<p><strong>Rey Díaz</strong> <em>es el mensajero y coordinador de embarques.</em> Organizado, diligente, y con un don: repite los recados al vuelo, tal cual se los cuentan, palabra por palabra… y ya. Rey es chismoso por naturaleza —no puede guardarse una noticia—, y por eso es el canal de comunicación predilecto de todos: se entera de todo y lo cuenta todo, solo que nunca por escrito. Eso si, no le pregunten qué hizo ayer: ¡nunca se acuerda! Ayer, para Rey Díaz, no existe. <strong>No guarda nada: ni de hoy, ni de ayer. Si nadie estaba escuchando en el momento, el mensaje se perdió.</strong> Pero a pesar de todo, el es el más eficiente del Despacho y nadie se preocupa de que sea olvidadizo; nadie anota nada, porque el chisme vuela tan rápido que sobra la libreta.</p>
+<p><strong>Luis Omar García</strong>, «El Chief», <em>es el de sistemas</em> y le encanta meterse con todo lo que tenga tornillos y electrónica. Sabe todos los detalles técnicos de la operación del Despacho, pero como todo funciona a la perfección, se dedica a mandar reportes diarios de eficiencia por conducto de Rey Díaz. El reporte es siempre el mismo y todos ya lo conocen; a Rey Díaz le da igual: repetir recados es lo suyo, así que los entrega con gusto. Un día, mientras platicaban, Rey Díaz admitió que si se ganaba la lotería lo primero que haría sería irse de vacaciones, mínimo un año. El Chief le contestó que <em>sin el chismosote del Despacho se les cae el changarro</em>. Se rieron mucho.</p>
+<p>En febrero llegó el aire acondicionado nuevo. Rey Díaz pasó el recado a todo mundo, como de costumbre, y El Chief salió caminando hacia el almacén con gran emoción para ver el nuevo producto. Pero al abrir la caja, algo le pareció extraño: la marca del empaquetado no era la del aparato. «¡Chale, esto parece un aire pirata!», dijo. Rey Díaz, que pasaba por ahí, entregó el mensaje a todos: «El Chief dice que el aire nuevo es pirata». Nadie supo qué hacer con la información. El Chief se encogió de hombros —en ese momento estaba más interesado en tornillos y electrónica que en garantías y contratos— y lo instaló de todos modos.</p>
+<p>La instalación ocurrió con total normalidad y las pruebas del aire acondicionado fueron exitosas. Si enfriaba, significaba que funcionaba. Con el clima templado de la primavera, tampoco hubo manera de comprobar su funcionamiento bajo estrés. El aparato nuevo dormía en el techo, esperando a que alguien lo pusiera a prueba. Un defecto no es nada mientras nadie lo exige.</p>
+<p>En Mexicali la ola de calor no se anuncia: llega. Un día la máxima es 36, al siguiente sube a 42 y ya no baja hasta octubre. De un día para otro. A finales de mayo se encendió el aire sin problema; funcionó de maravilla todo junio y julio. Pero en pleno agosto, un día con la máxima en 54 grados, a las tres de la tarde, el aire acondicionado nuevo se apaga.</p>
+<p>No truena, no chispea. <em>Thump.</em> Se oye cuando el compresor central se para. El ruido sordo de los motores se esfuma. El calor irradia desde las paredes. El Chief sube a la azotea: todo luce bien, nada parece estar estropeado, nunca ha visto un fallo así. Baja derrotado, bañado en sudor y mareado.</p>
+<p>Diana es la primera en sufrir los estragos del calor e irse. No puede concentrarse en el inventario, y <em>un inventario que Diana no puede revisar no vale nada</em>. No había dormido la noche anterior—aunque era de noche, el termómetro marcaba cuarenta grados—y venía vencida. El calor de Mexicali no deja descansar a nadie en verano, y a ella, que desde hace meses vive con un sofoco que no entiende, la estaba venciendo. Ella había avisado, a su manera, desde enero con el abanico; pero nadie le hizo caso, porque un abanico no parece una alarma. Se levanta, agarra su bolsa y se va a trabajar desde casa. Nadie le dice nada: trae una cara de pocos amigos. Al pasar por la puerta grita, sin que nadie la escuche, que le avisen cuando ya hayan arreglado la refri. Su escritorio queda vacío, el abanico tirado. Paradójicamente, desde casa Diana casi no puede hacer nada: la mercancía real está en la oficina.</p>
+<p>Celia todavía tiene trabajo pendiente y necesita la confirmación del stock. Siguiendo la costumbre, le grita a Diana por encima de los cubículos que le confirme si ya tienen el stock para el cliente. <strong>Nadie responde</strong>. Solo puede esperar y desesperarse.</p>
+<p><strong>Sin la confirmación de Diana, Celia no puede procesar ni un pedido</strong>. Los clientes del mostrador se retiran por el sofocante calor de la oficina, pero siguen llegando llamadas y mensajes de WhatsApp, y cada uno es un pedido que no puede cerrar. Se levanta y le grita a El Chief que arregle el aire de una vez por todas, pero El Chief está en el baño, echándose agua en la cabeza —en Mexicali, en verano, el agua de la llave sale ardiente; pero eso es mejor que nada—. Está más mareado que nunca y no puede atender berrinches.</p>
+<p>Y entonces entra Rey Díaz. No soporta no saber. Es su naturaleza: él comunica, él es el centro de la oficina, el que media los pleitos. Y aquí le toca lo más difícil: comunicar algo que nadie entiende. No hay un solo hecho verificable —el aire se apagó solo, Diana se fue, El Chief no responde—, y Rey Díaz tiene que contar <em>algo</em>. Va de escritorio en escritorio, no mintiendo, sino redondeando: «Tal vez Diana solo fue al baño, su abanico sigue ahí, regresará pronto». «No pasa nada, el Chief ahorita lo arregla». «Todo va a salir bien, no se preocupen». Cada recado es una interpretación urgente, y nadie puede volver a la fuente para verificarla.</p>
+<p>Rey Díaz no inventa el rumor; el rumor se <strong>completa</strong> solo. Le dice a Celia: «Diana ya arregló lo suyo y regresa mañana, tranquila». A Diana, por teléfono: «Celia está furiosa, dice que sin ti se van a caer todos los pedidos». Cada mensaje le añade un detalle que ya no viene de un hecho, sino de un hueco que había que llenar: «se fue el aire» → «el AC tronó» → «dicen que explotó» → «dicen que ya se apagó medio Mexicali». Y no hay forma de devolverse.</p>
+<p>Y como Rey Díaz monopolizaba la comunicación interna, terminó rodeado de personas —Celia al frente—, cada quien con su duda y su versión ya deformada, todos irritados por el calor y porque nada funciona. Trata de atenderlos a todos, hasta que la cacofonía de voces lo rebasa y hace lo único sensato: cortar llamadas a media frase. Ya no atiende a nadie. Por fortuna, ya daban las cinco: soltó que la oficina se cerraba, que pasaran a la salida, que mañana continuarían. Sin Rey Díaz, la oficina se queda sin noticias. Con Rey Díaz, se queda sin hechos. Es lo mismo.</p>
+<p>Al día siguiente, Rey Díaz llegó temprano, como siempre, y abrió. De la víspera no se acordaba de nada —ni de El Chief, ni de Diana, ni del aire—, pero la oficina había que abrirla. Se encienden las luces, se destapa el despachador de agua, se cuelga el letrero. La costumbre no pregunta por las personas; solo sigue.</p>
+<p>Ese mismo día El Chief pidió un taxi y se fue al hospital, se sentía sumamente mareado y con el corazón a mil por hora: le dio un golpe de calor. No tenía cabeza para avisarle a nadie y en la confusión alrededor de Rey Díaz, nadie notó que El Chief abordaba el taxi. Nadie supo que estuvo internado, y por eso nadie vino a arreglar el aire en varios días. Rey Díaz preguntó a todo mundo por él; nadie sabía nada.</p>
+<p>Diana aguantó como pudo: volvía temprano y se iba en cuanto el calor se ponía insoportable, unas tres horas al día en lugar de las ocho de siempre. Celia siguió contestando teléfono y WhatsApp porque alguien tenía que hacerlo, pero cada ausencia de Diana soltaba a los clientes en fila pidiendo informes, y el ciclo se repetía con Rey Díaz cada vez más abrumado por la gente que exigía explicaciones.</p>
+<p>A los pocos días, El Chief reapareció. Aunque sabían de su ausencia, nadie le preguntó qué le había pasado ni por qué no había venido, estaban muy ocupados atendiendo el caos; Rey Díaz, con la memoria que se carga ni se acordaba de la ausencia. Rápidamente pidió la garantía del aire y, dos días después, el aparato funcionaba de nuevo. Diana regresó a su escritorio y todo volvió a la normalidad. Nadie recordaba ya aquella tarde de 54 grados en que la oficina cayó en el caos y El Chief acabó en el hospital. Y más importante: nadie recordaba, ni siquiera El Chief, que el aire era pirata.</p>
+<h2 id="el-diagnóstico-síncrono-y-acoplado">El diagnóstico: síncrono y acoplado</h2>
+<p>Ahora develo el truco. La agencia es tu arquitectura; cada empleado, un servicio. Y los nombres no son casualidad: cada uno codifica la pieza técnica que representa. Vamos por partes.</p>
+<p><strong>Diana Báez es DB</strong>: una base de datos legacy. Piensa en un Microsoft Access que lleva décadas funcionando: los datos son correctos, es la fuente de verdad, pero no hay réplica, no hay acceso remoto, no hay reemplazo. Su disponibilidad depende de que Diana esté físicamente de pie frente a su escritorio. Cuando se retira, no pierde información: pierde disponibilidad. Su abanico de enero era la señal temprana: la versión humana de esas métricas que se deterioran meses antes del incidente, pero nadie sabía leerlas.</p>
+<p><strong>Celia R. Montes es el CRM</strong>: el sistema de intake multicanal —teléfono, mostrador y WhatsApp—, tres frentes a la vez. Recibe pedidos pero no puede cerrar ninguno hasta consultar a Diana <strong>en vivo</strong>; cada frente es una petición <em>síncrona</em>. Cuando Diana se fue, Celia esperó y se desesperó: sin respuesta, no había pedido que cerrar. (El problema no era consultar el inventario —toda consulta es legítima—; era que la única vía para responder exigiera que Diana estuviera de pie en ese instante.)</p>
+<p><strong>Rey Díaz es Redis</strong>: <a href="https://redis.io/docs/latest/develop/pubsub/">Redis en modo Pub/Sub</a>, no Redis en general. Avisos en vivo rapidísimos, pero sin persistencia, sin replay, sin audit log. No hay nada que volatilizar: Pub/Sub no guarda ni un segundo de lo que pasa por él. Y como es tan eficiente, nadie pidió nunca persistencia. Si nadie estaba escuchando, el mensaje se perdió. Es lo que tienes <strong>antes</strong> de Kafka<sup class="footnote-reference"><a href="#redis-streams">1</a></sup>.</p>
+<p><strong>Luis Omar García es LOG</strong>: la observabilidad y la operación con patas. Ojo con las iniciales: son L.O.G., y no hay que confundir este <em>log</em> —el humano de guardia, dashboards, alertas— con el <em>commit log</em> del principio, del que el siguiente post hablará a fondo. Piensa en Grafana, Loki, Prometheus, Alertmanager… y alguien on-call. Y es también el humano que hace lo que hoy delegamos en herramientas como Chef o Salt: instalar, actualizar y mantener la infraestructura con sus propias manos —incluidos sus reportes diarios, que nadie lee, enrutados por el canal sin registro de Rey Díaz. Detectó la anomalía del aire pirata, avisó, y su alerta se diluyó por el mismo conducto. Peor: cuando el golpe de calor lo mandó al hospital, el monitoreo siguió pintando alertas en un dashboard que ya nadie miraba —sin heartbeat, sin guardia alterna, sin escalamiento. Segunda falla silenciosa.</p>
+<p>El reparto, en una tabla:</p>
+<table><thead><tr><th>Personaje</th><th>Componente</th><th>Propiedad clave</th></tr></thead><tbody>
+<tr><td>Diana Báez</td><td>DB</td><td>Pierde disponibilidad, no los datos</td></tr>
+<tr><td>Celia R. Montes</td><td>CRM</td><td>Petición síncrona bloqueante</td></tr>
+<tr><td>Rey Díaz</td><td>Redis Pub/Sub</td><td>Sin persistencia: <em>at-most-once</em></td></tr>
+<tr><td>El Chief</td><td>LOG</td><td>Observabilidad + config manual</td></tr>
+</tbody></table>
+<p>Y el aire acondicionado… ese es el punto.</p>
+<p>Si lo miras rápido, parece el fallo típico de un <strong>punto único de fallo</strong> (<em>single point of failure</em>): un aparato que se daña y tira todo. Esa sería la conclusión cómoda, y es <em>falsa</em>. El aire acondicionado <strong>no tiene nada que ver con la operación de la agencia</strong>: no procesa pedidos, no lleva inventario, no despacha embarques. Es, literalmente, infraestructura ambiental. Y un día se apagó, y la oficina entera se detuvo.</p>
+<p>Y fíjate de dónde salió el problema: no de la operación, sino de la infraestructura. Un aparato pirata —caja de una marca, aparato de otra— es exactamente una <strong>dependencia sin verificar</strong>: el paquete que se instala porque «parecía funcionar» y nadie se molestó en auditar. Las cascadas de fallos casi nunca nacen en la lógica del negocio; nacen debajo: una actualización de dependencias, un paquete del sistema, un driver, un certificado. Componentes que nadie considera parte de la operación hasta que fallan —o hasta que se apagan a las tres de la tarde— y tumban todo lo que estaba encima. El aire no lo sacamos de la manga: es el tipo de componente que tumba arquitecturas enteras todos los días en producción.</p>
+<p>Ese es el hallazgo que importa: el aire no mató a la agencia; <strong>hizo visible que la agencia no toleraba fallos</strong>. Lo que en realidad se rompió fue la <em>comunicación acoplada</em> que llevamos treinta años sin mirar. Cada servicio dependía de que el siguiente estuviera de pie, aunque el mal venía en dos sabores: a Celia el silencio la bloqueaba en vivo; Rey Díaz entregaba sin pedir acuse y, si nadie escuchaba, perdía en silencio. Dos males distintos, mismo origen: nada quedaba asentado. No había buffer, no había cola, no había manera de que un trabajo esperara paciente a que el otro volviera. La dependencia con Diana era síncrona: el emisor se bloquea si el receptor no responde ya.</p>
+<p>Por eso la lección no es «compra un mejor aire acondicionado». Es: <strong>el desacoplamiento no impide la caída —a los 54 grados, con el mejor log del mundo, la oficina igual se para—; lo que cambia es lo que significa caerse: de apagón con todo perdido a pausa con los hechos asentados, de la que se reanuda sin reconstruir nada. Y contra el aire, que es dependencia ambiental y no de comunicación, el antídoto no es un broker: es redundancia —otro aire, no un aire mejor—</strong>.</p>
+<div class="mermaid">flowchart LR
+    C[Celia · CRM] --&gt;|&quot;pide confirmación (síncrono)&quot;| D[Diana · Inventario]
+    C --&gt;|&quot;avisa (asíncrono, sin registro)&quot;| R[Rey Díaz · Avisos]
+    R -.-&gt;|&quot;chisme sin registro&quot;| F[Notificaciones degradadas]
+    L[Luis Omar · LOG] -.-&gt;|&quot;alerta sin registro&quot;| F
+    D -.-&gt;|&quot;se retira&quot;| I[Inventario inaccesible]
+    C -.-&gt;|&quot;espera y revienta&quot;| E[Pedidos bloqueados]
+
+    style I fill:#E65100,color:#fff
+    style E fill:#E65100,color:#fff
+    style F fill:#E65100,color:#fff
+</div>
+<p>En este diagrama, las flechas punteadas naranjas muestran lo que pasa cuando falta un eslabón: el bloqueo sube por la cadena y contamina todo. La alerta de Luis Omar se diluye por el mismo canal sin registro de Rey Díaz, y cuando el humano de guardia cayó, el monitoreo siguió pintando alertas que nadie miraba. <strong>Un servicio depende de que otro esté disponible en tiempo real.</strong> Eso es acoplamiento síncrono.</p>
+<p>Por cierto, la agencia se llama Despacho Especial Unido «Deadlock y Asociados», S.A. de C.V. El SAT la conoce como DEUDA. Yo no podría estar más de acuerdo: lo que la agencia llevaba sin saldar, desde enero, era una deuda de comunicación. Y las deudas, sin que importe cuánto tardes en mirarlas, se cobran.</p>
+<h2 id="la-idea-desacoplar-con-mensajería-asíncrona">La idea: desacoplar con mensajería asíncrona</h2>
+<p>¿Y si en vez de que el CRM le hable directo a la base de datos, le dejara un mensaje en un buzón?</p>
+<p>Así de sencilla es la idea. Cuando un sistema usa <strong>mensajería asíncrona</strong>, el emisor no espera que el receptor esté disponible. Deposita el mensaje en un intermediario —un <strong>broker</strong> o una <strong>cola</strong>—, espera la confirmación de que quedó asentado, y solo entonces sigue con su vida. (Rey Díaz, irónicamente, fallaba justo por lo contrario: entregaba sin confirmación de nada.) El receptor lo procesa cuando pueda.</p>
+<p>¿Qué gana el sistema?</p>
+<ul>
+<li><strong>Resiliencia</strong>: si notificaciones se cae, pedidos sigue funcionando normalmente. Los mensajes se acumulan en la cola y se procesan cuando notificaciones vuelva.</li>
+<li><strong>Desacoplamiento</strong>: los servicios no necesitan conocerse entre sí. Solo acuerdan el formato del mensaje.</li>
+<li><strong>Desacoplamiento temporal</strong>: emisor y receptor no tienen que estar vivos al mismo tiempo. Diana lee el pedido cuando vuelva, aunque tardara tres días en volver.</li>
+<li><strong>Control de picos</strong>: en un Black Friday, los mensajes se acumulan en la cola y se procesan a ritmo controlado, sin que el sistema se desborde. La cacofonía que abrumó a Rey Díaz era exactamente eso: un pico sin dónde hacer fila.</li>
+</ul>
+<div class="mermaid">flowchart LR
+    A[Servicio de Pedidos] --&gt;|deja mensaje| B[[Broker]]
+    B --&gt;|entrega| C[Servicio de Inventario]
+    B --&gt;|entrega| D[Servicio de Notificaciones]
+    D -.-&gt;|se cae| E[Notificaciones caído]
+    B -.-&gt;|mensajes esperando| F[Cola acumula mensajes]
+
+    style B fill:#1C1C19,color:#FDFCF0
+    style E fill:#E65100,color:#fff
+    style F fill:#1C1C19,color:#FDFCF0
+</div>
+<p>El broker actúa como un separador: del lado izquierdo, el emisor no necesita saber quién recibe. Del lado derecho, el receptor no necesita saber quién envía. Y cuando uno se cae, el otro sigue trabajando. <strong>Eso es desacoplamiento.</strong> Y hay intermediarios que van más allá: en vez de entregar el mensaje a uno solo, lo dejan disponible para todos. El pedido de Celia le servía a Diana para el inventario, a Rey para avisar al cliente y a El Chief para su reporte: cada quien leyendo lo mismo, sin competir por el mensaje y sin enterarse de los otros. Eso se llama <em>fan-out</em>: un evento escrito una vez, leído N veces. Hay un matiz aquí que va para el siguiente post: ese «todos leen todo» aplica <strong>entre grupos</strong>; dentro de un mismo grupo, los consumidores se reparten las particiones y cada mensaje lo lee uno solo. Qué es un grupo y por qué existe, ya llegaremos.</p>
+<p>Ahora regresa a la tarde de los 54 grados y reimagínala con un registro en medio. El pedido de Celia queda asentado aunque Diana no esté; Diana lo levanta de su escritorio cuando vuelva. La alerta del Chief sobre el aire pirata no se diluye: queda escrita, con fecha y fuente, y cualquiera puede volver a leerla. Y el rumor de Rey Díaz tiene antídoto: ante cada versión, hay un hecho asentado que contrastar. Porque sin registro, ni siquiera el análisis del incidente sobrevive: en la oficina real, nadie recordó que el aire era pirata. Nada de esto exige que tres personas estén de pie en el mismo instante.</p>
+<p>Y para las confirmaciones en vivo —¿hay veinte del modelo?—, la respuesta honesta es otra: con los eventos asentados en un log, cada servicio puede mantener su propia copia local del inventario —eventualmente consistente, no una fuente fuerte— y consultarse a sí mismo. Cómo se construye esa copia, y qué hacer cuando la respuesta fuerte no admite «casi», queda para el siguiente post.</p>
+<p>Ahora, una cola clásica tiene un detalle importante: cuando un mensaje se procesa, se borra. Se fue. No hay historia. Y eso puede ser un problema si necesitas reprocesar mensajes. También este: en una cola clásica aislada, quien llega primero se come el mensaje (<em>competing consumers</em>): la cola reparte entre competidores, no difunde. El fan-out a la antigüita sí existía —exchanges de RabbitMQ, topics de JMS—, pero había que construirlo a mano: routing propio, una cola por suscriptor, y suscriptores dados de alta antes del primer mensaje. Lo que el log da de serie es fan-out persistente, con replay y sin pre-registrar a nadie. La diferencia que importa no es quién puede recibir lo mismo: es que la cola borra al entregar y el log retiene.</p>
+<p>Y aquí está el pivote: un buzón entrega una carta y la borra. Lo que el Despacho necesita desde hace treinta años no es un buzón: es un <strong>libro de actas</strong> — el hecho se asienta una vez, queda con fecha, y cada quien lo lee a su ritmo sin estorbar a los demás.</p>
+<h2 id="entonces-qué-es-kafka">¿Entonces qué es Kafka?</h2>
+<p>Aquí es donde Kafka se separa de las colas tradicionales. <strong>Kafka no es solo una cola: es un log distribuido.</strong> Esa diferencia —buzón contra libro— es la del siguiente post: <a href="/blog/kafka-no-es-una-cola-es-un-registro">Kafka no es una cola: es un registro</a>.</p>
+<p>Por ahora, basta con que tengas esta imagen mental: Kafka es un sistema diseñado para manejar <strong>streams de eventos</strong> a gran escala. No nació en LinkedIn para que dos servicios platicaran entre sí: nació porque media docena de sistemas —analytics, búsqueda, recomendaciones— necesitaban leer el mismo chorro de eventos, cada quien a su ritmo. Los productores escriben mensajes, los consumidores leen. Y lo que hace especial a Kafka es que los mensajes <strong>no se borran después de leerse</strong> — se quedan ahí según la retención que configures, por tiempo o por tamaño, desde minutos hasta nunca jamás; hay hasta una compactación que conserva lo último por clave, pero ese término se queda para después. Un registro que crece hacia adelante.</p>
+<p>Si quieres adelantarte, la pieza canónica sobre este modelo es <a href="https://www.linkedin.com/blog/engineering/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying">The Log: What Every Software Engineer Should Know About Real-Time Data's Unifying Abstraction</a>, de Jay Kreps. Pero con calma: una cosa a la vez.</p>
+<p>Para manejar eso, Kafka introduce dos conceptos que vas a escuchar mucho:</p>
+<ul>
+<li><strong>Particiones</strong>: cómo divide un topic (un canal de mensajes) en partes paralelas para escalar; cada partición mantiene el orden de sus mensajes, y es la clave del mensaje la que decide a cuál va a parar cada evento —misma clave, misma partición, orden garantizado por clave—. Entre particiones no hay orden que respetar, pero ese es cuento del siguiente post.</li>
+<li><strong>Offsets</strong>: la cuenta de hasta dónde se ha leído — no por consumidor suelto: por grupo y por partición, y guardada en el propio Kafka, para que si el lector se desploma retome donde se quedó. Y como cada grupo lleva su propio marcador, puedes volver a la página uno y releer todo lo que la retención aún conserve, sin pedirle permiso al registro ni a los demás lectores. Eso es el <em>replay</em>.</li>
+</ul>
+<p>No los voy a explicar a fondo ahora —para eso están los siguientes posts de la serie. Por ahora solo necesitas saber que existen.</p>
+<h2 id="coda">Coda</h2>
+<p>Kafka se llama como un escritor cuyos personajes quedaban atrapados en trámites que nadie entendía. Irónico, porque Kafka intenta resolver exactamente ese tipo de problemas: sistemas complejos donde la comunicación entre piezas se vuelve una pesadilla.</p>
+<p>Kreps lo eligió por el Kafka incansable, el que escribía sin parar. Que su apellido acabara dando un adjetivo a esas pesadillas burocráticas es un plus no buscado, pero le queda: Kafka existe para que la comunicación entre piezas no se vuelva una pesadilla kafkiana.</p>
+<p>Si este post te dejó con ganas de entender qué hace Kafka <em>de verdad</em>, no una cola sino algo más interesante, dale al siguiente: <a href="/blog/kafka-no-es-una-cola-es-un-registro">Kafka no es una cola: es un registro</a>.</p>
+<hr />
+<div class="footnote-definition" id="kreps-et-al-2011"><sup class="footnote-definition-label">1</sup>
+<p>Kreps, J., Narkhede, N., &amp; Rao, J. (2011). Kafka: A distributed messaging system for log processing. In Proceedings of the NetDB (pp. 1–7). Association for Computing Machinery. https://www.microsoft.com/en-us/research/wp-content/uploads/2017/09/Kafka.pdf</p>
+</div>
+<div class="footnote-definition" id="narkhede-et-al-2017"><sup class="footnote-definition-label">2</sup>
+<p><em>Cita de:</em> Narkhede, Neha; Shapira, Gwen; Palino, Todd (2017). <em>Kafka: The Definitive Guide</em>, cap. 1. O'Reilly. ISBN 978-1-4919-3611-5.</p>
+</div>
+<div class="footnote-definition" id="redis-streams"><sup class="footnote-definition-label">3</sup>
+<p>Sí: Redis también tiene <a href="https://redis.io/docs/latest/develop/data-types/streams/">Streams</a> —persistente, con consumer groups y replay—. O sea, medio Kafka escondido en Redis. Pero eso es otra historia; y de esa historia va, justo, esta serie.</p>
+</div>
+
+  </div>
+
+  
+  <a href="/blog/que-es-kafka-y-por-que-se-llama-asi" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  
+  <a href="/blog/the-justfile-task-runner-guide" rel="prev">Just: The Task Runner Your Team Actually Needs &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'loose' });
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (!/^\s*(?:---[\s\S]*?---\s*)?(?:gitGraph|sequenceDiagram|flowchart|classDiagram|stateDiagram|stateDiagram-v2|erDiagram|gantt|pie\s+title|journey|mindmap|timeline|requirementDiagram|C4Context|C4Container|C4Component|C4Dynamic|C4Deployment|quadrantChart|xychart-beta|architecture-beta|block-beta|packet-beta|sankey-beta|treemap-beta)\b/m.test(code.textContent)) return;
+            var div = document.createElement('div');
+            div.className = 'mermaid';
+            div.textContent = code.textContent;
+            code.parentElement.replaceWith(div);
+        });
+        await mermaid.run();
+    </script>
+    
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' });
+await mermaid.run({ querySelector: '.mermaid' });
+</script>
+</body>
+</html>

@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Práctica: Trabajando con Ramas en Git (Parte 2) &middot; Noe Nieto</title>
+    <meta name="description" content="Segunda parte del tutorial de ramas en Git: simula un flujo de trabajo en equipo con múltiples ramas, lee git log --graph y fusiona cambios sin perder datos.">
+    
+    <meta name="keywords" content="git, github, branches, tutorial, beginners, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Práctica: Trabajando con Ramas en Git (Parte 2)">
+    <meta property="og:description" content="Segunda parte del tutorial de ramas en Git: simula un flujo de trabajo en equipo con múltiples ramas, lee git log --graph y fusiona cambios sin perder datos.">
+    <meta property="og:image" content="https://noenieto.com/static/images/posts/practica-github-ramas-pt-2/git-branch-pt2.png">
+    <meta property="og:image:alt" content="Práctica: Trabajando con Ramas en Git (Parte 2)">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2025-11-05">
+    
+    
+    <meta property="article:tag" content="git">
+    <meta property="article:tag" content="github">
+    <meta property="article:tag" content="branches">
+    <meta property="article:tag" content="tutorial">
+    <meta property="article:tag" content="beginners">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Práctica: Trabajando con Ramas en Git (Parte 2)">
+    <meta name="twitter:description" content="Segunda parte del tutorial de ramas en Git: simula un flujo de trabajo en equipo con múltiples ramas, lee git log --graph y fusiona cambios sin perder datos.">
+    <meta name="twitter:image" content="https://noenieto.com/static/images/posts/practica-github-ramas-pt-2/git-branch-pt2.png">
+    <meta name="twitter:image:alt" content="Práctica: Trabajando con Ramas en Git (Parte 2)">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/practica-github-ramas-pt-2.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Práctica: Trabajando con Ramas en Git (Parte 2)","description":"Segunda parte del tutorial de ramas en Git: simula un flujo de trabajo en equipo con múltiples ramas, lee git log --graph y fusiona cambios sin perder datos.","datePublished":"2025-11-05","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/images/posts/practica-github-ramas-pt-2/git-branch-pt2.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["git","github","branches","tutorial","beginners"],"wordCount":2880}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Práctica: Trabajando con Ramas en Git (Parte 2)"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Práctica: Trabajando con Ramas en Git (Parte 2)</h1>
+  <p class="entry-description muted">Segunda parte del tutorial de ramas en Git: simula un flujo de trabajo en equipo con múltiples ramas, lee git log --graph y fusiona cambios sin perder datos.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2025-11-05">
+      2025-11-05
+    </time>
+    
+
+    
+    <span class="reading-time">12 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/git/">git</a>
+    
+    <a class="p-category" href="/tags/github/">github</a>
+    
+    <a class="p-category" href="/tags/branches/">branches</a>
+    
+    <a class="p-category" href="/tags/tutorial/">tutorial</a>
+    
+    <a class="p-category" href="/tags/beginners/">beginners</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#pre-requisitos" class="toc-link">📋 Pre-requisitos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#objetivo-de-esta-práctica" class="toc-link">🎯 Objetivo de esta práctica</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#analogía-del-día-editando-una-película" class="toc-link">🎬 Analogía del día: Editando una película</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#preparación-inicial" class="toc-link">🚀 Preparación inicial</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#paso-1-verificar-dónde-estamos" class="toc-link">Paso 1: Verificar dónde estamos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#paso-2-limpiar-el-proyecto-opcional" class="toc-link">Paso 2: Limpiar el proyecto (opcional)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#parte-1-simulando-un-equipo-de-desarrollo-15-min" class="toc-link">🔨 Parte 1: Simulando un equipo de desarrollo (15 min)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#eres-ana-trabajando-en-multiplicación" class="toc-link">🧑‍💻 Eres Ana: Trabajando en multiplicación</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#checkpoint-1-verificaciÓn-especÍfica" class="toc-link">✅ Checkpoint 1 - VERIFICACIÓN ESPECÍFICA</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#eres-bruno-trabajando-en-división" class="toc-link">🧑‍💻 Eres Bruno: Trabajando en división</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#checkpoint-2-verificaciÓn-especÍfica" class="toc-link">✅ Checkpoint 2 - VERIFICACIÓN ESPECÍFICA</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#eres-carlos-mejorando-mensajes" class="toc-link">🧑‍💻 Eres Carlos: Mejorando mensajes</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#checkpoint-3-verificaciÓn-completa" class="toc-link">✅ Checkpoint 3 - VERIFICACIÓN COMPLETA</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#parte-2-entendiendo-git-log-graph-10-min" class="toc-link">📊 Parte 2: Entendiendo git log --graph (10 min)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#explicación-paso-a-paso-de-los-símbolos" class="toc-link">🎓 Explicación paso a paso de los símbolos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-4">
+        <a href="#situación-1-una-sola-rama-sin-ramificaciones" class="toc-link">Situación 1: Una sola rama (sin ramificaciones)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-4">
+        <a href="#situación-2-dos-ramas-separándose" class="toc-link">Situación 2: Dos ramas separándose</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-4">
+        <a href="#situación-3-después-de-un-merge" class="toc-link">Situación 3: Después de un merge</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#leyenda-visual-de-sÍmbolos" class="toc-link">📋 LEYENDA VISUAL DE SÍMBOLOS</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#veamos-tu-árbol-actual" class="toc-link">Veamos TU árbol actual:</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#parte-3-integrando-todo-el-trabajo-10-min" class="toc-link">🔄 Parte 3: Integrando todo el trabajo (10 min)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#concepto-clave-fast-forward-vs-merge-commit" class="toc-link">🎓 Concepto clave: Fast-forward vs Merge commit</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-4">
+        <a href="#fast-forward-merge-avance-rápido" class="toc-link">Fast-forward merge (Avance rápido)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-4">
+        <a href="#merge-commit-auto-merge-o-fusión-real" class="toc-link">Merge commit (Auto-merge o fusión real)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#paso-1-ir-a-master" class="toc-link">Paso 1: Ir a master</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#paso-2-fusionar-el-trabajo-de-ana" class="toc-link">Paso 2: Fusionar el trabajo de Ana</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#paso-3-fusionar-el-trabajo-de-bruno" class="toc-link">Paso 3: Fusionar el trabajo de Bruno</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#paso-4-fusionar-el-trabajo-de-carlos" class="toc-link">Paso 4: Fusionar el trabajo de Carlos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#checkpoint-4-verificaciÓn-final" class="toc-link">✅ Checkpoint 4 - VERIFICACIÓN FINAL</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#visualizando-el-resultado-final" class="toc-link">🎨 Visualizando el resultado final</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#adelanto-qué-son-los-conflictos" class="toc-link">🔮 Adelanto: ¿Qué son los conflictos?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#cuándo-ocurre-un-conflicto" class="toc-link">¿Cuándo ocurre un conflicto?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#cómo-se-ve-un-conflicto" class="toc-link">¿Cómo se ve un conflicto?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#concepto-importante-git-pull" class="toc-link">💡 Concepto importante: Git Pull</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#troubleshooting" class="toc-link">🔧 Troubleshooting</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#no-puedo-cambiar-de-rama" class="toc-link">"No puedo cambiar de rama"</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#no-veo-todas-las-ramas" class="toc-link">"No veo todas las ramas"</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#mi-merge-no-funcionó" class="toc-link">"Mi merge no funcionó"</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#quiero-ver-qué-cambió" class="toc-link">"Quiero ver qué cambió"</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#no-entiendo-mi-árbol-de-git" class="toc-link">"No entiendo mi árbol de Git"</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#ejercicio-final-tu-turno-5-min" class="toc-link">🏁 Ejercicio Final: Tu turno (5 min)</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#verificaciÓn-final-del-ejercicio" class="toc-link">✅ VERIFICACIÓN FINAL DEL EJERCICIO</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#resumen-de-comandos-nuevos" class="toc-link">📊 Resumen de comandos nuevos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#lo-que-aprendiste-hoy" class="toc-link">🎯 Lo que aprendiste hoy</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#qué-sigue" class="toc-link">🚀 ¿Qué sigue?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#reflexión-final" class="toc-link">💭 Reflexión final</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#notas-del-profesor" class="toc-link">📝 Notas del profesor</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#entrega-de-la-práctica" class="toc-link">📤 Entrega de la Práctica</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#captura-1-el-árbol-de-git-completo" class="toc-link">Captura 1: El árbol de Git completo</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#captura-2-el-contenido-del-archivo-notas-txt" class="toc-link">Captura 2: El contenido del archivo notas.txt</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#cómo-tomar-las-capturas-en-windows" class="toc-link">📸 Cómo tomar las capturas en Windows:</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#checklist-antes-de-enviar" class="toc-link">✅ Checklist antes de enviar:</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="pre-requisitos">📋 Pre-requisitos</h2>
+<ul>
+<li>Haber completado la <a href="/blog/practica-github-ramas-pt-1">Práctica Parte 1</a></li>
+<li>Tener Git instalado</li>
+<li>Tener el proyecto de calculadora de la práctica anterior</li>
+</ul>
+<p><strong>⏰ Tiempo estimado:</strong> 30-40 minutos</p>
+<ul>
+<li>Parte 1 (Simulando equipo): 15 minutos</li>
+<li>Parte 2 (Visualización): 10 minutos</li>
+<li>Parte 3 (Integración): 10 minutos</li>
+<li>Ejercicio final: 5 minutos</li>
+</ul>
+<hr />
+<h2 id="objetivo-de-esta-práctica">🎯 Objetivo de esta práctica</h2>
+<p>En la vida real, los proyectos de software son desarrollados por <strong>equipos</strong>. Mientras tú trabajas en una funcionalidad, tus compañeros trabajan en otras. Hoy vamos a simular ese escenario trabajando con múltiples ramas al mismo tiempo.</p>
+<p><strong>Lo que aprenderás:</strong></p>
+<ul>
+<li>Trabajar con 2-3 ramas simultáneamente</li>
+<li>Visualizar cómo se ve tu árbol de ramas (y entender esos símbolos raros)</li>
+<li>Entender qué pasa cuando múltiples ramas se fusionan a main</li>
+<li>Prepararte para el trabajo en equipo real</li>
+</ul>
+<hr />
+<h2 id="analogía-del-día-editando-una-película">🎬 Analogía del día: Editando una película</h2>
+<p>Imagina que están editando una película en equipo:</p>
+<ul>
+<li><strong>Rama master</strong>: Es la película final que verá el público</li>
+<li><strong>Rama efectos</strong>: Un editor añade efectos especiales a ciertas escenas</li>
+<li><strong>Rama audio</strong>: Otro editor mejora el audio y añade música</li>
+<li><strong>Rama subtitulos</strong>: Un tercer editor añade subtítulos</li>
+</ul>
+<p>Todos trabajan <strong>al mismo tiempo</strong> con copias de la película. Al final, todo se integra en la versión final. Algunos cambios se pueden integrar directo (como los subtítulos que no afectan el video), otros necesitan más cuidado (si dos editores tocaron la misma escena). ¡Eso es exactamente lo que haremos con Git!</p>
+<hr />
+<h2 id="preparación-inicial">🚀 Preparación inicial</h2>
+<h3 id="paso-1-verificar-dónde-estamos">Paso 1: Verificar dónde estamos</h3>
+<p>Supongamos que tu proyecto está en <code>cd C:\Users\TuUsuario\Desktop\mi-calculadora</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">cd</span><span style="color:#c0c5ce;"> C:\Users\TuUsuario\Desktop\mi-calculadora
+</span><span style="color:#c0c5ce;">git status
+</span><span style="color:#c0c5ce;">git branch
+</span></pre>
+<p><strong>Deberías ver:</strong></p>
+<ul>
+<li>Que estás en la rama <code>master</code></li>
+<li>Que tienes las ramas de la práctica anterior</li>
+</ul>
+<p><strong>✅ VERIFICACIÓN</strong>: Si <code>git status</code> muestra:</p>
+<pre><code>On branch master
+nothing to commit, working tree clean
+</code></pre>
+<p>¡Perfecto! Puedes continuar.</p>
+<h3 id="paso-2-limpiar-el-proyecto-opcional">Paso 2: Limpiar el proyecto (opcional)</h3>
+<p>Si quieres empezar limpio:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout master
+</span><span style="color:#c0c5ce;">git branch -d caracteristica-suma
+</span><span style="color:#c0c5ce;">git branch -d experimento-resta
+</span></pre>
+<hr />
+<h2 id="parte-1-simulando-un-equipo-de-desarrollo-15-min">🔨 Parte 1: Simulando un equipo de desarrollo (15 min)</h2>
+<p>Vamos a simular que somos 3 programadores diferentes trabajando en la calculadora:</p>
+<ul>
+<li><strong>Ana</strong>: Añadirá multiplicación</li>
+<li><strong>Bruno</strong>: Añadirá división</li>
+<li><strong>Carlos</strong>: Mejorará los mensajes</li>
+</ul>
+<h3 id="eres-ana-trabajando-en-multiplicación">🧑‍💻 Eres Ana: Trabajando en multiplicación</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout -b feature-multiplicacion
+</span></pre>
+<p>Edita <code>calculadora.py</code> y añade esta función:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">multiplicar</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">b</span><span style="color:#c0c5ce;">):
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">&quot;&quot;&quot;Función creada por Ana&quot;&quot;&quot;
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">a * b
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># Añadir al final del archivo:
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Multiplicación disponible!</span><span style="color:#c0c5ce;">&quot;)
+</span></pre>
+<p>Guarda y haz commit:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git add calculadora.py
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Ana: Añade función multiplicar</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<h3 id="checkpoint-1-verificaciÓn-especÍfica">✅ Checkpoint 1 - VERIFICACIÓN ESPECÍFICA</h3>
+<p>Ejecuta este comando:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline -</span><span style="color:#d08770;">1
+</span></pre>
+<p><strong>DEBES VER algo como:</strong></p>
+<pre><code>abc1234 (HEAD -&gt; feature-multiplicacion) Ana: Añade función multiplicar
+</code></pre>
+<p><strong>Si ves esto, estás bien.</strong> La parte <code>(HEAD -&gt; feature-multiplicacion)</code> confirma que estás en la rama correcta y el commit se hizo.</p>
+<hr />
+<h3 id="eres-bruno-trabajando-en-división">🧑‍💻 Eres Bruno: Trabajando en división</h3>
+<p><strong>IMPORTANTE</strong>: Primero vuelve a master para crear tu rama desde ahí</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout master
+</span><span style="color:#c0c5ce;">git checkout -b feature-division
+</span></pre>
+<p>Edita <code>calculadora.py</code> y añade:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dividir</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">b</span><span style="color:#c0c5ce;">):
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">&quot;&quot;&quot;Función creada por Bruno&quot;&quot;&quot;
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">b != </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">a / b
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Error: No se puede dividir por cero</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># Añadir al final del archivo:
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">División disponible!</span><span style="color:#c0c5ce;">&quot;)
+</span></pre>
+<p>Guarda y haz commit:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git add calculadora.py
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Bruno: Añade función dividir</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<h3 id="checkpoint-2-verificaciÓn-especÍfica">✅ Checkpoint 2 - VERIFICACIÓN ESPECÍFICA</h3>
+<p>Ejecuta estos comandos:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git branch
+</span></pre>
+<p><strong>DEBES VER (el asterisco indica tu rama actual):</strong></p>
+<pre><code>* feature-division
+  feature-multiplicacion
+  master
+</code></pre>
+<p>Ahora verifica que cada rama tiene SU propio commit:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline --all --graph -</span><span style="color:#d08770;">5
+</span></pre>
+<p><strong>DEBES VER algo como:</strong></p>
+<pre><code>* def5678 (HEAD -&gt; feature-division) Bruno: Añade función dividir
+| * abc1234 (feature-multiplicacion) Ana: Añade función multiplicar
+|/
+* xyz9876 (master) Commit inicial
+</code></pre>
+<p><strong>Si ves dos ramas separándose de master, estás perfecto.</strong></p>
+<hr />
+<h3 id="eres-carlos-mejorando-mensajes">🧑‍💻 Eres Carlos: Mejorando mensajes</h3>
+<p>Vuelve a master y crea otra rama:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout master
+</span><span style="color:#c0c5ce;">git checkout -b feature-mensajes
+</span></pre>
+<p>Edita <code>calculadora.py</code> y modifica solo los comentarios:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;"># CALCULADORA MEJORADA v2.0
+</span><span style="color:#65737e;"># Proyecto del equipo de desarrollo
+</span><span style="color:#65737e;"># Última actualización: [fecha de hoy]
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># [El resto del código queda igual]
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">=== CALCULADORA v2.0 ===</span><span style="color:#c0c5ce;">&quot;)
+</span></pre>
+<p>Guarda y haz commit:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git add calculadora.py
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Carlos: Mejora mensajes y documentación</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<h3 id="checkpoint-3-verificaciÓn-completa">✅ Checkpoint 3 - VERIFICACIÓN COMPLETA</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline --all --graph -</span><span style="color:#d08770;">6
+</span></pre>
+<p><strong>DEBES VER tres ramas partiendo de master:</strong></p>
+<pre><code>* ghi7890 (HEAD -&gt; feature-mensajes) Carlos: Mejora mensajes
+| * def5678 (feature-division) Bruno: Añade función dividir
+|/
+| * abc1234 (feature-multiplicacion) Ana: Añade función multiplicar
+|/
+* xyz9876 (master) Commit inicial
+</code></pre>
+<p><strong>Si ves TRES líneas separándose del mismo punto, ¡EXCELENTE!</strong> Has simulado correctamente 3 desarrolladores.</p>
+<hr />
+<h2 id="parte-2-entendiendo-git-log-graph-10-min">📊 Parte 2: Entendiendo git log --graph (10 min)</h2>
+<h3 id="explicación-paso-a-paso-de-los-símbolos">🎓 Explicación paso a paso de los símbolos</h3>
+<p>Vamos a entender qué significan esos símbolos raros. Empecemos simple:</p>
+<h4 id="situación-1-una-sola-rama-sin-ramificaciones">Situación 1: Una sola rama (sin ramificaciones)</h4>
+<pre><code>* Commit 3
+* Commit 2
+* Commit 1
+</code></pre>
+<ul>
+<li>Cada <code>*</code> es un commit</li>
+<li>Van en orden cronológico inverso (el más reciente arriba)</li>
+</ul>
+<h4 id="situación-2-dos-ramas-separándose">Situación 2: Dos ramas separándose</h4>
+<pre><code>* Commit en rama2
+| * Commit en rama1
+|/
+* Commit inicial (donde se separaron)
+</code></pre>
+<ul>
+<li>El <code>|</code> es una línea vertical que muestra continuidad</li>
+<li>El <code>/</code> muestra donde las ramas se separan o unen</li>
+<li>Cada rama tiene su propia "línea"</li>
+</ul>
+<h4 id="situación-3-después-de-un-merge">Situación 3: Después de un merge</h4>
+<pre><code>*   Merge commit (unión de ramas)
+|\
+| * Commit de la rama que se fusiona
+* | Commit de la rama principal
+|/
+* Commit donde se separaron
+</code></pre>
+<ul>
+<li>El <code>\</code> muestra la unión de las ramas</li>
+<li>Un merge commit tiene DOS padres (por eso las dos líneas)</li>
+</ul>
+<h3 id="leyenda-visual-de-sÍmbolos">📋 LEYENDA VISUAL DE SÍMBOLOS</h3>
+<pre><code>*   = Commit
+|   = Continuación de una rama
+/   = Rama separándose o uniéndose (hacia la izquierda)
+\   = Rama uniéndose (hacia la derecha)
+|\  = Un merge (dos ramas convirtiéndose en una)
+</code></pre>
+<h3 id="veamos-tu-árbol-actual">Veamos TU árbol actual:</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline --graph --all
+</span></pre>
+<p>Deberías poder identificar:</p>
+<ul>
+<li>3 commits en ramas diferentes (los <code>*</code>)</li>
+<li>Todas partiendo del mismo punto (donde están los <code>/</code>)</li>
+<li>Cada rama en su propia "columna" vertical</li>
+</ul>
+<hr />
+<h2 id="parte-3-integrando-todo-el-trabajo-10-min">🔄 Parte 3: Integrando todo el trabajo (10 min)</h2>
+<p>Ahora viene la magia: vamos a integrar TODO el trabajo en master.</p>
+<h3 id="concepto-clave-fast-forward-vs-merge-commit">🎓 Concepto clave: Fast-forward vs Merge commit</h3>
+<p>Antes de fusionar, entiende qué puede pasar:</p>
+<h4 id="fast-forward-merge-avance-rápido">Fast-forward merge (Avance rápido)</h4>
+<strong></strong><div class="mermaid">---
+title: Antes del merge
+config:
+  gitGraph:
+    mainBranchName: master
+---
+gitGraph
+   commit id:&quot;Commit A&quot;
+   branch feature
+   checkout feature
+   commit id: &quot;Commit B&quot;
+   commit id: &quot;Commit C&quot;
+</div>
+<div class="mermaid">---
+title: Despues del merge con Fast-Forward
+config:
+  gitGraph:
+    mainBranchName: master
+---
+gitGraph
+   commit id:&quot;Commit A&quot;
+   commit id: &quot;Commit B&quot;
+   commit id: &quot;Commit C&quot;
+</div>
+<pre><code>Antes:
+master  →  * Commit A
+            ↓
+feature →  * Commit B → * Commit C
+
+Después del merge:
+master  →  * Commit A → * Commit B → * Commit C
+</code></pre>
+<ul>
+<li><strong>Cuándo ocurre</strong>: Cuando master NO ha cambiado desde que creaste la rama</li>
+<li><strong>Qué hace Git</strong>: Simplemente "avanza" master hasta donde está tu rama</li>
+<li><strong>Resultado</strong>: Historia lineal, sin commit de merge</li>
+</ul>
+<h4 id="merge-commit-auto-merge-o-fusión-real">Merge commit (Auto-merge o fusión real)</h4>
+<strong></strong><pre><code>Antes:
+master  →  * Commit A → * Commit D
+            ↓
+feature →  * Commit B → * Commit C
+
+Después del merge:
+master  →  * Commit A → * Commit D → * Merge commit
+            ↓                          ↗
+feature →  * Commit B → * Commit C →
+</code></pre>
+<div class="mermaid">---
+title: Despues de auto-merge
+config:
+  gitGraph:
+    mainBranchName: master
+---
+gitGraph
+   commit id:&quot;Commit A&quot;
+   branch feature
+   checkout feature
+   commit id: &quot;Commit B&quot;
+   commit id: &quot;Commit C&quot;
+   checkout master
+   merge feature id: &quot;Merge commit&quot;
+</div>
+<ul>
+<li><strong>Cuándo ocurre</strong>: Cuando master SÍ ha cambiado (tiene commits nuevos)</li>
+<li><strong>Qué hace Git</strong>: Crea un NUEVO commit que une ambas historias</li>
+<li><strong>Resultado</strong>: Se ve la "unión" en el árbol</li>
+</ul>
+<h3 id="paso-1-ir-a-master">Paso 1: Ir a master</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout master
+</span></pre>
+<h3 id="paso-2-fusionar-el-trabajo-de-ana">Paso 2: Fusionar el trabajo de Ana</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git merge feature-multiplicacion
+</span></pre>
+<p><strong>VERÁS uno de estos mensajes:</strong></p>
+<p><strong>Opción A - Fast-forward:</strong></p>
+<pre><code>Updating xyz9876..abc1234
+Fast-forward
+ calculadora.py | 5 +++++
+ 1 file changed, 5 insertions(+)
+</code></pre>
+<p>Esto significa que master no había cambiado, así que Git solo "avanzó" master.</p>
+<h3 id="paso-3-fusionar-el-trabajo-de-bruno">Paso 3: Fusionar el trabajo de Bruno</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git merge feature-division
+</span></pre>
+<p><strong>Ahora probablemente verás:</strong></p>
+<pre><code>Auto-merging calculadora.py
+Merge made by the 'ort' strategy.
+</code></pre>
+<p>¡Esto es un merge real! Como master YA cambió (con el trabajo de Ana), Git creó un commit de merge.</p>
+<h3 id="paso-4-fusionar-el-trabajo-de-carlos">Paso 4: Fusionar el trabajo de Carlos</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git merge feature-mensajes
+</span></pre>
+<h3 id="checkpoint-4-verificaciÓn-final">✅ Checkpoint 4 - VERIFICACIÓN FINAL</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline -</span><span style="color:#d08770;">5
+</span></pre>
+<p><strong>DEBES VER varios "Merge branch..." si hubo auto-merges:</strong></p>
+<pre><code>abc1234 Merge branch 'feature-mensajes'
+def5678 Merge branch 'feature-division'
+ghi9012 Ana: Añade función multiplicar
+xyz9876 Commit inicial
+</code></pre>
+<p><strong>Para verificar que TODO está integrado:</strong></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">type</span><span style="color:#c0c5ce;"> calculadora.py
+</span></pre>
+<p>Debes ver TODAS las funciones: multiplicar, dividir Y los mensajes mejorados.</p>
+<hr />
+<h2 id="visualizando-el-resultado-final">🎨 Visualizando el resultado final</h2>
+<p>Ejecuta:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline --graph --all -</span><span style="color:#d08770;">10
+</span></pre>
+<p>Ahora verás algo más complejo. Vamos a decodificarlo juntos:</p>
+<pre><code>*   Merge branch 'feature-mensajes'     ← Último merge
+|\
+| * Carlos: Mejora mensajes              ← El trabajo de Carlos
+* |   Merge branch 'feature-division'    ← Penúltimo merge
+|\ \
+| * | Bruno: Añade función dividir       ← El trabajo de Bruno
+* | | Ana: Añade función multiplicar     ← El trabajo de Ana (fast-forward)
+| |/
+|/|
+* | Commit inicial                       ← Donde todo empezó
+</code></pre>
+<p><strong>¿Qué estás viendo?</strong></p>
+<ul>
+<li>Los merges crearon "uniones" en el árbol (los <code>|\</code>)</li>
+<li>Cada desarrollador tiene su línea de trabajo</li>
+<li>Todo converge en master</li>
+<li>¡Esto es un árbol de Git real de trabajo en equipo!</li>
+</ul>
+<hr />
+<h2 id="adelanto-qué-son-los-conflictos">🔮 Adelanto: ¿Qué son los conflictos?</h2>
+<p><strong>Tranquilo, esto es solo para que sepas qué esperar. Lo resolveremos en la Parte 3.</strong></p>
+<h3 id="cuándo-ocurre-un-conflicto">¿Cuándo ocurre un conflicto?</h3>
+<p>Cuando dos personas modifican LA MISMA línea del MISMO archivo.</p>
+<h3 id="cómo-se-ve-un-conflicto">¿Cómo se ve un conflicto?</h3>
+<p>Si hubiera ocurrido un conflicto, el archivo se vería así:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">calcular</span><span style="color:#c0c5ce;">():
+</span><span style="color:#c0c5ce;">&lt;&lt;&lt;&lt;&lt;&lt;&lt; </span><span style="color:#bf616a;">HEAD
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Versión de Ana</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#c0c5ce;">=======
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Versión de Bruno</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-division
+</span></pre>
+<p><strong>¿Qué significan esos símbolos?</strong></p>
+<ul>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>: Inicio del conflicto (tu versión actual)</li>
+<li><code>=======</code>: Separador entre las dos versiones</li>
+<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-division</code>: Fin del conflicto (la versión que intentas fusionar)</li>
+</ul>
+<p><strong>¿Da miedo?</strong> ¡No! En la práctica 3 aprenderás que es solo elegir qué versión quieres (o combinar ambas). Git no puede decidir por ti, así que te pregunta.</p>
+<hr />
+<h2 id="concepto-importante-git-pull">💡 Concepto importante: Git Pull</h2>
+<p>En un proyecto real, mientras tú trabajas en tu rama, otros desarrolladores están fusionando sus cambios en master. Necesitarías "traer" esos cambios a tu rama.</p>
+<p><strong>Comando que usarías (en el futuro con GitHub):</strong></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git pull origin master
+</span></pre>
+<p>Por ahora, simularemos esto localmente:</p>
+<ol>
+<li>Estando en tu rama de feature:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout feature-division
+</span></pre>
+<ol start="2">
+<li>Traer los cambios de master a tu rama:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git merge master
+</span></pre>
+<p>Esto actualiza tu rama con los últimos cambios de master.</p>
+<hr />
+<h2 id="troubleshooting">🔧 Troubleshooting</h2>
+<h3 id="no-puedo-cambiar-de-rama">&quot;No puedo cambiar de rama&quot;</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git status
+</span></pre>
+<p>Si tienes cambios sin guardar:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git add .
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Guardando cambios</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<h3 id="no-veo-todas-las-ramas">&quot;No veo todas las ramas&quot;</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git branch -a
+</span></pre>
+<h3 id="mi-merge-no-funcionó">&quot;Mi merge no funcionó&quot;</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git merge --abort
+</span></pre>
+<p>Esto cancela el merge y vuelve al estado anterior.</p>
+<h3 id="quiero-ver-qué-cambió">&quot;Quiero ver qué cambió&quot;</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git diff master feature-multiplicacion
+</span></pre>
+<h3 id="no-entiendo-mi-árbol-de-git">&quot;No entiendo mi árbol de Git&quot;</h3>
+<p>Simplifica la vista:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline --graph -</span><span style="color:#d08770;">10
+</span></pre>
+<p>Ver solo 10 commits hace más fácil entender el árbol.</p>
+<hr />
+<h2 id="ejercicio-final-tu-turno-5-min">🏁 Ejercicio Final: Tu turno (5 min)</h2>
+<p>Crea un mini-proyecto simulando un equipo de 3 personas:</p>
+<ol>
+<li><strong>Crea un archivo</strong> <code>notas.txt</code> en master con el siguiente contenido:</li>
+</ol>
+<pre><code>NOTAS DEL PROYECTO
+==================
+</code></pre>
+<p>A continuación, agrega este archivo al repositorio y hazle <em>commit</em>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git add notas.txt
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Inicial: Crea archivo de notas</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<ol start="2">
+<li><strong>Simula 3 desarrolladores:</strong></li>
+</ol>
+<p><strong>Developer 1:</strong></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout -b dev1-todos
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;">. &gt;&gt; notas.txt
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;"> TODO: &gt;&gt; notas.txt
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;"> - Tarea </span><span style="color:#d08770;">1 </span><span style="color:#c0c5ce;">&gt;&gt; notas.txt
+</span><span style="color:#c0c5ce;">git add notas.txt
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Dev1: Añade sección TODO</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<p><strong>Developer 2:</strong></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout master
+</span><span style="color:#c0c5ce;">git checkout -b dev2-completado
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;">. &gt;&gt; notas.txt
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;"> COMPLETADO: &gt;&gt; notas.txt
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;"> - Tarea </span><span style="color:#d08770;">0 </span><span style="color:#c0c5ce;">&gt;&gt; notas.txt
+</span><span style="color:#c0c5ce;">git add notas.txt
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Dev2: Añade sección COMPLETADO</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<p><strong>Developer 3:</strong></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout master
+</span><span style="color:#c0c5ce;">git checkout -b dev3-progreso
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;">. &gt;&gt; notas.txt
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;"> EN PROGRESO: &gt;&gt; notas.txt
+</span><span style="color:#b48ead;">echo</span><span style="color:#c0c5ce;"> - Tarea actual &gt;&gt; notas.txt
+</span><span style="color:#c0c5ce;">git add notas.txt
+</span><span style="color:#c0c5ce;">git commit -m &quot;</span><span style="color:#a3be8c;">Dev3: Añade sección EN PROGRESO</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<ol start="3">
+<li><strong>Integración:</strong></li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git checkout master
+</span><span style="color:#c0c5ce;">git merge dev1-todos
+</span><span style="color:#c0c5ce;">git merge dev2-completado
+</span><span style="color:#c0c5ce;">git merge dev3-progreso
+</span></pre>
+<ol start="4">
+<li><strong>Verifica el resultado:</strong></li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline --graph --all -</span><span style="color:#d08770;">8
+</span><span style="color:#b48ead;">type</span><span style="color:#c0c5ce;"> notas.txt
+</span></pre>
+<h3 id="verificaciÓn-final-del-ejercicio">✅ VERIFICACIÓN FINAL DEL EJERCICIO</h3>
+<p>Si <code>type notas.txt</code> muestra las TRES secciones (TODO, COMPLETADO, EN PROGRESO), ¡lo lograste!</p>
+<hr />
+<h2 id="resumen-de-comandos-nuevos">📊 Resumen de comandos nuevos</h2>
+<table><thead><tr><th>Comando</th><th>Qué hace</th><th>Cuándo usarlo</th></tr></thead><tbody>
+<tr><td><code>git log --graph --all</code></td><td>Ver árbol de todas las ramas</td><td>Para entender la estructura</td></tr>
+<tr><td><code>git log --oneline</code></td><td>Ver commits resumidos</td><td>Para vista rápida</td></tr>
+<tr><td><code>git merge [rama]</code></td><td>Fusionar rama en la actual</td><td>Para integrar trabajo</td></tr>
+<tr><td><code>git diff [rama1] [rama2]</code></td><td>Ver diferencias entre ramas</td><td>Antes de fusionar</td></tr>
+<tr><td><code>echo texto &gt;&gt; archivo</code></td><td>Añadir texto al final</td><td>Para añadir contenido</td></tr>
+<tr><td><code>echo texto &gt; archivo</code></td><td>Reemplazar todo el archivo</td><td>Para crear archivo nuevo</td></tr>
+</tbody></table>
+<hr />
+<h2 id="lo-que-aprendiste-hoy">🎯 Lo que aprendiste hoy</h2>
+<p>✅ Trabajar con múltiples ramas simultáneamente
+✅ Simular trabajo en equipo
+✅ Entender los símbolos del árbol de Git (<code>*</code>, <code>|</code>, <code>/</code>, <code>\</code>)
+✅ Diferencia entre Fast-forward y Merge commit
+✅ Fusionar múltiples ramas en main
+✅ Qué aspecto tiene un conflicto (adelanto)
+✅ Usar <code>&gt;</code> vs <code>&gt;&gt;</code> correctamente</p>
+<hr />
+<h2 id="qué-sigue">🚀 ¿Qué sigue?</h2>
+<p>En la <strong>Práctica Parte 3</strong> aprenderás:</p>
+<ul>
+<li>Resolver conflictos de merge (ya sabes cómo se ven, no dan miedo)</li>
+<li>Usar <code>git stash</code> para guardar trabajo temporal</li>
+<li>Revertir cambios si algo sale mal</li>
+<li>Prepararte para GitHub</li>
+</ul>
+<hr />
+<h2 id="reflexión-final">💭 Reflexión final</h2>
+<p>Git no es solo una herramienta, es una forma de pensar sobre el desarrollo colaborativo. Cada rama es una escena de la película, cada merge es cuando el director dice "¡Quedó perfecta, la incluimos!", cada commit es un "Guardar" de tu trabajo.</p>
+<p>En el mundo real, trabajarás con decenas de desarrolladores, cada uno en su rama, todos contribuyendo al mismo proyecto. Lo que practicaste hoy es exactamente eso, pero en pequeña escala.</p>
+<p><strong>Recuerda:</strong></p>
+<ul>
+<li>Las ramas son baratas, úsalas libremente</li>
+<li>Haz commits frecuentes con mensajes claros</li>
+<li>Fusiona a menudo para evitar conflictos grandes</li>
+<li>La comunicación con tu equipo es tan importante como el código</li>
+<li>Si no entiendes un símbolo en el árbol, descompónlo parte por parte</li>
+</ul>
+<hr />
+<h3 id="notas-del-profesor">📝 Notas del profesor</h3>
+<p>Si llegaste hasta aquí, felicitaciones. Ya entiendes cómo funciona el desarrollo colaborativo. Esos símbolos raros del árbol de Git que al principio parecían jeroglíficos, ahora tienen sentido, ¿verdad?</p>
+<p>En la industria real, esto es el pan de cada día. Y sí, al principio todos nos confundimos con los símbolos del <code>git log --graph</code>. Es normal. Con la práctica, leerás esos árboles como si fueran texto normal.</p>
+<p>La próxima vez que uses una aplicación, piensa: decenas de desarrolladores, cientos de ramas, miles de commits, todos trabajando en paralelo para crear lo que usas. Y cuando veas un conflicto en la próxima práctica, recuerda: es solo Git diciéndote "oye, aquí hay dos versiones, ¿cuál prefieres?". Nada más.</p>
+<p>¡Nos vemos en la Parte 3! 🚀</p>
+<hr />
+<h2 id="entrega-de-la-práctica">📤 Entrega de la Práctica</h2>
+<p>Para demostrar que completaste exitosamente esta práctica, debes enviar <strong>2 capturas de pantalla</strong> al canal de WhatsApp del curso:</p>
+<h3 id="captura-1-el-árbol-de-git-completo">Captura 1: El árbol de Git completo</h3>
+<p>Ejecuta este comando y toma captura:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">git log --oneline --graph --all
+</span></pre>
+<p><strong>Debe mostrar:</strong></p>
+<ul>
+<li>Todas las ramas que creaste (feature-multiplicacion, feature-division, feature-mensajes, dev1-todos, dev2-completado, dev3-progreso)</li>
+<li>Los commits de merge</li>
+<li>El árbol con las líneas que muestran las ramificaciones</li>
+</ul>
+<h3 id="captura-2-el-contenido-del-archivo-notas-txt">Captura 2: El contenido del archivo notas.txt</h3>
+<p>Ejecuta este comando y toma captura:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">type</span><span style="color:#c0c5ce;"> notas.txt
+</span></pre>
+<p><strong>Debe mostrar:</strong></p>
+<ul>
+<li>El encabezado "NOTAS DEL PROYECTO"</li>
+<li>Las tres secciones: TODO, COMPLETADO, EN PROGRESO</li>
+<li>Las tareas de cada sección</li>
+</ul>
+<h3 id="cómo-tomar-las-capturas-en-windows">📸 Cómo tomar las capturas en Windows:</h3>
+<ol>
+<li><strong>Opción 1:</strong> Presiona <code>Windows + Shift + S</code> para usar la herramienta de recorte</li>
+<li><strong>Opción 2:</strong> Presiona <code>Alt + ImprPant</code> para capturar solo la ventana activa</li>
+<li><strong>Opción 3:</strong> Usa la aplicación "Recortes" de Windows</li>
+</ol>
+<h3 id="checklist-antes-de-enviar">✅ Checklist antes de enviar:</h3>
+<ul>
+<li><input disabled="" type="checkbox"/>
+La captura del árbol muestra TODAS las ramas y merges</li>
+<li><input disabled="" type="checkbox"/>
+La captura del archivo muestra las 3 secciones completas</li>
+<li><input disabled="" type="checkbox"/>
+Las capturas se ven claras y legibles</li>
+<li><input disabled="" type="checkbox"/>
+Incluiste tu nombre en el mensaje de WhatsApp</li>
+</ul>
+<p><strong>Fecha límite de entrega:</strong> [A definir por el profesor]</p>
+<hr />
+<p><strong>¡Excelente trabajo!</strong> 🎉 Si completaste esta práctica, ya dominas el trabajo colaborativo con Git. Esto es exactamente lo que usarás en proyectos reales.</p>
+
+  </div>
+
+  
+  <a href="/blog/practica-github-ramas-pt-2" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/de-jekyll-a-seite" rel="next">&larr; De Jekyll a Seite: catorce años, tres generadores de sitios estáticos</a>
+  
+  
+  <a href="/blog/practica-github-ramas-pt-1" rel="prev">Práctica: Trabajando con Ramas en Git (Parte 1) &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'loose' });
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (!/^\s*(?:---[\s\S]*?---\s*)?(?:gitGraph|sequenceDiagram|flowchart|classDiagram|stateDiagram|stateDiagram-v2|erDiagram|gantt|pie\s+title|journey|mindmap|timeline|requirementDiagram|C4Context|C4Container|C4Component|C4Dynamic|C4Deployment|quadrantChart|xychart-beta|architecture-beta|block-beta|packet-beta|sankey-beta|treemap-beta)\b/m.test(code.textContent)) return;
+            var div = document.createElement('div');
+            div.className = 'mermaid';
+            div.textContent = code.textContent;
+            code.parentElement.replaceWith(div);
+        });
+        await mermaid.run();
+    </script>
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' });
+await mermaid.run({ querySelector: '.mermaid' });
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noenieto.com/sitemap.xml
+
+# AI search crawlers (allow for AI search visibility)
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# AI training crawlers (block training, not search)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# LLM discovery
+# LLMs-txt: https://noenieto.com/llms.txt
+# LLMs-full-txt: https://noenieto.com/llms-full.txt

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Programa, compila e instala tu propia extensión de PHP con PHP-CPP &middot; Noe Nieto</title>
+    <meta name="description" content="Tutorial paso a paso para compilar e instalar una extensión nativa de PHP escrita en C++ con la librería PHP-CPP en Ubuntu 14.04, incluyendo Makefile y activation con php5enmod.">
+    
+    <meta name="keywords" content="php, c-plus-plus, php-cpp, extension, ubuntu, apache, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Programa, compila e instala tu propia extensión de PHP con PHP-CPP">
+    <meta property="og:description" content="Tutorial paso a paso para compilar e instalar una extensión nativa de PHP escrita en C++ con la librería PHP-CPP en Ubuntu 14.04, incluyendo Makefile y activation con php5enmod.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Programa, compila e instala tu propia extensión de PHP con PHP-CPP">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2015-03-12">
+    
+    
+    <meta property="article:tag" content="php">
+    <meta property="article:tag" content="c-plus-plus">
+    <meta property="article:tag" content="php-cpp">
+    <meta property="article:tag" content="extension">
+    <meta property="article:tag" content="ubuntu">
+    <meta property="article:tag" content="apache">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Programa, compila e instala tu propia extensión de PHP con PHP-CPP">
+    <meta name="twitter:description" content="Tutorial paso a paso para compilar e instalar una extensión nativa de PHP escrita en C++ con la librería PHP-CPP en Ubuntu 14.04, incluyendo Makefile y activation con php5enmod.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Programa, compila e instala tu propia extensión de PHP con PHP-CPP">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/php-extension-php-phpcpp.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Programa, compila e instala tu propia extensión de PHP con PHP-CPP","description":"Tutorial paso a paso para compilar e instalar una extensión nativa de PHP escrita en C++ con la librería PHP-CPP en Ubuntu 14.04, incluyendo Makefile y activation con php5enmod.","datePublished":"2015-03-12","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["php","c-plus-plus","php-cpp","extension","ubuntu","apache"],"wordCount":727}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Programa, compila e instala tu propia extensión de PHP con PHP-CPP"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Programa, compila e instala tu propia extensión de PHP con PHP-CPP</h1>
+  <p class="entry-description muted">Tutorial paso a paso para compilar e instalar una extensión nativa de PHP escrita en C++ con la librería PHP-CPP en Ubuntu 14.04, incluyendo Makefile y activation con php5enmod.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: PHP 5 está obsoleto desde enero de 2019; php5-dev y php5enmod ya no existen en PHP 7/8. PHP-CPP sigue en desarrollo pero requiere PHP 7+ y su API moderna es distinta..
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2015-03-12">
+      2015-03-12
+    </time>
+    
+
+    
+    <span class="reading-time">3 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/php/">php</a>
+    
+    <a class="p-category" href="/tags/c-plus-plus/">c-plus-plus</a>
+    
+    <a class="p-category" href="/tags/php-cpp/">php-cpp</a>
+    
+    <a class="p-category" href="/tags/extension/">extension</a>
+    
+    <a class="p-category" href="/tags/ubuntu/">ubuntu</a>
+    
+    <a class="p-category" href="/tags/apache/">apache</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#manos-a-la-obra" class="toc-link">Manos a la obra</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p><picture><source type="image/webp" srcset="/static/images/posts/php-extension-php-phpcpp/extension-cord-147580-1280.webp 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/php-extension-php-phpcpp/extension-cord-147580-1280.png" alt="Una broma muy simple"  srcset="/static/images/posts/php-extension-php-phpcpp/extension-cord-147580-1280.png 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="480" height="328" /></picture></p>
+<h2 id="intro">Intro</h2>
+<p>El proyecto <a href="http://www.php-cpp.com/documentation">PHP-CPP</a> te permite
+compilar tu propia extensión en C++. Estas notas son los pasos que tuve que
+seguir para conseguir hacer funcionar el típico Hola mundo.</p>
+<h2 id="manos-a-la-obra">Manos a la obra</h2>
+<p>Las pruebas las hice en Ubuntu 14.04. Previamente intenté hacerlo en un Ubuntu
+12.04 (porque un servidor tenía esa versión) pero el compilador que trae es
+muy viejo y al ejecutar <code>make</code> el proceso falla con el siguiente mensaje:</p>
+<pre><code>error: unrecognized command line option &quot;-std=c++11&quot;
+</code></pre>
+<p>Después de mucho buscar encontré esta <a href="http://stackoverflow.com/questions/27341599/cc1plus-error-unrecognized-command-line-option-std-c11">pregunta en
+StackOverflow</a>.
+Básicamente el error se debe a que el compilador de Ubuntu 12.04 es muy viejo.
+Es posible instalar un compilador más reciente, pero vale mejor aprovechar el
+tiempo para actualizar la máquina a Ubuntu 14.04.</p>
+<p>El primer paso es instalar compiladores, librerías y utilidades:</p>
+<pre><code>sudo aptitude install php5-dev build-essential git
+</code></pre>
+<p>Luego clonamos el repo de PHP-CPP, corremos <code>make</code> y <code>make install</code>.</p>
+<pre><code>git clone https://github.com/CopernicaMarketingSoftware/PHP-CPP.git
+make
+sudo make install
+</code></pre>
+<p>El <code>Makefile</code> es lo suficientemente inteligente como para averiguar el lugar
+correcto dónde poner las librerías. Después de compilar e instalar PHP-CPP es
+momento de compilar una extensión de PHP para comprobar que todo funciona
+bien. <a href="http://www.php-cpp.com/documentation/your-first-extension">Basado en el tutorial de
+PHP-CPP</a> usé los
+archivos: <code>main.cpp</code>, <code>Makefile</code> y <code>noe_extension.ini</code>.</p>
+<p>El <code>Makefile</code> se ve así:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">NAME                    </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">noe_extension
+</span><span style="color:#bf616a;">INI_DIR                 </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">/etc/php5/mods-available/
+</span><span style="color:#bf616a;">EXTENSION_DIR           </span><span style="color:#c0c5ce;">=       </span><span style="color:#b48ead;">$(</span><span style="color:#96b5b4;">shell </span><span style="color:#8fa1b3;">php-config</span><span style="color:#bf616a;"> --extension-dir</span><span style="color:#b48ead;">)
+</span><span style="color:#bf616a;">EXTENSION               </span><span style="color:#c0c5ce;">=       </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">NAME</span><span style="color:#b48ead;">}</span><span style="color:#a3be8c;">.so
+</span><span style="color:#bf616a;">INI                     </span><span style="color:#c0c5ce;">=       </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">NAME</span><span style="color:#b48ead;">}</span><span style="color:#a3be8c;">.ini
+</span><span style="color:#bf616a;">COMPILER                </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">g++
+</span><span style="color:#bf616a;">LINKER                  </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">g++
+</span><span style="color:#bf616a;">COMPILER_FLAGS          </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">-Wall -c -O2 -std=c++11 -fpic -o
+</span><span style="color:#bf616a;">LINKER_FLAGS            </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">-shared
+</span><span style="color:#bf616a;">LINKER_DEPENDENCIES     </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">-lphpcpp
+</span><span style="color:#bf616a;">RM                      </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">rm -f
+</span><span style="color:#bf616a;">CP                      </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">cp -f
+</span><span style="color:#bf616a;">MKDIR                   </span><span style="color:#c0c5ce;">=       </span><span style="color:#a3be8c;">mkdir -p
+</span><span style="color:#bf616a;">SOURCES                 </span><span style="color:#c0c5ce;">=       </span><span style="color:#b48ead;">$(</span><span style="color:#96b5b4;">wildcard </span><span style="color:#bf616a;">*</span><span style="color:#a3be8c;">.cpp</span><span style="color:#b48ead;">)
+</span><span style="color:#bf616a;">OBJECTS                 </span><span style="color:#c0c5ce;">=       </span><span style="color:#b48ead;">$(</span><span style="color:#bf616a;">SOURCES:%.cpp=%.o</span><span style="color:#b48ead;">)
+</span><span style="color:#8fa1b3;">all</span><span style="color:#c0c5ce;">:                            </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">OBJECTS</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">EXTENSION</span><span style="color:#b48ead;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">EXTENSION</span><span style="color:#b48ead;">}</span><span style="color:#c0c5ce;">:                   </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">OBJECTS</span><span style="color:#b48ead;">}
+</span><span style="color:#c0c5ce;">                                </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">LINKER</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">LINKER_FLAGS</span><span style="color:#b48ead;">} </span><span style="color:#8fa1b3;">-o </span><span style="color:#bf616a;">$@ </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">OBJECTS</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">LINKER_DEPENDENCIES</span><span style="color:#b48ead;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">OBJECTS</span><span style="color:#b48ead;">}</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">                                </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">COMPILER</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">COMPILER_FLAGS</span><span style="color:#b48ead;">} </span><span style="color:#bf616a;">$@ </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">@:%.o=%.cpp</span><span style="color:#b48ead;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">install</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">                                </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">CP</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">EXTENSION</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">EXTENSION_DIR</span><span style="color:#b48ead;">}
+</span><span style="color:#c0c5ce;">                                </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">CP</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">INI</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">INI_DIR</span><span style="color:#b48ead;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">clean</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">                                </span><span style="color:#b48ead;">${</span><span style="color:#bf616a;">RM</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">EXTENSION</span><span style="color:#b48ead;">} ${</span><span style="color:#bf616a;">OBJECTS</span><span style="color:#b48ead;">}
+</span></pre>
+<p>El archivo <code>main.cpp</code> se ve así:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdlib.h</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">phpcpp.h</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">Php::Value </span><span style="color:#8fa1b3;">hello</span><span style="color:#c0c5ce;">()
+</span><span style="color:#c0c5ce;">{
+</span><span style="color:#c0c5ce;">  </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Hola Mundo</span><span style="color:#c0c5ce;">&quot;;
+</span><span style="color:#c0c5ce;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">Php::Value </span><span style="color:#8fa1b3;">myFunction</span><span style="color:#c0c5ce;">()
+</span><span style="color:#c0c5ce;">{
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">rand</span><span style="color:#c0c5ce;">() % </span><span style="color:#d08770;">2 </span><span style="color:#c0c5ce;">== </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">string</span><span style="color:#c0c5ce;">&quot;;
+</span><span style="color:#c0c5ce;">    }
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">else
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">123</span><span style="color:#c0c5ce;">;
+</span><span style="color:#c0c5ce;">    }
+</span><span style="color:#c0c5ce;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">/**
+</span><span style="color:#65737e;"> *  tell the compiler that the get_module is a pure C function
+</span><span style="color:#65737e;"> */
+</span><span style="color:#b48ead;">extern </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">C</span><span style="color:#c0c5ce;">&quot; {
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">/**
+</span><span style="color:#65737e;">     *  Function that is called by PHP right after the PHP process
+</span><span style="color:#65737e;">     *  has started, and that returns an address of an internal PHP
+</span><span style="color:#65737e;">     *  structure with all the details and features of your extension
+</span><span style="color:#65737e;">     *
+</span><span style="color:#65737e;">     *  @return void*   a pointer to an address that is understood by PHP
+</span><span style="color:#65737e;">     */
+</span><span style="color:#c0c5ce;">    PHPCPP_EXPORT </span><span style="color:#b48ead;">void </span><span style="color:#c0c5ce;">*</span><span style="color:#8fa1b3;">get_module</span><span style="color:#c0c5ce;">()
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        </span><span style="color:#65737e;">// static(!) Php::Extension object that should stay in memory
+</span><span style="color:#c0c5ce;">        </span><span style="color:#65737e;">// for the entire duration of the process (that&#39;s why it&#39;s static)
+</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">static</span><span style="color:#c0c5ce;"> Php::Extension </span><span style="color:#8fa1b3;">extension</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">noe_extension</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">1.0</span><span style="color:#c0c5ce;">&quot;);
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">        </span><span style="color:#65737e;">// @todo    add your own functions, classes, namespaces to the extension
+</span><span style="color:#c0c5ce;">        extension.</span><span style="color:#8fa1b3;">add</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">hello</span><span style="color:#c0c5ce;">&quot;, hello);
+</span><span style="color:#c0c5ce;">        extension.</span><span style="color:#8fa1b3;">add</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">myFunction</span><span style="color:#c0c5ce;">&quot;, myFunction);
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">        </span><span style="color:#65737e;">// return the extension
+</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> extension;
+</span><span style="color:#c0c5ce;">    }
+</span><span style="color:#c0c5ce;">}
+</span></pre>
+<p>Finalmente, <code>noe_extension.ini</code>:</p>
+<pre><code>extension=noe_extension.so
+</code></pre>
+<p>Ya solo falta compilar e instalar:</p>
+<pre><code>make
+sudo make install
+</code></pre>
+<p>El <code>Makefile</code> anterior (o sea, el segundo) también es lo suficientemente
+inteligente como para averiguar el lugar correcto dónde poner la librería
+compilada (<code>noe_extension.so</code>) y el archivo <code>noe_extension.ini</code>. En el Ubuntu
+14.04 donde probé esto los archivos quedaron en estas dos rutas:</p>
+<ul>
+<li><code>/usr/lib/php5/20121212/noe_extension.so</code></li>
+<li><code>/etc/php5/mods-available/noe_extension.ini</code></li>
+</ul>
+<p>Aunque la localización de <code>noe_extension.ini</code> es la correcta, hay que saber
+que el estilo de configuración de las extensiones de PHP en Debian/Ubuntu es
+muy parecido al de sitios y módulos de Apache 2. En Ubuntu/Debian hay que usar
+los comandos <code>a2enconf</code>, <code>a2enmod</code> y <code>a2ensite</code> para activar algún archivo con
+extensión <code>.conf</code> en particular. De igual manera, en Debian/Ubuntu también
+existen los comandos <code>php5enmod</code> y <code>phpdismod</code>. Usé <code>php5enmod</code> para dar mi
+módulo de alta:</p>
+<pre><code>sudo php5enmod noe_extension
+</code></pre>
+<p>Esto crea una liga simbólica <code>/etc/php5/apache2/conf.d/20-noe_extension.ini</code>
+que apunta hacia <code>/etc/php5/mods-available/noe_extension.ini</code>. Después de esto
+reiniciamos Apache:</p>
+<pre><code>sudo service apache2 restart
+</code></pre>
+<p>Después de esto, sólo faltó escribir un pequeño script de PHP para usar la
+extensión. Lo puse en un directorio visible por Apache 2 y lo nombré
+<code>index.php</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">     &lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;Extensión de PHP de Noe&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">h3</span><span style="color:#c0c5ce;">&gt;Extensión de PHP de Noe&lt;/</span><span style="color:#bf616a;">h3</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;</span><span style="color:#bf616a;">ul</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">     &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Hola: </span><span style="color:#ab7967;">&lt;?php </span><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">(</span><span style="color:#8fa1b3;">hello</span><span style="color:#c0c5ce;">()); </span><span style="color:#ab7967;">?&gt; </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">     &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;MyFunction: </span><span style="color:#ab7967;">&lt;?php </span><span style="color:#96b5b4;">echo </span><span style="color:#8fa1b3;">myFunction</span><span style="color:#c0c5ce;">(); </span><span style="color:#ab7967;">?&gt;</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">  &lt;/</span><span style="color:#bf616a;">ul</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>Y si la configuración es correcta, se deberá ver algo así:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/php-extension-php-phpcpp/captura-de-pantalla-de-2015-03-13-09-15-55.webp 368w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/php-extension-php-phpcpp/captura-de-pantalla-de-2015-03-13-09-15-55.png" alt="La extensión funcionando"  srcset="/static/images/posts/php-extension-php-phpcpp/captura-de-pantalla-de-2015-03-13-09-15-55.png 368w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="368" height="298" /></picture></p>
+<p>Los textos «Hola Mundo» y «string» provienen del complemento <code>noe_extension.so</code>.</p>
+<p><strong>FIN</strong></p>
+<hr />
+<p>La imagen «extension cord» proviene de
+<a href="http://pixabay.com/en/extension-cord-cable-electronics-147580/">http://pixabay.com/en/extension-cord-cable-electronics-147580/</a>. Tomada el
+día 13 de marzo del 2015.</p>
+
+  </div>
+
+  
+  <a href="/blog/php-extension-php-phpcpp" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/jenkins-compila-extension-php-cpp" rel="next">&larr; Jenkins para compilar e instalar una extensión de PHP con PHP-CPP</a>
+  
+  
+  <a href="/blog/diferencia-entre-dos-filas-con-PostgreSQL" rel="prev">Cómo sacar la diferencia entre dos filas con PostgreSQL &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Jenkins para compilar e instalar una extensión de PHP con PHP-CPP &middot; Noe Nieto</title>
+    <meta name="description" content="Tutorial paso a paso para configurar Jenkins en Ubuntu 14.04 con un hook post-commit de SVN que dispara la recompilación de una extensión PHP en C++ y el deploy a Apache.">
+    
+    <meta name="keywords" content="jenkins, php, devops, ci-cd, svn, apache, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Jenkins para compilar e instalar una extensión de PHP con PHP-CPP">
+    <meta property="og:description" content="Tutorial paso a paso para configurar Jenkins en Ubuntu 14.04 con un hook post-commit de SVN que dispara la recompilación de una extensión PHP en C++ y el deploy a Apache.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Jenkins para compilar e instalar una extensión de PHP con PHP-CPP">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2015-03-17">
+    
+    
+    <meta property="article:tag" content="jenkins">
+    <meta property="article:tag" content="php">
+    <meta property="article:tag" content="devops">
+    <meta property="article:tag" content="ci-cd">
+    <meta property="article:tag" content="svn">
+    <meta property="article:tag" content="apache">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jenkins para compilar e instalar una extensión de PHP con PHP-CPP">
+    <meta name="twitter:description" content="Tutorial paso a paso para configurar Jenkins en Ubuntu 14.04 con un hook post-commit de SVN que dispara la recompilación de una extensión PHP en C++ y el deploy a Apache.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Jenkins para compilar e instalar una extensión de PHP con PHP-CPP">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/jenkins-compila-extension-php-cpp.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Jenkins para compilar e instalar una extensión de PHP con PHP-CPP","description":"Tutorial paso a paso para configurar Jenkins en Ubuntu 14.04 con un hook post-commit de SVN que dispara la recompilación de una extensión PHP en C++ y el deploy a Apache.","datePublished":"2015-03-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["jenkins","php","devops","ci-cd","svn","apache"],"wordCount":678}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Jenkins para compilar e instalar una extensión de PHP con PHP-CPP"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Jenkins para compilar e instalar una extensión de PHP con PHP-CPP</h1>
+  <p class="entry-description muted">Tutorial paso a paso para configurar Jenkins en Ubuntu 14.04 con un hook post-commit de SVN que dispara la recompilación de una extensión PHP en C++ y el deploy a Apache.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Jenkins moderno tiene UI y DSL muy distintos (Pipeline as code); SVN ha sido reemplazado por Git en casi todos los equipos; PHP 5 y /etc/init.d/apache2 están obsoletos. Las credenciales expuestas en el post original han sido redactadas..
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2015-03-17">
+      2015-03-17
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/jenkins/">jenkins</a>
+    
+    <a class="p-category" href="/tags/php/">php</a>
+    
+    <a class="p-category" href="/tags/devops/">devops</a>
+    
+    <a class="p-category" href="/tags/ci-cd/">ci-cd</a>
+    
+    <a class="p-category" href="/tags/svn/">svn</a>
+    
+    <a class="p-category" href="/tags/apache/">apache</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#instalando-jenkins-en-ubuntu-14-04" class="toc-link">Instalando Jenkins en Ubuntu 14.04</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#configurando-el-proyecto-de-jenkins" class="toc-link">Configurando el proyecto de Jenkins</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#configurando-el-gancho-de-svn" class="toc-link">Configurando el gancho de SVN</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#configuración-de-directorios-y-permisos" class="toc-link">Configuración de directorios y permisos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#script-para-construir-la-extensión-y-actualizar-la-aplicación-php" class="toc-link">Script para construir la extensión y actualizar la aplicación PHP</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p><picture><source type="image/webp" srcset="/static/images/posts/Jenkins-compila-extension-PHP-CPP/grappling-hook-2-psf.webp 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/Jenkins-compila-extension-PHP-CPP/grappling-hook-2-psf.png" alt="Un gancho"  srcset="/static/images/posts/Jenkins-compila-extension-PHP-CPP/grappling-hook-2-psf.png 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="480" height="420" /></picture></p>
+<h2 id="intro">Intro</h2>
+<p>Este post es para dar seguimiento a uno anterior: <a href="/blog/php-extension-php-phpcpp">Programa, compila e instala
+tu propia extensión de PHP con PHP-CPP</a>.</p>
+<p>El siguiente paso es reconstruir el plugin cada vez que se hace <em>commit</em> al
+repositorio (SVN, pero puede ser Git o Mercurial). El repositorio tiene una
+carpeta donde se encuentra el plugin y otra carpeta donde se encuentra la
+aplicación PHP. Después de varias pruebas, la manera más adecuada de integrar
+el SVN con Jenkins fue mediante un «gancho» (<code>post-commit</code> hook) que le
+notifica a Jenkins, mediante una URL, que hay novedades en el repositorio.</p>
+<h2 id="instalando-jenkins-en-ubuntu-14-04">Instalando Jenkins en Ubuntu 14.04</h2>
+<p>La documentación de Jenkins es bastante buena. De ahí saqué las siguientes
+instrucciones:</p>
+<pre><code>wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ &gt; /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
+</code></pre>
+<p>Por defecto, el paquete de Jenkins lo configurará como un servicio o daemon y
+creará el usuario <code>jenkins</code>.</p>
+<h2 id="configurando-el-proyecto-de-jenkins">Configurando el proyecto de Jenkins</h2>
+<p>Estos son los settings que usé para el proyecto:</p>
+<ul>
+<li><strong>Project Name</strong>: Build PHP module</li>
+<li><strong>Description</strong>: <em>vacío</em></li>
+<li><strong>Discard old builds</strong>: desactivado</li>
+<li><strong>This build is parametrized</strong>: desactivado</li>
+<li><strong>Disable build...</strong>: desactivado</li>
+<li><strong>Execute concurrent builds if necessary</strong>: desactivado</li>
+<li>Advanced project options
+<ul>
+<li><strong>Quiet period</strong>: desactivado</li>
+<li><strong>Retry count</strong>: desactivado</li>
+<li><strong>Block build when upstream...</strong>: desactivado</li>
+<li><strong>Block build when downstream...</strong>: desactivado</li>
+<li><strong>Use custom workspace</strong>: activado
+<ul>
+<li><strong>Directory</strong>: <code>build_php_module</code></li>
+</ul>
+</li>
+<li><strong>Display name</strong>: <em>vacío</em></li>
+<li><strong>Keep the build logs of dependencies</strong>: desactivado</li>
+</ul>
+</li>
+<li><strong>Source code management</strong>: None</li>
+<li>Build triggers:
+<ul>
+<li><strong>Trigger builds remotely</strong>: Activado</li>
+<li><strong>Authentication Token</strong>: <code>&lt;token-secreto&gt;</code> <em>(redactado)</em></li>
+<li><strong>Build after other projects are built</strong>: desactivado</li>
+<li><strong>Build periodically</strong>: desactivado</li>
+<li><strong>Poll SCM</strong>: desactivado</li>
+</ul>
+</li>
+<li><em>Build</em>: Agregué un comando de shell. Más detalles a continuación.</li>
+</ul>
+<h2 id="configurando-el-gancho-de-svn">Configurando el gancho de SVN</h2>
+<p>Justo después de agregar el primer proyecto, la URL para disparar la ejecución
+del proyecto será algo parecido a esto:</p>
+<pre><code>http://misitio:8080/job/Build%20PHP%20Project/build?token=&lt;token-secreto&gt;&amp;cause=Revision+$2
+</code></pre>
+<p>Esto se puede hacer desde el gancho <code>post-commit</code> de SVN. Por ejemplo:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">#!/bin/sh
+</span><span style="color:#65737e;"># Checa post-commit.tpl para ver los comentarios.
+</span><span style="color:#bf616a;">REPOS</span><span style="color:#c0c5ce;">=&quot;$</span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">REV</span><span style="color:#c0c5ce;">=&quot;$</span><span style="color:#bf616a;">2</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">TXN_NAME</span><span style="color:#c0c5ce;">=&quot;$</span><span style="color:#bf616a;">3</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#8fa1b3;">curl </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">http://misitio:8080/job/Build%20PHP%20Project/build?token=&lt;token-secreto&gt;&amp;cause=Revision+</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">2</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<p>Con eso nos aseguramos que el proyecto de Jenkins se ejecute solamente cada
+vez que se haga un <em>commit</em> en el SVN.</p>
+<h2 id="configuración-de-directorios-y-permisos">Configuración de directorios y permisos</h2>
+<p>Cuando Jenkins ejecuta un script de shell lo hace con los permisos del usuario
+<code>jenkins</code>. Es por esta razón que deberemos ajustar algunos permisos en el
+servidor para que Jenkins pueda compilar la extensión y actualizar la
+aplicación PHP.</p>
+<p>Antes de escribir el script de shell hice un checkout del repo de la extensión
+en <code>/opt/extension-php/</code>. También hice checkout de la aplicación que usa la
+extensión en el directorio <code>/var/www/php_app</code>. Omito la configuración de la
+extensión ya que he comentado cómo configurarla en <a href="/blog/php-extension-php-phpcpp">Programa, compila e
+instala tu propia extensión de PHP con PHP-CPP</a>.</p>
+<p>Finalmente cambié el usuario de ambas carpetas al usuario <code>jenkins</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">chown</span><span style="color:#bf616a;"> -R</span><span style="color:#c0c5ce;"> jenkins /opt/extension-php/
+</span><span style="color:#8fa1b3;">chown</span><span style="color:#bf616a;"> -R</span><span style="color:#c0c5ce;"> jenkins /var/www/php_app
+</span></pre>
+<p>Por último, un requerimiento algo inusual: después de recompilar la extensión
+de PHP es necesario reiniciar Apache. El usuario <code>jenkins</code> debe tener permisos
+para reiniciar el servidor Apache. Esto se logra configurando <code>sudo</code>.</p>
+<p>En Ubuntu/Debian <code>sudo</code> se puede configurar agregando archivos a
+<code>/etc/sudoers.d</code> en lugar de usar <code>visudo</code>. El contenido del archivo
+<code>/etc/sudoers.d/90-jenkins_apache2</code> será:</p>
+<pre><code>Cmnd_Alias AP2RESTART=/etc/init.d/apache2
+jenkins ALL=NOPASSWD: AP2RESTART
+</code></pre>
+<p>Para comprobarlo podemos arrancar una sesión con el usuario <code>jenkins</code> e
+intentar reiniciar Apache 2:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">root@rtbcore01:</span><span style="color:#bf616a;">~</span><span style="color:#8fa1b3;">#</span><span style="color:#c0c5ce;"> su jenkins
+</span><span style="color:#8fa1b3;">jenkins@rtbcore01:/root$</span><span style="color:#c0c5ce;"> cd
+</span><span style="color:#8fa1b3;">jenkins@rtbcore01:</span><span style="color:#bf616a;">~</span><span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> sudo /etc/init.d/apache2 restart
+</span><span style="color:#c0c5ce;"> </span><span style="color:#8fa1b3;">*</span><span style="color:#c0c5ce;"> Restarting web server apache2
+</span><span style="color:#c0c5ce;">   </span><span style="color:#8fa1b3;">...done.
+</span></pre>
+<h2 id="script-para-construir-la-extensión-y-actualizar-la-aplicación-php">Script para construir la extensión y actualizar la aplicación PHP</h2>
+<p>Ya está todo configurado. El script que deberá correr Jenkins es el siguiente:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">#!/bin/bash
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">###### Building extension</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> /var/www/rtb_build/RTB_c++
+</span><span style="color:#8fa1b3;">/usr/bin/svn</span><span style="color:#c0c5ce;"> cleanup</span><span style="color:#bf616a;"> --username </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;usuario-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --password </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;password-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --non-interactive</span><span style="color:#c0c5ce;"> .
+</span><span style="color:#8fa1b3;">/usr/bin/svn</span><span style="color:#c0c5ce;"> update</span><span style="color:#bf616a;"> --username </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;usuario-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --password </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;password-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --non-interactive</span><span style="color:#c0c5ce;"> .
+</span><span style="color:#8fa1b3;">/usr/bin/make</span><span style="color:#c0c5ce;"> clean
+</span><span style="color:#bf616a;">PATH</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">/usr/local/bin:/usr/bin:/bin </span><span style="color:#8fa1b3;">/usr/bin/make
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">###### Deploy app</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> /var/www/vhosts/rtb.srax.com/srax_app
+</span><span style="color:#8fa1b3;">/usr/bin/svn</span><span style="color:#c0c5ce;"> cleanup</span><span style="color:#bf616a;"> --username </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;usuario-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --password </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;password-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --non-interactive</span><span style="color:#c0c5ce;"> .
+</span><span style="color:#8fa1b3;">/usr/bin/svn</span><span style="color:#c0c5ce;"> update</span><span style="color:#bf616a;"> --username </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;usuario-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --password </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">&lt;password-svn&gt;</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> --non-interactive</span><span style="color:#c0c5ce;"> .
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">###### restarting apache</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#8fa1b3;">sudo</span><span style="color:#c0c5ce;"> /etc/init.d/apache2 restart
+</span></pre>
+<p><strong>FIN</strong></p>
+<hr />
+<p>Imagen tomada de:
+<a href="http://upload.wikimedia.org/wikipedia/commons/4/4a/Grappling_hook_2_%28PSF%29.png">Wikimedia</a></p>
+
+  </div>
+
+  
+  <a href="/blog/jenkins-compila-extension-php-cpp" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/sencillo-gancho-pre-svn" rel="next">&larr; Sencillo gancho pre-commit de SVN (pre-commit hook)</a>
+  
+  
+  <a href="/blog/php-extension-php-phpcpp" rel="prev">Programa, compila e instala tu propia extensión de PHP con PHP-CPP &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

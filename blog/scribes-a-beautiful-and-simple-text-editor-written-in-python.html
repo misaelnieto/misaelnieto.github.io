@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Scribes, a beautiful and simple text editor &middot; Noe Nieto</title>
+    <meta name="description" content="Review of Scribes, a Python-based minimalist code editor for GNOME with a focus on keyboard shortcuts and extensibility.">
+    
+    <meta name="keywords" content="scribes, text-editor, gnome, python, review, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Scribes, a beautiful and simple text editor">
+    <meta property="og:description" content="Review of Scribes, a Python-based minimalist code editor for GNOME with a focus on keyboard shortcuts and extensibility.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Scribes, a beautiful and simple text editor">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2011-07-30">
+    
+    
+    <meta property="article:tag" content="scribes">
+    <meta property="article:tag" content="text-editor">
+    <meta property="article:tag" content="gnome">
+    <meta property="article:tag" content="python">
+    <meta property="article:tag" content="review">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Scribes, a beautiful and simple text editor">
+    <meta name="twitter:description" content="Review of Scribes, a Python-based minimalist code editor for GNOME with a focus on keyboard shortcuts and extensibility.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Scribes, a beautiful and simple text editor">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/scribes-a-beautiful-and-simple-text-editor-written-in-python.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Scribes, a beautiful and simple text editor","description":"Review of Scribes, a Python-based minimalist code editor for GNOME with a focus on keyboard shortcuts and extensibility.","datePublished":"2011-07-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["scribes","text-editor","gnome","python","review"],"wordCount":562}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Scribes, a beautiful and simple text editor"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Scribes, a beautiful and simple text editor</h1>
+  <p class="entry-description muted">Review of Scribes, a Python-based minimalist code editor for GNOME with a focus on keyboard shortcuts and extensibility.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Scribes has been unmaintained since ~2010; sourceforge page is offline.
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2011-07-30">
+      2011-07-30
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/scribes/">scribes</a>
+    
+    <a class="p-category" href="/tags/text-editor/">text-editor</a>
+    
+    <a class="p-category" href="/tags/gnome/">gnome</a>
+    
+    <a class="p-category" href="/tags/python/">python</a>
+    
+    <a class="p-category" href="/tags/review/">review</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p>I love Scribes, a sleek and simple code editor written in Python. This is a
+review of the things that make me always come back to it.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes.webp 190w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes.png" alt="Scribes editor"  srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes.png 190w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="190" height="200" /></picture></p>
+<p><a href="http://scribes.sourceforge.net/">Scribes</a> describes itself as a simple, slim
+and sleek text editor for GNOME. And if you love GNOME, you'll love Scribes
+too.</p>
+<p>The main feature of Scribes is its lack of screen real-state clutter. That
+means that it does not have a menu-bar and does not organize open files in
+tabs; instead, it relies on the OS's window manager to manage all open windows
+as well as a list of all opened windows in a Scribes session.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-default.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-default.png" alt="Default Scribes"  srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-default.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="287" /></picture></p>
+<p>As stated above, Scribes does not have a menu toolbar, but it does have a
+button toolbar and a status bar. But both of them are hidden by default, and
+when shown, they will be auto-hidden after some seconds. When you need to use
+the toolbar, Scribes relies on a hot-corner (or trigger area). Pretty neat!</p>
+<p>Toolbars in Scribes appear when you hover the mouse over the hot corner.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-hot-corner.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-hot-corner.png" alt="Hot corner"  srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-hot-corner.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="287" /></picture></p>
+<p>Besides a few pop-up windows and the two bars, Scribes does not depend on
+graphic elements like buttons, sliders, etc. To access its full potential you
+will be using keyboard shortcuts. Keyboard junkies will be pleased!</p>
+<p>The basic editing keyboard shortcuts are the ones that you probably already
+know if you have ever used Windows or Linux, like <code>Ctrl</code> + <code>C</code> and
+<code>Ctrl</code> + <code>V</code> for copying and pasting text. And to make things easier, Scribes
+comes with a handy cheat sheet that pops out when you hit <code>Ctrl</code> + <code>H</code>.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-cheat-sheet.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-cheat-sheet.png" alt="A handy cheat sheet for Scribes"  srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-cheat-sheet.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="269" /></picture></p>
+<p>Scribes is not awfully configurable (in the sense of vim or emacs). I think
+that's OK, because you rarely need to go beyond Scribes' default settings
+other than the text font, tab width, text wrap and dictionary autocorrect.</p>
+<p>If you need different colors, Scribes has themes.</p>
+<p>If you need code snippets or automatic text replacement, it has a small
+templating system for code snippets and an Autoreplace editor.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-advanced.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-advanced.png" alt="Advanced configuration"  srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-advanced.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="287" /></picture></p>
+<p>Should you need anything else from Scribes, the good news is that it is
+extensible. It's written in Python, what would you expect?</p>
+<p>Actually, almost every major feature of Scribes — like templates, custom
+syntax highlighting colors, bracket completion, theme selector — is written as
+an extension.</p>
+<p>There are common extensions, which are always available to all kinds of
+documents, and language extensions, which are only available when editing
+certain type of documents.</p>
+<p>For example, for Python, there's a plugin for navigation through functions and
+classes, a plugin for syntax checking (using pylint and pyflakes), and a
+plugin for smart indentation.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-functions.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-functions.png" alt="Scribes with the Python symbol browser"  srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-functions.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="273" /></picture></p>
+<p>For HTML and XML (including ZPT!), there's
+<a href="http://mystilleef.blogspot.com/2010/12/zencoding-and-sparkup-in-scribes.html">Sparkup</a>
+and <a href="http://mystilleef.blogspot.com/2010/05/zencoding-with-scribes.html">ZenCoding</a>.</p>
+<p>Recent versions of Scribes come with a side pane (hit <code>F4</code>) to navigate files.
+This broadens the options available to navigate through multiple windows:</p>
+<ul>
+<li>Focus previous windows (<code>Ctrl</code> + <code>PageUp</code>)</li>
+<li>Focus next window (<code>Ctrl</code> + <code>PageDown</code>)</li>
+<li>Document browser (<code>Super</code> + <code>B</code> or <code>F9</code>)</li>
+</ul>
+<p><picture><source type="image/webp" srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-utils.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-utils.png" alt="Document browser and recent files"  srcset="/static/images/posts/scribes-a-beautiful-and-simple-text-editor-written-in-python/scribes-utils.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="273" /></picture></p>
+<p>There are a lot of small details (that is, keyboard shortcuts) all over the
+app. But it would take me very long to explain every feature, and I will
+probably bore you. So just head over the <a href="http://scribes.sourceforge.net/download.html">Scribes' home page</a>,
+install it and give it a try.</p>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/scribes-a-beautiful-and-simple-text-editor-written-in-python" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/mi-propia-guia-de-instalacion-de-fedora-16" rel="next">&larr; Mi propia guía de instalación de Fedora 16</a>
+  
+  
+  <a href="/blog/serving-files-in-a-directory-with-nginx" rel="prev">Serving files in a directory with nginx &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+</body>
+</html>

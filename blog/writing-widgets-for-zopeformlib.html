@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Writing widgets for zope.formlib &middot; Noe Nieto</title>
+    <meta name="description" content="Incomplete notes on how zope.formlib selects widgets through the Zope Component Architecture (ZCA) and how to customize them in Grok.">
+    
+    <meta name="keywords" content="zope-formlib, grok, zca, widgets, zope-interface, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Writing widgets for zope.formlib">
+    <meta property="og:description" content="Incomplete notes on how zope.formlib selects widgets through the Zope Component Architecture (ZCA) and how to customize them in Grok.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Writing widgets for zope.formlib">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2012-03-10">
+    
+    
+    <meta property="article:tag" content="zope-formlib">
+    <meta property="article:tag" content="grok">
+    <meta property="article:tag" content="zca">
+    <meta property="article:tag" content="widgets">
+    <meta property="article:tag" content="zope-interface">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Writing widgets for zope.formlib">
+    <meta name="twitter:description" content="Incomplete notes on how zope.formlib selects widgets through the Zope Component Architecture (ZCA) and how to customize them in Grok.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Writing widgets for zope.formlib">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/writing-widgets-for-zopeformlib.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Writing widgets for zope.formlib","description":"Incomplete notes on how zope.formlib selects widgets through the Zope Component Architecture (ZCA) and how to customize them in Grok.","datePublished":"2012-03-10","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["zope-formlib","grok","zca","widgets","zope-interface"],"wordCount":650}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Writing widgets for zope.formlib"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Writing widgets for zope.formlib</h1>
+  <p class="entry-description muted">Incomplete notes on how zope.formlib selects widgets through the Zope Component Architecture (ZCA) and how to customize them in Grok.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: zope.formlib fue deprecado en favor de z3c.form; five.grok fue removido en Plone 5+. Post original marcado como incompleto.
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2012-03-10">
+      2012-03-10
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/zope-formlib/">zope-formlib</a>
+    
+    <a class="p-category" href="/tags/grok/">grok</a>
+    
+    <a class="p-category" href="/tags/zca/">zca</a>
+    
+    <a class="p-category" href="/tags/widgets/">widgets</a>
+    
+    <a class="p-category" href="/tags/zope-interface/">zope-interface</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#the-zca-and-how-stuff-is-glued-together" class="toc-link">The ZCA and how stuff is glued together</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#the-setupwidgets-method" class="toc-link">The setupWidgets() method</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p><strong>WARNING:</strong> This post is incomplete.</p>
+<p>I'm doing some interesting things on Grok. Sometimes you need to customize the
+default widgets that <code>zope.formlib</code> gives you. So, hopefully, this guide will
+summarize it.</p>
+<h2 id="intro">Intro</h2>
+<p>On this blog post, I'm trying to clarify how <code>zope.formlib</code> works and how to
+make custom widgets for web apps.</p>
+<p>My background is Electronics Engineering, and sometimes I have trouble with
+some concepts in the Computer Science field. If you find something misleading
+or wrong/stupid, I encourage you to drop a comment. I will appreciate it.</p>
+<p>Finally, some examples are targeted towards the <a href="http://grok.zope.org/">Grok</a>
+framework. But it is very likely that, with proper porting, the examples will
+run as well on <a href="http://bluebream.zope.org/">BlueBream</a> or maybe Plone.</p>
+<h2 id="the-zca-and-how-stuff-is-glued-together">The ZCA and how stuff is glued together</h2>
+<p>Where do we start? Let's try <a href="http://www.muthukadan.net/docs/zca.html">A Comprehensive Guide to Zope Component
+Architecture</a>. This guide shows you
+how the basic building blocks of Zope work.</p>
+<p>According to the author, the ZCA is:</p>
+<blockquote>
+<p>[...] a Python framework for supporting component-based design and
+programming. It is very well suited to developing large Python software
+systems. The ZCA is not specific to the Zope web application server: it can
+be used for developing any Python application. Maybe it should be called
+Python Component Architecture.</p>
+</blockquote>
+<p>And yes, the ZCA is used in several software projects outside Zope.</p>
+<p>One of the most common use cases for the ZCA is doing some kind of
+<a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> along
+with <a href="http://zodb.org/">ZODB</a>. And the main actor in this use case is the
+interface (<code>zope.interface.Interface</code>). This is very important. For example, in
+Grok, you use an interface for defining attributes of persistent objects as
+well as to generate add and edit forms automagically.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">zope.interface </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">Interface
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">zope </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">schema
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">IFruit</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Interface</span><span style="color:#eff1f5;">):
+</span><span style="color:#c0c5ce;">    color = schema.</span><span style="color:#8fa1b3;">Text</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">=</span><span style="color:#b48ead;">u</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">Fruit color</span><span style="color:#c0c5ce;">&#39;)
+</span></pre>
+<p>The <code>IFruit</code> class defines an attribute called <code>color</code>. By using the fields
+defined in the <code>zope.schema</code> package, we get very useful functionality for
+free, like server-side validation. But, also, we can get automatic form
+generation.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">grok
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">FruitEditForm</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">grok.EditForm</span><span style="color:#eff1f5;">):
+</span><span style="color:#c0c5ce;">    grok.</span><span style="color:#8fa1b3;">context</span><span style="color:#c0c5ce;">(IFruit)
+</span><span style="color:#c0c5ce;">    form_fields = grok.</span><span style="color:#8fa1b3;">AutoFields</span><span style="color:#c0c5ce;">(IFruit)
+</span></pre>
+<p>And, in order to leverage this functionality, Grok resorts to
+<code>grokcore.formlib</code>, which in turn uses the <code>zope.formlib</code> package.</p>
+<p>The <code>grok.EditForm</code> class is a specialized class which inherits functionality
+from <code>grok.View</code> and some bits of <code>zope.formlib.form.EditForm</code>.</p>
+<p>To save the data, the class <code>grokcore.EditForm</code> defines an action "Apply" (which
+will be rendered as an HTML button), and is also a callback function which will
+call <code>grok.EditForm.applyData()</code> with the parsed and sanitized form data and
+ultimately call <code>zope.formlib.apply_data_event()</code> and apply the form-supplied
+data into the context, which is the Python object that provides the interface
+<code>IFruit</code>.</p>
+<p>And to display the form, the thing goes like this:</p>
+<ul>
+<li>User requests a resource (e.g. <code>http://site/myfruit/edit</code>); the resource gets mapped to the <code>FruitEditForm</code>, thanks to acquisition and the rest of the Zope machinery.</li>
+<li>To render the form, the <code>FruitEditForm</code> class is instantiated and provided with context information and the corresponding request variables.</li>
+<li>Then, when theFruitEditForm<code>is called, first it runs</code>self.update_form()<code>and finally it returns to the HTTP publishing process whatever</code>self.render()` returns.</li>
+<li>The <code>self.update_form()</code> calls the <code>update()</code> method in all superclasses. This is because the forms defined in <code>zope.formlib</code> have <code>update</code> and <code>render()</code> methods with different context than what Grok provides them.
+<ul>
+<li>Eventually, Python will execute the code in the <code>update()</code> method of <code>zope.formlib.form.FormBase</code>. That method will execute <code>self.setupWidgets()</code> and manipulate <code>self.form_reset</code>, <code>self.form_result</code>, <code>self.errors</code> and <code>self.status</code>.</li>
+</ul>
+</li>
+<li>The <code>render()</code> method is implemented by the <code>grokcore.formlib.components.GrokForm</code> class. It renders the form, either by using a form template, or by whatever action is defined in <code>self.form_result</code>. The <code>render()</code> method from <code>zope.formlib.form.FormBase</code> is not executed.</li>
+</ul>
+<h2 id="the-setupwidgets-method">The setupWidgets() method</h2>
+<p>The <code>setupWidgets()</code> method is the one in charge of selecting widgets for each
+object in <code>self.form_fields</code>:</p>
+<blockquote>
+<p>Takes the interface of each object of <code>self.form_fields</code>.</p>
+</blockquote>
+<p>Aquí ya me confundí.</p>
+<p>¿Cómo se conecta un widget con un field de <code>self.form_fields</code>?</p>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/writing-widgets-for-zopeformlib" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/haz-tus-propios-libros" rel="next">&larr; Haz tus propios libros</a>
+  
+  
+  <a href="/blog/notas-de-instalacion-de-plone-en-amazon-dic-2011" rel="prev">Notas de instalación de Plone en Amazon (Dic 2011) &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

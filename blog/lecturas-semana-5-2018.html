@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Lecturas semana 5 (2018) &middot; Noe Nieto</title>
+    <meta name="description" content="Lecturas de la quinta semana de 2018: interfaces gráficas para MySQL, herramientas para Docker, proyecto GSoC Devsim de simulación de semiconductores, celdas solares y temáticas políticas.">
+    
+    <meta name="keywords" content="lecturas, mysql, docker, gsoc, devsims, solar, matplotlib, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Lecturas semana 5 (2018)">
+    <meta property="og:description" content="Lecturas de la quinta semana de 2018: interfaces gráficas para MySQL, herramientas para Docker, proyecto GSoC Devsim de simulación de semiconductores, celdas solares y temáticas políticas.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Lecturas semana 5 (2018)">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2018-01-30">
+    
+    
+    <meta property="article:tag" content="lecturas">
+    <meta property="article:tag" content="mysql">
+    <meta property="article:tag" content="docker">
+    <meta property="article:tag" content="gsoc">
+    <meta property="article:tag" content="devsims">
+    <meta property="article:tag" content="solar">
+    <meta property="article:tag" content="matplotlib">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lecturas semana 5 (2018)">
+    <meta name="twitter:description" content="Lecturas de la quinta semana de 2018: interfaces gráficas para MySQL, herramientas para Docker, proyecto GSoC Devsim de simulación de semiconductores, celdas solares y temáticas políticas.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Lecturas semana 5 (2018)">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/lecturas-semana-5-2018.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Lecturas semana 5 (2018)","description":"Lecturas de la quinta semana de 2018: interfaces gráficas para MySQL, herramientas para Docker, proyecto GSoC Devsim de simulación de semiconductores, celdas solares y temáticas políticas.","datePublished":"2018-01-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["lecturas","mysql","docker","gsoc","devsims","solar","matplotlib"],"wordCount":252}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Lecturas semana 5 (2018)"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Lecturas semana 5 (2018)</h1>
+  <p class="entry-description muted">Lecturas de la quinta semana de 2018: interfaces gráficas para MySQL, herramientas para Docker, proyecto GSoC Devsim de simulación de semiconductores, celdas solares y temáticas políticas.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2018-01-30">
+      2018-01-30
+    </time>
+    
+
+    
+    <span class="reading-time">1 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/lecturas/">lecturas</a>
+    
+    <a class="p-category" href="/tags/mysql/">mysql</a>
+    
+    <a class="p-category" href="/tags/docker/">docker</a>
+    
+    <a class="p-category" href="/tags/gsoc/">gsoc</a>
+    
+    <a class="p-category" href="/tags/devsims/">devsims</a>
+    
+    <a class="p-category" href="/tags/solar/">solar</a>
+    
+    <a class="p-category" href="/tags/matplotlib/">matplotlib</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#ya-estamos-en-la-semana-5-el-tiempo-se-va-rapidísimo" class="toc-link">Ya estamos en la semana 5!! El tiempo se va rapidísimo.</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="ya-estamos-en-la-semana-5-el-tiempo-se-va-rapidísimo">Ya estamos en la semana 5!! El tiempo se va rapidísimo.</h2>
+<ul>
+<li>Un artículo con las <a href="https://www.eurovps.com/blog/best-mysql-gui-tools-roundup/">mejores GUIs para MySQL.</a></li>
+<li>Relacionados con Docker:
+<ul>
+<li><a href="https://blog.codeship.com/docker-guis/">A comparison of docker GUI's</a></li>
+</ul>
+</li>
+<li>Este año intento participar en el GSOC. Encontré un proyecto de software libre relacionado con mi tema de tesis: <a href="https://www.devsim.org/">Devsim</a>. De la página web dice: <em>DEVSIM is semiconductor device simulation software which uses the finite volume method</em>. Hay una parte escrita en C++ y otra en Python. La organización <em>sombrilla</em> que <a href="https://fossi-foundation.org/gsoc18-ideas.html#solar-cell-simulation">aceptó ser sponsor de DevSim</a>. Estoy emocionado. Sé que es un reto enoooooorme.</li>
+<li>¿Se puede sobrevivir una caída de mucha altura (km) y sobrevivir? Los <a href="https://www.quora.com/A-human-being-is-dropped-10-000-feet-from-the-ground-without-a-parachute-what-would-be-the-safest-place-to-land">quoranos dicen que sí</a>.</li>
+<li><a href="https://www.quora.com/If-the-police-kick-down-the-wrong-door-who-pays-to-replace-it">If the police kick down the wrong door, who pays to replace it?</a></li>
+<li><a href="https://www.quora.com/Which-operating-system-is-not-Unix-based">Which operating system is not Unix based?</a></li>
+<li><a href="http://plasticphotovoltaics.com/lc/characterization/lc-measure.html">Cómo medir celdas solares</a> (tomado del curso de celdas solares orgánicas de Coursera).</li>
+<li><a href="https://www.zmescience.com/medicine/one-cigarette-smoking-25012018/">Even a single cigarette a day can be devastating for your health</a>. Yo no fumo.</li>
+<li><a href="https://www.youtube.com/watch?v=aspPJ2Wcaig">How to Collapse a Pipe by Closing a Valve</a>.</li>
+<li><a href="http://www.solarnovus.com/solar-cell-cathodes-made-from-human-hair_N10454.html">Solar Cell Cathodes Made from Human Hair</a></li>
+<li><a href="http://mulholland.xyz/docs/ivy/index.html">Ivy is a static website generator built in Python. It transforms a directory of text files into a self-contained website.</a></li>
+<li>¡Colores para gráficas de Matplotlib súper bonitos! <a href="https://github.com/dantaki/vapeplot">matplotlib extension for vaporwave aesthetics</a>.</li>
+<li>¡Órale! Un chip que ya hace <em>machine vision</em> (creo…). <a href="https://www.photonics.com/Article.aspx?AID=63060&amp;refer=weeklyNewsletter&amp;utm_source=weeklyNewsletter_2018_02_01&amp;utm_medium=email&amp;utm_campaign=weeklyNewsletter&amp;PID=6">Tiny Vision Processing Chip Could Reduce System Size for Use in IoT</a></li>
+<li><a href="https://www.photonics.com/Article.aspx?AID=63034&amp;refer=weeklyNewsletter&amp;utm_source=weeklyNewsletter_2018_02_01&amp;utm_medium=email&amp;utm_campaign=weeklyNewsletter&amp;PID=6">Single Metalens Focuses all Colors of the Rainbow in one Point</a></li>
+</ul>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/lecturas-semana-5-2018" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/lecturas-semana-6" rel="next">&larr; Lecturas semana 6 (2018)</a>
+  
+  
+  <a href="/blog/prestashop-fedora" rel="prev">PrestaShop en Fedora 27 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+</body>
+</html>

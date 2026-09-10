@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Django Oscar con PayU &middot; Noe Nieto</title>
+    <meta name="description" content="Guía paso a paso para configurar Django Oscar con el plugin de pagos PayU para tiendas en línea.">
+    
+    <meta name="keywords" content="django, oscar, payu, ecommerce, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Django Oscar con PayU">
+    <meta property="og:description" content="Guía paso a paso para configurar Django Oscar con el plugin de pagos PayU para tiendas en línea.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Django Oscar con PayU">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2018-03-21">
+    
+    
+    <meta property="article:tag" content="django">
+    <meta property="article:tag" content="oscar">
+    <meta property="article:tag" content="payu">
+    <meta property="article:tag" content="ecommerce">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Django Oscar con PayU">
+    <meta name="twitter:description" content="Guía paso a paso para configurar Django Oscar con el plugin de pagos PayU para tiendas en línea.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Django Oscar con PayU">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/django-oscar-payu.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Django Oscar con PayU","description":"Guía paso a paso para configurar Django Oscar con el plugin de pagos PayU para tiendas en línea.","datePublished":"2018-03-21","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["django","oscar","payu","ecommerce"],"wordCount":527}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Django Oscar con PayU"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Django Oscar con PayU</h1>
+  <p class="entry-description muted">Guía paso a paso para configurar Django Oscar con el plugin de pagos PayU para tiendas en línea.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2018-03-21">
+      2018-03-21
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/django/">django</a>
+    
+    <a class="p-category" href="/tags/oscar/">oscar</a>
+    
+    <a class="p-category" href="/tags/payu/">payu</a>
+    
+    <a class="p-category" href="/tags/ecommerce/">ecommerce</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#django-oscar-con-paypal" class="toc-link">Django Oscar con Paypal</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#parte-1-instalación-y-configuración-de-django-oscar" class="toc-link">Parte 1 - Instalación y configuración de Django-Oscar</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#paso-3-instalacion-de-django-oscar-payu" class="toc-link">Paso 3 - instalacion de django-oscar-payu</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="django-oscar-con-paypal">Django Oscar con Paypal</h2>
+<p>Mis notas de cómo configurar Django Oscar con PayU</p>
+<h2 id="parte-1-instalación-y-configuración-de-django-oscar">Parte 1 - Instalación y configuración de Django-Oscar</h2>
+<p>Recomiendo usar un virtualenv para oscar.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">mkvirtualenv</span><span style="color:#bf616a;"> --python</span><span style="color:#c0c5ce;">=python3 oscar
+</span></pre>
+<p>Si ya tienes un virtualenv o regresas a continuar con la tarea:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">workon</span><span style="color:#c0c5ce;"> oscar
+</span></pre>
+<p>Es momento de instalar las dependencias</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">pip</span><span style="color:#c0c5ce;"> install django-oscar django-compressor
+</span></pre>
+<p>Luego creamos un directorio para guardar el proyecto y generamos un proyecto nuevo de Django con <code>manage.py</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">mkdir</span><span style="color:#bf616a;"> -p</span><span style="color:#c0c5ce;"> Documents/Django-Oscar/
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> Documents/Django-Oscar/
+</span><span style="color:#8fa1b3;">django-admin.py</span><span style="color:#c0c5ce;"> startproject frobshop
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> frobshop
+</span></pre>
+<p>Ahora procedemos a configurar el proyecto; el proceso de instalación ya esta descrito en el <a href="https://django-oscar.readthedocs.io/en/releases-1.5/internals/getting_started.html#django-settings">manual de Oscar</a>, asi que no se si valga la pena compartirlo de nuevo. El proceso se resume en que dentro de <code>frobshop</code> se modifican <code>settings.py</code> y <code>urls.py</code>. Para conveniencia, pego el contenido de los archivos directamente.</p>
+<p>El archivo <code>settings.py</code> es el siguiente:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">os
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">oscar.defaults </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">oscar </span><span style="color:#b48ead;">import </span><span style="color:#bf616a;">OSCAR_MAIN_TEMPLATE_DIR
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">oscar </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">get_core_apps
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">BASE_DIR </span><span style="color:#c0c5ce;">= os.path.</span><span style="color:#8fa1b3;">dirname</span><span style="color:#c0c5ce;">(os.path.</span><span style="color:#8fa1b3;">dirname</span><span style="color:#c0c5ce;">(os.path.</span><span style="color:#8fa1b3;">abspath</span><span style="color:#c0c5ce;">(__file__)))
+</span><span style="color:#bf616a;">SECRET_KEY </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">$1c_o*5bszwvjzel-brpfqx!+4t==fjwrpa!xtj-^8-#=q1m56</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">DEBUG </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">True
+</span><span style="color:#bf616a;">INSTALLED_APPS </span><span style="color:#c0c5ce;">= [
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.admin</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.auth</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.contenttypes</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.sessions</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.messages</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.staticfiles</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.sites</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.flatpages</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">compressor</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">widget_tweaks</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">debug_toolbar</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">] + </span><span style="color:#8fa1b3;">get_core_apps</span><span style="color:#c0c5ce;">()
+</span><span style="color:#bf616a;">SITE_ID </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">1
+</span><span style="color:#bf616a;">MIDDLEWARE </span><span style="color:#c0c5ce;">= [
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">debug_toolbar.middleware.DebugToolbarMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.middleware.security.SecurityMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.sessions.middleware.SessionMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.middleware.common.CommonMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.middleware.csrf.CsrfViewMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.auth.middleware.AuthenticationMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.messages.middleware.MessageMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.middleware.clickjacking.XFrameOptionsMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">oscar.apps.basket.middleware.BasketMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.flatpages.middleware.FlatpageFallbackMiddleware</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">]
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">ROOT_URLCONF </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">frobshop.urls</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">TEMPLATES </span><span style="color:#c0c5ce;">= [
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">BACKEND</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">django.template.backends.django.DjangoTemplates</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">DIRS</span><span style="color:#c0c5ce;">&#39;: [
+</span><span style="color:#c0c5ce;">            os.path.</span><span style="color:#8fa1b3;">join</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">BASE_DIR</span><span style="color:#c0c5ce;">, &#39;</span><span style="color:#a3be8c;">templates</span><span style="color:#c0c5ce;">&#39;),
+</span><span style="color:#c0c5ce;">            </span><span style="color:#bf616a;">OSCAR_MAIN_TEMPLATE_DIR</span><span style="color:#c0c5ce;">,
+</span><span style="color:#c0c5ce;">        ],
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">APP_DIRS</span><span style="color:#c0c5ce;">&#39;: </span><span style="color:#d08770;">True</span><span style="color:#c0c5ce;">,
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">OPTIONS</span><span style="color:#c0c5ce;">&#39;: {
+</span><span style="color:#c0c5ce;">            &#39;</span><span style="color:#a3be8c;">context_processors</span><span style="color:#c0c5ce;">&#39;: [
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">django.template.context_processors.debug</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">django.template.context_processors.request</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">django.contrib.auth.context_processors.auth</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">django.template.context_processors.i18n</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">django.contrib.messages.context_processors.messages</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                </span><span style="color:#65737e;"># Oscar
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">oscar.apps.checkout.context_processors.checkout</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">oscar.apps.customer.notifications.context_processors.notifications</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">oscar.apps.promotions.context_processors.promotions</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">oscar.apps.search.context_processors.search_form</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">                &#39;</span><span style="color:#a3be8c;">oscar.core.context_processors.metadata</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">            ],
+</span><span style="color:#c0c5ce;">        },
+</span><span style="color:#c0c5ce;">    },
+</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">WSGI_APPLICATION </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">frobshop.wsgi.application</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">DATABASES </span><span style="color:#c0c5ce;">= {
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">default</span><span style="color:#c0c5ce;">&#39;: {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">ENGINE</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">django.db.backends.sqlite3</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">NAME</span><span style="color:#c0c5ce;">&#39;: os.path.</span><span style="color:#8fa1b3;">join</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">BASE_DIR</span><span style="color:#c0c5ce;">, &#39;</span><span style="color:#a3be8c;">db.sqlite3</span><span style="color:#c0c5ce;">&#39;),
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">ATOMIC_REQUESTS</span><span style="color:#c0c5ce;">&#39;: </span><span style="color:#d08770;">True</span><span style="color:#c0c5ce;">,
+</span><span style="color:#c0c5ce;">    }
+</span><span style="color:#c0c5ce;">}
+</span><span style="color:#bf616a;">AUTH_PASSWORD_VALIDATORS </span><span style="color:#c0c5ce;">= [
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">NAME</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">django.contrib.auth.password_validation.UserAttributeSimilarityValidator</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    },
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">NAME</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">django.contrib.auth.password_validation.MinimumLengthValidator</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    },
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">NAME</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">django.contrib.auth.password_validation.CommonPasswordValidator</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    },
+</span><span style="color:#c0c5ce;">    {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">NAME</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">django.contrib.auth.password_validation.NumericPasswordValidator</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    },
+</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">LANGUAGE_CODE </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">en-us</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">TIME_ZONE </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">UTC</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#c0c5ce;">USE_I18N = </span><span style="color:#d08770;">True
+</span><span style="color:#c0c5ce;">USE_L10N = </span><span style="color:#d08770;">True
+</span><span style="color:#bf616a;">USE_TZ </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">True
+</span><span style="color:#bf616a;">EMAIL_BACKEND </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">django.core.mail.backends.console.EmailBackend</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">AUTHENTICATION_BACKENDS </span><span style="color:#c0c5ce;">= (
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">oscar.apps.customer.auth_backends.EmailBackend</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">django.contrib.auth.backends.ModelBackend</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">)
+</span><span style="color:#bf616a;">STATIC_ROOT </span><span style="color:#c0c5ce;">= os.path.</span><span style="color:#8fa1b3;">join</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">BASE_DIR</span><span style="color:#c0c5ce;">, &#39;</span><span style="color:#a3be8c;">static</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#bf616a;">STATIC_URL </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">/static/</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">MEDIA_ROOT </span><span style="color:#c0c5ce;">= os.path.</span><span style="color:#8fa1b3;">join</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">BASE_DIR</span><span style="color:#c0c5ce;">, &#39;</span><span style="color:#a3be8c;">media</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#bf616a;">MEDIA_URL </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">/media/</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">HAYSTACK_CONNECTIONS </span><span style="color:#c0c5ce;">= {
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">default</span><span style="color:#c0c5ce;">&#39;: {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">ENGINE</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">haystack.backends.simple_backend.SimpleEngine</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    },
+</span><span style="color:#c0c5ce;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">OSCAR_INITIAL_ORDER_STATUS </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">Pending</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">OSCAR_INITIAL_LINE_STATUS </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">Pending</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">OSCAR_ORDER_STATUS_PIPELINE </span><span style="color:#c0c5ce;">= {
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">Pending</span><span style="color:#c0c5ce;">&#39;: (&#39;</span><span style="color:#a3be8c;">Being processed</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">Cancelled</span><span style="color:#c0c5ce;">&#39;,),
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">Being processed</span><span style="color:#c0c5ce;">&#39;: (&#39;</span><span style="color:#a3be8c;">Processed</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">Cancelled</span><span style="color:#c0c5ce;">&#39;,),
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">Cancelled</span><span style="color:#c0c5ce;">&#39;: (),
+</span><span style="color:#c0c5ce;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># PayU
+</span><span style="color:#c0c5ce;">
+</span></pre>
+<p>El archivo <code>urls.py</code> queda asi:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">django.conf.urls </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">include, url
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">django.contrib </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">admin
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">django.conf </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">settings
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">oscar.app </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">application </span><span style="color:#b48ead;">as </span><span style="color:#c0c5ce;">oscar_app
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">urlpatterns = [
+</span><span style="color:#c0c5ce;">    </span><span style="color:#8fa1b3;">url</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">r</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#b48ead;">^</span><span style="color:#a3be8c;">i18n/</span><span style="color:#c0c5ce;">&#39;, </span><span style="color:#8fa1b3;">include</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">django.conf.urls.i18n</span><span style="color:#c0c5ce;">&#39;)),
+</span><span style="color:#c0c5ce;">    </span><span style="color:#8fa1b3;">url</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">r</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#b48ead;">^</span><span style="color:#a3be8c;">admin/</span><span style="color:#c0c5ce;">&#39;, admin.site.urls),
+</span><span style="color:#c0c5ce;">    </span><span style="color:#8fa1b3;">url</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">r</span><span style="color:#c0c5ce;">&#39;&#39;, </span><span style="color:#8fa1b3;">include</span><span style="color:#c0c5ce;">(oscar_app.urls)),
+</span><span style="color:#c0c5ce;">]
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">settings.</span><span style="color:#bf616a;">DEBUG</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">debug_toolbar
+</span><span style="color:#c0c5ce;">    urlpatterns = [
+</span><span style="color:#c0c5ce;">        </span><span style="color:#8fa1b3;">url</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">r</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#b48ead;">^</span><span style="color:#a3be8c;">__debug__/</span><span style="color:#c0c5ce;">&#39;, </span><span style="color:#8fa1b3;">include</span><span style="color:#c0c5ce;">(debug_toolbar.urls)),
+</span><span style="color:#c0c5ce;">    ] + urlpatterns
+</span><span style="color:#c0c5ce;">
+</span></pre>
+<p>Antes de crear la base de datos hay que instalar y configurar django-oscar-payu.</p>
+<h2 id="paso-3-instalacion-de-django-oscar-payu">Paso 3 - instalacion de django-oscar-payu</h2>
+<p>Instalar django-oscar-payu con pip no da buenos resultados. Parece que al momento de escribir esta guia la ultima version de django-oscar-payu en pypi no es la misma que esta en el repositorio git. Es por esto que lo mejor por el momento es instalar directamente desde el <a href="https://github.com/SalahAdDin/django-oscar-payu/">repo git</a>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">git</span><span style="color:#c0c5ce;"> clone git@github.com:SalahAdDin/django-oscar-payu.git
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> django-oscar-payu
+</span><span style="color:#8fa1b3;">python</span><span style="color:#c0c5ce;"> setup.py develop
+</span></pre>
+<p>Esto instala django-oscar-payu con la ultima version del plugin.</p>
+<p>Ahora agregar lo siguiente hasta abajo de settings.py</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">INSTALLED_APPS.</span><span style="color:#8fa1b3;">append</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">payu</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#bf616a;">PAYU_INFO </span><span style="color:#c0c5ce;">= {
+</span><span style="color:#c0c5ce;">    &#39;</span><span style="color:#a3be8c;">INR</span><span style="color:#c0c5ce;">&#39;: {
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">merchant_key</span><span style="color:#c0c5ce;">&#39;: &quot;</span><span style="color:#a3be8c;">1287123</span><span style="color:#c0c5ce;">&quot;,
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">merchant_salt</span><span style="color:#c0c5ce;">&#39;: &quot;</span><span style="color:#a3be8c;">pCsDoLxi</span><span style="color:#c0c5ce;">&quot;,
+</span><span style="color:#c0c5ce;">        </span><span style="color:#65737e;"># for production environment use &#39;https://secure.payu.in/_payment&#39;
+</span><span style="color:#c0c5ce;">        &#39;</span><span style="color:#a3be8c;">payment_url</span><span style="color:#c0c5ce;">&#39;: &#39;</span><span style="color:#a3be8c;">https://test.payu.in/_payment</span><span style="color:#c0c5ce;">&#39;,
+</span><span style="color:#c0c5ce;">    }
+</span><span style="color:#c0c5ce;">}
+</span></pre>
+<p>Esta información la sacas del panel de control de payu</p>
+
+  </div>
+
+  
+  <a href="/blog/django-oscar-payu" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/django-oscar-paypal" rel="next">&larr; Django Oscar con PayPal</a>
+  
+  
+  <a href="/blog/lecturas-semana-11-2018" rel="prev">2018-03-12-lecturas-semana-11-2018.md &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

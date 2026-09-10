@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Cómo sacar la diferencia entre dos filas con PostgreSQL &middot; Noe Nieto</title>
+    <meta name="description" content="Aprende a calcular la diferencia entre valores de filas consecutivas en PostgreSQL usando self-joins, ideal para tablas con datos de medición.">
+    
+    <meta name="keywords" content="postgresql, sql, self-join, window-functions, lag, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Cómo sacar la diferencia entre dos filas con PostgreSQL">
+    <meta property="og:description" content="Aprende a calcular la diferencia entre valores de filas consecutivas en PostgreSQL usando self-joins, ideal para tablas con datos de medición.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Cómo sacar la diferencia entre dos filas con PostgreSQL">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2015-01-27">
+    
+    
+    <meta property="article:tag" content="postgresql">
+    <meta property="article:tag" content="sql">
+    <meta property="article:tag" content="self-join">
+    <meta property="article:tag" content="window-functions">
+    <meta property="article:tag" content="lag">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cómo sacar la diferencia entre dos filas con PostgreSQL">
+    <meta name="twitter:description" content="Aprende a calcular la diferencia entre valores de filas consecutivas en PostgreSQL usando self-joins, ideal para tablas con datos de medición.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Cómo sacar la diferencia entre dos filas con PostgreSQL">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/diferencia-entre-dos-filas-con-PostgreSQL.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Cómo sacar la diferencia entre dos filas con PostgreSQL","description":"Aprende a calcular la diferencia entre valores de filas consecutivas en PostgreSQL usando self-joins, ideal para tablas con datos de medición.","datePublished":"2015-01-27","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["postgresql","sql","self-join","window-functions","lag"],"wordCount":300}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Cómo sacar la diferencia entre dos filas con PostgreSQL"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Cómo sacar la diferencia entre dos filas con PostgreSQL</h1>
+  <p class="entry-description muted">Aprende a calcular la diferencia entre valores de filas consecutivas en PostgreSQL usando self-joins, ideal para tablas con datos de medición.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2015-01-27">
+      2015-01-27
+    </time>
+    
+
+    
+    <span class="reading-time">1 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/postgresql/">postgresql</a>
+    
+    <a class="p-category" href="/tags/sql/">sql</a>
+    
+    <a class="p-category" href="/tags/self-join/">self-join</a>
+    
+    <a class="p-category" href="/tags/window-functions/">window-functions</a>
+    
+    <a class="p-category" href="/tags/lag/">lag</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p><picture><source type="image/webp" srcset="/static/images/posts/diferencia-entre-dos-filas-con-PostgreSQL/401930619_c6ce5e6f54_o.webp 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/diferencia-entre-dos-filas-con-PostgreSQL/401930619_c6ce5e6f54_o.jpg" alt="Elefantote"  srcset="/static/images/posts/diferencia-entre-dos-filas-con-PostgreSQL/401930619_c6ce5e6f54_o.jpg 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="480" height="320" /></picture></p>
+<p>Tengo una tabla muy simple donde se guardan mediciones. Cada fila corresponde
+a una medición y cada fila tiene una columna con el ID.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">CREATE TABLE </span><span style="color:#8fa1b3;">history</span><span style="color:#c0c5ce;"> (
+</span><span style="color:#c0c5ce;">  id </span><span style="color:#b48ead;">SERIAL</span><span style="color:#c0c5ce;">,
+</span><span style="color:#c0c5ce;">  conteo </span><span style="color:#b48ead;">INT
+</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>Ahora insertaré algunos datos.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">INSERT INTO</span><span style="color:#c0c5ce;"> history(conteo)
+</span><span style="color:#b48ead;">VALUES</span><span style="color:#c0c5ce;"> (</span><span style="color:#d08770;">43</span><span style="color:#c0c5ce;">), (</span><span style="color:#d08770;">63</span><span style="color:#c0c5ce;">), (</span><span style="color:#d08770;">22</span><span style="color:#c0c5ce;">), (</span><span style="color:#d08770;">41</span><span style="color:#c0c5ce;">), (</span><span style="color:#d08770;">85</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>Necesito calcular qué tanto ha cambiado el valor de <code>conteo</code> de una columna
+con respecto a la columna anterior. ¿Cómo se hace eso? La respuesta es más
+sencilla de lo que me imaginé. Este es uno de esos casos donde se puede hacer
+un <code>JOIN</code> de la tabla consigo misma. Esto en inglés se le llama <em>self-join</em>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">SELECT </span><span style="color:#d08770;">Y</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">id</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">Y</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">conteo </span><span style="color:#c0c5ce;">- </span><span style="color:#d08770;">X</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">conteo </span><span style="color:#b48ead;">AS </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Diferencia</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#b48ead;">FROM</span><span style="color:#c0c5ce;"> history X
+</span><span style="color:#b48ead;">JOIN</span><span style="color:#c0c5ce;"> history Y </span><span style="color:#b48ead;">ON </span><span style="color:#d08770;">X</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">id </span><span style="color:#c0c5ce;">= (</span><span style="color:#d08770;">Y</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">id </span><span style="color:#c0c5ce;">- </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)
+</span><span style="color:#b48ead;">ORDER BY </span><span style="color:#d08770;">Y</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">id </span><span style="color:#b48ead;">DESC</span><span style="color:#c0c5ce;">;
+</span></pre>
+<p>La solución, en este caso específico, consiste en aprovechar que la columna ID
+es un número entero que crece conforme se van insertando columnas. Simplemente
+se busca que el ID de la columna anterior sea equivalente al de la columna
+actual menos uno.</p>
+<p>El resultado es este:</p>
+<table><thead><tr><th>ID</th><th style="text-align: center">Diferencia</th></tr></thead><tbody>
+<tr><td>5</td><td style="text-align: center">44</td></tr>
+<tr><td>4</td><td style="text-align: center">19</td></tr>
+<tr><td>3</td><td style="text-align: center">-41</td></tr>
+<tr><td>2</td><td style="text-align: center">20</td></tr>
+</tbody></table>
+<p>Obviamente en condiciones reales no todas las tablas tendrán un ID seriado de
+1 en 1. Pero si la tabla incluye la fecha y hora de la creación de la columna
+se puede usar esta columna.</p>
+<p>Acá dejo un <a href="http://sqlfiddle.com/#!15/76b2a/6">SQLFiddle</a> para que puedas
+jugar con los datos.</p>
+<p><strong>Nota</strong>: En PostgreSQL moderno (8.4+) la forma idiomática de hacer esto es con
+<em>window functions</em>, específicamente <code>LAG()</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">SELECT</span><span style="color:#c0c5ce;"> id, conteo - LAG(conteo) OVER (</span><span style="color:#b48ead;">ORDER BY</span><span style="color:#c0c5ce;"> id) </span><span style="color:#b48ead;">AS </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Diferencia</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#b48ead;">FROM</span><span style="color:#c0c5ce;"> history
+</span><span style="color:#b48ead;">ORDER BY</span><span style="color:#c0c5ce;"> id </span><span style="color:#b48ead;">DESC</span><span style="color:#c0c5ce;">;
+</span></pre>
+<hr />
+<ul>
+<li>La imagen del elefante la tomé de <a href="https://flic.kr/p/BvZYg">https://flic.kr/p/BvZYg</a></li>
+</ul>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/diferencia-entre-dos-filas-con-PostgreSQL" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/php-extension-php-phpcpp" rel="next">&larr; Programa, compila e instala tu propia extensión de PHP con PHP-CPP</a>
+  
+  
+  <a href="/blog/agrandar-disco-de-una-maquina-virtual-en-VirtualBox" rel="prev">¿Cómo agrandar el disco de una máquina virtual en VirtualBox? &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

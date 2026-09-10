@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Theming Plone 4 - Part 2 &middot; Noe Nieto</title>
+    <meta name="description" content="Second part of the Plone 4 theming walkthrough: choosing a CSS template, understanding Deco.gs grid framework, Plone's viewlet layout and step-by-step styling notes.">
+    
+    <meta name="keywords" content="plone, theming, css, deco-gs, sunburst, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Theming Plone 4 - Part 2">
+    <meta property="og:description" content="Second part of the Plone 4 theming walkthrough: choosing a CSS template, understanding Deco.gs grid framework, Plone's viewlet layout and step-by-step styling notes.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Theming Plone 4 - Part 2">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2010-05-20">
+    
+    
+    <meta property="article:tag" content="plone">
+    <meta property="article:tag" content="theming">
+    <meta property="article:tag" content="css">
+    <meta property="article:tag" content="deco-gs">
+    <meta property="article:tag" content="sunburst">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Theming Plone 4 - Part 2">
+    <meta name="twitter:description" content="Second part of the Plone 4 theming walkthrough: choosing a CSS template, understanding Deco.gs grid framework, Plone's viewlet layout and step-by-step styling notes.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Theming Plone 4 - Part 2">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/theming-plone-4-part-2.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Theming Plone 4 - Part 2","description":"Second part of the Plone 4 theming walkthrough: choosing a CSS template, understanding Deco.gs grid framework, Plone's viewlet layout and step-by-step styling notes.","datePublished":"2010-05-20","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["plone","theming","css","deco-gs","sunburst"],"wordCount":1232}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Theming Plone 4 - Part 2"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Theming Plone 4 - Part 2</h1>
+  <p class="entry-description muted">Second part of the Plone 4 theming walkthrough: choosing a CSS template, understanding Deco.gs grid framework, Plone's viewlet layout and step-by-step styling notes.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Plone 4 theming with Sunburst/Deco.gs is deprecated; Plone 5+ uses Diazo/Mosaic.
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2010-05-20">
+      2010-05-20
+    </time>
+    
+
+    
+    <span class="reading-time">5 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/plone/">plone</a>
+    
+    <a class="p-category" href="/tags/theming/">theming</a>
+    
+    <a class="p-category" href="/tags/css/">css</a>
+    
+    <a class="p-category" href="/tags/deco-gs/">deco-gs</a>
+    
+    <a class="p-category" href="/tags/sunburst/">sunburst</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#on-part-1" class="toc-link">On Part 1...</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#choosing-the-css-theme-template" class="toc-link">Choosing the CSS theme template</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#theming-tools" class="toc-link">Theming tools</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#the-deco-gs-system" class="toc-link">The Deco.gs system</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#plone-s-layout" class="toc-link">Plone's layout</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#copying-stylesheets-to-the-sunburst-theme" class="toc-link">Copying stylesheets to the Sunburst theme</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#copy-images-from-the-template-to-our-theme" class="toc-link">Copy images from the template to our theme</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#hands-on-with-our-theme" class="toc-link">Hands-on with our theme</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#wrap-up" class="toc-link">Wrap up</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p>On Part Two, I am going to document how to take one template and "translate"
+it for Plone. I am using a very simple template from CSSTemplates.org.
+Finally, all the code I made will be uploaded to GitHub.</p>
+<h2 id="on-part-1">On Part 1...</h2>
+<p>On Part 1 I learned to prepare the system for buildout and Zope; I also
+learned to create a Plone 4 instance from scratch and finally I learned to
+create and prepare a Plone product for the new theme I am going to make.</p>
+<p>It's time to continue with some details before starting the modification of
+colors, images, and so on.</p>
+<h2 id="choosing-the-css-theme-template">Choosing the CSS theme template</h2>
+<p>I chose the "<a href="http://www.freecsstemplates.org/preview/hanging/">Hanging</a>"
+template from FreeCSSTemplates.com. It's perfect because it has three columns
+and fixed width to 1024x768 monitors, which is the minimum standard in 2010.</p>
+<p>So, after downloading and unpacking the template I get a very clean and basic
+theme — good!</p>
+<p><img src="/static/images/posts/theming-plone-4-part-2/choose-css-template.png" alt="choose_css_template.png" />
+<img src="/static/images/posts/theming-plone-4-part-2/contenido-tema-plone4.png" alt="Theme contents"  loading="lazy" /></p>
+<p>The original template looks like this:</p>
+<p><img src="/static/images/posts/theming-plone-4-part-2/hanging-theme.png" alt="new theme"  loading="lazy" /></p>
+<h2 id="theming-tools">Theming tools</h2>
+<p>These are the tools we are going to use to make our theme:</p>
+<ul>
+<li>Firefox and Firebug (on Lucid, the package is <code>xul-ext-firebug</code>).</li>
+<li>Gedit (make sure you install the <code>gedit-plugins</code> package).</li>
+</ul>
+<p>Additionally, on other templates I had to use:</p>
+<ul>
+<li>Gimp, for editing logos and some images.</li>
+<li>Photoshop. Sometimes Gimp does not properly open PSD templates. You'll need someone that exports the template to JPEG, PNG or something similar so you can open the templates in Gimp and cut as needed.</li>
+<li>Komodo Edit (a very good editor).</li>
+</ul>
+<p>Any other? Other tools on other OS?</p>
+<h2 id="the-deco-gs-system">The Deco.gs system</h2>
+<p>SunBurst, the Plone 4 default theme, uses the
+<a href="http://web.archive.org/web/20100413153750/http://deco.gs/">Deco.gs</a> system,
+which can be defined as a "lightweight" grid framework. As some will already
+know, there are some very popular grid systems.</p>
+<p>I came to understand the grid system when I saw the
+<a href="http://web.archive.org/web/20100419013044/http://www.gridsystemgenerator.com/">Grid System Generator</a>.
+So, in general, the Sunburst theme uses the Deco.gs system and has 12 columns
+for horizontal layout/positioning and has no horizontal layout/positioning. So
+this is as basic as it can get.</p>
+<p>There is a talk from Alexander Limi, the creator of Deco.gs, on
+<a href="http://blip.tv/file/3020558">blip.tv</a>. He explains very clearly why he
+created yet another grid system.</p>
+<p>So, now that we know that Deco.gs exists, we only need to pay attention to
+these CSS styles:</p>
+<ul>
+<li><code>row</code></li>
+<li><code>cell</code></li>
+<li><code>width-full</code></li>
+<li><code>width-1:2</code></li>
+<li><code>position-0</code></li>
+<li><code>position-1:4</code></li>
+<li><code>position-3:4</code></li>
+</ul>
+<h2 id="plone-s-layout">Plone's layout</h2>
+<p>Plone's layout is made of viewlet managers that contain another viewlet
+manager or viewlets. On a vanilla Plone site, there are 8 main viewlet
+managers: <code>plone.portaltop</code>, <code>plone.abovecontent</code>, <code>plone.contentviews</code>,
+<code>plone.abovecontenttitle</code>, <code>plone.belowcontenttitle</code>, <code>plone.abovecontentbody</code>,
+<code>plone.belowcontentbody</code> and <code>plone.belowcontent</code>. Not all viewlet managers (or
+their contents) are displayed at the same time.</p>
+<p>This is a Firebug screenshot showing the structure of the <code>@@manage-portlets</code>
+view:</p>
+<p><img src="/static/images/posts/theming-plone-4-part-2/manage-portlets.png" alt="manage_portlets"  loading="lazy" /></p>
+<p>The viewlet manager <code>plone.portaltop</code> renders <code>#portal-top</code>; <code>plone.belowcontent</code>
+renders <code>#portal-footer</code>, <code>#portal-colophon</code> and <code>#portal-siteactions</code>. The template
+<code>main.pt</code> is the one that renders <code>#portal-columns</code> directly, and inside it, it
+renders the content of some other viewlet managers.</p>
+<p>There are other good documentation resources for Plone theming:</p>
+<ul>
+<li><a href="https://www.packtpub.com/Professional-Plone-web-applications-CMS/book">Professional Plone Development</a> (Martin Aspelli), chapter 8 "Plone 3 Theming".</li>
+<li><a href="https://www.packtpub.com/plone-3-theming-create-flexible-powerful-professional-templates/book">Plone 3 Theming</a> (Veda Williams).</li>
+<li><a href="http://plone.org/documentation/manual/upgrade-guide/version/upgrading-plone-3-x-to-4.0/updating-add-on-products-for-plone-4.0/updating-plone-3-themes-for-plone-4/">Updating Plone 3 themes for Plone 4</a>.</li>
+<li><a href="http://plone.org/documentation/topic/Visual+Design#creating-theme-products">Plone.org documentation</a> (various authors).</li>
+</ul>
+<h2 id="copying-stylesheets-to-the-sunburst-theme">Copying stylesheets to the Sunburst theme</h2>
+<p>Setting the theory aside, we need to copy some stylesheets from the Sunburst
+theme. Some of the stylesheets of Sunburst are empty, and some others don't
+really need customization.</p>
+<p>First, we need to find out the location of the <code>plonetheme.sunburst</code> egg. I use
+the following trick:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;"># on our buildout directory (e.g. ~/plone4b3)
+</span><span style="color:#bf616a;">sunburst</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">`</span><span style="color:#8fa1b3;">cat</span><span style="color:#a3be8c;"> bin/instance </span><span style="color:#c0c5ce;">| </span><span style="color:#8fa1b3;">grep </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">plonetheme.sunburst</span><span style="color:#c0c5ce;">&quot; | </span><span style="color:#8fa1b3;">cut</span><span style="color:#bf616a;"> -d </span><span style="color:#96b5b4;">\&#39;</span><span style="color:#bf616a;"> -f2</span><span style="color:#a3be8c;">`/plonetheme/sunburst/skins/sunburst_styles/
+</span><span style="color:#bf616a;">hanging</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">src/plonetheme.hanging/plonetheme/hanging/skins/hangingtheme_styles/
+</span></pre>
+<p>Now that we have the location of both directories, we only need to copy three files:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">cp </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">sunburst</span><span style="color:#c0c5ce;">/base_properties.props $</span><span style="color:#bf616a;">hanging
+</span><span style="color:#8fa1b3;">cp </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">sunburst</span><span style="color:#c0c5ce;">/ploneCustom.css.dtml $</span><span style="color:#bf616a;">hanging
+</span><span style="color:#8fa1b3;">cp </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">sunburst</span><span style="color:#c0c5ce;">/public.css $</span><span style="color:#bf616a;">hanging
+</span></pre>
+<p>These three files will be all we need to edit in order to change colors and so
+on.</p>
+<h2 id="copy-images-from-the-template-to-our-theme">Copy images from the template to our theme</h2>
+<p>This is just a reminder to copy all the images from the Hanging theme to the
+directory
+<code>src/plonetheme.hanging/plonetheme/hanging/skins/hangingtheme_images/</code>
+(<code>hangingtheme_images/</code> from now on).</p>
+<h2 id="hands-on-with-our-theme">Hands-on with our theme</h2>
+<p>We already have our filesystem-based theme and we have also installed it on a
+Plone instance. We already know of the existence of the Deco.gs system and, in
+general, we already know how Plone visual building blocks are laid out on top
+of each other (by using portlet managers).</p>
+<p>We also have three new files on <code>hangingtheme_images/</code>, so we have everything
+we need to start.</p>
+<p>Let's use a top-bottom approach while applying styles to the Plone theme. That
+means: I open two tabs in Firefox and start copying styles from the <code>&lt;body&gt;</code>,
+then I move to <code>#visual-portal-wrapper</code>, and so on.</p>
+<p>For those like me who need a photo for everything, that's what we are going to do:</p>
+<p><img src="/static/images/posts/theming-plone-4-part-2/copy-theme-styles.png" alt="Copying theme styles"  loading="lazy" /></p>
+<p>If I documented every step by now, this post would be unfinishable, so I just
+will list the modifications I made. The details of each modification are
+broken into small commits on the
+<a href="http://github.com/tzicatl/plone4andtheme">git repository</a>. Feel free to clone
+the project buildout and walk through the log (hopefully it is not very long).</p>
+<p>These are the steps I did to finish the theme:</p>
+<ul>
+<li>Style <code>&lt;body/&gt;</code>.</li>
+<li>Center <code>#visual-portal-wrapper</code> and use <code>60em</code> width.</li>
+<li>Change the Plone logo. It was transparent for white background. Now it's transparent for any background. I took it from the official Plone logo pack.</li>
+<li>Style <code>#portal-globalnav</code>.
+<ul>
+<li>The navigation bar in Hanging and Plone are alike, but not equal. I also had to adjust the sizes, margin and padding.</li>
+</ul>
+</li>
+<li>Style the columns.
+<ul>
+<li>This was trickier than the previous commits. I had to create a special background for <code>#portal-columns</code> with some transparent pixels so I could align the header and the columns. Also, the portlet columns background won't take all the vertical space. What should I do? Anyway, this is the best I can do in less than 1 hour.</li>
+</ul>
+</li>
+<li>Override the footer viewlet and style it.</li>
+<li>Style the Plone content. I use the <code>test_rendering</code> template as a guide (i.e. <code>http://localhost:8080/Plone/test_rendering</code>).</li>
+<li>Add styles for headers and paragraphs.</li>
+<li>Add styles for links.</li>
+<li>Adjust minor details.</li>
+</ul>
+<p>After some hours of hacking (I'm slooow), this is how it looks:</p>
+<p><img src="/static/images/posts/theming-plone-4-part-2/plone-hanging-preview.png" alt="Template hanging final"  loading="lazy" /></p>
+<h2 id="wrap-up">Wrap up</h2>
+<p>On Part 1 of this post, I learned to prepare the system for buildout and Zope;
+I created a Plone 4 instance from scratch and finally I learned to create and
+prepare a Plone product for the new theme.</p>
+<p>On this second part, I briefly described the Deco.gs grid framework and that
+we should pay attention to it. I also described Plone's HTML and CSS layout
+and some very rough notes on the process of changing the stylesheets, adding
+images or even adapting images for the Plone theme.</p>
+<p>While doing this theme I made every commit to git as small as possible. I hope
+that, if someone else (or me) walks through the git log, he or she can learn
+about the theming process.</p>
+<p>Finally, there are some issues with the theme, though. Mainly with the columns.
+For example, the portlet columns may not fill up all the vertical space. I
+hope to find a trick to make them work. Or should I start to theme sites using
+Deliverance?</p>
+<p>Thanks for reading my bad English so far!</p>
+<hr />
+
+  </div>
+
+  
+  <a href="/blog/theming-plone-4-part-2" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/plone-and-security" rel="next">&larr; Plone and security</a>
+  
+  
+  <a href="/blog/theming-plone-4-part-1" rel="prev">Theming Plone 4 - Part 1 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

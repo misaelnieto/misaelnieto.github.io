@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>2018-10-02-exercising_the_transfer_matrix_method.md &middot; Noe Nieto</title>
+    <meta name="description" content="Exercising the transfer matrix method">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="2018-10-02-exercising_the_transfer_matrix_method.md">
+    <meta property="og:description" content="Exercising the transfer matrix method">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="2018-10-02-exercising_the_transfer_matrix_method.md">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2018-10-02">
+    
+    
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="2018-10-02-exercising_the_transfer_matrix_method.md">
+    <meta name="twitter:description" content="Exercising the transfer matrix method">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="2018-10-02-exercising_the_transfer_matrix_method.md">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/exercising_the_transfer_matrix_method.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"2018-10-02-exercising_the_transfer_matrix_method.md","description":"Exercising the transfer matrix method","datePublished":"2018-10-02","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","wordCount":1286}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"2018-10-02-exercising_the_transfer_matrix_method.md"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">2018-10-02-exercising_the_transfer_matrix_method.md</h1>
+  
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2018-10-02">
+      2018-10-02
+    </time>
+    
+
+    
+    <span class="reading-time">5 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#exercising-the-transfer-matrix-method" class="toc-link">Exercising the transfer matrix method</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#the-device" class="toc-link">The device</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#step-1-get-the-coefficients-for-the-materials" class="toc-link">Step 1: Get the coefficients for the materials</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#step-2-compute-reflection-and-transmission-at-the-interfaces" class="toc-link">Step 2: Compute reflection and transmission at the interfaces</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#interface-matrix" class="toc-link">Interface matrix</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#propagation-matrix" class="toc-link">Propagation matrix</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#references" class="toc-link">References</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="exercising-the-transfer-matrix-method">Exercising the transfer matrix method</h2>
+<p>I'm attending a class on Electromagneting Wave Propagation in the Instituto de Ingeniería, UABC Mexicali, with Dr. Carlos Villa Angulo. He kindly allowed me to go to the class altough i'm not currently enrolled as a graduate student. Here in Mexico we say that I'm attending as <em>"Listener (oyente)"</em>. I don't know the exact term used in english for this but I know nobody visits my blog, so it doesn't matter anyway.</p>
+<p>We are now in the 5th or 6th week of the course and we are now studying the Transfer Matrix Method to understand the propagation of electromagnetic waves (e.g. Light) through different layers of materials with different reflection and absoroption coefficients. There are a lot of applications for this method, and is one used to simulate the absorption of light in a solar cell with multple layers.</p>
+<p>Since we are just a few people in the class room (9) the professor assigned a different device for each sudent and everyone must make a presentation and write a detailed report with the calculations made.</p>
+<h2 id="the-device">The device</h2>
+<p>My device has 4 layers: ITO (Indium-Tin-Oxide), a-Si-n, a-Si-p and Aluminum. Let's picture that with majestic detail using our latest, state of the art, ASCII 2D diagrams (but using UTF-8, sorry):</p>
+<pre><code>  ~ ~ ~ Air ~ ~ ~
+
++-------------------+ &lt;------+  Interface 1
+|  ITO (200nm)      | &lt;------------------------+ Layer 1
++-------------------+ &lt;------+  Interface 2
+|                   |
+|  a-Si-p (300 nm)  | &lt;------------------------+ Layer 2
+|                   |
++-------------------+ &lt;------+  Interface 3
+|                   |
+|  a-Si-n (10 µm)   | &lt;------------------------+ Layer 3
+~                   ~
+~                   ~
++-------------------+ &lt;------+  Interface 4
+|  Al (500 nm)      | &lt;------------------------+ Layer 4
++-------------------+
+
+           * Important: not to scale
+</code></pre>
+<p>Final note (yet important): the professor assigned us to analyze the electric field in only one layer, which in my case is the layer number three, only on the 600nm wavelenght! After this exercise I might post a follow-up with the analysis of the electric field for all the layers.</p>
+<p>So let's get our hands dirty, will ya?</p>
+<h2 id="step-1-get-the-coefficients-for-the-materials">Step 1: Get the coefficients for the materials</h2>
+<p>We need to model the behavior of light when it goes through the differnt layers of our device. For that we will use the complex refractive indexes for each material on our device (including air).</p>
+<p>The guys at PV Lighthouse are kind enough to publish refractive index tables for a wide variety of materials, including Silicon. They even add the citation of their references!. So, for my own convenience, I'm going to include a small table with the real and imaginary part of all the materials needed to build the device above @ 600 nm.</p>
+<table><thead><tr><th>Layer</th><th style="text-align: center">λ (nm)</th><th style="text-align: center">n</th><th style="text-align: center">k</th><th>Notes</th></tr></thead><tbody>
+<tr><td>0 (air)</td><td style="text-align: center">600</td><td style="text-align: center">1.0</td><td style="text-align: center">0.0</td><td>[Lei18]</td></tr>
+<tr><td>1 (ITO)</td><td style="text-align: center">600</td><td style="text-align: center">2.134</td><td style="text-align: center">8.370E-4</td><td>ITO Sputtered @1.2e20 cm-3 (Lei-18)</td></tr>
+<tr><td>2 (a-Si-p)</td><td style="text-align: center">600</td><td style="text-align: center">3.710</td><td style="text-align: center">8.496E-2</td><td>-type amorphous silicon deposited by PECVD  (Lei-18)</td></tr>
+<tr><td>3 (a-Si-n)</td><td style="text-align: center">600</td><td style="text-align: center">3.934</td><td style="text-align: center">8.559E-2</td><td>n-type amorphous silicon deposited by PECVD (Lei-18)</td></tr>
+<tr><td>4 (Al)</td><td style="text-align: center">600</td><td style="text-align: center">1.200</td><td style="text-align: center">7.260</td><td>[Pal85b]</td></tr>
+</tbody></table>
+<p><em><strong>Table 1</strong> - Refractive indexes for Air, ITO, a-Si and Al</em></p>
+<h2 id="step-2-compute-reflection-and-transmission-at-the-interfaces">Step 2: Compute reflection and transmission at the interfaces</h2>
+<p>The first interface ( ( I_0) ) is between the air and ITO</p>
+<pre><code>   Air        ITO
+           +----------------------------+
+           |                            |
+           +----- Transmission ---&gt;     |
+           |                            |
++----------&gt;                            |
+           |                            |
+           &lt;------ Reflection ----+     |
+           |                            |
+           |                            |
+       +--------------------------------+
+ Layer 0   |          Layer 1
+           |
+           +----&gt; Interface 0
+</code></pre>
+<p>The reflection on the interface 3 is right in-between layer 2 and 3, so i'll name it ( r_{23} ). It's calculated by the following expression:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>r</mi><mn>23</mn></msub><mo>=</mo><mfrac><mrow><msub><mi>n</mi><mn>3</mn></msub><mo>−</mo><msub><mi>n</mi><mn>2</mn></msub></mrow><mrow><msub><mi>n</mi><mn>3</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub></mrow></mfrac><mtext> </mtext></mrow><annotation encoding="application/x-tex"> r_{23} = \frac{ n_3 - n_2 }{n_3 + n_2}\ </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="vertical-align:-0.15em;height:0.5806em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0963em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-right:0.05em;margin-left:0em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-right:0.05em;margin-left:0em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-left:0em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace"> </span></span></span></span></span></p>
+<p>... so ... :</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>23</mn></msub><mo>=</mo><mfrac><mrow><mn>3.934</mn><mo>+</mo><mi>i</mi><mn>8.559</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>2</mn></mrow></msup><mo>−</mo><mn>3.710</mn><mo>−</mo><mi>i</mi><mn>8.496</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>2</mn></mrow></msup></mrow><mrow><mn>3.934</mn><mo>+</mo><mi>i</mi><mn>8.559</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>2</mn></mrow></msup><mo>+</mo><mn>3.710</mn><mo>+</mo><mi>i</mi><mn>8.496</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>2</mn></mrow></msup></mrow></mfrac><mtext> </mtext><mspace linebreak="newline"></mspace><mo>=</mo><mfrac><mrow><mn>0.224</mn><mo>+</mo><mi>i</mi><mn>6.3</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow><mrow><mn>7.644</mn><mo>+</mo><mi>i</mi><mn>0.17055</mn></mrow></mfrac><mtext> </mtext><mspace linebreak="newline"></mspace><msub><mi>r</mi><mn>23</mn></msub><mo>=</mo><mn>0.2929</mn><mo>+</mo><mi>i</mi><mn>5.71</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
+r_{23} = \frac{ 3.934 + i8.559x10^{-2}  -  3.710 - i8.496x10^{-2} }{ 3.934 + i8.559x10^{-2}  +  3.710 + i8.496x10^{-2} }\ \
+= \frac{ 0.224 + i6.3x10^{-4}}{ 7.644 + i0.17055 }\ \
+r_{23} = 0.2929 + i5.71x10^{-4}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-left:-0.0278em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2604em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span><span class="mord">.</span><span class="mord">9</span><span class="mord">3</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">8</span><span class="mord">.</span><span class="mord">5</span><span class="mord">5</span><span class="mord">9</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="margin-right:0.05em;top:-2.989em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">3</span><span class="mord">.</span><span class="mord">7</span><span class="mord">1</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">8</span><span class="mord">.</span><span class="mord">4</span><span class="mord">9</span><span class="mord">6</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="margin-right:0.05em;top:-2.989em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span><span class="mord">.</span><span class="mord">9</span><span class="mord">3</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">8</span><span class="mord">.</span><span class="mord">5</span><span class="mord">5</span><span class="mord">9</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="margin-right:0.05em;top:-3.063em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">3</span><span class="mord">.</span><span class="mord">7</span><span class="mord">1</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">8</span><span class="mord">.</span><span class="mord">4</span><span class="mord">9</span><span class="mord">6</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace"> </span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2604em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">7</span><span class="mord">.</span><span class="mord">6</span><span class="mord">4</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mord">7</span><span class="mord">0</span><span class="mord">5</span><span class="mord">5</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">2</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">6</span><span class="mord">.</span><span class="mord">3</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="margin-right:0.05em;top:-3.063em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace"> </span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-right:0.05em;margin-left:-0.0278em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="vertical-align:-0.0833em;height:0.7278em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">9</span><span class="mord">2</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord mathnormal">i</span><span class="mord">5</span><span class="mord">.</span><span class="mord">7</span><span class="mord">1</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="margin-right:0.05em;top:-3.113em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>The transmission of the interface 3 is, conversely:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>t</mi><mn>23</mn></msub><mo>=</mo><mn>1</mn><mo>+</mo><mi>r</mi><mn>23</mn><mo>=</mo><mn>1</mn><mo>+</mo><mfrac><mrow><msub><mi>n</mi><mn>3</mn></msub><mo>−</mo><msub><mi>n</mi><mn>2</mn></msub></mrow><mrow><msub><mi>n</mi><mn>3</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub></mrow></mfrac><mtext> </mtext><mo>=</mo><mn>1.2929</mn><mo>+</mo><mi>i</mi><mn>5.7</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
+t_{23} = 1 + r{23} = 1 + \frac{ n_3 - n_2 }{n_3 + n_2}\ = 1.2929 + i5.7x10^{-4}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="vertical-align:-0.15em;height:0.7651em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;margin-left:0em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mord"><span class="mord">2</span><span class="mord">3</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0963em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;margin-left:0em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-left:0em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-left:0em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace"> </span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="vertical-align:-0.0833em;height:0.7278em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord">9</span><span class="mord">2</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord mathnormal">i</span><span class="mord">5</span><span class="mord">.</span><span class="mord">7</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="margin-right:0.05em;top:-3.113em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>Working with complex numbers by using paper and pencil (and maybe a calculator) is no fun, and prone to errors. So I wrote these python functions to compute the transmission and reflection coefficients:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">transmission</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">n1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">n2</span><span style="color:#c0c5ce;">):
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">    Compute the transmission coefficient between two materials.
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">    Both n1, n2 are the complex refractive indexes for both materials.
+</span><span style="color:#65737e;">    &quot;&quot;&quot;
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1 </span><span style="color:#c0c5ce;">+ (n2 - n1) / (n2 + n1)
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">reflection</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">n1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">n2</span><span style="color:#c0c5ce;">):
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">    Compute the transmission coefficient between two materials.
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">    Both n1, n2 are the complex refractive indexes for both materials.
+</span><span style="color:#65737e;">    &quot;&quot;&quot;
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">(n2 - n1) / (n2 + n1)
+</span></pre>
+<p>Let's take this functions and test them with our own values:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&gt;&gt;&gt; n2 = </span><span style="color:#d08770;">3.710 </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">0.08496</span><span style="color:#b48ead;">j
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; n3 = </span><span style="color:#d08770;">3.934 </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">0.08559</span><span style="color:#b48ead;">j
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#8fa1b3;">reflection</span><span style="color:#c0c5ce;">(n2, n3)
+</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0.029291286729338666</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.0005711183871910915</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">)
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; tmm.</span><span style="color:#8fa1b3;">transmission</span><span style="color:#c0c5ce;">(n2, n3)
+</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1.0292912867293387</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.0005711183871910915</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">)
+</span></pre>
+<p>... it works, good.</p>
+<h2 id="interface-matrix">Interface matrix</h2>
+<p>The interface matrix describes the effect on the incident field (e.g. light at λ=600nm) when it impacts interface 3. The interface matrix ( I_{23} ), is defined as follows:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>I</mi><mn>23</mn></msub><mo>=</mo><mfrac><mn>1</mn><msub><mi>t</mi><mn>23</mn></msub></mfrac><mrow><mo fence="true">[</mo><mtable columnalign="center center" columnspacing="1em" rowspacing="0.16em"><mtr><mtd><mstyle displaystyle="false" scriptlevel="0"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>r</mi><mn>23</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>r</mi><mn>23</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+I_{23} =  \frac{1}{t_{23}}   \begin{bmatrix} 1 &amp; r_{23} \ r_{23} &amp; 1 \end{bmatrix}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0785em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-left:-0.0785em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span></span></p>
+<p>After substitution, ( I_{23} ) becomes this:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>I</mi><mn>23</mn></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1.2929</mn><mo>+</mo><mi>i</mi><mn>5.7</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow></mfrac><mrow><mo fence="true">[</mo><mtable columnalign="center center" rowspacing="0.16em" columnspacing="1em"><mtr><mtd><mstyle displaystyle="false" scriptlevel="0"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>0.2929</mn><mo>+</mo><mi>i</mi><mn>5.71</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>0.2929</mn><mo>+</mo><mi>i</mi><mn>5.71</mn><mi>x</mi><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+I_{23} =  \frac{1}{1.2929 + i5.7x10^{-4}}   \begin{bmatrix} 1 &amp; 0.2929 + i5.71x10^{-4} \ 0.2929 + i5.71x10^{-4} &amp; 1 \end{bmatrix}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0785em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-right:0.05em;top:-2.55em;margin-left:-0.0785em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord">9</span><span class="mord">2</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">5</span><span class="mord">.</span><span class="mord">7</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">9</span><span class="mord">2</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">5</span><span class="mord">.</span><span class="mord">7</span><span class="mord">1</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">9</span><span class="mord">2</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mord">5</span><span class="mord">.</span><span class="mord">7</span><span class="mord">1</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="margin-right:0.05em;top:-3.063em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span></span></p>
+<p>Which is becoming a bit startling ...</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/exercising_the_transfer_matrix_method/abandon-thread-fb-3029909.webp 300w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/exercising_the_transfer_matrix_method/abandon-thread-fb-3029909.jpg" alt="For mere mortals ..."  srcset="/static/images/posts/exercising_the_transfer_matrix_method/abandon-thread-fb-3029909.jpg 300w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="300" height="300" /></picture></p>
+<p>... for mere mortals. Yet we are still here, aren't we?</p>
+<p>Python does not support matrices out of the box, but with a little help of <a href="https://docs.scipy.org/doc/numpy/">numpy</a> we can solve this matrix in no time:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">numpy
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; n2 = </span><span style="color:#d08770;">3.710 </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">0.08496</span><span style="color:#b48ead;">j
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; n3 = </span><span style="color:#d08770;">3.934 </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">0.08559</span><span style="color:#b48ead;">j
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; r_23 = </span><span style="color:#8fa1b3;">reflection</span><span style="color:#c0c5ce;">(n2, n3)
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; t_23 = </span><span style="color:#8fa1b3;">transmission</span><span style="color:#c0c5ce;">(n2, n3)
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">/t_23
+</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0.9715419774918925</span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">0.0005390752787160436</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">)
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(numpy.</span><span style="color:#8fa1b3;">array</span><span style="color:#c0c5ce;">([[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, r_23], [r_23, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">]]))
+</span><span style="color:#c0c5ce;">[[</span><span style="color:#d08770;">1.        </span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">0.</span><span style="color:#b48ead;">j         </span><span style="color:#d08770;">0.02929129</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.00057112</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">]
+</span><span style="color:#c0c5ce;"> [</span><span style="color:#d08770;">0.02929129</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.00057112</span><span style="color:#b48ead;">j </span><span style="color:#d08770;">1.        </span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">0.</span><span style="color:#b48ead;">j        </span><span style="color:#c0c5ce;">]]
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; I_23 = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">/t_23 * numpy.</span><span style="color:#8fa1b3;">array</span><span style="color:#c0c5ce;">([[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, r_23], [r_23, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">]])
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">[[</span><span style="color:#d08770;">0.97154198</span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j </span><span style="color:#d08770;">0.02845802</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">]
+</span><span style="color:#c0c5ce;"> [</span><span style="color:#d08770;">0.02845802</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j </span><span style="color:#d08770;">0.97154198</span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">]]
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(I_23)
+</span><span style="color:#c0c5ce;">[[</span><span style="color:#d08770;">0.97154198</span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j </span><span style="color:#d08770;">0.02845802</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">]
+</span><span style="color:#c0c5ce;"> [</span><span style="color:#d08770;">0.02845802</span><span style="color:#c0c5ce;">-</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j </span><span style="color:#d08770;">0.97154198</span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">0.00053908</span><span style="color:#b48ead;">j</span><span style="color:#c0c5ce;">]]
+</span></pre>
+<h2 id="propagation-matrix">Propagation matrix</h2>
+<p>The propagation matrix describe the effect on the incident field when it propagates through the layer. To find this matrix we need to calculate the propagation coefficient (phase differential?) for the silicon layer 3 at λ= 600 nm. We will use the phasorial notation, which is easier to deal with:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>3</mn></msub><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi><msub><mi>d</mi><mi>z</mi></msub></mrow><mi>λ</mi></mfrac><mspace width="0.2778em"/><msub><mi>n</mi><mn>3</mn></msub><mspace width="0.2778em"/><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><msub><mi>ϕ</mi><mn>3</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+\beta_3 = \frac {2 \pi d_z}{\lambda} ; n_3 ; cos (\phi_3 )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0528em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-left:-0.0528em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="vertical-align:-0.686em;height:2.0574em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">λ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.0359em;">π</span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="margin-right:0.05em;margin-left:0em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.044em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-right:0.05em;top:-2.55em;margin-left:0em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">cos</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-left:0em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span>
+$$</p>
+<p>Where:</p>
+<ul>
+<li>( n_3 ) is the real par of the complex index of diffraction of layer 3 (n=3.934).</li>
+<li>( \phi_3 ) is the angle of incidence of the light</li>
+<li>( d_z ) is the height of layer 3 , which in my case is 10 µm.</li>
+</ul>
+<p>So  ( \beta_3 ) becomes:</p>
+<p>$$
+\beta_3 = \frac {2 \pi \cdot d_z}{\lambda} n_3 \cdot cos(\phi_3 )
+= \frac {2 \pi \cdot 200 nm)}{600 nm} \cdot (3.934) \cdot cos(0)
+= \frac {2 *3.1416 * 200 nm  * 3.934}{600 nm}
+\
+\beta_3 = 8.2393696
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>o</mi><mi>w</mi><mi>w</mi><mi>e</mi><mi>c</mi><mi>a</mi><mi>n</mi><mi>a</mi><mi>s</mi><mi>s</mi><mi>e</mi><mi>m</mi><mi>b</mi><mi>l</mi><mi>e</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>a</mi><mi>g</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>x</mi><mo>:</mo></mrow><annotation encoding="application/x-tex"></p>
+<p>Now we can assemble the propagation matrix:</p>
+<p></annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.0269em;">ww</span><span class="mord mathnormal">ec</span><span class="mord mathnormal">ana</span><span class="mord mathnormal">sse</span><span class="mord mathnormal">mb</span><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">p</span><span class="mord mathnormal">ro</span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.0359em;">g</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">nma</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span></span></span></span></span>
+P = \begin{bmatrix} e^{-j \cdot \beta_3 \cdot z} &amp; 0 \ 0 &amp; e^{-j \cdot\beta_3 \cdot z} \end{bmatrix}
+\
+P  =  \begin{bmatrix} {0.9999 - i8.234x10^{-06}} &amp; 0 \ 0 &amp; 0.9999 - i8.234x10^{-06} \end{bmatrix}
+$$</p>
+<h2 id="references">References</h2>
+<ul>
+<li>[Lei18] 	M. Leilaeioun, Z.J. Yu, S. Manzoor, K. Fisher, J. Shi and Z. Holman, 'Design of the front transparent conductive oxide layer of silicon heterojunction solar for four-terminal tandem applications', In preparation 2018.</li>
+<li>[Pal85b] 	E. Palik, Handbook of Optical Constants of Solids Vol I, Academic Press, Orlando, pp. 397–400, 1985.</li>
+</ul>
+
+  </div>
+
+  
+  <a href="/blog/exercising_the_transfer_matrix_method" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/gulp-dist-ssh" rel="next">&larr; 2018-10-31-gulp-dist-ssh.md</a>
+  
+  
+  <a href="/blog/a-hiring-project" rel="prev">A hiring project &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

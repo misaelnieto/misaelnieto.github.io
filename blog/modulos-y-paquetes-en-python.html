@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Módulos y paquetes en Python &middot; Noe Nieto</title>
+    <meta name="description" content="Explicación de módulos y paquetes en Python: cómo funcionan, dónde se encuentran y cómo manipular el Python Path.">
+    
+    <meta name="keywords" content="python, modules, packages, programming, python-path, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Módulos y paquetes en Python">
+    <meta property="og:description" content="Explicación de módulos y paquetes en Python: cómo funcionan, dónde se encuentran y cómo manipular el Python Path.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Módulos y paquetes en Python">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2014-04-25">
+    
+    
+    <meta property="article:tag" content="python">
+    <meta property="article:tag" content="modules">
+    <meta property="article:tag" content="packages">
+    <meta property="article:tag" content="programming">
+    <meta property="article:tag" content="python-path">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Módulos y paquetes en Python">
+    <meta name="twitter:description" content="Explicación de módulos y paquetes en Python: cómo funcionan, dónde se encuentran y cómo manipular el Python Path.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Módulos y paquetes en Python">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/modulos-y-paquetes-en-python.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Módulos y paquetes en Python","description":"Explicación de módulos y paquetes en Python: cómo funcionan, dónde se encuentran y cómo manipular el Python Path.","datePublished":"2014-04-25","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["python","modules","packages","programming","python-path"],"wordCount":779}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Módulos y paquetes en Python"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Módulos y paquetes en Python</h1>
+  <p class="entry-description muted">Explicación de módulos y paquetes en Python: cómo funcionan, dónde se encuentran y cómo manipular el Python Path.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2014-04-25">
+      2014-04-25
+    </time>
+    
+
+    
+    <span class="reading-time">3 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/python/">python</a>
+    
+    <a class="p-category" href="/tags/modules/">modules</a>
+    
+    <a class="p-category" href="/tags/packages/">packages</a>
+    
+    <a class="p-category" href="/tags/programming/">programming</a>
+    
+    <a class="p-category" href="/tags/python-path/">python-path</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#dónde-están-los-módulos-de-python" class="toc-link">¿Dónde están los módulos de Python?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#el-python-path" class="toc-link">El Python Path</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p><picture><source type="image/webp" srcset="/static/images/posts/modulos-y-paquetes-en-python/4772680734-3ab815e07a-n.webp 320w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/modulos-y-paquetes-en-python/4772680734-3ab815e07a-n.jpg" alt="Packages"  srcset="/static/images/posts/modulos-y-paquetes-en-python/4772680734-3ab815e07a-n.jpg 320w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="320" height="214" /></picture></p>
+<p>Cuando comenzamos a usar Python, tarde o temprano llegaremos a usar módulos y
+paquetes.</p>
+<p>En Python, un <a href="https://docs.python.org/3/tutorial/modules.html">módulo</a> es un
+objeto que sirve como contenedor para organizar código en Python. Cada módulo
+tiene asignado un espacio de nombres y dentro de ese espacio de nombres puede
+haber cualquier cantidad de objetos, y como en Python todo es un objeto,
+también puede contener otros módulos.</p>
+<p>En el siguiente ejemplo se importa el módulo <code>math</code>; <code>math</code> es el espacio de
+nombres para un montón de funciones, clases y valores relacionados con
+operaciones matemáticas; el nombre <code>pi</code> es uno de esos y se encuentra <strong>dentro</strong>
+del espacio de nombres <code>math</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">math
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; math.pi
+</span><span style="color:#d08770;">3.141592653589793
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt;
+</span></pre>
+<p>En lenguajes como C, lo equivalente es <code>#include &lt;math.h&gt;</code>, pero la
+diferencia está en que todas las funciones, variables y constantes de la
+librería se quedan disponibles en el espacio de nombres global. Cuando se
+incluir muchas librerías y el código se hace muy grande, se corre el peligro
+de <strong>contaminar</strong> el espacio de nombres (<strong>namespace pollution</strong>). Otro
+problema es la colisión de nombres (<strong>namespace collision</strong> o <strong>namespace
+clash</strong>), que en nuestro ejemplo, ocurriría si alguna otra librería define
+una variable o una función con el nombre <code>pi</code>.</p>
+<p>Con los módulos de Python se matan dos pájaros de un tiro: 1) son una manera
+de organizar código y 2) se reduce la posibilidad de colisión de nombres y
+contaminar el espacio de nombres global.</p>
+<p>Además de los módulos, Python tiene el concepto de
+<a href="https://docs.python.org/3/tutorial/modules.html#packages">paquetes</a>.
+Un paquete es un módulo de Python que contiene otros módulos y/o paquetes. La
+diferencia entre un módulo y un paquete es que el paquete contiene un atributo
+<code>__path__</code> que indica la ruta en el disco duro donde está almacenado el
+paquete.</p>
+<p>Acá un ejemplo de un módulo:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">os
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; os
+</span><span style="color:#c0c5ce;">&lt;module &#39;</span><span style="color:#a3be8c;">os</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/os.pyc</span><span style="color:#c0c5ce;">&#39;&gt;
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; os.__package__
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt;
+</span></pre>
+<p>Ahora dos paquetes, <code>json</code> y <code>gtk</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">gtk
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; gtk
+</span><span style="color:#c0c5ce;">&lt;module &#39;</span><span style="color:#a3be8c;">gtk</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/site-packages/gtk-2.0/gtk/__init__.pyc</span><span style="color:#c0c5ce;">&#39;&gt;
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">json
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; json
+</span><span style="color:#c0c5ce;">&lt;module &#39;</span><span style="color:#a3be8c;">json</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/json/__init__.pyc</span><span style="color:#c0c5ce;">&#39;&gt;
+</span></pre>
+<p>¿Notaste alguna diferencia? <code>os</code> es un archivo mientras que <code>gtk</code> y <code>json</code>
+son archivos con el nombre <code>__init__.py</code> que están dentro de un directorio con
+el mismo nombre del paquete.</p>
+<p><strong>Nota</strong>: <code>pyc</code> es la extensión para archivos de Python compilados. Casi
+siempre vienen acompañados del archivo <code>.py</code> original. Anda y abre los
+archivos <code>.py</code> correspondientes para que veas que no hay nada mágico.</p>
+<p>Tanto módulos como paquetes tienen muchos más detalles que no voy a cubrir por
+el momento, basta con que te quedes con lo siguiente: en Python, los archivos
+con extensión <code>.py</code> son módulos, mientras que cualquier directorio que
+contenga un archivo con el nombre <code>__init__.py</code> se convierte en un paquete.</p>
+<h2 id="dónde-están-los-módulos-de-python">¿Dónde están los módulos de Python?</h2>
+<p>Si en Python tanto los módulos como los paquetes son archivos y directorios
+con archivos ¿Te has preguntado de dónde saca Python los módulos?</p>
+<p>La librería estándar de Python se encuentra en algún lugar del sistema de
+archivos. El lugar depende de si el sistema operativo es Windows, Linux, macOS
+y si el sistema es de 64 bits o de 32.</p>
+<p>En un Fedora 20 a 64 bits, la librería estándar se encuentra en el directorio
+<code>/usr/lib64/python2.7/</code>. Los paquetes y módulos que no son parte de la
+librería estándar de Python se encuentran en <code>/usr/lib64/python2.7/site-packages/gtk-2.0/</code>.
+Como ya dije, la ruta depende del sistema operativo y
+nunca debemos de fiarnos de una ruta en específico; en cambio, debemos hacer
+uso del módulo <code>sys</code> para saber la ruta actual donde Python entra a buscar
+módulos y paquetes.</p>
+<h2 id="el-python-path">El Python Path</h2>
+<p>Al iniciar un intérprete de Python, <a href="https://docs.python.org/3/library/sys.html#sys.path"><code>sys.path</code></a>
+se inicializa con una lista de los directorios del sistema donde se encuentra
+instalado Python y la librería estándar. La ruta de este directorio varía de
+sistema en sistema. Por ejemplo, en mi computadora:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&gt;&gt;&gt; </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">sys
+</span><span style="color:#c0c5ce;">&gt;&gt;&gt; sys.path
+</span><span style="color:#c0c5ce;">[&#39;&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python27.zip</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/plat-linux2</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/lib-tk</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/lib-old</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/lib-dynload</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/site-packages</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/site-packages/gtk-2.0</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib64/python2.7/site-packages/wx-2.8-gtk2-unicode</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">/usr/lib/python2.7/site-packages</span><span style="color:#c0c5ce;">&#39;]
+</span></pre>
+<p>Y este es el <code>Python path</code>. Es una lista de cadenas que le indican a Python
+a qué lugares del sistema debe ir a buscar módulos.</p>
+<p>Esta lista de cadenas se inicializa a partir de la variable de entorno
+<a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH"><code>PYTHONPATH</code></a>.
+Pero lo más común es que no esté definida.</p>
+<p>El detalle más importante del <code>Python Path</code> se encuentra en que la estructura
+de datos usada para almacenar las cadenas es una <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists"><code>Lista</code></a>
+y las listas son <strong>mutables</strong>. Eso quiere decir que si manipulamos el <code>Python Path</code> podemos indicarle a Python nuevas rutas a donde debe ir a buscar módulos
+y paquetes.</p>
+<p>Herramientas como <a href="https://pypi.python.org/pypi/virtualenv"><code>virtualenv</code></a> como
+<a href="http://www.buildout.org/en/latest/"><code>Buildout</code></a> se aprovechan de esta
+característica.</p>
+<hr />
+<ul>
+<li>La foto es CC By Marc Falardeu <a href="https://www.flickr.com/photos/49889874@N05/4772680734/">https://www.flickr.com/photos/49889874@N05/4772680734/</a></li>
+</ul>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/modulos-y-paquetes-en-python" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/maquinas-virtuales-en-fedora" rel="next">&larr; Máquinas virtuales en Fedora</a>
+  
+  
+  <a href="/blog/sublime-3-en-fedora-20" rel="prev">Sublime 3 en Fedora 20 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

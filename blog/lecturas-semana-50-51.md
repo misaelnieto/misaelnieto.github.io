@@ -1,0 +1,22 @@
+---
+title: Último compilado de lecturas del 2018
+date: 2018-12-19
+description: 'Último compilado de lecturas del 2018, cubriendo las semanas 50 a 51: política, sociedad y tecnología.'
+image: /static/images/posts/lecturas-semana-50-51/utsav-srestha-HeNrEdA4Zp4-unsplash.png
+tags:
+- Sociedad
+- Facebook
+---
+
+# Lecturas de las semanas 50 y 51 del 2018
+
+
+- [De la llamada “comentocracia” y sus afanes](https://www.sinembargo.mx/15-12-2018/3511249)
+- [ ¿Un cuarto forrado de corcho es el famoso búnker de 100 millones de dólares de Calderón? Sí. Eso es](https://www.sinembargo.mx/11-12-2018/3509555)
+- [Become A Facebook-Free Business](https://m.signalvnoise.com/become-a-facebook-free-business-5bfefc20c09d)
+[Resistencia a la austeridad republicana](https://www.eluniversal.com.mx/articulo/horacio-duarte-olivares/nacion/resistencias-la-austeridad-republicana)
+- [Become A Facebook-Free Business](https://m.signalvnoise.com/become-a-facebook-free-business-5bfefc20c09d)
+
+## Creditos
+
+<span>Cover photo by <a href="https://unsplash.com/@utsavsrestha?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Utsav Srestha</a> on <a href="https://unsplash.com/s/photos/news?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

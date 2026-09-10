@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Cómo instalar la HP LaserJet 1020 en Fedora 16 &middot; Noe Nieto</title>
+    <meta name="description" content="Guía para instalar la impresora HP LaserJet 1020 en Fedora 16 usando hplip-gui, solucionando problemas con el paquete foo2zjs.">
+    
+    <meta name="keywords" content="fedora, hp-laserjet, hplip, rpmfusion, cups, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Cómo instalar la HP LaserJet 1020 en Fedora 16">
+    <meta property="og:description" content="Guía para instalar la impresora HP LaserJet 1020 en Fedora 16 usando hplip-gui, solucionando problemas con el paquete foo2zjs.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Cómo instalar la HP LaserJet 1020 en Fedora 16">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2011-07-02">
+    
+    
+    <meta property="article:tag" content="fedora">
+    <meta property="article:tag" content="hp-laserjet">
+    <meta property="article:tag" content="hplip">
+    <meta property="article:tag" content="rpmfusion">
+    <meta property="article:tag" content="cups">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cómo instalar la HP LaserJet 1020 en Fedora 16">
+    <meta name="twitter:description" content="Guía para instalar la impresora HP LaserJet 1020 en Fedora 16 usando hplip-gui, solucionando problemas con el paquete foo2zjs.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Cómo instalar la HP LaserJet 1020 en Fedora 16">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/como-instalar-la-hp-laserjet-1020-en-fedora-16.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Cómo instalar la HP LaserJet 1020 en Fedora 16","description":"Guía para instalar la impresora HP LaserJet 1020 en Fedora 16 usando hplip-gui, solucionando problemas con el paquete foo2zjs.","datePublished":"2011-07-02","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["fedora","hp-laserjet","hplip","rpmfusion","cups"],"wordCount":226}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Cómo instalar la HP LaserJet 1020 en Fedora 16"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Cómo instalar la HP LaserJet 1020 en Fedora 16</h1>
+  <p class="entry-description muted">Guía para instalar la impresora HP LaserJet 1020 en Fedora 16 usando hplip-gui, solucionando problemas con el paquete foo2zjs.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Fedora 16 es EOL; el bug 769127 de RPMFusion ya no aplica en versiones modernas.
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2011-07-02">
+      2011-07-02
+    </time>
+    
+
+    
+    <span class="reading-time">1 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/fedora/">fedora</a>
+    
+    <a class="p-category" href="/tags/hp-laserjet/">hp-laserjet</a>
+    
+    <a class="p-category" href="/tags/hplip/">hplip</a>
+    
+    <a class="p-category" href="/tags/rpmfusion/">rpmfusion</a>
+    
+    <a class="p-category" href="/tags/cups/">cups</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#problemas-con-el-paquete-foo2zjs-de-rpmfusion" class="toc-link">Problemas con el paquete foo2zjs de RPMFusion</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#instala-dependencias" class="toc-link">Instala dependencias</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#ejecuta-la-utilería-de-configuración" class="toc-link">Ejecuta la utilería de configuración</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="intro">Intro</h2>
+<p>Tenemos esta impresora desde hace años y funciona de maravilla. La instalación
+del driver de esta impresora en Fedora 16 ha mejorado, pero aún no es plug &amp;
+play.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-1020.webp 200w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-1020.jpg" alt="HP LaserJet 1020"  srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-1020.jpg 200w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="200" height="149" /></picture></p>
+<p>Es una impresora que compró mi hermana o mi mamá y que tenía más de 2 años
+arrumbada.</p>
+<h2 id="problemas-con-el-paquete-foo2zjs-de-rpmfusion">Problemas con el paquete foo2zjs de RPMFusion</h2>
+<p>Si tienes activado RPMFusion, deberás desactivarlo temporalmente y
+desinstalar <code>foo2zjs</code>, pues al parecer, si está instalado, la cola de la
+impresora no va a funcionar. Ver el bug
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=769127">#769127</a>.</p>
+<h2 id="instala-dependencias">Instala dependencias</h2>
+<p>Ejecuta esto en la terminal (como <code>root</code>):</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">yum</span><span style="color:#c0c5ce;"> remove foo2zjs
+</span><span style="color:#8fa1b3;">yum</span><span style="color:#c0c5ce;"> install hplip-gui
+</span></pre>
+<p>Con esto se eliminará el paquete <code>foo2zjs</code> y se instala la utilería <code>hp-setup</code>
+como dependencia de <code>hplip-gui</code>.</p>
+<h2 id="ejecuta-la-utilería-de-configuración">Ejecuta la utilería de configuración</h2>
+<p>Conecte la impresora y ejecute <code>hp-setup</code> como <code>root</code>. Aparecerá el siguiente
+cuadro de diálogo.</p>
+<p>Seleccione Universal Serial Bus (USB) como método de conexión y presione
+<em>Next</em> (Siguiente).</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery1.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery1.png" alt="Paso 1 - Seleccione USB"  srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery1.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="301" /></picture></p>
+<p>La impresora deberá aparecer listada. Seleccione la impresora y presione
+<em>Next</em>.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery2.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery2.png" alt="Paso 2 - Seleccione la impresora"  srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery2.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="301" /></picture></p>
+<p>La impresora buscará los drivers disponibles y/o los descargará del sitio de
+HP y finalmente los instalará en el sistema.</p>
+<p>Finalmente, <code>hp-setup</code> nos ofrecerá la opción de instalar una cola de
+impresión e imprimir una página de prueba.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery1.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery1.png" alt="Finito"  srcset="/static/images/posts/como-instalar-la-hp-laserjet-1020-en-fedora-16/hp-laserjet-device-discovery1.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="400" height="301" /></picture></p>
+<p><strong>Nota:</strong> no olvidar reactivar los repositorios de RPMFusion.</p>
+
+  </div>
+
+  
+  <a href="/blog/como-instalar-la-hp-laserjet-1020-en-fedora-16" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/porting-your-xdv-theme-to-ploneapptheming" rel="next">&larr; Porting your xdv theme to plone.app.theming</a>
+  
+  
+  <a href="/blog/como-instalar-la-hp-laserjet-1020-en-fedora-15" rel="prev">Cómo instalar la HP LaserJet 1020 en Fedora 15 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

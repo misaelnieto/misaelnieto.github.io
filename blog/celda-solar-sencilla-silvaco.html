@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Celda solar sencilla con Silvaco TCAD &middot; Noe Nieto</title>
+    <meta name="description" content="Tutorial introductorio para modelar y simular una celda solar de silicio simple con Silvaco TCAD Atlas: malla, regiones, dopados, contactos, iluminación AM1.5 y curva I-V.">
+    
+    <meta name="keywords" content="silvaco, tcad, celda-solar, fotovoltaica, simulacion, atlas, semiconductores, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Celda solar sencilla con Silvaco TCAD">
+    <meta property="og:description" content="Tutorial introductorio para modelar y simular una celda solar de silicio simple con Silvaco TCAD Atlas: malla, regiones, dopados, contactos, iluminación AM1.5 y curva I-V.">
+    <meta property="og:image" content="https://noenieto.com/static/images/posts/Celda-solar-sencilla-con-Silvaco/photovoltaik-2872071.svg">
+    <meta property="og:image:alt" content="Celda solar sencilla con Silvaco TCAD">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2017-08-15">
+    
+    
+    <meta property="article:tag" content="silvaco">
+    <meta property="article:tag" content="tcad">
+    <meta property="article:tag" content="celda-solar">
+    <meta property="article:tag" content="fotovoltaica">
+    <meta property="article:tag" content="simulacion">
+    <meta property="article:tag" content="atlas">
+    <meta property="article:tag" content="semiconductores">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Celda solar sencilla con Silvaco TCAD">
+    <meta name="twitter:description" content="Tutorial introductorio para modelar y simular una celda solar de silicio simple con Silvaco TCAD Atlas: malla, regiones, dopados, contactos, iluminación AM1.5 y curva I-V.">
+    <meta name="twitter:image" content="https://noenieto.com/static/images/posts/Celda-solar-sencilla-con-Silvaco/photovoltaik-2872071.svg">
+    <meta name="twitter:image:alt" content="Celda solar sencilla con Silvaco TCAD">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/celda-solar-sencilla-silvaco.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Celda solar sencilla con Silvaco TCAD","description":"Tutorial introductorio para modelar y simular una celda solar de silicio simple con Silvaco TCAD Atlas: malla, regiones, dopados, contactos, iluminación AM1.5 y curva I-V.","datePublished":"2017-08-15","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/images/posts/Celda-solar-sencilla-con-Silvaco/photovoltaik-2872071.svg"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["silvaco","tcad","celda-solar","fotovoltaica","simulacion","atlas","semiconductores"],"wordCount":417}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Celda solar sencilla con Silvaco TCAD"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Celda solar sencilla con Silvaco TCAD</h1>
+  <p class="entry-description muted">Tutorial introductorio para modelar y simular una celda solar de silicio simple con Silvaco TCAD Atlas: malla, regiones, dopados, contactos, iluminación AM1.5 y curva I-V.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2017-08-15">
+      2017-08-15
+    </time>
+    
+
+    
+    <span class="reading-time">1 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/silvaco/">silvaco</a>
+    
+    <a class="p-category" href="/tags/tcad/">tcad</a>
+    
+    <a class="p-category" href="/tags/celda-solar/">celda-solar</a>
+    
+    <a class="p-category" href="/tags/fotovoltaica/">fotovoltaica</a>
+    
+    <a class="p-category" href="/tags/simulacion/">simulacion</a>
+    
+    <a class="p-category" href="/tags/atlas/">atlas</a>
+    
+    <a class="p-category" href="/tags/semiconductores/">semiconductores</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#el-dispositivo" class="toc-link">El dispositivo</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#malla-y-regiones" class="toc-link">Malla y regiones</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#definir-regiones-y-dopados" class="toc-link">Definir regiones y dopados</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#contactos-e-iluminación" class="toc-link">Contactos e iluminación</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#resolver-y-extraer-la-curva-i-v" class="toc-link">Resolver y extraer la curva I-V</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#análisis-de-resultados" class="toc-link">Análisis de resultados</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#próximo-paso" class="toc-link">Próximo paso</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p><img src="/static/images/posts/Celda-solar-sencilla-con-Silvaco/photovoltaik-2872071.svg" alt="Photovoltaik" /></p>
+<h2 id="intro">Intro</h2>
+<p>Silvaco es una compañía que hace un software llamado TCAD (Technology
+Computer-Aided Design) para la simulación de procesos de fabricación de
+dispositivos semiconductores y la simulación del comportamiento eléctrico,
+óptico y térmico de tales dispositivos. En la maestría en ingeniería eléctrica
+tomé la materia de simulación de semiconductores, dictada por el Dr. Julio
+Molina, donde vimos los fundamentos del funcionamiento de Silvaco TCAD.</p>
+<p>La herramienta se distribuye principalmente para dos grandes tareas: simulación
+de <strong>procesos</strong> y simulación de <strong>dispositivos</strong>. Para la simulación de
+dispositivos la herramienta principal se llama Atlas.</p>
+<h2 id="el-dispositivo">El dispositivo</h2>
+<p>Vamos a simular una celda solar muy sencilla. Consta de:</p>
+<ul>
+<li>Un <strong>sustrato</strong> de silicio tipo <em>p</em>, dopado con boro (concentración uniforme
+de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>16</mn></msup><msup><mtext> cm</mtext><mrow><mo>−</mo><mn>3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1 \times 10^{16} \text{ cm}^{-3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="vertical-align:-0.0833em;height:0.7278em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord text"><span class="mord"> </span><span class="mord">c</span><span class="mord">m</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="margin-right:0.05em;top:-3.063em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span>).</li>
+<li>Una <strong>emisora</strong> tipo <em>n</em>, formada por una implantación de fósforo cerca de
+la superficie superior.</li>
+<li>Dos <strong>contactos metálicos</strong>: uno frontal (grid) y uno trasero (full-area).</li>
+</ul>
+<h2 id="malla-y-regiones">Malla y regiones</h2>
+<p>Atlas trabaja con una malla rectangular; en cada nodo calcula las ecuaciones
+de transporte. Definir la malla correctamente es un compromiso entre precisión
+y tiempo de simulación: mallas finas donde hay gradientes fuertes (uniones,
+contactos) y mallas gruesas en regiones homogéneas.</p>
+<pre><code>go atlas
+
+# Malla
+x.mesh loc=0   spacing=0.5
+x.mesh loc=10  spacing=0.5
+y.mesh loc=0    spacing=0.01
+y.mesh loc=0.5  spacing=0.05
+y.mesh loc=300  spacing=0.5
+</code></pre>
+<h2 id="definir-regiones-y-dopados">Definir regiones y dopados</h2>
+<pre><code># Regiones
+region num=1 ix.l=1 ix.h=2 iy.l=1 iy.h=2 silicon
+
+# Dopado del sustrato (tipo p, boro)
+base    imp=boron conc=1e16
+
+# Dopado de la emisora (tipo n, fósforo)
+# Perfil gaussiano con junta a 0.5 um
+emitter imp=phosphorus conc=1e19 peak=0.5 depth=0.5
+</code></pre>
+<h2 id="contactos-e-iluminación">Contactos e iluminación</h2>
+<pre><code># Contacto frontal (grid)
+electrode num=1 x.l=1 x.h=2 top
+# Contacto trasero
+electrode num=2 bottom
+
+# Iluminación AM1.5
+beam num=1 x.origin=5 y.origin=-10 angle=90 wavel.start=0.3 wavel.stop=1.1 \
+      am1.5 power=0.1
+</code></pre>
+<h2 id="resolver-y-extraer-la-curva-i-v">Resolver y extraer la curva I-V</h2>
+<pre><code>solve init
+solve b1=1e-3 l.b1=0.0 h.b1=0.7 vstep=0.01 name=2 ac name=1
+
+# Exportar I-V
+save outf=solar_cell_IV.log
+</code></pre>
+<h2 id="análisis-de-resultados">Análisis de resultados</h2>
+<p>Atlas genera archivos <code>.log</code> con corrientes y tensiones. Con Tonyplot (el
+visualizador incluido) se grafica <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0785em;">I</span></span></span></span> vs <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span></span></span></span> y se obtiene el punto de máxima
+potencia, la eficiencia y el factor de lleno.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>η</mi><mo>=</mo><mfrac><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><msub><mi>P</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub></mfrac><mo>=</mo><mfrac><mrow><msub><mi>V</mi><mrow><mi>m</mi><mi>p</mi></mrow></msub><mo>⋅</mo><msub><mi>I</mi><mrow><mi>m</mi><mi>p</mi></mrow></msub></mrow><mrow><mn>100</mn><msup><mtext> mW/cm</mtext><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+\eta = \frac{P_{max}}{P_{in}} = \frac{V_{mp} \cdot I_{mp}}{100 \text{ mW/cm}^2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="vertical-align:-0.1944em;height:0.625em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">η</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1963em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="margin-right:0.05em;margin-left:-0.1389em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">in</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="margin-left:-0.1389em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="vertical-align:-1.094em;height:2.4543em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.156em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord text"><span class="mord"> </span><span class="mord">m</span><span class="mord">W</span><span class="mord">/</span><span class="mord">c</span><span class="mord">m</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.2222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="margin-right:0.05em;margin-left:-0.2222em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0785em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="margin-left:-0.0785em;margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.094em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h2 id="próximo-paso">Próximo paso</h2>
+<p>Lo interesante viene cuando se añade texturización superficial, capas
+antirreflejantes (SiN, TiO<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow></mrow><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="vertical-align:-0.15em;height:0.4511em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="margin-right:0.05em;top:-2.55em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) y se modela la recombinación en los contactos.
+Pero eso merece su propio artículo.</p>
+<hr />
+<p>Créditos imagen:
+<a href="https://openclipart.org/detail/2872071/photovoltaik">OpenClipart</a> (dominio
+público).</p>
+<p>© Noe Nieto, 2017. Publicado bajo <a href="https://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0
+Internacional</a>.</p>
+
+  </div>
+
+  
+  <a href="/blog/celda-solar-sencilla-silvaco" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/mathjax" rel="next">&larr; Probando MathJax</a>
+  
+  
+  <a href="/blog/anadir-nuevo-disco-fedora-lvm" rel="prev">Añadir un nuevo disco a Fedora con LVM &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

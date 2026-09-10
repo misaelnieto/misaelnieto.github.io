@@ -1,0 +1,69 @@
+---
+title: Impresión bajo demanda o POD (Print on demand)
+date: 2017-02-05
+description: 'Levantamiento de servicios de impresión bajo demanda (POD) evaluados para integrar con Holokinesis Libros: Lulu, Blurb, CreateSpace, Peecho y por qué se descartaron otros (Gooten, Mimeo, Moo, etc.).'
+image: /static/images/posts/impresion-bajo-demanda/book-decoration-bppxi.svg
+tags:
+- print-on-demand
+- pod
+- holokinesis
+- impresion
+- libros
+- publishing
+extra:
+  deprecated: true
+  deprecated_reason: Levantamiento de 2017; varios servicios ya no existen o fueron absorbidos (CreateSpace cerró y se fusionó con Amazon KDP; Wordclay ya no existe). La idea conceptual del POD sigue siendo vigente pero este listado específico está desactualizado.
+---
+
+La idea de la impresión bajo demanda es poder imprimir libros o revistas en el
+momento en el que el comprador las ordena. Este concepto no es nuevo; por
+ejemplo, DELL introdujo JIT (*Just In Time*) a su proceso de armado de
+computadoras; esto tiene la ventaja de que sus compradores pueden elegir.
+
+Durante varios años he estado prestando atención a las opciones de impresión
+bajo demanda para poder implementarlo en el sitio de [Holokinesis libros
+(Hkl)](https://www.holokinesislibros.com).
+
+Lo que busco es:
+
+* El usuario entra a Hkl.
+* Encuentra un libro que le interesa. Lo agrega al carrito.
+* Completa el proceso de pago. Es importante cotizarle el precio adecuado.
+* Al completarse el proceso de pago el libro se ordena sin intervención humana
+  (con un API).
+* Tanto el comprador como los admins de Hkl tengamos acceso a un número de
+  guía para monitorear el envío.
+* El envío llega a la persona.
+
+## Servicios que hacen todo:
+
+* [Lulu](http://www.lulu.com/): el primer servicio de impresión bajo demanda
+  del que tuve conocimiento.
+* [Blurb](http://www.blurb.com/)
+* [CreateSpace](https://www.createspace.com/). Es de Amazon.
+* [Peecho](https://www.peecho.com/)
+
+## Servicios descartados
+
+* ~~[Word clay](http://www.wordclay.com/)~~ Ya no existe.
+* <https://www.gooten.com/>
+    - Imprimen de todo, excepto libros.
+* <https://bookleteer.com/>
+    - Imprimen folletos y cubos. No libros. Precios en libras.
+* <https://developers.google.com/cloud-print/docs/overview>
+    - Permite a cualquier dispositivo imprimir en cualquier impresora del
+      mundo. No estoy seguro para qué sirve.
+* <https://lob.com/> — Antes se llamaban Infraprint.
+    - *Programmatically send physical mail at scale.* Por el momento solo
+      imprimen postales, cartas, cheques, verificación de dirección. Se orienta
+      a envíos en masa.
+* <http://keenprint.com/>
+    - Hacen todo lo contrario a lo que estoy buscando. ¡jajaja!
+* <https://www.mimeo.com/>
+    - Imprimen de todo, menos libros.
+* <https://www.moo.com/>
+    - Imprimen de todo, menos libros.
+* <http://www.newspaperclub.com/>
+    - Solo imprime periódicos.
+
+**FIN**

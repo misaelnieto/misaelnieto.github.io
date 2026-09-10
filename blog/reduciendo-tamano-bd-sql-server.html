@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Reduciendo el tamaño de una BD en SQL Server &middot; Noe Nieto</title>
+    <meta name="description" content="Guía paso a paso para reducir el tamaño de una base de datos de SQL Server cambiando el modelo de recuperación a SIMPLE y usando DBCC SHRINKFILE y SHRINKDATABASE.">
+    
+    <meta name="keywords" content="sql-server, sqlserver, dbcc, shrinkfile, recovery-model, dba, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Reduciendo el tamaño de una BD en SQL Server">
+    <meta property="og:description" content="Guía paso a paso para reducir el tamaño de una base de datos de SQL Server cambiando el modelo de recuperación a SIMPLE y usando DBCC SHRINKFILE y SHRINKDATABASE.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Reduciendo el tamaño de una BD en SQL Server">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2014-06-26">
+    
+    
+    <meta property="article:tag" content="sql-server">
+    <meta property="article:tag" content="sqlserver">
+    <meta property="article:tag" content="dbcc">
+    <meta property="article:tag" content="shrinkfile">
+    <meta property="article:tag" content="recovery-model">
+    <meta property="article:tag" content="dba">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Reduciendo el tamaño de una BD en SQL Server">
+    <meta name="twitter:description" content="Guía paso a paso para reducir el tamaño de una base de datos de SQL Server cambiando el modelo de recuperación a SIMPLE y usando DBCC SHRINKFILE y SHRINKDATABASE.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Reduciendo el tamaño de una BD en SQL Server">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/reduciendo-tamano-bd-sql-server.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Reduciendo el tamaño de una BD en SQL Server","description":"Guía paso a paso para reducir el tamaño de una base de datos de SQL Server cambiando el modelo de recuperación a SIMPLE y usando DBCC SHRINKFILE y SHRINKDATABASE.","datePublished":"2014-06-26","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["sql-server","sqlserver","dbcc","shrinkfile","recovery-model","dba"],"wordCount":887}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Reduciendo el tamaño de una BD en SQL Server"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Reduciendo el tamaño de una BD en SQL Server</h1>
+  <p class="entry-description muted">Guía paso a paso para reducir el tamaño de una base de datos de SQL Server cambiando el modelo de recuperación a SIMPLE y usando DBCC SHRINKFILE y SHRINKDATABASE.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: SQL Server 2008 R2 llegó a fin de vida. Los comandos DBCC SHRINKFILE y SHRINKDATABASE siguen existiendo en versiones modernas, pero las recomendaciones de Paul Randal sobre por qué NO encoger archivos de datos siguen siendo la postura autoritativa; leerlo antes de aplicar nada..
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2014-06-26">
+      2014-06-26
+    </time>
+    
+
+    
+    <span class="reading-time">3 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/sql-server/">sql-server</a>
+    
+    <a class="p-category" href="/tags/sqlserver/">sqlserver</a>
+    
+    <a class="p-category" href="/tags/dbcc/">dbcc</a>
+    
+    <a class="p-category" href="/tags/shrinkfile/">shrinkfile</a>
+    
+    <a class="p-category" href="/tags/recovery-model/">recovery-model</a>
+    
+    <a class="p-category" href="/tags/dba/">dba</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#recovery-model" class="toc-link">Recovery model</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#encoger-las-bitácoras" class="toc-link">Encoger las bitácoras</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#encogiendo-los-datos" class="toc-link">Encogiendo los datos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#encogiendo-los-archivos-de-datos" class="toc-link">Encogiendo los archivos de datos</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="intro">Intro</h2>
+<p>Esta es otra de mis aventuras como DBA de SQL Server.</p>
+<p>El reto ahora es reducir el tamaño de una base de datos de SQL Server. El
+servidor es SQL Server 2008 R2. Lo bueno es que esta base de datos es para los
+desarrolladores y tengo permisos de romper cosas, borrar bitácoras, alterar
+valores, etc. ¡A darle pues! ¿De qué tamaño es la BD?</p>
+<p>Este es el primer paso. Averiguar qué tanto espacio está ocupando la base
+de datos. De antemano sé que el archivo de respaldo pesa alrededor de <code>800 GB</code>.
+¿Pero cuánto usa en realidad en el disco duro?</p>
+<p><a href="http://blog.sqlauthority.com/2010/02/08/sql-server-find-the-size-of-database-file-find-the-size-of-log-file/">Pinal Dave</a> al rescate:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">SELECT</span><span style="color:#c0c5ce;"> DB_NAME(database_id) </span><span style="color:#b48ead;">AS</span><span style="color:#c0c5ce;"> DatabaseName,
+</span><span style="color:#c0c5ce;">       Name </span><span style="color:#b48ead;">AS</span><span style="color:#c0c5ce;"> Logical_Name,
+</span><span style="color:#c0c5ce;">       Physical_Name, (size*</span><span style="color:#d08770;">8</span><span style="color:#c0c5ce;">)/</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;"> SizeMB, ((size*</span><span style="color:#d08770;">8</span><span style="color:#c0c5ce;">)/</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">)/</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;"> SizeGB
+</span><span style="color:#b48ead;">FROM </span><span style="color:#d08770;">sys</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">master_files
+</span><span style="color:#b48ead;">WHERE</span><span style="color:#c0c5ce;"> DB_NAME(database_id) = &#39;</span><span style="color:#a3be8c;">MI_DB_GIGANTE</span><span style="color:#c0c5ce;">&#39;;
+</span><span style="color:#c0c5ce;">GO
+</span></pre>
+<p>El resultado:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DatabaseName     Logical_Name    Physical_Name                  SizeMB  SizeGB
+</span><span style="color:#c0c5ce;">==============================================================================
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data         C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf      238000  232
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Log          C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Log</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">ldf       100679  98
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Index        C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Index</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf     489500  478
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data03       C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data03</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf    75000   73
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data04       C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data04</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf    75000   73
+</span></pre>
+<p>Y para calcular el gran total haremos un query a <code>sys.master_files</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">SELECT</span><span style="color:#c0c5ce;"> (</span><span style="color:#96b5b4;">SUM</span><span style="color:#c0c5ce;">(size)/</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">)/</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">*</span><span style="color:#d08770;">8
+</span><span style="color:#b48ead;">FROM </span><span style="color:#d08770;">sys</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">master_files
+</span><span style="color:#b48ead;">WHERE</span><span style="color:#c0c5ce;"> DB_NAME(database_id) = &#39;</span><span style="color:#a3be8c;">MI_DB_GIGANTE</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#c0c5ce;">GO
+</span></pre>
+<p>Y el resultado en Gigabytes:</p>
+<pre><code>952
+</code></pre>
+<p><strong>Nota</strong>: <code>sys.master_files.size</code> es el tamaño del archivo en bloques de <code>8KB</code>.
+El resultado original era <code>125206936</code> bloques de <code>8KB</code> cada uno. ¡Casi un
+Terabyte!</p>
+<p>Ahora ¿cómo le hago para reducir el tamaño?</p>
+<h2 id="recovery-model">Recovery model</h2>
+<p>El <em>Recovery Model</em> de SQL Server afecta la manera en que se hacen respaldos y
+cómo se restauran. SQL Server puede registrar todas y cada una de las
+operaciones de la base de datos en una bitácora. La bitácora permite restaurar
+una base de datos en un punto exacto en el pasado, por ejemplo: ayer a las
+3:45 pm. El modo de recuperación controla la generación de las bitácoras.</p>
+<p>Existen tres modos de recuperación:</p>
+<ul>
+<li>
+<p><strong>Simple</strong>. No guarda nada en las bitácoras.</p>
+</li>
+<li>
+<p><strong>Full</strong>. Guarda todas las operaciones en las bitácoras. El modelo más seguro.</p>
+</li>
+<li>
+<p><strong>Bulk logged</strong>. Guarda las operaciones en masa o volumen. Puede perder
+datos si la bitácora se daña, pero usa menos espacio en disco.</p>
+</li>
+</ul>
+<p>Tengo la ventaja de que esta base de datos es para los desarrolladores, así
+que la decisión es fácil: podemos usar el modo <strong>Simple</strong>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">ALTER DATABASE </span><span style="color:#c0c5ce;">[MI_DB_GIGANTE] </span><span style="color:#b48ead;">SET</span><span style="color:#c0c5ce;"> RECOVERY SIMPLE </span><span style="color:#b48ead;">WITH</span><span style="color:#c0c5ce;"> NO_WAIT;
+</span><span style="color:#b48ead;">ALTER DATABASE </span><span style="color:#c0c5ce;">[MI_DB_GIGANTE] </span><span style="color:#b48ead;">SET</span><span style="color:#c0c5ce;"> PAGE_VERIFY NONE </span><span style="color:#b48ead;">WITH</span><span style="color:#c0c5ce;"> NO_WAIT;
+</span></pre>
+<p>Con esto nos aseguramos que las bitácoras no crezcan. ¿Qué sigue?</p>
+<h2 id="encoger-las-bitácoras">Encoger las bitácoras</h2>
+<p><strong>CUIDADO</strong>: Encoger las bitácoras hará que pierdas información. Yo tengo la
+ventaja de tener una base de datos de prueba. No tomes esto como una
+recetita sin entender lo que estás haciendo. Para dejar claro, <strong>no sigas
+leyendo este post si antes no has leído</strong> los siguientes sitios:</p>
+<ul>
+<li>
+<p><a href="http://blog.sqlauthority.com/2010/05/03/sql-server-shrinkfile-and-truncate-log-file-in-sql-server-2008/">SQL SERVER – SHRINKFILE and TRUNCATE Log File in SQL Server 2008</a> de Pinal Dave</p>
+</li>
+<li>
+<p><a href="http://www.sqlskills.com/blogs/paul/why-you-should-not-shrink-your-data-files/">Why you should not shrink your data files</a> de Paul S. Randal</p>
+</li>
+</ul>
+<p>¿Ya los leíste? Sigamos.</p>
+<p>Anteriormente ya había sacado el tamaño del archivo de <code>LOG</code>. Era de 98
+Gigabytes. Con <code>DBCC SHRINKFILE</code> me podré deshacer de los logs.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DBCC SHRINKFILE (Data_Log)
+</span></pre>
+<p>¿Sirvió de algo? Vamos a averiguarlo ejecutando la primera consulta de este
+post, pero ahora sobre <code>sys.master_files</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DatabaseName     Logical_Name    Physical_Name                  SizeMB  SizeGB
+</span><span style="color:#c0c5ce;">==============================================================================
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data         C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf      238000  232
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Log          C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Log</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">ldf       1       0
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Index        C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Index</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf     489500  478
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data03       C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data03</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf    75000   73
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data04       C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data04</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf    75000   73
+</span></pre>
+<p>¡Qué bien! ¡Se liberaron <strong>98 Gigabytes</strong>!</p>
+<h2 id="encogiendo-los-datos">Encogiendo los datos</h2>
+<p>Usé <code>DBCC SHRINKDATABASE</code>, pero no liberó demasiado espacio.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DBCC SHRINKDATABASE (MI_DB_GIGANTE, </span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">);
+</span><span style="color:#c0c5ce;">GO
+</span></pre>
+<p>La documentación dice que para que regrese el espacio usado al sistema
+operativo hay que usar el parámetro <code>TRUNCATEONLY</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DBCC SHRINKDATABASE (MI_DB_GIGANTE, TRUNCATEONLY);
+</span><span style="color:#c0c5ce;">GO
+</span></pre>
+<p>Pero tampoco vi ninguna mejora significativa.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DatabaseName     Logical_Name    Physical_Name                  SizeMB  SizeGB
+</span><span style="color:#c0c5ce;">==============================================================================
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data         C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf      237970  232
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Log          C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Log</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">ldf       1       0
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Index        C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Index</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf     489500  478
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data03       C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data03</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf    75000   73
+</span><span style="color:#c0c5ce;">MI_DB_GIGANTE    db_Data04       C:\MI_DB_GIGANTE\</span><span style="color:#d08770;">Data04</span><span style="color:#c0c5ce;">.</span><span style="color:#d08770;">mdf    75000   73
+</span></pre>
+<h2 id="encogiendo-los-archivos-de-datos">Encogiendo los archivos de datos</h2>
+<p>Estaba monitoreando la misma base de datos cuando vi que alguien más estaba
+corriendo <code>DBCC</code> sobre uno de los archivos de datos. Le pregunté acerca de
+eso y como resultado intenté de nuevo en mi base de datos.</p>
+<p>Elegí <code>db_Data03</code> como conejillo de indias.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DBCC SHRINKFILE (db_Data03)
+</span></pre>
+<p>El comando tardó dos minutos en completar y devolvió las siguientes
+estadísticas:</p>
+<pre><code>DbId    FileId  CurrentSize     MinimumSize     UsedPages       EstimatedPages
+27      4       9600000         9600000         8090720         8090720
+</code></pre>
+<p>En la documentación de DBCC explican qué significa cada uno de esos campos.
+Las que me interesan son:</p>
+<ul>
+<li>
+<p><strong>CurrentSize</strong>: el número de páginas de <code>8 KB</code> que el archivo ocupa actualmente.</p>
+</li>
+<li>
+<p><strong>MinimumSize</strong>: el número de páginas de <code>8 KB</code> que el archivo podría ocupar, como mínimo.</p>
+</li>
+<li>
+<p><strong>UsedPages</strong>: el número de páginas de <code>8 KB</code> que utiliza actualmente el archivo.</p>
+</li>
+<li>
+<p><strong>EstimatedPages</strong>: el número de páginas de <code>8 KB</code> que el Motor de base de datos estima que puede reducir del archivo.</p>
+</li>
+</ul>
+<p>Por lo que veo no voy a tener suerte con este archivo. Voy a probar con <code>db_Data04</code> y <code>db_Data</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">DBCC SHRINKFILE (db_Data04)
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">DbId    FileId    CurrentSize    MinimumSize    UsedPages    EstimatedPages
+</span><span style="color:#d08770;">18      5         9600000        9600000        8093648      8093648
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">DBCC SHRINKFILE (db_Data)
+</span><span style="color:#c0c5ce;">DbId    FileId  CurrentSize MinimumSize UsedPages   EstimatedPages
+</span><span style="color:#d08770;">18      1       30226208    128         30224168    30224168
+</span></pre>
+<p>Se me terminó el tiempo :( Ojalá tenga tiempo para terminarlo y ofrecer alguna solución útil.</p>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/reduciendo-tamano-bd-sql-server" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/prepara-ubuntu-1404-django" rel="next">&larr; Preparar Ubuntu 14.04 para correr Django</a>
+  
+  
+  <a href="/blog/drupal7-a-mi-estilo-con-fedora" rel="prev">Drupal 7 a mi estilo con Fedora &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

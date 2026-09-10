@@ -1,0 +1,13 @@
+---
+title: Semana 47 (2018)
+date: 2018-11-20
+description: 'Lecturas de la semana 47 del 2018: caravana migrante, Roma de Alfonso Cuarón, avión sin partes móviles propulsado por viento iónico.'
+---
+
+## Semana 47
+
+
+- [Las mentiras y verdades reveladas por nuestra reacción a la Caravana Migrante](https://www.huffingtonpost.com.mx/alberto-hernandez-armendariz/las-mentiras-y-verdades-reveladas-por-nuestra-reaccion-a-la-caravana-migrante_a_23588531/)
+- Yalitza Aparicio, la joven revelación que ha robado el corazón de quienes han podido ver [Roma, la nueva obra de Alfonso Cuarón](http://www.milenio.com/espectaculos/cine/miedo-trampa-yalitza-aparicio-casting-roma), dijo en una entrevista que le "llena de felicidad" el simple hecho de que la consideren "actriz". Pero tambien confesó que tenía miedo de que el casting fuera una trampa.
+- [Engineers fly first-ever plane with no moving parts](https://techxplore.com/news/2018-11-first-ever-plane.html). The light aircraft is powered by an "ionic wind".
+- 

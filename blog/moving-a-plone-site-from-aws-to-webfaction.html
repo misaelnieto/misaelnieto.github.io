@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Moving a Plone site from AWS to webfaction &middot; Noe Nieto</title>
+    <meta name="description" content="Step-by-step migration of a Plone 4 site from AWS to WebFaction: buildout setup, HTTPS patch, data.fs and blob transfer via rsync, and VHM configuration.">
+    
+    <meta name="keywords" content="plone, webfaction, aws, zodb, migration, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Moving a Plone site from AWS to webfaction">
+    <meta property="og:description" content="Step-by-step migration of a Plone 4 site from AWS to WebFaction: buildout setup, HTTPS patch, data.fs and blob transfer via rsync, and VHM configuration.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Moving a Plone site from AWS to webfaction">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2013-05-04">
+    
+    
+    <meta property="article:tag" content="plone">
+    <meta property="article:tag" content="webfaction">
+    <meta property="article:tag" content="aws">
+    <meta property="article:tag" content="zodb">
+    <meta property="article:tag" content="migration">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Moving a Plone site from AWS to webfaction">
+    <meta name="twitter:description" content="Step-by-step migration of a Plone 4 site from AWS to WebFaction: buildout setup, HTTPS patch, data.fs and blob transfer via rsync, and VHM configuration.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Moving a Plone site from AWS to webfaction">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/moving-a-plone-site-from-aws-to-webfaction.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Moving a Plone site from AWS to webfaction","description":"Step-by-step migration of a Plone 4 site from AWS to WebFaction: buildout setup, HTTPS patch, data.fs and blob transfer via rsync, and VHM configuration.","datePublished":"2013-05-04","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["plone","webfaction","aws","zodb","migration"],"wordCount":641}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Moving a Plone site from AWS to webfaction"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Moving a Plone site from AWS to webfaction</h1>
+  <p class="entry-description muted">Step-by-step migration of a Plone 4 site from AWS to WebFaction: buildout setup, HTTPS patch, data.fs and blob transfer via rsync, and VHM configuration.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: WebFaction fue adquirido por GoDaddy y cerró en 2023; Plone 4 y zc.buildout 2.0 son EOL; el flujo moderno de Plone 6 difiere bastante..
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2013-05-04">
+      2013-05-04
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/plone/">plone</a>
+    
+    <a class="p-category" href="/tags/webfaction/">webfaction</a>
+    
+    <a class="p-category" href="/tags/aws/">aws</a>
+    
+    <a class="p-category" href="/tags/zodb/">zodb</a>
+    
+    <a class="p-category" href="/tags/migration/">migration</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#configuring-webfaction" class="toc-link">Configuring WebFaction</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#setting-up-https" class="toc-link">Setting up HTTPS</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#moving-data-fs-and-blobs" class="toc-link">Moving data.fs and blobs</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#server-startup-and-configuration-of-vhm" class="toc-link">Server startup and configuration of VHM</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#the-end" class="toc-link">The end</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p>I've been helping <a href="http:/www.holokinesislibros.com">my friends</a> with their
+Plone site for some years now. Initially, the site was hosted on IntoVPS,
+which is quite cheap and nice to set up. Unfortunately, at that time, we needed
+a lot of storage and their plans didn't provide enough space, so I moved the
+site to Amazon AWS and it's been almost two years since then. Unfortunately,
+AWS is very expensive and we have lowered our storage requirements since then.
+So I'm moving the site again, this time to WebFaction.</p>
+<p>We went for the 256MB plan because it includes 256MB of RAM (Plone 4 uses
+160MB at most), 100GB of space (right now we need about 60 GB) and 600 GB of
+bandwidth which I'm not measuring yet. So, a single Plone instance will fit
+there.</p>
+<h2 id="configuring-webfaction">Configuring WebFaction</h2>
+<p>We are using HTTPS to encrypt the whole site's traffic. I set up two websites:
+one for HTTP and another for HTTPS. The HTTP website is linked to a
+<strong>Static/CGI/PHP</strong> application that only has two files: an <code>index.html</code> and a
+<code>.htaccess</code> file whose only purpose is to rewrite/redirect the traffic to the
+HTTPS port.</p>
+<pre><code>Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /
+RewriteRule ^(.*)$ https://www.holokinesislibros.com/$1 [R=301,L]
+</code></pre>
+<p>On the HTTPS website I created a <strong>Zope (2.13.15) - Plone (4.1.6)</strong>
+application. This is basically a directory that contains a Python 2.6
+virtualenv, a <code>buildout-cache</code> directory and uses Plone's universal installer
+to create and bootstrap a buildout environment in another directory called
+<code>zinstance</code>. It also creates a crontab entry to start Zope's instance every 20
+minutes.</p>
+<p>But I'm using a customized buildout, so I ignored the <code>zinstance</code> directory
+and instead cloned my repo on the application directory and bootstrapped it
+with a fresh virtualenv of Python 2.7.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> webapps/hkl_plone
+</span><span style="color:#8fa1b3;">virtualenv</span><span style="color:#c0c5ce;"> ve
+</span><span style="color:#8fa1b3;">hg</span><span style="color:#c0c5ce;"> clone ssh://hg@bitbucket.org/tzicatl/holokinesis_libros
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> holokinesis_libros
+</span><span style="color:#8fa1b3;">../ve/bin/python</span><span style="color:#c0c5ce;"> bootstrap.py</span><span style="color:#bf616a;"> -c</span><span style="color:#c0c5ce;"> webfaction.cfg
+</span><span style="color:#8fa1b3;">bin/buildout</span><span style="color:#bf616a;"> -c</span><span style="color:#c0c5ce;"> webfaction.cfg
+</span></pre>
+<p>Not everything went smooth. I had to adjust my buildout so it could run with
+the new branch of <code>zc.buildout</code> 2.0. Namely: some syntax errors in my
+<code>versions.cfg</code>, remove <code>buildout.dumppickedversions</code> extension and update
+<code>bootstrap.py</code>.</p>
+<p>I also had to copy some settings from the <code>zinstance</code> directory, like the
+port.</p>
+<p>Finally, in order to completely switch from <code>zinstance</code> to my own buildout in
+<code>holokinesis_libros</code> I changed the crontab command, from:</p>
+<pre><code>2,22,42 * * * * $HOME/webapps/hkl_plone/zinstance/bin/instance start &gt; /dev/null 2&gt;&amp;1
+</code></pre>
+<p>to:</p>
+<pre><code>2,22,42 * * * * $HOME/webapps/hkl_plone/holokinesis_libros/bin/instance start &gt; /dev/null 2&gt;&amp;1
+</code></pre>
+<h2 id="setting-up-https">Setting up HTTPS</h2>
+<p>Plone (in fact, Zope 2) needs to be monkey-patched so it recognizes the
+<code>X-Forwarded-SSL</code> header. Fortunately, <a href="http://docs.webfaction.com/software/zope-and-plone/configuring.html#using-zope-over-https">WebFaction provides a patch</a>
+that works really well with recent versions of Plone (4.1.6).</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">cd </span><span style="color:#bf616a;">~</span><span style="color:#c0c5ce;">/webapps/hkl_plone/holokinesis_libros/products
+</span><span style="color:#8fa1b3;">wget</span><span style="color:#bf616a;"> -O</span><span style="color:#c0c5ce;"> patch.tar.gz http://wiki.webfaction.com/attachment/wiki/WebFactionSslPatch/WebFactionSSLPatch-1.0.tar.gz?format=raw
+</span><span style="color:#8fa1b3;">tar</span><span style="color:#bf616a;"> -zxvf</span><span style="color:#c0c5ce;"> patch.tar.gz
+</span><span style="color:#8fa1b3;">rm</span><span style="color:#c0c5ce;"> patch.tar.gz
+</span></pre>
+<p>I had to issue a support ticket so the web server could load my SSL
+certificates. I only had to point them to the directory where my certs are and
+they did all the job configuring the certificates.</p>
+<h3 id="moving-data-fs-and-blobs">Moving data.fs and blobs</h3>
+<p>I went the easy route and made an uncompressed tarball of the <code>var/</code> directory
+and copied it to the new server.</p>
+<p>On the AWS server:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> path/to/plone/on/aws
+</span><span style="color:#8fa1b3;">tar</span><span style="color:#bf616a;"> -cf</span><span style="color:#c0c5ce;"> var.tar var/
+</span><span style="color:#65737e;"># I started a GNU screen session for this.
+</span><span style="color:#8fa1b3;">rsync</span><span style="color:#bf616a;"> -avz --delete</span><span style="color:#c0c5ce;"> var/ tzicatl@tzicatl.webfactional.com:/home/tzicatl/webapps/hkl_plone/holokinesis_libros/var/
+</span><span style="color:#65737e;"># Then go to sleep, because it takes a lot of time to transfer from one site to another.
+</span></pre>
+<p>On the WebFaction server:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">cd </span><span style="color:#bf616a;">~</span><span style="color:#c0c5ce;">/webapps/hkl_plone/holokinesis_libros/
+</span><span style="color:#8fa1b3;">tar</span><span style="color:#bf616a;"> -xf</span><span style="color:#c0c5ce;"> var.tar
+</span></pre>
+<h2 id="server-startup-and-configuration-of-vhm">Server startup and configuration of VHM</h2>
+<p>Starting the Plone instance is quite easy:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">cd </span><span style="color:#bf616a;">~</span><span style="color:#c0c5ce;">/webapps/hkl_plone/holokinesis_libros/
+</span><span style="color:#8fa1b3;">bin/instance</span><span style="color:#c0c5ce;"> start
+</span></pre>
+<p>The ZMI welcome screen shows on <a href="https://www.holokinesislibros.com/">https://www.holokinesislibros.com/</a> and
+<a href="https://www.holokinesislibros.com/Plone">https://www.holokinesislibros.com/Plone</a> works very well. Now it is time to
+log in to the ZMI and add a few configuration to the Virtual Host Monster.
+And, at the end, I ended up adding just one line:</p>
+<pre><code>    *.holokinesislibros.com/Plone
+</code></pre>
+<h2 id="the-end">The end</h2>
+<p>It's alive and kicking! :)</p>
+
+  </div>
+
+  
+  <a href="/blog/moving-a-plone-site-from-aws-to-webfaction" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/gtg-enabling-missing-plugins-for-fedora-20" rel="next">&larr; GTG: Enabling missing plugins for Fedora 20</a>
+  
+  
+  <a href="/blog/tips-para-ir-al-pycon-2013" rel="prev">Tips para ir al PyCon 2013 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

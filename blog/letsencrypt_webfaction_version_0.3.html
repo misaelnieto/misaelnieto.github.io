@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Sitio HTTPS + Webfaction + Let's Encrypt &middot; Noe Nieto</title>
+    <meta name="description" content="Nota: Webfaction dejo de existir hace muchos años y Let's Encrypt ha sido automatizado en gran parte. Este articulo esta aquí por razones históricas.">
+    
+    <meta name="keywords" content="webfaction, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Sitio HTTPS + Webfaction + Let's Encrypt">
+    <meta property="og:description" content="Nota: Webfaction dejo de existir hace muchos años y Let's Encrypt ha sido automatizado en gran parte. Este articulo esta aquí por razones históricas.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Sitio HTTPS + Webfaction + Let's Encrypt">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2018-07-12">
+    
+    
+    <meta property="article:tag" content="webfaction">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sitio HTTPS + Webfaction + Let's Encrypt">
+    <meta name="twitter:description" content="Nota: Webfaction dejo de existir hace muchos años y Let's Encrypt ha sido automatizado en gran parte. Este articulo esta aquí por razones históricas.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Sitio HTTPS + Webfaction + Let's Encrypt">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/letsencrypt_webfaction_version_0.3.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Sitio HTTPS + Webfaction + Let's Encrypt","description":"Nota: Webfaction dejo de existir hace muchos años y Let's Encrypt ha sido automatizado en gran parte. Este articulo esta aquí por razones históricas.","datePublished":"2018-07-12","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["webfaction"],"wordCount":697}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Sitio HTTPS + Webfaction + Let's Encrypt"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Sitio HTTPS + Webfaction + Let's Encrypt</h1>
+  
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2018-07-12">
+      2018-07-12
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/webfaction/">webfaction</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#preparación-del-sitio" class="toc-link">Preparación del sitio</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#actualzación-de-letsencrypt-webfaction" class="toc-link">Actualzación de letsencrypt_webfaction</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#inicialización-del-archivo-de-configuración" class="toc-link">Inicialización del archivo de configuración:</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#reconfiguración" class="toc-link">Reconfiguración</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#pruebas" class="toc-link">Pruebas</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#cronjob-para-renovación-de-certificados" class="toc-link">Cronjob para renovación de certificados</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#notificacion-por-email" class="toc-link">Notificacion por email</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#problemas" class="toc-link">Problemas</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p><strong>Nota</strong>: Webfaction dejo de existir hace muchos años y Let's Encrypt ha sido automatizado en gran parte. Este articulo esta aquí por razones históricas.</p>
+<p>Estas son mis notas de configuracion de HTTPS en webfaction usando certificados de <a href="https://letsencrypt.org/">Let's Encrypt</a>. Ya había publicado una guía anterior, pero hay una nueva version del letsencrypt_webfaction y trae cambios que requieren reconfigurar. Así que volvemos a empezar desde cero.</p>
+<h2 id="preparación-del-sitio">Preparación del sitio</h2>
+<p>La preparación del sitio es [la misma]({% post_url 2018-02-05-webfaction-https-y-letsencript %}) y no es necesario cubrirla de nuevo.</p>
+<h2 id="actualzación-de-letsencrypt-webfaction">Actualzación de letsencrypt_webfaction</h2>
+<p>La guía de instalación oficial está <a href="https://github.com/will-in-wi/letsencrypt-webfaction/blob/master/docs/upgrading.md">en github</a>.</p>
+<p>El comando para instalar y actualizar es el mismo:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">GEM_HOME</span><span style="color:#c0c5ce;">=$</span><span style="color:#bf616a;">HOME</span><span style="color:#a3be8c;">/.letsencrypt_webfaction/gems </span><span style="color:#bf616a;">RUBYLIB</span><span style="color:#c0c5ce;">=$</span><span style="color:#bf616a;">GEM_HOME</span><span style="color:#a3be8c;">/lib </span><span style="color:#8fa1b3;">gem2.2</span><span style="color:#c0c5ce;"> install letsencrypt_webfaction
+</span></pre>
+<p>En esta ocasión voy a seguir las instrucciones al pie de la letra y voy a configurar el comando <code>/letsencrypt_webfaction</code> mediante <code>.bash_profile</code>. Así quedó el mio:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">cat</span><span style="color:#c0c5ce;"> .bash_profile 
+</span><span style="color:#65737e;"># .bash_profile
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># Get the aliases and functions
+</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[ </span><span style="color:#bf616a;">-f ~</span><span style="color:#c0c5ce;">/.bashrc </span><span style="color:#96b5b4;">]</span><span style="color:#c0c5ce;">; </span><span style="color:#b48ead;">then
+</span><span style="color:#c0c5ce;">    </span><span style="color:#96b5b4;">. </span><span style="color:#bf616a;">~</span><span style="color:#c0c5ce;">/.bashrc
+</span><span style="color:#b48ead;">fi
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># User specific environment and startup programs
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">PATH</span><span style="color:#c0c5ce;">=$</span><span style="color:#bf616a;">PATH</span><span style="color:#a3be8c;">:</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">HOME</span><span style="color:#a3be8c;">/bin
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">letsencrypt_webfaction </span><span style="color:#c0c5ce;">{
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">PATH</span><span style="color:#c0c5ce;">=$</span><span style="color:#bf616a;">PATH</span><span style="color:#a3be8c;">:</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">GEM_HOME</span><span style="color:#a3be8c;">/bin </span><span style="color:#bf616a;">GEM_HOME</span><span style="color:#c0c5ce;">=$</span><span style="color:#bf616a;">HOME</span><span style="color:#a3be8c;">/.letsencrypt_webfaction/gems </span><span style="color:#bf616a;">RUBYLIB</span><span style="color:#c0c5ce;">=$</span><span style="color:#bf616a;">GEM_HOME</span><span style="color:#a3be8c;">/lib </span><span style="color:#8fa1b3;">ruby2.2 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">HOME</span><span style="color:#c0c5ce;">/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction $</span><span style="color:#bf616a;">*
+</span><span style="color:#c0c5ce;">}
+</span></pre>
+<p>El script anterior <code>~/bin/letsencrypt_webfaction</code> lo dejé de usar y lo borré.</p>
+<h2 id="inicialización-del-archivo-de-configuración">Inicialización del archivo de configuración:</h2>
+<p>Una de las novedades de la versión 0.3 de <code>letsencrypt_webfaction</code> es que el script ya no acepta ningun parámetro en la línea de comando, excepto por <code>init</code> y <code>run</code>. Cuando corres el comando <code>init</code> se crea el archivo <code>~/letsencrypt_webfaction.toml</code></p>
+<h2 id="reconfiguración">Reconfiguración</h2>
+<p>En la versión 0.2 de <code>letsencrypt_webfaction</code> tenía que tener un archivo de configuración por cada dominio/sitio. Ahora sólo se requiere un solo archivo (<code>letsencrypt_webfaction.toml</code>). La configuración anterior (<code>~/letsencrypt/demos_noenieto_com.yml</code>) era:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">domains</span><span style="color:#c0c5ce;">: [</span><span style="color:#a3be8c;">demos.noenieto.com</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">public</span><span style="color:#c0c5ce;">: [</span><span style="color:#a3be8c;">/home/nnieto/webapps/demos_http</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">output_dir</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">/home/nnieto/letsencrypt/
+</span><span style="color:#bf616a;">letsencrypt_account_email</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">nnieto@noenieto.com
+</span><span style="color:#bf616a;">username</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">noenieto
+</span><span style="color:#bf616a;">password</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">S0rpr354
+</span><span style="color:#bf616a;">cert_name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">demos_noenieto_com
+</span></pre>
+<p>Ahora la configuración va a ser:</p>
+<pre><code>username = &quot;nmnieto&quot;
+password = &quot;S0rpr354&quot;
+letsencrypt_account_email = &quot;nnieto@noenieto.com&quot;
+endpoint = &quot;https://acme-staging.api.letsencrypt.org/&quot; # Staging
+
+[[certificate]]
+domains = [
+  &quot;demos.noenieto.com&quot;,
+]
+public = &quot;~/webapps/demos_noenieto/&quot;
+name = &quot;demos_noenieto_com&quot;
+</code></pre>
+<h2 id="pruebas">Pruebas</h2>
+<p>Primero probamos con staging</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;"> </span><span style="color:#8fa1b3;">letsencrypt_webfaction</span><span style="color:#c0c5ce;"> run
+</span><span style="color:#8fa1b3;">-64</span><span style="color:#c0c5ce;"> days until expiration of demos_noenieto_com. Renewing...
+</span><span style="color:#8fa1b3;">Your</span><span style="color:#c0c5ce;"> new certificate is now created and installed.
+</span><span style="color:#8fa1b3;">You</span><span style="color:#c0c5ce;"> will need to change your application to use the demos_noenieto_com certificate.
+</span><span style="color:#8fa1b3;">Add</span><span style="color:#c0c5ce;"> the `</span><span style="color:#8fa1b3;">--quiet</span><span style="color:#c0c5ce;">` parameter in your cron task to remove this message.
+</span></pre>
+<p>Después de correr el comando pude ver que el certificado ya se había actualizado en el panel de control de webfaction y además mi sitio ya estaba usando el nuevo certificado (aunque es inválido por que usé el servidor staging de letsencrypt.</p>
+<p>Ahora sólo falta configurar el sitio web para que use el endpoint de producción (editando el archivo .toml)</p>
+<h3 id="cronjob-para-renovación-de-certificados">Cronjob para renovación de certificados</h3>
+<p>Con esta nueva version todo va a estar concentrado en un solo archivo de configuración, así que todos los certificados se van a renovar al mismo tiempo. Otro cambio importante con esta nueva version es que esta pensada para que el cronjob de renovación de certificados se corra una vez al día.</p>
+<p>Como en la ocasión anterior, los certificados de Let's encrypt sólo <a href="https://letsencrypt.org/2015/11/09/why-90-days.html">duran sólo 90 días</a>. El servidor de producción de letsencrypt te limita a 5 certificados por dominio cada 7 días. Pero parece que no va a haber problema si <code>letsencrypt_webfaction</code> corre diariamente por que detecta cuánto falta para renovar cierto certificado. Corrí el comando de nuevo como proueba y ahora el resultado fue distinto:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">$</span><span style="color:#c0c5ce;"> letsencrypt_webfaction run
+</span><span style="color:#8fa1b3;">90</span><span style="color:#c0c5ce;"> days until expiration of demos_noenieto_com. Skipping...
+</span></pre>
+<p>Habiendo considerado todo esto, el crojob va a quedar así:</p>
+<pre><code># Let's encrypt
+18 3 * * *     PATH=$PATH:$GEM_HOME/bin:/usr/local/bin GEM_HOME=$HOME/.letsencrypt_webfaction/gems RUBYLIB=$GEM_HOME/lib ruby2.2 $HOME/.letsencrypt_webfaction/gems/bin/letsencrypt_webfaction run --quiet
+</code></pre>
+<p>Con esto se correrá letsencrypy_webfaction rodos los dias a las 3:18 am.</p>
+<h3 id="notificacion-por-email">Notificacion por email</h3>
+<p>En este momento no voy programer notificacion mediante email, por que se estaría enviando diariamente y no tiene caso.</p>
+<h2 id="problemas">Problemas</h2>
+<p><code>letsencryp_webfaction</code> solo admite dos comandos: <code>init</code> y <code>run</code>. Inicialmente generé mi certificado usando el servidor de staging. Cuando todo salió bien cambié la configuración para usar el servidor de producción. Pero parece que <code>letsencrypt_webfaction</code> no detecta que cambiaste de servidor y tampoco tiene ninguna opción para forzar la generación del certificado. <a href="https://github.com/will-in-wi/letsencrypt-webfaction/issues/132">No soy el único que tuvo este problema</a>, al parecer.</p>
+<p>Por el momento lo arrglé cambiando el nombre del certificado.</p>
+
+  </div>
+
+  
+  <a href="/blog/letsencrypt_webfaction_version_0.3" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/semana-29" rel="next">&larr; 2018-07-17-semana-29.md</a>
+  
+  
+  <a href="/blog/Lecturas-semana-27-a-28" rel="prev">2018-07-02-Lecturas-semana-27-a-28.md &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

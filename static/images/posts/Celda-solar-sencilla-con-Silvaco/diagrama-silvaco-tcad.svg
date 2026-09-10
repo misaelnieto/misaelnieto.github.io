@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="diagrama_silvaco_TCAD.svg"
+   inkscape:version="0.92.2pre0 650254f, 2017-08-06"
+   id="svg6028"
+   version="1.1"
+   viewBox="0 0 236.81497 231.79343"
+   height="231.79343mm"
+   width="236.81496mm">
+  <title
+     id="title933">Silvaco TCAD</title>
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="26"
+     inkscape:window-x="0"
+     inkscape:window-height="874"
+     inkscape:window-width="1600"
+     inkscape:lockguides="false"
+     width="10in"
+     units="mm"
+     showgrid="false"
+     inkscape:current-layer="g861"
+     inkscape:document-units="mm"
+     inkscape:cy="527.09039"
+     inkscape:cx="221.09679"
+     inkscape:zoom="0.71145832"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:snap-text-baseline="false"
+     showguides="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs6022" />
+  <metadata
+     id="metadata6025">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Silvaco TCAD</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Noe Nieto</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://artlibre.org/licence/lal" />
+        <dc:language>Spanish</dc:language>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://artlibre.org/licence/lal">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-10,-52.519428)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       id="g853"
+       transform="translate(91.177389)"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="53.019428"
+         x="6.344141"
+         height="17.399815"
+         width="58.95694"
+         id="rect848"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.93333244px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+         x="14.061171"
+         y="67.289803"
+         id="text6056"><tspan
+           sodipodi:role="line"
+           id="tspan6054"
+           x="14.061171"
+           y="67.289803"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.93333244px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">TCAD</tspan></text>
+    </g>
+    <text
+       id="text6096"
+       y="180.99535"
+       x="179.27995"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       xml:space="preserve"><tspan
+         style="fill:#333333;fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+         y="190.35912"
+         x="179.27995"
+         id="tspan6094"
+         sodipodi:role="line" /></text>
+    <g
+       id="g861"
+       transform="translate(124.86301,27.772025)"
+       inkscape:connector-avoid="true"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect855"
+         width="49.551556"
+         height="14.011673"
+         x="6.2429929"
+         y="56.50872" />
+      <text
+         id="text859"
+         y="67.348946"
+         x="14.394463"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+           y="67.348946"
+           x="14.394463"
+           id="tspan857"
+           sodipodi:role="line">Athena</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.99996575,0,0,1.003429,72.940724,27.529367)"
+       id="g871"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="56.481243"
+         x="6.215517"
+         height="14.066625"
+         width="43.747684"
+         id="rect865"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none"
+         x="16.506086"
+         y="67.348946"
+         id="text869"><tspan
+           sodipodi:role="line"
+           id="tspan867"
+           x="16.506086"
+           y="67.348946"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none">Atlas</tspan></text>
+    </g>
+    <g
+       id="g895"
+       transform="matrix(0.9999668,0,0,1.0033234,33.416785,96.470532)"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect889"
+         width="43.747684"
+         height="14.066625"
+         x="6.215517"
+         y="56.481243" />
+      <text
+         id="text893"
+         y="67.348946"
+         x="15.583663"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+           y="67.348946"
+           x="15.583663"
+           id="tspan891"
+           sodipodi:role="line">Blaze</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.99997099,0,0,1.0034475,15.918369,73.158408)"
+       id="g903"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99829519;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="56.558964"
+         x="6.2932377"
+         height="13.911183"
+         width="61.168709"
+         id="rect897"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99829519;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99829519;stroke-miterlimit:4;stroke-dasharray:none"
+         x="14.005603"
+         y="67.196503"
+         id="text901"><tspan
+           sodipodi:role="line"
+           id="tspan899"
+           x="14.005603"
+           y="67.196503"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99829519;stroke-miterlimit:4;stroke-dasharray:none">Luminous</tspan></text>
+    </g>
+    <g
+       id="g911"
+       transform="matrix(1.0003906,0,0,0.95380663,167.56387,58.320503)"
+       inkscape:connector-avoid="true"
+       style="stroke-width:1.02372909;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:1.02372909;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect905"
+         width="65.014984"
+         height="14.632757"
+         x="6.3230391"
+         y="56.588764" />
+      <text
+         id="text909"
+         y="66.388199"
+         x="15.353929"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1.02372909;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:1.02372909;stroke-miterlimit:4;stroke-dasharray:none"
+           y="66.388199"
+           x="15.353929"
+           id="tspan907"
+           sodipodi:role="line">SSuprem4</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.99996575,0,0,1.003429,167.66115,81.435788)"
+       id="g919"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="56.481243"
+         x="6.215517"
+         height="14.066625"
+         width="43.747684"
+         id="rect913"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none"
+         x="17.444014"
+         y="67.348946"
+         id="text917"><tspan
+           sodipodi:role="line"
+           id="tspan915"
+           x="17.444014"
+           y="67.348946"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99830699;stroke-miterlimit:4;stroke-dasharray:none">Elite</tspan></text>
+    </g>
+    <g
+       id="g927"
+       transform="matrix(0.99997013,0,0,1.003444,167.60379,110.48491)"
+       style="stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect921"
+         width="57.682411"
+         height="13.940178"
+         x="6.2787404"
+         y="56.544468" />
+      <text
+         id="text925"
+         y="66.261162"
+         x="15.524244"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none"
+           y="66.261162"
+           x="15.524244"
+           id="tspan923"
+           sodipodi:role="line">Optolith</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 119.35186,70.419243 107.23335,84.204284"
+       id="path854"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g853"
+       inkscape:connection-end="#g871" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 135.49821,70.419243 13.54015,13.861502"
+       id="path856"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g853"
+       inkscape:connection-end="#g861" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 155.88178,98.292418 v 20.981232 h 18.0076"
+       id="path857"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g911"
+       inkscape:connection-start="#g861" />
+    <g
+       transform="matrix(0.9999668,0,0,1.0033234,21.200017,49.86202)"
+       id="g873"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="56.536816"
+         x="6.2710776"
+         height="13.955476"
+         width="55.909298"
+         id="rect867"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+         x="15.547281"
+         y="67.175827"
+         id="text871"><tspan
+           sodipodi:role="line"
+           id="tspan869"
+           x="15.547281"
+           y="67.175827"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">S-Pisces</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.9999668,0,0,1.0033234,33.416785,119.7748)"
+       id="g881"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="56.481243"
+         x="6.215517"
+         height="14.066625"
+         width="43.747684"
+         id="rect875"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+         x="15.583663"
+         y="67.348946"
+         id="text879"><tspan
+           sodipodi:role="line"
+           id="tspan877"
+           x="15.583663"
+           y="67.348946"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">Giga</tspan></text>
+    </g>
+    <g
+       id="g889"
+       transform="matrix(0.9999668,0,0,1.0033234,4.1607146,143.07906)"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect883"
+         width="72.881584"
+         height="13.820208"
+         x="6.3386588"
+         y="56.60445" />
+      <text
+         id="text887"
+         y="67.348946"
+         x="15.181654"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+           y="67.348946"
+           x="15.181654"
+           id="tspan885"
+           sodipodi:role="line">MixedMode</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.9999668,0,0,1.0033234,14.16318,166.38332)"
+       id="g897"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="56.565922"
+         x="6.3001261"
+         height="13.897263"
+         width="62.91732"
+         id="rect891"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+         x="15.754962"
+         y="66.191391"
+         id="text895"><tspan
+           sodipodi:role="line"
+           id="tspan893"
+           x="15.754962"
+           y="66.191391"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">Quantum</tspan></text>
+    </g>
+    <g
+       id="g907"
+       transform="matrix(0.9999668,0,0,1.0033234,40.816701,212.99183)"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect901"
+         width="36.385387"
+         height="14.1421"
+         x="6.1776533"
+         y="56.443504" />
+      <text
+         id="text905"
+         y="67.064728"
+         x="15.164191"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+           y="67.064728"
+           x="15.164191"
+           id="tspan903"
+           sodipodi:role="line">TFT</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.9999668,0,0,1.0033234,49.955882,230.09814)"
+       id="g915"
+       inkscape:connector-avoid="true"
+       style="stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="16.166794"
+         x="-2.9618316"
+         height="14.1421"
+         width="36.385387"
+         id="rect909"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+         x="5.7094798"
+         y="26.788015"
+         id="text913"><tspan
+           sodipodi:role="line"
+           x="5.7094798"
+           y="26.788015"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99835902;stroke-miterlimit:4;stroke-dasharray:none"
+           id="tspan917">LED</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.99997013,0,0,1.003444,167.53946,136.3794)"
+       id="g928"
+       style="stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="56.602917"
+         x="6.3371758"
+         height="13.823278"
+         width="72.441536"
+         id="rect922"
+         style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none"
+         x="13.8336"
+         y="66.261162"
+         id="text926"><tspan
+           sodipodi:role="line"
+           id="tspan924"
+           x="13.8336"
+           y="66.261162"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke-width:0.99829733;stroke-miterlimit:4;stroke-dasharray:none">MC Implant</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 113.58766 H 83.378328"
+       id="path932"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g871"
+       inkscape:connection-end="#g873" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 155.88178,98.292418 v 46.875712 h 17.99467"
+       id="path936"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g861"
+       inkscape:connection-end="#g919" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 155.88178,98.292418 v 75.925792 h 18.00056"
+       id="path940"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g861"
+       inkscape:connection-end="#g927" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 155.88178,98.292418 0,101.820282 h 17.99467"
+       id="path942"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g861"
+       inkscape:connection-end="#g928" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 136.89193 H 83.378358"
+       id="path889"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g871"
+       inkscape:connection-end="#g903" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 160.19617 H 83.378328"
+       id="path891"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g871"
+       inkscape:connection-end="#g895" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 183.50044 H 83.378328"
+       id="path893"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g871"
+       inkscape:connection-end="#g881" />
+    <path
+       style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 206.8047 H 83.378327"
+       id="path893-0"
+       inkscape:connector-type="orthogonal"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g889" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 230.10896 H 83.378328"
+       id="path927"
+       inkscape:connector-curvature="0"
+       inkscape:connector-type="orthogonal"
+       inkscape:connection-start="#g871"
+       inkscape:connection-end="#g897" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 253.41321 H 83.378328"
+       id="path929"
+       inkscape:connector-curvature="0"
+       inkscape:connector-type="orthogonal"
+       inkscape:connection-start="#g871"
+       inkscape:connection-end="#g915" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.02912,98.319143 V 276.71747 H 83.378329"
+       id="path931"
+       inkscape:connector-curvature="0"
+       inkscape:connector-type="orthogonal"
+       inkscape:connection-start="#g871"
+       inkscape:connection-end="#g907" />
+  </g>
+</svg>

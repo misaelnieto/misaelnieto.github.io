@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Django y Buildout (Parte 1) &middot; Noe Nieto</title>
+    <meta name="description" content="Primera parte de notas sobre cómo usar Django con Buildout para crear entornos de desarrollo replicables e independientes del sistema.">
+    
+    <meta name="keywords" content="django, buildout, python, pip, djangorecipe, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Django y Buildout (Parte 1)">
+    <meta property="og:description" content="Primera parte de notas sobre cómo usar Django con Buildout para crear entornos de desarrollo replicables e independientes del sistema.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Django y Buildout (Parte 1)">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2010-01-18">
+    
+    
+    <meta property="article:tag" content="django">
+    <meta property="article:tag" content="buildout">
+    <meta property="article:tag" content="python">
+    <meta property="article:tag" content="pip">
+    <meta property="article:tag" content="djangorecipe">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Django y Buildout (Parte 1)">
+    <meta name="twitter:description" content="Primera parte de notas sobre cómo usar Django con Buildout para crear entornos de desarrollo replicables e independientes del sistema.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Django y Buildout (Parte 1)">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/django-y-buildout-parte-1.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Django y Buildout (Parte 1)","description":"Primera parte de notas sobre cómo usar Django con Buildout para crear entornos de desarrollo replicables e independientes del sistema.","datePublished":"2010-01-18","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["django","buildout","python","pip","djangorecipe"],"wordCount":1141}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Django y Buildout (Parte 1)"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Django y Buildout (Parte 1)</h1>
+  <p class="entry-description muted">Primera parte de notas sobre cómo usar Django con Buildout para crear entornos de desarrollo replicables e independientes del sistema.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Django 1.1, zc.buildout, distribute y paster quedaron obsoletos; el flujo moderno usa pip + venv.
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2010-01-18">
+      2010-01-18
+    </time>
+    
+
+    
+    <span class="reading-time">4 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/django/">django</a>
+    
+    <a class="p-category" href="/tags/buildout/">buildout</a>
+    
+    <a class="p-category" href="/tags/python/">python</a>
+    
+    <a class="p-category" href="/tags/pip/">pip</a>
+    
+    <a class="p-category" href="/tags/djangorecipe/">djangorecipe</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#intro" class="toc-link">Intro</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#paso-1-instalación-de-distribute-y-pip" class="toc-link">Paso 1 — Instalación de distribute y PIP</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#paso-2-crear-un-buildout-para-django" class="toc-link">Paso 2 — Crear un buildout para django</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="intro">Intro</h2>
+<p>Estas son las notas de mi primer buildout serio con Django, realizado en una
+instalación limpia de Ubuntu Karmic 9.10. Es la continuación natural de <a href="/blog/mi-primera-experiencia-con-django-y-zcbuildout-en-ubuntu-910" title="Mi primera experiencia con Django y zc.buildout">Mi
+primera experiencia con Django y zc.buildout</a> — aquí ya entramos en
+materia con el esqueleto del proyecto.</p>
+<p>Esta es una guía de instalación de Django diferente a la que se anuncia en la
+página web de Django. Usaremos buildout, que es una interesante manera de
+replicar el entorno de desarrollo en producción y viceversa.</p>
+<p>Una de las principales ventajas de usar buildout para nuestros proyectos en
+Python es que es posible crear un entorno independiente de las librerías del
+sistema. En la práctica esto significa que se puede replicar las mismas
+condiciones que hay en el servidor en nuestro entorno de desarrollo.</p>
+<h2 id="paso-1-instalación-de-distribute-y-pip">Paso 1 — Instalación de distribute y PIP</h2>
+<p>Primero, algunas notas:</p>
+<ul>
+<li>Python usa <code>distutils</code> para manejar sus librerías.</li>
+<li>Después del lanzamiento de distutils, emergió el sistema <code>setuptools</code> para automatizar el manejo de dependencias y el manejo de paquetes. Según Tarek Ziade, en su libro <em>Expert Python Programming</em>, setuptools es a Python lo que <code>apt</code> es a Debian/Ubuntu.</li>
+<li>Las librerías de Python se distribuyen en un formato común, que en la comunidad Python les han llamado huevos (eggs). Un huevo de Python es un archivo zip, pero con la extensión <code>.egg</code>.</li>
+<li>El PyPI (Python Package Index) es el lugar principal donde se concentran la mayoría de los huevos de Python. Existen otros índices, tales como el índice de productos de Plone. El PyPI viene siendo a Python como los repositorios de paquetes a Debian/Ubuntu.</li>
+<li><code>setuptools</code> ha estado envejeciendo y en base a eso, Tarek Ziade decidió hacer un fork llamado <code>distribute</code> (<a href="http://pypi.python.org/pypi/distribute">http://pypi.python.org/pypi/distribute</a>).</li>
+<li><code>pip</code> es el reemplazo de <code>easy_install</code>.</li>
+</ul>
+<p>Todo este cambio se resume en la siguiente imagen:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/django-y-buildout-parte-1/2009-distribute.webp 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/django-y-buildout-parte-1/2009-distribute.png" alt="Pip distribute"  srcset="/static/images/posts/django-y-buildout-parte-1/2009-distribute.png 400w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="400" height="300" /></picture></p>
+<p>Una vez terminado el intento de explicación, pongámonos manos a la obra. Aquí
+está una lista de instrucciones necesarias para instalar <code>distribute</code> en una
+máquina limpia. Se instalará distribute, pip y pastescript:</p>
+<pre><code>tzicatl@hormiga-negra:~ $ wget http://python-distribute.org/distribute_setup.py
+tzicatl@hormiga-negra:~ $ sudo python distribute_setup.py
+tzicatl@hormiga-negra:~ $ sudo easy_install pip
+tzicatl@hormiga-negra:~ $ sudo pip install PasteScript
+</code></pre>
+<p>Ahora, probando <code>paster</code>:</p>
+<pre><code>tzicatl@hormiga-negra:~/Descargas$ paster create --list-templates
+Available templates:
+  basic_package:  A basic setuptools-enabled package
+  paste_deploy:   A web application deployed through paste.deploy
+tzicatl@hormiga-negra:~/Descargas$
+</code></pre>
+<p>¡Funciona!</p>
+<p>El siguiente paso es instalar las plantillas necesarias para que <code>paster</code>
+genere todo el esqueleto de nuestro proyecto con Django. En PyPI hay dos
+huevos con recetas para crear proyectos con Django y buildout:</p>
+<ul>
+<li><a href="http://pypi.python.org/pypi/fez.djangoskel/">http://pypi.python.org/pypi/fez.djangoskel/</a> Contiene plantillas para crear esqueletos de código y construir una instancia de Django usando buildout.</li>
+<li><a href="http://pypi.python.org/pypi/djangorecipe">http://pypi.python.org/pypi/djangorecipe</a> Descarga Django y lo instala en un lugar independiente de las librerías que tiene el sistema.</li>
+</ul>
+<p>Comenzamos por instalar <code>fez.djangoskel</code>:</p>
+<pre><code>tzicatl@hormiga-negra:~$ sudo pip install fez.djangoskel
+</code></pre>
+<p>Ahora paster tiene las siguientes opciones:</p>
+<pre><code>tzicatl@laptop:~ $ paster create --list-templates
+Available templates:
+  basic_package:             A basic setuptools-enabled package
+  django_app:                Template for a basic Django reusable application
+  django_buildout:           A plain Django buildout
+  django_namespace_app:      Template for a namespaced Django reusable application
+  django_namespace_project:  Template for a namespaced Django project
+  django_project:            Template for a Django project
+  paste_deploy:              A web application deployed through paste.deploy
+tzicatl@laptop:~ $
+</code></pre>
+<h2 id="paso-2-crear-un-buildout-para-django">Paso 2 — Crear un buildout para django</h2>
+<pre><code>tzicatl@laptop:~/programar$ paster create -t django_buildout
+Selected and implied templates:
+  fez.djangoskel#django_buildout  A plain Django buildout
+
+Enter project name: my_djangobuildout
+Variables:
+  egg:      my_djangobuildout
+  package:  my_djangobuildout
+  project:  my_djangobuildout
+Enter django_version (Django version to fetch, the default is 1.0.2) ['1.0.2']: 1.1.1
+Enter django_project_name (Name of the main Django project folder) ['project']: projects
+Creating template django_buildout
+Creating directory ./my_djangobuildout
+  Copying README.txt to ./my_djangobuildout/README.txt
+  Copying bootstrap.py to ./my_djangobuildout/bootstrap.py
+  Copying buildout.cfg_tmpl to ./my_djangobuildout/buildout.cfg
+  Copying devel.cfg_tmpl to ./my_djangobuildout/devel.cfg
+-----------------------------------------------------------
+Generation finished
+You probably want to run python bootstrap.py and then edit
+buildout.cfg before running bin/buildout -v
+
+See README.txt for details
+-----------------------------------------------------------
+tzicatl@laptop:~/programar$
+</code></pre>
+<p>Con esta instrucción se ha creado un directorio <code>my_djangobuildout</code> que
+contiene los archivos necesarios para arrancar nuestra buildout. Veamos qué
+archivos contiene:</p>
+<pre><code>tzicatl@laptop:~/programar$ cd my_djangobuildout/
+tzicatl@laptop:~/programar/my_djangobuildout$ ls
+bootstrap.py  buildout.cfg  devel.cfg  README.txt
+tzicatl@laptop:~/programar/my_djangobuildout$
+</code></pre>
+<p>Tenemos 4 archivos:</p>
+<ul>
+<li><strong><code>bootstrap.py</code></strong> — ejecuta este archivo para crear un directorio <code>bin/</code> con los diferentes scripts que se han configurado en <code>buildout.cfg</code>.</li>
+<li><strong><code>buildout.cfg</code></strong> — el archivo de configuración principal. Aquí se instruye a buildout sobre qué scripts ejecutar. También aquí controlaremos qué librerías extras se instalarán en nuestro entorno.</li>
+<li><strong><code>devel.cfg</code></strong> — opciones de configuración extras para el modo de depurado.</li>
+<li><strong><code>README.txt</code></strong> — archivo README ;)</li>
+</ul>
+<p>Ahora modificamos <code>buildout.cfg</code> para que todo se ejecute con <code>python2.6</code> y se
+instalen dos librerías extra de manera independiente del sistema. El
+<code>buildout.cfg</code> original es este:</p>
+<pre><code>[buildout]
+parts = django
+
+[django]
+recipe = djangorecipe
+version = 1.1.1
+project = projects
+wsgi=true
+settings=production
+</code></pre>
+<p>Y completadas las modificaciones queda así:</p>
+<pre><code>[buildout]
+executable=/usr/bin/python2.6
+parts =
+    zlib
+    PIL
+    django
+
+eggs =
+    PIL
+
+[django]
+recipe = djangorecipe
+version = 1.1.1
+project = projects
+wsgi=true
+settings=production
+
+# Compila zlib para PIL y PIL para no depender de nada del sistema
+[zlib]
+recipe = hexagonit.recipe.cmmi
+url = http://www.zlib.net/zlib-1.2.3.tar.gz
+configure-options = --shared
+
+[PIL]
+recipe = zc.recipe.egg:custom
+egg = PIL
+find-links = http://dist.repoze.org/
+include-dirs = ${zlib:location}/include
+library-dirs = ${zlib:location}/lib
+rpath = ${zlib:location}/lib
+</code></pre>
+<ul>
+<li><strong>Nota 1:</strong> Este es el momento perfecto para añadir los archivos que están dentro del buildout a un repositorio git o SVN.</li>
+<li><strong>Nota 2:</strong> Ahora es momento de configurar <code>~/.buildout/default.cfg</code> para designar un directorio común de caché de huevos de Python (<code>.egg</code>).</li>
+</ul>
+<p>Ejecutamos <code>bootstrap.py</code>:</p>
+<pre><code>tzicatl@laptop:~/programar/my_djangobuildout$ python2.6 bootstrap.py
+Creating directory '/home/tzicatl/programar/my_djangobuildout/bin'.
+Creating directory '/home/tzicatl/programar/my_djangobuildout/parts'.
+Creating directory '/home/tzicatl/programar/my_djangobuildout/develop-eggs'.
+Generated script '/home/tzicatl/programar/my_djangobuildout/bin/buildout'.
+tzicatl@laptop:~/programar/my_djangobuildout$
+</code></pre>
+<p>Ahora ya podemos ejecutar el buildout que automáticamente bajará, compilará e
+instalará Django, Zlib y PIL en un entorno aislado del sistema. Lo que se va a
+ver en la consola será algo como esto:</p>
+<pre><code>tzicatl@laptop:~/programar/my_djangobuildout$ bin/buildout
+Unused options for buildout: 'download-directory'.
+Installing django.
+Getting distribution for 'zc.buildout'.
+Got zc.buildout 1.4.2.
+Generated script '/home/tzicatl/programar/my_djangobuildout/bin/django'.
+Generated script '/home/tzicatl/programar/my_djangobuildout/bin/django.wsgi'.
+tzicatl@laptop:~/programar/my_djangobuildout$
+</code></pre>
+<p>Examinemos el directorio. Ahora el contenido del directorio lucirá así:</p>
+<pre><code>tzicatl@laptop:~/programar/my_djangobuildout$ ls
+bin  bootstrap.py  buildout.cfg  devel.cfg  develop-eggs  parts  projects  README.txt
+tzicatl@laptop:~/programar/my_djangobuildout$ ls bin/
+buildout  django  django.wsgi
+tzicatl@laptop:~/programar/my_djangobuildout$ ls develop-eggs/
+tzicatl@laptop:~/programar/my_djangobuildout$ ls parts/
+django
+tzicatl@laptop:~/programar/my_djangobuildout$ ls projects/
+development.py  __init__.py  media  production.py  settings.py  templates  urls.py
+tzicatl@laptop:~/programar/my_djangobuildout$
+</code></pre>
+<p>A continuación se explica cada uno de los directorios y archivos:</p>
+<ul>
+<li><strong><code>bin/</code></strong> — el directorio donde residen los programas y scripts para construir una instancia de Django y controlarla.</li>
+<li><strong><code>develop-eggs/</code></strong> — aquí se depositan huevos de Python.</li>
+<li><strong><code>parts/</code></strong> — si existe alguna librería de Python que no esté empaquetada como huevo (por ejemplo, zlib), este será el lugar donde residirán esas librerías.</li>
+<li><strong><code>projects/</code></strong> — aquí es donde depositaremos nuestro código que conformará nuestra aplicación de Django.</li>
+</ul>
+<p>Hasta aquí la primera entrega. En la siguiente ya empezamos a escribir la app
+encima de este esqueleto — con <code>manage.py</code> corriendo sobre el binario que
+nos dejó buildout.</p>
+
+  </div>
+
+  
+  <a href="/blog/django-y-buildout-parte-1" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/unicode-y-utf-8-en-plone" rel="next">&larr; Unicode y UTF-8 en Plone</a>
+  
+  
+  <a href="/blog/tutoriales-interesantes-en-el-pycon-2010" rel="prev">Tutoriales interesantes en el Pycon 2010 &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

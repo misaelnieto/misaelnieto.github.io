@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>De Jekyll a Seite: catorce años, tres generadores de sitios estáticos &middot; Noe Nieto</title>
+    <meta name="description" content="Cómo migré mi sitio personal de Jekyll a Seite, un SSG AI-first. Stack, skills, bugs, soluciones alternativas y por qué abandoné BulmaCSS por un sistema de diseño atómico hecho a mano.">
+    
+    <meta name="keywords" content="seite, jekyll, ssg, tailwindcss, opencode, atomic-design, migracion, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="De Jekyll a Seite: catorce años, tres generadores de sitios estáticos">
+    <meta property="og:description" content="Cómo migré mi sitio personal de Jekyll a Seite, un SSG AI-first. Stack, skills, bugs, soluciones alternativas y por qué abandoné BulmaCSS por un sistema de diseño atómico hecho a mano.">
+    <meta property="og:image" content="https://noenieto.com/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1.png">
+    <meta property="og:image:alt" content="De Jekyll a Seite: catorce años, tres generadores de sitios estáticos">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2026-07-20">
+    
+    
+    <meta property="article:tag" content="seite">
+    <meta property="article:tag" content="jekyll">
+    <meta property="article:tag" content="ssg">
+    <meta property="article:tag" content="tailwindcss">
+    <meta property="article:tag" content="opencode">
+    <meta property="article:tag" content="atomic-design">
+    <meta property="article:tag" content="migracion">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="De Jekyll a Seite: catorce años, tres generadores de sitios estáticos">
+    <meta name="twitter:description" content="Cómo migré mi sitio personal de Jekyll a Seite, un SSG AI-first. Stack, skills, bugs, soluciones alternativas y por qué abandoné BulmaCSS por un sistema de diseño atómico hecho a mano.">
+    <meta name="twitter:image" content="https://noenieto.com/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1.png">
+    <meta name="twitter:image:alt" content="De Jekyll a Seite: catorce años, tres generadores de sitios estáticos">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/de-jekyll-a-seite.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"De Jekyll a Seite: catorce años, tres generadores de sitios estáticos","description":"Cómo migré mi sitio personal de Jekyll a Seite, un SSG AI-first. Stack, skills, bugs, soluciones alternativas y por qué abandoné BulmaCSS por un sistema de diseño atómico hecho a mano.","datePublished":"2026-07-20","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["seite","jekyll","ssg","tailwindcss","opencode","atomic-design","migracion"],"wordCount":3095}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"De Jekyll a Seite: catorce años, tres generadores de sitios estáticos"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header entry-header--hero">
+  
+  <div class="hero-text">
+    <h1 class="entry-title p-name">
+      De Jekyll a Seite: catorce años, tres generadores de sitios estáticos
+    </h1>
+    <p class="hero-tagline">&ldquo;Cómo migré mi sitio personal de Jekyll a Seite, un SSG AI-first. Stack, skills, bugs, soluciones alternativas y por qué abandoné BulmaCSS por un sistema de diseño atómico hecho a mano.&rdquo;</p>
+  </div>
+  
+    
+  
+  
+  <figure class="hero-figure">
+    <picture><source type="image/webp" srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1-480w.webp 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1-800w.webp 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1.webp 896w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1.png" alt="Una flota de veleros de madera del siglo XIX migrando a través de un mar agitado hacia un faro lejano. Grabado en madera al estilo de Gustave Doré, con acentos de rubricación bermellón a mano en el estandarte del barco líder y el haz del faro." srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1-480w.png 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1-800w.png 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-1.png 896w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px" width="896" height="1200"></picture>
+    <figcaption>La migración de 2026: catorce años, tres generadores de sitios estáticos.</figcaption>
+  </figure>
+  
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2026-07-20">
+      2026-07-20
+    </time>
+    
+
+    
+    <span class="reading-time">13 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/seite/">seite</a>
+    
+    <a class="p-category" href="/tags/jekyll/">jekyll</a>
+    
+    <a class="p-category" href="/tags/ssg/">ssg</a>
+    
+    <a class="p-category" href="/tags/tailwindcss/">tailwindcss</a>
+    
+    <a class="p-category" href="/tags/opencode/">opencode</a>
+    
+    <a class="p-category" href="/tags/atomic-design/">atomic-design</a>
+    
+    <a class="p-category" href="/tags/migracion/">migracion</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#el-sitio-anterior" class="toc-link">El sitio anterior</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#por-qué-seite" class="toc-link">Por qué Seite</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#usar-seite-sin-claude" class="toc-link">Usar Seite sin Claude</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#construyéndolo-diseño-atómico-tailwind-v4" class="toc-link">Construyéndolo: diseño atómico + Tailwind v4</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#golpes-y-moretones" class="toc-link">Golpes y moretones</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#issue-86-un-bug-real-corregido-rápido" class="toc-link">Issue #86: un bug real, corregido rápido</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#issue-87-mermaid-no-está-integrado" class="toc-link">Issue #87: Mermaid no está integrado</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#la-trampa-de-base-url" class="toc-link">La trampa de base_url</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#los-logros" class="toc-link">Los logros</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#los-tres-skills-que-la-reconstrucción-me-obligó-a-escribir" class="toc-link">Los tres skills que la reconstrucción me obligó a escribir</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#dejar-que-el-agente-lea-mi-github" class="toc-link">Dejar que el agente lea mi GitHub</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#mi-currículum-es-literalmente-un-grafo-de-commits-de-git" class="toc-link">Mi currículum es literalmente un grafo de commits de git</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#notas-al-pie-al-estilo-tufte-a-mano" class="toc-link">Notas al pie al estilo Tufte, a mano</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#el-índice-del-blog-con-puntos-de-líder" class="toc-link">El índice del blog con puntos de líder</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#el-footer-animado" class="toc-link">El footer animado</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#json-ld-hecho-a-mano-que-supera-las-especificaciones-integradas" class="toc-link">JSON-LD hecho a mano que supera las especificaciones integradas</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#generación-de-imágenes" class="toc-link">Generación de imágenes</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#lo-que-aprendí" class="toc-link">Lo que aprendí</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#el-remate" class="toc-link">El remate</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <p>En junio de 2012 <a href="/blog/primer-post-blog-estatico">escribí un post</a> anunciando que abandonaba <a href="http://plone.org/">Plone</a> y mudaba mi sitio personal a Jekyll. Catorce años después, en junio de 2026, volví a hacer las maletas: dejé Jekyll y moví todo el sitio a <a href="https://seite.sh">Seite</a>, un generador de sitios estáticos que se define como <em>AI-first</em> (n.t. IA primero).</p>
+<p>Este post es la historia de esa migración — el stack, los hacks, los bugs que reporté, las partes de las que estoy orgulloso y las que no. Si estás pensando en mover un blog antiguo a un SSG moderno, o simplemente te da curiosidad qué significa en la práctica un generador de sitios estáticos "AI-first", esto es para ti.</p>
+<blockquote>
+<p><strong>Una nota sobre autoría.</strong> La mayor parte del código de este sitio — el CSS, las plantillas Tera, el JSON-LD, los hacks con regex — no lo escribí yo. Lo escribieron LLMs. Mi trabajo fue dirigir, revisar y corregir la salida hasta que coincidiera con lo que tenía en la cabeza. Las decisiones de diseño son mías. Los bugs también. El archivo <code>organisms.css</code> de 2.300 líneas es algo que simplemente no podría haber escrito a mano en un plazo razonable. Los agentes fueron mis mecanógrafos, mis desarrolladores junior, mis patitos de goma. Yo era el que los apuntaba a las cosas correctas — y, más a menudo de lo que me gustaría admitir, primero a las incorrectas y luego de vuelta a las correctas.</p>
+</blockquote>
+<h2 id="el-sitio-anterior">El sitio anterior</h2>
+<p>La versión anterior del sitio funcionaba con <a href="https://jekyllrb.com/">Jekyll</a> sobre el framework <a href="https://bulma.io">BulmaCSS</a>, usando un tema comunitario llamado <code>bulma-clean-theme</code>. Funcionaba. También fue, durante años, un proyecto inacabado — porque <strong>no soy diseñador</strong>, y ningún framework CSS va a hacerme diseñador, por mucho que eso me duela.</p>
+<p>Así es como se veía:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1-480w.webp 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1-800w.webp 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1-1200w.webp 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1.webp 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1.png" alt="La antigua portada, con una foto de mi boda como imagen hero."  srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1-480w.png 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1-800w.png 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1-1200w.png 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma1.png 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1920" height="3587" /></picture>
+<em>La portada. Sí, ese soy yo el día de mi boda. No era exactamente la primera impresión profesional que esperaba dar.</em></p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2-480w.webp 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2-800w.webp 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2-1200w.webp 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2.webp 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2.png" alt="La antigua página de currículum, sosa y gris."  srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2-480w.png 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2-800w.png 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2-1200w.png 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma2.png 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1920" height="3891" /></picture>
+<em>Mi currículum. Aburrido, sin estilo ni personalidad.</em></p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3-480w.webp 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3-800w.webp 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3-1200w.webp 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3.webp 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3.png" alt="El antiguo índice del blog, colorido pero visualmente ruidoso."  srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3-480w.png 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3-800w.png 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3-1200w.png 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma3.png 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1920" height="2214" /></picture>
+<em>El índice del blog. Mucho color, sin jerarquía, sin ritmo.</em></p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4-480w.webp 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4-800w.webp 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4-1200w.webp 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4.webp 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4.png" alt="Una sección &quot;sobre mi vida&quot; inacabada."  srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4-480w.png 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4-800w.png 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4-1200w.png 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/nnoenieto-jekill-bulma4.png 1920w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1920" height="1668" /></picture>
+<em>Donde supuestamente iba a escribir sobre mi vida. Nunca la terminé.</em></p>
+<p>El sitio tenía muchos problemas de visual. La tipografía era genérica, el layout no tenía sistema, y cada página era su propio desastre. Catorce años de parches después, era hora de sacudirse el polvo y reconstruirlo de cero.</p>
+<h2 id="por-qué-seite">Por qué Seite</h2>
+<p>Me encantan los generadores de sitios estáticos. Durante mucho tiempo, publicar en la web significaba mantener un servidor con scripting — PHP, Python, Ruby, lo que fuera — más una base de datos, más un servidor de aplicaciones, más todas las vulnerabilidades, actualizaciones y dolores de cabeza que vienen incluidos. Todo eso para generar un poco de HTML. Entonces llegó Jekyll en 2008 y popularizó una idea radical: y si solo necesitamos un servidor web estático. Sin scripting, sin runtime, sin base de datos. Si puedes correr un servidor HTTP en un zapato, un SSG puede generar tu sitio entero y meterlo ahí.</p>
+<p>Desde entonces, cada lenguaje de programación importante ha lanzado su propio SSG. Hugo, Eleventy, Astro, Pelican, Zola, Hexo — puedes elegir el que quieras.</p>
+<p>De todos ellos, el que me sorprendió fue Seite. Lo que llamó mi atención fue una sola afirmación en su homepage: <strong>AI-first</strong> (n.t. IA primero). La idea es que, en lugar de pelear con un editor de administración web(como ocurre con Drupal, Wordpress, Ghost, etc.), o ajustar a manoplantillas y escribir el contenido tú mismo, diriges a un agente de IA — Claude, en el flujo de trabajo previsto por Seite — para que haga el trabajo pesado. El SSG deja de ser una herramienta que operas y pasa a ser una herramienta que <em>diriges</em>.</p>
+<p>Eso me pareció interesante, porque yo ya vivo dentro de <a href="https://opencode.ai">opencode</a> todo el día. Si Seite estaba diseñado para ser conducido por un agente, podría por fin deshacerme de los editores frontend caprichosos y simplemente ayudarme del agente LLM a construir las plantillas y a generar el contenido.</p>
+<p>Había, por supuesto, un pero. Seite 0.16 está fuertemente atado a Claude Code, y Claude es caro — especialmente cuando lo usas para escribir 150 posts de blog y 2.000 líneas de CSS de organismos. Así que antes de comprometerme, tuve que averiguar si podía conducir Seite con las herramientas que ya tenía.</p>
+<h2 id="usar-seite-sin-claude">Usar Seite sin Claude</h2>
+<p>Lo primero que tuve que resolver fue: ¿puedo ejecutar Seite a través de opencode, con LLMs más baratos (o gratuitos), en lugar de pagar por Claude?</p>
+<p>La respuesta resultó ser sí, pero requirió algo de fontanería. Seite 0.16 distribuye su servidor MCP y sus skills integrados bajo <code>.claude/</code>, porque asume que estás ejecutando Claude Code. Los skills son módulos precargados: un generador de logos, un constructor de landing pages, un constructor de temas. Copié la misma configuración del servidor MCP a mi <code>opencode.json</code>, lo apunté a <a href="https://z.ai">Z.ai</a> y OpenRouter, y empecé a usar el mismo MCP de Seite desde opencode.</p>
+<p>Además de los tres skills integrados de Seite, escribí tres propios bajo <code>.agents/skills/</code> (la ubicación nativa de opencode):</p>
+<ul>
+<li><strong><code>design-system</code></strong> — una biblia de diseño de 133 líneas que llamé <em>"El Artefacto Intelectual"</em>. Codifica toda la identidad visual del sitio: una estética de monografía/impresión tipográfica del siglo XIX, una "Regla de No-Contenedores", una jerarquía de encabezados que bauticé como <em>Cadencia del Erudito</em>, y la ley absoluta de <strong>0px de radio en todas partes</strong>. Cualquier agente que toque CSS tiene que leer este archivo primero.</li>
+<li><strong><code>ilustracion</code></strong> — genera prompts en tres modos (litografía, grabado en madera, híbrido) —siempre en inglés— para generadores de imágenes con IA. Piensa en Doré, Dürer, Haeckel. Alimento los prompts a Gemini para el renderizado final.</li>
+<li><strong><code>redaccion</code></strong> — un skill de coaching de escritura que me enseña el vocabulario del oficio (progressive disclosure, kicker, anáfora, scannability) mientras edita mis borradores. Este mismo post pasó por él.</li>
+</ul>
+<p>El resultado final: estoy ejecutando un SSG "AI-first" que oficialmente apunta a Claude, con un stack de LLMs en planes gratuitos, y un pipeline creativo de tres skills personalizados. Esa fue la primera gran victoria.</p>
+<h2 id="construyéndolo-diseño-atómico-tailwind-v4">Construyéndolo: diseño atómico + Tailwind v4</h2>
+<p>Aquí es donde tuve que desviarme más de lo que Seite espera por defecto.</p>
+<p>Los temas integrados de Seite se distribuyen como un único <code>base.html</code> con <strong>todo el CSS inline en un bloque <code>&lt;style&gt;</code></strong>. Esa es una elección deliberada — hace que los temas sean autocontenidos y portables. El skill integrado <code>theme-builder</code> incluso lo impone como regla: <em>"Sin hojas de estilo externas."</em></p>
+<p>Pero yo no quería un tema. Quería un <strong>sistema de diseño</strong>: CSS en capas, tokens, una escala tipográfica, componentes reutilizables, una fuente única de verdad para colores y espaciado. El CSS inline en una sola plantilla nunca me iba a dar eso.</p>
+<p>Así que me salté por completo la historia CSS de Seite y le acoplé una compilación paralela de <a href="https://tailwindcss.com">Tailwind CSS</a> v4. El pipeline se ve así:</p>
+<pre><code>static/css/main.css        ← entry point: @import &quot;tailwindcss&quot; + @theme tokens
+        │
+        ├── atoms.css      (layer atoms)       — resets, elementos base
+        ├── molecules.css  (layer molecules)   — utilidades, botones, filetes, tags
+        └── organisms.css  (layer organisms)   — ~2.300 líneas de composiciones
+                │
+                ▼   (bunx tailwindcss CLI, zero-config)
+        static/styles.css   ← generado, luego fingerprinted por seite
+</code></pre>
+<p>Las tres capas son una división de <a href="https://atomicdesign.bradfrost.com/">Diseño Atómico</a>, la metodología de Brad Frost donde compones interfaces desde átomos → moléculas → organismos. El entry point (<code>main.css</code>) es donde defino todos los tokens de diseño a través del bloque <code>@theme</code> de Tailwind v4 — <code>--color-paper: #FDFCF0</code>, <code>--color-ink: #1C1C19</code>, <code>--color-rubric: #E65100</code>, la fuente del cuerpo <code>Newsreader</code>, una escala tipográfica apropiada para monografías, y los radios de 2 píxeles que refuerzan la sensación de impresión tipográfica.</p>
+<p>La orquestación vive en un <code>justfile</code> de 17 líneas conducido por <a href="https://just.systems/">just</a>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">seite_watch</span><span style="color:#c0c5ce;">:    </span><span style="color:#a3be8c;">seite serve --port 4000
+</span><span style="color:#8fa1b3;">tailwind_watch</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">bunx tailwindcss -i static/css/main.css -o static/styles.css --watch --minify
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">[parallel]
+</span><span style="color:#8fa1b3;">watch</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">seite_watch tailwind_watch
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">build</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">    </span><span style="color:#8fa1b3;">bunx</span><span style="color:#c0c5ce;"> tailwindcss</span><span style="color:#bf616a;"> -i</span><span style="color:#c0c5ce;"> static/css/main.css</span><span style="color:#bf616a;"> -o</span><span style="color:#c0c5ce;"> static/styles.css</span><span style="color:#bf616a;"> --minify --minify
+</span><span style="color:#c0c5ce;">    </span><span style="color:#8fa1b3;">seite</span><span style="color:#c0c5ce;"> build
+</span></pre>
+<p>Algunas cosas que vale la pena señalar de esta configuración:</p>
+<ol>
+<li><strong>El servidor de desarrollo de Seite no recompila CSS.</strong> No es un bug, simplemente no es su trabajo. Para desarrollar en local tengo que ejecutar <code>just watch</code>, que levanta <code>seite serve</code> y <code>tailwindcss --watch</code> en paralelo. (Mi <code>AGENTS.md</code> codifica esto como regla para cualquier agente de IA que toque el proyecto, porque es muy fácil olvidarlo.)</li>
+<li><strong>El orden de compilación importa.</strong> <code>just build</code> ejecuta Tailwind primero y luego Seite, porque Seite aplica fingerprinting al <code>styles.css</code> que Tailwind acaba de producir.</li>
+<li><strong>Cero dependencias de JavaScript.</strong> No hay <code>package.json</code>, no hay <code>tailwind.config.js</code>, no hay <code>node_modules/</code> comprometido. Tailwind v4 se configura enteramente a través del bloque <code>@theme</code> en CSS, y se invoca bajo demanda vía <code>bunx</code> (el <code>npx</code> de Bun). Las únicas dependencias de runtime son el binario Rust de Seite y Bun.</li>
+<li><strong>Sí, hay un typo en la receta de compilación de producción.</strong> Paso <code>--minify</code> dos veces. Es inofensivo — un flag idempotente — pero sigo dejándolo ahí porque a estas alturas es parte del folclore del proyecto.</li>
+</ol>
+<p>El resultado final es que Seite trata todo mi sistema de diseño como un simple recurso estático. No sabe nada de Tailwind, no sabe nada de capas atómicas, no sabe nada de mis tokens. Solo ve un archivo <code>styles.css</code>, le aplica fingerprinting, y lo distribuye.</p>
+<h2 id="golpes-y-moretones">Golpes y moretones</h2>
+<p>Toda migración deja golpes y moretones. Estos son los míos.</p>
+<h3 id="issue-86-un-bug-real-corregido-rápido">Issue #86: un bug real, corregido rápido</h3>
+<p>Mientras cableaba la compilación me tropecé con un bug genuino en Seite y reporté el <a href="https://github.com/seite-sh/seite/issues/86">issue #86</a>. Los mantenedores lo corrigieron rápido. Esa es toda la historia — a veces el software simplemente funciona como esperas.</p>
+<h3 id="issue-87-mermaid-no-está-integrado">Issue #87: Mermaid no está integrado</h3>
+<p>Seite no integra <a href="https://mermaid.js.org/">Mermaid.js</a> por defecto. Tengo un par de posts antiguos con diagramas <code>gitGraph</code> que quería seguir renderizando, así que reporté el <a href="https://github.com/seite-sh/seite/issues/87">issue #87</a> y luego construí mi propia solución alternativa.</p>
+<p>En lugar de incluir Mermaid globalmente, lo puse detrás de un flag de frontmatter por post. Una línea en el frontmatter lo activa:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">extra</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">  </span><span style="color:#bf616a;">mermaid</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+</span></pre>
+<p>Cuando ese flag está activado, <code>base.html</code> carga Mermaid de forma lazy desde el CDN de jsDelivr y ejecuta una regex sobre cada bloque <code>&lt;pre&gt;&lt;code&gt;</code> para detectar tipos de diagrama (<code>gitGraph</code>, <code>sequenceDiagram</code>, <code>flowchart</code>, ...) y convertirlos en <code>&lt;div class="mermaid"&gt;</code>. Cuando el flag está desactivado — que es el 99% de los posts — no hay ninguna carga de Mermaid. Me gusta ese compromiso. (<strong>Actualización:</strong> ya lo integraron en <a href="https://seite.sh/changelog/v0-17-0">Seite v0.17.0</a>, así que este workaround ya no es necesario.)</p>
+<h3 id="la-trampa-de-base-url">La trampa de base_url</h3>
+<p><code>seite.toml</code> tiene actualmente la URL de producción (<code>https://noenieto.com</code>) comentada y <code>http://localhost:4000</code> activa, porque desarrollo en local la mayor parte del tiempo. El deploy con <code>auto_commit</code> de Seite no cambia esto por mí. Si alguna vez hago deploy sin descomentar la URL de producción, cada enlace canónico, cada entrada de RSS y cada URL del sitemap apunta a <code>localhost</code>. No lo he hecho todavía, pero lo haré. (<strong>Actualización:</strong> ya lo corrigieron en <a href="https://seite.sh/changelog/v0-16-1">Seite v0.16.1</a>.)</p>
+<h2 id="los-logros">Los logros</h2>
+<p>Esta es la parte donde puedo presumir un poco. Estos son los trozos de la reconstrucción de los que estoy más orgulloso.</p>
+<h3 id="los-tres-skills-que-la-reconstrucción-me-obligó-a-escribir">Los tres skills que la reconstrucción me obligó a escribir</h3>
+<p>Ninguno de los tres skills estaba planificado. Fueron emergiendo de las necesidades concretas que la reconstrucción del sitio iba sacando a la superficie. Cada vez que me estrellaba contra un muro, la respuesta era: escribe un skill, para que el siguiente agente no tenga que reaprender la lección.</p>
+<ul>
+<li><strong><code>ilustracion</code></strong> nació porque necesitaba generar imágenes hero con una estética coherente — cross-hatching al estilo Doré, tinta sobre pergamino del siglo XIX — y seguía regenerando prompts a mano. Sistematizarlos en un skill fue la única forma de que la salida fuera consistente.</li>
+<li><strong><code>redaccion</code></strong> nació porque escribir ciertas piezas del sitio — contenido con carga emocional, reflexiones personales — era difícil sin un editor que no se inmutara. El skill me dio distancia editorial suficiente para redactar sin paralizarme.</li>
+<li><strong><code>design-system</code></strong> nació porque nada de lo visual funcionaba sin reglas. Las notas al margen flotantes, las notas al pie tipo sidenote, la tipografía, los radios — todo necesitaba una fuente única de verdad, o los agentes producían resultados inconsistentes.</li>
+</ul>
+<p>La lección: los skills no se diseñan de antemano. Cristalizan.</p>
+<h3 id="dejar-que-el-agente-lea-mi-github">Dejar que el agente lea mi GitHub</h3>
+<p>Las otras dos páginas donde el agente trabajó en serio son <a href="/demos">Demos &amp; Tools</a> y <a href="/as-a-teacher">As a teacher</a>. El flujo de trabajo fue el mismo en ambos casos: apunté al agente a mi perfil de GitHub, le dije qué repositorios mirar, y le pedí que produjera un resumen curado en markdown de cada uno.</p>
+<p>Para <code>as-a-teacher</code> leyó mis repositorios de cursos y produjo un desglose estructurado por semestre y por clase, con enlaces a los materiales del curso. Para <code>demos</code> categorizó aproximadamente veinticinco repositorios en <em>Demos</em>, <em>Tools</em> y <em>Archived</em>, con descripciones de una línea en mi voz.</p>
+<p>Esa categoría <em>Archived</em> es donde las cosas se pusieron inesperadamente productivas. Mientras el agente ya estaba ahí catalogando, le pedí que me ayudara a archivar un montón de repositorios que no había tocado en años — plugins de LFS, un Flatpak viejo de Haroopad, una herramienta de deploy con hooks en PHP, una app de Android Calculadora Gasolinazo de 2013. Deuda técnica que había estado sentada en mi perfil durante más de una década, limpiada en una tarde.</p>
+<p>Hablemos en serio: escribir esas tres páginas a mano — la sección personal, <code>demos</code>, <code>as-a-teacher</code> — me habría llevado meses. Honestamente, probablemente nunca lo hubera terminado. El costo emocional solo habría matado el proyecto. Con el agente, cada página tomó un par de rondas de 15 minutos en las que yo dirigía y corregía. Esa es toda la tesis de este post en una sola frase.</p>
+<h3 id="mi-currículum-es-literalmente-un-grafo-de-commits-de-git">Mi currículum es literalmente un grafo de commits de git</h3>
+<p>Mi <a href="/as-a-professional">página de currículum</a> renderiza mi carrera como un diagrama <code>gitGraph</code> de cuatro carriles — uno para mi trabajo principal, otro para consultoría, otro para mi startup anterior (Holokinesis) y otro para la enseñanza. Cada puesto es un punto de commit. Cada puesto tiene un hash de siete caracteres. Cada puesto en curso recibe un marcador <code>▲ HEAD</code>. Todo se renderiza en plantilla pura <a href="https://keats.github.io/tera/docs/">Tera</a> + CSS — <strong>sin JavaScript</strong>.</p>
+<p>La plantilla Tera literalmente calcula qué ramas están "activas" en cada fila comparando fechas de inicio/fin parseadas como enteros. El CSS de soporte tiene más de 500 líneas, con tres breakpoints responsivos que colapsan los carriles elegantemente en móvil. Estoy irracionalmente orgulloso de ello.</p>
+<h3 id="notas-al-pie-al-estilo-tufte-a-mano">Notas al pie al estilo Tufte, a mano</h3>
+<p>Siempre me ha encantado la forma en que <a href="https://edwardtufte.github.io/tufte-css/">Edward Tufte</a> flota las notas al pie en el margen derecho en lugar de tirarlas al fondo de la página. Quería eso. Lo construí. Las notas al pie ahora flotan en el margen derecho con <code>margin-right: -45%</code> en escritorio y colapsan a inline al fondo en móvil.</p>
+<h3 id="el-índice-del-blog-con-puntos-de-líder">El índice del blog con puntos de líder</h3>
+<p>El listado de <a href="/blog">/blog</a> está estilizado como la página de índice de un libro impreso antiguo — título a la izquierda, fecha a la derecha, y una fila de puntos conectándolos. Los puntos son un <code>radial-gradient</code>, y hay un comentario en el CSS explicando por qué usé la palabra clave <code>circle</code>: sin ella, un artefacto de antialiasing en Chrome hacía que los puntos parecieran pequeños diamantes. Detalle diminuto, pero es exactamente el tipo de detalle que marca la diferencia entre <em>casi bien</em> y <em>bien</em>.</p>
+<h3 id="el-footer-animado">El footer animado</h3>
+<p>El footer tiene un SVG de un barco meciéndose en un mar ondulante. Tres animaciones por keyframes — <code>sway</code>, <code>float</code>, <code>wobble</code> — conducen el barco sobre una ola SVG, y todo es CSS puro. El aviso de copyright está en números romanos: <code>© MCMXXIV NOE NIETO</code> (1924, una fecha de fundación ficticia). Es absurdo. Me encanta.</p>
+<h3 id="json-ld-hecho-a-mano-que-supera-las-especificaciones-integradas">JSON-LD hecho a mano que supera las especificaciones integradas</h3>
+<p>Los temas integrados de Seite distribuyen un bloque JSON-LD. Mi <code>base.html</code> distribuye cuatro: un bloque <code>Person</code> incondicional, y luego condicionalmente un <code>BlogPosting</code>, un <code>Article</code> o un <code>WebSite</code> (con un <code>SearchAction</code>), más un <code>BreadcrumbList</code>. Quiero los rich snippets. Quiero las tarjetas. No me disculpo por ello.</p>
+<h2 id="generación-de-imágenes">Generación de imágenes</h2>
+<p>Mi skill <code>ilustracion</code> produce un prompt en inglés — cross-hatching al estilo Doré, simetría inspirada en Haeckel, litografía de piedra caliza bávara — y ese prompt lo alimento a <a href="https://gemini.google.com/">Gemini</a> (el modelo que internet ha apodado <em>"nano-banana"</em>). La salida va directo a las imágenes hero y a las cabeceras de los posts. Me encanta absolutamente. Es lo más cerca que he estado de tener un ilustrador a disposición.</p>
+<h2 id="lo-que-aprendí">Lo que aprendí</h2>
+<p>La mayor lección es una que básicamente ya sabía: <strong>el agente es el mecanógrafo, no el arquitecto</strong>. Cada línea de CSS, cada plantilla Tera, cada campo de frontmatter en este sitio fue escrito por un LLM — pero nada de eso entró sin que yo lo leyera, lo entendiera, y lo aceptara o lo devolviera. El skill <code>design-system</code> existe precisamente para que <em>yo</em> decida las reglas visuales una vez, y cada agente después de eso tenga que seguirlas. Dirigir a un LLM para que produzca código detrás del cual puedas pararte es una habilidad real, y diferente a escribir el código tú mismo. Tienes que saber qué quieres, tienes que reconocer cuando el modelo está equivocado, y tienes que ser honesto sobre qué partes entiendes realmente y cuáles estás aprobando con un sello de goma. Intenté mantener esa honestidad durante todo el proyecto.</p>
+<p>La segunda lección es que <strong>las herramientas AI-first no son lo mismo que las herramientas AI-only</strong>. Seite es AI-first en el sentido de que está diseñado para ser dirigido por un agente. No es AI-only en el sentido de que el agente haga todo. Los mejores resultados vinieron de que yo supiera exactamente lo que quería (una estética de monografía/impresión tipográfica del siglo XIX, una arquitectura CSS de diseño atómico, un currículum con grafo de commits) y de apuntar al agente como un misil buscador de calor.</p>
+<h2 id="el-remate">El remate</h2>
+<p>Catorce años, tres generadores de sitios estáticos, y sigo sin ser diseñador. Pero al menos el sitio parece que lo soy.</p>
+<p>Si alguna vez te topas con Seite, dale una oportunidad. Y si el precio de Claude te echa para atrás — ahora ya sabes que se puede usar con otros agentes, con un poquto de creatividad. Nos vemos en el próximo post. 👋</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2-480w.webp 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2-800w.webp 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2-1200w.webp 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2.webp 1584w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2.png" alt="Un pequeño barco de madera meciéndose en un mar agitado al atardecer. Grabado en madera al estilo de Gustave Doré."  srcset="/static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2-480w.png 480w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2-800w.png 800w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2-1200w.png 1200w, /static/images/posts/2026-07-20-de-jekyll-a-seite/seite-2.png 1584w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1584" height="672" /></picture></p>
+
+  </div>
+
+  
+  <a href="/blog/de-jekyll-a-seite" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/the-justfile-task-runner-guide" rel="next">&larr; Just: The Task Runner Your Team Actually Needs</a>
+  
+  
+  <a href="/blog/practica-github-ramas-pt-2" rel="prev">Práctica: Trabajando con Ramas en Git (Parte 2) &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' });
+await mermaid.run({ querySelector: '.mermaid' });
+</script>
+</body>
+</html>

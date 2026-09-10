@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>¿Cómo actualizar un SQL Server? &middot; Noe Nieto</title>
+    <meta name="description" content="Guía paso a paso para identificar la versión actual de SQL Server y aplicar el Cumulative Update correspondiente.">
+    
+    <meta name="keywords" content="sql-server, sqlserver, cumulative-update, ssms, windows-server, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="¿Cómo actualizar un SQL Server?">
+    <meta property="og:description" content="Guía paso a paso para identificar la versión actual de SQL Server y aplicar el Cumulative Update correspondiente.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="¿Cómo actualizar un SQL Server?">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2014-05-14">
+    
+    
+    <meta property="article:tag" content="sql-server">
+    <meta property="article:tag" content="sqlserver">
+    <meta property="article:tag" content="cumulative-update">
+    <meta property="article:tag" content="ssms">
+    <meta property="article:tag" content="windows-server">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="¿Cómo actualizar un SQL Server?">
+    <meta name="twitter:description" content="Guía paso a paso para identificar la versión actual de SQL Server y aplicar el Cumulative Update correspondiente.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="¿Cómo actualizar un SQL Server?">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/como-actualizar-sql-server.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"¿Cómo actualizar un SQL Server?","description":"Guía paso a paso para identificar la versión actual de SQL Server y aplicar el Cumulative Update correspondiente.","datePublished":"2014-05-14","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["sql-server","sqlserver","cumulative-update","ssms","windows-server"],"wordCount":503}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"¿Cómo actualizar un SQL Server?"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">¿Cómo actualizar un SQL Server?</h1>
+  <p class="entry-description muted">Guía paso a paso para identificar la versión actual de SQL Server y aplicar el Cumulative Update correspondiente.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: SQL Server 2012 SP1 es EOL; los enlaces de soporte de Microsoft para KB específicas suelen cambiar; el flujo general sigue siendo el mismo pero los detalles específicos (CU9) están obsoletos..
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2014-05-14">
+      2014-05-14
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/sql-server/">sql-server</a>
+    
+    <a class="p-category" href="/tags/sqlserver/">sqlserver</a>
+    
+    <a class="p-category" href="/tags/cumulative-update/">cumulative-update</a>
+    
+    <a class="p-category" href="/tags/ssms/">ssms</a>
+    
+    <a class="p-category" href="/tags/windows-server/">windows-server</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p><img src="/static/images/posts/como-actualizar-sql-server/wonder-lake-denali.jpg" alt="Portada" /></p>
+<p>Primero se necesita saber qué versión de SQL Server está instalada.</p>
+<p>Hay varias formas. Una es con el <em>Object Explorer</em> de <em>SQL Server Management
+Studio (SSMS)</em>. Al conectarse a la base de datos se puede ver la versión entre
+paréntesis, al lado del nombre del servidor.</p>
+<p><img src="/static/images/posts/como-actualizar-sql-server/screenshot-from-2014-05-14-15-41-34.png" alt="Object Explorer de SSMS"  loading="lazy" /></p>
+<p>También se puede sacar la ventana de propiedades de la base de datos desde
+el <em>Object Explorer</em> y mirar el campo <em>Version</em>.</p>
+<p><img src="/static/images/posts/como-actualizar-sql-server/screenshot-from-2014-05-14-15-53-04.png" alt="Acceder a la ventana de propiedades"  loading="lazy" />
+<img src="/static/images/posts/como-actualizar-sql-server/screenshot-from-2014-05-14-15-53-03.png" alt="Revisar versión en la ventana de propiedades"  loading="lazy" /></p>
+<p>Otra opción más es hacer un sencillo query:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">USE msdb;
+</span><span style="color:#b48ead;">SELECT</span><span style="color:#c0c5ce;"> @@SERVERNAME </span><span style="color:#b48ead;">AS</span><span style="color:#c0c5ce;"> [Nombre del servidor], @@VERSION </span><span style="color:#b48ead;">AS</span><span style="color:#c0c5ce;"> [Version];
+</span><span style="color:#c0c5ce;">GO
+</span></pre>
+<p>En mi caso, el resultado es:</p>
+<pre><code>Microsoft SQL Server 2012 (SP1) - 11.0.3128.0 (X64)
+    Dec 28 2012 20:23:12
+    Copyright (c) Microsoft Corporation
+    Enterprise Evaluation Edition (64-bit) on Windows NT 6.2  (Build 9200:)
+</code></pre>
+<p>Después de saber la versión del servidor, fui a consultar el blog
+<a href="http://sqlserverbuilds.blogspot.mx/">sql builds</a> y busqué la versión
+específica de mi servidor. En mi caso la versión reportada era <code>11.0.3128.0</code> y
+la encontré como <code>11.00.3128</code>. Seguí la lista hacia arriba y el último
+<em>Cumulative Update (CU)</em> publicado al 18 de marzo del 2014 (en la fecha en la
+que hice este blog) fue el <code>2931078</code> y el título es: "<em>Cumulative update
+package 9 for SQL Server 2012 Service Pack 1</em>". Este CU ofrece cuatro
+descargas. A mí solo me interesa la de SQL Server; esta tiene el nombre de
+<code>SQLServer2012_SP1_CU9_2931078_11_0_3412_x64</code>.</p>
+<p>Para bajar el CU me pidieron mi dirección de correo electrónico y que
+demostrara que no soy un robot. Después me mandaron el link de descarga en mi
+correo.</p>
+<p>Tuve que refunfuñar algo con Internet Explorer de Windows 2012R2. Su
+configuración de seguridad avanzada es bastante molesta y hace que el
+navegador sea casi inútil. Tuve que mover varios controles hasta que me dejara
+descargar el CU.</p>
+<p>El CU es un <code>exe</code> que trae otro <code>exe</code> comprimido. Descomprimí el CU al
+directorio <code>C:\Updates</code> y cuando lo ejecuté resultó que extrajo más archivos.
+Creo que a los de Microsoft les gustan las Matrioskas.</p>
+<p><img src="/static/images/posts/como-actualizar-sql-server/first-matryoshka-museum-doll-open-0.png" alt="A alguien en Microsoft le gustan las Matrioskas"  loading="lazy" /></p>
+<p>Después de un rato de estar desparramando archivos por ahí, comienza el
+proceso de instalación del CU. Este proceso es bastante aburrido.</p>
+<p>Básicamente es esperar a que salga el instalador de SQL Server…</p>
+<p><img src="/static/images/posts/como-actualizar-sql-server/screenshot-from-2014-05-14-17-47-32.png" alt="¡¡¡Aburrido!!!"  loading="lazy" /></p>
+<p>…aceptar que le vendes tu alma al chamuco…</p>
+<p><img src="/static/images/posts/como-actualizar-sql-server/screenshot-from-2014-05-14-17-49-45.png" alt="Aceptar la licencia"  loading="lazy" /></p>
+<p>…y darle next, next, next porque no hay otra opción.</p>
+<p>Después de un rato de hacer su chamba, el instalador termina reportando lo que
+ha salido mal y lo que ha salido bien. En mi caso todo salió bien. Reinicié el
+servidor para no tener dudas de que todo funciona al 100%. Finalmente, el
+Object Explorer del SSMS muestra la nueva versión de SQL Server 2012.</p>
+<p><img src="/static/images/posts/como-actualizar-sql-server/screenshot-from-2014-05-15-08-17-18.png" alt="SQL Version 11.00.3412"  loading="lazy" /></p>
+<p>Esta versión corresponde al <a href="http://support.microsoft.com/kb/2931078/en-us">2931078 Cumulative update package 9 (CU9) for SQL
+Server 2012 Service Pack 1</a>.</p>
+<p>Y eso es todo.</p>
+<p>P.D. Esta página en inglés es la que leí antes de hacer este post:
+<a href="https://sqlserverperformance.wordpress.com/2011/01/12/how-to-obtain-and-install-sql-server-service-packs-and-cumulative-updates/">https://sqlserverperformance.wordpress.com/2011/01/12/how-to-obtain-and-install-sql-server-service-packs-and-cumulative-updates/</a></p>
+<p><strong>FIN</strong></p>
+
+  </div>
+
+  
+  <a href="/blog/como-actualizar-sql-server" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/python3-renombrar-screenshots" rel="next">&larr; Python 3 para renombrar screenshots</a>
+  
+  
+  <a href="/blog/maquinas-virtuales-en-fedora" rel="prev">Máquinas virtuales en Fedora &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

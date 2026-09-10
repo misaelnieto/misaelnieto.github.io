@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Notas de instalación de Plone en Amazon (Dic 2011) &middot; Noe Nieto</title>
+    <meta name="description" content="Notas para instalar Plone en una instancia EC2 Ubuntu 11.04: paquetes Debian, bootstrap.py, buildout con production.cfg y Data.fs en EBS aparte.">
+    
+    <meta name="keywords" content="plone, amazon-ec2, ubuntu-1104, buildout, nginx, ebs, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Notas de instalación de Plone en Amazon (Dic 2011)">
+    <meta property="og:description" content="Notas para instalar Plone en una instancia EC2 Ubuntu 11.04: paquetes Debian, bootstrap.py, buildout con production.cfg y Data.fs en EBS aparte.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Notas de instalación de Plone en Amazon (Dic 2011)">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2012-03-10">
+    
+    
+    <meta property="article:tag" content="plone">
+    <meta property="article:tag" content="amazon-ec2">
+    <meta property="article:tag" content="ubuntu-1104">
+    <meta property="article:tag" content="buildout">
+    <meta property="article:tag" content="nginx">
+    <meta property="article:tag" content="ebs">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Notas de instalación de Plone en Amazon (Dic 2011)">
+    <meta name="twitter:description" content="Notas para instalar Plone en una instancia EC2 Ubuntu 11.04: paquetes Debian, bootstrap.py, buildout con production.cfg y Data.fs en EBS aparte.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Notas de instalación de Plone en Amazon (Dic 2011)">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/notas-de-instalacion-de-plone-en-amazon-dic-2011.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Notas de instalación de Plone en Amazon (Dic 2011)","description":"Notas para instalar Plone en una instancia EC2 Ubuntu 11.04: paquetes Debian, bootstrap.py, buildout con production.cfg y Data.fs en EBS aparte.","datePublished":"2012-03-10","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["plone","amazon-ec2","ubuntu-1104","buildout","nginx","ebs"],"wordCount":308}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Notas de instalación de Plone en Amazon (Dic 2011)"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Notas de instalación de Plone en Amazon (Dic 2011)</h1>
+  <p class="entry-description muted">Notas para instalar Plone en una instancia EC2 Ubuntu 11.04: paquetes Debian, bootstrap.py, buildout con production.cfg y Data.fs en EBS aparte.</p>
+  
+</header>
+
+  
+<aside class="callout callout-warning deprecation-notice" role="note">
+  <p class="callout-title">Aviso &mdash; entrada hist&oacute;rica</p>
+  <p>
+    Este post se public&oacute; hace m&aacute;s de una d&eacute;cada y la
+    tecnolog&iacute;a que describe qued&oacute; obsoleta. Lo conservo como
+    bit&aacute;cora: Ubuntu 11.04 y AMI de Amazon descritas son EOL; el flujo moderno usa Docker o Plone 6 con RelStorage.
+  </p>
+</aside>
+
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2012-03-10">
+      2012-03-10
+    </time>
+    
+
+    
+    <span class="reading-time">1 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/plone/">plone</a>
+    
+    <a class="p-category" href="/tags/amazon-ec2/">amazon-ec2</a>
+    
+    <a class="p-category" href="/tags/ubuntu-1104/">ubuntu-1104</a>
+    
+    <a class="p-category" href="/tags/buildout/">buildout</a>
+    
+    <a class="p-category" href="/tags/nginx/">nginx</a>
+    
+    <a class="p-category" href="/tags/ebs/">ebs</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p>Estoy actualizando mi sitio web, guardo algunas notas para futura referencia.</p>
+<ul>
+<li>
+<p>Me quedan aproximadamente 2 meses de la promoción de Amazon (1 año de servicio gratis de una instancia <code>t1.micro</code> y 10 GB de EBS).</p>
+</li>
+<li>
+<p>Usé una instancia <code>m1.small</code> para instalar y compilar todo lo necesario. Después se puede achicar a <code>t1.micro</code> para entrar en el <em>monthly free tier</em>.</p>
+</li>
+<li>
+<p>Probé el AMI de Amazon. Todo de maravilla hasta que intenté instalar nginx (no quiero Apache). Para mi sorpresa, ¡solo trae nginx 0.8.6! Si instalo a mano, no me aprovecho por completo los beneficios de las actualizaciones mediante <code>yum</code>. Hacer mis propios RPMs es demasiado complicado para mí aún.</p>
+</li>
+<li>
+<p>A pesar de que en los repositorios de EPEL hay una versión más actualizada de nginx, por alguna razón se sigue instalando la anterior. Por estas razones desistí de usar el AMI de Amazon.</p>
+</li>
+<li>
+<p>Instalé el AMI oficial de Ubuntu 11.04 y trae nginx 1.0.5 (la última versión estable al día de hoy es la 1.0.11).</p>
+</li>
+</ul>
+<p>La instalación de paquetes es la usual para aplicaciones Python.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">aptitude</span><span style="color:#c0c5ce;"> update
+</span><span style="color:#8fa1b3;">aptitude</span><span style="color:#c0c5ce;"> upgrade
+</span><span style="color:#8fa1b3;">aptitude</span><span style="color:#c0c5ce;"> install python-dev build-essential
+</span><span style="color:#8fa1b3;">aptitude</span><span style="color:#c0c5ce;"> install libpcre3-dev zlib1g-dev libjpeg62-dev libpng12-dev libncurses5-dev libxslt1-dev mercurial git subversion python-pip libsasl2-dev pkg-config
+</span><span style="color:#8fa1b3;">easy_install</span><span style="color:#bf616a;"> -U</span><span style="color:#c0c5ce;"> distribute
+</span><span style="color:#8fa1b3;">easy_install</span><span style="color:#bf616a;"> -U</span><span style="color:#c0c5ce;"> pip
+</span></pre>
+<p>Añadí un <em>deploy key</em> en mi repo de GitHub y lo cloné.</p>
+<p>Y sigue la receta clásica para inicializar un buildout, solo que con algunas modificaciones:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">python</span><span style="color:#bf616a;"> -S</span><span style="color:#c0c5ce;"> bootstrap.py
+</span><span style="color:#8fa1b3;">bin/buildout</span><span style="color:#bf616a;"> -c</span><span style="color:#c0c5ce;"> production.cfg
+</span></pre>
+<p>Buildout genera la configuración de nginx para mi sitio (en <code>parts/</code>), solo
+tengo que hacer una liga simbólica y reiniciar nginx:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">ln</span><span style="color:#bf616a;"> -s</span><span style="color:#c0c5ce;"> /apps/noenieto/parts/nginx/nginx.cfg /etc/nginx/sites-available/noenieto.com
+</span></pre>
+<p>Puse mi <code>Data.fs</code> en un EBS fuera del EBS de la instancia. Hay que conectarlo
+a la instancia y montarlo. Añadí la siguiente línea al fstab:</p>
+<pre><code>/dev/sdp1    /MyPloneData    ext3    rw,noatime,auto    0 0
+</code></pre>
+<p>Creo que es todo.</p>
+
+  </div>
+
+  
+  <a href="/blog/notas-de-instalacion-de-plone-en-amazon-dic-2011" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/writing-widgets-for-zopeformlib" rel="next">&larr; Writing widgets for zope.formlib</a>
+  
+  
+  <a href="/blog/getting-help-with-performance-problems-with-plone" rel="prev">Getting help with performance problems with Plone &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

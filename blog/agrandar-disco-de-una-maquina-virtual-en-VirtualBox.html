@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>¿Cómo agrandar el disco de una máquina virtual en VirtualBox? &middot; Noe Nieto</title>
+    <meta name="description" content="Tutorial paso a paso para agrandar el disco de una máquina virtual VirtualBox usando vboxmanage modifyhd --resize y la herramienta Disk Management de Windows para extender la partición.">
+    
+    <meta name="keywords" content="virtualbox, vboxmanage, disco-virtual, vdi, windows, disk-management, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="¿Cómo agrandar el disco de una máquina virtual en VirtualBox?">
+    <meta property="og:description" content="Tutorial paso a paso para agrandar el disco de una máquina virtual VirtualBox usando vboxmanage modifyhd --resize y la herramienta Disk Management de Windows para extender la partición.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="¿Cómo agrandar el disco de una máquina virtual en VirtualBox?">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2015-01-19">
+    
+    
+    <meta property="article:tag" content="virtualbox">
+    <meta property="article:tag" content="vboxmanage">
+    <meta property="article:tag" content="disco-virtual">
+    <meta property="article:tag" content="vdi">
+    <meta property="article:tag" content="windows">
+    <meta property="article:tag" content="disk-management">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="¿Cómo agrandar el disco de una máquina virtual en VirtualBox?">
+    <meta name="twitter:description" content="Tutorial paso a paso para agrandar el disco de una máquina virtual VirtualBox usando vboxmanage modifyhd --resize y la herramienta Disk Management de Windows para extender la partición.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="¿Cómo agrandar el disco de una máquina virtual en VirtualBox?">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/agrandar-disco-de-una-maquina-virtual-en-VirtualBox.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"¿Cómo agrandar el disco de una máquina virtual en VirtualBox?","description":"Tutorial paso a paso para agrandar el disco de una máquina virtual VirtualBox usando vboxmanage modifyhd --resize y la herramienta Disk Management de Windows para extender la partición.","datePublished":"2015-01-19","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["virtualbox","vboxmanage","disco-virtual","vdi","windows","disk-management"],"wordCount":599}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"¿Cómo agrandar el disco de una máquina virtual en VirtualBox?"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">¿Cómo agrandar el disco de una máquina virtual en VirtualBox?</h1>
+  <p class="entry-description muted">Tutorial paso a paso para agrandar el disco de una máquina virtual VirtualBox usando vboxmanage modifyhd --resize y la herramienta Disk Management de Windows para extender la partición.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2015-01-19">
+      2015-01-19
+    </time>
+    
+
+    
+    <span class="reading-time">2 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/virtualbox/">virtualbox</a>
+    
+    <a class="p-category" href="/tags/vboxmanage/">vboxmanage</a>
+    
+    <a class="p-category" href="/tags/disco-virtual/">disco-virtual</a>
+    
+    <a class="p-category" href="/tags/vdi/">vdi</a>
+    
+    <a class="p-category" href="/tags/windows/">windows</a>
+    
+    <a class="p-category" href="/tags/disk-management/">disk-management</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/3219157599_34c9a86f3c_o.webp 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/3219157599_34c9a86f3c_o.jpg" alt="Cambiar tamaño de disco duro en VirtualBox"  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/3219157599_34c9a86f3c_o.jpg 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="480" height="323" /></picture></p>
+<p>Acá lo explican en inglés: <a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/">How to enlarge a Virtual Machine's Disk - VirtualBox or VMWare</a>.
+A diferencia del sitio anterior, el hipervisor corre sobre Fedora 20.</p>
+<p>Primero hay que apagar la VM. Luego en el VirtualBox Manager se puede sacar la
+ruta en disco de la VM mediante el menú contextual:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-08-28-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-08-28.webp 794w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-08-28.png" alt="Para conocer la ruta del archivo de disco duro de la máquina virtual podemos usar VirtualBox Manager"  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-08-28-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-08-28.png 794w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="794" height="771" /></picture></p>
+<p>Justo después de seleccionar la acción <code>Show in File Manager</code> se va a abrir el
+administrador de archivos. En mi caso abre el administrador de archivos de
+GNOME.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-04-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-04.webp 721w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-04.png" alt="El administrador de archivos de GNOME abierto en la ruta de la máquina virtual."  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-04-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-04.png 721w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="721" height="485" /></picture></p>
+<p>El administrador de archivos de GNOME tiene una combinación de teclas para
+convertir la barra de ruta en una entrada de texto. La combinación de teclas
+es <code>Ctrl</code> + <code>L</code>. Después copio el texto con <code>Ctrl</code> + <code>C</code>.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-19-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-19.webp 721w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-19.png" alt="Truco para copiar la ruta de la máquina virtual"  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-19-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-09-52-19.png 721w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="721" height="485" /></picture></p>
+<p>Ya tengo la ruta de la máquina virtual, así que es momento de pasar a la
+consola y entrar a la carpeta de la máquina virtual. Para pegar texto en la
+consola uso la combinación de teclas <code>Ctrl</code>+<code>Shift</code>+<code>V</code>. También se puede usar
+el menú contextual, el menú editar o hacer click con el botón medio del mouse.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28-800w.webp 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28.webp 831w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28.png" alt="Consola en el directorio de la VM"  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28-800w.png 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-00-28.png 831w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="831" height="528" /></picture></p>
+<p>El comando resultante en mi caso fue:</p>
+<pre><code>cd &quot;/home/nnieto/VirtualBox VMs/Windoge 10&quot;
+</code></pre>
+<p>Tuve que encerrar la ruta de la VM entre comillas para que el shell no tome el
+espacio como separador de argumentos.</p>
+<p>Los archivos de disco de la VM son los que tienen la extensión <code>.vdi</code>. Esta
+máquina tiene dos discos, y me interesa aumentar el tamaño al disco <code>Windoge 10.vdi</code>. Usaré el comando <code>vboxmanage</code> de la siguiente manera:</p>
+<pre><code>vboxmanage modifyhd &quot;Windoge 10.vdi&quot; --resize 204800
+</code></pre>
+<p>El argumento después de <code>modifyhd</code> es el nombre del archivo del disco duro
+virtual. El argumento después de <code>--resize</code> es la cantidad de MB que se le van
+a añadir al disco duro.</p>
+<p>Ahora es momento de arrancar la máquina virtual y extender la partición del
+disco para que ocupe todo el espacio nuevo. El SO del invitado es <em>Windows 10</em>,
+pero la herramienta <code>Computer Management</code> (<code>compmgmt.msc</code>) existe desde Windows
+XP (o tal vez antes) y tiene todo lo que necesitamos para cambiarle el tamaño
+al disco duro.</p>
+<p>Comenzamos con arrancar la herramienta. En Windows 10, Windows 8 y Windows 8.1
+sale listada si escribo <code>compmgmt.msc</code> en la búsqueda del menú inicio.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-48-56-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-48-56.webp 535w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-48-56.png" alt="Windoge 10 y compmgmt.msc — solo tuve que hacer click en el iconito."  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-48-56-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-48-56.png 535w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="535" height="690" /></picture></p>
+<p>En versiones anteriores se tiene que usar el diálogo de Run.</p>
+<p>Una vez abierta la ventana de Computer Management, entramos a la sección
+<code>Storage -&gt; Disk Management</code>.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33-800w.webp 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33.webp 989w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33.png" alt="Windows ya reconoce el nuevo tamaño del disco"  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33-800w.png 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-49-33.png 989w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="989" height="718" /></picture></p>
+<p>Para extender el tamaño de la partición hay que hacer click con el botón
+derecho del mouse sobre la partición que quiero agrandar y seleccionar <code>Extend Volume…</code>.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12-800w.webp 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12-1200w.webp 1200w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12.webp 1229w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12.png" alt="Click en Extend volume"  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12-800w.png 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12-1200w.png 1200w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-12.png 1229w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1229" height="956" /></picture></p>
+<p>Cuando le haces click al menú sale un asistente que te lleva por todo el
+proceso. Como solo vamos a extender la partición el proceso es bastante
+sencillo y solo tenemos que picar <em>Next</em> hasta que se acaba el asistente. Los
+valores que selecciona el asistente por default son los correctos en mi caso.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-56-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-56.webp 501w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-56.png" alt="Opciones para cambiar el tamaño del disco"  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-56-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-50-56.png 501w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="501" height="411" /></picture></p>
+<p>Al finalizar el asistente la partición ya está usando todo el espacio libre
+del disco.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25-480w.webp 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25-800w.webp 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25.webp 989w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25.png" alt="El nuevo tamaño del disco."  srcset="/static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25-480w.png 480w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25-800w.png 800w, /static/images/posts/agrandar-disco-de-una-maquina-virtual-en-VirtualBox/screenshot-from-2015-01-19-10-51-25.png 989w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="989" height="707" /></picture></p>
+<p><strong>FIN</strong></p>
+<hr />
+<p>La imagen del disco duro la tomé de <a href="https://flic.kr/p/5Ut2pe">https://flic.kr/p/5Ut2pe</a>.</p>
+<p>La foto tiene licencia CC BY 2.0.</p>
+
+  </div>
+
+  
+  <a href="/blog/agrandar-disco-de-una-maquina-virtual-en-VirtualBox" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/diferencia-entre-dos-filas-con-PostgreSQL" rel="next">&larr; Cómo sacar la diferencia entre dos filas con PostgreSQL</a>
+  
+  
+  <a href="/blog/flask-IIS" rel="prev">Hola mundo de Flask en IIS 8.5 (Windows 10) &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

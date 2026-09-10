@@ -1,0 +1,27 @@
+---
+title: Mi bitacora de actividades
+date: 2018-07-23
+---
+
+Comienza la fase final del GSOC 2018!
+
+## Lecturas
+
+- [Presenta Sheinbaum a su equipo de trabajo](http://www.jornada.com.mx/2018/07/23/capital/033n1cap). Relacionado: perfil de [ResearchGate de Sheinbaum](https://www.researchgate.net/profile/Claudia_Sheinbaum). La investigadora y ex presidenta de la Academia Mexicana de Ciencias, Rosaura Ruiz Gutiérrez, estará al frente de la Secretaría de Educación, a la que se fusionará la de Ciencia, Tecnología e Innovación, dependencia creada en este sexenio.
+- [Sea cucumbres have multiourpose butts.](https://www.youtube.com/watch?v=xjnvRKDdaWY) Ewww
+- [Starving swan goes mad for food](https://www.youtube.com/watch?v=-RLulYCO6-o)
+- [To scale:: Solar system](https://www.youtube.com/watch?v=zR3Igc3Rhfg)
+- [Scientists image entire fly brain in ungodly detail](https://www.janelia.org/news/complete-fly-brain-imaged-at-nanoscale-resolution)
+- Bajo la lupa: [El deep State o el "complejo militar industrial de Beltway" tras la cabeza de Trump?](http://www.jornada.com.mx/2018/07/22/opinion/012o1pol)
+- [Kuru -the mad cow disease The Science and The Sorcery](https://www.youtube.com/watch?v=NJrD1JcmUiE)
+- [The Mona Lisa – what’s the big deal?](https://understandingpaintings.wordpress.com/2009/12/27/the-mona-lisa-%e2%80%93-what%e2%80%99s-the-big-deal/)
+- El inventor del aire acondicionado: [Willis Haviland Carrier](https://www.bbvaopenmind.com/los-inventos-son-para-el-verano/?utm_source=materia&utm_medium=web&utm_content=pildora_redirect&tipo=elabora).
+- [Seeing Inside the Sun](https://www.youtube.com/watch?v=inuCAqj8UgQ)
+- [We may have just witnessed a close-by star devour the remnants of a planet](https://www.zmescience.com/science/star-iron-planet-remnants-8253236/)
+- [MechWatch - a Custom Digital Watch](https://www.instructables.com/id/MechWatch-a-Custom-Digital-Watch/)
+- [Wayland-rs 0.21: Pure rust implementation ](https://smithay.github.io/wayland-rs-v-0-21.html)
+- Nuevas características de [Python 3.7](https://docs.python.org/3/whatsnew/3.7.html)
+- Y el WTF de la semana va para [Business students are more likely to have a brain parasite infection spread by cat feces](https://www.zmescience.com/science/news-science/business-students-brain-parasite-043954/) Los gatos transmiten el parasito toxoplasma gondi a los humanos y los humanos terminan estudiando administracion de empresas y se convierten en emprendedores.
+  - [NASA eavesdropped on the Sun, and they made a video so you can hear it too](https://www.zmescience.com/science/sun-sound-nasa-82524632/). Puro ruido en lo que a mi concierne. Pero para los sismólogos es vital por que permite "ver" dentro del sol.
+- [Roundworms brought back to life after spending 42,000 years iced in permafrost](https://www.zmescience.com/science/news-science/roundworm-frozen-permafrost-27072018/)But there’s a darker side to the story. As global warming takes its course and much of the permafrost continues to melt, it could release a string of pathogens currently frozen. What the consequences will be is anyone’s guess.
+- [https://www.zmescience.com/science/life-may-be-teeming-just-inches-beneath-europas-frozen-surface/](Life may be teeming just inches beneath Europa’s frozen surface)

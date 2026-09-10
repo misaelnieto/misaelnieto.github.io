@@ -1,0 +1,21 @@
+---
+title: 2018-04-02-lecturas-semana-14-2018.md
+date: 2018-04-02
+---
+
+## Semana 14
+
+- [Israel desencadenará la Tercera Guerra Mundial: según el coronel Lawrence Wilkerson](http://www.jornada.unam.mx/2018/04/04/opinion/022o1pol)
+- [How I fixed a very old GIL race condition in Python 3.7](https://vstinner.github.io/python37-gil-change.html). "It took me 4 years to fix a nasty bug in the famous Python GIL"
+- Ya salió el [número 23 de la revista de Psicología Holokinética](http://revista.psicologiaholokinetica.org/sites/default/files/REVISTAPH-23.pdf). Ya pronto se acerca el [congreso bi-anual de psicología holokinética](https://www.percepcionunitaria.org/es/xv-congreso-de-psicolog-holokin-tica).
+- [Could life be hiding in the clouds on Venus?](https://www.zmescience.com/science/venus-life-atmosphere-7135132/)
+- [¿Neutralidad, unificación y desnuclearización de la península coreana con garantía tripolar?](http://www.jornada.unam.mx/2018/04/01/opinion/010o1pol)
+- [22 must-know hacks for men ](https://www.youtube.com/watch?v=56jXh_z7Ja0). Nudos de corbata; Escoge la talla correcta de pantalon; la mejor forma de fajar la camisa; la manera correcta de arremangarse la camisa; tips para que el cuello de la camisa siempre este recto; algunos tips para quitar arrugas de camisetas; diez maneras de anudar la corbata; varias maneras de atar los tenis.
+- [Inside i7-8700K - Scanning Electron Microscope (SEM) Footage (en)](https://www.youtube.com/watch?v=O_iu48VTRDE)
+- [Animation of Explosion at PCA's DeRidder, Louisiana, Pulp and Paper Mill](https://www.youtube.com/watch?v=a96kriSo6EQ)
+- [Alfredo Jalife: LA ORDEN DEL SISTEMA | Voto X Voto 2006 |](https://www.youtube.com/watch?v=zCmvZV9CPqI)
+- [25 Famous Numbers And Why They Are Important](https://www.youtube.com/watch?time_continue=2&v=c5jep7S8yxA)
+- Playmouth es el software que permite desplegar el bootscreen an linux. [El incio del proyecto Playmouth.](https://blog.fpmurphy.com/2009/09/project-plymouth.html)
+- En 2012 Jalife hablaba de la [trampa de tucidides](http://www.jornada.unam.mx/2012/06/03/opinion/018o1pol) aplicado a la situación militar de Estados Unidos con respecto a China. En 2018 Los teóricos supremacistas de EEUU la siguen pregonando para tratar de desatar la guerra entre EU y China, pero ahora China esta mas cerca de Rusia y puede ocurrir cosas como esta: [Triple golpe de China a EEUU: petroyuán con oro y armas nucleares rusas](https://mundo.sputniknews.com/firmas/201803301077462812-petroleo-washington-pekin-potencia/).
+- Desmentido el rumor de que el abuelo de la esposa de AMLO era nazi. [Beatriz Gutiérrez Müller, esposa de López Obrador, no es nieta de un genocida nazi](https://verificado.mx/gutierrez-muller-lopez-obrador-nieta-nazi/).
+-

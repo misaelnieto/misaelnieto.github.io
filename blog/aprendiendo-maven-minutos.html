@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Aprendiendo Maven en unos minutos &middot; Noe Nieto</title>
+    <meta name="description" content="Notas introductorias sobre Apache Maven: qué es, cómo invocarlo con mvn, en qué se parece a zc.buildout y Autotools, y qué cosas NO es Maven.">
+    
+    <meta name="keywords" content="maven, java, build-tool, jvm, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Aprendiendo Maven en unos minutos">
+    <meta property="og:description" content="Notas introductorias sobre Apache Maven: qué es, cómo invocarlo con mvn, en qué se parece a zc.buildout y Autotools, y qué cosas NO es Maven.">
+    <meta property="og:image" content="https://noenieto.com/static/profile.png">
+    <meta property="og:image:alt" content="Aprendiendo Maven en unos minutos">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2014-07-16">
+    
+    
+    <meta property="article:tag" content="maven">
+    <meta property="article:tag" content="java">
+    <meta property="article:tag" content="build-tool">
+    <meta property="article:tag" content="jvm">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Aprendiendo Maven en unos minutos">
+    <meta name="twitter:description" content="Notas introductorias sobre Apache Maven: qué es, cómo invocarlo con mvn, en qué se parece a zc.buildout y Autotools, y qué cosas NO es Maven.">
+    <meta name="twitter:image" content="https://noenieto.com/static/profile.png">
+    <meta name="twitter:image:alt" content="Aprendiendo Maven en unos minutos">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/aprendiendo-maven-minutos.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Aprendiendo Maven en unos minutos","description":"Notas introductorias sobre Apache Maven: qué es, cómo invocarlo con mvn, en qué se parece a zc.buildout y Autotools, y qué cosas NO es Maven.","datePublished":"2014-07-16","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/profile.png"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["maven","java","build-tool","jvm"],"wordCount":270}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Aprendiendo Maven en unos minutos"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Aprendiendo Maven en unos minutos</h1>
+  <p class="entry-description muted">Notas introductorias sobre Apache Maven: qué es, cómo invocarlo con mvn, en qué se parece a zc.buildout y Autotools, y qué cosas NO es Maven.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2014-07-16">
+      2014-07-16
+    </time>
+    
+
+    
+    <span class="reading-time">1 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/maven/">maven</a>
+    
+    <a class="p-category" href="/tags/java/">java</a>
+    
+    <a class="p-category" href="/tags/build-tool/">build-tool</a>
+    
+    <a class="p-category" href="/tags/jvm/">jvm</a>
+    
+  </div>
+  
+
+  
+
+  <div class="entry-content e-content">
+    <p><picture><source type="image/webp" srcset="/static/images/posts/Aprendiendo-maven-en-unos-minutos/404321726_1dd8836d14_o.webp 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/Aprendiendo-maven-en-unos-minutos/404321726_1dd8836d14_o.jpg" alt="Regresando al kinder"  srcset="/static/images/posts/Aprendiendo-maven-en-unos-minutos/404321726_1dd8836d14_o.jpg 480w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="480" height="360" /></picture></p>
+<p>Encontré una pequeña guía: <a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></p>
+<p>Y lo que aprendí es que:</p>
+<ul>
+<li>
+<p>Maven es una palabra que significa <em>alguien que sabe mucho acerca de un tema en específico</em>.</p>
+</li>
+<li>
+<p>Maven se invoca con la orden <code>mvn</code>. Por ejemplo: <code>mvn --version</code>:</p>
+</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">nnieto@wks-nnieto</span><span style="color:#c0c5ce;"> Code$ mvn</span><span style="color:#bf616a;"> --version
+</span><span style="color:#8fa1b3;">Apache</span><span style="color:#c0c5ce;"> Maven 3.1.1 (NON-CANONICAL_2013-11-08_14-32_mockbuild; </span><span style="color:#8fa1b3;">2013-11-08</span><span style="color:#c0c5ce;"> 06:32:41-0800)
+</span><span style="color:#8fa1b3;">Maven</span><span style="color:#c0c5ce;"> home: /usr/share/maven
+</span><span style="color:#8fa1b3;">Java</span><span style="color:#c0c5ce;"> version: 1.8.0_05, vendor: Oracle Corporation
+</span><span style="color:#8fa1b3;">Java</span><span style="color:#c0c5ce;"> home: /usr/java/jdk1.8.0_05/jre
+</span><span style="color:#8fa1b3;">Default</span><span style="color:#c0c5ce;"> locale: en_US, platform encoding: UTF-8
+</span><span style="color:#8fa1b3;">OS</span><span style="color:#c0c5ce;"> name: &quot;</span><span style="color:#a3be8c;">linux</span><span style="color:#c0c5ce;">&quot;, version: &quot;</span><span style="color:#a3be8c;">3.15.4-200.fc20.x86_64</span><span style="color:#c0c5ce;">&quot;, arch: &quot;</span><span style="color:#a3be8c;">amd64</span><span style="color:#c0c5ce;">&quot;, family: &quot;</span><span style="color:#a3be8c;">unix</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#8fa1b3;">nnieto@wks-nnieto</span><span style="color:#c0c5ce;"> Code$
+</span></pre>
+<ul>
+<li>
+<p>Hay toda una página dedicada a explicar <a href="http://maven.apache.org/what-is-maven.html">qué es Maven</a>. Según esto, Maven sirve para:</p>
+<ul>
+<li>
+<p>Hacer más fácil la tarea de construir un proyecto de software, obviamente en Java.</p>
+</li>
+<li>
+<p>Se convierte en una herramienta estándar de la comunidad <em>javera</em>. Los
+iniciados en Maven saben reconstruir un proyecto para tener una idea
+general de cómo funciona el software.</p>
+</li>
+<li>
+<p>Y dicen que también se convierte en documentación del proyecto.</p>
+</li>
+<li>
+<p>A partir de todo esto concluyo que Maven es una herramienta parecida a
+<a href="https://es.wikipedia.org/wiki/GNU_build_system">Autotools</a> para el mundo
+de C en Linux y a <a href="http://www.buildout.org/">zc.buildout</a> en el mundo Pythonero.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Requiere y/o depende de un SCM como git o subversion.</p>
+</li>
+<li>
+<p>Igual de importante es saber lo que <strong>NO</strong> es Maven (aunque Maven pueda hacerlo).</p>
+<ul>
+<li>
+<p><em>Maven no es</em> un sitio o una herramienta de documentación.</p>
+</li>
+<li>
+<p><em>Maven no</em> extiende Ant para que te permita bajar dependencias de software (como npm, gem o pip/easy_install).</p>
+</li>
+<li>
+<p><em>Maven no es</em> un conjunto de recetas/scriptlets reusables de Ant.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>Creo que la imagen de portada la bajé de Flickr, pero perdí el link. Si alguien lo sabe, avíseme.</p>
+
+  </div>
+
+  
+  <a href="/blog/aprendiendo-maven-minutos" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/servidor-sftp-enjaulado-chroot" rel="next">&larr; Servidor SFTP enjaulado con chroot</a>
+  
+  
+  <a href="/blog/windows-server-tcp-puerto" rel="prev">Windows Server: ¿Cómo saber qué proceso está usando un puerto TCP? &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>

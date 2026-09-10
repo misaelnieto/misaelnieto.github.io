@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    
+    
+    
+    <title>Convierte texto seleccionado a enlaces en Google Docs &middot; Noe Nieto</title>
+    <meta name="description" content="Tutorial completo para crear un script de Google Apps Script que convierte texto seleccionado en enlaces automáticamente en Google Docs, ideal para procesar logs de Jenkins.">
+    
+    <meta name="keywords" content="google docs, apps script, javascript, automation, 
+        Noe Nieto">
+    
+    <meta name="author" content="Noe Nieto">
+    <meta name="theme-color" content="#FCF9F4">
+    <meta name="generator" content="seite">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://noenieto.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://noenieto.com">
+    <meta property="og:title" content="Convierte texto seleccionado a enlaces en Google Docs">
+    <meta property="og:description" content="Tutorial completo para crear un script de Google Apps Script que convierte texto seleccionado en enlaces automáticamente en Google Docs, ideal para procesar logs de Jenkins.">
+    <meta property="og:image" content="https://noenieto.com/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/six-assorted-geometrical-objects-besides-a-sheet-w.svg">
+    <meta property="og:image:alt" content="Convierte texto seleccionado a enlaces en Google Docs">
+    <meta property="og:site_name" content="Noe Nieto">
+    <meta property="og:locale" content="es">
+    <meta property="article:author" content="Noe Nieto">
+    <meta property="article:published_time" content="2024-08-06">
+    
+    
+    <meta property="article:tag" content="google docs">
+    <meta property="article:tag" content="apps script">
+    <meta property="article:tag" content="javascript">
+    <meta property="article:tag" content="automation">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Convierte texto seleccionado a enlaces en Google Docs">
+    <meta name="twitter:description" content="Tutorial completo para crear un script de Google Apps Script que convierte texto seleccionado en enlaces automáticamente en Google Docs, ideal para procesar logs de Jenkins.">
+    <meta name="twitter:image" content="https://noenieto.com/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/six-assorted-geometrical-objects-besides-a-sheet-w.svg">
+    <meta name="twitter:image:alt" content="Convierte texto seleccionado a enlaces en Google Docs">
+    <meta name="twitter:site" content="@misaelnieto_a"><meta name="twitter:creator" content="@misaelnieto_a">
+    <link rel="me" href="https://github.com/misaelnieto"><link rel="me" href="https://www.linkedin.com/in/noe-nieto/"><link rel="me" href="https://x.com/misaelnieto_a"><link rel="me" href="https://wonderful.dev/misaelnieto"><link rel="me" href="https://www.facebook.com/nmnieto">
+        
+    <link rel="alternate" type="application/rss+xml" title="Noe Nieto" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Noe Nieto" href="/atom.xml">
+    <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
+    <link rel="alternate" type="text/markdown" title="Markdown" href="https://noenieto.com/blog/convierte-texto-seleccionado-enlaces-en-google-docs.md">
+    
+    
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Noe Nieto","url":"https://noenieto.com","email":"mailto:nnieto@noenieto.com","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Convierte texto seleccionado a enlaces en Google Docs","description":"Tutorial completo para crear un script de Google Apps Script que convierte texto seleccionado en enlaces automáticamente en Google Docs, ideal para procesar logs de Jenkins.","datePublished":"2024-08-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://noenieto.com"},"image":{"@type":"ImageObject","url":"https://noenieto.com/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/six-assorted-geometrical-objects-besides-a-sheet-w.svg"},"author":{"@type":"Person","name":"Noe Nieto","sameAs":["https://github.com/misaelnieto","https://www.linkedin.com/in/noe-nieto/","https://x.com/misaelnieto_a","https://wonderful.dev/misaelnieto","https://www.facebook.com/nmnieto"]},"publisher":{"@type":"Organization","name":"Noe Nieto","logo":{"@type":"ImageObject","url":"https://noenieto.com/favicon.svg"}},"url":"https://noenieto.com","keywords":["google docs","apps script","javascript","automation"],"wordCount":1045}
+    </script>
+    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Noe Nieto","item":"https://noenieto.com"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://noenieto.com/blog"},{"@type":"ListItem","position":3,"name":"Convierte texto seleccionado a enlaces en Google Docs"}]}
+    </script>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="bbe3510b-310a-4817-8d0a-25b0a9839ce1"></script>
+</head>
+<body>
+    <header>
+    
+        <div class="header-first-row">
+            <p class="site-title ink"><a href="/">Noe Nieto</a></p>
+            <div class="header-first-row__actions">
+                <div class="search-stack">
+                    <form class="search-form" role="search" aria-label="Search site content" onsubmit="return false">
+                        <input type="search" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search site content" class="ink">
+                    </form>
+                    <div id="search-results" aria-live="polite"></div>
+                </div>
+                
+                <nav class="site-nav" aria-label="Main navigation">
+                    <ol>
+                        
+                        <li><a href="/#aspects" class="rubric">Acerca</a></li>
+                        
+                        <li><a href="/blog" class="rubric">Blog</a></li>
+                        
+                        <li><a href="/demos" class="rubric">Demos</a></li>
+                        
+                        <li><a href="/contact" class="rubric">Contacto</a></li>
+                        
+                    </ol>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="header-second-row">
+            
+        </div>
+    
+    </header>
+    <main id="main" class="paper">
+        <div class="content-container">
+            
+<article class="h-entry post" lang="es">
+  <header class="entry-header">
+  
+  <h1 class="entry-title p-name">Convierte texto seleccionado a enlaces en Google Docs</h1>
+  <p class="entry-description muted">Tutorial completo para crear un script de Google Apps Script que convierte texto seleccionado en enlaces automáticamente en Google Docs, ideal para procesar logs de Jenkins.</p>
+  
+</header>
+
+  
+
+
+  <div class="entry-meta">
+    
+    <time class="dt-published" datetime="2024-08-06">
+      2024-08-06
+    </time>
+    
+
+    
+    <span class="reading-time">4 min read</span>
+    
+
+    
+    <span class="p-author h-card">
+      
+      <a class="u-url p-name" href="https://noenieto.com">Noe Nieto</a>
+      
+    </span>
+    
+  </div>
+
+  
+  <div class="tags">
+    
+    <a class="p-category" href="/tags/google-docs/">google docs</a>
+    
+    <a class="p-category" href="/tags/apps-script/">apps script</a>
+    
+    <a class="p-category" href="/tags/javascript/">javascript</a>
+    
+    <a class="p-category" href="/tags/automation/">automation</a>
+    
+  </div>
+  
+
+  
+  <nav class="toc" aria-label="Índice">
+    <h2 class="toc-heading">Índice</h2>
+    <ol class="toc-list">
+      
+      <li class="toc-entry toc-level-2">
+        <a href="#por-qué-quise-convertir-el-texto-seleccionado-a-enlaces" class="toc-link">¿Por qué quise convertir el texto seleccionado a enlaces?</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#breve-intro-a-appsscript" class="toc-link">Breve intro a AppsScript</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+      <li class="toc-entry toc-level-3">
+        <a href="#la-funcion-que-genera-los-links" class="toc-link">La funcion que genera los links</a>
+        <span class="toc-leader" aria-hidden="true"></span>
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <div class="entry-content e-content">
+    <h2 id="por-qué-quise-convertir-el-texto-seleccionado-a-enlaces">¿Por qué quise convertir el texto seleccionado a enlaces?</h2>
+<p>Durante muchas semanas, todos los días, tuve que hacer una tarea bastante repetitiva en un documento de Google Docs: editar texto y convertirlo en links. Me cansé de hacerlo e hice un pequeño script para que lo haga por mi. Tal vez te sirva a ti también.</p>
+<p>El proceso requeria copiar texto plano del log de un proceso en Jenkins y pegarlo en Google Docs. El texto lucia asi:</p>
+<pre><code>FAILED! process1 https://example.com/job_status/127435/32606664
+FAILED! process2 https://example.com/job_status/127435/32606665
+FAILED! process3 https://example.com/job_status/127435/32606666
+FAILED! process4 https://example.com/job_status/127435/32606667
+</code></pre>
+<p>Luego hacia un proceso manual de edicion en cada cada linea:</p>
+<ol>
+<li>Seleccionar y borrar la palabra FAILED.</li>
+<li>Seleccionar y cortar el link</li>
+<li>Seleccionar la palabra restante (por ejemplo, <code>process1</code>), presionar <kbd>Ctrl</kbd>+<kbd>K</kbd> (O <kbd>⌘</kbd>+<kbd>K</kbd> en mac) para abrir el dialogo para insertar links. Luego pegar el link que corté.</li>
+</ol>
+<p>Si fueran 3 o 4 lineas no habria problema, pero a veces son docenas! Recientemente descubri que AppsScript esta disponible en Google Docs. Entonces pense en hacer un programa de JavaScript que por cada linea de texto hiciera lo siguiente:</p>
+<ol>
+<li>Corta la cadena tomando los espacios delimitadores. Va a contener 3 elementos.</li>
+<li>Reemplaza la linea de texto por el link con el segundo y tercer elemento del arreglo.</li>
+</ol>
+<p>Ok. Manos a la obra! ... OK, Como empiezo?</p>
+<h3 id="breve-intro-a-appsscript">Breve intro a AppsScript</h3>
+<p>Le pregunte a ChatGpt que me describiera rapidamente que es AppScript. Esto es lo que me dijo:</p>
+<blockquote>
+<p>Google Apps Script es una plataforma basada en JavaScript que permite a los usuarios automatizar tareas y extender la funcionalidad de las aplicaciones de Google Workspace, como Google Docs, Sheets, Slides, y Forms. Los scripts se escriben en JavaScript. Puedes usar las APIs específicas de Google Apps Script para interactuar con Google Docs y otros servicios de Google. Puedes automatizar tareas repetitivas, como formatear texto, crear tablas, insertar imágenes, y mucho más.
+También puedes extender la funcionalidad de Google Docs añadiendo menús personalizados, barras laterales, y cuadros de diálogo.</p>
+</blockquote>
+<p>¿Ok, y cómo empiezo con el Editor de Scripts?: Puedes acceder al editor de scripts en <em>Google Docs</em> yendo a <code>Extensiones</code> &gt; <code>Apps Script</code>.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-menu-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-menu.webp 674w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-menu.png" alt="Acceso al menu de Apps Script desde Google Docs."  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-menu-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-menu.png 674w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  width="674" height="326" /></picture></p>
+<p>Esto abrirá el entorno de desarrollo de Apps Script donde puedes escribir y gestionar tus scripts.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide-800w.webp 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide-1200w.webp 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide.webp 1958w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide.png" alt="Entorno de desarrollo de Apps Script"  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide-800w.png 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide-1200w.png 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-ide.png 1958w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1958" height="1012" /></picture></p>
+<p>Ya dentro de AppsScript tenemos acceso al API de Google Docs. En este ejemplo quiero un menú personalizado que ejecute la funcion que dsescribí anteriormente. En Apps Script existe una funcion especial <code>onOpen</code>. Esta funcion se va a ejecutarse automáticamente cuando se abre el documento de Google Docs. Cuando se ejecute, voy a registrar el menu que ejecutará la funcion que quiero. Gracias a ChatGPT, rapidamente pude saber la secuencia de comandos a ejecutar para registrar el menu:</p>
+<ol>
+<li>Obtener la interfaz de usuario del documento:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">DocumentApp</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getUi</span><span style="color:#c0c5ce;">()
+</span></pre>
+<p>Esto obtiene la interfaz de usuario del documento de Google Docs actual.</p>
+<ol start="2">
+<li>Crear un nuevo menú personalizado:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">createMenu</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">Mis Scripts</span><span style="color:#c0c5ce;">&#39;)
+</span></pre>
+<p>Esto crea un nuevo menú en la barra de menús del documento con el título 'Mis Scripts'.</p>
+<ol start="3">
+<li>Añadir un elemento de menú para ejecutar mi función:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">addItem</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">Crear links a partir del texto seleccionado</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">createLinksFromSelectedText</span><span style="color:#c0c5ce;">&#39;)
+</span></pre>
+<p>Esto añade un elemento al menú personalizado creado en el paso anterior. El elemento del menú se llama <strong>'Crear links a partir del texto seleccionado'</strong>, y cuando se selecciona este elemento, se llamará a la función <code>createLinksFromSelectedText</code>.</p>
+<ol start="4">
+<li>Finalmente, se añade el menú personalizado a la interfaz de usuario:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">addToUi</span><span style="color:#c0c5ce;">();
+</span></pre>
+<p>Esto añade el menú personalizado a la interfaz de usuario del documento, haciendo que esté disponible para el usuario.</p>
+<p>El codigo fuente se ve asi:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">onOpen</span><span style="color:#c0c5ce;">() {
+</span><span style="color:#c0c5ce;">  </span><span style="color:#bf616a;">DocumentApp</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getUi</span><span style="color:#c0c5ce;">().</span><span style="color:#8fa1b3;">createMenu</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">Mis Scripts</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#c0c5ce;">      .</span><span style="color:#8fa1b3;">addItem</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">Crear links a partir del texto seleccionado</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">createLinksFromSelectedText</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#c0c5ce;">      .</span><span style="color:#8fa1b3;">addToUi</span><span style="color:#c0c5ce;">();
+</span><span style="color:#c0c5ce;">}
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">createLinksFromSelectedText</span><span style="color:#c0c5ce;">() {
+</span><span style="color:#c0c5ce;">}
+</span></pre>
+<p>Ahora es momento de ejecutar la funcion. Para eso, primero guardamos (1), y luego corremos la funcion (2):</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run-800w.webp 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run-1200w.webp 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run.webp 1958w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run.png" alt="Guardar y correr la funcion"  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run-800w.png 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run-1200w.png 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-save-and-run.png 1958w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1958" height="1012" /></picture></p>
+<p><strong>Nota</strong>: Cuando ejecutas un script por primera vez, Google te pedirá que autorices el script para acceder a tus datos de Google Docs. Esto es para asegurar que el script tiene permiso para realizar las acciones necesarias.</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required-800w.webp 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required.webp 1154w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required.png" alt="La primera vez que corres la funcion te pide autorizacion"  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required-800w.png 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-auth-required.png 1154w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1154" height="428" /></picture></p>
+<p>Despues de correr la funcion, abrimos de nuevo nuestro documento y ya veremos que se registro el nuevo menu:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered-800w.webp 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered-1200w.webp 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered.webp 1958w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered.png" alt="El menu ya esta registrado"  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered-800w.png 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered-1200w.png 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-new-menu-registered.png 1958w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1958" height="1012" /></picture></p>
+<p>Si hacemos click en el menu no va a pasar nada porque la funcion <code>createLinksFromSelectedText</code> aun no hace nada. Pero a continuacion vamos a solucionar esto.</p>
+<h3 id="la-funcion-que-genera-los-links">La funcion que genera los links</h3>
+<p>Ahora es momento escribir la funcion que genera los links. Aca va una explicacion de lo que hace:</p>
+<ol>
+<li>Obtiene el documento activo y la selección:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">var </span><span style="color:#bf616a;">doc </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">DocumentApp</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getActiveDocument</span><span style="color:#c0c5ce;">();
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">selection </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">doc</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getSelection</span><span style="color:#c0c5ce;">();
+</span></pre>
+<ol start="2">
+<li>Verifica si hay texto seleccionado: Si no hay ninguna selección, muestra una alerta al usuario y termina la ejecución de la función.</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(!</span><span style="color:#bf616a;">selection</span><span style="color:#c0c5ce;">) {
+</span><span style="color:#c0c5ce;">  </span><span style="color:#bf616a;">DocumentApp</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getUi</span><span style="color:#c0c5ce;">().</span><span style="color:#8fa1b3;">alert</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">Primero selecciona algo de texto.</span><span style="color:#c0c5ce;">&#39;);
+</span><span style="color:#c0c5ce;">  </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;">;
+</span><span style="color:#c0c5ce;">}
+</span></pre>
+<ol start="3">
+<li>Obtiene una lista de los elementos seleccionados:</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">var </span><span style="color:#bf616a;">selectedElements </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">selection</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getRangeElements</span><span style="color:#c0c5ce;">();
+</span></pre>
+<ol start="4">
+<li>Itera sobre cada elemento seleccionado: Para cada elemento, verifica si puede ser editado como texto. Si no puede (por ejemplo, si es una imagen o una tabla), lo salta.</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">selectedElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">forEach</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">function</span><span style="color:#c0c5ce;">(element) {
+</span><span style="color:#c0c5ce;">  </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">element</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getElement</span><span style="color:#c0c5ce;">().editAsText) {
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">// Obtiene el texto seleccionado, solo una linea a la vez
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">text </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">element</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getElement</span><span style="color:#c0c5ce;">().</span><span style="color:#8fa1b3;">asText</span><span style="color:#c0c5ce;">().</span><span style="color:#8fa1b3;">editAsText</span><span style="color:#c0c5ce;">();
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">selectedText </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">getText</span><span style="color:#c0c5ce;">();
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">// Divide el texto seleccionado en partes usando espacios en blanco como delimitadores.
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">parts </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">selectedText</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">trim</span><span style="color:#c0c5ce;">().</span><span style="color:#8fa1b3;">split</span><span style="color:#c0c5ce;">(/</span><span style="color:#d08770;">\s</span><span style="color:#c0c5ce;">+/);
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">// Si hay al menos dos partes, toma la segunda parte como el título y la tercera parte como la URL.
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">parts</span><span style="color:#c0c5ce;">.length &gt;= </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">) {
+</span><span style="color:#c0c5ce;">      </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">title </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">parts</span><span style="color:#c0c5ce;">[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">      </span><span style="color:#b48ead;">var </span><span style="color:#c0c5ce;">url = </span><span style="color:#bf616a;">parts</span><span style="color:#c0c5ce;">[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">      </span><span style="color:#65737e;">// Reemplaza el texto seleccionado con el título y establece el enlace URL correspondiente
+</span><span style="color:#c0c5ce;">      </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">setText</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">);
+</span><span style="color:#c0c5ce;">      </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">setLinkUrl</span><span style="color:#c0c5ce;">(url);
+</span><span style="color:#c0c5ce;">    }
+</span><span style="color:#c0c5ce;">  }
+</span><span style="color:#c0c5ce;">});
+</span></pre>
+<p>Finalmente guardamos. Haremos tres pruebas. Primero vamos a ver que pasa cuando no seleccionas nada:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-no-selection-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-no-selection.webp 578w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-no-selection.png" alt="Si no seleccionas texto te sale una alerta"  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-no-selection-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-script-no-selection.png 578w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="578" height="276" /></picture></p>
+<p>Muy bien, ahora pondremos el texto que queremos que convierta:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text-800w.webp 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text-1200w.webp 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text.webp 1916w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text.png" alt="Texto para convertir"  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text-800w.png 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text-1200w.png 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-select-text.png 1916w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1916" height="716" /></picture></p>
+<p><strong>Nota</strong>: No olvides seleccionar el texto.</p>
+<p>Y vamos a ver el resultado:</p>
+<p><picture><source type="image/webp" srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text-480w.webp 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text-800w.webp 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text-1200w.webp 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text.webp 1916w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"><img src="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text.png" alt="Texto convertido a links"  srcset="/static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text-480w.png 480w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text-800w.png 800w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text-1200w.png 1200w, /static/images/posts/convierte-texto-seleccionado-enlaces-en-google-docs/apps-scripts-converted-text.png 1916w" sizes="(max-width: 480px) 480px, (max-width: 800px) 800px, 1200px"  loading="lazy"  width="1916" height="716" /></picture></p>
+<p>!SI!</p>
+<p>¿Qué te pareció? !Si te agrado o te sirvió te agradeceria me lo hicieras saber en los comentarios!</p>
+
+  </div>
+
+  
+  <a href="/blog/convierte-texto-seleccionado-enlaces-en-google-docs" class="u-url u-uid" aria-hidden="true" tabindex="-1" hidden></a>
+  
+</article>
+
+
+<nav class="article-nav" aria-label="Previous / Next">
+  
+  <a href="/blog/como-usar-la-libreria-tenacity-en-python" rel="next">&larr; Cómo Usar la Librería Tenacity en Python</a>
+  
+  
+  <a href="/blog/nube-de-palabras-en-inkscape" rel="prev">Nube de palabras en Inkscape &rarr;</a>
+  
+</nav>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        <p class="footer-center">&copy; MCMXXIV NOE NIETO &middot; ALL RIGHTS RESERVED</p>
+        <div class="footer-boat">
+            <div class="footer-wobble">
+                <img src="/static/barco.svg" alt="" loading="lazy">
+            </div>
+        </div>
+        <img src="/static/ondas.svg" alt="" class="footer-waves" loading="lazy">
+    </footer>
+    
+    <script>
+    (function(){
+        var index = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+        var basePath = "";
+        var indexUrl = basePath + '/search-index.json';
+        function load(cb) { if (index) { cb(); return; } fetch(indexUrl).then(function(r){return r.json();}).then(function(d){index=d;cb();}).catch(function(){index=[];}); }
+        function doSearch(q) {
+            q = q.toLowerCase().trim();
+            if (!q) { results.textContent = ''; return; }
+            var hits = index.filter(function(e){
+                return (e.title||'').toLowerCase().includes(q) || (e.description||'').toLowerCase().includes(q) || (e.tags||[]).some(function(t){return t.toLowerCase().includes(q);});
+            }).slice(0, 8);
+            if (!hits.length) {
+                var noRes = document.createElement('div');
+                noRes.className = 'no-results';
+                noRes.textContent = 'No results';
+                results.textContent = '';
+                results.appendChild(noRes);
+                return;
+            }
+            results.textContent = '';
+            hits.forEach(function(e){
+                var a = document.createElement('a');
+                a.href = basePath + e.url;
+                var strong = document.createElement('strong');
+                strong.textContent = e.title;
+                a.appendChild(strong);
+                var meta = [e.collection, e.date].filter(Boolean).join(' \u00b7 ');
+                if (meta) {
+                    var div = document.createElement('div');
+                    div.className = 'result-meta';
+                    div.textContent = meta;
+                    a.appendChild(div);
+                }
+                results.appendChild(a);
+            });
+        }
+        input.addEventListener('input', function(){ load(function(){ doSearch(input.value); }); });
+    })();
+    </script>
+    <script>
+    document.querySelectorAll('main h2[id], main h3[id], main h4[id], main h5[id]').forEach(function(h) {
+        var a = document.createElement('a');
+        a.href = window.location.pathname + '#' + h.id;
+        h.parentNode.insertBefore(a, h);
+        a.appendChild(h);
+    });
+    </script>
+    
+    
+
+<style>pre{position:relative}pre .seite-copy-btn{position:absolute;top:0.5rem;right:0.5rem;padding:0.25rem 0.5rem;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.4;border:1px solid rgba(128,128,128,0.3);border-radius:4px;background:rgba(128,128,128,0.15);color:rgba(200,200,200,0.8);cursor:pointer;opacity:0;transition:opacity 0.2s;z-index:1}pre:hover .seite-copy-btn{opacity:1}pre .seite-copy-btn:hover{background:rgba(128,128,128,0.3);color:rgba(220,220,220,1)}pre .seite-copy-btn.copied{color:#22c55e;border-color:rgba(34,197,94,0.4)}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('pre').forEach(function(pre){var btn=document.createElement('button');btn.className='seite-copy-btn';btn.textContent='Copy';btn.setAttribute('aria-label','Copy code to clipboard');btn.addEventListener('click',function(){var code=pre.querySelector('code');var text=(code||pre).textContent;navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})});pre.appendChild(btn)})});</script>
+</body>
+</html>
